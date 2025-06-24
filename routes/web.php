@@ -1,92 +1,79 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LocationController;
+use App\Http\Controllers\TrainerController;
+use App\Http\Controllers\EquipmentController;
+use App\Http\Controllers\MemberController;
+use App\Http\Controllers\WorkoutController;
+use App\Http\Controllers\NutritionController;
+use App\Http\Controllers\TourController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
-use App\Http\Middleware\GuestMiddleware;
-
 
 /*
 |--------------------------------------------------------------------------
-| This controller handles the homepage and other public-facing pages that don't require authentication
+| Web Routes
 |--------------------------------------------------------------------------
 */
 
-use App\Http\Controllers\HomeController;
-
+// Homepage
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-/*
-|--------------------------------------------------------------------------
-| This controller handles Login Logic
-|--------------------------------------------------------------------------
-*/
+// Locations
+Route::get('/locations', [LocationController::class, 'index'])->name('locations.index');
+Route::get('/locations/{location}', [LocationController::class, 'show'])->name('locations.show');
 
-use App\Http\Controllers\Auth\LoginController;
+// Personal Trainers
+Route::get('/trainers', [TrainerController::class, 'index'])->name('trainers.index');
+Route::get('/trainers/{trainer}', [TrainerController::class, 'show'])->name('trainers.show');
+Route::post('/trainers/{trainer}/contact', [TrainerController::class, 'contact'])->name('trainers.contact');
 
-Route::get('login', [LoginController::class, 'index'])->middleware(GuestMiddleware::class)->name('auth.login');
-Route::post('login', [LoginController::class, 'store'])->name('auth.login.store');
-Route::get('logout', [LoginController::class, 'destroy'])->name('auth.logout');
+// Equipment
+Route::get('/equipment', [EquipmentController::class, 'index'])->name('equipment.index');
+Route::get('/equipment/{equipment}', [EquipmentController::class, 'show'])->name('equipment.show');
 
-/*
-|--------------------------------------------------------------------------
-| This controller handles Google Auth Logic
-|--------------------------------------------------------------------------
-*/
+// Virtual Tours
+Route::get('/tours', [TourController::class, 'index'])->name('tours.index');
 
-use App\Http\Controllers\Auth\SocialAuthController;
+// News/Blog
+Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+Route::get('/news/{article}', [NewsController::class, 'show'])->name('news.show');
 
-Route::get('/auth/google', [SocialAuthController::class, 'redirectToGoogle'])->name('auth.google');
-Route::get('/auth/google/callback', [SocialAuthController::class, 'handleGoogleCallback'])->name('auth.google.callback');
+// Contact
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
-/*
-|--------------------------------------------------------------------------
-| This controller handles Register Logic
-|--------------------------------------------------------------------------
-*/
+// Authentication Routes
+Route::get('/login', function () {
+    return inertia('Auth/Login');
+})->name('auth.login');
 
-use App\Http\Controllers\Auth\RegisterController;
+Route::get('/register', function () {
+    return inertia('Auth/Register');
+})->name('auth.register');
 
-
-Route::get('register', [RegisterController::class, 'index'])->middleware(GuestMiddleware::class)->name('auth.register');
-
-/*
-|--------------------------------------------------------------------------
-| This controller handles All Admin Logic
-|--------------------------------------------------------------------------
-*/
-
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\SettingsController;
-use App\Http\Middleware\AdminMiddleware;
-
-Route::middleware([AdminMiddleware::class])->group(function () {
-
-  // Dashboard
-  Route::get('admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-
-  // Settings
-  Route::get('admin/settings', [SettingsController::class, 'index'])->name('admin.settings');
-  Route::put('admin/settings/profile', [SettingsController::class, 'updateProfile'])->name('admin.settings.updateProfile');
-  Route::put('admin/settings/password', [SettingsController::class, 'updatePassword'])->name('admin.settings.updatePassword');
+// Protected Member Routes
+Route::middleware(['auth'])->group(function () {
+    
+    // Members Hub
+    Route::get('/members', [MemberController::class, 'index'])->name('members.index');
+    
+    // Workouts
+    Route::get('/members/workouts', [WorkoutController::class, 'index'])->name('members.workouts');
+    
+    // Nutrition
+    Route::get('/members/nutrition', [NutritionController::class, 'index'])->name('members.nutrition');
+    
+    // Profile
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+    
 });
 
-/*
-|--------------------------------------------------------------------------
-| This controller handles All User Logic
-|--------------------------------------------------------------------------
-*/
 
-use App\Http\Controllers\User\UserDashboardController;
-use App\Http\Controllers\User\UserSettingsController;
-use App\Http\Middleware\UserMiddleware;
-
-Route::middleware([UserMiddleware::class])->group(function () {
-
-  // Dashboard
-  Route::get('dashboard', [UserDashboardController::class, 'index'])->name('user.dashboard');
-
-  // Settings
-  Route::get('user/settings', [UserSettingsController::class, 'index'])->name('user.settings');
-  Route::put('user/settings/profile', [UserSettingsController::class, 'updateProfile'])->name('user.settings.updateProfile');
-  Route::put('user/settings/password', [UserSettingsController::class, 'updatePassword'])->name('user.settings.updatePassword');
-});
+Route::post('/register', function (Request $request) {
+    return redirect()->back()->with('success', 'Registration form submitted!');
+})->name('register.store');
+// require __DIR__.'/auth.php'; // Remove this line if auth.php doesn't exist
