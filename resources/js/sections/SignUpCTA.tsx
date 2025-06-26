@@ -1,24 +1,72 @@
 import { Button } from '@/components/ui/button';
 import { Link } from '@inertiajs/react';
+import { ChevronRight, Users } from 'lucide-react';
 
 export default function SignUpCTA() {
     return (
-        <section className="bg-gradient-to-r from-blue-600 to-purple-600 py-20">
-            <div className="container mx-auto px-6 text-center">
-                <h2 className="mb-6 text-4xl font-bold text-white">
-                    Ready to Transform Your Fitness Journey?
-                </h2>
-                <p className="mb-8 text-xl text-blue-100 max-w-2xl mx-auto">
-                    Join thousands of members who have already discovered the UltraFlex difference. 
-                    Your transformation starts today.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 text-lg font-semibold">
-                        <Link href={route('auth.register')}>Start Free Trial</Link>
+        <section className="bg-transparent py-20 relative overflow-hidden">
+            {/* Animated particles overlay */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                {Array.from({ length: 12 }, (_, i) => (
+                    <div
+                        key={i}
+                        className="absolute w-1 h-1 bg-white/20 rounded-full animate-pulse"
+                        style={{
+                            top: `${Math.random() * 100}%`,
+                            left: `${Math.random() * 100}%`,
+                            animationDelay: `${Math.random() * 3}s`,
+                            animationDuration: `${2 + Math.random() * 2}s`
+                        }}
+                    />
+                ))}
+            </div>
+
+            {/* Red accent overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-red-900/5 via-transparent to-red-900/5" />
+
+            <div className="container mx-auto px-6 text-center relative z-10">
+                {/* Enhanced header */}
+                <div className="mb-8">
+                    <h2 className="mb-6 text-4xl font-bold text-white leading-tight">
+                        Ready to Transform Your Fitness Journey?
+                    </h2>
+                    <p className="mb-8 text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                        Join thousands of members who have already discovered the UltraFlex difference. 
+                        Your transformation starts today.
+                    </p>
+                </div>
+
+                {/* Enhanced buttons with hover effects */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                    <Button 
+                        size="lg" 
+                        className="bg-gradient-to-r from-red-700 to-red-800 text-white hover:from-red-600 hover:to-red-700 px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm"
+                    >
+                        <Link href={route('auth.register')} className="flex items-center">
+                            <Users className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+                            <span className="group-hover:translate-x-1 transition-transform duration-300">
+                                Start Free Trial
+                            </span>
+                        </Link>
                     </Button>
-                    <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 text-lg font-semibold">
-                        <Link href={route('auth.login')}>Member Login</Link>
+                    
+                    <Button 
+                        size="lg" 
+                        variant="outline" 
+                        className="border-white/30 text-white hover:text-red-700 hover:border-red-700/50 hover:bg-white/10 px-8 py-4 text-lg font-semibold rounded-lg backdrop-blur-sm transition-all duration-300 group"
+                    >
+                        <Link href={route('auth.login')} className="flex items-center">
+                            <ChevronRight className="mr-2 h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            <span className="group-hover:translate-x-1 transition-transform duration-300">
+                                Member Login
+                            </span>
+                        </Link>
                     </Button>
+                </div>
+
+                {/* Bottom accent line */}
+                <div className="mt-12 flex items-center justify-center">
+                    <div className="w-24 h-1 bg-gradient-to-r from-transparent via-red-700 to-transparent rounded-full"></div>
                 </div>
             </div>
         </section>

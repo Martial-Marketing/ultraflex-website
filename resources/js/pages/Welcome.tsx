@@ -8,6 +8,8 @@ import Gallery from '@/sections/Gallery';
 import LatestNews from '@/sections/LatestNews';
 import FooterCTA from '@/sections/FooterCTA';
 import Navbar from '@/components/ui/Navbar';
+import AnimatedBackground from '@/components/AnimatedBackground';
+import AnimatedFooter from '@/components/ui/Footer';
 
 export default function Welcome() {
     // Sample data - replace with actual data from your backend
@@ -45,16 +47,61 @@ export default function Welcome() {
                 <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet" />
             </Head>
 
-            <div className="min-h-screen bg-white">
-                <Navbar auth={{ user: null }} />
-                <VideoLander />
-                <SignUpCTA />
-                <OurLocations locations={locations} />
-                <MemberTestimonials testimonials={testimonials} />
-                <UltraFlexClothing />
-                <Gallery galleryImages={galleryImages} />
-                <LatestNews latestNews={latestNews} />
-                <FooterCTA />
+            <div className="min-h-screen bg-white relative">
+                {/* Global Animated Background */}
+                <AnimatedBackground 
+                    variant="default" 
+                    intensity="medium"
+                    className="z-0"
+                />
+                
+                {/* All content with higher z-index */}
+                <div className="relative z-10">
+                    <Navbar auth={{ user: null }} />
+                    
+                    {/* Hero Section */}
+                    <section className="relative">
+                        <VideoLander />
+                    </section>
+
+                    {/* Sign Up CTA Section */}
+                    <section className="relative">
+                        <SignUpCTA />
+                    </section>
+
+                    {/* Locations Section */}
+                    <section className="relative">
+                        <OurLocations locations={locations} />
+                    </section>
+
+                    {/* Testimonials Section */}
+                    <section className="relative">
+                        <MemberTestimonials testimonials={testimonials} />
+                    </section>
+
+                    {/* Clothing Section */}
+                    <section className="relative">
+                        <UltraFlexClothing />
+                    </section>
+
+                    {/* Gallery Section */}
+                    <section className="relative">
+                        <Gallery galleryImages={galleryImages} />
+                    </section>
+
+                    {/* News Section */}
+                    <section className="relative">
+                        <LatestNews latestNews={latestNews} />
+                    </section>
+
+                    {/* Footer CTA Section */}
+                    <section className="relative">
+                        <FooterCTA />
+                    </section>
+
+                    {/* Animated Footer */}
+                    <AnimatedFooter />
+                </div>
             </div>
         </>
     );

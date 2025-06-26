@@ -1,17 +1,79 @@
 import { Button } from '@/components/ui/button';
 import { Link } from '@inertiajs/react';
+import { ChevronRight, Zap, Star, ArrowRight } from 'lucide-react';
 
 export default function FooterCTA() {
     return (
-        <section className="bg-gray-900 text-white py-16">
-            <div className="container mx-auto px-6 text-center">
-                <h2 className="text-3xl font-bold mb-4">Ready to Start Your Journey?</h2>
-                <p className="text-xl text-gray-300 mb-8">
-                    Join the UltraFlex community today and unlock your potential
-                </p>
-                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 px-8 py-3 text-lg">
-                    <Link href={route('auth.register')}>Get Started Today</Link>
-                </Button>
+        <section className="bg-transparent text-white py-16 relative overflow-hidden">
+            {/* Animated particles overlay */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                {Array.from({ length: 20 }, (_, i) => (
+                    <div
+                        key={i}
+                        className="absolute w-1 h-1 bg-white/30 rounded-full animate-pulse"
+                        style={{
+                            top: `${Math.random() * 100}%`,
+                            left: `${Math.random() * 100}%`,
+                            animationDelay: `${Math.random() * 3}s`,
+                            animationDuration: `${2 + Math.random() * 2}s`
+                        }}
+                    />
+                ))}
+            </div>
+
+            {/* Enhanced red accent overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-red-900/10 via-red-700/5 to-red-900/10" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-red-950/10 to-transparent" />
+
+            <div className="container mx-auto px-6 text-center relative z-10">
+                {/* Simplified header */}
+                <div className="mb-8">
+                    <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
+                        Ready to Start Your Journey?
+                    </h2>
+                    <p className="text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto">
+                        Join the UltraFlex community today and unlock your potential
+                    </p>
+                </div>
+
+                {/* Enhanced CTA with multiple elements */}
+                <div className="space-y-6">
+                    {/* Primary CTA button */}
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <Button 
+                            size="lg" 
+                            className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm"
+                        >
+                            <Link href={route('auth.register')} className="flex items-center">
+                                <Zap className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+                                <span className="group-hover:translate-x-1 transition-transform duration-300">
+                                    Get Started Today
+                                </span>
+                                <ArrowRight className="ml-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+                            </Link>
+                        </Button>
+
+                        {/* Secondary action */}
+                        <Button 
+                            variant="outline" 
+                            size="lg"
+                            className="border-white/30 text-white hover:text-red-700 hover:border-red-700/50 hover:bg-white/10 px-8 py-4 text-lg font-semibold rounded-lg backdrop-blur-sm transition-all duration-300 group"
+                        >
+                            <ChevronRight className="mr-2 h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            <span className="group-hover:translate-x-1 transition-transform duration-300">
+                                Learn More
+                            </span>
+                        </Button>
+                    </div>
+
+                </div>
+
+                {/* Bottom accent elements */}
+                <div className="mt-16 flex items-center justify-center space-x-4">
+                    <div className="w-12 h-1 bg-gradient-to-r from-transparent via-red-700 to-transparent rounded-full"></div>
+                    <div className="w-2 h-2 bg-red-700 rounded-full animate-pulse"></div>
+                    <div className="w-12 h-1 bg-gradient-to-r from-transparent via-red-700 to-transparent rounded-full"></div>
+                </div>
             </div>
         </section>
     );

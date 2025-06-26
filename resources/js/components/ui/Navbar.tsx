@@ -14,7 +14,8 @@ import {
     Mail, 
     Newspaper,
     User,
-    LogOut
+    LogOut,
+    ChevronRight
 } from 'lucide-react';
 
 interface User {
@@ -109,13 +110,34 @@ export default function Navbar({ auth }: NavbarProps) {
     };
 
     return (
-        <nav className="bg-white shadow-lg sticky top-0 z-50">
-            <div className="container mx-auto px-6">
+        <nav className="bg-black/80 backdrop-blur-md border-b border-white/10 shadow-lg sticky top-0 z-50">
+            {/* Animated particles overlay */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                {Array.from({ length: 5 }, (_, i) => (
+                    <div
+                        key={i}
+                        className="absolute w-1 h-1 bg-white/20 rounded-full animate-pulse"
+                        style={{
+                            top: `${Math.random() * 100}%`,
+                            left: `${Math.random() * 100}%`,
+                            animationDelay: `${Math.random() * 3}s`,
+                            animationDuration: `${2 + Math.random() * 2}s`
+                        }}
+                    />
+                ))}
+            </div>
+
+            <div className="container mx-auto px-6 relative z-10">
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center space-x-2">
-                        <div className="text-2xl font-bold">
-                            ULTRA<span className="text-blue-600">FLEX</span>
+                    <Link href="/" className="flex items-center space-x-3">
+                        <div className="w-10 h-10 bg-gradient-to-br from-red-700/20 to-red-800/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-red-700/30">
+                            <span className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-700 to-red-800">
+                                U
+                            </span>
+                        </div>
+                        <div className="text-2xl font-bold text-white">
+                            ULTRA<span className="text-red-700">FLEX</span>
                         </div>
                     </Link>
 
@@ -130,34 +152,35 @@ export default function Navbar({ auth }: NavbarProps) {
                                     <div key={item.label} className="relative group">
                                         <button
                                             onClick={() => toggleDropdown(item.label)}
-                                            className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                                            className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 group ${
                                                 isActive(item.href) 
-                                                    ? 'text-blue-600 bg-blue-50' 
-                                                    : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                                                    ? 'text-red-700 bg-red-700/10 border border-red-700/20' 
+                                                    : 'text-gray-300 hover:text-red-700 hover:bg-white/10'
                                             }`}
                                         >
                                             {item.icon}
                                             <span>{item.label}</span>
-                                            <ChevronDown className={`h-4 w-4 transition-transform ${
+                                            <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${
                                                 activeDropdown === item.label ? 'rotate-180' : ''
                                             }`} />
                                         </button>
 
                                         {/* Dropdown Menu */}
                                         {activeDropdown === item.label && (
-                                            <div className="absolute top-full left-0 mt-1 w-48 bg-white rounded-md shadow-lg border py-1 z-50">
+                                            <div className="absolute top-full left-0 mt-1 w-48 bg-black/90 backdrop-blur-md rounded-md shadow-xl border border-white/10 py-1 z-50">
                                                 {item.dropdown.map((subItem) => (
                                                     <Link
                                                         key={subItem.href}
                                                         href={subItem.href}
-                                                        className={`flex items-center space-x-2 px-4 py-2 text-sm transition-colors ${
+                                                        className={`flex items-center space-x-2 px-4 py-2 text-sm transition-all duration-300 group ${
                                                             isActive(subItem.href)
-                                                                ? 'text-blue-600 bg-blue-50'
-                                                                : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                                                                ? 'text-red-700 bg-red-700/10'
+                                                                : 'text-gray-300 hover:text-red-700 hover:bg-white/10'
                                                         }`}
                                                     >
+                                                        <ChevronRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                                         {subItem.icon}
-                                                        <span>{subItem.label}</span>
+                                                        <span className="group-hover:translate-x-1 transition-transform duration-300">{subItem.label}</span>
                                                     </Link>
                                                 ))}
                                             </div>
@@ -173,10 +196,10 @@ export default function Navbar({ auth }: NavbarProps) {
                                         href={item.href}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors"
+                                        className="flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-red-700 hover:bg-white/10 transition-all duration-300 group"
                                     >
                                         {item.icon}
-                                        <span>{item.label}</span>
+                                        <span className="group-hover:translate-x-1 transition-transform duration-300">{item.label}</span>
                                     </a>
                                 );
                             }
@@ -185,14 +208,14 @@ export default function Navbar({ auth }: NavbarProps) {
                                 <Link
                                     key={item.label}
                                     href={item.href}
-                                    className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                                    className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 group ${
                                         isActive(item.href) 
-                                            ? 'text-blue-600 bg-blue-50' 
-                                            : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                                            ? 'text-red-700 bg-red-700/10 border border-red-700/20' 
+                                            : 'text-gray-300 hover:text-red-700 hover:bg-white/10'
                                     }`}
                                 >
                                     {item.icon}
-                                    <span>{item.label}</span>
+                                    <span className="group-hover:translate-x-1 transition-transform duration-300">{item.label}</span>
                                 </Link>
                             );
                         })}
@@ -202,45 +225,48 @@ export default function Navbar({ auth }: NavbarProps) {
                     <div className="hidden lg:flex items-center space-x-4">
                         {auth.user ? (
                             <div className="relative group">
-                                <button className="flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors">
+                                <button className="flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-red-700 hover:bg-white/10 transition-all duration-300">
                                     <User className="h-4 w-4" />
                                     <span>{auth.user.name}</span>
                                     <ChevronDown className="h-4 w-4" />
                                 </button>
                                 
-                                <div className="absolute top-full right-0 mt-1 w-48 bg-white rounded-md shadow-lg border py-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                                <div className="absolute top-full right-0 mt-1 w-48 bg-black/90 backdrop-blur-md rounded-md shadow-xl border border-white/10 py-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                                     <Link
                                         href="/members"
-                                        className="flex items-center space-x-2 px-4 py-2 text-sm text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors"
+                                        className="flex items-center space-x-2 px-4 py-2 text-sm text-gray-300 hover:text-red-700 hover:bg-white/10 transition-all duration-300 group"
                                     >
+                                        <ChevronRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                         <BookOpen className="h-4 w-4" />
-                                        <span>Members Hub</span>
+                                        <span className="group-hover:translate-x-1 transition-transform duration-300">Members Hub</span>
                                     </Link>
                                     <Link
                                         href="/profile"
-                                        className="flex items-center space-x-2 px-4 py-2 text-sm text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors"
+                                        className="flex items-center space-x-2 px-4 py-2 text-sm text-gray-300 hover:text-red-700 hover:bg-white/10 transition-all duration-300 group"
                                     >
+                                        <ChevronRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                         <User className="h-4 w-4" />
-                                        <span>Profile</span>
+                                        <span className="group-hover:translate-x-1 transition-transform duration-300">Profile</span>
                                     </Link>
                                     <button
                                         onClick={handleLogout}
-                                        className="flex items-center space-x-2 w-full text-left px-4 py-2 text-sm text-gray-700 hover:text-red-600 hover:bg-gray-50 transition-colors"
+                                        className="flex items-center space-x-2 w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-red-700 hover:bg-white/10 transition-all duration-300 group"
                                     >
+                                        <ChevronRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                         <LogOut className="h-4 w-4" />
-                                        <span>Logout</span>
+                                        <span className="group-hover:translate-x-1 transition-transform duration-300">Logout</span>
                                     </button>
                                 </div>
                             </div>
                         ) : (
                             <>
                                 <Link href="/login">
-                                    <Button variant="outline" size="sm">
+                                    <Button variant="outline" size="sm" className="border-white/20 text-gray-300 hover:text-red-700 hover:border-red-700/50 hover:bg-white/10 transition-all duration-300">
                                         Login
                                     </Button>
                                 </Link>
                                 <Link href="/register">
-                                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
+                                    <Button size="sm" className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 shadow-lg">
                                         Join Now
                                     </Button>
                                 </Link>
@@ -251,7 +277,7 @@ export default function Navbar({ auth }: NavbarProps) {
                     {/* Mobile menu button */}
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="lg:hidden p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors"
+                        className="lg:hidden p-2 rounded-md text-gray-300 hover:text-red-700 hover:bg-white/10 transition-all duration-300"
                     >
                         {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                     </button>
@@ -259,7 +285,7 @@ export default function Navbar({ auth }: NavbarProps) {
 
                 {/* Mobile Navigation */}
                 {isOpen && (
-                    <div className="lg:hidden border-t border-gray-200 py-4">
+                    <div className="lg:hidden border-t border-white/10 py-4">
                         <div className="space-y-2">
                             {navItems.map((item) => {
                                 // Skip Members Hub if user is not authenticated
@@ -270,13 +296,13 @@ export default function Navbar({ auth }: NavbarProps) {
                                         <div key={item.label}>
                                             <button
                                                 onClick={() => toggleDropdown(`mobile-${item.label}`)}
-                                                className="flex items-center justify-between w-full px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors"
+                                                className="flex items-center justify-between w-full px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-red-700 hover:bg-white/10 transition-all duration-300"
                                             >
                                                 <div className="flex items-center space-x-2">
                                                     {item.icon}
                                                     <span>{item.label}</span>
                                                 </div>
-                                                <ChevronDown className={`h-4 w-4 transition-transform ${
+                                                <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${
                                                     activeDropdown === `mobile-${item.label}` ? 'rotate-180' : ''
                                                 }`} />
                                             </button>
@@ -287,14 +313,15 @@ export default function Navbar({ auth }: NavbarProps) {
                                                         <Link
                                                             key={subItem.href}
                                                             href={subItem.href}
-                                                            className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm transition-colors ${
+                                                            className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm transition-all duration-300 group ${
                                                                 isActive(subItem.href)
-                                                                    ? 'text-blue-600 bg-blue-50'
-                                                                    : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
+                                                                    ? 'text-red-700 bg-red-700/10'
+                                                                    : 'text-gray-300 hover:text-red-700 hover:bg-white/10'
                                                             }`}
                                                         >
+                                                            <ChevronRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                                             {subItem.icon}
-                                                            <span>{subItem.label}</span>
+                                                            <span className="group-hover:translate-x-1 transition-transform duration-300">{subItem.label}</span>
                                                         </Link>
                                                     ))}
                                                 </div>
@@ -310,10 +337,10 @@ export default function Navbar({ auth }: NavbarProps) {
                                             href={item.href}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors"
+                                            className="flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-red-700 hover:bg-white/10 transition-all duration-300 group"
                                         >
                                             {item.icon}
-                                            <span>{item.label}</span>
+                                            <span className="group-hover:translate-x-1 transition-transform duration-300">{item.label}</span>
                                         </a>
                                     );
                                 }
@@ -322,49 +349,51 @@ export default function Navbar({ auth }: NavbarProps) {
                                     <Link
                                         key={item.label}
                                         href={item.href}
-                                        className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                                        className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 group ${
                                             isActive(item.href) 
-                                                ? 'text-blue-600 bg-blue-50' 
-                                                : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                                                ? 'text-red-700 bg-red-700/10 border border-red-700/20' 
+                                                : 'text-gray-300 hover:text-red-700 hover:bg-white/10'
                                         }`}
                                     >
                                         {item.icon}
-                                        <span>{item.label}</span>
+                                        <span className="group-hover:translate-x-1 transition-transform duration-300">{item.label}</span>
                                     </Link>
                                 );
                             })}
 
                             {/* Mobile Auth Buttons */}
-                            <div className="pt-4 border-t border-gray-200">
+                            <div className="pt-4 border-t border-white/10">
                                 {auth.user ? (
                                     <div className="space-y-2">
-                                        <div className="px-3 py-2 text-sm font-medium text-gray-900">
+                                        <div className="px-3 py-2 text-sm font-medium text-white">
                                             Welcome, {auth.user.name}
                                         </div>
                                         <Link
                                             href="/profile"
-                                            className="flex items-center space-x-2 px-3 py-2 rounded-md text-sm text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors"
+                                            className="flex items-center space-x-2 px-3 py-2 rounded-md text-sm text-gray-300 hover:text-red-700 hover:bg-white/10 transition-all duration-300 group"
                                         >
+                                            <ChevronRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                             <User className="h-4 w-4" />
-                                            <span>Profile</span>
+                                            <span className="group-hover:translate-x-1 transition-transform duration-300">Profile</span>
                                         </Link>
                                         <button
                                             onClick={handleLogout}
-                                            className="flex items-center space-x-2 w-full text-left px-3 py-2 rounded-md text-sm text-gray-700 hover:text-red-600 hover:bg-gray-50 transition-colors"
+                                            className="flex items-center space-x-2 w-full text-left px-3 py-2 rounded-md text-sm text-gray-300 hover:text-red-700 hover:bg-white/10 transition-all duration-300 group"
                                         >
+                                            <ChevronRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                             <LogOut className="h-4 w-4" />
-                                            <span>Logout</span>
+                                            <span className="group-hover:translate-x-1 transition-transform duration-300">Logout</span>
                                         </button>
                                     </div>
                                 ) : (
                                     <div className="space-y-2">
                                         <Link href="/login" className="block w-full">
-                                            <Button variant="outline" className="w-full">
+                                            <Button variant="outline" className="w-full border-white/20 text-gray-300 hover:text-red-700 hover:border-red-700/50 hover:bg-white/10 transition-all duration-300">
                                                 Login
                                             </Button>
                                         </Link>
                                         <Link href="/register" className="block w-full">
-                                            <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                                            <Button className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300">
                                                 Join Now
                                             </Button>
                                         </Link>
