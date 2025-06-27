@@ -61,9 +61,8 @@ export default function FooterCTA() {
                         <Button 
                             variant="outline" 
                             size="lg"
-                            className="border-white/30 text-white hover:text-red-700 hover:border-red-700/50 hover:bg-white/10 px-8 py-4 text-lg font-semibold rounded-lg backdrop-blur-sm transition-all duration-300 group"
+                            className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm"
                         >
-                            <ChevronRight className="mr-2 h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                             <span className="group-hover:translate-x-1 transition-transform duration-300">
                                 Learn More
                             </span>

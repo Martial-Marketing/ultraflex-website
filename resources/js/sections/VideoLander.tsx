@@ -1,20 +1,28 @@
 import { Button } from '@/components/ui/button';
-import { Play, ChevronRight } from 'lucide-react';
+import { Play } from 'lucide-react';
 
 export default function VideoLander() {
     return (
-        <section className="relative h-screen overflow-hidden">
-            <video 
-                className="absolute inset-0 w-full h-full object-cover"
-                autoPlay 
-                muted 
-                loop 
-                playsInline
-                poster="/images/video-poster.jpg"
-            >
-                <source src="/videos/ultraflex-hero.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
+        <section className="relative h-[93vh] overflow-hidden">
+            <iframe
+                className="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/CyWN8ipcwgo?autoplay=1&mute=1&loop=1&playlist=CyWN8ipcwgo&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1&fs=0"
+                title="UltraFlex Hero Video"
+                frameBorder="0"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+                style={{ 
+                    pointerEvents: 'none',
+                    width: '100vw',
+                    height: '56.25vw', // 16:9 aspect ratio
+                    minHeight: '93vh',
+                    minWidth: '177.78vh', // 16:9 aspect ratio
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)'
+                }}
+            />
             
             {/* Enhanced overlay with gradient */}
             <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
@@ -67,9 +75,8 @@ export default function VideoLander() {
                         <Button 
                             variant="outline" 
                             size="lg"
-                            className="border-white/30 text-white hover:text-red-700 hover:border-red-700/50 hover:bg-white/10 px-8 py-4 text-lg font-semibold rounded-lg backdrop-blur-sm transition-all duration-300 group"
+                            className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm"
                         >
-                            <ChevronRight className="mr-2 h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                             <span className="group-hover:translate-x-1 transition-transform duration-300">
                                 Join Today
                             </span>

@@ -130,19 +130,17 @@ export default function LocationsIndex({ locations }: LocationsIndexProps) {
                                             
                                             <div className="space-y-2">
                                                 <Link href={`/locations/${location.slug}`} className="block w-full">
-                                                    <Button className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group">
+                                                    <Button className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-4 py-2 text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm">
                                                         <span className="group-hover:translate-x-1 transition-transform duration-300">
                                                             View Gym Details
                                                         </span>
-                                                        <ChevronRight className="h-4 w-4 ml-2 group-hover:scale-110 transition-transform duration-300" />
                                                     </Button>
                                                 </Link>
                                                 <Button 
                                                     variant="outline" 
-                                                    className="w-full bg-black/20 backdrop-blur-sm border-white/20 text-white hover:bg-red-700/20 hover:border-red-700/50 transition-all duration-300 group"
+                                                    className="w-full border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white px-4 py-2 text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm"
                                                     onClick={() => window.open(`https://maps.google.com/maps?q=${encodeURIComponent(location.address)}`, '_blank')}
                                                 >
-                                                    <Navigation className="h-4 w-4 mr-2 text-red-700 group-hover:scale-110 transition-transform duration-300" />
                                                     <span className="group-hover:translate-x-1 transition-transform duration-300">
                                                         Get Directions
                                                     </span>
@@ -186,8 +184,7 @@ export default function LocationsIndex({ locations }: LocationsIndexProps) {
                                             a new UltraFlex location.
                                         </p>
                                         <Link href="/contact">
-                                            <Button size="lg" className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group">
-                                                <Zap className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
+                                            <Button size="lg" className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm">
                                                 <span className="group-hover:translate-x-1 transition-transform duration-300">
                                                     Suggest a Location
                                                 </span>

@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { ArrowRight, ChevronRight, Shirt, Star } from 'lucide-react';
+import { Shirt, Star } from 'lucide-react';
 
 export default function UltraFlexClothing() {
     return (
@@ -42,15 +42,12 @@ export default function UltraFlexClothing() {
                         {/* Features list with hover effects */}
                         <div className="mb-8 space-y-3">
                             <div className="flex items-center text-gray-300 hover:text-red-700 transition-colors duration-300 group">
-                                <ChevronRight className="h-4 w-4 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                 <span className="group-hover:translate-x-1 transition-transform duration-300">Premium moisture-wicking fabric</span>
                             </div>
                             <div className="flex items-center text-gray-300 hover:text-red-700 transition-colors duration-300 group">
-                                <ChevronRight className="h-4 w-4 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                 <span className="group-hover:translate-x-1 transition-transform duration-300">Ergonomic athletic fit</span>
                             </div>
                             <div className="flex items-center text-gray-300 hover:text-red-700 transition-colors duration-300 group">
-                                <ChevronRight className="h-4 w-4 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                 <span className="group-hover:translate-x-1 transition-transform duration-300">Sustainable materials</span>
                             </div>
                         </div>
@@ -63,7 +60,6 @@ export default function UltraFlexClothing() {
                             <span className="group-hover:translate-x-1 transition-transform duration-300">
                                 Shop Collection
                             </span>
-                            <ArrowRight className="ml-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
                         </Button>
                     </div>
 
@@ -82,7 +78,7 @@ export default function UltraFlexClothing() {
                             </div>
                             <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                 <div className="w-8 h-8 bg-red-700/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-red-700/30">
-                                    <ArrowRight className="h-4 w-4 text-red-700" />
+                                    <Shirt className="h-4 w-4 text-red-700" />
                                 </div>
                             </div>
                         </div>
@@ -100,7 +96,7 @@ export default function UltraFlexClothing() {
                             </div>
                             <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                 <div className="w-8 h-8 bg-red-700/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-red-700/30">
-                                    <ArrowRight className="h-4 w-4 text-red-700" />
+                                    <Shirt className="h-4 w-4 text-red-700" />
                                 </div>
                             </div>
                         </div>
@@ -118,7 +114,7 @@ export default function UltraFlexClothing() {
                             </div>
                             <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                 <div className="w-8 h-8 bg-red-700/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-red-700/30">
-                                    <ArrowRight className="h-4 w-4 text-red-700" />
+                                    <Shirt className="h-4 w-4 text-red-700" />
                                 </div>
                             </div>
                         </div>
@@ -136,7 +132,7 @@ export default function UltraFlexClothing() {
                             </div>
                             <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                 <div className="w-8 h-8 bg-red-700/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-red-700/30">
-                                    <ArrowRight className="h-4 w-4 text-red-700" />
+                                    <Shirt className="h-4 w-4 text-red-700" />
                                 </div>
                             </div>
                         </div>

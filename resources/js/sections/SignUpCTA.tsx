@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Link } from '@inertiajs/react';
-import { ChevronRight, Users } from 'lucide-react';
+import { Users } from 'lucide-react';
 
 export default function SignUpCTA() {
     return (
@@ -45,7 +45,7 @@ export default function SignUpCTA() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
                     <Button 
                         size="lg" 
-                        className="bg-gradient-to-r from-red-700 to-red-800 text-white hover:from-red-600 hover:to-red-700 px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm"
+                        className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm"
                     >
                         <Link href={route('auth.register')} className="flex items-center">
                             <Users className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
@@ -58,10 +58,9 @@ export default function SignUpCTA() {
                     <Button 
                         size="lg" 
                         variant="outline" 
-                        className="border-white/30 text-white hover:text-red-700 hover:border-red-700/50 hover:bg-white/10 px-8 py-4 text-lg font-semibold rounded-lg backdrop-blur-sm transition-all duration-300 group"
+                        className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm"
                     >
                         <Link href={route('auth.login')} className="flex items-center">
-                            <ChevronRight className="mr-2 h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                             <span className="group-hover:translate-x-1 transition-transform duration-300">
                                 Member Login
                             </span>

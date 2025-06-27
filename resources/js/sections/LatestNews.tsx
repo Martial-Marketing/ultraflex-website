@@ -78,10 +78,10 @@ export default function LatestNews({ latestNews }: LatestNewsProps) {
                                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     <Button 
                                         size="sm" 
-                                        className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-4 py-2 text-sm font-semibold rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 border border-red-700/20 backdrop-blur-sm"
+                                        className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-4 py-2 text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm"
                                     >
-                                        Read Article
-                                        <ArrowRight className="ml-2 h-4 w-4" />
+                                        <span className="group-hover:translate-x-1 transition-transform duration-300">Read Article</span>
+                                        <ArrowRight className="ml-2 h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
                                     </Button>
                                 </div>
                             </div>
@@ -110,9 +110,8 @@ export default function LatestNews({ latestNews }: LatestNewsProps) {
                                     <Button 
                                         variant="outline" 
                                         size="sm" 
-                                        className="border-white/30 text-gray-300 hover:text-red-700 hover:border-red-700/50 hover:bg-white/10 transition-all duration-300 group"
+                                        className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white px-4 py-2 text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm"
                                     >
-                                        <ChevronRight className="mr-2 h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                         <span className="group-hover:translate-x-1 transition-transform duration-300">
                                             Read More
                                         </span>
@@ -148,9 +147,8 @@ export default function LatestNews({ latestNews }: LatestNewsProps) {
                     <Button 
                         variant="outline" 
                         size="lg" 
-                        className="border-white/30 text-white hover:text-red-700 hover:border-red-700/50 hover:bg-white/10 px-8 py-4 text-lg font-semibold rounded-lg backdrop-blur-sm transition-all duration-300 group"
+                        className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm"
                     >
-                        <ChevronRight className="mr-2 h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         <span className="group-hover:translate-x-1 transition-transform duration-300">
                             View All News
                         </span>

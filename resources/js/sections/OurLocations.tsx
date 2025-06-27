@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { MapPin, ArrowRight, ChevronRight } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 
 interface Location {
     id: number;
@@ -64,10 +64,9 @@ export default function OurLocations({ locations }: OurLocationsProps) {
                                     <div className="text-center">
                                         <Button 
                                             size="sm" 
-                                            className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-4 py-2 text-sm font-semibold rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 border border-red-700/20 backdrop-blur-sm"
+                                            className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-4 py-2 text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm"
                                         >
-                                            Visit Location
-                                            <ArrowRight className="ml-2 h-4 w-4" />
+                                            <span className="group-hover:translate-x-1 transition-transform duration-300">Visit Location</span>
                                         </Button>
                                     </div>
                                 </div>
@@ -85,7 +84,6 @@ export default function OurLocations({ locations }: OurLocationsProps) {
                                     {location.name}
                                 </h3>
                                 <div className="flex items-center text-gray-300 hover:text-red-700 transition-colors duration-300 group">
-                                    <ChevronRight className="h-4 w-4 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                     <MapPin className="h-4 w-4 mr-2 text-red-700" />
                                     <span className="group-hover:translate-x-1 transition-transform duration-300">
                                         {location.address}
@@ -117,13 +115,11 @@ export default function OurLocations({ locations }: OurLocationsProps) {
                     <Button 
                         variant="outline" 
                         size="lg" 
-                        className="border-white/30 text-white hover:text-red-700 hover:border-red-700/50 hover:bg-white/10 px-8 py-4 text-lg font-semibold rounded-lg backdrop-blur-sm transition-all duration-300 group"
+                        className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm"
                     >
-                        <ChevronRight className="mr-2 h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         <span className="group-hover:translate-x-1 transition-transform duration-300">
                             View All Locations
                         </span>
-                        <ArrowRight className="ml-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
                     </Button>
                 </div>
 

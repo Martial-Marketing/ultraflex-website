@@ -243,9 +243,11 @@ export default function NewsIndex({ articles, categories, featuredArticles }: Ne
                                             setCurrentPage(1);
                                         }}
                                         variant="outline"
-                                        className="bg-black/20 backdrop-blur-sm border-white/20 text-white hover:bg-red-700/20 hover:border-red-700/50"
+                                        className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm"
                                     >
-                                        Clear Filters
+                                        <span className="group-hover:translate-x-1 transition-transform duration-300">
+                                            Clear Filters
+                                        </span>
                                     </Button>
                                 </div>
                             ) : (
@@ -300,7 +302,7 @@ export default function NewsIndex({ articles, categories, featuredArticles }: Ne
                                                             {article.readTime}
                                                         </span>
                                                         <Link href={`/news/${article.slug}`}>
-                                                            <Button size="sm" variant="outline" className="bg-black/20 backdrop-blur-sm border-white/20 text-white hover:bg-red-700/20 hover:border-red-700/50 transition-all duration-300 group">
+                                                            <Button size="sm" variant="outline" className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
                                                                 <span className="group-hover:translate-x-1 transition-transform duration-300">
                                                                     Read
                                                                 </span>
@@ -320,9 +322,11 @@ export default function NewsIndex({ articles, categories, featuredArticles }: Ne
                                                     variant="outline"
                                                     onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
                                                     disabled={currentPage === 1}
-                                                    className="bg-black/20 backdrop-blur-sm border-white/20 text-white hover:bg-red-700/20 hover:border-red-700/50 disabled:opacity-50 disabled:cursor-not-allowed"
+                                                    className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white/90 disabled:hover:text-black disabled:hover:scale-100"
                                                 >
-                                                    Previous
+                                                    <span className="group-hover:translate-x-1 transition-transform duration-300">
+                                                        Previous
+                                                    </span>
                                                 </Button>
                                                 
                                                 {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
@@ -331,11 +335,13 @@ export default function NewsIndex({ articles, categories, featuredArticles }: Ne
                                                         variant={currentPage === page ? "default" : "outline"}
                                                         onClick={() => setCurrentPage(page)}
                                                         className={currentPage === page 
-                                                            ? "bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700" 
-                                                            : "bg-black/20 backdrop-blur-sm border-white/20 text-white hover:bg-red-700/20 hover:border-red-700/50"
+                                                            ? "bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm" 
+                                                            : "border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm"
                                                         }
                                                     >
-                                                        {page}
+                                                        <span className="group-hover:translate-x-1 transition-transform duration-300">
+                                                            {page}
+                                                        </span>
                                                     </Button>
                                                 ))}
                                                 
@@ -343,9 +349,11 @@ export default function NewsIndex({ articles, categories, featuredArticles }: Ne
                                                     variant="outline"
                                                     onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
                                                     disabled={currentPage === totalPages}
-                                                    className="bg-black/20 backdrop-blur-sm border-white/20 text-white hover:bg-red-700/20 hover:border-red-700/50 disabled:opacity-50 disabled:cursor-not-allowed"
+                                                    className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white/90 disabled:hover:text-black disabled:hover:scale-100"
                                                 >
-                                                    Next
+                                                    <span className="group-hover:translate-x-1 transition-transform duration-300">
+                                                        Next
+                                                    </span>
                                                 </Button>
                                             </div>
                                         </div>

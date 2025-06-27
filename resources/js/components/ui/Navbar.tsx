@@ -61,35 +61,35 @@ export default function Navbar({ auth }: NavbarProps) {
         {
             label: 'Locations',
             href: '/locations',
-            icon: <MapPin className="h-4 w-4" />,
+            icon: null,
             dropdown: null
         },
         {
             label: 'Personal Trainers',
             href: '/trainers',
-            icon: <Users className="h-4 w-4" />,
+            icon: null,
             dropdown: null
         },
         {
             label: 'Equipment',
             href: '/equipment',
-            icon: <Dumbbell className="h-4 w-4" />,
+            icon: null,
             dropdown: null
         },
         {
             label: 'Members Hub',
             href: '/members',
-            icon: <BookOpen className="h-4 w-4" />,
+            icon: null,
             requiresAuth: true,
             dropdown: [
-                { label: 'Workouts', href: '/members/workouts', icon: <Dumbbell className="h-4 w-4" /> },
-                { label: 'Nutrition', href: '/members/nutrition', icon: <BookOpen className="h-4 w-4" /> }
+                { label: 'Workouts', href: '/members/workouts', icon: null },
+                { label: 'Nutrition', href: '/members/nutrition', icon: null }
             ]
         },
         {
             label: 'UltraFlex Clothing',
             href: 'https://clothing.ultraflex.com', // External link
-            icon: <Shirt className="h-4 w-4" />,
+            icon: null,
             external: true
         },
         {
@@ -97,9 +97,9 @@ export default function Navbar({ auth }: NavbarProps) {
             href: '#',
             icon: <ChevronDown className="h-4 w-4" />,
             dropdown: [
-                { label: 'Gym Tours', href: '/tours', icon: <Camera className="h-4 w-4" /> },
-                { label: 'Latest News', href: '/news', icon: <Newspaper className="h-4 w-4" /> },
-                { label: 'Contact Us', href: '/contact', icon: <Mail className="h-4 w-4" /> }
+                { label: 'Gym Tours', href: '/tours', icon: null },
+                { label: 'Latest News', href: '/news', icon: null },
+                { label: 'Contact Us', href: '/contact', icon: null }
             ]
         }
     ];
@@ -155,12 +155,11 @@ export default function Navbar({ auth }: NavbarProps) {
                                             onClick={() => toggleDropdown(item.label)}
                                             className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 group ${
                                                 isActive(item.href) 
-                                                    ? 'text-red-700 bg-red-700/10 border border-red-700/20' 
-                                                    : 'text-gray-300 hover:text-red-700 hover:bg-white/10'
+                                                    ? 'text-red-700 bg-red-700/10 border border-red-700/20 shadow-[0_0_15px_rgba(220,38,38,0.5)]' 
+                                                    : 'text-gray-300 hover:text-red-700 hover:bg-red-700/10 hover:shadow-[0_0_15px_rgba(220,38,38,0.5)]'
                                             }`}
                                         >
-                                            {item.icon}
-                                            <span>{item.label}</span>
+                                            <span className="group-hover:translate-x-1 transition-transform duration-300">{item.label}</span>
                                             <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${
                                                 activeDropdown === item.label ? 'rotate-180' : ''
                                             }`} />
@@ -175,12 +174,10 @@ export default function Navbar({ auth }: NavbarProps) {
                                                         href={subItem.href}
                                                         className={`flex items-center space-x-2 px-4 py-2 text-sm transition-all duration-300 group ${
                                                             isActive(subItem.href)
-                                                                ? 'text-red-700 bg-red-700/10'
-                                                                : 'text-gray-300 hover:text-red-700 hover:bg-white/10'
+                                                                ? 'text-red-700 bg-red-700/10 shadow-[0_0_10px_rgba(220,38,38,0.4)]'
+                                                                : 'text-gray-300 hover:text-red-700 hover:bg-red-700/10 hover:shadow-[0_0_10px_rgba(220,38,38,0.4)]'
                                                         }`}
                                                     >
-                                                        <ChevronRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                                                        {subItem.icon}
                                                         <span className="group-hover:translate-x-1 transition-transform duration-300">{subItem.label}</span>
                                                     </Link>
                                                 ))}
@@ -197,9 +194,8 @@ export default function Navbar({ auth }: NavbarProps) {
                                         href={item.href}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-red-700 hover:bg-white/10 transition-all duration-300 group"
+                                        className="flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-red-700 hover:bg-red-700/10 hover:shadow-[0_0_15px_rgba(220,38,38,0.5)] transition-all duration-300 group"
                                     >
-                                        {item.icon}
                                         <span className="group-hover:translate-x-1 transition-transform duration-300">{item.label}</span>
                                     </a>
                                 );
@@ -211,11 +207,10 @@ export default function Navbar({ auth }: NavbarProps) {
                                     href={item.href}
                                     className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 group ${
                                         isActive(item.href) 
-                                            ? 'text-red-700 bg-red-700/10 border border-red-700/20' 
-                                            : 'text-gray-300 hover:text-red-700 hover:bg-white/10'
+                                            ? 'text-red-700 bg-red-700/10 border border-red-700/20 shadow-[0_0_15px_rgba(220,38,38,0.5)]' 
+                                            : 'text-gray-300 hover:text-red-700 hover:bg-red-700/10 hover:shadow-[0_0_15px_rgba(220,38,38,0.5)]'
                                     }`}
                                 >
-                                    {item.icon}
                                     <span className="group-hover:translate-x-1 transition-transform duration-300">{item.label}</span>
                                 </Link>
                             );
@@ -235,26 +230,20 @@ export default function Navbar({ auth }: NavbarProps) {
                                 <div className="absolute top-full right-0 mt-1 w-48 bg-black/90 backdrop-blur-md rounded-md shadow-xl border border-white/10 py-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                                     <Link
                                         href="/members"
-                                        className="flex items-center space-x-2 px-4 py-2 text-sm text-gray-300 hover:text-red-700 hover:bg-white/10 transition-all duration-300 group"
+                                        className="flex items-center space-x-2 px-4 py-2 text-sm text-gray-300 hover:text-red-700 hover:bg-red-700/10 hover:shadow-[0_0_10px_rgba(220,38,38,0.4)] transition-all duration-300 group"
                                     >
-                                        <ChevronRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                                        <BookOpen className="h-4 w-4" />
                                         <span className="group-hover:translate-x-1 transition-transform duration-300">Members Hub</span>
                                     </Link>
                                     <Link
                                         href="/profile"
-                                        className="flex items-center space-x-2 px-4 py-2 text-sm text-gray-300 hover:text-red-700 hover:bg-white/10 transition-all duration-300 group"
+                                        className="flex items-center space-x-2 px-4 py-2 text-sm text-gray-300 hover:text-red-700 hover:bg-red-700/10 hover:shadow-[0_0_10px_rgba(220,38,38,0.4)] transition-all duration-300 group"
                                     >
-                                        <ChevronRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                                        <User className="h-4 w-4" />
                                         <span className="group-hover:translate-x-1 transition-transform duration-300">Profile</span>
                                     </Link>
                                     <button
                                         onClick={handleLogout}
-                                        className="flex items-center space-x-2 w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-red-700 hover:bg-white/10 transition-all duration-300 group"
+                                        className="flex items-center space-x-2 w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-red-700 hover:bg-red-700/10 hover:shadow-[0_0_10px_rgba(220,38,38,0.4)] transition-all duration-300 group"
                                     >
-                                        <ChevronRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                                        <LogOut className="h-4 w-4" />
                                         <span className="group-hover:translate-x-1 transition-transform duration-300">Logout</span>
                                     </button>
                                 </div>
@@ -262,13 +251,13 @@ export default function Navbar({ auth }: NavbarProps) {
                         ) : (
                             <>
                                 <Link href="/login">
-                                    <Button variant="outline" size="sm" className="border-white/20 text-gray-300 hover:text-red-700 hover:border-red-700/50 hover:bg-white/10 transition-all duration-300">
-                                        Login
+                                    <Button variant="outline" size="sm" className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white px-6 py-2 text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
+                                        <span className="group-hover:translate-x-1 transition-transform duration-300">Login</span>
                                     </Button>
                                 </Link>
                                 <Link href="/register">
-                                    <Button size="sm" className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 shadow-lg">
-                                        Join Now
+                                    <Button size="sm" className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-6 py-2 text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm">
+                                        <span className="group-hover:translate-x-1 transition-transform duration-300">Join Now</span>
                                     </Button>
                                 </Link>
                             </>
@@ -297,11 +286,10 @@ export default function Navbar({ auth }: NavbarProps) {
                                         <div key={item.label}>
                                             <button
                                                 onClick={() => toggleDropdown(`mobile-${item.label}`)}
-                                                className="flex items-center justify-between w-full px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-red-700 hover:bg-white/10 transition-all duration-300"
+                                                className="flex items-center justify-between w-full px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-red-700 hover:bg-red-700/10 hover:shadow-[0_0_15px_rgba(220,38,38,0.5)] transition-all duration-300"
                                             >
                                                 <div className="flex items-center space-x-2">
-                                                    {item.icon}
-                                                    <span>{item.label}</span>
+                                                    <span className="hover:translate-x-1 transition-transform duration-300">{item.label}</span>
                                                 </div>
                                                 <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${
                                                     activeDropdown === `mobile-${item.label}` ? 'rotate-180' : ''
@@ -316,12 +304,10 @@ export default function Navbar({ auth }: NavbarProps) {
                                                             href={subItem.href}
                                                             className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm transition-all duration-300 group ${
                                                                 isActive(subItem.href)
-                                                                    ? 'text-red-700 bg-red-700/10'
-                                                                    : 'text-gray-300 hover:text-red-700 hover:bg-white/10'
+                                                                    ? 'text-red-700 bg-red-700/10 shadow-[0_0_10px_rgba(220,38,38,0.4)]'
+                                                                    : 'text-gray-300 hover:text-red-700 hover:bg-red-700/10 hover:shadow-[0_0_10px_rgba(220,38,38,0.4)]'
                                                             }`}
                                                         >
-                                                            <ChevronRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                                                            {subItem.icon}
                                                             <span className="group-hover:translate-x-1 transition-transform duration-300">{subItem.label}</span>
                                                         </Link>
                                                     ))}
@@ -338,9 +324,8 @@ export default function Navbar({ auth }: NavbarProps) {
                                             href={item.href}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-red-700 hover:bg-white/10 transition-all duration-300 group"
+                                            className="flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-red-700 hover:bg-red-700/10 hover:shadow-[0_0_15px_rgba(220,38,38,0.5)] transition-all duration-300 group"
                                         >
-                                            {item.icon}
                                             <span className="group-hover:translate-x-1 transition-transform duration-300">{item.label}</span>
                                         </a>
                                     );
@@ -352,11 +337,10 @@ export default function Navbar({ auth }: NavbarProps) {
                                         href={item.href}
                                         className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 group ${
                                             isActive(item.href) 
-                                                ? 'text-red-700 bg-red-700/10 border border-red-700/20' 
-                                                : 'text-gray-300 hover:text-red-700 hover:bg-white/10'
+                                                ? 'text-red-700 bg-red-700/10 border border-red-700/20 shadow-[0_0_15px_rgba(220,38,38,0.5)]' 
+                                                : 'text-gray-300 hover:text-red-700 hover:bg-red-700/10 hover:shadow-[0_0_15px_rgba(220,38,38,0.5)]'
                                         }`}
                                     >
-                                        {item.icon}
                                         <span className="group-hover:translate-x-1 transition-transform duration-300">{item.label}</span>
                                     </Link>
                                 );
@@ -371,31 +355,27 @@ export default function Navbar({ auth }: NavbarProps) {
                                         </div>
                                         <Link
                                             href="/profile"
-                                            className="flex items-center space-x-2 px-3 py-2 rounded-md text-sm text-gray-300 hover:text-red-700 hover:bg-white/10 transition-all duration-300 group"
+                                            className="flex items-center space-x-2 px-3 py-2 rounded-md text-sm text-gray-300 hover:text-red-700 hover:bg-red-700/10 hover:shadow-[0_0_10px_rgba(220,38,38,0.4)] transition-all duration-300 group"
                                         >
-                                            <ChevronRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                                            <User className="h-4 w-4" />
                                             <span className="group-hover:translate-x-1 transition-transform duration-300">Profile</span>
                                         </Link>
                                         <button
                                             onClick={handleLogout}
-                                            className="flex items-center space-x-2 w-full text-left px-3 py-2 rounded-md text-sm text-gray-300 hover:text-red-700 hover:bg-white/10 transition-all duration-300 group"
+                                            className="flex items-center space-x-2 w-full text-left px-3 py-2 rounded-md text-sm text-gray-300 hover:text-red-700 hover:bg-red-700/10 hover:shadow-[0_0_10px_rgba(220,38,38,0.4)] transition-all duration-300 group"
                                         >
-                                            <ChevronRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                                            <LogOut className="h-4 w-4" />
                                             <span className="group-hover:translate-x-1 transition-transform duration-300">Logout</span>
                                         </button>
                                     </div>
                                 ) : (
                                     <div className="space-y-2">
                                         <Link href="/login" className="block w-full">
-                                            <Button variant="outline" className="w-full border-white/20 text-gray-300 hover:text-red-700 hover:border-red-700/50 hover:bg-white/10 transition-all duration-300">
-                                                Login
+                                            <Button variant="outline" className="w-full border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white px-6 py-3 text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
+                                                <span className="group-hover:translate-x-1 transition-transform duration-300">Login</span>
                                             </Button>
                                         </Link>
                                         <Link href="/register" className="block w-full">
-                                            <Button className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300">
-                                                Join Now
+                                            <Button className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-6 py-3 text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm">
+                                                <span className="group-hover:translate-x-1 transition-transform duration-300">Join Now</span>
                                             </Button>
                                         </Link>
                                     </div>

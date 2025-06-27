@@ -345,7 +345,7 @@ export default function ContactIndex({ locations, generalContact }: ContactIndex
                                             <div className="space-y-2">
                                                 <Button 
                                                     variant="outline" 
-                                                    className="w-full bg-black/20 backdrop-blur-sm border-white/20 text-white hover:bg-red-700/20 hover:border-red-700/50 transition-all duration-300 group"
+                                                    className="w-full border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm"
                                                     onClick={() => window.open(`https://maps.google.com/maps?q=${location.coordinates.lat},${location.coordinates.lng}`, '_blank')}
                                                 >
                                                     <span className="group-hover:translate-x-1 transition-transform duration-300">
