@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, usePage } from '@inertiajs/react';
+import { Link, usePage, router } from '@inertiajs/react';
 import { Button } from '@/components/ui/button';
 import { 
     Menu, 
@@ -105,8 +105,8 @@ export default function Navbar({ auth }: NavbarProps) {
     ];
 
     const handleLogout = () => {
-        // Use Inertia's router for logout
-        window.location.href = '/logout';
+        // Use Inertia's router for logout with POST method
+        router.post('/logout');
     };
 
     return (

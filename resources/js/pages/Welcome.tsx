@@ -7,11 +7,24 @@ import UltraFlexClothing from '@/sections/UltraFlexClothing';
 import Gallery from '@/sections/Gallery';
 import LatestNews from '@/sections/LatestNews';
 import FooterCTA from '@/sections/FooterCTA';
-import Navbar from '@/components/ui/Navbar';
 import AnimatedBackground from '@/components/AnimatedBackground';
-import AnimatedFooter from '@/components/ui/Footer';
+import AppLayout from '@/layouts/app-layout';
 
-export default function Welcome() {
+interface User {
+    id: number;
+    name: string;
+    email: string;
+}
+
+interface AuthProps {
+    user: User | null;
+}
+
+interface WelcomeProps {
+    auth: AuthProps;
+}
+
+export default function Welcome({ auth }: WelcomeProps) {
     // Sample data - replace with actual data from your backend
     const locations = [
         { id: 1, name: "Downtown UltraFlex", address: "123 Main St, City Center", image: "/images/locations/downtown.jpg" },
@@ -41,7 +54,7 @@ export default function Welcome() {
     ];
 
     return (
-        <>
+        <AppLayout auth={auth}>
             <Head title="UltraFlex - Premium Fitness Experience">
                 <link rel="preconnect" href="https://fonts.bunny.net" />
                 <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet" />
@@ -57,11 +70,40 @@ export default function Welcome() {
                 
                 {/* All content with higher z-index */}
                 <div className="relative z-10">
-                    <Navbar auth={{ user: null }} />
-                    
                     {/* Hero Section */}
                     <section className="relative">
                         <VideoLander />
+                    </section>
+
+                    {/* Authentication Status Banner */}
+                    <section className="relative">
+                        {auth.user ? (
+                            <div className="bg-gradient-to-r from-red-600/20 to-red-700/20 backdrop-blur-sm border-y border-red-600/30 py-4">
+                                <div className="container mx-auto px-6">
+                                    <div className="text-center">
+                                        <p className="text-white font-semibold text-lg drop-shadow-[0_0_10px_rgba(255,255,255,0.6)]">
+                                            Welcome back, <span className="text-red-600 animate-pulse drop-shadow-[0_0_10px_rgba(220,38,38,0.6)]">{auth.user.name}!</span> You are successfully logged in.
+                                        </p>
+                                        <p className="text-white text-sm mt-1">
+                                            Access your Members Hub for exclusive workouts and nutrition plans.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        ) : (
+                            <div className="bg-gradient-to-r from-red-600/20 to-red-700/20 backdrop-blur-sm border-y border-red-600/30 py-4">
+                                <div className="container mx-auto px-6">
+                                    <div className="text-center">
+                                        <p className="text-white font-semibold text-lg drop-shadow-[0_0_10px_rgba(255,255,255,0.6)]">
+                                            Join the <span className="text-red-600 animate-pulse drop-shadow-[0_0_10px_rgba(220,38,38,0.6)]">UltraFlex</span> Community Today!
+                                        </p>
+                                        <p className="text-white text-sm mt-1">
+                                            Login or register to access exclusive member benefits and track your fitness journey.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
                     </section>
 
                     {/* Sign Up CTA Section */}
@@ -98,11 +140,8 @@ export default function Welcome() {
                     <section className="relative">
                         <FooterCTA />
                     </section>
-
-                    {/* Animated Footer */}
-                    <AnimatedFooter />
                 </div>
             </div>
-        </>
+        </AppLayout>
     );
 }

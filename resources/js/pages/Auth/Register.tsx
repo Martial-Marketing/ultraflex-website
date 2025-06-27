@@ -5,8 +5,15 @@ import { Card } from '@/components/ui/card';
 import { UserPlus, Mail, Lock, User, Eye, EyeOff } from 'lucide-react';
 import { useState } from 'react';
 import AnimatedBackground from '@/components/AnimatedBackground';
+import AppLayout from '@/layouts/app-layout';
 
-export default function Register() {
+interface RegisterProps {
+    auth?: {
+        user: any;
+    };
+}
+
+export default function Register({ auth }: RegisterProps) {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     
@@ -27,7 +34,7 @@ export default function Register() {
     };
 
     return (
-        <>
+        <AppLayout auth={auth || { user: null }}>
             <Head title="Register - UltraFlex">
                 <meta name="description" content="Join UltraFlex today and start your fitness journey. Create your account to access premium gym facilities and expert training." />
             </Head>
@@ -213,6 +220,6 @@ export default function Register() {
                     </section>
                 </div>
             </div>
-        </>
+        </AppLayout>
     );
 }

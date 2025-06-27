@@ -7,15 +7,19 @@ import { FormEvent, useEffect, useState } from 'react';
 import { route } from 'ziggy-js';
 import { LogIn, Mail, Lock, Eye, EyeOff } from 'lucide-react';
 import AnimatedBackground from '@/components/AnimatedBackground';
+import AppLayout from '@/layouts/app-layout';
 
 interface LoginProps {
+    auth?: {
+        user: any;
+    };
     flash?: {
         success?: string;
         error?: string;
     };
 }
 
-export default function Login({ flash }: LoginProps) {
+export default function Login({ auth, flash }: LoginProps) {
     const { data, setData, post, processing, errors } = useForm({
         email: '',
         password: '',
@@ -61,7 +65,7 @@ export default function Login({ flash }: LoginProps) {
     };
 
     return (
-        <>
+        <AppLayout auth={auth || { user: null }}>
             <Head title="Login - UltraFlex" />
             
             <div className="min-h-screen relative">
@@ -217,6 +221,6 @@ export default function Login({ flash }: LoginProps) {
                     </section>
                 </div>
             </div>
-        </>
+        </AppLayout>
     );
 }
