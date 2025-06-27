@@ -11,7 +11,10 @@ use App\Http\Controllers\NutritionController;
 use App\Http\Controllers\TourController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,13 +50,12 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact.index
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 // Authentication Routes
-Route::get('/login', function () {
-    return inertia('Auth/Login');
-})->name('auth.login');
+Route::get('/login', [LoginController::class, 'index'])->name('auth.login');
+Route::post('/login', [LoginController::class, 'store'])->name('auth.login.store');
+Route::post('/logout', [LoginController::class, 'destroy'])->name('auth.logout');
 
-Route::get('/register', function () {
-    return inertia('Auth/Register');
-})->name('auth.register');
+Route::get('/register', [RegisterController::class, 'index'])->name('auth.register');
+Route::post('/register', [RegisterController::class, 'store'])->name('auth.register.store');
 
 // Protected Member Routes
 Route::middleware(['auth'])->group(function () {
@@ -72,8 +74,4 @@ Route::middleware(['auth'])->group(function () {
     
 });
 
-
-Route::post('/register', function (Request $request) {
-    return redirect()->back()->with('success', 'Registration form submitted!');
-})->name('register.store');
 // require __DIR__.'/auth.php'; // Remove this line if auth.php doesn't exist
