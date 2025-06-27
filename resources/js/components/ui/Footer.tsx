@@ -77,10 +77,12 @@ export default function AnimatedFooter({ className = '' }: FooterProps) {
                         {/* Brand Section */}
                         <div className="lg:col-span-1">
                             <div className="flex items-center space-x-3 mb-6">
-                                <div className="w-12 h-12 bg-gradient-to-br from-red-700/20 to-red-800/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-red-700/30">
-                                    <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-700 to-red-800">
-                                        U
-                                    </span>
+                                <div className="w-16 h-14 flex items-center justify-center">
+                                    <img 
+                                        src="/Images/logo/ultra-flex-200x167 (1).png" 
+                                        alt="UltraFlex Logo" 
+                                        className="h-14 w-auto object-contain drop-shadow-[0_0_10px_rgba(220,38,38,0.5)]"
+                                    />
                                 </div>
                                 <div>
                                     <h3 className="text-2xl font-bold">

@@ -1,9 +1,10 @@
 import { Head, Link } from '@inertiajs/react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { MapPin, Phone, Clock, ChevronRight, Building, Navigation, Zap } from 'lucide-react';
+import { MapPin, Phone, Clock, ChevronRight, Building, Navigation, Zap, ChevronLeft, Star, Check } from 'lucide-react';
 import AppLayout from '@/layouts/app-layout';
-import AnimatedBackground from '@/components/AnimatedBackground'; // Import the animated background
+import AnimatedBackground from '@/components/AnimatedBackground';
+import { useState } from 'react';
 
 interface Location {
     id: number;
@@ -18,14 +19,40 @@ interface Location {
     };
 }
 
+interface MembershipPlan {
+    id: number;
+    name: string;
+    price: number;
+    period: string;
+    features: string[];
+    popular: boolean;
+}
+
 interface LocationsIndexProps {
     locations: Location[];
+    membershipPlans: MembershipPlan[];
     auth: {
         user: any;
     };
 }
 
-export default function LocationsIndex({ locations, auth }: LocationsIndexProps) {
+export default function LocationsIndex({ locations, membershipPlans, auth }: LocationsIndexProps) {
+    const [currentMembershipSlide, setCurrentMembershipSlide] = useState(0);
+    const membershipPlansPerSlide = 3;
+    const totalMembershipSlides = Math.ceil(membershipPlans.length / membershipPlansPerSlide);
+
+    const nextMembershipSlide = () => {
+        setCurrentMembershipSlide((prev) => (prev + 1) % totalMembershipSlides);
+    };
+
+    const prevMembershipSlide = () => {
+        setCurrentMembershipSlide((prev) => (prev - 1 + totalMembershipSlides) % totalMembershipSlides);
+    };
+
+    const getCurrentMembershipPlans = () => {
+        const startIndex = currentMembershipSlide * membershipPlansPerSlide;
+        return membershipPlans.slice(startIndex, startIndex + membershipPlansPerSlide);
+    };
     return (
         <AppLayout auth={auth}>
             <Head title="Our Locations - UltraFlex">
@@ -150,6 +177,127 @@ export default function LocationsIndex({ locations, auth }: LocationsIndexProps)
                                         </CardContent>
                                     </Card>
                                 ))}
+                            </div>
+
+                            {/* Membership Options Carousel */}
+                            <div className="mt-24">
+                                <div className="text-center mb-12">
+                                    <h2 className="text-4xl font-bold mb-4">
+                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Membership</span>{' '}
+                                        <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Options</span>
+                                    </h2>
+                                    <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+                                        Choose the perfect membership plan that fits your lifestyle and budget. 
+                                        All plans include access to our premium equipment and facilities.
+                                    </p>
+                                </div>
+
+                                {/* Carousel Container */}
+                                <div className="relative">
+                                    <div className="overflow-hidden">
+                                        <div 
+                                            className="flex transition-transform duration-500 ease-in-out" 
+                                            style={{ transform: `translateX(-${currentMembershipSlide * 100}%)` }}
+                                        >
+                                            {Array.from({ length: totalMembershipSlides }, (_, slideIndex) => (
+                                                <div key={slideIndex} className="w-full flex-shrink-0">
+                                                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 px-8 mx-4 items-stretch">
+                                                        {membershipPlans
+                                                            .slice(slideIndex * membershipPlansPerSlide, slideIndex * membershipPlansPerSlide + membershipPlansPerSlide)
+                                                            .map((plan) => (                                                <Card 
+                                                    key={plan.id} 
+                                                    className={`relative overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group h-full flex flex-col ${
+                                                        plan.popular 
+                                                            ? 'bg-gradient-to-br from-red-900/60 to-red-800/60 border-2 border-red-700/50' 
+                                                            : 'bg-black/40 border border-white/10 hover:border-red-700/30'
+                                                    } backdrop-blur-md`}
+                                                >
+                                                                    {plan.popular && (
+                                                                        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                                                                            <div className="bg-gradient-to-r from-red-700 to-red-800 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg border border-red-700/20 backdrop-blur-sm flex items-center">
+                                                                                <Star className="h-3 w-3 mr-1 fill-current" />
+                                                                                MOST POPULAR
+                                                                            </div>
+                                                                        </div>
+                                                                    )}
+                                                                                      <CardContent className="p-6 relative flex-1 flex flex-col">
+                                                        <div className="text-center mb-6">
+                                                            <h3 className="text-xl font-bold text-white group-hover:text-red-700 transition-colors duration-300 mb-2">
+                                                                {plan.name}
+                                                            </h3>
+                                                            <div className="flex items-baseline justify-center flex-wrap">
+                                                                <span className="text-3xl font-bold text-red-700">£{plan.price}</span>
+                                                                <span className="text-gray-400 ml-2 text-sm">/{plan.period}</span>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <ul className="space-y-3 mb-6 flex-1">
+                                                            {plan.features.map((feature, index) => (
+                                                                <li key={index} className="flex items-start text-gray-300 group-hover:text-white transition-colors duration-300">
+                                                                    <Check className="h-4 w-4 text-red-700 mr-3 flex-shrink-0 mt-0.5" />
+                                                                    <span className="text-sm leading-relaxed">{feature}</span>
+                                                                </li>
+                                                            ))}
+                                                        </ul>
+                                                        
+                                                        <Button 
+                                                            className={`w-full font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group mt-auto ${
+                                                                plan.popular
+                                                                    ? 'bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white border border-red-700/20'
+                                                                    : 'bg-white text-black hover:bg-red-700 hover:text-white border border-white/20'
+                                                            } backdrop-blur-sm`}
+                                                        >
+                                                            <span className="group-hover:translate-x-1 transition-transform duration-300">
+                                                                Choose This Plan
+                                                            </span>
+                                                        </Button>
+                                                    </CardContent>
+                                                                </Card>
+                                                            ))}
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* Navigation Arrows */}
+                                    {totalMembershipSlides > 1 && (
+                                        <>
+                                            <Button
+                                                onClick={prevMembershipSlide}
+                                                className="absolute -left-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-red-700/80 text-white p-2 rounded-full shadow-lg backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 z-10"
+                                                size="sm"
+                                            >
+                                                <ChevronLeft className="h-5 w-5" />
+                                            </Button>
+                                            <Button
+                                                onClick={nextMembershipSlide}
+                                                className="absolute -right-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-red-700/80 text-white p-2 rounded-full shadow-lg backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 z-10"
+                                                size="sm"
+                                            >
+                                                <ChevronRight className="h-5 w-5" />
+                                            </Button>
+                                        </>
+                                    )}
+
+                                    {/* Carousel Indicators */}
+                                    {totalMembershipSlides > 1 && (
+                                        <div className="flex justify-center mt-8 space-x-2">
+                                            {Array.from({ length: totalMembershipSlides }, (_, index) => (
+                                                <Button
+                                                    key={index}
+                                                    onClick={() => setCurrentMembershipSlide(index)}
+                                                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                                                        index === currentMembershipSlide
+                                                            ? 'bg-red-700 scale-125'
+                                                            : 'bg-white/30 hover:bg-white/50'
+                                                    }`}
+                                                    size="sm"
+                                                />
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
                             </div>
 
                             {/* Call to Action */}

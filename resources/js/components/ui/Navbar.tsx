@@ -131,10 +131,12 @@ export default function Navbar({ auth }: NavbarProps) {
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
                     <Link href="/" className="flex items-center space-x-3">
-                        <div className="w-10 h-10 bg-gradient-to-br from-red-700/20 to-red-800/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-red-700/30">
-                            <span className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-700 to-red-800">
-                                U
-                            </span>
+                        <div className="w-12 h-10 flex items-center justify-center">
+                            <img 
+                                src="/Images/logo/ultra-flex-200x167 (1).png" 
+                                alt="UltraFlex Logo" 
+                                className="h-10 w-auto object-contain drop-shadow-[0_0_10px_rgba(220,38,38,0.5)] hover:drop-shadow-[0_0_15px_rgba(220,38,38,0.8)] transition-all duration-300"
+                            />
                         </div>
                         <div className="text-2xl font-bold">
                             <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">ULTRA</span>

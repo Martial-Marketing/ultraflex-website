@@ -18,10 +18,12 @@ import {
     Navigation,
     Play,
     Eye,
-    Award
+    Award,
+    ChevronLeft
 } from 'lucide-react';
 import AppLayout from '@/layouts/app-layout';
-import AnimatedBackground from '@/components/AnimatedBackground'; // Import the animated background
+import AnimatedBackground from '@/components/AnimatedBackground';
+import { useState } from 'react';
 
 interface Manager {
     name: string;
@@ -101,7 +103,24 @@ interface LocationShowProps {
 }
 
 export default function LocationShow({ location, auth }: LocationShowProps) {
+    const [currentMembershipSlide, setCurrentMembershipSlide] = useState(0);
+    const membershipPlansPerSlide = 3;
+    const totalMembershipSlides = Math.ceil(location.membershipPlans.length / membershipPlansPerSlide);
+    
     const averageRating = location.reviews.reduce((acc, review) => acc + review.rating, 0) / location.reviews.length;
+
+    const nextMembershipSlide = () => {
+        setCurrentMembershipSlide((prev) => (prev + 1) % totalMembershipSlides);
+    };
+
+    const prevMembershipSlide = () => {
+        setCurrentMembershipSlide((prev) => (prev - 1 + totalMembershipSlides) % totalMembershipSlides);
+    };
+
+    const getCurrentMembershipPlans = () => {
+        const startIndex = currentMembershipSlide * membershipPlansPerSlide;
+        return location.membershipPlans.slice(startIndex, startIndex + membershipPlansPerSlide);
+    };
 
     const renderStars = (rating: number) => {
         return Array.from({ length: 5 }, (_, i) => (
@@ -419,45 +438,119 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                 <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Membership</span>{' '}
                                 <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Options</span>
                             </h2>
-                            <div className="grid md:grid-cols-3 gap-8">
-                                {location.membershipPlans.map((plan) => (
-                                    <Card key={plan.id} className={`relative p-8 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 group ${plan.popular ? 'ring-2 ring-red-700 scale-105' : ''}`}>
-                                        {plan.popular && (
-                                            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                                                <span className="bg-gradient-to-r from-red-700 to-red-800 text-white px-4 py-1 rounded-full text-sm font-medium backdrop-blur-sm border border-red-700/20 flex items-center">
-                                                    <Star className="h-3 w-3 mr-1 fill-white" />
-                                                    Most Popular
-                                                </span>
-                                            </div>
-                                        )}
-                                        
-                                        <div className="text-center mb-6">
-                                            <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">{plan.name}</h3>
-                                            <div className="text-4xl font-bold text-red-700">
-                                                £{plan.price}
-                                                <span className="text-lg text-gray-400">/{plan.period}</span>
-                                            </div>
-                                        </div>
+                            
+                            {/* Carousel Container */}
+                            <div className="relative max-w-7xl mx-auto">
+                                {/* Carousel Navigation */}
+                                <div className="flex justify-between items-center mb-8">
+                                    <button
+                                        onClick={prevMembershipSlide}
+                                        className="p-3 bg-black/40 backdrop-blur-md rounded-full border border-white/10 hover:border-red-700/30 transition-all duration-300 group hover:bg-red-700/10"
+                                        disabled={currentMembershipSlide === 0}
+                                    >
+                                        <ChevronLeft className="h-6 w-6 text-gray-300 group-hover:text-red-700 transition-colors duration-300" />
+                                    </button>
+                                    
+                                    <div className="flex space-x-2">
+                                        {Array.from({ length: totalMembershipSlides }, (_, index) => (
+                                            <button
+                                                key={index}
+                                                onClick={() => setCurrentMembershipSlide(index)}
+                                                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                                                    currentMembershipSlide === index 
+                                                        ? 'bg-red-700 shadow-[0_0_10px_rgba(220,38,38,0.5)]' 
+                                                        : 'bg-white/20 hover:bg-white/40'
+                                                }`}
+                                            />
+                                        ))}
+                                    </div>
+                                    
+                                    <button
+                                        onClick={nextMembershipSlide}
+                                        className="p-3 bg-black/40 backdrop-blur-md rounded-full border border-white/10 hover:border-red-700/30 transition-all duration-300 group hover:bg-red-700/10"
+                                        disabled={currentMembershipSlide === totalMembershipSlides - 1}
+                                    >
+                                        <ChevronRight className="h-6 w-6 text-gray-300 group-hover:text-red-700 transition-colors duration-300" />
+                                    </button>
+                                </div>
 
-                                        <ul className="space-y-3 mb-8">
-                                            {plan.features.map((feature, index) => (
-                                                <li key={index} className="flex items-center text-gray-300 group hover:text-white transition-colors duration-300">
-                                                    <div className="w-2 h-2 bg-red-700 rounded-full mr-3 group-hover:bg-red-600 transition-colors duration-300"></div>
-                                                    <span className="group-hover:translate-x-1 transition-transform duration-300">{feature}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
+                                {/* Carousel Content */}
+                                <div className="overflow-hidden">
+                                    <div 
+                                        className="flex transition-transform duration-500 ease-in-out"
+                                        style={{ transform: `translateX(-${currentMembershipSlide * 100}%)` }}
+                                    >
+                                        {Array.from({ length: totalMembershipSlides }, (_, slideIndex) => (
+                                            <div key={slideIndex} className="w-full flex-shrink-0">
+                                                <div className="grid md:grid-cols-3 gap-8 px-4">
+                                                    {location.membershipPlans
+                                                        .slice(slideIndex * membershipPlansPerSlide, (slideIndex + 1) * membershipPlansPerSlide)
+                                                        .map((plan) => (
+                                                        <Card key={plan.id} className={`relative p-8 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 group hover:scale-105 hover:shadow-2xl hover:shadow-red-700/20 ${plan.popular ? 'ring-2 ring-red-700 scale-105' : ''}`}>
+                                                            {plan.popular && (
+                                                                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                                                                    <span className="bg-gradient-to-r from-red-700 to-red-800 text-white px-4 py-1 rounded-full text-sm font-medium backdrop-blur-sm border border-red-700/20 flex items-center animate-pulse">
+                                                                        <Star className="h-3 w-3 mr-1 fill-white" />
+                                                                        Most Popular
+                                                                    </span>
+                                                                </div>
+                                                            )}
+                                                            
+                                                            <div className="text-center mb-6">
+                                                                <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">{plan.name}</h3>
+                                                                <div className="text-4xl font-bold text-red-700 group-hover:scale-110 transition-transform duration-300">
+                                                                    £{plan.price}
+                                                                    <span className="text-lg text-gray-400">/{plan.period}</span>
+                                                                </div>
+                                                            </div>
 
-                                        <Link href="/register" className="block w-full">
-                                            <Button className={`w-full transition-all duration-300 group ${plan.popular ? 'bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700' : 'bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700'}`}>
-                                                <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                                    Sign Up Now
-                                                </span>
-                                                <ChevronRight className="h-4 w-4 ml-2 group-hover:scale-110 transition-transform duration-300" />
-                                            </Button>
-                                        </Link>
-                                    </Card>
-                                ))}
+                                                            <ul className="space-y-3 mb-8 min-h-[160px]">
+                                                                {plan.features.map((feature, index) => (
+                                                                    <li key={index} className="flex items-center text-gray-300 group hover:text-white transition-colors duration-300">
+                                                                        <div className="w-2 h-2 bg-red-700 rounded-full mr-3 group-hover:bg-red-600 transition-colors duration-300 flex-shrink-0"></div>
+                                                                        <span className="group-hover:translate-x-1 transition-transform duration-300 text-sm">{feature}</span>
+                                                                    </li>
+                                                                ))}
+                                                            </ul>
+
+                                                            <Link href="/register" className="block w-full">
+                                                                <Button className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group hover:shadow-[0_0_20px_rgba(220,38,38,0.5)] transform hover:scale-105">
+                                                                    <span className="group-hover:translate-x-1 transition-transform duration-300">
+                                                                        Sign Up Now
+                                                                    </span>
+                                                                    <ChevronRight className="h-4 w-4 ml-2 group-hover:scale-110 transition-transform duration-300" />
+                                                                </Button>
+                                                            </Link>
+                                                        </Card>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Mobile swipe indicators */}
+                                <div className="flex justify-center mt-8 md:hidden">
+                                    <div className="flex space-x-2">
+                                        {Array.from({ length: totalMembershipSlides }, (_, index) => (
+                                            <div
+                                                key={index}
+                                                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                                                    currentMembershipSlide === index 
+                                                        ? 'bg-red-700' 
+                                                        : 'bg-white/20'
+                                                }`}
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Auto-advance hint */}
+                                <div className="text-center mt-6">
+                                    <p className="text-gray-400 text-sm">
+                                        Showing plans {currentMembershipSlide * membershipPlansPerSlide + 1}-{Math.min((currentMembershipSlide + 1) * membershipPlansPerSlide, location.membershipPlans.length)} of {location.membershipPlans.length}
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </section>
