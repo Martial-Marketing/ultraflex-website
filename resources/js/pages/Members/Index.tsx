@@ -1,21 +1,6 @@
 import { Head, Link } from '@inertiajs/react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { 
-    Dumbbell, 
-    Apple, 
-    Calendar, 
-    Target, 
-    TrendingUp, 
-    Clock,
-    Users,
-    Award,
-    BookOpen,
-    Play,
-    ChevronRight,
-    Zap,
-    Star
-} from 'lucide-react';
 import AnimatedBackground from '@/components/AnimatedBackground'; // Import the animated background
 
 interface User {
@@ -77,28 +62,24 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
         {
             title: 'Browse Workouts',
             description: 'Find your next workout routine',
-            icon: Dumbbell,
             href: '/members/workouts',
             color: 'bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700',
         },
         {
             title: 'Nutrition Plans',
             description: 'Healthy recipes and meal plans',
-            icon: Apple,
             href: '/members/nutrition',
             color: 'bg-gradient-to-r from-green-700 to-green-800 hover:from-green-600 hover:to-green-700',
         },
         {
             title: 'Book PT Session',
             description: 'Schedule with a personal trainer',
-            icon: Users,
             href: '/trainers',
             color: 'bg-gradient-to-r from-purple-700 to-purple-800 hover:from-purple-600 hover:to-purple-700',
         },
         {
             title: 'Virtual Tours',
             description: 'Explore our gym facilities',
-            icon: Play,
             href: '/tours',
             color: 'bg-gradient-to-r from-orange-700 to-orange-800 hover:from-orange-600 hover:to-orange-700',
         },
@@ -109,7 +90,6 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
             title: 'Total Workouts',
             value: workoutStats.totalWorkouts,
             subtitle: 'All time',
-            icon: Dumbbell,
             color: 'text-red-700',
             bgColor: 'bg-red-700/20 backdrop-blur-sm border border-red-700/30',
         },
@@ -117,7 +97,6 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
             title: 'This Week',
             value: workoutStats.thisWeek,
             subtitle: 'Workouts completed',
-            icon: Calendar,
             color: 'text-green-400',
             bgColor: 'bg-green-700/20 backdrop-blur-sm border border-green-700/30',
         },
@@ -125,7 +104,6 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
             title: 'Total Hours',
             value: workoutStats.totalHours,
             subtitle: 'Time spent training',
-            icon: Clock,
             color: 'text-purple-400',
             bgColor: 'bg-purple-700/20 backdrop-blur-sm border border-purple-700/30',
         },
@@ -133,7 +111,6 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
             title: 'Favorite Type',
             value: workoutStats.favoriteWorkout,
             subtitle: 'Most completed',
-            icon: Target,
             color: 'text-orange-400',
             bgColor: 'bg-orange-700/20 backdrop-blur-sm border border-orange-700/30',
             isString: true,
@@ -175,23 +152,43 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                         </div>
 
                         <div className="container mx-auto px-6 relative z-10">
-                            <div className="flex items-center space-x-6">
-                                <div className="w-20 h-20 rounded-full overflow-hidden bg-red-700/20 backdrop-blur-sm flex items-center justify-center border border-red-700/30 group hover:scale-105 transition-transform duration-300">
-                                    {user.profileImage ? (
-                                        <img 
-                                            src={user.profileImage} 
-                                            alt={user.name}
-                                            className="w-full h-full object-cover"
-                                        />
-                                    ) : (
-                                        <Users className="h-10 w-10 text-red-700 group-hover:text-red-600 transition-colors duration-300" />
-                                    )}
+                            <div className="flex items-center justify-between">
+                                <div className="flex items-center space-x-6">
+                                    <div className="w-20 h-20 rounded-full overflow-hidden bg-red-700/20 backdrop-blur-sm flex items-center justify-center border border-red-700/30 group hover:scale-105 transition-transform duration-300">
+                                        {user.profileImage ? (
+                                            <img 
+                                                src={user.profileImage} 
+                                                alt={user.name}
+                                                className="w-full h-full object-cover"
+                                            />
+                                        ) : (
+                                            <div className="text-white text-2xl font-bold">
+                                                {user.name.charAt(0).toUpperCase()}
+                                            </div>
+                                        )}
+                                    </div>
+                                    <div className="text-white">
+                                        <h1 className="text-4xl font-bold mb-2">Welcome back, {user.name}!</h1>
+                                        <p className="text-xl text-gray-200">
+                                            {user.membershipType} Member since {user.memberSince}
+                                        </p>
+                                    </div>
                                 </div>
-                                <div className="text-white">
-                                    <h1 className="text-4xl font-bold mb-2">Welcome back, {user.name}!</h1>
-                                    <p className="text-xl text-gray-200">
-                                        {user.membershipType} Member since {user.memberSince}
-                                    </p>
+                                <div className="flex items-center space-x-4">
+                                    <Link href="/" className="text-white hover:text-gray-300 transition-colors duration-300">
+                                        <Button variant="outline" className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
+                                            <span className="group-hover:translate-x-1 transition-transform duration-300">
+                                                Back to Home
+                                            </span>
+                                        </Button>
+                                    </Link>
+                                    <Link href="/logout" method="post" as="button" className="inline-block">
+                                        <Button variant="outline" className="border-red-500/50 bg-red-500/10 text-red-400 hover:text-white hover:bg-red-600 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
+                                            <span className="group-hover:translate-x-1 transition-transform duration-300">
+                                                Log Out
+                                            </span>
+                                        </Button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -202,13 +199,14 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                         <div className="container mx-auto px-6">
                             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                                 {quickActions.map((action, index) => {
-                                    const IconComponent = action.icon;
                                     return (
                                         <Link key={index} href={action.href}>
                                             <Card className="hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 hover:-translate-y-1 cursor-pointer bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 group">
                                                 <CardContent className="p-6 text-center">
                                                     <div className={`w-12 h-12 ${action.color} rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg transform group-hover:scale-110 transition-all duration-300`}>
-                                                        <IconComponent className="h-6 w-6 text-white" />
+                                                        <div className="text-white text-lg font-bold">
+                                                            {action.title.charAt(0)}
+                                                        </div>
                                                     </div>
                                                     <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">{action.title}</h3>
                                                     <p className="text-gray-300 text-sm group-hover:text-gray-200 transition-colors duration-300">{action.description}</p>
@@ -227,15 +225,16 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                             <h2 className="text-3xl font-bold text-white mb-8">Your Progress</h2>
                             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                                 {statsCards.map((stat, index) => {
-                                    const IconComponent = stat.icon;
                                     return (
                                         <Card key={index} className="bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 group">
                                             <CardContent className="p-6">
                                                 <div className="flex items-center justify-between mb-4">
                                                     <div className={`w-12 h-12 ${stat.bgColor} rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                                                        <IconComponent className={`h-6 w-6 ${stat.color}`} />
+                                                        <div className={`text-white text-lg font-bold`}>
+                                                            {stat.title.charAt(0)}
+                                                        </div>
                                                     </div>
-                                                    <TrendingUp className="h-4 w-4 text-green-400" />
+                                                    <div className="text-green-400 text-xs font-semibold">+</div>
                                                 </div>
                                                 <div>
                                                     <div className="text-2xl font-bold text-white mb-1 group-hover:text-red-700 transition-colors duration-300">
@@ -263,11 +262,9 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                                                 <div className={`w-10 h-10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 ${
                                                     activity.type === 'workout' ? 'bg-red-700/20 text-red-700 border border-red-700/30' : 'bg-green-700/20 text-green-400 border border-green-700/30'
                                                 }`}>
-                                                    {activity.type === 'workout' ? (
-                                                        <Dumbbell className="h-5 w-5" />
-                                                    ) : (
-                                                        <Apple className="h-5 w-5" />
-                                                    )}
+                                                    <span className="text-sm font-bold">
+                                                        {activity.type === 'workout' ? 'W' : 'N'}
+                                                    </span>
                                                 </div>
                                                 <div className="flex-1">
                                                     <h3 className="font-medium text-white group-hover:text-red-700 transition-colors duration-300">{activity.title}</h3>
@@ -285,11 +282,10 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                                         ))}
                                     </div>
                                     <Link href="/members/workouts" className="block mt-6">
-                                        <Button variant="outline" className="w-full bg-black/20 backdrop-blur-sm border-white/20 text-white hover:bg-red-700/20 hover:border-red-700/50 transition-all duration-300 group">
+                                        <Button variant="outline" className="w-full border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
                                             <span className="group-hover:translate-x-1 transition-transform duration-300">
                                                 View All Activity
                                             </span>
-                                            <ChevronRight className="h-4 w-4 ml-2 group-hover:scale-110 transition-transform duration-300" />
                                         </Button>
                                     </Link>
                                 </div>
@@ -300,11 +296,10 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                                         <div className="flex items-center justify-between mb-6">
                                             <h2 className="text-2xl font-bold text-white">Featured Workouts</h2>
                                             <Link href="/members/workouts">
-                                                <Button variant="outline" className="bg-black/20 backdrop-blur-sm border-white/20 text-white hover:bg-red-700/20 hover:border-red-700/50 transition-all duration-300 group">
+                                                <Button variant="outline" className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
                                                     <span className="group-hover:translate-x-1 transition-transform duration-300">
                                                         View All
                                                     </span>
-                                                    <ChevronRight className="h-4 w-4 ml-2 group-hover:scale-110 transition-transform duration-300" />
                                                 </Button>
                                             </Link>
                                         </div>
@@ -328,7 +323,7 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                                                         {/* Play overlay */}
                                                         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                                             <div className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white p-3 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 border border-red-700/20 backdrop-blur-sm">
-                                                                <Play className="h-5 w-5" />
+                                                                <span className="text-sm font-bold">PLAY</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -336,7 +331,7 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                                                         <h3 className="font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">{workout.title}</h3>
                                                         <div className="flex items-center justify-between text-sm text-gray-300 mb-3">
                                                             <span className="flex items-center">
-                                                                <Target className="h-4 w-4 mr-1 text-red-700" />
+                                                                <span className="text-red-700 mr-1 text-xs">TYPE:</span>
                                                                 {workout.type}
                                                             </span>
                                                             <span className={`px-2 py-1 rounded-full text-xs backdrop-blur-sm border ${
@@ -363,11 +358,10 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                                         <div className="flex items-center justify-between mb-6">
                                             <h2 className="text-2xl font-bold text-white">Featured Nutrition</h2>
                                             <Link href="/members/nutrition">
-                                                <Button variant="outline" className="bg-black/20 backdrop-blur-sm border-white/20 text-white hover:bg-red-700/20 hover:border-red-700/50 transition-all duration-300 group">
+                                                <Button variant="outline" className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
                                                     <span className="group-hover:translate-x-1 transition-transform duration-300">
                                                         View All
                                                     </span>
-                                                    <ChevronRight className="h-4 w-4 ml-2 group-hover:scale-110 transition-transform duration-300" />
                                                 </Button>
                                             </Link>
                                         </div>
@@ -391,7 +385,6 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                                                         {/* View overlay */}
                                                         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                                             <div className="bg-gradient-to-r from-green-700 to-green-800 hover:from-green-600 hover:to-green-700 text-white px-3 py-2 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 border border-green-700/20 backdrop-blur-sm flex items-center text-sm">
-                                                                <Apple className="h-4 w-4 mr-1" />
                                                                 View Recipe
                                                             </div>
                                                         </div>
@@ -400,15 +393,14 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                                                         <h3 className="font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">{recipe.title}</h3>
                                                         <div className="flex items-center justify-between text-sm text-gray-300 mb-3">
                                                             <span className="flex items-center">
-                                                                <Apple className="h-4 w-4 mr-1 text-green-400" />
-                                                                {recipe.calories} cal
+                                                                <span className="text-green-400 mr-1 text-xs">CAL:</span>
+                                                                {recipe.calories}
                                                             </span>
                                                             <span className="px-2 py-1 bg-green-700/20 text-green-400 rounded-full text-xs backdrop-blur-sm border border-green-700/30">
                                                                 {recipe.goal}
                                                             </span>
                                                         </div>
-                                                        <Button variant="outline" className="w-full bg-black/20 backdrop-blur-sm border-white/20 text-white hover:bg-green-700/20 hover:border-green-700/50 transition-all duration-300 group">
-                                                            <ChevronRight className="h-4 w-4 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                                        <Button variant="outline" className="w-full border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
                                                             <span className="group-hover:translate-x-1 transition-transform duration-300">
                                                                 View Recipe
                                                             </span>
@@ -430,39 +422,39 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                             <div className="grid md:grid-cols-3 gap-8">
                                 <Card className="p-6 text-center bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 group">
                                     <div className="w-16 h-16 bg-red-700/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-red-700/30 group-hover:scale-110 transition-transform duration-300">
-                                        <Target className="h-8 w-8 text-red-700" />
+                                        <span className="text-red-700 text-lg font-bold">G</span>
                                     </div>
                                     <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">Set Goals</h3>
                                     <p className="text-gray-300 mb-4 group-hover:text-gray-200 transition-colors duration-300">
                                         Define your fitness objectives and track your progress
                                     </p>
-                                    <Button variant="outline" className="bg-black/20 backdrop-blur-sm border-white/20 text-white hover:bg-red-700/20 hover:border-red-700/50 transition-all duration-300 group">
+                                    <Button variant="outline" className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
                                         <span className="group-hover:translate-x-1 transition-transform duration-300">Set New Goal</span>
                                     </Button>
                                 </Card>
 
                                 <Card className="p-6 text-center bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 group">
                                     <div className="w-16 h-16 bg-green-700/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-green-700/30 group-hover:scale-110 transition-transform duration-300">
-                                        <TrendingUp className="h-8 w-8 text-green-400" />
+                                        <span className="text-green-400 text-lg font-bold">P</span>
                                     </div>
                                     <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">Track Progress</h3>
                                     <p className="text-gray-300 mb-4 group-hover:text-gray-200 transition-colors duration-300">
                                         Monitor your workouts, nutrition, and achievements
                                     </p>
-                                    <Button variant="outline" className="bg-black/20 backdrop-blur-sm border-white/20 text-white hover:bg-green-700/20 hover:border-green-700/50 transition-all duration-300 group">
+                                    <Button variant="outline" className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
                                         <span className="group-hover:translate-x-1 transition-transform duration-300">View Progress</span>
                                     </Button>
                                 </Card>
 
                                 <Card className="p-6 text-center bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 group">
                                     <div className="w-16 h-16 bg-yellow-700/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-yellow-700/30 group-hover:scale-110 transition-transform duration-300">
-                                        <Award className="h-8 w-8 text-yellow-400" />
+                                        <span className="text-yellow-400 text-lg font-bold">R</span>
                                     </div>
                                     <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">Earn Rewards</h3>
                                     <p className="text-gray-300 mb-4 group-hover:text-gray-200 transition-colors duration-300">
                                         Achieve milestones and unlock exclusive benefits
                                     </p>
-                                    <Button variant="outline" className="bg-black/20 backdrop-blur-sm border-white/20 text-white hover:bg-yellow-700/20 hover:border-yellow-700/50 transition-all duration-300 group">
+                                    <Button variant="outline" className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
                                         <span className="group-hover:translate-x-1 transition-transform duration-300">View Rewards</span>
                                     </Button>
                                 </Card>
@@ -481,7 +473,9 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                                 <div className="grid md:grid-cols-3 gap-6">
                                     <Link href="/trainers">
                                         <Card className="p-6 hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 cursor-pointer bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 group">
-                                            <Users className="h-12 w-12 text-red-700 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
+                                            <div className="w-12 h-12 bg-red-700/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-red-700/30 group-hover:scale-110 transition-transform duration-300">
+                                                <span className="text-red-700 text-xl font-bold">PT</span>
+                                            </div>
                                             <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">Personal Training</h3>
                                             <p className="text-gray-300 text-sm group-hover:text-gray-200 transition-colors duration-300">Get one-on-one guidance from our expert trainers</p>
                                         </Card>
@@ -489,7 +483,9 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
 
                                     <Link href="/contact">
                                         <Card className="p-6 hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 cursor-pointer bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 group">
-                                            <BookOpen className="h-12 w-12 text-green-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
+                                            <div className="w-12 h-12 bg-green-700/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-green-700/30 group-hover:scale-110 transition-transform duration-300">
+                                                <span className="text-green-400 text-xl font-bold">?</span>
+                                            </div>
                                             <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">Support Center</h3>
                                             <p className="text-gray-300 text-sm group-hover:text-gray-200 transition-colors duration-300">Find answers to common questions and get help</p>
                                         </Card>
@@ -497,7 +493,9 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
 
                                     <Link href="/locations">
                                         <Card className="p-6 hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 cursor-pointer bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 group">
-                                            <Zap className="h-12 w-12 text-purple-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
+                                            <div className="w-12 h-12 bg-purple-700/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-purple-700/30 group-hover:scale-110 transition-transform duration-300">
+                                                <span className="text-purple-400 text-lg font-bold">L</span>
+                                            </div>
                                             <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">Visit a Location</h3>
                                             <p className="text-gray-300 text-sm group-hover:text-gray-200 transition-colors duration-300">Talk to our staff at any UltraFlex location</p>
                                         </Card>
