@@ -2,6 +2,7 @@ import { Head, Link } from '@inertiajs/react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import AppLayout from '@/layouts/app-layout';
 import AnimatedBackground from '@/components/AnimatedBackground';
 
 interface Equipment {
@@ -43,7 +44,7 @@ interface EquipmentShowProps {
     };
 }
 
-export default function EquipmentShow({ equipment }: EquipmentShowProps) {
+export default function EquipmentShow({ equipment, auth }: EquipmentShowProps) {
     const [activeTab, setActiveTab] = useState('overview');
     const [showVideo, setShowVideo] = useState(false);
 
@@ -64,7 +65,7 @@ export default function EquipmentShow({ equipment }: EquipmentShowProps) {
     ];
 
     return (
-        <>
+        <AppLayout auth={auth}>
             <Head title={`${equipment.name} - Equipment - UltraFlex`}>
                 <meta name="description" content={`Learn about the ${equipment.name} at UltraFlex. ${equipment.description}`} />
             </Head>
@@ -504,6 +505,6 @@ export default function EquipmentShow({ equipment }: EquipmentShowProps) {
                     </section>
                 </div>
             </div>
-        </>
+        </AppLayout>
     );
 }

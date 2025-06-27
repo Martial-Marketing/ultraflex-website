@@ -74,4 +74,45 @@ Route::middleware(['auth'])->group(function () {
     
 });
 
+// Example page with layout
+Route::get('/example-with-layout', function (Request $request) {
+    return inertia('Example/WithLayout', [
+        'auth' => [
+            'user' => $request->user()
+        ]
+    ]);
+})->name('example.layout');
+
+// Example contact page with layout
+Route::get('/example-contact-with-layout', function (Request $request) {
+    return inertia('Example/ContactWithLayout', [
+        'auth' => [
+            'user' => $request->user()
+        ],
+        'locations' => [
+            [
+                'id' => 1,
+                'name' => 'Downtown Location',
+                'address' => '123 Main Street, Downtown',
+                'phone' => '(555) 123-4567',
+                'email' => 'downtown@ultraflex.com',
+                'coordinates' => ['lat' => 40.7128, 'lng' => -74.0060]
+            ],
+            [
+                'id' => 2,
+                'name' => 'Westside Location', 
+                'address' => '456 West Avenue, Westside',
+                'phone' => '(555) 234-5678',
+                'email' => 'westside@ultraflex.com',
+                'coordinates' => ['lat' => 40.7580, 'lng' => -73.9855]
+            ]
+        ],
+        'generalContact' => [
+            'phone' => '(555) 123-4567',
+            'email' => 'info@ultraflex.com',
+            'address' => '123 Main Street, Downtown, NY 10001'
+        ]
+    ]);
+})->name('example.contact.layout');
+
 // require __DIR__.'/auth.php'; // Remove this line if auth.php doesn't exist

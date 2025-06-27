@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
+import AppLayout from '@/layouts/app-layout';
 import AnimatedBackground from '@/components/AnimatedBackground'; // Import the animated background
 
 interface Trainer {
@@ -30,7 +31,7 @@ interface TrainersIndexProps {
     };
 }
 
-export default function TrainersIndex({ trainers, locations, specialties }: TrainersIndexProps) {
+export default function TrainersIndex({ trainers, locations, specialties, auth }: TrainersIndexProps) {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedSpecialty, setSelectedSpecialty] = useState('');
     const [selectedGender, setSelectedGender] = useState('');
@@ -59,7 +60,7 @@ export default function TrainersIndex({ trainers, locations, specialties }: Trai
 
 
     return (
-        <>
+        <AppLayout auth={auth}>
             <Head title="Personal Trainers - UltraFlex">
                 <meta name="description" content="Find expert personal trainers at UltraFlex. Filter by specialty, location, and gender to find the perfect trainer for your fitness goals." />
             </Head>
@@ -326,6 +327,6 @@ export default function TrainersIndex({ trainers, locations, specialties }: Trai
                     </section>
                 </div>
             </div>
-        </>
+        </AppLayout>
     );
 }

@@ -1,6 +1,7 @@
 import { Head, Link } from '@inertiajs/react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import AppLayout from '@/layouts/app-layout';
 import AnimatedBackground from '@/components/AnimatedBackground';
 
 interface User {
@@ -162,7 +163,7 @@ export default function NutritionIndex({ auth, recipes }: NutritionIndexProps) {
     ];
 
     return (
-        <>
+        <AppLayout auth={auth}>
             <Head title="Nutrition - UltraFlex Members">
                 <meta name="description" content="Access exclusive nutrition plans and healthy recipes designed for UltraFlex members." />
             </Head>
@@ -387,6 +388,6 @@ export default function NutritionIndex({ auth, recipes }: NutritionIndexProps) {
                     </section>
                 </div>
             </div>
-        </>
+        </AppLayout>
     );
 }

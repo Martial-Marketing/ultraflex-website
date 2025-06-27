@@ -1,6 +1,7 @@
 import { Head, Link } from '@inertiajs/react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import AppLayout from '@/layouts/app-layout';
 
 import AnimatedBackground from '@/components/AnimatedBackground'; // Import the animated background
 
@@ -30,7 +31,7 @@ interface ToursIndexProps {
     };
 }
 
-export default function ToursIndex({ tours, tourFeatures, featuredTours }: ToursIndexProps) {
+export default function ToursIndex({ tours, tourFeatures, featuredTours, auth }: ToursIndexProps) {
 
 
     const handleTourClick = (tourUrl: string) => {
@@ -38,7 +39,7 @@ export default function ToursIndex({ tours, tourFeatures, featuredTours }: Tours
     };
 
     return (
-        <>
+        <AppLayout auth={auth}>
             <Head title="Virtual Gym Tours - UltraFlex">
                 <meta name="description" content="Take a virtual tour of our UltraFlex gyms. Explore our state-of-the-art facilities from the comfort of your home." />
             </Head>
@@ -355,6 +356,6 @@ export default function ToursIndex({ tours, tourFeatures, featuredTours }: Tours
                     </section>
                 </div>
             </div>
-        </>
+        </AppLayout>
     );
 }

@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import AppLayout from '@/layouts/app-layout';
 import AnimatedBackground from '@/components/AnimatedBackground';
 
 interface Article {
@@ -79,7 +80,7 @@ export default function NewsShow({ article, auth }: NewsShowProps) {
     };
 
     return (
-        <>
+        <AppLayout auth={auth}>
             <Head title={`${article.title} - News - UltraFlex`}>
                 <meta name="description" content={article.excerpt} />
                 <meta property="og:title" content={article.title} />
@@ -459,6 +460,6 @@ export default function NewsShow({ article, auth }: NewsShowProps) {
                     </section>
                 </div>
             </div>
-        </>
+        </AppLayout>
     );
 }

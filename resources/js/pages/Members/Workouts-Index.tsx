@@ -1,6 +1,7 @@
 import { Head, Link } from '@inertiajs/react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import AppLayout from '@/layouts/app-layout';
 import AnimatedBackground from '@/components/AnimatedBackground';
 
 interface User {
@@ -120,7 +121,7 @@ export default function WorkoutsIndex({ auth, workouts }: WorkoutsIndexProps) {
     ];
 
     return (
-        <>
+        <AppLayout auth={auth}>
             <Head title="Workouts - UltraFlex Members">
                 <meta name="description" content="Browse and access exclusive workout routines designed for UltraFlex members." />
             </Head>
@@ -328,6 +329,6 @@ export default function WorkoutsIndex({ auth, workouts }: WorkoutsIndexProps) {
                     </section>
                 </div>
             </div>
-        </>
+        </AppLayout>
     );
 }

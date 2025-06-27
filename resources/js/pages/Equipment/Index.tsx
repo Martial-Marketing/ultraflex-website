@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
+import AppLayout from '@/layouts/app-layout';
 
 import AnimatedBackground from '@/components/AnimatedBackground'; // Import the animated background
 
@@ -35,7 +36,7 @@ interface EquipmentIndexProps {
     };
 }
 
-export default function EquipmentIndex({ equipment, categories, muscleGroups, locations }: EquipmentIndexProps) {
+export default function EquipmentIndex({ equipment, categories, muscleGroups, locations, auth }: EquipmentIndexProps) {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
     const [selectedMuscleGroup, setSelectedMuscleGroup] = useState('');
@@ -73,7 +74,7 @@ export default function EquipmentIndex({ equipment, categories, muscleGroups, lo
     };
 
     return (
-        <>
+        <AppLayout auth={auth}>
             <Head title="Gym Equipment - UltraFlex">
                 <meta name="description" content="Explore our comprehensive range of premium gym equipment. Find the perfect equipment for your workout at any UltraFlex location." />
             </Head>
@@ -421,6 +422,6 @@ export default function EquipmentIndex({ equipment, categories, muscleGroups, lo
                     </section>
                 </div>
             </div>
-        </>
+        </AppLayout>
     );
 }

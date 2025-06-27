@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import AppLayout from '@/layouts/app-layout';
 
 import AnimatedBackground from '@/components/AnimatedBackground'; // Import the animated background
 
@@ -32,7 +33,7 @@ interface ContactIndexProps {
     };
 }
 
-export default function ContactIndex({ locations, generalContact }: ContactIndexProps) {
+export default function ContactIndex({ locations, generalContact, auth }: ContactIndexProps) {
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         email: '',
@@ -73,7 +74,7 @@ export default function ContactIndex({ locations, generalContact }: ContactIndex
     ];
 
     return (
-        <>
+        <AppLayout auth={auth}>
             <Head title="Contact Us - UltraFlex">
                 <meta name="description" content="Get in touch with UltraFlex. Find our locations, contact information, and send us a message. We're here to help with all your fitness needs." />
             </Head>
@@ -444,6 +445,6 @@ export default function ContactIndex({ locations, generalContact }: ContactIndex
                     </section>
                 </div>
             </div>
-        </>
+        </AppLayout>
     );
 }

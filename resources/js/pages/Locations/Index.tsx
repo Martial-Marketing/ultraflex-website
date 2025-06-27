@@ -2,6 +2,7 @@ import { Head, Link } from '@inertiajs/react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { MapPin, Phone, Clock, ChevronRight, Building, Navigation, Zap } from 'lucide-react';
+import AppLayout from '@/layouts/app-layout';
 import AnimatedBackground from '@/components/AnimatedBackground'; // Import the animated background
 
 interface Location {
@@ -24,9 +25,9 @@ interface LocationsIndexProps {
     };
 }
 
-export default function LocationsIndex({ locations }: LocationsIndexProps) {
+export default function LocationsIndex({ locations, auth }: LocationsIndexProps) {
     return (
-        <>
+        <AppLayout auth={auth}>
             <Head title="Our Locations - UltraFlex">
                 <meta name="description" content="Find the UltraFlex gym nearest to you. State-of-the-art equipment and premium amenities at every location." />
             </Head>
@@ -197,6 +198,6 @@ export default function LocationsIndex({ locations }: LocationsIndexProps) {
                     </section>
                 </div>
             </div>
-        </>
+        </AppLayout>
     );
 }

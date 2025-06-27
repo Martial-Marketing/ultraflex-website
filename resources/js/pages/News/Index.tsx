@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
+import AppLayout from '@/layouts/app-layout';
 
 import AnimatedBackground from '@/components/AnimatedBackground'; // Import the animated background
 
@@ -29,7 +30,7 @@ interface NewsIndexProps {
     };
 }
 
-export default function NewsIndex({ articles, categories, featuredArticles }: NewsIndexProps) {
+export default function NewsIndex({ articles, categories, featuredArticles, auth }: NewsIndexProps) {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [currentPage, setCurrentPage] = useState(1);
@@ -63,7 +64,7 @@ export default function NewsIndex({ articles, categories, featuredArticles }: Ne
     };
 
     return (
-        <>
+        <AppLayout auth={auth}>
             <Head title="Latest News - UltraFlex">
                 <meta name="description" content="Stay updated with the latest news, fitness tips, and announcements from UltraFlex. Read our blog for expert advice and community updates." />
             </Head>
@@ -406,6 +407,6 @@ export default function NewsIndex({ articles, categories, featuredArticles }: Ne
                     </section>
                 </div>
             </div>
-        </>
+        </AppLayout>
     );
 }

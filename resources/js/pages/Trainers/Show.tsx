@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import AppLayout from '@/layouts/app-layout';
 
 import AnimatedBackground from '@/components/AnimatedBackground'; // Import the animated background
 
@@ -58,7 +59,7 @@ interface TrainerShowProps {
     };
 }
 
-export default function TrainerShow({ trainer }: TrainerShowProps) {
+export default function TrainerShow({ trainer, auth }: TrainerShowProps) {
     const [activeTab, setActiveTab] = useState('about');
     
     const { data, setData, post, processing, errors } = useForm({
@@ -84,7 +85,7 @@ export default function TrainerShow({ trainer }: TrainerShowProps) {
     ];
 
     return (
-        <>
+        <AppLayout auth={auth}>
             <Head title={`${trainer.name} - Personal Trainer - UltraFlex`}>
                 <meta name="description" content={`${trainer.name} is a certified personal trainer at UltraFlex specializing in ${trainer.specialties.join(', ')}. Book a session today!`} />
             </Head>
@@ -643,6 +644,6 @@ export default function TrainerShow({ trainer }: TrainerShowProps) {
                     </section>
                 </div>
             </div>
-        </>
+        </AppLayout>
     );
 }

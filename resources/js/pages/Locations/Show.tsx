@@ -20,6 +20,7 @@ import {
     Eye,
     Award
 } from 'lucide-react';
+import AppLayout from '@/layouts/app-layout';
 import AnimatedBackground from '@/components/AnimatedBackground'; // Import the animated background
 
 interface Manager {
@@ -99,7 +100,7 @@ interface LocationShowProps {
     };
 }
 
-export default function LocationShow({ location }: LocationShowProps) {
+export default function LocationShow({ location, auth }: LocationShowProps) {
     const averageRating = location.reviews.reduce((acc, review) => acc + review.rating, 0) / location.reviews.length;
 
     const renderStars = (rating: number) => {
@@ -126,7 +127,7 @@ export default function LocationShow({ location }: LocationShowProps) {
     };
 
     return (
-        <>
+        <AppLayout auth={auth}>
             <Head title={`${location.name} - UltraFlex`}>
                 <meta name="description" content={`Visit ${location.name} for premium fitness facilities, expert trainers, and state-of-the-art equipment. Located at ${location.address}.`} />
             </Head>
@@ -497,6 +498,6 @@ export default function LocationShow({ location }: LocationShowProps) {
                     )}
                 </div>
             </div>
-        </>
+        </AppLayout>
     );
 }
