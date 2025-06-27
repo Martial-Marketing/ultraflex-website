@@ -28,7 +28,10 @@ export default function UltraFlexClothing() {
                     <div>
                         {/* Simplified header */}
                         <div className="mb-6">
-                            <h2 className="text-4xl font-bold">UltraFlex Clothing</h2>
+                            <h2 className="text-4xl font-bold">
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">UltraFlex</span>{' '}
+                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Clothing</span>
+                            </h2>
                         </div>
 
                         <p className="text-xl mb-8 text-gray-300 leading-relaxed">

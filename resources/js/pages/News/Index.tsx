@@ -97,7 +97,12 @@ export default function NewsIndex({ articles, categories, featuredArticles }: Ne
                         </div>
 
                         <div className="container mx-auto px-6 text-center relative z-10">
-                            <h1 className="text-5xl font-bold text-white mb-6">Latest News & Updates</h1>
+                            <h1 className="text-5xl font-bold mb-6">
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Latest</span>{' '}
+                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">News</span>{' '}
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">&</span>{' '}
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Updates</span>
+                            </h1>
                             <p className="text-xl text-gray-200 max-w-3xl mx-auto">
                                 Stay informed with the latest fitness trends, UltraFlex updates, class schedules, 
                                 nutrition tips, and community news.
@@ -109,7 +114,10 @@ export default function NewsIndex({ articles, categories, featuredArticles }: Ne
                     {featuredArticles.length > 0 && (
                         <section className="py-16 bg-black/20 backdrop-blur-md">
                             <div className="container mx-auto px-6">
-                                <h2 className="text-3xl font-bold text-white mb-12">Featured Stories</h2>
+                                <h2 className="text-3xl font-bold mb-12">
+                                    <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Featured</span>{' '}
+                                    <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Stories</span>
+                                </h2>
                                 <div className="grid lg:grid-cols-2 gap-8">
                                     {featuredArticles.slice(0, 2).map((article) => (
                                         <Card key={article.id} className="overflow-hidden hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 group">
@@ -366,8 +374,9 @@ export default function NewsIndex({ articles, categories, featuredArticles }: Ne
                         </div>
 
                         <div className="container mx-auto px-6 text-center relative z-10">
-                            <h2 className="text-3xl font-bold text-white mb-4">
-                                Stay Updated
+                            <h2 className="text-3xl font-bold mb-4">
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Stay</span>{' '}
+                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Updated</span>
                             </h2>
                             <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
                                 Subscribe to our newsletter and never miss the latest fitness tips, 

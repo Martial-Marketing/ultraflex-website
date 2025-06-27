@@ -192,7 +192,10 @@ export default function TrainerShow({ trainer }: TrainerShowProps) {
                                     <div className="lg:col-span-2 space-y-8">
                                         {/* Bio */}
                                         <Card className="p-8 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-colors duration-300">
-                                            <h2 className="text-2xl font-bold text-white mb-6">About {trainer.name}</h2>
+                                            <h2 className="text-2xl font-bold mb-6">
+                                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">About</span>{' '}
+                                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">{trainer.name}</span>
+                                            </h2>
                                             <p className="text-gray-300 leading-relaxed mb-6">{trainer.detailedBio}</p>
                                             
                                             {trainer.philosophy && (
@@ -208,7 +211,9 @@ export default function TrainerShow({ trainer }: TrainerShowProps) {
                                         {/* Achievements */}
                                         {trainer.achievements.length > 0 && (
                                             <Card className="p-8 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-colors duration-300">
-                                                <h2 className="text-2xl font-bold text-white mb-6">Achievements</h2>
+                                                <h2 className="text-2xl font-bold mb-6">
+                                                    <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Achievements</span>
+                                                </h2>
                                                 <ul className="space-y-3">
                                                     {trainer.achievements.map((achievement, index) => (
                                                         <li key={index} className="group hover:text-red-700 transition-colors duration-300">
@@ -223,7 +228,9 @@ export default function TrainerShow({ trainer }: TrainerShowProps) {
                                     <div className="space-y-6">
                                         {/* Qualifications */}
                                         <Card className="p-6 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-colors duration-300">
-                                            <h3 className="text-lg font-bold text-white mb-4">Qualifications</h3>
+                                            <h3 className="text-lg font-bold mb-4">
+                                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Qualifications</span>
+                                            </h3>
                                             <div className="space-y-3">
                                                 {trainer.qualifications.map((qual, index) => (
                                                     <div key={index} className="group hover:text-red-700 transition-colors duration-300">
@@ -237,7 +244,11 @@ export default function TrainerShow({ trainer }: TrainerShowProps) {
                                         <Card className="p-6 bg-red-700/10 backdrop-blur-md border border-red-700/30 relative overflow-hidden">
                                             <div className="absolute inset-0 bg-gradient-to-br from-red-700/5 to-red-800/5"></div>
                                             <div className="relative z-10">
-                                                <h3 className="text-lg font-bold text-white mb-4">Ready to Start?</h3>
+                                                <h3 className="text-lg font-bold mb-4">
+                                                    <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Ready</span>{' '}
+                                                    <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">to</span>{' '}
+                                                    <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Start?</span>
+                                                </h3>
                                                 <p className="text-gray-300 mb-4">
                                                     Book a consultation with {trainer.name} today!
                                                 </p>
@@ -259,7 +270,12 @@ export default function TrainerShow({ trainer }: TrainerShowProps) {
                             {activeTab === 'sessions' && (
                                 <div className="grid lg:grid-cols-2 gap-12">
                                     <div>
-                                        <h2 className="text-3xl font-bold text-white mb-8">Session Types & Pricing</h2>
+                                        <h2 className="text-3xl font-bold mb-8">
+                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Session</span>{' '}
+                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Types</span>{' '}
+                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">&</span>{' '}
+                                            <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Pricing</span>
+                                        </h2>
                                         <div className="space-y-6">
                                             {trainer.sessionTypes.map((session, index) => (
                                                 <Card key={index} className="p-6 hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 group">
@@ -286,7 +302,9 @@ export default function TrainerShow({ trainer }: TrainerShowProps) {
                                     </div>
 
                                     <div>
-                                        <h2 className="text-3xl font-bold text-white mb-8">Availability</h2>
+                                        <h2 className="text-3xl font-bold mb-8">
+                                            <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Availability</span>
+                                        </h2>
                                         <Card className="p-6 bg-black/40 backdrop-blur-md border border-white/10">
                                             <div className="space-y-4">
                                                 {trainer.availability.map((day, index) => (
@@ -320,8 +338,12 @@ export default function TrainerShow({ trainer }: TrainerShowProps) {
                             {/* Testimonials Tab */}
                             {activeTab === 'testimonials' && (
                                 <div>
-                                    <h2 className="text-3xl font-bold text-white text-center mb-12">
-                                        What Clients Say About {trainer.name}
+                                    <h2 className="text-3xl font-bold text-center mb-12">
+                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">What</span>{' '}
+                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Clients</span>{' '}
+                                        <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Say</span>{' '}
+                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">About</span>{' '}
+                                        <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">{trainer.name}</span>
                                     </h2>
                                     
                                     <div className="grid md:grid-cols-2 gap-8">
@@ -364,7 +386,11 @@ export default function TrainerShow({ trainer }: TrainerShowProps) {
                             {activeTab === 'contact' && (
                                 <div className="grid lg:grid-cols-2 gap-12">
                                     <div>
-                                        <h2 className="text-3xl font-bold text-white mb-8">Get In Touch</h2>
+                                        <h2 className="text-3xl font-bold mb-8">
+                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Get</span>{' '}
+                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">In</span>{' '}
+                                            <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Touch</span>
+                                        </h2>
                                         
                                         <Card className="p-6 bg-black/40 backdrop-blur-md border border-white/10">
                                             <form onSubmit={handleSubmit} className="space-y-6">
@@ -584,8 +610,13 @@ export default function TrainerShow({ trainer }: TrainerShowProps) {
                         </div>
 
                         <div className="container mx-auto px-6 text-center relative z-10">
-                            <h2 className="text-3xl font-bold text-white mb-4">
-                                Ready to Transform Your Fitness Journey?
+                            <h2 className="text-3xl font-bold mb-4">
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Ready</span>{' '}
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">to</span>{' '}
+                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Transform</span>{' '}
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Your</span>{' '}
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Fitness</span>{' '}
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Journey?</span>
                             </h2>
                             <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
                                 Join the many clients who have achieved their fitness goals with {trainer.name}'s expert guidance.

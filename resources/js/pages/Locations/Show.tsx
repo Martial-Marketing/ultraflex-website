@@ -200,7 +200,11 @@ export default function LocationShow({ location }: LocationShowProps) {
                             <div className="grid lg:grid-cols-2 gap-12">
                                 {/* Meet The Manager */}
                                 <div>
-                                    <h2 className="text-3xl font-bold text-white mb-8">Meet The Manager</h2>
+                                    <h2 className="text-3xl font-bold mb-8">
+                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Meet</span>{' '}
+                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">The</span>{' '}
+                                        <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Manager</span>
+                                    </h2>
                                     <div className="flex space-x-6">
                                         <div className="relative group">
                                             <img 
@@ -219,7 +223,12 @@ export default function LocationShow({ location }: LocationShowProps) {
 
                                 {/* Opening Times & Contact */}
                                 <div>
-                                    <h2 className="text-3xl font-bold text-white mb-8">Opening Times & Contact</h2>
+                                    <h2 className="text-3xl font-bold mb-8">
+                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Opening</span>{' '}
+                                        <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Times</span>{' '}
+                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">&</span>{' '}
+                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Contact</span>
+                                    </h2>
                                     <div className="space-y-6">
                                         <div className="bg-black/30 backdrop-blur-sm rounded-lg p-6 border border-white/10">
                                             <h3 className="text-lg font-semibold text-white mb-4 flex items-center">
@@ -265,7 +274,11 @@ export default function LocationShow({ location }: LocationShowProps) {
                     {/* Equipment & Facilities */}
                     <section className="py-16 bg-black/10 backdrop-blur-md">
                         <div className="container mx-auto px-6">
-                            <h2 className="text-3xl font-bold text-white text-center mb-12">Equipment & Facilities</h2>
+                            <h2 className="text-3xl font-bold text-center mb-12">
+                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Equipment</span>{' '}
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">&</span>{' '}
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Facilities</span>
+                            </h2>
                             <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
                                 {location.equipment.map((item, index) => (
                                     <Card key={index} className={`text-center p-6 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 group ${!item.available ? 'opacity-50' : ''}`}>
@@ -288,7 +301,10 @@ export default function LocationShow({ location }: LocationShowProps) {
                     <section className="py-16 bg-black/20 backdrop-blur-md">
                         <div className="container mx-auto px-6">
                             <div className="text-center mb-12">
-                                <h2 className="text-3xl font-bold text-white mb-4">Member Reviews</h2>
+                                <h2 className="text-3xl font-bold mb-4">
+                                    <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Member</span>{' '}
+                                    <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Reviews</span>
+                                </h2>
                                 <div className="flex items-center justify-center space-x-2">
                                     <div className="flex">
                                         {renderStars(Math.round(averageRating))}
@@ -319,7 +335,9 @@ export default function LocationShow({ location }: LocationShowProps) {
                     {/* Gallery */}
                     <section className="py-16 bg-black/10 backdrop-blur-md">
                         <div className="container mx-auto px-6">
-                            <h2 className="text-3xl font-bold text-white text-center mb-12">Gallery</h2>
+                            <h2 className="text-3xl font-bold text-center mb-12">
+                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Gallery</span>
+                            </h2>
                             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                                 {location.gallery.map((image, index) => (
                                     <div key={index} className="aspect-square overflow-hidden rounded-lg hover:scale-105 transition-all duration-500 cursor-pointer border border-white/10 hover:border-red-700/30 group relative">
@@ -347,7 +365,11 @@ export default function LocationShow({ location }: LocationShowProps) {
                     {/* Personal Trainers */}
                     <section className="py-16 bg-black/20 backdrop-blur-md">
                         <div className="container mx-auto px-6">
-                            <h2 className="text-3xl font-bold text-white text-center mb-12">Our Personal Trainers</h2>
+                            <h2 className="text-3xl font-bold text-center mb-12">
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Our</span>{' '}
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Personal</span>{' '}
+                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Trainers</span>
+                            </h2>
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                                 {location.trainers.map((trainer) => (
                                     <Card key={trainer.id} className="text-center overflow-hidden hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 group">
@@ -392,7 +414,10 @@ export default function LocationShow({ location }: LocationShowProps) {
                     {/* Membership Options */}
                     <section className="py-16 bg-black/10 backdrop-blur-md">
                         <div className="container mx-auto px-6">
-                            <h2 className="text-3xl font-bold text-white text-center mb-12">Membership Options</h2>
+                            <h2 className="text-3xl font-bold text-center mb-12">
+                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Membership</span>{' '}
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Options</span>
+                            </h2>
                             <div className="grid md:grid-cols-3 gap-8">
                                 {location.membershipPlans.map((plan) => (
                                     <Card key={plan.id} className={`relative p-8 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 group ${plan.popular ? 'ring-2 ring-red-700 scale-105' : ''}`}>
@@ -441,7 +466,12 @@ export default function LocationShow({ location }: LocationShowProps) {
                         <section className="py-16 bg-black/20 backdrop-blur-md">
                             <div className="container mx-auto px-6">
                                 <div className="text-center mb-12">
-                                    <h2 className="text-3xl font-bold text-white mb-4">Take a Virtual Tour</h2>
+                                    <h2 className="text-3xl font-bold mb-4">
+                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Take</span>{' '}
+                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">a</span>{' '}
+                                        <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Virtual</span>{' '}
+                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Tour</span>
+                                    </h2>
                                     <p className="text-gray-300">
                                         Explore our facilities from the comfort of your home
                                     </p>

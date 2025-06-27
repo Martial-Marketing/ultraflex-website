@@ -107,7 +107,10 @@ export default function EquipmentIndex({ equipment, categories, muscleGroups, lo
                         </div>
 
                         <div className="container mx-auto px-6 text-center relative z-10">
-                            <h1 className="text-5xl font-bold text-white mb-6">Premium Equipment</h1>
+                            <h1 className="text-5xl font-bold mb-6">
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Premium</span>{' '}
+                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Equipment</span>
+                            </h1>
                             <p className="text-xl text-gray-200 max-w-3xl mx-auto">
                                 Discover our comprehensive range of state-of-the-art fitness equipment. 
                                 From cardio machines to strength training gear, we have everything you need 
@@ -342,7 +345,10 @@ export default function EquipmentIndex({ equipment, categories, muscleGroups, lo
 
                             {/* Categories Overview */}
                             <div className="mt-20">
-                                <h2 className="text-3xl font-bold text-white text-center mb-12">Equipment Categories</h2>
+                                <h2 className="text-3xl font-bold text-center mb-12">
+                                    <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Equipment</span>{' '}
+                                    <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Categories</span>
+                                </h2>
                                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                                     {categories.map((category) => {
                                         const categoryCount = equipment.filter(item => item.category === category).length;
@@ -377,8 +383,12 @@ export default function EquipmentIndex({ equipment, categories, muscleGroups, lo
                                     </div>
 
                                     <div className="relative z-10">
-                                        <h2 className="text-3xl font-bold text-white mb-4">
-                                            Ready to Try Our Equipment?
+                                        <h2 className="text-3xl font-bold mb-4">
+                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Ready</span>{' '}
+                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">to</span>{' '}
+                                            <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Try</span>{' '}
+                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Our</span>{' '}
+                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Equipment?</span>
                                         </h2>
                                         <p className="text-gray-300 mb-6 leading-relaxed">
                                             Visit any of our locations to experience our premium equipment firsthand. 

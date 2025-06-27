@@ -80,7 +80,10 @@ export default function Login({ flash }: LoginProps) {
                             <div className="max-w-md mx-auto">
                                 <Card className="p-8 bg-black/40 backdrop-blur-md border border-white/10">
                                     <div className="text-center mb-8">
-                                        <h2 className="text-3xl font-bold text-white mb-2">Sign In</h2>
+                                        <h2 className="text-3xl font-bold mb-2">
+                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Sign</span>{' '}
+                                            <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">In</span>
+                                        </h2>
                                         <p className="text-gray-300">Access your UltraFlex account</p>
                                     </div>
 

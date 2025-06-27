@@ -60,7 +60,10 @@ export default function LocationsIndex({ locations }: LocationsIndexProps) {
                         </div>
 
                         <div className="container mx-auto px-6 text-center relative z-10">
-                            <h1 className="text-5xl font-bold text-white mb-6">Our Locations</h1>
+                            <h1 className="text-5xl font-bold mb-6">
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Our</span>{' '}
+                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Locations</span>
+                            </h1>
                             <p className="text-xl text-gray-200 max-w-3xl mx-auto">
                                 Find the UltraFlex gym nearest to you. Each location features 
                                 state-of-the-art equipment, expert trainers, and premium amenities 
@@ -170,8 +173,13 @@ export default function LocationsIndex({ locations }: LocationsIndexProps) {
                                     </div>
 
                                     <div className="relative z-10">
-                                        <h2 className="text-3xl font-bold text-white mb-4">
-                                            Can't Find a Location Near You?
+                                        <h2 className="text-3xl font-bold mb-4">
+                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Can't</span>{' '}
+                                            <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Find</span>{' '}
+                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">a</span>{' '}
+                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Location</span>{' '}
+                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Near</span>{' '}
+                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">You?</span>
                                         </h2>
                                         <p className="text-gray-300 mb-6 leading-relaxed">
                                             We're constantly expanding! Let us know where you'd like to see 

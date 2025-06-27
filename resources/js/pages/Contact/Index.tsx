@@ -107,7 +107,10 @@ export default function ContactIndex({ locations, generalContact }: ContactIndex
                         </div>
 
                         <div className="container mx-auto px-6 text-center relative z-10">
-                            <h1 className="text-5xl font-bold text-white mb-6">Contact Us</h1>
+                            <h1 className="text-5xl font-bold mb-6">
+                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Contact</span>{' '}
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Us</span>
+                            </h1>
                             <p className="text-xl text-gray-200 max-w-3xl mx-auto">
                                 Have questions? We're here to help! Reach out to us for membership information, 
                                 personal training, class bookings, or any other enquiries.
@@ -118,7 +121,12 @@ export default function ContactIndex({ locations, generalContact }: ContactIndex
                     {/* Quick Contact Options */}
                     <section className="py-16 bg-black/20 backdrop-blur-md">
                         <div className="container mx-auto px-6">
-                            <h2 className="text-3xl font-bold text-white text-center mb-12">How Can We Help?</h2>
+                            <h2 className="text-3xl font-bold text-center mb-12">
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">How</span>{' '}
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Can</span>{' '}
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">We</span>{' '}
+                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Help?</span>
+                            </h2>
                             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                                 {contactReasons.map((reason, index) => {
                                     return (
@@ -138,7 +146,12 @@ export default function ContactIndex({ locations, generalContact }: ContactIndex
                             <div className="grid lg:grid-cols-2 gap-12">
                                 {/* Contact Form */}
                                 <div>
-                                    <h2 className="text-3xl font-bold text-white mb-8">Send Us a Message</h2>
+                                    <h2 className="text-3xl font-bold mb-8">
+                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Send</span>{' '}
+                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Us</span>{' '}
+                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">a</span>{' '}
+                                        <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Message</span>
+                                    </h2>
                                     
                                     <Card className="p-6 bg-black/40 backdrop-blur-md border border-white/10">
                                         <form onSubmit={handleSubmit} className="space-y-6">
@@ -228,7 +241,11 @@ export default function ContactIndex({ locations, generalContact }: ContactIndex
                                 {/* Contact Information */}
                                 <div className="space-y-8">
                                     <div>
-                                        <h2 className="text-3xl font-bold text-white mb-8">Get In Touch</h2>
+                                        <h2 className="text-3xl font-bold mb-8">
+                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Get</span>{' '}
+                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">In</span>{' '}
+                                            <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Touch</span>
+                                        </h2>
                                         
                                         {/* General Contact */}
                                         <Card className="p-6 mb-6 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-colors duration-300">
@@ -303,7 +320,10 @@ export default function ContactIndex({ locations, generalContact }: ContactIndex
                     {/* Location Cards */}
                     <section className="py-16 bg-black/20 backdrop-blur-md">
                         <div className="container mx-auto px-6">
-                            <h2 className="text-3xl font-bold text-white text-center mb-12">Our Locations</h2>
+                            <h2 className="text-3xl font-bold text-center mb-12">
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Our</span>{' '}
+                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Locations</span>
+                            </h2>
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                                 {locations.map((location) => (
                                     <Card key={location.id} className="overflow-hidden hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 group">
@@ -350,7 +370,11 @@ export default function ContactIndex({ locations, generalContact }: ContactIndex
                     {/* FAQ Section */}
                     <section className="py-16">
                         <div className="container mx-auto px-6">
-                            <h2 className="text-3xl font-bold text-white text-center mb-12">Frequently Asked Questions</h2>
+                            <h2 className="text-3xl font-bold text-center mb-12">
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Frequently</span>{' '}
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Asked</span>{' '}
+                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Questions</span>
+                            </h2>
                             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                                 <Card className="p-6 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 group">
                                     <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">What are your membership options?</h3>
@@ -390,7 +414,10 @@ export default function ContactIndex({ locations, generalContact }: ContactIndex
                     {/* Map Section */}
                     <section className="py-16 bg-black/10 backdrop-blur-md">
                         <div className="container mx-auto px-6">
-                            <h2 className="text-3xl font-bold text-white text-center mb-12">Find Us</h2>
+                            <h2 className="text-3xl font-bold text-center mb-12">
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Find</span>{' '}
+                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Us</span>
+                            </h2>
                             <div className="bg-black/30 backdrop-blur-sm rounded-lg h-96 flex items-center justify-center border border-white/10 relative overflow-hidden">
                                 {/* Map particles */}
                                 <div className="absolute inset-0 overflow-hidden pointer-events-none">

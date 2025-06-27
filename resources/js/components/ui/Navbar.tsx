@@ -136,8 +136,9 @@ export default function Navbar({ auth }: NavbarProps) {
                                 U
                             </span>
                         </div>
-                        <div className="text-2xl font-bold text-white">
-                            ULTRA<span className="text-red-700">FLEX</span>
+                        <div className="text-2xl font-bold">
+                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">ULTRA</span>
+                            <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">FLEX</span>
                         </div>
                     </Link>
 

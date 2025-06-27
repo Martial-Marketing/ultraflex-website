@@ -93,7 +93,11 @@ export default function TrainersIndex({ trainers, locations, specialties }: Trai
                         </div>
 
                         <div className="container mx-auto px-6 text-center relative z-10">
-                            <h1 className="text-5xl font-bold text-white mb-6">Our Personal Trainers</h1>
+                            <h1 className="text-5xl font-bold mb-6">
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Our</span>{' '}
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Personal</span>{' '}
+                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Trainers</span>
+                            </h1>
                             <p className="text-xl text-gray-200 max-w-3xl mx-auto">
                                 Work with certified fitness professionals who are passionate about helping 
                                 you achieve your goals. Find the perfect trainer for your fitness journey.
@@ -287,8 +291,11 @@ export default function TrainersIndex({ trainers, locations, specialties }: Trai
                                     </div>
 
                                     <div className="relative z-10">
-                                        <h2 className="text-3xl font-bold text-white mb-4">
-                                            Ready to Start Training?
+                                        <h2 className="text-3xl font-bold mb-4">
+                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Ready</span>{' '}
+                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">to</span>{' '}
+                                            <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Start</span>{' '}
+                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Training?</span>
                                         </h2>
                                         <p className="text-gray-300 mb-6 leading-relaxed">
                                             Book a consultation with one of our expert trainers and take the first 

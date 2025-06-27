@@ -30,7 +30,9 @@ export default function Gallery({ galleryImages }: GalleryProps) {
             <div className="container mx-auto px-6 relative z-10">
                 {/* Simplified header */}
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl font-bold text-white mb-4">Gallery</h2>
+                    <h2 className="text-4xl font-bold mb-4">
+                        <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Gallery</span>
+                    </h2>
                     <p className="text-xl text-gray-300 leading-relaxed">
                         Take a look inside our world-class facilities
                     </p>

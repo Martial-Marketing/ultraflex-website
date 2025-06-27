@@ -72,7 +72,11 @@ export default function ToursIndex({ tours, tourFeatures, featuredTours }: Tours
                         </div>
 
                         <div className="container mx-auto px-6 text-center relative z-10">
-                            <h1 className="text-5xl font-bold text-white mb-6">Virtual Gym Tours</h1>
+                            <h1 className="text-5xl font-bold mb-6">
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Virtual</span>{' '}
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Gym</span>{' '}
+                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Tours</span>
+                            </h1>
                             <p className="text-xl text-gray-200 max-w-3xl mx-auto">
                                 Explore our world-class facilities from anywhere. Take immersive 360° virtual tours 
                                 of all UltraFlex locations and see what makes us special.
@@ -84,7 +88,10 @@ export default function ToursIndex({ tours, tourFeatures, featuredTours }: Tours
                     {featuredTours.length > 0 && (
                         <section className="py-16 bg-black/20 backdrop-blur-md">
                             <div className="container mx-auto px-6">
-                                <h2 className="text-3xl font-bold text-white text-center mb-12">Featured Tours</h2>
+                                <h2 className="text-3xl font-bold text-center mb-12">
+                                    <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Featured</span>{' '}
+                                    <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Tours</span>
+                                </h2>
                                 <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                                     {featuredTours.map((tour) => (
                                         <Card key={tour.id} className="overflow-hidden hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 hover:-translate-y-1 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 group">
@@ -169,7 +176,11 @@ export default function ToursIndex({ tours, tourFeatures, featuredTours }: Tours
                     {/* All Tours */}
                     <section className="py-16">
                         <div className="container mx-auto px-6">
-                            <h2 className="text-3xl font-bold text-white text-center mb-12">All Virtual Tours</h2>
+                            <h2 className="text-3xl font-bold text-center mb-12">
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">All</span>{' '}
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Virtual</span>{' '}
+                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Tours</span>
+                            </h2>
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                                 {tours.map((tour) => (
                                     <Card key={tour.id} className="overflow-hidden hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 group">
@@ -237,7 +248,10 @@ export default function ToursIndex({ tours, tourFeatures, featuredTours }: Tours
                     {/* Tour Features */}
                     <section className="py-16 bg-black/20 backdrop-blur-md">
                         <div className="container mx-auto px-6">
-                            <h2 className="text-3xl font-bold text-white text-center mb-12">Tour Features</h2>
+                            <h2 className="text-3xl font-bold text-center mb-12">
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Tour</span>{' '}
+                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Features</span>
+                            </h2>
                             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                                 {tourFeatures.map((feature, index) => (
                                     <Card key={index} className="p-6 text-center bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 group">
@@ -252,7 +266,12 @@ export default function ToursIndex({ tours, tourFeatures, featuredTours }: Tours
                     {/* How It Works */}
                     <section className="py-16 bg-black/10 backdrop-blur-md">
                         <div className="container mx-auto px-6">
-                            <h2 className="text-3xl font-bold text-white text-center mb-12">How Virtual Tours Work</h2>
+                            <h2 className="text-3xl font-bold text-center mb-12">
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">How</span>{' '}
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Virtual</span>{' '}
+                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Tours</span>{' '}
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Work</span>
+                            </h2>
                             <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
                                 <div className="text-center group">
                                     <div className="w-16 h-16 bg-red-700/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-red-700/30 group-hover:scale-110 transition-transform duration-300">
@@ -306,8 +325,11 @@ export default function ToursIndex({ tours, tourFeatures, featuredTours }: Tours
                         </div>
 
                         <div className="container mx-auto px-6 text-center relative z-10">
-                            <h2 className="text-3xl font-bold text-white mb-4">
-                                Ready to Experience UltraFlex?
+                            <h2 className="text-3xl font-bold mb-4">
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Ready</span>{' '}
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">to</span>{' '}
+                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Experience</span>{' '}
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">UltraFlex?</span>
                             </h2>
                             <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
                                 Virtual tours are great, but nothing beats experiencing our facilities in person. 
