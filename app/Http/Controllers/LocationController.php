@@ -84,7 +84,7 @@ class LocationController extends Controller
                 'name' => 'ULTRAFLEX WEST LEEDS',
                 'address' => 'West Park Ring Road, Leeds LS16 6EB, UK',
                 'phone' => '0113 256 5107',
-                'image' => '/images/locations/west-leeds.jpg',
+                'image' => '/Images/westleeds/UFG (100) (2).jpg',
                 'slug' => 'west-leeds',
                 'hours' => [
                     'weekdays' => '06:00 - 22:00',
@@ -96,7 +96,7 @@ class LocationController extends Controller
                 'name' => 'ULTRAFLEX NORTH LEEDS',
                 'address' => 'Limewood Centre, Limewood Avenue, Ring Road, Seacroft, Leeds LS14 1NH, UK',
                 'phone' => '0113 513 7669',
-                'image' => '/images/locations/north-leeds.jpg',
+                'image' => '/Images/northleeds/DSC07392 (1).jpg',
                 'slug' => 'north-leeds',
                 'hours' => [
                     'weekdays' => '06:00 - 22:00',
@@ -108,7 +108,7 @@ class LocationController extends Controller
                 'name' => 'ULTRAFLEX NORMANTON',
                 'address' => 'High Street, Normanton WF6 2DB, UK',
                 'phone' => '+44 1924 890 123',
-                'image' => '/images/locations/normanton.jpg',
+                'image' => '/Images/normanton/IMG_(61) (1).jpg',
                 'slug' => 'normanton',
                 'hours' => [
                     'weekdays' => '5:00 AM - 11:00 PM',
@@ -120,7 +120,7 @@ class LocationController extends Controller
                 'name' => 'ULTRAFLEX ROTHERHAM',
                 'address' => 'Moorgate Street, Rotherham S60 2EY, UK',
                 'phone' => '+44 1709 456 789',
-                'image' => '/images/locations/rotherham.jpg',
+                'image' => '/Images/rotherham/IMG (19) (4).jpg',
                 'slug' => 'rotherham',
                 'hours' => [
                     'weekdays' => '5:00 AM - 11:00 PM',
@@ -144,7 +144,7 @@ class LocationController extends Controller
                 'name' => 'ULTRAFLEX HULL',
                 'address' => 'Jameson Street, Hull HU1 3DX, UK',
                 'phone' => '+44 1482 678 901',
-                'image' => '/images/locations/hull.jpg',
+                'image' => '/Images/hull/IMG (19) (5).jpg',
                 'slug' => 'hull',
                 'hours' => [
                     'weekdays' => '5:00 AM - 11:00 PM',
@@ -155,8 +155,8 @@ class LocationController extends Controller
                 'id' => 7,
                 'name' => 'ULTRAFLEX DURHAM',
                 'address' => 'North Road, Durham DH1 4SQ, UK',
-                'phone' => '+44 191 389 8321',
-                'image' => '/images/locations/durham.jpg',
+                'phone' => '+44 1913 789 012',
+                'image' => '/Images/durham/8 Section MultiStation.jpg',
                 'slug' => 'durham',
                 'hours' => [
                     'weekdays' => '5:00 AM - 11:00 PM',
@@ -532,7 +532,7 @@ class LocationController extends Controller
                     'address' => 'Moorgate Street, Rotherham S60 2EY, UK',
                     'phone' => '0170 937 7311',
                     'email' => 'rotherham@ultraflexgym.co.uk',
-                    'image' => '/images/locations/rotherham.jpg',
+                    'image' => '/Images/rotherham/IMG (19) (4).jpg',
                     'logo' => '/images/logos/rotherham.png',
                     'hours' => [
                         'monday' => '05:00 – 22:00',
@@ -816,116 +816,12 @@ class LocationController extends Controller
                     'id' => 6,
                     'name' => 'ULTRAFLEX HULL',
                     'address' => 'Jameson Street, Hull HU1 3DX, UK',
-                    'phone' => '0148 232 7874',
-                    'email' => 'hull@ultraflexgym.co.uk',
-                    'image' => '/images/locations/hull.jpg',
-                    'logo' => '/images/logos/hull.png',
+                    'phone' => '+44 1482 678 901',
+                    'image' => '/Images/hull/IMG (19) (5).jpg',
+                    'slug' => 'hull',
                     'hours' => [
-                        'monday' => '05:00 – 22:00',
-                        'tuesday' => '05:00 – 22:00',
-                        'wednesday' => '05:00 – 22:00',
-                        'thursday' => '05:00 – 22:00',
-                        'friday' => '05:00 – 22:00',
-                        'saturday' => '06:00 – 20:00',
-                        'sunday' => '06:00 – 20:00'
-                    ],
-                    'manager' => [
-                        'name' => 'Rebecca Taylor',
-                        'bio' => 'UltraFlex Hull offers great location and free parking for all our members. We provide top-quality equipment and excellent facilities with early opening times from 5 AM to accommodate all schedules in the heart of Hull.',
-                        'image' => '/images/managers/rebecca.jpg',
-                        'experience' => '9+ years experience'
-                    ],
-                    'membershipPlans' => [
-                        [
-                            'id' => 1,
-                            'name' => 'Day Pass',
-                            'price' => 12.50,
-                            'period' => 'day',
-                            'features' => ['Single Day Access', 'All Equipment Access', 'Changing Rooms', 'Free Parking'],
-                            'popular' => false
-                        ],
-                        [
-                            'id' => 2,
-                            'name' => 'Weekly Pass',
-                            'price' => 22.00,
-                            'period' => 'week',
-                            'features' => ['7 Days Access', 'All Equipment Access', 'All Facilities', 'Free Parking'],
-                            'popular' => false
-                        ],
-                        [
-                            'id' => 3,
-                            'name' => 'Monthly Pass',
-                            'price' => 45.00,
-                            'period' => 'month',
-                            'features' => ['30 Days Access', 'All Equipment Access', 'All Facilities', 'Group Classes'],
-                            'popular' => false
-                        ],
-                        [
-                            'id' => 4,
-                            'name' => 'Monthly Direct Debit',
-                            'price' => 41.00,
-                            'period' => 'month',
-                            'features' => ['12 Month Contract', 'All Equipment Access', 'All Facilities', 'Best Contract Value'],
-                            'popular' => true
-                        ],
-                        [
-                            'id' => 5,
-                            'name' => 'Rolling Monthly Direct Debit',
-                            'price' => 47.00,
-                            'period' => 'month',
-                            'features' => ['No Contract', 'Monthly Rolling', 'All Equipment Access', 'All Facilities', 'Flexibility'],
-                            'popular' => false
-                        ],
-                        [
-                            'id' => 6,
-                            'name' => '6 Month Pass',
-                            'price' => 230.00,
-                            'period' => '6 months',
-                            'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'All Facilities', 'Group Classes'],
-                            'popular' => false
-                        ],
-                        [
-                            'id' => 7,
-                            'name' => '12 Month Pass',
-                            'price' => 450.00,
-                            'period' => '12 months',
-                            'features' => ['12 Months Access', 'Payment in Full', 'All Equipment Access', 'All Facilities', 'Best Annual Value'],
-                            'popular' => false
-                        ]
-                    ],
-                    'reviews' => [
-                        [
-                            'id' => 1,
-                            'name' => 'Andrew Foster',
-                            'rating' => 5,
-                            'comment' => 'Perfect location in Hull with excellent free parking. The 5 AM opening is fantastic for my early morning routine before work!',
-                            'date' => '2025-06-26'
-                        ],
-                        [
-                            'id' => 2,
-                            'name' => 'Hannah Roberts',
-                            'rating' => 5,
-                            'comment' => 'Love the rolling monthly option - gives me flexibility without being locked into a long contract. Great facilities too!',
-                            'date' => '2025-06-24'
-                        ],
-                        [
-                            'id' => 3,
-                            'name' => 'Paul Morrison',
-                            'rating' => 5,
-                            'comment' => 'Great location in the city center. Easy to access and the early opening hours work perfectly with my schedule.',
-                            'date' => '2025-06-22'
-                        ],
-                        [
-                            'id' => 4,
-                            'name' => 'Lisa Chapman',
-                            'rating' => 5,
-                            'comment' => 'Excellent gym with top-quality equipment. The monthly direct debit on contract is great value and free parking is a huge plus.',
-                            'date' => '2025-06-20'
-                        ]
-                    ],
-                    'coordinates' => [
-                        'lat' => 53.7457,
-                        'lng' => -0.3367
+                        'weekdays' => '5:00 AM - 11:00 PM',
+                        'weekends' => '6:00 AM - 10:00 PM'
                     ]
                 ];
                 break;
@@ -935,124 +831,12 @@ class LocationController extends Controller
                     'id' => 7,
                     'name' => 'ULTRAFLEX DURHAM',
                     'address' => 'North Road, Durham DH1 4SQ, UK',
-                    'phone' => '01913898321',
-                    'email' => 'durham@ultraflexgym.co.uk',
-                    'image' => '/images/locations/durham.jpg',
-                    'logo' => '/images/logos/durham.png',
+                    'phone' => '+44 1913 789 012',
+                    'image' => '/Images/durham/8 Section MultiStation.jpg',
+                    'slug' => 'durham',
                     'hours' => [
-                        'monday' => '05:00 – 22:00',
-                        'tuesday' => '05:00 – 22:00',
-                        'wednesday' => '05:00 – 22:00',
-                        'thursday' => '05:00 – 22:00',
-                        'friday' => '05:00 – 22:00',
-                        'saturday' => '07:00 – 20:00',
-                        'sunday' => '07:00 – 20:00'
-                    ],
-                    'manager' => [
-                        'name' => 'Catherine Phillips',
-                        'bio' => 'UltraFlex Durham offers great location and free parking for all our members. We provide top-quality equipment and excellent facilities with early opening times from 5 AM to accommodate all schedules in Durham.',
-                        'image' => '/images/managers/catherine.jpg',
-                        'experience' => '14+ years experience'
-                    ],
-                    'membershipPlans' => [
-                        [
-                            'id' => 1,
-                            'name' => 'Day Pass',
-                            'price' => 12.00,
-                            'period' => 'day',
-                            'features' => ['Single Day Access', 'All Equipment Access', 'Changing Rooms', 'Free Parking'],
-                            'popular' => false
-                        ],
-                        [
-                            'id' => 2,
-                            'name' => 'Weekly Pass',
-                            'price' => 22.50,
-                            'period' => 'week',
-                            'features' => ['7 Days Access', 'All Equipment Access', 'All Facilities', 'Free Parking'],
-                            'popular' => false
-                        ],
-                        [
-                            'id' => 3,
-                            'name' => 'Monthly Pass',
-                            'price' => 50.00,
-                            'period' => 'month',
-                            'features' => ['30 Days Access', 'All Equipment Access', 'All Facilities', 'Group Classes'],
-                            'popular' => false
-                        ],
-                        [
-                            'id' => 4,
-                            'name' => 'Monthly Direct Debit',
-                            'price' => 45.00,
-                            'period' => 'month',
-                            'features' => ['Min 12 Month Contract', 'All Equipment Access', 'All Facilities', 'Best Value'],
-                            'popular' => true
-                        ],
-                        [
-                            'id' => 5,
-                            'name' => '6 Month Pass',
-                            'price' => 235.00,
-                            'period' => '6 months',
-                            'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'All Facilities', 'Group Classes'],
-                            'popular' => false
-                        ],
-                        [
-                            'id' => 6,
-                            'name' => '12 Month Pass',
-                            'price' => 405.00,
-                            'period' => '12 months',
-                            'features' => ['12 Months Access', 'Payment in Full', 'All Equipment Access', 'All Facilities', 'Best Annual Value'],
-                            'popular' => false
-                        ],
-                        [
-                            'id' => 7,
-                            'name' => 'Student 6 Month Pass',
-                            'price' => 200.00,
-                            'period' => '6 months',
-                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£200)', '£33.33 per month equivalent', 'All Equipment Access'],
-                            'popular' => false
-                        ],
-                        [
-                            'id' => 8,
-                            'name' => 'Student 9 Month Pass',
-                            'price' => 285.00,
-                            'period' => '9 months',
-                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£285)', '£31.67 per month equivalent', 'Best Student Value'],
-                            'popular' => false
-                        ]
-                    ],
-                    'reviews' => [
-                        [
-                            'id' => 1,
-                            'name' => 'Matthew Clarke',
-                            'rating' => 5,
-                            'comment' => 'Excellent location in Durham with great free parking. The 5 AM opening is perfect for my early morning workouts before university!',
-                            'date' => '2025-06-26'
-                        ],
-                        [
-                            'id' => 2,
-                            'name' => 'Jennifer Adams',
-                            'rating' => 5,
-                            'comment' => 'As a student, the 6-month pass is fantastic value - works out to just over £33 per month. Great facilities and equipment.',
-                            'date' => '2025-06-24'
-                        ],
-                        [
-                            'id' => 3,
-                            'name' => 'Daniel Foster',
-                            'rating' => 5,
-                            'comment' => 'Perfect location in Durham. Easy to access and the early opening hours work brilliantly with my schedule.',
-                            'date' => '2025-06-22'
-                        ],
-                        [
-                            'id' => 4,
-                            'name' => 'Sophie Williams',
-                            'rating' => 5,
-                            'comment' => 'Love this gym! The student options are really affordable and the staff are always helpful. Free parking is a huge bonus.',
-                            'date' => '2025-06-20'
-                        ]
-                    ],
-                    'coordinates' => [
-                        'lat' => 54.7761,
-                        'lng' => -1.5733
+                        'weekdays' => '5:00 AM - 11:00 PM',
+                        'weekends' => '6:00 AM - 10:00 PM'
                     ]
                 ];
                 break;

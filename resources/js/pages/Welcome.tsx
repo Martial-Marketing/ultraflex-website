@@ -25,11 +25,26 @@ interface WelcomeProps {
 }
 
 export default function Welcome({ auth }: WelcomeProps) {
-    // Sample data - replace with actual data from your backend
+    // Real UltraFlex locations data - showing top 3 locations
     const locations = [
-        { id: 1, name: "Downtown UltraFlex", address: "123 Main St, City Center", image: "/images/locations/downtown.jpg" },
-        { id: 2, name: "Westside UltraFlex", address: "456 West Ave, Westside", image: "/images/locations/westside.jpg" },
-        { id: 3, name: "North UltraFlex", address: "789 North Blvd, Uptown", image: "/images/locations/north.jpg" }
+        {
+            id: 1,
+            name: "ULTRAFLEX WEST LEEDS",
+            address: "West Park Ring Road, Leeds LS16 6EB, UK",
+            image: "/Images/westleeds/UFG (100) (2).jpg"
+        },
+        {
+            id: 2,
+            name: "ULTRAFLEX NORTH LEEDS",
+            address: "Limewood Centre, Limewood Avenue, Ring Road, Seacroft, Leeds LS14 1NH, UK",
+            image: "/Images/northleeds/DSC07392 (1).jpg"
+        },
+        {
+            id: 3,
+            name: "ULTRAFLEX NORMANTON",
+            address: "High Street, Normanton WF6 2DB, UK",
+            image: "/Images/normanton/IMG_(61) (1).jpg"
+        }
     ];
 
     const testimonials = [
