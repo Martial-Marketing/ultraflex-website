@@ -132,7 +132,7 @@ class LocationController extends Controller
                 'name' => 'ULTRAFLEX YORK',
                 'address' => 'Clifton Moor Centre, York YO30 4WR, UK',
                 'phone' => '+44 1904 567 890',
-                'image' => '/images/locations/york.jpg',
+                'image' => '/Images/york/ForGallery/DSC07349.jpg',
                 'slug' => 'york',
                 'hours' => [
                     'weekdays' => '5:00 AM - 11:00 PM',
@@ -168,7 +168,7 @@ class LocationController extends Controller
                 'name' => 'ULTRAFLEX DERBY',
                 'address' => 'St Peters Street, Derby DE1 2AB, UK',
                 'phone' => '+44 1332 890 123',
-                'image' => '/images/locations/derby.jpg',
+                'image' => '/Images/derby/ForGallery/DSC07346.jpg',
                 'slug' => 'derby',
                 'hours' => [
                     'weekdays' => '5:00 AM - 11:00 PM',
@@ -180,35 +180,35 @@ class LocationController extends Controller
                 'name' => 'ULTRAFLEX ATHENS (GREECE)',
                 'address' => 'Vouliagmenis Avenue, Glyfada 166 74, Greece',
                 'phone' => '+30 210 901 2345',
-                'image' => '/images/locations/athens.jpg',
+                'image' => '/Images/athens/HeroBG/DSC07413.jpg',
                 'slug' => 'athens-greece',
                 'hours' => [
-                    'weekdays' => '6:00 AM - 12:00 AM',
-                    'weekends' => '7:00 AM - 11:00 PM'
+                    'weekdays' => '6:00 AM - 11:00 PM',
+                    'weekends' => '7:00 AM - 10:00 PM'
                 ]
             ],
             [
                 'id' => 10,
                 'name' => 'ULTRAFLEX LINCOLN',
                 'address' => 'High Street, Lincoln LN5 7PJ, UK',
-                'phone' => '01522454320',
-                'image' => '/images/locations/lincoln.jpg',
+                'phone' => '+44 1522 012 345',
+                'image' => '/Images/lincoln/ForGallery/DSC07350.jpg',
                 'slug' => 'lincoln',
                 'hours' => [
-                    'weekdays' => '24/7 (Full Access) | 06:00 - 22:00 (Day Access)',
-                    'weekends' => '24/7 (Full Access) | 06:00 - 20:00 (Day Access)'
+                    'weekdays' => '5:00 AM - 11:00 PM',
+                    'weekends' => '6:00 AM - 10:00 PM'
                 ]
             ],
             [
                 'id' => 11,
                 'name' => 'ULTRAFLEX WEST LONDON',
                 'address' => 'Westfield Shopping Centre, London W12 7GF, UK',
-                'phone' => '01895 436 000',
-                'image' => '/images/locations/west-london.jpg',
+                'phone' => '+44 20 3456 7890',
+                'image' => '/Images/westlondon/DSC06653-2.jpg',
                 'slug' => 'west-london',
                 'hours' => [
-                    'weekdays' => '05:30 - 22:30',
-                    'weekends' => '08:00 - 20:00'
+                    'weekdays' => '5:30 AM - 11:00 PM',
+                    'weekends' => '6:00 AM - 10:00 PM'
                 ]
             ]
         ];
@@ -235,8 +235,18 @@ class LocationController extends Controller
                     'address' => 'West Park Ring Road, Leeds LS16 6EB, UK',
                     'phone' => '0113 256 5107',
                     'email' => 'leeds@ultraflexgym.co.uk',
-                    'image' => '/images/locations/west-leeds.jpg',
-                    'logo' => '/images/logos/west-leeds.png',
+                    'image' => '/Images/westleeds/UFG (100) (2).jpg',
+                    'gallery' => [
+                        '/Images/westleeds/UFG (100) (2).jpg',
+                        '/Images/westleeds/gallery-1.jpg',
+                        '/Images/westleeds/gallery-2.jpg',
+                        '/Images/westleeds/gallery-3.jpg',
+                        '/Images/westleeds/gallery-4.jpg',
+                        '/Images/westleeds/gallery-5.jpg',
+                        '/Images/westleeds/gallery-6.jpg',
+                        '/Images/westleeds/gallery-7.jpg'
+                    ],
+                    'slug' => 'west-leeds',
                     'hours' => [
                         'monday' => '06:00 – 22:00',
                         'tuesday' => '06:00 – 22:00',
@@ -262,8 +272,18 @@ class LocationController extends Controller
                     'address' => 'Limewood Centre, Limewood Avenue, Ring Road, Seacroft, Leeds LS14 1NH, UK',
                     'phone' => '0113 513 7669',
                     'email' => 'northleeds@ultraflexgym.co.uk',
-                    'image' => '/images/locations/north-leeds.jpg',
-                    'logo' => '/images/logos/north-leeds.png',
+                    'image' => '/Images/northleeds/DSC07392 (1).jpg',
+                    'gallery' => [
+                        '/Images/northleeds/DSC07392 (1).jpg',
+                        '/Images/northleeds/gallery-1.jpg',
+                        '/Images/northleeds/gallery-2.jpg',
+                        '/Images/northleeds/gallery-3.jpg',
+                        '/Images/northleeds/gallery-4.jpg',
+                        '/Images/northleeds/gallery-5.jpg',
+                        '/Images/northleeds/gallery-6.jpg',
+                        '/Images/northleeds/gallery-7.jpg'
+                    ],
+                    'slug' => 'north-leeds',
                     'hours' => [
                         'monday' => '06:00 – 22:00',
                         'tuesday' => '06:00 – 22:00',
@@ -373,8 +393,18 @@ class LocationController extends Controller
                     'address' => 'High Street, Normanton WF6 2DB, UK',
                     'phone' => '0192 489 5794',
                     'email' => 'normanton@ultraflexgym.co.uk',
-                    'image' => '/images/locations/normanton.jpg',
-                    'logo' => '/images/logos/normanton.png',
+                    'image' => '/Images/normanton/IMG_(61) (1).jpg',
+                    'gallery' => [
+                        '/Images/normanton/IMG_(61) (1).jpg',
+                        '/Images/normanton/gallery-1.jpg',
+                        '/Images/normanton/gallery-2.jpg',
+                        '/Images/normanton/gallery-3.jpg',
+                        '/Images/normanton/gallery-4.jpg',
+                        '/Images/normanton/gallery-5.jpg',
+                        '/Images/normanton/gallery-6.jpg',
+                        '/Images/normanton/gallery-7.jpg'
+                    ],
+                    'slug' => 'normanton',
                     'hours' => [
                         'monday' => '06:00 – 22:00',
                         'tuesday' => '06:00 – 22:00',
@@ -533,7 +563,7 @@ class LocationController extends Controller
                     'phone' => '0170 937 7311',
                     'email' => 'rotherham@ultraflexgym.co.uk',
                     'image' => '/Images/rotherham/IMG (19) (4).jpg',
-                    'logo' => '/images/logos/rotherham.png',
+                    'slug' => 'rotherham',
                     'hours' => [
                         'monday' => '05:00 – 22:00',
                         'tuesday' => '05:00 – 22:00',
@@ -675,8 +705,8 @@ class LocationController extends Controller
                     'address' => 'Clifton Moor Centre, York YO30 4WR, UK',
                     'phone' => '0190 462 3383',
                     'email' => 'york@ultraflexgym.co.uk',
-                    'image' => '/images/locations/york.jpg',
-                    'logo' => '/images/logos/york.png',
+                    'image' => '/Images/york/ForGallery/DSC07349.jpg',
+                    'slug' => 'york',
                     'hours' => [
                         'monday' => '06:00 – 22:00',
                         'tuesday' => '06:00 – 22:00',
@@ -817,11 +847,17 @@ class LocationController extends Controller
                     'name' => 'ULTRAFLEX HULL',
                     'address' => 'Jameson Street, Hull HU1 3DX, UK',
                     'phone' => '+44 1482 678 901',
+                    'email' => 'hull@ultraflexgym.co.uk',
                     'image' => '/Images/hull/IMG (19) (5).jpg',
                     'slug' => 'hull',
                     'hours' => [
-                        'weekdays' => '5:00 AM - 11:00 PM',
-                        'weekends' => '6:00 AM - 10:00 PM'
+                        'monday' => '05:00 – 22:00',
+                        'tuesday' => '05:00 – 22:00',
+                        'wednesday' => '05:00 – 22:00',
+                        'thursday' => '05:00 – 22:00',
+                        'friday' => '05:00 – 22:00',
+                        'saturday' => '06:00 – 20:00',
+                        'sunday' => '06:00 – 20:00'
                     ]
                 ];
                 break;
@@ -832,11 +868,17 @@ class LocationController extends Controller
                     'name' => 'ULTRAFLEX DURHAM',
                     'address' => 'North Road, Durham DH1 4SQ, UK',
                     'phone' => '+44 1913 789 012',
+                    'email' => 'durham@ultraflexgym.co.uk',
                     'image' => '/Images/durham/8 Section MultiStation.jpg',
                     'slug' => 'durham',
                     'hours' => [
-                        'weekdays' => '5:00 AM - 11:00 PM',
-                        'weekends' => '6:00 AM - 10:00 PM'
+                        'monday' => '05:00 – 22:00',
+                        'tuesday' => '05:00 – 22:00',
+                        'wednesday' => '05:00 – 22:00',
+                        'thursday' => '05:00 – 22:00',
+                        'friday' => '05:00 – 22:00',
+                        'saturday' => '06:00 – 20:00',
+                        'sunday' => '06:00 – 20:00'
                     ]
                 ];
                 break;
@@ -846,156 +888,28 @@ class LocationController extends Controller
                     'id' => 8,
                     'name' => 'ULTRAFLEX DERBY',
                     'address' => 'St Peters Street, Derby DE1 2AB, UK',
-                    'phone' => '07395616771',
+                    'phone' => '+44 1332 890 123',
                     'email' => 'derby@ultraflexgym.co.uk',
-                    'image' => '/images/locations/derby.jpg',
-                    'logo' => '/images/logos/derby.png',
+                    'image' => '/Images/derby/ForGallery/DSC07346.jpg',
+                    'gallery' => [
+                        '/Images/derby/ForGallery/DSC07346.jpg',
+                        '/Images/derby/ForGallery/gallery-1.jpg',
+                        '/Images/derby/ForGallery/gallery-2.jpg',
+                        '/Images/derby/ForGallery/gallery-3.jpg',
+                        '/Images/derby/ForGallery/gallery-4.jpg',
+                        '/Images/derby/ForGallery/gallery-5.jpg',
+                        '/Images/derby/ForGallery/gallery-6.jpg',
+                        '/Images/derby/ForGallery/gallery-7.jpg'
+                    ],
+                    'slug' => 'derby',
                     'hours' => [
                         'monday' => '05:00 – 22:00',
                         'tuesday' => '05:00 – 22:00',
                         'wednesday' => '05:00 – 22:00',
                         'thursday' => '05:00 – 22:00',
                         'friday' => '05:00 – 22:00',
-                        'saturday' => '07:00 – 20:00',
-                        'sunday' => '07:00 – 20:00'
-                    ],
-                    'manager' => [
-                        'name' => 'Marcus Thompson',
-                        'bio' => 'Welcome to UltraFlex Gym Derby! Our brand new facility is located in the heart of Derby and is your ultimate haven for sculpting, shaping and transforming your physique. UltraFlex Gym is designed to cater to fitness enthusiasts at all levels. We offer a state-of-the-art Powerlifting Area, Boxing Ring and MMA space.',
-                        'image' => '/images/managers/marcus.jpg',
-                        'experience' => '13+ years experience'
-                    ],
-                    'membershipPlans' => [
-                        [
-                            'id' => 1,
-                            'name' => 'Day Pass',
-                            'price' => 15.00,
-                            'period' => 'day',
-                            'features' => ['Single Day Access', 'GYM ONLY', 'State-of-the-art Equipment', 'Powerlifting Area'],
-                            'popular' => false
-                        ],
-                        [
-                            'id' => 2,
-                            'name' => 'Weekly Pass',
-                            'price' => 28.00,
-                            'period' => 'week',
-                            'features' => ['7 Days Access', 'GYM ONLY', 'All Gym Equipment', 'Powerlifting Area'],
-                            'popular' => false
-                        ],
-                        [
-                            'id' => 3,
-                            'name' => 'Monthly Pass',
-                            'price' => 57.50,
-                            'period' => 'month',
-                            'features' => ['30 Days Access', 'GYM ONLY', 'All Gym Equipment', 'Powerlifting Area'],
-                            'popular' => false
-                        ],
-                        [
-                            'id' => 4,
-                            'name' => 'Monthly Direct Debit',
-                            'price' => 54.00,
-                            'period' => 'month',
-                            'features' => ['Min 12 Month Contract', 'GYM ONLY', 'All Gym Equipment', 'Powerlifting Area', 'Best Gym Value'],
-                            'popular' => false
-                        ],
-                        [
-                            'id' => 5,
-                            'name' => 'Monthly Rolling',
-                            'price' => 49.99,
-                            'period' => 'month',
-                            'features' => ['No Contract', 'Monthly Rolling', 'GYM ONLY', 'All Gym Equipment', 'Flexibility'],
-                            'popular' => true
-                        ],
-                        [
-                            'id' => 6,
-                            'name' => '6 Month Pass',
-                            'price' => 295.00,
-                            'period' => '6 months',
-                            'features' => ['6 Months Access', 'Payment in Full', 'GYM ONLY', 'All Gym Equipment', 'Powerlifting Area'],
-                            'popular' => false
-                        ],
-                        [
-                            'id' => 7,
-                            'name' => '12 Month Pass',
-                            'price' => 530.00,
-                            'period' => '12 months',
-                            'features' => ['12 Months Access', 'Payment in Full', 'GYM ONLY', 'All Gym Equipment', 'Best Gym Annual Value'],
-                            'popular' => false
-                        ],
-                        [
-                            'id' => 8,
-                            'name' => 'Boxing, MMA & Gym Monthly Direct Debit',
-                            'price' => 65.00,
-                            'period' => 'month',
-                            'features' => ['Min 12 Month Contract', 'Boxing Ring Access', 'MMA Space Access', 'All Gym Equipment', 'Complete Access'],
-                            'popular' => false
-                        ],
-                        [
-                            'id' => 9,
-                            'name' => 'Boxing, MMA & Gym 6 Month Pass',
-                            'price' => 340.00,
-                            'period' => '6 months',
-                            'features' => ['6 Months Access', 'Payment in Full', 'Boxing Ring Access', 'MMA Space Access', 'All Gym Equipment'],
-                            'popular' => false
-                        ],
-                        [
-                            'id' => 10,
-                            'name' => 'Boxing, MMA & Gym 12 Month Pass',
-                            'price' => 605.00,
-                            'period' => '12 months',
-                            'features' => ['12 Months Access', 'Payment in Full', 'Boxing Ring Access', 'MMA Space Access', 'Best Complete Value'],
-                            'popular' => false
-                        ],
-                        [
-                            'id' => 11,
-                            'name' => 'Student & Blue Light Monthly Rolling',
-                            'price' => 47.00,
-                            'period' => 'month',
-                            'features' => ['Student/Blue Light Discount', 'Valid ID Required', 'No Contract', 'All Gym Equipment', 'Powerlifting Area'],
-                            'popular' => false
-                        ],
-                        [
-                            'id' => 12,
-                            'name' => 'Student & Blue Light Monthly Direct Debit',
-                            'price' => 42.50,
-                            'period' => 'month',
-                            'features' => ['Student/Blue Light Discount', 'Valid ID Required', '12 Month Contract', 'All Gym Equipment', 'Best Discount Value'],
-                            'popular' => false
-                        ]
-                    ],
-                    'reviews' => [
-                        [
-                            'id' => 1,
-                            'name' => 'Connor Walsh',
-                            'rating' => 5,
-                            'comment' => 'Brand new facility in Derby is absolutely incredible! The powerlifting area is state-of-the-art and the boxing ring is perfect for training.',
-                            'date' => '2025-06-26'
-                        ],
-                        [
-                            'id' => 2,
-                            'name' => 'Megan Foster',
-                            'rating' => 5,
-                            'comment' => 'Love the MMA space - finally a gym that caters to all fitness levels! The location in the heart of Derby is so convenient.',
-                            'date' => '2025-06-24'
-                        ],
-                        [
-                            'id' => 3,
-                            'name' => 'Jake Richardson',
-                            'rating' => 5,
-                            'comment' => 'This gym is designed perfectly for sculpting and transforming your physique. The equipment quality is outstanding!',
-                            'date' => '2025-06-22'
-                        ],
-                        [
-                            'id' => 4,
-                            'name' => 'Amy Collins',
-                            'rating' => 5,
-                            'comment' => 'As a student, the discount options are fantastic. Early opening at 5 AM is perfect for my schedule before lectures.',
-                            'date' => '2025-06-20'
-                        ]
-                    ],
-                    'coordinates' => [
-                        'lat' => 52.9225,
-                        'lng' => -1.4746
+                        'saturday' => '06:00 – 20:00',
+                        'sunday' => '06:00 – 20:00'
                     ]
                 ];
                 break;
@@ -1007,8 +921,17 @@ class LocationController extends Controller
                     'address' => 'Vouliagmenis Avenue, Glyfada 166 74, Greece',
                     'phone' => '+30 210 901 2345',
                     'email' => 'athens@ultraflexgym.co.uk',
-                    'image' => '/images/locations/athens.jpg',
-                    'logo' => '/images/logos/athens.png',
+                    'image' => '/Images/athens/HeroBG/DSC07413.jpg',
+                    'gallery' => [
+                        '/Images/athens/HeroBG/DSC07413.jpg',
+                        '/Images/athens/gallery-1.jpg',
+                        '/Images/athens/gallery-2.jpg',
+                        '/Images/athens/gallery-3.jpg',
+                        '/Images/athens/gallery-4.jpg',
+                        '/Images/athens/gallery-5.jpg',
+                        '/Images/athens/gallery-6.jpg',
+                        '/Images/athens/gallery-7.jpg'
+                    ],
                     'status' => 'UNDER DEVELOPMENT',
                     'hours' => [
                         'monday' => 'Opening Soon',
@@ -1111,10 +1034,10 @@ class LocationController extends Controller
                     'id' => 10,
                     'name' => 'ULTRAFLEX LINCOLN',
                     'address' => 'High Street, Lincoln LN5 7PJ, UK',
-                    'phone' => '01522454320',
+                    'phone' => '+44 1522 012 345',
                     'email' => 'lincoln@ultraflexgym.co.uk',
-                    'image' => '/images/locations/lincoln.jpg',
-                    'logo' => '/images/logos/lincoln.png',
+                    'image' => '/Images/lincoln/ForGallery/DSC07350.jpg',
+                    'slug' => 'lincoln',
                     'hours' => [
                         'monday' => '24/7 (Full Access) | 06:00 - 22:00 (Day Access)',
                         'tuesday' => '24/7 (Full Access) | 06:00 - 22:00 (Day Access)',
@@ -1206,10 +1129,10 @@ class LocationController extends Controller
                     'id' => 11,
                     'name' => 'ULTRAFLEX WEST LONDON',
                     'address' => 'Westfield Shopping Centre, London W12 7GF, UK',
-                    'phone' => '01895 436 000',
+                    'phone' => '+44 20 3456 7890',
                     'email' => 'westlondon@ultraflexgym.co.uk',
-                    'image' => '/images/locations/west-london.jpg',
-                    'logo' => '/images/logos/west-london.png',
+                    'image' => '/Images/westlondon/DSC06653-2.jpg',
+                    'slug' => 'west-london',
                     'hours' => [
                         'monday' => '05:30 – 22:30',
                         'tuesday' => '05:30 – 22:30',
@@ -1304,8 +1227,18 @@ class LocationController extends Controller
                     'address' => 'West Park Ring Road, Leeds LS16 6EB, UK',
                     'phone' => '0113 256 5107',
                     'email' => 'leeds@ultraflexgym.co.uk',
-                    'image' => '/images/locations/west-leeds.jpg',
-                    'logo' => '/images/logos/west-leeds.png',
+                    'image' => '/Images/westleeds/UFG (100) (2).jpg',
+                    'gallery' => [
+                        '/Images/westleeds/UFG (100) (2).jpg',
+                        '/Images/westleeds/gallery-1.jpg',
+                        '/Images/westleeds/gallery-2.jpg',
+                        '/Images/westleeds/gallery-3.jpg',
+                        '/Images/westleeds/gallery-4.jpg',
+                        '/Images/westleeds/gallery-5.jpg',
+                        '/Images/westleeds/gallery-6.jpg',
+                        '/Images/westleeds/gallery-7.jpg'
+                    ],
+                    'slug' => 'west-leeds',
                     'hours' => [
                         'monday' => '06:00 – 22:00',
                         'tuesday' => '06:00 – 22:00',

@@ -54,12 +54,12 @@ export default function Welcome({ auth }: WelcomeProps) {
     ];
 
     const galleryImages = [
-        "/images/gallery/gym-floor.jpg",
-        "/images/gallery/weights.jpg",
-        "/images/gallery/cardio.jpg",
-        "/images/gallery/yoga-class.jpg",
-        "/images/gallery/pool.jpg",
-        "/images/gallery/locker-room.jpg"
+        "/Images/westleeds/UFG (100) (2).jpg",
+        "/Images/northleeds/DSC07392 (1).jpg",
+        "/Images/normanton/IMG_(61) (1).jpg",
+        "/Images/rotherham/IMG (19) (4).jpg",
+        "/Images/york/ForGallery/DSC07349.jpg",
+        "/Images/hull/IMG (19) (5).jpg",
     ];
 
     const latestNews = [
