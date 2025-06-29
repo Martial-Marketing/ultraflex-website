@@ -196,7 +196,7 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                     </section>
 
                     {/* Quick Actions */}
-                    <section className="py-8 -mt-8 relative z-10">
+                    <section className="py-16 relative z-10">
                         <div className="container mx-auto px-6">
                             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                                 {quickActions.map((action, index) => {

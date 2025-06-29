@@ -237,14 +237,14 @@ class LocationController extends Controller
                     'email' => 'leeds@ultraflexgym.co.uk',
                     'image' => '/Images/westleeds/UFG (100) (2).jpg',
                     'gallery' => [
-                        '/Images/westleeds/UFG (100) (2).jpg',
-                        '/Images/westleeds/gallery-1.jpg',
-                        '/Images/westleeds/gallery-2.jpg',
-                        '/Images/westleeds/gallery-3.jpg',
-                        '/Images/westleeds/gallery-4.jpg',
-                        '/Images/westleeds/gallery-5.jpg',
-                        '/Images/westleeds/gallery-6.jpg',
-                        '/Images/westleeds/gallery-7.jpg'
+                        '/Images/westleeds/westleeds/ForGallery/DSC07341.jpg',
+                        '/Images/westleeds/westleeds/ForGallery/DSC07345.jpg',
+                        '/Images/westleeds/westleeds/ForGallery/DSC07346.jpg',
+                        '/Images/westleeds/westleeds/ForGallery/DSC07349.jpg',
+                        '/Images/westleeds/westleeds/ForGallery/DSC07350.jpg',
+                        '/Images/westleeds/westleeds/ForGallery/DSC07359 (1).jpg',
+                        '/Images/westleeds/westleeds/ForGallery/DSC07359.jpg',
+                        '/Images/westleeds/UFG (100) (2).jpg'
                     ],
                     'slug' => 'west-leeds',
                     'hours' => [
@@ -274,14 +274,14 @@ class LocationController extends Controller
                     'email' => 'northleeds@ultraflexgym.co.uk',
                     'image' => '/Images/northleeds/DSC07392 (1).jpg',
                     'gallery' => [
-                        '/Images/northleeds/DSC07392 (1).jpg',
-                        '/Images/northleeds/gallery-1.jpg',
-                        '/Images/northleeds/gallery-2.jpg',
-                        '/Images/northleeds/gallery-3.jpg',
-                        '/Images/northleeds/gallery-4.jpg',
-                        '/Images/northleeds/gallery-5.jpg',
-                        '/Images/northleeds/gallery-6.jpg',
-                        '/Images/northleeds/gallery-7.jpg'
+                        '/Images/northleeds/northleeds/ForGallery/DSC07341.jpg',
+                        '/Images/northleeds/northleeds/ForGallery/DSC07345.jpg',
+                        '/Images/northleeds/northleeds/ForGallery/DSC07346.jpg',
+                        '/Images/northleeds/northleeds/ForGallery/DSC07349.jpg',
+                        '/Images/northleeds/northleeds/ForGallery/DSC07350.jpg',
+                        '/Images/northleeds/northleeds/ForGallery/DSC07359 (1).jpg',
+                        '/Images/northleeds/northleeds/ForGallery/DSC07359.jpg',
+                        '/Images/northleeds/DSC07392 (1).jpg'
                     ],
                     'slug' => 'north-leeds',
                     'hours' => [
@@ -395,14 +395,14 @@ class LocationController extends Controller
                     'email' => 'normanton@ultraflexgym.co.uk',
                     'image' => '/Images/normanton/IMG_(61) (1).jpg',
                     'gallery' => [
-                        '/Images/normanton/IMG_(61) (1).jpg',
-                        '/Images/normanton/gallery-1.jpg',
-                        '/Images/normanton/gallery-2.jpg',
-                        '/Images/normanton/gallery-3.jpg',
-                        '/Images/normanton/gallery-4.jpg',
-                        '/Images/normanton/gallery-5.jpg',
-                        '/Images/normanton/gallery-6.jpg',
-                        '/Images/normanton/gallery-7.jpg'
+                        '/Images/normanton/normanton/ForGallery/DSC07341.jpg',
+                        '/Images/normanton/normanton/ForGallery/DSC07345.jpg',
+                        '/Images/normanton/normanton/ForGallery/DSC07346.jpg',
+                        '/Images/normanton/normanton/ForGallery/DSC07349.jpg',
+                        '/Images/normanton/normanton/ForGallery/DSC07350.jpg',
+                        '/Images/normanton/normanton/ForGallery/DSC07359 (1).jpg',
+                        '/Images/normanton/normanton/ForGallery/DSC07359.jpg',
+                        '/Images/normanton/IMG_(61) (1).jpg'
                     ],
                     'slug' => 'normanton',
                     'hours' => [
@@ -563,6 +563,16 @@ class LocationController extends Controller
                     'phone' => '0170 937 7311',
                     'email' => 'rotherham@ultraflexgym.co.uk',
                     'image' => '/Images/rotherham/IMG (19) (4).jpg',
+                    'gallery' => [
+                        '/Images/rotherham/rotherham/ForGallery/DSC07341.jpg',
+                        '/Images/rotherham/rotherham/ForGallery/DSC07345.jpg',
+                        '/Images/rotherham/rotherham/ForGallery/DSC07346.jpg',
+                        '/Images/rotherham/rotherham/ForGallery/DSC07349.jpg',
+                        '/Images/rotherham/rotherham/ForGallery/DSC07350.jpg',
+                        '/Images/rotherham/rotherham/ForGallery/DSC07359 (1).jpg',
+                        '/Images/rotherham/rotherham/ForGallery/DSC07359.jpg',
+                        '/Images/rotherham/IMG (19) (4).jpg'
+                    ],
                     'slug' => 'rotherham',
                     'hours' => [
                         'monday' => '05:00 – 22:00',
@@ -703,9 +713,18 @@ class LocationController extends Controller
                     'id' => 5,
                     'name' => 'ULTRAFLEX YORK',
                     'address' => 'Clifton Moor Centre, York YO30 4WR, UK',
-                    'phone' => '0190 462 3383',
+                    'phone' => '+44 1904 567 890',
                     'email' => 'york@ultraflexgym.co.uk',
                     'image' => '/Images/york/ForGallery/DSC07349.jpg',
+                    'gallery' => [
+                        '/Images/york/ForGallery/DSC07341.jpg',
+                        '/Images/york/ForGallery/DSC07345.jpg',
+                        '/Images/york/ForGallery/DSC07346.jpg',
+                        '/Images/york/ForGallery/DSC07349.jpg',
+                        '/Images/york/ForGallery/DSC07350.jpg',
+                        '/Images/york/ForGallery/DSC07359 (1).jpg',
+                        '/Images/york/ForGallery/DSC07359.jpg'
+                    ],
                     'slug' => 'york',
                     'hours' => [
                         'monday' => '06:00 – 22:00',
@@ -849,6 +868,16 @@ class LocationController extends Controller
                     'phone' => '+44 1482 678 901',
                     'email' => 'hull@ultraflexgym.co.uk',
                     'image' => '/Images/hull/IMG (19) (5).jpg',
+                    'gallery' => [
+                        '/Images/hull/hull/ForGallery/DSC07341.jpg',
+                        '/Images/hull/hull/ForGallery/DSC07345.jpg',
+                        '/Images/hull/hull/ForGallery/DSC07346.jpg',
+                        '/Images/hull/hull/ForGallery/DSC07349.jpg',
+                        '/Images/hull/hull/ForGallery/DSC07350.jpg',
+                        '/Images/hull/hull/ForGallery/DSC07359 (1).jpg',
+                        '/Images/hull/hull/ForGallery/DSC07359.jpg',
+                        '/Images/hull/IMG (19) (5).jpg'
+                    ],
                     'slug' => 'hull',
                     'hours' => [
                         'monday' => '05:00 – 22:00',
@@ -870,6 +899,16 @@ class LocationController extends Controller
                     'phone' => '+44 1913 789 012',
                     'email' => 'durham@ultraflexgym.co.uk',
                     'image' => '/Images/durham/8 Section MultiStation.jpg',
+                    'gallery' => [
+                        '/Images/durham/durham/ForGallery/DSC07341.jpg',
+                        '/Images/durham/durham/ForGallery/DSC07345.jpg',
+                        '/Images/durham/durham/ForGallery/DSC07346.jpg',
+                        '/Images/durham/durham/ForGallery/DSC07349.jpg',
+                        '/Images/durham/durham/ForGallery/DSC07350.jpg',
+                        '/Images/durham/durham/ForGallery/DSC07359 (1).jpg',
+                        '/Images/durham/durham/ForGallery/DSC07359.jpg',
+                        '/Images/durham/8 Section MultiStation.jpg'
+                    ],
                     'slug' => 'durham',
                     'hours' => [
                         'monday' => '05:00 – 22:00',
@@ -892,14 +931,13 @@ class LocationController extends Controller
                     'email' => 'derby@ultraflexgym.co.uk',
                     'image' => '/Images/derby/ForGallery/DSC07346.jpg',
                     'gallery' => [
+                        '/Images/derby/ForGallery/DSC07341.jpg',
+                        '/Images/derby/ForGallery/DSC07345.jpg',
                         '/Images/derby/ForGallery/DSC07346.jpg',
-                        '/Images/derby/ForGallery/gallery-1.jpg',
-                        '/Images/derby/ForGallery/gallery-2.jpg',
-                        '/Images/derby/ForGallery/gallery-3.jpg',
-                        '/Images/derby/ForGallery/gallery-4.jpg',
-                        '/Images/derby/ForGallery/gallery-5.jpg',
-                        '/Images/derby/ForGallery/gallery-6.jpg',
-                        '/Images/derby/ForGallery/gallery-7.jpg'
+                        '/Images/derby/ForGallery/DSC07349.jpg',
+                        '/Images/derby/ForGallery/DSC07350.jpg',
+                        '/Images/derby/ForGallery/DSC07359 (1).jpg',
+                        '/Images/derby/ForGallery/DSC07359.jpg'
                     ],
                     'slug' => 'derby',
                     'hours' => [
@@ -913,7 +951,7 @@ class LocationController extends Controller
                     ]
                 ];
                 break;
-                
+
             case 'athens-greece':
                 $locationData = [
                     'id' => 9,
@@ -923,24 +961,24 @@ class LocationController extends Controller
                     'email' => 'athens@ultraflexgym.co.uk',
                     'image' => '/Images/athens/HeroBG/DSC07413.jpg',
                     'gallery' => [
-                        '/Images/athens/HeroBG/DSC07413.jpg',
-                        '/Images/athens/gallery-1.jpg',
-                        '/Images/athens/gallery-2.jpg',
-                        '/Images/athens/gallery-3.jpg',
-                        '/Images/athens/gallery-4.jpg',
-                        '/Images/athens/gallery-5.jpg',
-                        '/Images/athens/gallery-6.jpg',
-                        '/Images/athens/gallery-7.jpg'
+                        '/Images/athens/ForGallery/DSC07341.jpg',
+                        '/Images/athens/ForGallery/DSC07345.jpg',
+                        '/Images/athens/ForGallery/DSC07346.jpg',
+                        '/Images/athens/ForGallery/DSC07349.jpg',
+                        '/Images/athens/ForGallery/DSC07350.jpg',
+                        '/Images/athens/ForGallery/DSC07359 (1).jpg',
+                        '/Images/athens/ForGallery/DSC07359.jpg',
+                        '/Images/athens/HeroBG/DSC07413.jpg'
                     ],
-                    'status' => 'UNDER DEVELOPMENT',
+                    'slug' => 'athens-greece',
                     'hours' => [
-                        'monday' => 'Opening Soon',
-                        'tuesday' => 'Opening Soon',
-                        'wednesday' => 'Opening Soon',
-                        'thursday' => 'Opening Soon',
-                        'friday' => 'Opening Soon',
-                        'saturday' => 'Opening Soon',
-                        'sunday' => 'Opening Soon'
+                        'monday' => '6:00 AM - 11:00 PM',
+                        'tuesday' => '6:00 AM - 11:00 PM',
+                        'wednesday' => '6:00 AM - 11:00 PM',
+                        'thursday' => '6:00 AM - 11:00 PM',
+                        'friday' => '6:00 AM - 11:00 PM',
+                        'saturday' => '7:00 AM - 10:00 PM',
+                        'sunday' => '7:00 AM - 10:00 PM'
                     ],
                     'manager' => [
                         'name' => 'Dimitris Papadopoulos',
@@ -1037,6 +1075,15 @@ class LocationController extends Controller
                     'phone' => '+44 1522 012 345',
                     'email' => 'lincoln@ultraflexgym.co.uk',
                     'image' => '/Images/lincoln/ForGallery/DSC07350.jpg',
+                    'gallery' => [
+                        '/Images/lincoln/ForGallery/DSC07341.jpg',
+                        '/Images/lincoln/ForGallery/DSC07345.jpg',
+                        '/Images/lincoln/ForGallery/DSC07346.jpg',
+                        '/Images/lincoln/ForGallery/DSC07349.jpg',
+                        '/Images/lincoln/ForGallery/DSC07350.jpg',
+                        '/Images/lincoln/ForGallery/DSC07359 (1).jpg',
+                        '/Images/lincoln/ForGallery/DSC07359.jpg'
+                    ],
                     'slug' => 'lincoln',
                     'hours' => [
                         'monday' => '24/7 (Full Access) | 06:00 - 22:00 (Day Access)',
@@ -1132,6 +1179,15 @@ class LocationController extends Controller
                     'phone' => '+44 20 3456 7890',
                     'email' => 'westlondon@ultraflexgym.co.uk',
                     'image' => '/Images/westlondon/DSC06653-2.jpg',
+                    'gallery' => [
+                        '/Images/westlondon/DSC06653-2.jpg',
+                        '/Images/westlondon/DSC06686.jpg',
+                        '/Images/westlondon/DSC06788-2.jpg',
+                        '/Images/westlondon/DSC07359 (1).jpg',
+                        '/Images/westlondon/DSC07359.jpg',
+                        '/Images/westlondon/DSC07371.jpg',
+                        '/Images/westlondon/DSC07372.jpg'
+                    ],
                     'slug' => 'west-london',
                     'hours' => [
                         'monday' => '05:30 – 22:30',
@@ -1229,14 +1285,14 @@ class LocationController extends Controller
                     'email' => 'leeds@ultraflexgym.co.uk',
                     'image' => '/Images/westleeds/UFG (100) (2).jpg',
                     'gallery' => [
-                        '/Images/westleeds/UFG (100) (2).jpg',
-                        '/Images/westleeds/gallery-1.jpg',
-                        '/Images/westleeds/gallery-2.jpg',
-                        '/Images/westleeds/gallery-3.jpg',
-                        '/Images/westleeds/gallery-4.jpg',
-                        '/Images/westleeds/gallery-5.jpg',
-                        '/Images/westleeds/gallery-6.jpg',
-                        '/Images/westleeds/gallery-7.jpg'
+                        '/Images/westleeds/westleeds/ForGallery/DSC07341.jpg',
+                        '/Images/westleeds/westleeds/ForGallery/DSC07345.jpg',
+                        '/Images/westleeds/westleeds/ForGallery/DSC07346.jpg',
+                        '/Images/westleeds/westleeds/ForGallery/DSC07349.jpg',
+                        '/Images/westleeds/westleeds/ForGallery/DSC07350.jpg',
+                        '/Images/westleeds/westleeds/ForGallery/DSC07359 (1).jpg',
+                        '/Images/westleeds/westleeds/ForGallery/DSC07359.jpg',
+                        '/Images/westleeds/UFG (100) (2).jpg'
                     ],
                     'slug' => 'west-leeds',
                     'hours' => [

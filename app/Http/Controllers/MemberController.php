@@ -47,7 +47,7 @@ class MemberController extends Controller
                 [
                     'id' => 1,
                     'title' => 'Full Body HIIT',
-                    'image' => '/images/workouts/hiit.jpg',
+                    'image' => 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=400&fit=crop&crop=center',
                     'duration' => '30 min',
                     'difficulty' => 'Intermediate',
                     'type' => 'HIIT'
@@ -55,7 +55,7 @@ class MemberController extends Controller
                 [
                     'id' => 2,
                     'title' => 'Strength Training Basics',
-                    'image' => '/images/workouts/strength.jpg',
+                    'image' => 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=500&h=400&fit=crop&crop=center',
                     'duration' => '45 min',
                     'difficulty' => 'Beginner',
                     'type' => 'Strength'
@@ -65,7 +65,7 @@ class MemberController extends Controller
                 [
                     'id' => 1,
                     'title' => 'Post-Workout Protein Bowl',
-                    'image' => '/images/nutrition/protein-bowl.jpg',
+                    'image' => 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=500&h=400&fit=crop&crop=center',
                     'prepTime' => '15 min',
                     'calories' => 350,
                     'goal' => 'Muscle Gain'
@@ -73,7 +73,7 @@ class MemberController extends Controller
                 [
                     'id' => 2,
                     'title' => 'Green Energy Smoothie',
-                    'image' => '/images/nutrition/green-smoothie.jpg',
+                    'image' => 'https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=500&h=400&fit=crop&crop=center',
                     'prepTime' => '5 min',
                     'calories' => 180,
                     'goal' => 'Energy Boost'

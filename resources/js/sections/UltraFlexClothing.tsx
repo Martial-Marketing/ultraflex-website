@@ -1,7 +1,51 @@
 import { Button } from '@/components/ui/button';
-import { Shirt, Star } from 'lucide-react';
+import { Shirt, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState } from 'react';
 
 export default function UltraFlexClothing() {
+    // Carousel state
+    const [currentIndex, setCurrentIndex] = useState(0);
+    
+    // Image data
+    const images = [
+        {
+            src: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center",
+            alt: "UltraFlex Shirt",
+            title: "Performance Shirts",
+            price: "From $29.99"
+        },
+        {
+            src: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop&crop=center",
+            alt: "UltraFlex Shorts",
+            title: "Training Shorts",
+            price: "From $24.99"
+        },
+        {
+            src: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop&crop=center",
+            alt: "UltraFlex Hoodie",
+            title: "Premium Hoodies",
+            price: "From $49.99"
+        },
+        {
+            src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&crop=center",
+            alt: "UltraFlex Leggings",
+            title: "Athletic Leggings",
+            price: "From $34.99"
+        }
+    ];
+
+    const nextSlide = () => {
+        setCurrentIndex((prevIndex) => 
+            prevIndex + 2 >= images.length ? 0 : prevIndex + 2
+        );
+    };
+
+    const prevSlide = () => {
+        setCurrentIndex((prevIndex) => 
+            prevIndex === 0 ? Math.max(images.length - 2, 0) : prevIndex - 2
+        );
+    };
+
     return (
         <section className="py-20 bg-transparent text-white relative overflow-hidden">
             {/* Animated particles overlay */}
@@ -63,78 +107,66 @@ export default function UltraFlexClothing() {
                         </Button>
                     </div>
 
-                    {/* Enhanced image grid with hover effects */}
-                    <div className="grid grid-cols-2 gap-4">
-                        <div className="group relative overflow-hidden rounded-lg">
-                            <img 
-                                src="/images/clothing/shirt.jpg" 
-                                alt="UltraFlex Shirt" 
-                                className="rounded-lg w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" 
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
-                            <div className="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <h3 className="font-semibold">Performance Shirts</h3>
-                                <p className="text-sm text-gray-300">From $29.99</p>
-                            </div>
-                            <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <div className="w-8 h-8 bg-red-700/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-red-700/30">
-                                    <Shirt className="h-4 w-4 text-red-700" />
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="group relative overflow-hidden rounded-lg">
-                            <img 
-                                src="/images/clothing/shorts.jpg" 
-                                alt="UltraFlex Shorts" 
-                                className="rounded-lg w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" 
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
-                            <div className="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <h3 className="font-semibold">Training Shorts</h3>
-                                <p className="text-sm text-gray-300">From $24.99</p>
-                            </div>
-                            <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <div className="w-8 h-8 bg-red-700/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-red-700/30">
-                                    <Shirt className="h-4 w-4 text-red-700" />
-                                </div>
+                    {/* Carousel Section */}
+                    <div className="relative">
+                        {/* Carousel Container */}
+                        <div className="overflow-hidden rounded-lg">
+                            <div 
+                                className="flex transition-transform duration-500 ease-in-out"
+                                style={{ transform: `translateX(-${currentIndex * 50}%)` }}
+                            >
+                                {images.map((image, index) => (
+                                    <div key={index} className="w-1/2 flex-shrink-0 px-2">
+                                        <div className="group relative overflow-hidden rounded-lg h-64">
+                                            <img 
+                                                src={image.src}
+                                                alt={image.alt}
+                                                className="rounded-lg w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" 
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
+                                            <div className="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                                <h3 className="font-semibold">{image.title}</h3>
+                                                <p className="text-sm text-gray-300">{image.price}</p>
+                                            </div>
+                                            <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                                <div className="w-8 h-8 bg-red-700/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-red-700/30">
+                                                    <Shirt className="h-4 w-4 text-red-700" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                         </div>
 
-                        <div className="group relative overflow-hidden rounded-lg">
-                            <img 
-                                src="/images/clothing/hoodie.jpg" 
-                                alt="UltraFlex Hoodie" 
-                                className="rounded-lg w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" 
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
-                            <div className="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <h3 className="font-semibold">Premium Hoodies</h3>
-                                <p className="text-sm text-gray-300">From $49.99</p>
-                            </div>
-                            <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <div className="w-8 h-8 bg-red-700/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-red-700/30">
-                                    <Shirt className="h-4 w-4 text-red-700" />
-                                </div>
-                            </div>
-                        </div>
+                        {/* Navigation Buttons */}
+                        <button
+                            onClick={prevSlide}
+                            className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/70 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 group border border-white/20 hover:border-red-700/50"
+                        >
+                            <ChevronLeft className="h-5 w-5 text-white group-hover:text-red-700 transition-colors" />
+                        </button>
+                        
+                        <button
+                            onClick={nextSlide}
+                            className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/70 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 group border border-white/20 hover:border-red-700/50"
+                        >
+                            <ChevronRight className="h-5 w-5 text-white group-hover:text-red-700 transition-colors" />
+                        </button>
 
-                        <div className="group relative overflow-hidden rounded-lg">
-                            <img 
-                                src="/images/clothing/leggings.jpg" 
-                                alt="UltraFlex Leggings" 
-                                className="rounded-lg w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" 
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
-                            <div className="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <h3 className="font-semibold">Athletic Leggings</h3>
-                                <p className="text-sm text-gray-300">From $34.99</p>
-                            </div>
-                            <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <div className="w-8 h-8 bg-red-700/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-red-700/30">
-                                    <Shirt className="h-4 w-4 text-red-700" />
-                                </div>
-                            </div>
+                        {/* Dots Indicator */}
+                        <div className="flex justify-center mt-4 space-x-2">
+                            {Array.from({ length: Math.ceil(images.length / 2) }, (_, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => setCurrentIndex(index * 2)}
+                                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                                        currentIndex === index * 2 
+                                            ? 'bg-red-700 w-6' 
+                                            : 'bg-white/30 hover:bg-white/50'
+                                    }`}
+                                />
+                            ))}
                         </div>
                     </div>
                 </div>

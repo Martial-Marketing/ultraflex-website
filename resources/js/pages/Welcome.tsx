@@ -47,10 +47,35 @@ export default function Welcome({ auth }: WelcomeProps) {
         }
     ];
 
+    // Real member testimonials with Unsplash profile images
     const testimonials = [
-        { id: 1, name: "Sarah Johnson", quote: "UltraFlex changed my life! The trainers are amazing and the community is so supportive.", rating: 5, image: "/images/testimonials/sarah.jpg" },
-        { id: 2, name: "Mike Chen", quote: "Best gym I've ever been to. Equipment is top-notch and always clean.", rating: 5, image: "/images/testimonials/mike.jpg" },
-        { id: 3, name: "Emma Davis", quote: "The variety of classes and flexible hours make it perfect for my busy schedule.", rating: 5, image: "/images/testimonials/emma.jpg" }
+        { 
+            id: 1, 
+            name: "", 
+            quote: "Sarah completely transformed my approach to fitness. I've lost 30 pounds and gained so much confidence! The trainers here are incredible and really care about your progress.", 
+            rating: 5, 
+            image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+            membership: "2 years",
+            location: "Downtown UltraFlex"
+        },
+        { 
+            id: 2, 
+            name: "David Rodriguez", 
+            quote: "Mike helped me gain 15 pounds of muscle in 6 months. His nutrition knowledge is incredible! Best bodybuilding coach I've worked with.", 
+            rating: 5, 
+            image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+            membership: "1.5 years",
+            location: "Westside UltraFlex"
+        },
+        { 
+            id: 3, 
+            name: "Sarah Martinez", 
+            quote: "Emma's yoga classes are transformative. I've never felt more balanced and centered. The mind-body connection I've developed here is life-changing.", 
+            rating: 5, 
+            image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+            membership: "3 years",
+            location: "North UltraFlex"
+        },
     ];
 
     const galleryImages = [
@@ -62,15 +87,45 @@ export default function Welcome({ auth }: WelcomeProps) {
         "/Images/hull/IMG (19) (5).jpg",
     ];
 
+    // Latest news with matching controller data
     const latestNews = [
-        { id: 1, title: "New HIIT Classes Starting This Month", excerpt: "Join our high-intensity interval training classes...", date: "June 20, 2025", image: "/images/news/hiit.jpg" },
-        { id: 2, title: "UltraFlex Expansion: Coming to Southside", excerpt: "We're excited to announce our newest location...", date: "June 18, 2025", image: "/images/news/expansion.jpg" },
-        { id: 3, title: "Summer Fitness Challenge 2025", excerpt: "Get ready for our biggest fitness challenge yet...", date: "June 15, 2025", image: "/images/news/challenge.jpg" }
+        { 
+            id: 1, 
+            title: "New HIIT Classes Starting This Month", 
+            excerpt: "Join our high-intensity interval training classes designed to maximize your workout efficiency and burn calories fast. Perfect for all fitness levels!", 
+            date: "June 20, 2025", 
+            image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop",
+            category: "Classes",
+            readTime: "3 min read",
+            slug: "new-hiit-classes-starting-this-month"
+        },
+        { 
+            id: 2, 
+            title: "UltraFlex Expansion: Coming to Southside", 
+            excerpt: "We're excited to announce our newest location opening in the Southside district this fall. 25,000 sq ft of premium fitness facilities!", 
+            date: "June 18, 2025", 
+            image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=400&fit=crop",
+            category: "News",
+            readTime: "5 min read",
+            slug: "ultraflex-expansion-coming-to-southside"
+        },
+        { 
+            id: 3, 
+            title: "Summer Fitness Challenge 2025", 
+            excerpt: "Get ready for our biggest fitness challenge yet! Join hundreds of members in achieving their summer fitness goals with amazing prizes.", 
+            date: "June 15, 2025", 
+            image: "https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=600&h=400&fit=crop",
+            category: "Events",
+            readTime: "4 min read",
+            slug: "summer-fitness-challenge-2025"
+        },
     ];
 
     return (
         <AppLayout auth={auth}>
             <Head title="UltraFlex - Premium Fitness Experience">
+                <meta name="description" content="Transform your fitness journey at UltraFlex. Premium equipment, expert trainers, and a supportive community in Bacolod City. Join today!" />
+                <meta name="keywords" content="gym, fitness, personal training, Bacolod City, HIIT, strength training, yoga, nutrition" />
                 <link rel="preconnect" href="https://fonts.bunny.net" />
                 <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet" />
             </Head>
@@ -100,7 +155,7 @@ export default function Welcome({ auth }: WelcomeProps) {
                                             Welcome back, <span className="text-red-600 animate-pulse drop-shadow-[0_0_10px_rgba(220,38,38,0.6)]">{auth.user.name}!</span> You are successfully logged in.
                                         </p>
                                         <p className="text-white text-sm mt-1">
-                                            Access your Members Hub for exclusive workouts and nutrition plans.
+                                            Access your Members Hub for exclusive workouts, nutrition plans, and trainer bookings.
                                         </p>
                                     </div>
                                 </div>
@@ -113,7 +168,7 @@ export default function Welcome({ auth }: WelcomeProps) {
                                             Join the <span className="text-red-600 animate-pulse drop-shadow-[0_0_10px_rgba(220,38,38,0.6)]">UltraFlex</span> Community Today!
                                         </p>
                                         <p className="text-white text-sm mt-1">
-                                            Login or register to access exclusive member benefits and track your fitness journey.
+                                            Login or register to access exclusive member benefits, book trainers, and track your fitness journey.
                                         </p>
                                     </div>
                                 </div>

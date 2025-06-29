@@ -157,7 +157,7 @@ export default function NutritionIndex({ auth, recipes }: NutritionIndexProps) {
 
     const nutritionStats = [
         { label: 'Recipes Tried', value: '28', color: 'bg-red-700/20', textColor: 'text-red-700' },
-        { label: 'Meal Plans', value: '6', color: 'bg-green-700/20', textColor: 'text-green-400' },
+        { label: 'Meal Plans', value: '6', color: 'bg-red-700/20', textColor: 'text-red-400' },
         { label: 'Avg Calories/Day', value: '2,100', color: 'bg-purple-700/20', textColor: 'text-purple-400' },
         { label: 'Protein Goal', value: '85%', color: 'bg-yellow-700/20', textColor: 'text-yellow-400' },
     ];
@@ -177,7 +177,7 @@ export default function NutritionIndex({ auth, recipes }: NutritionIndexProps) {
                 
                 <div className="relative z-10">
                     {/* Header */}
-                    <section className="bg-gradient-to-r from-green-900/80 to-green-700/80 py-16 backdrop-blur-sm relative overflow-hidden">
+                    <section className="bg-gradient-to-r from-red-900/80 to-red-700/80 py-16 backdrop-blur-sm relative overflow-hidden">
                         <div className="absolute inset-0 overflow-hidden pointer-events-none">
                             {Array.from({ length: 15 }, (_, i) => (
                                 <div
@@ -196,7 +196,7 @@ export default function NutritionIndex({ auth, recipes }: NutritionIndexProps) {
                         <div className="container mx-auto px-6 relative z-10">
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center space-x-6">
-                                    <div className="w-16 h-16 rounded-full overflow-hidden bg-green-700/20 backdrop-blur-sm flex items-center justify-center border border-green-700/30">
+                                    <div className="w-16 h-16 rounded-full overflow-hidden bg-red-700/20 backdrop-blur-sm flex items-center justify-center border border-red-700/30">
                                         <span className="text-white text-xl font-bold">N</span>
                                     </div>
                                     <div className="text-white">
@@ -208,7 +208,7 @@ export default function NutritionIndex({ auth, recipes }: NutritionIndexProps) {
                                 </div>
                                 <div className="flex items-center space-x-4">
                                     <Link href="/members">
-                                        <Button variant="outline" className="border-white/50 bg-white/90 text-black hover:text-green-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
+                                        <Button variant="outline" className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
                                             <span className="group-hover:translate-x-1 transition-transform duration-300">
                                                 Back to Hub
                                             </span>
@@ -225,14 +225,14 @@ export default function NutritionIndex({ auth, recipes }: NutritionIndexProps) {
                             <h2 className="text-3xl font-bold text-white mb-8">Nutrition Categories</h2>
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {nutritionCategories.map((category, index) => (
-                                    <Card key={index} className="hover:shadow-2xl hover:shadow-green-700/10 transition-all duration-300 hover:-translate-y-1 cursor-pointer bg-black/40 backdrop-blur-md border border-white/10 hover:border-green-700/30 group">
+                                    <Card key={index} className="hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 hover:-translate-y-1 cursor-pointer bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 group">
                                         <CardContent className="p-6 text-center">
                                             <div className={`w-16 h-16 ${category.color} rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg transform group-hover:scale-110 transition-all duration-300`}>
                                                 <span className="text-white text-xl font-bold">
                                                     {category.name.charAt(0)}
                                                 </span>
                                             </div>
-                                            <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-green-700 transition-colors duration-300">
+                                            <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">
                                                 {category.name}
                                             </h3>
                                             <p className="text-gray-300 text-sm mb-2">
@@ -241,7 +241,7 @@ export default function NutritionIndex({ auth, recipes }: NutritionIndexProps) {
                                             <p className="text-gray-400 text-xs mb-4">
                                                 {category.count} recipes available
                                             </p>
-                                            <Button className="w-full bg-gradient-to-r from-green-700 to-green-800 hover:from-green-600 hover:to-green-700 transition-all duration-300 group">
+                                            <Button className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group">
                                                 <span className="group-hover:translate-x-1 transition-transform duration-300">
                                                     Browse {category.name}
                                                 </span>
@@ -259,7 +259,7 @@ export default function NutritionIndex({ auth, recipes }: NutritionIndexProps) {
                             <h2 className="text-3xl font-bold text-white mb-8">Featured Recipes</h2>
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                                 {featuredRecipes.map((recipe) => (
-                                    <Card key={recipe.id} className="overflow-hidden hover:shadow-2xl hover:shadow-green-700/10 transition-all duration-300 bg-black/40 backdrop-blur-md border border-white/10 hover:border-green-700/30 group">
+                                    <Card key={recipe.id} className="overflow-hidden hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 group">
                                         <div className="h-48 bg-gray-800 relative overflow-hidden">
                                             <img 
                                                 src={recipe.image} 
@@ -287,7 +287,7 @@ export default function NutritionIndex({ auth, recipes }: NutritionIndexProps) {
 
                                             {/* View overlay */}
                                             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                                <Button className="bg-gradient-to-r from-green-700 to-green-800 hover:from-green-600 hover:to-green-700 text-white px-6 py-3 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 border border-green-700/20 backdrop-blur-sm">
+                                                <Button className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-6 py-3 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 border border-red-700/20 backdrop-blur-sm">
                                                     <span className="group-hover:translate-x-1 transition-transform duration-300">
                                                         View Recipe
                                                     </span>
@@ -295,7 +295,7 @@ export default function NutritionIndex({ auth, recipes }: NutritionIndexProps) {
                                             </div>
                                         </div>
                                         <CardContent className="p-6 bg-black/20 backdrop-blur-sm">
-                                            <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-green-700 transition-colors duration-300">
+                                            <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">
                                                 {recipe.title}
                                             </h3>
                                             <p className="text-gray-300 text-sm mb-4">
@@ -305,7 +305,7 @@ export default function NutritionIndex({ auth, recipes }: NutritionIndexProps) {
                                             <div className="space-y-3">
                                                 <div className="flex items-center justify-between text-sm text-gray-300">
                                                     <span>Servings: <span className="text-white">{recipe.servings}</span></span>
-                                                    <span>Calories: <span className="text-green-400">{recipe.calories}</span></span>
+                                                    <span>Calories: <span className="text-red-400">{recipe.calories}</span></span>
                                                 </div>
                                                 
                                                 <div className="grid grid-cols-3 gap-2 text-sm">
@@ -330,7 +330,7 @@ export default function NutritionIndex({ auth, recipes }: NutritionIndexProps) {
                                             </div>
                                             
                                             <div className="mt-4 pt-4 border-t border-white/10">
-                                                <Button className="w-full bg-gradient-to-r from-green-700 to-green-800 hover:from-green-600 hover:to-green-700 transition-all duration-300 group">
+                                                <Button className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group">
                                                     <span className="group-hover:translate-x-1 transition-transform duration-300">
                                                         Get Recipe
                                                     </span>
@@ -349,8 +349,8 @@ export default function NutritionIndex({ auth, recipes }: NutritionIndexProps) {
                             <h2 className="text-3xl font-bold text-white text-center mb-12">Your Nutrition Journey</h2>
                             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                                 {nutritionStats.map((stat, index) => (
-                                    <Card key={index} className="p-6 text-center bg-black/40 backdrop-blur-md border border-white/10 hover:border-green-700/30 transition-all duration-300 group">
-                                        <div className={`w-16 h-16 ${stat.color} backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-green-700/30 group-hover:scale-110 transition-transform duration-300`}>
+                                    <Card key={index} className="p-6 text-center bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 group">
+                                        <div className={`w-16 h-16 ${stat.color} backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-red-700/30 group-hover:scale-110 transition-transform duration-300`}>
                                             <span className={`${stat.textColor} text-xl font-bold`}>
                                                 {stat.label.charAt(0)}
                                             </span>
@@ -372,12 +372,12 @@ export default function NutritionIndex({ auth, recipes }: NutritionIndexProps) {
                                     Get personalized meal plans designed specifically for your fitness goals
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                    <Button className="bg-gradient-to-r from-green-700 to-green-800 hover:from-green-600 hover:to-green-700 transition-all duration-300 px-8 py-3 group">
+                                    <Button className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 px-8 py-3 group">
                                         <span className="group-hover:translate-x-1 transition-transform duration-300">
                                             Create Meal Plan
                                         </span>
                                     </Button>
-                                    <Button variant="outline" className="border-white/50 bg-white/90 text-black hover:text-green-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm px-8 py-3">
+                                    <Button variant="outline" className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm px-8 py-3">
                                         <span className="group-hover:translate-x-1 transition-transform duration-300">
                                             Browse All Recipes
                                         </span>
