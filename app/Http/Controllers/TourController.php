@@ -135,7 +135,81 @@ class TourController extends Controller
                     'Modern amenities'
                 ],
                 'featured' => true
-            ]
+            ],
+            // Add missing locations based on LocationController
+            [
+                'id' => 1,
+                'locationName' => 'ULTRAFLEX WEST LEEDS',
+                'locationSlug' => 'west-leeds',
+                'image' => '/Images/westleeds/UFG (100) (2).jpg',
+                'tourUrl' => 'https://tour.ultraflex.com/west-leeds',
+                'duration' => '5-7 minutes',
+                'address' => 'West Park Ring Road, Leeds LS16 6EB, UK',
+                'phone' => '0113 256 5107',
+                'email' => 'leeds@ultraflexgym.co.uk',
+                'highlights' => [
+                    'Top-quality fitness machines',
+                    'Martial arts area',
+                    'Free on-site parking',
+                    'Expert staff'
+                ],
+                'featured' => false
+            ],
+            [
+                'id' => 2,
+                'locationName' => 'ULTRAFLEX NORTH LEEDS',
+                'locationSlug' => 'north-leeds',
+                'image' => '/Images/northleeds/DSC07392 (1).jpg',
+                'tourUrl' => 'https://tour.ultraflex.com/north-leeds',
+                'duration' => '5-7 minutes',
+                'address' => 'Limewood Centre, Limewood Avenue, Ring Road, Seacroft, Leeds LS14 1NH, UK',
+                'phone' => '0113 513 7669',
+                'email' => 'northleeds@ultraflexgym.co.uk',
+                'highlights' => [
+                    'Brand new site',
+                    'All equipment access',
+                    'Martial arts area',
+                    'Free parking'
+                ],
+                'featured' => false
+            ],
+            [
+                'id' => 3,
+                'locationName' => 'ULTRAFLEX NORMANTON',
+                'locationSlug' => 'normanton',
+                'image' => '/Images/normanton/IMG_(61) (1).jpg',
+                'tourUrl' => 'https://tour.ultraflex.com/normanton',
+                'duration' => '4-6 minutes',
+                'address' => 'High Street, Normanton WF6 2DB, UK',
+                'phone' => '+44 1924 890 123',
+                'email' => 'normanton@ultraflexgym.co.uk',
+                'highlights' => [
+                    'Central Normanton location',
+                    'Standard & GOLD memberships',
+                    'Free parking',
+                    'Group classes'
+                ],
+                'featured' => false
+            ],
+            [
+                'id' => 4,
+                'locationName' => 'ULTRAFLEX ROTHERHAM',
+                'locationSlug' => 'rotherham',
+                'image' => '/Images/rotherham/IMG (19) (4).jpg',
+                'tourUrl' => 'https://tour.ultraflex.com/rotherham',
+                'duration' => '5-7 minutes',
+                'address' => 'Moorgate Street, Rotherham S60 2EY, UK',
+                'phone' => '+44 1709 456 789',
+                'email' => 'rotherham@ultraflexgym.co.uk',
+                'highlights' => [
+                    'Early opening hours',
+                    'Student memberships',
+                    'Free parking',
+                    'Top-quality equipment'
+                ],
+                'featured' => false
+            ],
+            // ...existing code for other locations...
         ];
 
         $tourFeatures = [
@@ -306,7 +380,89 @@ class TourController extends Controller
                 'phone' => '+44 20 3456 7890',
                 'email' => 'westlondon@ultraflexgym.co.uk',
                 'tourUrl' => 'https://tour.ultraflex.com/west-london'
-            ]
+            ],
+            // Add missing locations based on LocationController
+            'west-leeds' => [
+                'id' => 1,
+                'locationName' => 'ULTRAFLEX WEST LEEDS',
+                'locationSlug' => 'west-leeds',
+                'image' => '/Images/westleeds/UFG (100) (2).jpg',
+                'gallery' => [
+                    '/Images/westleeds/westleeds/ForGallery/DSC07341.jpg',
+                    '/Images/westleeds/westleeds/ForGallery/DSC07345.jpg',
+                    '/Images/westleeds/westleeds/ForGallery/DSC07346.jpg',
+                    '/Images/westleeds/westleeds/ForGallery/DSC07349.jpg',
+                    '/Images/westleeds/westleeds/ForGallery/DSC07350.jpg',
+                    '/Images/westleeds/westleeds/ForGallery/DSC07359 (1).jpg',
+                    '/Images/westleeds/westleeds/ForGallery/DSC07359.jpg',
+                    '/Images/westleeds/UFG (100) (2).jpg'
+                ],
+                'address' => 'West Park Ring Road, Leeds LS16 6EB, UK',
+                'phone' => '0113 256 5107',
+                'email' => 'leeds@ultraflexgym.co.uk',
+                'tourUrl' => 'https://tour.ultraflex.com/west-leeds'
+            ],
+            'north-leeds' => [
+                'id' => 2,
+                'locationName' => 'ULTRAFLEX NORTH LEEDS',
+                'locationSlug' => 'north-leeds',
+                'image' => '/Images/northleeds/DSC07392 (1).jpg',
+                'gallery' => [
+                    '/Images/northleeds/northleeds/ForGallery/DSC07341.jpg',
+                    '/Images/northleeds/northleeds/ForGallery/DSC07345.jpg',
+                    '/Images/northleeds/northleeds/ForGallery/DSC07346.jpg',
+                    '/Images/northleeds/northleeds/ForGallery/DSC07349.jpg',
+                    '/Images/northleeds/northleeds/ForGallery/DSC07350.jpg',
+                    '/Images/northleeds/northleeds/ForGallery/DSC07359 (1).jpg',
+                    '/Images/northleeds/northleeds/ForGallery/DSC07359.jpg',
+                    '/Images/northleeds/DSC07392 (1).jpg'
+                ],
+                'address' => 'Limewood Centre, Limewood Avenue, Ring Road, Seacroft, Leeds LS14 1NH, UK',
+                'phone' => '0113 513 7669',
+                'email' => 'northleeds@ultraflexgym.co.uk',
+                'tourUrl' => 'https://tour.ultraflex.com/north-leeds'
+            ],
+            'normanton' => [
+                'id' => 3,
+                'locationName' => 'ULTRAFLEX NORMANTON',
+                'locationSlug' => 'normanton',
+                'image' => '/Images/normanton/IMG_(61) (1).jpg',
+                'gallery' => [
+                    '/Images/normanton/normanton/ForGallery/DSC07341.jpg',
+                    '/Images/normanton/normanton/ForGallery/DSC07345.jpg',
+                    '/Images/normanton/normanton/ForGallery/DSC07346.jpg',
+                    '/Images/normanton/normanton/ForGallery/DSC07349.jpg',
+                    '/Images/normanton/normanton/ForGallery/DSC07350.jpg',
+                    '/Images/normanton/normanton/ForGallery/DSC07359 (1).jpg',
+                    '/Images/normanton/normanton/ForGallery/DSC07359.jpg',
+                    '/Images/normanton/IMG_(61) (1).jpg'
+                ],
+                'address' => 'High Street, Normanton WF6 2DB, UK',
+                'phone' => '+44 1924 890 123',
+                'email' => 'normanton@ultraflexgym.co.uk',
+                'tourUrl' => 'https://tour.ultraflex.com/normanton'
+            ],
+            'rotherham' => [
+                'id' => 4,
+                'locationName' => 'ULTRAFLEX ROTHERHAM',
+                'locationSlug' => 'rotherham',
+                'image' => '/Images/rotherham/IMG (19) (4).jpg',
+                'gallery' => [
+                    '/Images/rotherham/rotherham/ForGallery/DSC07341.jpg',
+                    '/Images/rotherham/rotherham/ForGallery/DSC07345.jpg',
+                    '/Images/rotherham/rotherham/ForGallery/DSC07346.jpg',
+                    '/Images/rotherham/rotherham/ForGallery/DSC07349.jpg',
+                    '/Images/rotherham/rotherham/ForGallery/DSC07350.jpg',
+                    '/Images/rotherham/rotherham/ForGallery/DSC07359 (1).jpg',
+                    '/Images/rotherham/rotherham/ForGallery/DSC07359.jpg',
+                    '/Images/rotherham/IMG (19) (4).jpg'
+                ],
+                'address' => 'Moorgate Street, Rotherham S60 2EY, UK',
+                'phone' => '+44 1709 456 789',
+                'email' => 'rotherham@ultraflexgym.co.uk',
+                'tourUrl' => 'https://tour.ultraflex.com/rotherham'
+            ],
+            // ...existing code for other locations...
         ];
 
         $tour = $tours[$slug] ?? null;

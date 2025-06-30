@@ -4,6 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import AppLayout from '@/layouts/app-layout';
 
 import AnimatedBackground from '@/components/AnimatedBackground'; // Import the animated background
+import { useState } from 'react';
 
 interface Tour {
     id: number;
@@ -32,10 +33,42 @@ interface ToursIndexProps {
 }
 
 export default function ToursIndex({ tours, tourFeatures, featuredTours, auth }: ToursIndexProps) {
+    const matterportTours = [
+        {
+            name: 'York',
+            url: 'https://my.matterport.com/show/?m=kZ7SPKSyTMt',
+        },
+        {
+            name: 'Hull',
+            url: 'https://my.matterport.com/show/?m=nfWTbfybzYt',
+        },
+        {
+            name: 'Rotherham',
+            url: 'https://my.matterport.com/show/?m=qcrWz3BZzrj',
+        },
+    ];
 
+    const [matterportIndex, setMatterportIndex] = useState(0);
 
-    const handleTourClick = (tourUrl: string) => {
-        window.open(tourUrl, '_blank', 'width=1200,height=800');
+    const handlePrevMatterport = () => {
+        setMatterportIndex((prev) => (prev === 0 ? matterportTours.length - 1 : prev - 1));
+    };
+
+    const handleNextMatterport = () => {
+        setMatterportIndex((prev) => (prev === matterportTours.length - 1 ? 0 : prev + 1));
+    };
+
+    const handleTourClick = (tourUrl: string, locationSlug?: string) => {
+        // Special case for York, Hull, Rotherham: open respective Matterport in new tab
+        if (locationSlug === 'york') {
+            window.open('https://my.matterport.com/show/?m=kZ7SPKSyTMt', '_blank', 'width=1200,height=800');
+        } else if (locationSlug === 'hull') {
+            window.open('https://my.matterport.com/show/?m=nfWTbfybzYt', '_blank', 'width=1200,height=800');
+        } else if (locationSlug === 'rotherham') {
+            window.open('https://my.matterport.com/show/?m=qcrWz3BZzrj', '_blank', 'width=1200,height=800');
+        } else {
+            window.open(tourUrl, '_blank', 'width=1200,height=800');
+        }
     };
 
     return (
@@ -198,12 +231,11 @@ export default function ToursIndex({ tours, tourFeatures, featuredTours, auth }:
                                             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                                 <Button 
                                                     className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white backdrop-blur-sm border border-red-700/20 shadow-lg transform hover:scale-105 transition-all duration-300"
-                                                    onClick={() => handleTourClick(tour.tourUrl)}
+                                                    onClick={() => handleTourClick(tour.tourUrl, tour.locationSlug)}
                                                 >
-                                                    Start Tour
+                                                    Take Tour
                                                 </Button>
                                             </div>
-
                                             {tour.featured && (
                                                 <div className="absolute top-3 right-3 bg-gradient-to-r from-red-700 to-red-800 text-white px-2 py-1 rounded text-xs font-medium backdrop-blur-sm border border-red-700/20">
                                                     Featured
@@ -215,17 +247,15 @@ export default function ToursIndex({ tours, tourFeatures, featuredTours, auth }:
                                                 {tour.duration}
                                             </div>
                                         </div>
-                                        
                                         <CardContent className="p-6 bg-black/20 backdrop-blur-sm">
                                             <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">{tour.locationName}</h3>
                                             <p className="text-gray-300 mb-4 text-sm">
                                                 {tour.duration} virtual tour
                                             </p>
-                                            
                                             <div className="space-y-2">
                                                 <Button 
                                                     className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group"
-                                                    onClick={() => handleTourClick(tour.tourUrl)}
+                                                    onClick={() => handleTourClick(tour.tourUrl, tour.locationSlug)}
                                                 >
                                                     <span className="group-hover:translate-x-1 transition-transform duration-300">
                                                         Take Tour
@@ -352,6 +382,52 @@ export default function ToursIndex({ tours, tourFeatures, featuredTours, auth }:
                                     </Button>
                                 </Link>
                             </div>
+                        </div>
+                    </section>
+
+                    {/* Example Matterport Virtual Tour Embed */}
+                    <section className="py-16 bg-black/20 backdrop-blur-md">
+                        <div className="container mx-auto px-6">
+                            <h2 className="text-3xl font-bold text-center mb-8">
+                                <span className="text-white">Sample</span>{' '}
+                                <span className="text-red-700">Matterport</span>{' '}
+                                <span className="text-white">Virtual Tour</span>
+                            </h2>
+                            <div className="max-w-4xl mx-auto rounded-lg overflow-hidden border border-white/10 shadow-lg aspect-video bg-black relative">
+                                <iframe
+                                    src={matterportTours[matterportIndex].url}
+                                    width="100%"
+                                    height="480"
+                                    allowFullScreen
+                                    allow="xr-spatial-tracking"
+                                    style={{ border: 0, width: '100%', height: '480px', minHeight: 320 }}
+                                    title={`UltraFlex Matterport Virtual Tour - ${matterportTours[matterportIndex].name}`}
+                                />
+                                {/* Carousel controls */}
+                                <button
+                                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 text-white rounded-full p-2 hover:bg-red-700/80 transition"
+                                    onClick={handlePrevMatterport}
+                                    aria-label="Previous Matterport"
+                                    type="button"
+                                >
+                                    &#8592;
+                                </button>
+                                <button
+                                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 text-white rounded-full p-2 hover:bg-red-700/80 transition"
+                                    onClick={handleNextMatterport}
+                                    aria-label="Next Matterport"
+                                    type="button"
+                                >
+                                    &#8594;
+                                </button>
+                                {/* Location name overlay */}
+                                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 text-white px-4 py-2 rounded-full text-lg font-semibold shadow-lg">
+                                    {matterportTours[matterportIndex].name}
+                                </div>
+                            </div>
+                            <p className="text-center text-gray-400 mt-4 text-sm">
+                                Explore UltraFlex gyms in 3D with Matterport.
+                            </p>
                         </div>
                     </section>
                 </div>
