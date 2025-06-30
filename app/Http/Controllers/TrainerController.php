@@ -73,9 +73,17 @@ class TrainerController extends Controller
         ];
 
         $locations = [
-            ['name' => 'Downtown UltraFlex', 'slug' => 'downtown-ultraflex'],
-            ['name' => 'Westside UltraFlex', 'slug' => 'westside-ultraflex'],
-            ['name' => 'North UltraFlex', 'slug' => 'north-ultraflex']
+            ['name' => 'ULTRAFLEX WEST LEEDS', 'slug' => 'west-leeds'],
+            ['name' => 'ULTRAFLEX NORTH LEEDS', 'slug' => 'north-leeds'],
+            ['name' => 'ULTRAFLEX NORMANTON', 'slug' => 'normanton'],
+            ['name' => 'ULTRAFLEX ROTHERHAM', 'slug' => 'rotherham'],
+            ['name' => 'ULTRAFLEX YORK', 'slug' => 'york'],
+            ['name' => 'ULTRAFLEX HULL', 'slug' => 'hull'],
+            ['name' => 'ULTRAFLEX DURHAM', 'slug' => 'durham'],
+            ['name' => 'ULTRAFLEX DERBY', 'slug' => 'derby'],
+            ['name' => 'ULTRAFLEX ATHENS (GREECE)', 'slug' => 'athens-greece'],
+            ['name' => 'ULTRAFLEX LINCOLN', 'slug' => 'lincoln'],
+            ['name' => 'ULTRAFLEX WEST LONDON', 'slug' => 'west-london'],
         ];
 
         $specialties = [

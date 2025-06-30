@@ -153,7 +153,8 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                         </div>
 
                         <div className="container mx-auto px-6 relative z-10">
-                            <div className="flex items-center justify-between">
+                            {/* Responsive header: stack on small screens, row on md+ */}
+                            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 md:gap-0">
                                 <div className="flex items-center space-x-6">
                                     <div className="w-20 h-20 rounded-full overflow-hidden bg-red-700/20 backdrop-blur-sm flex items-center justify-center border border-red-700/30 group hover:scale-105 transition-transform duration-300">
                                         {user.profileImage ? (
@@ -175,16 +176,19 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                                         </p>
                                     </div>
                                 </div>
-                                <div className="flex items-center space-x-4">
+                                {/* Action buttons: stack on small screens, row on md+ */}
+                                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mt-6 md:mt-0">
                                     <Link href="/" className="text-white hover:text-gray-300 transition-colors duration-300">
-                                        <Button variant="outline" className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
+                                        <Button variant="outline" className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm w-full sm:w-auto">
                                             <span className="group-hover:translate-x-1 transition-transform duration-300">
                                                 Back to Home
                                             </span>
                                         </Button>
                                     </Link>
                                     <Link href="/logout" method="post" as="button" className="inline-block">
-                                        <Button variant="outline" className="border-red-500/50 bg-red-500/10 text-red-400 hover:text-white hover:bg-red-600 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
+                                        <Button
+                                            className="bg-red-700 text-white border border-red-700 hover:bg-red-800 hover:border-red-800 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm w-full sm:w-auto"
+                                        >
                                             <span className="group-hover:translate-x-1 transition-transform duration-300">
                                                 Log Out
                                             </span>

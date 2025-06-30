@@ -116,9 +116,17 @@ class EquipmentController extends Controller
         $categories = ['Cardio', 'Strength', 'Functional', 'Flexibility'];
         $muscleGroups = ['Chest', 'Back', 'Legs', 'Shoulders', 'Arms', 'Core', 'Full Body', 'Cardio'];
         $locations = [
-            ['name' => 'Downtown UltraFlex', 'slug' => 'downtown'],
-            ['name' => 'Westside UltraFlex', 'slug' => 'westside'],
-            ['name' => 'North UltraFlex', 'slug' => 'north']
+            ['name' => 'ULTRAFLEX WEST LEEDS', 'slug' => 'west-leeds'],
+            ['name' => 'ULTRAFLEX NORTH LEEDS', 'slug' => 'north-leeds'],
+            ['name' => 'ULTRAFLEX NORMANTON', 'slug' => 'normanton'],
+            ['name' => 'ULTRAFLEX ROTHERHAM', 'slug' => 'rotherham'],
+            ['name' => 'ULTRAFLEX YORK', 'slug' => 'york'],
+            ['name' => 'ULTRAFLEX HULL', 'slug' => 'hull'],
+            ['name' => 'ULTRAFLEX DURHAM', 'slug' => 'durham'],
+            ['name' => 'ULTRAFLEX DERBY', 'slug' => 'derby'],
+            ['name' => 'ULTRAFLEX ATHENS (GREECE)', 'slug' => 'athens-greece'],
+            ['name' => 'ULTRAFLEX LINCOLN', 'slug' => 'lincoln'],
+            ['name' => 'ULTRAFLEX WEST LONDON', 'slug' => 'west-london'],
         ];
 
         return Inertia::render('Equipment/Index', [
