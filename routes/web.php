@@ -65,6 +65,7 @@ Route::middleware(['auth'])->group(function () {
     
     // Workouts
     Route::get('/members/workouts', [WorkoutController::class, 'index'])->name('members.workouts');
+    Route::get('/members/workouts/{id}', [WorkoutController::class, 'show'])->name('members.workouts.show');
     
     // Nutrition
     Route::get('/members/nutrition', [NutritionController::class, 'index'])->name('members.nutrition');

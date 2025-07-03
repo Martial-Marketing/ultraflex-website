@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import AppLayout from '@/layouts/app-layout';
 import AnimatedBackground from '@/components/AnimatedBackground';
+import { useState } from 'react';
 
 interface User {
     id: number;
@@ -18,12 +19,11 @@ interface Workout {
     title: string;
     description: string;
     image: string;
-    duration: string;
     difficulty: string;
     type: string;
     equipment: string[];
     targetMuscles: string[];
-    calories: number;
+    videoLinks?: string[];
 }
 
 interface WorkoutsIndexProps {
@@ -35,90 +35,175 @@ interface WorkoutsIndexProps {
 
 export default function WorkoutsIndex({ auth, workouts }: WorkoutsIndexProps) {
     const user = auth.user;
+    const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
     const workoutCategories = [
-        { name: 'Strength', color: 'bg-gradient-to-r from-red-700 to-red-800', count: 12 },
-        { name: 'Cardio', color: 'bg-gradient-to-r from-blue-700 to-blue-800', count: 8 },
-        { name: 'HIIT', color: 'bg-gradient-to-r from-orange-700 to-orange-800', count: 6 },
-        { name: 'Yoga', color: 'bg-gradient-to-r from-green-700 to-green-800', count: 10 },
-        { name: 'Pilates', color: 'bg-gradient-to-r from-purple-700 to-purple-800', count: 5 },
-        { name: 'Flexibility', color: 'bg-gradient-to-r from-teal-700 to-teal-800', count: 4 },
+        { name: 'Core', color: 'bg-gradient-to-r from-red-700 to-red-800', count: 1 },
+        { name: 'Strength', color: 'bg-gradient-to-r from-blue-700 to-blue-800', count: 5 },
+        { name: 'Competition', color: 'bg-gradient-to-r from-purple-700 to-purple-800', count: 1 },
     ];
 
-    const featuredWorkouts = workouts?.slice(0, 6) || [
+    const allWorkouts = workouts || [
         {
             id: 1,
-            title: 'Full Body Strength Training',
-            description: 'Build muscle and increase strength with this comprehensive workout',
-            image: '/Images/workout1.jpg',
-            duration: '45 min',
+            title: 'ABS WORKOUT',
+            description: 'Sculpt and strengthen your core with targeted abdominal exercises',
+            image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=400&fit=crop&crop=center',
             difficulty: 'Intermediate',
-            type: 'Strength',
-            equipment: ['Dumbbells', 'Barbell', 'Bench'],
-            targetMuscles: ['Chest', 'Back', 'Legs', 'Arms'],
-            calories: 350
+            type: 'Core',
+            equipment: ['Mat', 'Medicine Ball', 'Ab Wheel'],
+            targetMuscles: ['Abs', 'Core', 'Obliques'],
+            videoLinks: ['https://youtu.be/p35TqPT2x_g', 'https://youtu.be/9YYaAzaSbHE']
         },
         {
             id: 2,
-            title: 'High-Intensity Cardio Blast',
-            description: 'Burn calories and improve cardiovascular health',
-            image: '/Images/workout2.jpg',
-            duration: '30 min',
-            difficulty: 'Advanced',
-            type: 'HIIT',
-            equipment: ['None'],
-            targetMuscles: ['Full Body'],
-            calories: 400
+            title: 'ARMS WORKOUT',
+            description: 'Build powerful biceps, triceps, and forearms',
+            image: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=500&h=400&fit=crop&crop=center',
+            difficulty: 'Intermediate',
+            type: 'Strength',
+            equipment: ['Dumbbells', 'Barbell', 'Cable Machine'],
+            targetMuscles: ['Biceps', 'Triceps', 'Forearms'],
+            videoLinks: [
+                'https://youtu.be/A88KMLpQ6nk',
+                'https://youtu.be/6tqw20euw2M',
+                'https://youtu.be/GKPaqjkYaIY',
+                'https://youtu.be/ZcBqA0p6IIM',
+                'https://youtu.be/2qhE7JnnwnM',
+                'https://youtu.be/CZGMv87OZ0g',
+                'https://youtu.be/kjpzFfZSmiU',
+                'https://youtu.be/dmLttCxXnBE',
+                'https://youtu.be/lCRnAtHAvWs',
+                'https://youtu.be/BlAXY9rk4r8'
+            ]
         },
         {
             id: 3,
-            title: 'Morning Yoga Flow',
-            description: 'Start your day with gentle stretches and mindfulness',
-            image: '/Images/workout3.jpg',
-            duration: '20 min',
-            difficulty: 'Beginner',
-            type: 'Yoga',
-            equipment: ['Yoga Mat'],
-            targetMuscles: ['Core', 'Flexibility'],
-            calories: 120
+            title: 'BACK WORKOUT',
+            description: 'Develop a strong and wide back with compound movements',
+            image: 'https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=500&h=400&fit=crop&crop=center',
+            difficulty: 'Advanced',
+            type: 'Strength',
+            equipment: ['Pull-up Bar', 'Barbell', 'Cable Machine', 'Dumbbells'],
+            targetMuscles: ['Lats', 'Rhomboids', 'Traps', 'Lower Back'],
+            videoLinks: [
+                'https://youtu.be/7f615JNrqdQ',
+                'https://youtu.be/EiHpTYvSgRw',
+                'https://youtu.be/iFKQCUjhc_8',
+                'https://youtu.be/5On4JVxgmAI',
+                'https://youtu.be/uW4tO3GyIFk',
+                'https://youtu.be/2RjQC2cByww',
+                'https://youtu.be/cjc_W_PlzU0',
+                'https://youtu.be/qlIvuqHi1Ic',
+                'https://youtu.be/C21SlvzrxHo',
+                'https://youtu.be/bWbbSyIUDvA',
+                'https://youtu.be/zHNGzq1ZxDo',
+                'https://youtu.be/qT-BjESsQ50',
+                'https://youtu.be/8bDVCtVXDGM',
+                'https://youtu.be/Ar74l1V-dcs',
+                'https://youtu.be/kAUH6rLNWhQ'
+            ]
         },
         {
             id: 4,
-            title: 'Core Power Pilates',
-            description: 'Strengthen your core and improve posture',
-            image: '/Images/workout4.jpg',
-            duration: '35 min',
+            title: 'CHEST WORKOUT',
+            description: 'Build a powerful chest with pressing movements and isolation exercises',
+            image: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=500&h=400&fit=crop&crop=center',
             difficulty: 'Intermediate',
-            type: 'Pilates',
-            equipment: ['Mat', 'Resistance Band'],
-            targetMuscles: ['Core', 'Glutes'],
-            calories: 200
+            type: 'Strength',
+            equipment: ['Barbell', 'Dumbbells', 'Bench', 'Cable Machine'],
+            targetMuscles: ['Pectorals', 'Anterior Deltoids', 'Triceps'],
+            videoLinks: [
+                'https://youtu.be/4Wi8vIApknY',
+                'https://youtu.be/9pMQCZBRRs4',
+                'https://youtu.be/HUDuxMVW6C8',
+                'https://youtu.be/03fb6Bdi804',
+                'https://youtu.be/PjlXtxRXJHU',
+                'https://youtu.be/lLWnQ837un8',
+                'https://youtu.be/ZJAvTv7L7hc',
+                'https://youtu.be/Q92P2kjQJhw',
+                'https://youtu.be/BxMycL6PEWg'
+            ]
         },
         {
             id: 5,
-            title: 'Upper Body Pump',
-            description: 'Focus on building strong arms, chest, and back',
-            image: '/Images/workout5.jpg',
-            duration: '40 min',
-            difficulty: 'Intermediate',
+            title: 'LEGS WORKOUT',
+            description: 'Power up your lower body with squats, deadlifts, and leg isolation',
+            image: 'https://images.unsplash.com/photo-1434608519344-49d77a699e1d?w=500&h=400&fit=crop&crop=center',
+            difficulty: 'Advanced',
             type: 'Strength',
-            equipment: ['Dumbbells', 'Pull-up Bar'],
-            targetMuscles: ['Chest', 'Back', 'Arms', 'Shoulders'],
-            calories: 300
+            equipment: ['Barbell', 'Dumbbells', 'Leg Press', 'Squat Rack'],
+            targetMuscles: ['Quadriceps', 'Hamstrings', 'Glutes', 'Calves'],
+            videoLinks: [
+                'https://youtu.be/yhXvDOJRcX4',
+                'https://youtu.be/Icb_fq2yXZk',
+                'https://youtu.be/RR9TNQcqexY',
+                'https://youtu.be/_5B2AwA8vKE',
+                'https://youtu.be/OWL84VQJnPo',
+                'https://youtu.be/maq6g5DWbng',
+                'https://youtu.be/lujGa5WwtB8',
+                'https://youtu.be/8Jvz7Ih9s3s',
+                'https://youtu.be/6uHRFgQHwDs',
+                'https://youtu.be/QbvAh_aRWGA',
+                'https://youtu.be/WMEAfmhEoKg',
+                'https://youtu.be/rr8_suFwxxI',
+                'https://youtu.be/56lhH2oK2p0',
+                'https://youtu.be/TbEQh_gfhQw',
+                'https://youtu.be/03ZkHCXovYc',
+                'https://youtu.be/X5rf6cDQluw',
+                'https://youtu.be/1nh7ymbABXY',
+                'https://youtu.be/ihi01nuMVM0',
+                'https://youtu.be/opsibwL7_6k',
+                'https://youtu.be/McSfNQY5IyY',
+                'https://youtu.be/-3SGJWh9a8g',
+                'https://youtu.be/FLYwAQhHdVc',
+                'https://youtu.be/tZqhAn-APZE',
+                'https://youtu.be/I7BAJRA3c1g',
+                'https://youtu.be/31zcjMBA3hk',
+                'https://youtu.be/eWtS2IZE6DA'
+            ]
         },
         {
             id: 6,
-            title: 'Flexibility & Mobility',
-            description: 'Improve range of motion and prevent injury',
-            image: '/Images/workout6.jpg',
-            duration: '25 min',
-            difficulty: 'Beginner',
-            type: 'Flexibility',
-            equipment: ['Yoga Mat', 'Foam Roller'],
-            targetMuscles: ['Full Body'],
-            calories: 100
+            title: 'SHOULDER WORKOUT',
+            description: 'Build impressive deltoids with pressing and lateral movements',
+            image: 'https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=500&h=400&fit=crop&crop=center',
+            difficulty: 'Intermediate',
+            type: 'Strength',
+            equipment: ['Dumbbells', 'Barbell', 'Cable Machine'],
+            targetMuscles: ['Deltoids', 'Rotator Cuff', 'Traps'],
+            videoLinks: [
+                'https://youtu.be/8KMIcOKmFD0',
+                'https://youtu.be/JITeLkRsOh4',
+                'https://youtu.be/m5yWt8A4GQM',
+                'https://youtu.be/5rv2OnMsd1I',
+                'https://youtu.be/i6RC9ifs4D4'
+            ]
+        },
+        {
+            id: 7,
+            title: 'CONTEST PREP',
+            description: 'Elite competition preparation program for serious athletes looking to compete at the highest level',
+            image: '/Images/workout/Contest-Prep-768x432.jpg',
+            difficulty: 'Expert',
+            type: 'Competition',
+            equipment: ['Full Gym Access', 'All Equipment'],
+            targetMuscles: ['Full Body', 'Competition Focus']
         }
     ];
+
+    // Filter workouts based on selected category
+    const filteredWorkouts = selectedCategory 
+        ? allWorkouts.filter(workout => workout.type === selectedCategory)
+        : allWorkouts;
+
+    const handleCategoryClick = (categoryName: string) => {
+        setSelectedCategory(selectedCategory === categoryName ? null : categoryName);
+    };
+
+    const handleShowAll = () => {
+        setSelectedCategory(null);
+    };
 
     return (
         <AppLayout auth={auth}>
@@ -183,22 +268,35 @@ export default function WorkoutsIndex({ auth, workouts }: WorkoutsIndexProps) {
                             <h2 className="text-3xl font-bold text-white mb-8">Workout Categories</h2>
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {workoutCategories.map((category, index) => (
-                                    <Card key={index} className="hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 hover:-translate-y-1 cursor-pointer bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 group">
+                                    <Card key={index} className={`hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 hover:-translate-y-1 cursor-pointer bg-black/40 backdrop-blur-md border hover:border-red-700/30 group ${
+                                        selectedCategory === category.name 
+                                            ? 'border-red-700/50 ring-2 ring-red-700/30' 
+                                            : 'border-white/10'
+                                    }`}>
                                         <CardContent className="p-6 text-center">
                                             <div className={`w-16 h-16 ${category.color} rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg transform group-hover:scale-110 transition-all duration-300`}>
                                                 <span className="text-white text-xl font-bold">
                                                     {category.name.charAt(0)}
                                                 </span>
                                             </div>
-                                            <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">
+                                            <h3 className={`text-xl font-semibold mb-2 group-hover:text-red-700 transition-colors duration-300 ${
+                                                selectedCategory === category.name ? 'text-red-700' : 'text-white'
+                                            }`}>
                                                 {category.name}
                                             </h3>
                                             <p className="text-gray-300 text-sm mb-4">
                                                 {category.count} workouts available
                                             </p>
-                                            <Button className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group">
+                                            <Button 
+                                                className={`w-full transition-all duration-300 group ${
+                                                    selectedCategory === category.name 
+                                                        ? 'bg-red-700 hover:bg-red-800' 
+                                                        : 'bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700'
+                                                }`}
+                                                onClick={() => handleCategoryClick(category.name)}
+                                            >
                                                 <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                                    Browse {category.name}
+                                                    {selectedCategory === category.name ? `Showing ${category.name}` : `Browse ${category.name}`}
                                                 </span>
                                             </Button>
                                         </CardContent>
@@ -211,9 +309,22 @@ export default function WorkoutsIndex({ auth, workouts }: WorkoutsIndexProps) {
                     {/* Featured Workouts */}
                     <section className="py-16 bg-black/20 backdrop-blur-md">
                         <div className="container mx-auto px-6">
-                            <h2 className="text-3xl font-bold text-white mb-8">Featured Workouts</h2>
+                            <div className="flex items-center justify-between mb-8">
+                                <h2 className="text-3xl font-bold text-white">
+                                    {selectedCategory ? `${selectedCategory} Workouts` : 'All Workouts'}
+                                </h2>
+                                {selectedCategory && (
+                                    <Button 
+                                        onClick={handleShowAll}
+                                        variant="outline" 
+                                        className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white"
+                                    >
+                                        Show All Workouts
+                                    </Button>
+                                )}
+                            </div>
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                {featuredWorkouts.map((workout) => (
+                                {filteredWorkouts.map((workout: Workout) => (
                                     <Card key={workout.id} className="overflow-hidden hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 group">
                                         <div className="h-48 bg-gray-800 relative overflow-hidden">
                                             <img 
@@ -224,11 +335,6 @@ export default function WorkoutsIndex({ auth, workouts }: WorkoutsIndexProps) {
                                             />
                                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                             
-                                            {/* Duration badge */}
-                                            <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-sm rounded-full px-3 py-1 border border-white/10">
-                                                <span className="text-white text-sm font-medium">{workout.duration}</span>
-                                            </div>
-
                                             {/* Difficulty badge */}
                                             <div className="absolute top-3 left-3">
                                                 <span className={`px-3 py-1 rounded-full text-xs backdrop-blur-sm border ${
@@ -240,13 +346,17 @@ export default function WorkoutsIndex({ auth, workouts }: WorkoutsIndexProps) {
                                                 </span>
                                             </div>
 
-                                            {/* Start overlay */}
+                                            {/* View overlay */}
                                             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                                <Button className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-6 py-3 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 border border-red-700/20 backdrop-blur-sm">
-                                                    <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                                        Start Workout
-                                                    </span>
-                                                </Button>
+                                                <Link href={`/members/workouts/${workout.id}`}>
+                                                    <Button 
+                                                        className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-6 py-3 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 border border-red-700/20 backdrop-blur-sm"
+                                                    >
+                                                        <span className="group-hover:translate-x-1 transition-transform duration-300">
+                                                            View Workout
+                                                        </span>
+                                                    </Button>
+                                                </Link>
                                             </div>
                                         </div>
                                         <CardContent className="p-6 bg-black/20 backdrop-blur-sm">
@@ -260,7 +370,6 @@ export default function WorkoutsIndex({ auth, workouts }: WorkoutsIndexProps) {
                                             <div className="space-y-3">
                                                 <div className="flex items-center justify-between text-sm text-gray-300">
                                                     <span>Type: <span className="text-white">{workout.type}</span></span>
-                                                    <span>Calories: <span className="text-red-400">{workout.calories}</span></span>
                                                 </div>
                                                 
                                                 <div className="text-sm text-gray-300">
@@ -275,11 +384,15 @@ export default function WorkoutsIndex({ auth, workouts }: WorkoutsIndexProps) {
                                             </div>
                                             
                                             <div className="mt-4 pt-4 border-t border-white/10">
-                                                <Button className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group">
-                                                    <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                                        View Details
-                                                    </span>
-                                                </Button>
+                                                <Link href={`/members/workouts/${workout.id}`}>
+                                                    <Button 
+                                                        className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group"
+                                                    >
+                                                        <span className="group-hover:translate-x-1 transition-transform duration-300">
+                                                            View Details
+                                                        </span>
+                                                    </Button>
+                                                </Link>
                                             </div>
                                         </CardContent>
                                     </Card>
