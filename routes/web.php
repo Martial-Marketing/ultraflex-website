@@ -69,6 +69,10 @@ Route::middleware(['auth'])->group(function () {
     
     // Nutrition
     Route::get('/members/nutrition', [NutritionController::class, 'index'])->name('members.nutrition');
+    Route::get('/members/nutrition/calculator', [NutritionController::class, 'calculator'])->name('members.nutrition.calculator');
+    Route::get('/members/nutrition/calculator/diet', [NutritionController::class, 'dietCalculator'])->name('members.nutrition.calculator.diet');
+    Route::get('/members/nutrition/calculator/bodyfat', [NutritionController::class, 'bodyFatCalculator'])->name('members.nutrition.calculator.bodyfat');
+    Route::get('/members/nutrition/{id}', [NutritionController::class, 'show'])->name('members.nutrition.show');
     
     // Profile
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');

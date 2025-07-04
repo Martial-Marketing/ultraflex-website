@@ -179,7 +179,7 @@ export default function WorkoutsShow({ auth, workout }: WorkoutsShowProps) {
                                         <Card className="mb-8 bg-black/40 backdrop-blur-md border border-white/10">
                                             <CardContent className="p-8">
                                                 <h2 className="text-3xl font-bold text-white mb-6">Training Videos</h2>
-                                                <div className="grid gap-8">
+                                                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                                                     {workout.videoLinks.map((link, index) => {
                                                         const embedUrl = getYouTubeEmbedUrl(link);
                                                         return (

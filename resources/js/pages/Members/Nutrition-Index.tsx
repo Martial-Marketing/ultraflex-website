@@ -31,24 +31,28 @@ interface Recipe {
     instructions: string[];
 }
 
+interface NutritionPlan {
+    id: number;
+    title: string;
+    description: string;
+    image: string;
+    difficulty: string;
+    type: string;
+    duration: string;
+    features: string[];
+    externalUrl?: string;
+}
+
 interface NutritionIndexProps {
     auth: {
         user: User;
     };
     recipes: Recipe[];
+    nutritionPlans: NutritionPlan[];
 }
 
-export default function NutritionIndex({ auth, recipes }: NutritionIndexProps) {
+export default function NutritionIndex({ auth, recipes, nutritionPlans }: NutritionIndexProps) {
     const user = auth.user;
-
-    const nutritionCategories = [
-        { name: 'Muscle Gain', color: 'bg-gradient-to-r from-red-700 to-red-800', count: 15, description: 'High protein meals' },
-        { name: 'Weight Loss', color: 'bg-gradient-to-r from-green-700 to-green-800', count: 12, description: 'Low calorie options' },
-        { name: 'Pre-Workout', color: 'bg-gradient-to-r from-orange-700 to-orange-800', count: 8, description: 'Energy boosting foods' },
-        { name: 'Post-Workout', color: 'bg-gradient-to-r from-blue-700 to-blue-800', count: 10, description: 'Recovery nutrition' },
-        { name: 'Healthy Snacks', color: 'bg-gradient-to-r from-purple-700 to-purple-800', count: 20, description: 'Quick healthy bites' },
-        { name: 'Meal Prep', color: 'bg-gradient-to-r from-teal-700 to-teal-800', count: 14, description: 'Batch cooking ideas' },
-    ];
 
     const featuredRecipes = recipes?.slice(0, 6) || [
         {
@@ -156,10 +160,10 @@ export default function NutritionIndex({ auth, recipes }: NutritionIndexProps) {
     ];
 
     const nutritionStats = [
-        { label: 'Recipes Tried', value: '28', color: 'bg-red-700/20', textColor: 'text-red-700' },
-        { label: 'Meal Plans', value: '6', color: 'bg-red-700/20', textColor: 'text-red-400' },
+        { label: 'Nutrition Plans', value: nutritionPlans?.length.toString() || '6', color: 'bg-red-700/20', textColor: 'text-red-700' },
+        { label: 'Recipes Available', value: recipes?.length.toString() || '25', color: 'bg-red-700/20', textColor: 'text-red-400' },
         { label: 'Avg Calories/Day', value: '2,100', color: 'bg-purple-700/20', textColor: 'text-purple-400' },
-        { label: 'Protein Goal', value: '85%', color: 'bg-yellow-700/20', textColor: 'text-yellow-400' },
+        { label: 'Goal Progress', value: '85%', color: 'bg-yellow-700/20', textColor: 'text-yellow-400' },
     ];
 
     return (
@@ -219,36 +223,108 @@ export default function NutritionIndex({ auth, recipes }: NutritionIndexProps) {
                         </div>
                     </section>
 
-                    {/* Nutrition Categories */}
+                    {/* Nutrition Plans */}
                     <section className="py-16">
                         <div className="container mx-auto px-6">
-                            <h2 className="text-3xl font-bold text-white mb-8">Nutrition Categories</h2>
+                            <h2 className="text-3xl font-bold text-white mb-8">UltraFlex Nutrition Plans</h2>
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                {nutritionCategories.map((category, index) => (
-                                    <Card key={index} className="hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 hover:-translate-y-1 cursor-pointer bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 group">
-                                        <CardContent className="p-6 text-center">
-                                            <div className={`w-16 h-16 ${category.color} rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg transform group-hover:scale-110 transition-all duration-300`}>
-                                                <span className="text-white text-xl font-bold">
-                                                    {category.name.charAt(0)}
+                                {nutritionPlans?.map((plan) => (
+                                    <Card key={plan.id} className="overflow-hidden hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 group">
+                                        <div className="h-48 bg-gray-800 relative overflow-hidden">
+                                            <img 
+                                                src={plan.image} 
+                                                alt={plan.title}
+                                                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                                                loading="lazy"
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                            
+                                            {/* Duration badge */}
+                                            <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-sm rounded-full px-3 py-1 border border-white/10">
+                                                <span className="text-white text-sm font-medium">{plan.duration}</span>
+                                            </div>
+
+                                            {/* Difficulty badge */}
+                                            <div className="absolute top-3 left-3">
+                                                <span className={`px-3 py-1 rounded-full text-xs backdrop-blur-sm border ${
+                                                    plan.difficulty === 'Beginner' ? 'bg-green-700/20 text-green-400 border-green-700/30' :
+                                                    plan.difficulty === 'Intermediate' ? 'bg-yellow-700/20 text-yellow-400 border-yellow-700/30' :
+                                                    'bg-red-700/20 text-red-700 border-red-700/30'
+                                                }`}>
+                                                    {plan.difficulty}
                                                 </span>
                                             </div>
+
+                                            {/* View overlay */}
+                                            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                                {plan.externalUrl ? (
+                                                    <a href={plan.externalUrl} target="_blank" rel="noopener noreferrer">
+                                                        <Button className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-6 py-3 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 border border-red-700/20 backdrop-blur-sm">
+                                                            <span className="group-hover:translate-x-1 transition-transform duration-300">
+                                                                Visit External Site
+                                                            </span>
+                                                        </Button>
+                                                    </a>
+                                                ) : (
+                                                    <Link href={`/members/nutrition/${plan.id}`}>
+                                                        <Button className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-6 py-3 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 border border-red-700/20 backdrop-blur-sm">
+                                                            <span className="group-hover:translate-x-1 transition-transform duration-300">
+                                                                View Plan
+                                                            </span>
+                                                        </Button>
+                                                    </Link>
+                                                )}
+                                            </div>
+                                        </div>
+                                        <CardContent className="p-6 bg-black/20 backdrop-blur-sm">
                                             <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">
-                                                {category.name}
+                                                {plan.title}
                                             </h3>
-                                            <p className="text-gray-300 text-sm mb-2">
-                                                {category.description}
+                                            <p className="text-gray-300 text-sm mb-4">
+                                                {plan.description}
                                             </p>
-                                            <p className="text-gray-400 text-xs mb-4">
-                                                {category.count} recipes available
-                                            </p>
-                                            <Button className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group">
-                                                <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                                    Browse {category.name}
-                                                </span>
-                                            </Button>
+                                            
+                                            <div className="space-y-3">
+                                                <div className="flex items-center justify-between text-sm text-gray-300">
+                                                    <span>Type: <span className="text-white">{plan.type}</span></span>
+                                                    <span>Level: <span className="text-red-400">{plan.difficulty}</span></span>
+                                                </div>
+                                                
+                                                <div className="space-y-2">
+                                                    <h4 className="text-sm font-semibold text-white">Key Features:</h4>
+                                                    <div className="grid grid-cols-2 gap-1 text-xs">
+                                                        {plan.features.slice(0, 4).map((feature, index) => (
+                                                            <div key={index} className="flex items-center text-gray-300">
+                                                                <div className="w-1 h-1 bg-red-400 rounded-full mr-2"></div>
+                                                                {feature}
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div className="mt-4 pt-4 border-t border-white/10">
+                                                {plan.externalUrl ? (
+                                                    <a href={plan.externalUrl} target="_blank" rel="noopener noreferrer" className="block">
+                                                        <Button className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group">
+                                                            <span className="group-hover:translate-x-1 transition-transform duration-300">
+                                                                Visit External Site
+                                                            </span>
+                                                        </Button>
+                                                    </a>
+                                                ) : (
+                                                    <Link href={`/members/nutrition/${plan.id}`}>
+                                                        <Button className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group">
+                                                            <span className="group-hover:translate-x-1 transition-transform duration-300">
+                                                                Get Started
+                                                            </span>
+                                                        </Button>
+                                                    </Link>
+                                                )}
+                                            </div>
                                         </CardContent>
                                     </Card>
-                                ))}
+                                )) || []}
                             </div>
                         </div>
                     </section>
