@@ -50,7 +50,7 @@ export default function SignUpCTA() {
                         <Link href={route('auth.register')} className="flex items-center">
                             <Users className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
                             <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                Start Free Trial
+                                Sign Up Now
                             </span>
                         </Link>
                     </Button>

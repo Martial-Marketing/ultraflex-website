@@ -20,8 +20,8 @@ class EquipmentController extends Controller
                 'description' => 'Professional grade treadmill with advanced features.',
                 'difficulty' => 'Beginner',
                 'locations' => [
-                    ['name' => 'Downtown UltraFlex', 'slug' => 'downtown', 'quantity' => 5],
-                    ['name' => 'Westside UltraFlex', 'slug' => 'westside', 'quantity' => 3]
+                    ['name' => 'ULTRAFLEX WEST LEEDS', 'slug' => 'west-leeds', 'quantity' => 5],
+                    ['name' => 'ULTRAFLEX NORTH LEEDS', 'slug' => 'north-leeds', 'quantity' => 3]
                 ],
                 'slug' => 'treadmill-pro-3000',
                 'brand' => 'FitnessPro',
@@ -36,8 +36,8 @@ class EquipmentController extends Controller
                 'description' => 'Heavy-duty power rack for serious strength training.',
                 'difficulty' => 'Intermediate',
                 'locations' => [
-                    ['name' => 'Downtown UltraFlex', 'slug' => 'downtown', 'quantity' => 2],
-                    ['name' => 'North UltraFlex', 'slug' => 'north', 'quantity' => 3]
+                    ['name' => 'ULTRAFLEX NORMANTON', 'slug' => 'normanton', 'quantity' => 2],
+                    ['name' => 'ULTRAFLEX ROTHERHAM', 'slug' => 'rotherham', 'quantity' => 3]
                 ],
                 'slug' => 'power-rack-elite',
                 'brand' => 'StrengthMax',
@@ -52,9 +52,9 @@ class EquipmentController extends Controller
                 'description' => 'Low-impact cardio machine for full-body workout.',
                 'difficulty' => 'Beginner',
                 'locations' => [
-                    ['name' => 'Downtown UltraFlex', 'slug' => 'downtown', 'quantity' => 4],
-                    ['name' => 'Westside UltraFlex', 'slug' => 'westside', 'quantity' => 3],
-                    ['name' => 'North UltraFlex', 'slug' => 'north', 'quantity' => 2]
+                    ['name' => 'ULTRAFLEX WEST LEEDS', 'slug' => 'west-leeds', 'quantity' => 4],
+                    ['name' => 'ULTRAFLEX NORMANTON', 'slug' => 'normanton', 'quantity' => 3],
+                    ['name' => 'ULTRAFLEX ROTHERHAM', 'slug' => 'rotherham', 'quantity' => 2]
                 ],
                 'slug' => 'elliptical-cross-trainer',
                 'brand' => 'CardioMax',
@@ -69,9 +69,9 @@ class EquipmentController extends Controller
                 'description' => 'Professional Olympic barbell with weight plates.',
                 'difficulty' => 'Intermediate',
                 'locations' => [
-                    ['name' => 'Downtown UltraFlex', 'slug' => 'downtown', 'quantity' => 8],
-                    ['name' => 'Westside UltraFlex', 'slug' => 'westside', 'quantity' => 6],
-                    ['name' => 'North UltraFlex', 'slug' => 'north', 'quantity' => 10]
+                    ['name' => 'ULTRAFLEX WEST LEEDS', 'slug' => 'west-leeds', 'quantity' => 8],
+                    ['name' => 'ULTRAFLEX NORMANTON', 'slug' => 'normanton', 'quantity' => 6],
+                    ['name' => 'ULTRAFLEX ROTHERHAM', 'slug' => 'rotherham', 'quantity' => 10]
                 ],
                 'slug' => 'olympic-barbell-set',
                 'brand' => 'IronCore',
@@ -86,9 +86,9 @@ class EquipmentController extends Controller
                 'description' => 'Versatile cable system for functional training.',
                 'difficulty' => 'Intermediate',
                 'locations' => [
-                    ['name' => 'Downtown UltraFlex', 'slug' => 'downtown', 'quantity' => 3],
-                    ['name' => 'Westside UltraFlex', 'slug' => 'westside', 'quantity' => 2],
-                    ['name' => 'North UltraFlex', 'slug' => 'north', 'quantity' => 4]
+                    ['name' => 'ULTRAFLEX WEST LEEDS', 'slug' => 'west-leeds', 'quantity' => 3],
+                    ['name' => 'ULTRAFLEX NORMANTON', 'slug' => 'normanton', 'quantity' => 2],
+                    ['name' => 'ULTRAFLEX ROTHERHAM', 'slug' => 'rotherham', 'quantity' => 4]
                 ],
                 'slug' => 'cable-machine-system',
                 'brand' => 'FuncFit',
@@ -103,9 +103,9 @@ class EquipmentController extends Controller
                 'description' => 'Premium rowing machine for full-body cardio.',
                 'difficulty' => 'Intermediate',
                 'locations' => [
-                    ['name' => 'Downtown UltraFlex', 'slug' => 'downtown', 'quantity' => 6],
-                    ['name' => 'Westside UltraFlex', 'slug' => 'westside', 'quantity' => 4],
-                    ['name' => 'North UltraFlex', 'slug' => 'north', 'quantity' => 5]
+                    ['name' => 'ULTRAFLEX WEST LEEDS', 'slug' => 'west-leeds', 'quantity' => 6],
+                    ['name' => 'ULTRAFLEX NORMANTON', 'slug' => 'normanton', 'quantity' => 4],
+                    ['name' => 'ULTRAFLEX ROTHERHAM', 'slug' => 'rotherham', 'quantity' => 5]
                 ],
                 'slug' => 'rowing-machine-elite',
                 'brand' => 'RowPro',
@@ -195,9 +195,9 @@ class EquipmentController extends Controller
                     'Do not use while under the influence of alcohol or medication'
                 ],
                 'locations' => [
-                    ['name' => 'Downtown UltraFlex', 'slug' => 'downtown', 'quantity' => 5],
-                    ['name' => 'Westside UltraFlex', 'slug' => 'westside', 'quantity' => 3],
-                    ['name' => 'North UltraFlex', 'slug' => 'north', 'quantity' => 4]
+                    ['name' => 'ULTRAFLEX WEST LEEDS', 'slug' => 'west-leeds', 'quantity' => 5],
+                    ['name' => 'ULTRAFLEX NORTH LEEDS', 'slug' => 'north-leeds', 'quantity' => 3],
+                    ['name' => 'ULTRAFLEX NORMANTON', 'slug' => 'normanton', 'quantity' => 4]
                 ],
                 'relatedEquipment' => [
                     [
@@ -270,9 +270,9 @@ class EquipmentController extends Controller
                     'Have a spotter for heavy lifts'
                 ],
                 'locations' => [
-                    ['name' => 'Downtown UltraFlex', 'slug' => 'downtown', 'quantity' => 2],
-                    ['name' => 'Westside UltraFlex', 'slug' => 'westside', 'quantity' => 1],
-                    ['name' => 'North UltraFlex', 'slug' => 'north', 'quantity' => 3]
+                    ['name' => 'ULTRAFLEX NORMANTON', 'slug' => 'normanton', 'quantity' => 2],
+                    ['name' => 'ULTRAFLEX ROTHERHAM', 'slug' => 'rotherham', 'quantity' => 1],
+                    ['name' => 'ULTRAFLEX WEST LEEDS', 'slug' => 'west-leeds', 'quantity' => 3]
                 ],
                 'relatedEquipment' => [
                     [
@@ -338,9 +338,9 @@ class EquipmentController extends Controller
                     'Maintain a steady, controlled pace'
                 ],
                 'locations' => [
-                    ['name' => 'Downtown UltraFlex', 'slug' => 'downtown', 'quantity' => 4],
-                    ['name' => 'Westside UltraFlex', 'slug' => 'westside', 'quantity' => 3],
-                    ['name' => 'North UltraFlex', 'slug' => 'north', 'quantity' => 2]
+                    ['name' => 'ULTRAFLEX WEST LEEDS', 'slug' => 'west-leeds', 'quantity' => 4],
+                    ['name' => 'ULTRAFLEX NORMANTON', 'slug' => 'normanton', 'quantity' => 3],
+                    ['name' => 'ULTRAFLEX ROTHERHAM', 'slug' => 'rotherham', 'quantity' => 2]
                 ],
                 'relatedEquipment' => [
                     [
@@ -406,9 +406,9 @@ class EquipmentController extends Controller
                     'Store plates properly when not in use'
                 ],
                 'locations' => [
-                    ['name' => 'Downtown UltraFlex', 'slug' => 'downtown', 'quantity' => 8],
-                    ['name' => 'Westside UltraFlex', 'slug' => 'westside', 'quantity' => 6],
-                    ['name' => 'North UltraFlex', 'slug' => 'north', 'quantity' => 10]
+                    ['name' => 'ULTRAFLEX WEST LEEDS', 'slug' => 'west-leeds', 'quantity' => 8],
+                    ['name' => 'ULTRAFLEX NORMANTON', 'slug' => 'normanton', 'quantity' => 6],
+                    ['name' => 'ULTRAFLEX ROTHERHAM', 'slug' => 'rotherham', 'quantity' => 10]
                 ],
                 'relatedEquipment' => [
                     [
@@ -474,9 +474,9 @@ class EquipmentController extends Controller
                     'Stop if you experience any unusual resistance'
                 ],
                 'locations' => [
-                    ['name' => 'Downtown UltraFlex', 'slug' => 'downtown', 'quantity' => 3],
-                    ['name' => 'Westside UltraFlex', 'slug' => 'westside', 'quantity' => 2],
-                    ['name' => 'North UltraFlex', 'slug' => 'north', 'quantity' => 4]
+                    ['name' => 'ULTRAFLEX WEST LEEDS', 'slug' => 'west-leeds', 'quantity' => 3],
+                    ['name' => 'ULTRAFLEX NORMANTON', 'slug' => 'normanton', 'quantity' => 2],
+                    ['name' => 'ULTRAFLEX ROTHERHAM', 'slug' => 'rotherham', 'quantity' => 4]
                 ],
                 'relatedEquipment' => [
                     [
