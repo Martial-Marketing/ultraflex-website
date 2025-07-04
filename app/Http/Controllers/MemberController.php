@@ -46,37 +46,37 @@ class MemberController extends Controller
             'workouts' => [
                 [
                     'id' => 1,
-                    'title' => 'Full Body HIIT',
-                    'image' => 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=400&fit=crop&crop=center',
+                    'title' => 'ABS WORKOUT',
+                    'image' => '/Images/workout/UF-Abs.jpg',
                     'duration' => '30 min',
                     'difficulty' => 'Intermediate',
-                    'type' => 'HIIT'
+                    'type' => 'Core'
                 ],
                 [
                     'id' => 2,
-                    'title' => 'Strength Training Basics',
-                    'image' => 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=500&h=400&fit=crop&crop=center',
+                    'title' => 'ARMS WORKOUT',
+                    'image' => '/Images/workout/UF-ARMS-.png',
                     'duration' => '45 min',
-                    'difficulty' => 'Beginner',
+                    'difficulty' => 'Intermediate',
                     'type' => 'Strength'
                 ]
             ],
             'nutrition' => [
                 [
                     'id' => 1,
-                    'title' => 'Post-Workout Protein Bowl',
-                    'image' => 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=500&h=400&fit=crop&crop=center',
-                    'prepTime' => '15 min',
-                    'calories' => 350,
-                    'goal' => 'Muscle Gain'
+                    'title' => 'UltraFlex Cut',
+                    'image' => '/Images/nutritionn/UF-Cut.jpg',
+                    'prepTime' => '12 weeks',
+                    'calories' => '1800-2200',
+                    'goal' => 'Fat Loss'
                 ],
                 [
                     'id' => 2,
-                    'title' => 'Green Energy Smoothie',
-                    'image' => 'https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=500&h=400&fit=crop&crop=center',
-                    'prepTime' => '5 min',
-                    'calories' => 180,
-                    'goal' => 'Energy Boost'
+                    'title' => 'UltraFlex Bulk',
+                    'image' => '/Images/nutritionn/UF-Bulk.jpg',
+                    'prepTime' => '16 weeks',
+                    'calories' => '2800-3500',
+                    'goal' => 'Muscle Gain'
                 ]
             ]
         ];

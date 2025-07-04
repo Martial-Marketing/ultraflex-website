@@ -37,14 +37,6 @@ interface FeaturedContent {
         difficulty: string;
         type: string;
     }[];
-    nutrition: {
-        id: number;
-        title: string;
-        image: string;
-        prepTime: string;
-        calories: number;
-        goal: string;
-    }[];
 }
 
 interface MembersIndexProps {
@@ -135,13 +127,24 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                 {/* All content with higher z-index */}
                 <div className="relative z-10">
                     {/* Header */}
-                    <section className="bg-gradient-to-r from-red-900/80 to-red-700/80 py-16 backdrop-blur-sm relative overflow-hidden">
-                        {/* Header particles */}
+                    <section className="relative py-16 overflow-hidden bg-black">
+                        {/* Background Image */}
+                        <div 
+                            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                            style={{
+                                backgroundImage: "url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3')"
+                            }}
+                        />
+                        
+                        {/* Gradient Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-red-900/90 via-black/70 to-red-800/90"></div>
+                        
+                        {/* Animated Particles */}
                         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                            {Array.from({ length: 15 }, (_, i) => (
+                            {Array.from({ length: 20 }, (_, i) => (
                                 <div
                                     key={i}
-                                    className="absolute w-1 h-1 bg-white/30 rounded-full animate-pulse"
+                                    className="absolute w-1 h-1 bg-white/40 rounded-full animate-pulse"
                                     style={{
                                         top: `${Math.random() * 100}%`,
                                         left: `${Math.random() * 100}%`,
@@ -350,64 +353,6 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                                                         <Button className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group">
                                                             <span className="group-hover:translate-x-1 transition-transform duration-300">
                                                                 Start Workout
-                                                            </span>
-                                                        </Button>
-                                                    </CardContent>
-                                                </Card>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    {/* Featured Nutrition */}
-                                    <div>
-                                        <div className="flex items-center justify-between mb-6">
-                                            <h2 className="text-2xl font-bold text-white">Featured Nutrition</h2>
-                                            <Link href="/members/nutrition">
-                                                <Button variant="outline" className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
-                                                    <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                                        View All
-                                                    </span>
-                                                </Button>
-                                            </Link>
-                                        </div>
-                                        <div className="grid md:grid-cols-2 gap-6">
-                                            {featuredContent.nutrition.map((recipe) => (
-                                                <Card key={recipe.id} className="overflow-hidden hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 group">
-                                                    <div className="h-40 bg-gray-800 relative overflow-hidden">
-                                                        <img 
-                                                            src={recipe.image} 
-                                                            alt={recipe.title}
-                                                            className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                                                            loading="lazy"
-                                                        />
-                                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                                        
-                                                        {/* Prep time badge */}
-                                                        <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-sm rounded-full px-2 py-1 border border-white/10">
-                                                            <span className="text-white text-xs font-medium">{recipe.prepTime}</span>
-                                                        </div>
-
-                                                        {/* View overlay */}
-                                                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                                            <div className="bg-gradient-to-r from-green-700 to-green-800 hover:from-green-600 hover:to-green-700 text-white px-3 py-2 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 border border-green-700/20 backdrop-blur-sm flex items-center text-sm">
-                                                                View Recipe
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <CardContent className="p-4 bg-black/20 backdrop-blur-sm">
-                                                        <h3 className="font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">{recipe.title}</h3>
-                                                        <div className="flex items-center justify-between text-sm text-gray-300 mb-3">
-                                                            <span className="flex items-center">
-                                                                <span className="text-green-400 mr-1 text-xs">CAL:</span>
-                                                                {recipe.calories}
-                                                            </span>
-                                                            <span className="px-2 py-1 bg-green-700/20 text-green-400 rounded-full text-xs backdrop-blur-sm border border-green-700/30">
-                                                                {recipe.goal}
-                                                            </span>
-                                                        </div>
-                                                        <Button variant="outline" className="w-full border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
-                                                            <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                                                View Recipe
                                                             </span>
                                                         </Button>
                                                     </CardContent>

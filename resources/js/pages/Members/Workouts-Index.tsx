@@ -220,12 +220,24 @@ export default function WorkoutsIndex({ auth, workouts }: WorkoutsIndexProps) {
                 
                 <div className="relative z-10">
                     {/* Header */}
-                    <section className="bg-gradient-to-r from-red-900/80 to-red-700/80 py-16 backdrop-blur-sm relative overflow-hidden">
+                    <section className="relative py-16 overflow-hidden">
+                        {/* Background Image */}
+                        <div 
+                            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                            style={{
+                                backgroundImage: "url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80')"
+                            }}
+                        />
+                        
+                        {/* Gradient Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-red-900/70 to-black/80" />
+                        
+                        {/* Animated Particles */}
                         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                            {Array.from({ length: 15 }, (_, i) => (
+                            {Array.from({ length: 20 }, (_, i) => (
                                 <div
                                     key={i}
-                                    className="absolute w-1 h-1 bg-white/30 rounded-full animate-pulse"
+                                    className="absolute w-1 h-1 bg-white/40 rounded-full animate-pulse"
                                     style={{
                                         top: `${Math.random() * 100}%`,
                                         left: `${Math.random() * 100}%`,

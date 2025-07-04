@@ -90,7 +90,18 @@ export default function ContactIndex({ locations, generalContact, auth }: Contac
                 {/* All content with higher z-index */}
                 <div className="relative z-10">
                     {/* Hero Section */}
-                    <section className="bg-gradient-to-r from-red-900/80 to-red-700/80 py-20 backdrop-blur-sm relative overflow-hidden">
+                    <section className="relative py-20 overflow-hidden">
+                        {/* Background Image */}
+                        <div 
+                            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                            style={{
+                                backgroundImage: 'url(https://images.unsplash.com/photo-1534258936925-c58bed479fcb?w=1920&h=1080&fit=crop&q=80)'
+                            }}
+                        />
+                        
+                        {/* Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-red-900/70 to-black/80 backdrop-blur-sm" />
+                        
                         {/* Hero particles */}
                         <div className="absolute inset-0 overflow-hidden pointer-events-none">
                             {Array.from({ length: 15 }, (_, i) => (
