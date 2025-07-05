@@ -9,28 +9,28 @@ export default function UltraFlexClothing() {
     // Image data
     const images = [
         {
-            src: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center",
-            alt: "UltraFlex Shirt",
-            title: "Performance Shirts",
+            src: "/Images/Clothing/Acid-grey-male-back-300x300.jpg",
+            alt: "UltraFlex Acid Grey Male Shirt",
+            title: "Acid Grey Performance Shirt",
             price: "From $29.99"
         },
         {
-            src: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop&crop=center",
-            alt: "UltraFlex Shorts",
-            title: "Training Shorts",
+            src: "/Images/Clothing/Beige-female-back-300x300.jpg",
+            alt: "UltraFlex Beige Female Shirt",
+            title: "Beige Athletic Top",
             price: "From $24.99"
         },
         {
-            src: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop&crop=center",
-            alt: "UltraFlex Hoodie",
-            title: "Premium Hoodies",
-            price: "From $49.99"
+            src: "/Images/Clothing/Drop-Sleeve-Vest-2-1-300x300.jpg",
+            alt: "UltraFlex Drop Sleeve Vest",
+            title: "Drop Sleeve Vest",
+            price: "From $34.99"
         },
         {
-            src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&crop=center",
-            alt: "UltraFlex Leggings",
-            title: "Athletic Leggings",
-            price: "From $34.99"
+            src: "/Images/Clothing/IMG-0784-300x300.jpg",
+            alt: "UltraFlex Athletic Wear",
+            title: "Premium Athletic Wear",
+            price: "From $39.99"
         }
     ];
 
@@ -97,14 +97,20 @@ export default function UltraFlexClothing() {
                         </div>
 
                         {/* Enhanced button with hover effects */}
-                        <Button 
-                            size="lg" 
-                            className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm"
+                        <a 
+                            href="https://www.ultraflexclothing.com/" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
                         >
-                            <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                Shop Collection
-                            </span>
-                        </Button>
+                            <Button 
+                                size="lg" 
+                                className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm"
+                            >
+                                <span className="group-hover:translate-x-1 transition-transform duration-300">
+                                    Shop Collection
+                                </span>
+                            </Button>
+                        </a>
                     </div>
 
                     {/* Carousel Section */}

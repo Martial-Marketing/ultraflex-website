@@ -100,7 +100,7 @@ export default function Navbar({ auth }: NavbarProps) {
         },
         {
             label: 'UltraFlex Clothing',
-            href: 'https://clothing.ultraflex.com',
+            href: 'https://www.ultraflexclothing.com/',
             icon: null,
             external: true
         },

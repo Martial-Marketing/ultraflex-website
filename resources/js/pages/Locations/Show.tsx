@@ -23,7 +23,7 @@ import {
 } from 'lucide-react';
 import AppLayout from '@/layouts/app-layout';
 import AnimatedBackground from '@/components/AnimatedBackground';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface Manager {
     name: string;
@@ -104,10 +104,22 @@ interface LocationShowProps {
 
 export default function LocationShow({ location, auth }: LocationShowProps) {
     const [currentMembershipSlide, setCurrentMembershipSlide] = useState(0);
+    const [currentEquipmentBgIndex, setCurrentEquipmentBgIndex] = useState(0);
     const membershipPlansPerSlide = 3;
     const totalMembershipSlides = Math.ceil(location.membershipPlans.length / membershipPlansPerSlide);
     
     const averageRating = location.reviews.reduce((acc, review) => acc + review.rating, 0) / location.reviews.length;
+
+    // Auto-rotate equipment background images
+    useEffect(() => {
+        if (location.gallery.length > 1) {
+            const interval = setInterval(() => {
+                setCurrentEquipmentBgIndex((prev) => (prev + 1) % location.gallery.length);
+            }, 4000); // Change every 4 seconds
+
+            return () => clearInterval(interval);
+        }
+    }, [location.gallery.length]);
 
     const nextMembershipSlide = () => {
         setCurrentMembershipSlide((prev) => (prev + 1) % totalMembershipSlides);
@@ -292,8 +304,42 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                     </section>
 
                     {/* Equipment & Facilities */}
-                    <section className="py-16 bg-black/10 backdrop-blur-md">
-                        <div className="container mx-auto px-6">
+                    <section className="py-16 relative overflow-hidden">
+                        {/* Background Image Carousel */}
+                        <div className="absolute inset-0">
+                            {location.gallery.map((image, index) => (
+                                <div
+                                    key={index}
+                                    className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
+                                        index === currentEquipmentBgIndex ? 'opacity-100' : 'opacity-0'
+                                    }`}
+                                    style={{
+                                        backgroundImage: `url('${image}')`
+                                    }}
+                                />
+                            ))}
+                        </div>
+
+                        {/* Dark Overlay */}
+                        <div className="absolute inset-0 bg-black/70" />
+
+                        {/* Animated Particles */}
+                        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                            {Array.from({ length: 15 }, (_, i) => (
+                                <div
+                                    key={i}
+                                    className="absolute w-1 h-1 bg-white/30 rounded-full animate-pulse"
+                                    style={{
+                                        top: `${Math.random() * 100}%`,
+                                        left: `${Math.random() * 100}%`,
+                                        animationDelay: `${Math.random() * 3}s`,
+                                        animationDuration: `${2 + Math.random() * 2}s`
+                                    }}
+                                />
+                            ))}
+                        </div>
+
+                        <div className="container mx-auto px-6 relative z-10">
                             <h2 className="text-3xl font-bold text-center mb-12">
                                 <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Equipment</span>{' '}
                                 <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">&</span>{' '}
@@ -301,7 +347,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                             </h2>
                             <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
                                 {location.equipment.map((item, index) => (
-                                    <Card key={index} className={`text-center p-6 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 group ${!item.available ? 'opacity-50' : ''}`}>
+                                    <Card key={index} className={`text-center p-6 bg-black/60 backdrop-blur-md border border-white/20 hover:border-red-700/50 transition-all duration-300 group hover:bg-black/70 ${!item.available ? 'opacity-50' : ''}`}>
                                         <div className="flex justify-center mb-4 text-red-700 group-hover:scale-110 transition-transform duration-300">
                                             {getEquipmentIcon(item.icon)}
                                         </div>
@@ -312,6 +358,21 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                             <span className="text-xs text-green-400 mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Available</span>
                                         )}
                                     </Card>
+                                ))}
+                            </div>
+
+                            {/* Image Indicator Dots */}
+                            <div className="flex justify-center mt-8 space-x-2">
+                                {location.gallery.map((_, index) => (
+                                    <button
+                                        key={index}
+                                        onClick={() => setCurrentEquipmentBgIndex(index)}
+                                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                                            index === currentEquipmentBgIndex 
+                                                ? 'bg-red-700 w-6 shadow-[0_0_10px_rgba(220,38,38,0.5)]' 
+                                                : 'bg-white/30 hover:bg-white/50'
+                                        }`}
+                                    />
                                 ))}
                             </div>
                         </div>
