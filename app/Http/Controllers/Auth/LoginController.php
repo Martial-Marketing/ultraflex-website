@@ -17,7 +17,11 @@ class LoginController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Auth/Login');
+        return Inertia::render('Auth/Login', [
+            'auth' => [
+                'user' => auth()->user()
+            ]
+        ]);
     }
 
     /**
@@ -36,12 +40,8 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            // Check user role and redirect accordingly
-            if (Auth::user()->user_role === 'admin') {
-                return redirect()->route('admin.dashboard');
-            } else {
-                return redirect()->route('user.dashboard');
-            }
+            // Redirect to members hub for all users
+            return redirect()->route('members.index');
         }
 
         // Authentication failed
