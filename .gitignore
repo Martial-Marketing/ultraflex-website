@@ -7,7 +7,6 @@
 /storage/*.key
 /storage/pail
 /vendor
-/resources/js
 .env
 .env.backup
 .env.production
