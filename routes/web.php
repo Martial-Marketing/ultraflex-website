@@ -79,6 +79,9 @@ Route::middleware(['auth'])->group(function () {
     
 });
 
+// Gym Rules & Etiquette
+Route::get('/gymrules', [\App\Http\Controllers\GymRulesController::class, 'index'])->name('gymrules');
+
 // Example page with layout
 Route::get('/example-with-layout', function (Request $request) {
     return inertia('Example/WithLayout', [

@@ -238,6 +238,9 @@ export default function AnimatedFooter({ className = '' }: FooterProps) {
                                 <Link href="/accessibility" className="text-gray-400 hover:text-red-700 transition-colors">
                                     Accessibility
                                 </Link>
+                                <Link href="/gymrules" className="text-gray-400 hover:text-red-700 transition-colors">
+                                    Gym Rules & Etiquette
+                                </Link>
                             </div>
                         </div>
                     </div>
