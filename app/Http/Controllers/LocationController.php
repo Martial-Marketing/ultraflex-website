@@ -84,7 +84,7 @@ class LocationController extends Controller
                 'name' => 'ULTRAFLEX WEST LEEDS',
                 'address' => 'West Park Ring Road, Leeds LS16 6EB, UK',
                 'phone' => '0113 256 5107',
-                'image' => '/Images/westleeds/UFG (100) (2).jpg',
+                'image' => '/Images/newimages/West Leeds/processed-87E9C2AC-91E6-4D66-A554-A14A6884F806.jpeg',
                 'slug' => 'west-leeds',
                 'hours' => [
                     'weekdays' => '06:00 - 22:00',
@@ -96,7 +96,7 @@ class LocationController extends Controller
                 'name' => 'ULTRAFLEX NORTH LEEDS',
                 'address' => 'Limewood Centre, Limewood Avenue, Ring Road, Seacroft, Leeds LS14 1NH, UK',
                 'phone' => '0113 513 7669',
-                'image' => '/Images/northleeds/DSC07392 (1).jpg',
+                'image' => '/Images/newimages/North Leeds/processed-2FB70114-A5B3-421F-B18F-9259B02EAE0F.jpeg',
                 'slug' => 'north-leeds',
                 'hours' => [
                     'weekdays' => '06:00 - 22:00',
@@ -108,7 +108,7 @@ class LocationController extends Controller
                 'name' => 'ULTRAFLEX NORMANTON',
                 'address' => 'High Street, Normanton WF6 2DB, UK',
                 'phone' => '+44 1924 890 123',
-                'image' => '/Images/normanton/IMG_(61) (1).jpg',
+                'image' => '/Images/newimages/Normanton/original-9952D7AA-91CB-428C-B334-0861B2D6D9CA.jpeg',
                 'slug' => 'normanton',
                 'hours' => [
                     'weekdays' => '5:00 AM - 11:00 PM',
@@ -120,7 +120,7 @@ class LocationController extends Controller
                 'name' => 'ULTRAFLEX ROTHERHAM',
                 'address' => 'Moorgate Street, Rotherham S60 2EY, UK',
                 'phone' => '+44 1709 456 789',
-                'image' => '/Images/rotherham/IMG (19) (4).jpg',
+                'image' => '/Images/newimages/Rotherham/processed-02A9E771-ED62-4062-A773-9CC3BF76DD80.jpeg',
                 'slug' => 'rotherham',
                 'hours' => [
                     'weekdays' => '5:00 AM - 11:00 PM',
@@ -132,7 +132,7 @@ class LocationController extends Controller
                 'name' => 'ULTRAFLEX YORK',
                 'address' => 'Clifton Moor Centre, York YO30 4WR, UK',
                 'phone' => '+44 1904 567 890',
-                'image' => '/Images/york/ForGallery/DSC07349.jpg',
+                'image' => '/Images/newimages/York/processed-1C75D3B5-0121-44DC-9A0C-46E5DD1CDE59.jpeg',
                 'slug' => 'york',
                 'hours' => [
                     'weekdays' => '5:00 AM - 11:00 PM',
@@ -144,7 +144,7 @@ class LocationController extends Controller
                 'name' => 'ULTRAFLEX HULL',
                 'address' => 'Jameson Street, Hull HU1 3DX, UK',
                 'phone' => '+44 1482 678 901',
-                'image' => '/Images/hull/IMG (19) (5).jpg',
+                'image' => '/Images/newimages/Hull/processed-1BE59C03-0910-444C-B36D-32C70D815526.jpeg',
                 'slug' => 'hull',
                 'hours' => [
                     'weekdays' => '5:00 AM - 11:00 PM',
@@ -156,7 +156,7 @@ class LocationController extends Controller
                 'name' => 'ULTRAFLEX DURHAM',
                 'address' => 'North Road, Durham DH1 4SQ, UK',
                 'phone' => '+44 1913 789 012',
-                'image' => '/Images/durham/8 Section MultiStation.jpg',
+                'image' => '/Images/newimages/Durham/original-78FD4345-1F1E-4451-8ED1-86D9844C4727.jpeg',
                 'slug' => 'durham',
                 'hours' => [
                     'weekdays' => '5:00 AM - 11:00 PM',
@@ -192,7 +192,7 @@ class LocationController extends Controller
                 'name' => 'ULTRAFLEX LINCOLN',
                 'address' => 'High Street, Lincoln LN5 7PJ, UK',
                 'phone' => '+44 1522 012 345',
-                'image' => '/Images/lincoln/ForGallery/DSC07350.jpg',
+                'image' => '/Images/newimages/Lincoln/processed-4B4F47FA-F1B6-46E4-9870-983DC13A0EA9.jpeg',
                 'slug' => 'lincoln',
                 'hours' => [
                     'weekdays' => '5:00 AM - 11:00 PM',
@@ -235,16 +235,12 @@ class LocationController extends Controller
                     'address' => 'West Park Ring Road, Leeds LS16 6EB, UK',
                     'phone' => '0113 256 5107',
                     'email' => 'leeds@ultraflexgym.co.uk',
-                    'image' => '/Images/westleeds/UFG (100) (2).jpg',
+                    'image' => '/Images/newimages/West Leeds/processed-87E9C2AC-91E6-4D66-A554-A14A6884F806.jpeg',
                     'gallery' => [
-                        '/Images/westleeds/westleeds/ForGallery/DSC07341.jpg',
-                        '/Images/westleeds/westleeds/ForGallery/DSC07345.jpg',
-                        '/Images/westleeds/westleeds/ForGallery/DSC07346.jpg',
-                        '/Images/westleeds/westleeds/ForGallery/DSC07349.jpg',
-                        '/Images/westleeds/westleeds/ForGallery/DSC07350.jpg',
-                        '/Images/westleeds/westleeds/ForGallery/DSC07359 (1).jpg',
-                        '/Images/westleeds/westleeds/ForGallery/DSC07359.jpg',
-                        '/Images/westleeds/UFG (100) (2).jpg'
+                        '/Images/newimages/West Leeds/processed-87E9C2AC-91E6-4D66-A554-A14A6884F806.jpeg',
+                        '/Images/newimages/West Leeds/processed-0450649E-F70E-4964-B65D-4EFEC111EC96.jpeg',
+                        '/Images/newimages/West Leeds/processed-CFF78B9F-6230-4E23-8A81-D514407375F3.jpeg',
+                        '/Images/newimages/West Leeds/processed-D1018833-8E96-476D-BBD7-936806F64B5A.jpeg'
                     ],
                     'slug' => 'west-leeds',
                     'hours' => [
@@ -257,11 +253,61 @@ class LocationController extends Controller
                         'sunday' => '08:00 – 20:00'
                     ],
                     'manager' => [
-                        'name' => 'James Mitchell',
+                        'name' => 'Sophia',
                         'bio' => 'UltraFlex Gym in Leeds is regarded as one of the best gyms in Leeds. Our team ensures members can train on top-quality equipment manufactured by the best brand names in the world.',
-                        'image' => '/images/managers/james.jpg',
+                        'image' => '/images/managers/sophia.jpg',
                         'experience' => '15+ years experience'
                     ],
+                    'membershipPlans' => [
+                        [
+                            'id' => 1,
+                            'name' => 'Day Pass',
+                            'price' => 12.00,
+                            'period' => 'day',
+                            'features' => ['Single Day Access', 'Top-Quality Equipment', 'Changing Rooms', 'Free Parking'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 2,
+                            'name' => 'Weekly Pass',
+                            'price' => 25.00,
+                            'period' => 'week',
+                            'features' => ['7 Days Access', 'All Equipment Access', 'All Facilities', 'Free Parking'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 3,
+                            'name' => 'Monthly Pass',
+                            'price' => 50.00,
+                            'period' => 'month',
+                            'features' => ['30 Days Access', 'All Equipment Access', 'All Facilities', 'Group Classes'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 4,
+                            'name' => 'Monthly Direct Debit',
+                            'price' => 45.00,
+                            'period' => 'month',
+                            'features' => ['Monthly Rolling Contract', 'Min 12 Month Commitment', 'All Equipment Access', 'All Facilities', 'Best Value'],
+                            'popular' => true
+                        ],
+                        [
+                            'id' => 5,
+                            'name' => '6 Month Pass',
+                            'price' => 270.00,
+                            'period' => '6 months',
+                            'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'All Facilities', 'Group Classes'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 6,
+                            'name' => '12 Month Pass',
+                            'price' => 490.00,
+                            'period' => '12 months',
+                            'features' => ['12 Months Access', 'Payment in Full', 'All Equipment Access', 'All Facilities', 'Best Annual Value'],
+                            'popular' => false
+                        ],
+                    ]
                 ];
                 break;
                 
@@ -272,16 +318,20 @@ class LocationController extends Controller
                     'address' => 'Limewood Centre, Limewood Avenue, Ring Road, Seacroft, Leeds LS14 1NH, UK',
                     'phone' => '0113 513 7669',
                     'email' => 'northleeds@ultraflexgym.co.uk',
-                    'image' => '/Images/northleeds/DSC07392 (1).jpg',
+                    'image' => '/Images/newimages/North Leeds/processed-2FB70114-A5B3-421F-B18F-9259B02EAE0F.jpeg',
                     'gallery' => [
-                        '/Images/northleeds/northleeds/ForGallery/DSC07341.jpg',
-                        '/Images/northleeds/northleeds/ForGallery/DSC07345.jpg',
-                        '/Images/northleeds/northleeds/ForGallery/DSC07346.jpg',
-                        '/Images/northleeds/northleeds/ForGallery/DSC07349.jpg',
-                        '/Images/northleeds/northleeds/ForGallery/DSC07350.jpg',
-                        '/Images/northleeds/northleeds/ForGallery/DSC07359 (1).jpg',
-                        '/Images/northleeds/northleeds/ForGallery/DSC07359.jpg',
-                        '/Images/northleeds/DSC07392 (1).jpg'
+                        '/Images/newimages/North Leeds/processed-2FB70114-A5B3-421F-B18F-9259B02EAE0F.jpeg',
+                        '/Images/newimages/North Leeds/processed-5EFB986F-A01D-45B4-A639-78BD17AAC227.jpeg',
+                        '/Images/newimages/North Leeds/processed-7BA4ED86-23D3-4781-AAA2-EC6614277661.jpeg',
+                        '/Images/newimages/North Leeds/processed-10DD967D-7D5C-41F4-B422-BE3971C0DCA1.jpeg',
+                        '/Images/newimages/North Leeds/processed-76AF2E09-9ADF-4BBF-9ACA-3162D41E1A55.jpeg',
+                        '/Images/newimages/North Leeds/processed-99B601E2-5AD9-470A-8CAF-FC423FC51595.jpeg',
+                        '/Images/newimages/North Leeds/processed-BF2DD4B5-1FE7-426D-9754-34E76EF8EE78.jpeg',
+                        '/Images/newimages/North Leeds/processed-D9B9ADBE-7CB6-41CD-B6EC-6C35A5F1619A.jpeg',
+                        '/Images/newimages/North Leeds/processed-D99ED15F-94AE-4A73-A44C-86D2C965A647.jpeg',
+                        '/Images/newimages/North Leeds/processed-ECF0163A-CC4D-4873-ABFB-B89375B52D5F.jpeg',
+                        '/Images/newimages/North Leeds/processed-F7B287EF-8436-4457-8B69-A199088FB54B.jpeg',
+                        '/Images/newimages/North Leeds/processed-F86F9272-4DEC-484E-8C3F-6E06A7D47E71.jpeg'
                     ],
                     'slug' => 'north-leeds',
                     'hours' => [
@@ -294,9 +344,9 @@ class LocationController extends Controller
                         'sunday' => '06:00 – 20:00'
                     ],
                     'manager' => [
-                        'name' => 'Sarah Thompson',
+                        'name' => 'Curtis Ryan',
                         'bio' => 'UltraFlex North Leeds is our brand new site which is opening soon in Seacroft, Leeds. This is going to be our biggest and best site yet and just like our other sites, members can train on top-quality equipment manufactured by the best brand names in the world. Whatever the type of physical training you seek, we can provide it.',
-                        'image' => '/images/managers/sarah.jpg',
+                        'image' => '/images/managers/curtis.jpg',
                         'experience' => '12+ years experience'
                     ],
                     'membershipPlans' => [
@@ -393,16 +443,19 @@ class LocationController extends Controller
                     'address' => 'High Street, Normanton WF6 2DB, UK',
                     'phone' => '0192 489 5794',
                     'email' => 'normanton@ultraflexgym.co.uk',
-                    'image' => '/Images/normanton/IMG_(61) (1).jpg',
+                    'image' => '/Images/newimages/Normanton/original-9952D7AA-91CB-428C-B334-0861B2D6D9CA.jpeg',
                     'gallery' => [
-                        '/Images/normanton/normanton/ForGallery/DSC07341.jpg',
-                        '/Images/normanton/normanton/ForGallery/DSC07345.jpg',
-                        '/Images/normanton/normanton/ForGallery/DSC07346.jpg',
-                        '/Images/normanton/normanton/ForGallery/DSC07349.jpg',
-                        '/Images/normanton/normanton/ForGallery/DSC07350.jpg',
-                        '/Images/normanton/normanton/ForGallery/DSC07359 (1).jpg',
-                        '/Images/normanton/normanton/ForGallery/DSC07359.jpg',
-                        '/Images/normanton/IMG_(61) (1).jpg'
+                        '/Images/newimages/Normanton/original-9952D7AA-91CB-428C-B334-0861B2D6D9CA.jpeg',
+                        '/Images/newimages/Normanton/original-E7E9CE73-12D7-4640-B9A1-97459375660B.jpeg',
+                        '/Images/newimages/Normanton/processed-4A39A08A-E6DE-494A-A832-CFA100002638.jpeg',
+                        '/Images/newimages/Normanton/processed-4DBB0340-4911-4E16-9359-803AE95C5B41.jpeg',
+                        '/Images/newimages/Normanton/processed-32C97997-5EDB-4C17-B558-98833B55CCDE.jpeg',
+                        '/Images/newimages/Normanton/processed-36B198E1-BDA5-4A5A-AE2A-11C1E320ACAA.jpeg',
+                        '/Images/newimages/Normanton/processed-73E3DEE0-247C-4414-8BFD-685E2FD01BB9.jpeg',
+                        '/Images/newimages/Normanton/processed-2452478C-43F1-4675-8B5B-C6FA2C4E01E8.jpeg',
+                        '/Images/newimages/Normanton/processed-B81487A2-CC31-40AD-BB62-F83139D88FB1.jpeg',
+                        '/Images/newimages/Normanton/processed-D7A5E938-2961-4A96-B14E-530269D9A7E6.jpeg',
+                        '/Images/newimages/Normanton/processed-EEC257EE-7EED-41B9-A145-9FADF54E81E9.jpeg'
                     ],
                     'slug' => 'normanton',
                     'hours' => [
@@ -415,9 +468,9 @@ class LocationController extends Controller
                         'sunday' => '08:00 – 20:00'
                     ],
                     'manager' => [
-                        'name' => 'Michael Davies',
+                        'name' => 'Shaun Howe',
                         'bio' => 'UltraFlex Normanton offers great location and free parking for all our members. We provide top-quality equipment and excellent facilities in the heart of Normanton.',
-                        'image' => '/images/managers/michael.jpg',
+                        'image' => '/images/managers/shaun.jpg',
                         'experience' => '10+ years experience'
                     ],
                     'membershipPlans' => [
@@ -562,16 +615,13 @@ class LocationController extends Controller
                     'address' => 'Moorgate Street, Rotherham S60 2EY, UK',
                     'phone' => '0170 937 7311',
                     'email' => 'rotherham@ultraflexgym.co.uk',
-                    'image' => '/Images/rotherham/IMG (19) (4).jpg',
+                    'image' => '/Images/newimages/Rotherham/processed-02A9E771-ED62-4062-A773-9CC3BF76DD80.jpeg',
                     'gallery' => [
-                        '/Images/rotherham/rotherham/ForGallery/DSC07341.jpg',
-                        '/Images/rotherham/rotherham/ForGallery/DSC07345.jpg',
-                        '/Images/rotherham/rotherham/ForGallery/DSC07346.jpg',
-                        '/Images/rotherham/rotherham/ForGallery/DSC07349.jpg',
-                        '/Images/rotherham/rotherham/ForGallery/DSC07350.jpg',
-                        '/Images/rotherham/rotherham/ForGallery/DSC07359 (1).jpg',
-                        '/Images/rotherham/rotherham/ForGallery/DSC07359.jpg',
-                        '/Images/rotherham/IMG (19) (4).jpg'
+                        '/Images/newimages/Rotherham/processed-02A9E771-ED62-4062-A773-9CC3BF76DD80.jpeg',
+                        '/Images/newimages/Rotherham/processed-3A62DA5E-9C09-488E-91E2-F2C204D74006.jpeg',
+                        '/Images/newimages/Rotherham/processed-686C8E39-68D6-4118-8892-326CFF49BCD3.jpeg',
+                        '/Images/newimages/Rotherham/processed-C23EEF4E-7957-40BF-A09E-999F4E17257B.jpeg',
+                        '/Images/newimages/Rotherham/processed-E7CC8E8F-586F-4CF5-B707-641A064EC19D.jpeg'
                     ],
                     'slug' => 'rotherham',
                     'hours' => [
@@ -584,9 +634,9 @@ class LocationController extends Controller
                         'sunday' => '06:00 – 20:00'
                     ],
                     'manager' => [
-                        'name' => 'Rachel Stevens',
+                        'name' => 'Morgan Hudson',
                         'bio' => 'UltraFlex Rotherham offers great location and free parking for all our members. We provide top-quality equipment and excellent facilities with early opening times from 5 AM to accommodate all schedules.',
-                        'image' => '/images/managers/rachel.jpg',
+                        'image' => '/images/managers/morgan.jpg',
                         'experience' => '8+ years experience'
                     ],
                     'membershipPlans' => [
@@ -715,15 +765,11 @@ class LocationController extends Controller
                     'address' => 'Clifton Moor Centre, York YO30 4WR, UK',
                     'phone' => '+44 1904 567 890',
                     'email' => 'york@ultraflexgym.co.uk',
-                    'image' => '/Images/york/ForGallery/DSC07349.jpg',
+                    'image' => '/Images/newimages/York/processed-1C75D3B5-0121-44DC-9A0C-46E5DD1CDE59.jpeg',
                     'gallery' => [
-                        '/Images/york/ForGallery/DSC07341.jpg',
-                        '/Images/york/ForGallery/DSC07345.jpg',
-                        '/Images/york/ForGallery/DSC07346.jpg',
-                        '/Images/york/ForGallery/DSC07349.jpg',
-                        '/Images/york/ForGallery/DSC07350.jpg',
-                        '/Images/york/ForGallery/DSC07359 (1).jpg',
-                        '/Images/york/ForGallery/DSC07359.jpg'
+                        '/Images/newimages/York/processed-1C75D3B5-0121-44DC-9A0C-46E5DD1CDE59.jpeg',
+                        '/Images/newimages/York/processed-4FB818B1-CB0B-4226-93DE-ECBF23EF0630.jpeg',
+                        '/Images/newimages/York/processed-5EF5877A-43FD-48A2-BFD3-9D3DD634C60B.jpeg'
                     ],
                     'slug' => 'york',
                     'hours' => [
@@ -736,9 +782,9 @@ class LocationController extends Controller
                         'sunday' => '08:00 – 20:00'
                     ],
                     'manager' => [
-                        'name' => 'Jonathan Clarke',
+                        'name' => 'Jason Milner',
                         'bio' => 'UltraFlex Gym in York is rated as one of the best gyms in York, providing members with versatile and top-of-the-line equipment to train on. From 100kg dumbbells to yoga mats, our gym offers something for everyone! The gym location near the city centre also makes it easy for city dwellers looking for a place close by where they can work out after their long day at the office.',
-                        'image' => '/images/managers/jonathan.jpg',
+                        'image' => '/images/managers/jason.jpg',
                         'experience' => '11+ years experience'
                     ],
                     'membershipPlans' => [
@@ -867,16 +913,14 @@ class LocationController extends Controller
                     'address' => 'Jameson Street, Hull HU1 3DX, UK',
                     'phone' => '+44 1482 678 901',
                     'email' => 'hull@ultraflexgym.co.uk',
-                    'image' => '/Images/hull/IMG (19) (5).jpg',
+                    'image' => '/Images/newimages/Hull/processed-1BE59C03-0910-444C-B36D-32C70D815526.jpeg',
                     'gallery' => [
-                        '/Images/hull/hull/ForGallery/DSC07341.jpg',
-                        '/Images/hull/hull/ForGallery/DSC07345.jpg',
-                        '/Images/hull/hull/ForGallery/DSC07346.jpg',
-                        '/Images/hull/hull/ForGallery/DSC07349.jpg',
-                        '/Images/hull/hull/ForGallery/DSC07350.jpg',
-                        '/Images/hull/hull/ForGallery/DSC07359 (1).jpg',
-                        '/Images/hull/hull/ForGallery/DSC07359.jpg',
-                        '/Images/hull/IMG (19) (5).jpg'
+                        '/Images/newimages/Hull/processed-1BE59C03-0910-444C-B36D-32C70D815526.jpeg',
+                        '/Images/newimages/Hull/processed-5B47D6DE-4D02-4629-863B-AB810E138281.jpeg',
+                        '/Images/newimages/Hull/processed-8D6FE96B-F41C-4941-AE4D-00FF9FD3AE37.jpeg',
+                        '/Images/newimages/Hull/processed-15D8AB96-044B-42F8-B235-0E7C848EDA0D.jpeg',
+                        '/Images/newimages/Hull/processed-27DF3E0C-2CC7-42AD-8751-F6E124F08F5D.jpeg',
+                        '/Images/newimages/Hull/processed-929C5668-A369-4F9F-97C0-AED066790558.jpeg'
                     ],
                     'slug' => 'hull',
                     'hours' => [
@@ -887,6 +931,62 @@ class LocationController extends Controller
                         'friday' => '05:00 – 22:00',
                         'saturday' => '06:00 – 20:00',
                         'sunday' => '06:00 – 20:00'
+                    ],
+                    'manager' => [
+                        'name' => 'Tronn Bramhill',
+                        'bio' => 'UltraFlex Hull provides exceptional fitness facilities in the heart of Hull. Our modern equipment and experienced team create the perfect environment for achieving your fitness goals.',
+                        'image' => '/images/managers/tronn.jpg',
+                        'experience' => '11+ years experience'
+                    ],
+                    'membershipPlans' => [
+                        [
+                            'id' => 1,
+                            'name' => 'Day Pass',
+                            'price' => 12.50,
+                            'period' => 'day',
+                            'features' => ['Single Day Access', 'Top-Quality Equipment', 'Changing Rooms', 'Free Parking'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 2,
+                            'name' => 'Weekly Pass',
+                            'price' => 26.00,
+                            'period' => 'week',
+                            'features' => ['7 Days Access', 'All Equipment Access', 'Cardio Area', 'Free Parking'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 3,
+                            'name' => 'Monthly Pass',
+                            'price' => 53.00,
+                            'period' => 'month',
+                            'features' => ['30 Days Access', 'All Equipment Access', 'Cardio Area', 'Group Classes'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 4,
+                            'name' => 'Monthly Direct Debit',
+                            'price' => 48.00,
+                            'period' => 'month',
+                            'features' => ['Monthly Rolling Contract', 'Min 12 Month Commitment', 'All Equipment Access', 'Cardio Area', 'Group Classes', 'Best Value'],
+                            'popular' => true
+                        ],
+                        [
+                            'id' => 5,
+                            'name' => '6 Month Pass',
+                            'price' => 280.00,
+                            'period' => '6 months',
+                            'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'Cardio Area', 'Group Classes'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 6,
+                            'name' => '12 Month Pass',
+                            'price' => 510.00,
+                            'period' => '12 months',
+                            'features' => ['12 Months Access', 'Payment in Full', 'All Equipment Access', 'Cardio Area', 'Group Classes', 'Best Annual Value'],
+                            'popular' => false
+                        ],
                     ]
                 ];
                 break;
@@ -898,16 +998,13 @@ class LocationController extends Controller
                     'address' => 'North Road, Durham DH1 4SQ, UK',
                     'phone' => '+44 1913 789 012',
                     'email' => 'durham@ultraflexgym.co.uk',
-                    'image' => '/Images/durham/8 Section MultiStation.jpg',
+                    'image' => '/Images/newimages/Durham/original-78FD4345-1F1E-4451-8ED1-86D9844C4727.jpeg',
                     'gallery' => [
-                        '/Images/durham/durham/ForGallery/DSC07341.jpg',
-                        '/Images/durham/durham/ForGallery/DSC07345.jpg',
-                        '/Images/durham/durham/ForGallery/DSC07346.jpg',
-                        '/Images/durham/durham/ForGallery/DSC07349.jpg',
-                        '/Images/durham/durham/ForGallery/DSC07350.jpg',
-                        '/Images/durham/durham/ForGallery/DSC07359 (1).jpg',
-                        '/Images/durham/durham/ForGallery/DSC07359.jpg',
-                        '/Images/durham/8 Section MultiStation.jpg'
+                        '/Images/newimages/Durham/original-78FD4345-1F1E-4451-8ED1-86D9844C4727.jpeg',
+                        '/Images/newimages/Durham/original-84A42F17-F135-4479-ACEE-E12FF6107430.jpeg',
+                        '/Images/newimages/Durham/original-765B73B8-3555-41E6-B680-3C38DED8D5F0.jpeg',
+                        '/Images/newimages/Durham/original-1606B7A3-C5DB-4DD9-9C05-B4E4FF463A44.jpeg',
+                        '/Images/newimages/Durham/original-B7A6D0E9-9780-4912-B146-A2796C6DBD7D.jpeg'
                     ],
                     'slug' => 'durham',
                     'hours' => [
@@ -918,6 +1015,62 @@ class LocationController extends Controller
                         'friday' => '05:00 – 22:00',
                         'saturday' => '06:00 – 20:00',
                         'sunday' => '06:00 – 20:00'
+                    ],
+                    'manager' => [
+                        'name' => 'Mark Bailes',
+                        'bio' => 'UltraFlex Durham offers a premium fitness experience in the historic city of Durham. Our facility combines modern equipment with expert guidance to help members achieve their fitness goals.',
+                        'image' => '/images/managers/mark.jpg',
+                        'experience' => '9+ years experience'
+                    ],
+                    'membershipPlans' => [
+                        [
+                            'id' => 1,
+                            'name' => 'Day Pass',
+                            'price' => 11.50,
+                            'period' => 'day',
+                            'features' => ['Single Day Access', 'Top-Quality Equipment', 'Changing Rooms', 'Free Parking'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 2,
+                            'name' => 'Weekly Pass',
+                            'price' => 24.00,
+                            'period' => 'week',
+                            'features' => ['7 Days Access', 'All Equipment Access', 'Cardio Area', 'Free Parking'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 3,
+                            'name' => 'Monthly Pass',
+                            'price' => 50.00,
+                            'period' => 'month',
+                            'features' => ['30 Days Access', 'All Equipment Access', 'Cardio Area', 'Group Classes'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 4,
+                            'name' => 'Monthly Direct Debit',
+                            'price' => 45.00,
+                            'period' => 'month',
+                            'features' => ['Monthly Rolling Contract', 'Min 12 Month Commitment', 'All Equipment Access', 'Cardio Area', 'Group Classes', 'Best Value'],
+                            'popular' => true
+                        ],
+                        [
+                            'id' => 5,
+                            'name' => '6 Month Pass',
+                            'price' => 270.00,
+                            'period' => '6 months',
+                            'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'Cardio Area', 'Group Classes'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 6,
+                            'name' => '12 Month Pass',
+                            'price' => 490.00,
+                            'period' => '12 months',
+                            'features' => ['12 Months Access', 'Payment in Full', 'All Equipment Access', 'Cardio Area', 'Group Classes', 'Best Annual Value'],
+                            'popular' => false
+                        ],
                     ]
                 ];
                 break;
@@ -948,6 +1101,62 @@ class LocationController extends Controller
                         'friday' => '05:00 – 22:00',
                         'saturday' => '06:00 – 20:00',
                         'sunday' => '06:00 – 20:00'
+                    ],
+                    'manager' => [
+                        'name' => 'Ian Evans',
+                        'bio' => 'UltraFlex Derby provides our members with a comprehensive fitness experience in the heart of the city. Our facility features state-of-the-art equipment and a welcoming atmosphere for fitness enthusiasts of all levels.',
+                        'image' => '/images/managers/ian.jpg',
+                        'experience' => '10+ years experience'
+                    ],
+                    'membershipPlans' => [
+                        [
+                            'id' => 1,
+                            'name' => 'Day Pass',
+                            'price' => 12.00,
+                            'period' => 'day',
+                            'features' => ['Single Day Access', 'Top-Quality Equipment', 'Changing Rooms', 'Free Parking'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 2,
+                            'name' => 'Weekly Pass',
+                            'price' => 25.00,
+                            'period' => 'week',
+                            'features' => ['7 Days Access', 'All Equipment Access', 'Cardio Area', 'Free Parking'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 3,
+                            'name' => 'Monthly Pass',
+                            'price' => 52.00,
+                            'period' => 'month',
+                            'features' => ['30 Days Access', 'All Equipment Access', 'Cardio Area', 'Group Classes'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 4,
+                            'name' => 'Monthly Direct Debit',
+                            'price' => 47.00,
+                            'period' => 'month',
+                            'features' => ['Monthly Rolling Contract', 'Min 12 Month Commitment', 'All Equipment Access', 'Cardio Area', 'Group Classes', 'Best Value'],
+                            'popular' => true
+                        ],
+                        [
+                            'id' => 5,
+                            'name' => '6 Month Pass',
+                            'price' => 275.00,
+                            'period' => '6 months',
+                            'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'Cardio Area', 'Group Classes'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 6,
+                            'name' => '12 Month Pass',
+                            'price' => 500.00,
+                            'period' => '12 months',
+                            'features' => ['12 Months Access', 'Payment in Full', 'All Equipment Access', 'Cardio Area', 'Group Classes', 'Best Annual Value'],
+                            'popular' => false
+                        ],
                     ]
                 ];
                 break;
@@ -979,12 +1188,6 @@ class LocationController extends Controller
                         'friday' => '6:00 AM - 11:00 PM',
                         'saturday' => '7:00 AM - 10:00 PM',
                         'sunday' => '7:00 AM - 10:00 PM'
-                    ],
-                    'manager' => [
-                        'name' => 'Dimitris Papadopoulos',
-                        'bio' => 'UltraFlex Athens is currently under development and will be our first international location! This exciting new facility in Glyfada will bring the UltraFlex experience to Greece, featuring state-of-the-art equipment and premium amenities. Stay tuned for updates on our grand opening!',
-                        'image' => '/images/managers/dimitris.jpg',
-                        'experience' => '16+ years experience'
                     ],
                     'membershipPlans' => [
                         [
@@ -1074,15 +1277,16 @@ class LocationController extends Controller
                     'address' => 'High Street, Lincoln LN5 7PJ, UK',
                     'phone' => '+44 1522 012 345',
                     'email' => 'lincoln@ultraflexgym.co.uk',
-                    'image' => '/Images/lincoln/ForGallery/DSC07350.jpg',
+                    'image' => '/Images/newimages/Lincoln/processed-4B4F47FA-F1B6-46E4-9870-983DC13A0EA9.jpeg',
                     'gallery' => [
-                        '/Images/lincoln/ForGallery/DSC07341.jpg',
-                        '/Images/lincoln/ForGallery/DSC07345.jpg',
-                        '/Images/lincoln/ForGallery/DSC07346.jpg',
-                        '/Images/lincoln/ForGallery/DSC07349.jpg',
-                        '/Images/lincoln/ForGallery/DSC07350.jpg',
-                        '/Images/lincoln/ForGallery/DSC07359 (1).jpg',
-                        '/Images/lincoln/ForGallery/DSC07359.jpg'
+                        '/Images/newimages/Lincoln/processed-4B4F47FA-F1B6-46E4-9870-983DC13A0EA9.jpeg',
+                        '/Images/newimages/Lincoln/processed-4CB42C14-ABF7-4379-AB13-509CA5CEB016.jpeg',
+                        '/Images/newimages/Lincoln/processed-38D17425-57E0-4119-BD1C-54053605DD0A.jpeg',
+                        '/Images/newimages/Lincoln/processed-95FD96E0-A8DE-4649-BF40-7ECA577FA1D3.jpeg',
+                        '/Images/newimages/Lincoln/processed-7468998F-6368-4178-8FB4-D437F39F9884.jpeg',
+                        '/Images/newimages/Lincoln/processed-B5F4A1CC-91C3-48E8-8773-C723A38B9528.jpeg',
+                        '/Images/newimages/Lincoln/processed-C64B65BB-67FB-4387-BA65-2CB3D05B66FB.jpeg',
+                        '/Images/newimages/Lincoln/processed-DDDEB120-7C53-41E5-B9FE-4AFA7C028F78.jpeg'
                     ],
                     'slug' => 'lincoln',
                     'hours' => [
@@ -1095,9 +1299,9 @@ class LocationController extends Controller
                         'sunday' => '24/7 (Full Access) | 06:00 - 20:00 (Day Access)'
                     ],
                     'manager' => [
-                        'name' => 'Alexandra Bennett',
+                        'name' => 'Lynsey Hind',
                         'bio' => 'Welcome to UltraFlex Lincoln! Ultra Flex Gym in Lincoln is the very first 24hr UltraFlex. It is known for its state-of-the-art facilities and supportive fitness community. Catering to beginners, seasoned athletes, and bodybuilders alike, it offers a comprehensive range of cutting-edge equipment and additional facilities to enhance the membership experience.',
-                        'image' => '/images/managers/alexandra.jpg',
+                        'image' => '/images/managers/lynsey.jpg',
                         'experience' => '12+ years experience'
                     ],
                     'membershipPlans' => [
@@ -1305,9 +1509,9 @@ class LocationController extends Controller
                         'sunday' => '08:00 – 20:00'
                     ],
                     'manager' => [
-                        'name' => 'James Mitchell',
+                        'name' => 'Sophia',
                         'bio' => 'UltraFlex Gym in Leeds is regarded as one of the best gyms in Leeds. Our team ensures members can train on top-quality equipment manufactured by the best brand names in the world.',
-                        'image' => '/images/managers/james.jpg',
+                        'image' => '/images/managers/sophia.jpg',
                         'experience' => '15+ years experience'
                     ],
                 ];
@@ -1496,6 +1700,22 @@ class LocationController extends Controller
                 'lat' => 53.8508,
                 'lng' => -1.6044
             ];
+        }
+
+        // Ensure manager object has all required fields
+        if (isset($locationData['manager'])) {
+            if (!isset($locationData['manager']['name'])) {
+                $locationData['manager']['name'] = 'no info';
+            }
+            if (!isset($locationData['manager']['bio'])) {
+                $locationData['manager']['bio'] = 'no info';
+            }
+            if (!isset($locationData['manager']['image'])) {
+                $locationData['manager']['image'] = '/images/managers/no-info.jpg';
+            }
+            if (!isset($locationData['manager']['experience'])) {
+                $locationData['manager']['experience'] = 'no info';
+            }
         }
 
         $locationData = array_merge($commonData, $locationData);
