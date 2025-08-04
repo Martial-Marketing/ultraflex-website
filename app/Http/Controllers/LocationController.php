@@ -258,56 +258,6 @@ class LocationController extends Controller
                         'image' => '/images/managers/sophia.jpg',
                         'experience' => '15+ years experience'
                     ],
-                    'membershipPlans' => [
-                        [
-                            'id' => 1,
-                            'name' => 'Day Pass',
-                            'price' => 12.00,
-                            'period' => 'day',
-                            'features' => ['Single Day Access', 'Top-Quality Equipment', 'Changing Rooms', 'Free Parking'],
-                            'popular' => false
-                        ],
-                        [
-                            'id' => 2,
-                            'name' => 'Weekly Pass',
-                            'price' => 25.00,
-                            'period' => 'week',
-                            'features' => ['7 Days Access', 'All Equipment Access', 'All Facilities', 'Free Parking'],
-                            'popular' => false
-                        ],
-                        [
-                            'id' => 3,
-                            'name' => 'Monthly Pass',
-                            'price' => 50.00,
-                            'period' => 'month',
-                            'features' => ['30 Days Access', 'All Equipment Access', 'All Facilities', 'Group Classes'],
-                            'popular' => false
-                        ],
-                        [
-                            'id' => 4,
-                            'name' => 'Monthly Direct Debit',
-                            'price' => 45.00,
-                            'period' => 'month',
-                            'features' => ['Monthly Rolling Contract', 'Min 12 Month Commitment', 'All Equipment Access', 'All Facilities', 'Best Value'],
-                            'popular' => true
-                        ],
-                        [
-                            'id' => 5,
-                            'name' => '6 Month Pass',
-                            'price' => 270.00,
-                            'period' => '6 months',
-                            'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'All Facilities', 'Group Classes'],
-                            'popular' => false
-                        ],
-                        [
-                            'id' => 6,
-                            'name' => '12 Month Pass',
-                            'price' => 490.00,
-                            'period' => '12 months',
-                            'features' => ['12 Months Access', 'Payment in Full', 'All Equipment Access', 'All Facilities', 'Best Annual Value'],
-                            'popular' => false
-                        ],
-                    ]
                 ];
                 break;
                 
@@ -1189,6 +1139,12 @@ class LocationController extends Controller
                         'saturday' => '7:00 AM - 10:00 PM',
                         'sunday' => '7:00 AM - 10:00 PM'
                     ],
+                    'manager' => [
+                        'name' => 'Dimitris Papadopoulos',
+                        'bio' => 'UltraFlex Athens is currently under development and will be our first international location! This exciting new facility in Glyfada will bring the UltraFlex experience to Greece, featuring state-of-the-art equipment and premium amenities. Stay tuned for updates on our grand opening!',
+                        'image' => '/images/managers/dimitris.jpg',
+                        'experience' => '16+ years experience'
+                    ],
                     'membershipPlans' => [
                         [
                             'id' => 1,
@@ -1509,9 +1465,9 @@ class LocationController extends Controller
                         'sunday' => '08:00 – 20:00'
                     ],
                     'manager' => [
-                        'name' => 'Sophia',
+                        'name' => 'James Mitchell',
                         'bio' => 'UltraFlex Gym in Leeds is regarded as one of the best gyms in Leeds. Our team ensures members can train on top-quality equipment manufactured by the best brand names in the world.',
-                        'image' => '/images/managers/sophia.jpg',
+                        'image' => '/images/managers/james.jpg',
                         'experience' => '15+ years experience'
                     ],
                 ];
@@ -1700,22 +1656,6 @@ class LocationController extends Controller
                 'lat' => 53.8508,
                 'lng' => -1.6044
             ];
-        }
-
-        // Ensure manager object has all required fields
-        if (isset($locationData['manager'])) {
-            if (!isset($locationData['manager']['name'])) {
-                $locationData['manager']['name'] = 'no info';
-            }
-            if (!isset($locationData['manager']['bio'])) {
-                $locationData['manager']['bio'] = 'no info';
-            }
-            if (!isset($locationData['manager']['image'])) {
-                $locationData['manager']['image'] = '/images/managers/no-info.jpg';
-            }
-            if (!isset($locationData['manager']['experience'])) {
-                $locationData['manager']['experience'] = 'no info';
-            }
         }
 
         $locationData = array_merge($commonData, $locationData);
