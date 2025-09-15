@@ -1,13 +1,13 @@
 import { Head, Link } from '@inertiajs/react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import AppLayout from '@/layouts/app-layout';
 import AnimatedBackground from '@/components/AnimatedBackground';
 
-interface User {
-    id: number;
-    name: string;
-    email: string;
+
+import type { User as GlobalUser } from '@/types';
+interface User extends GlobalUser {
     memberSince: string;
     membershipType: string;
     profileImage?: string;
@@ -30,6 +30,7 @@ interface Workout {
     }>;
 }
 
+
 interface WorkoutsShowProps {
     auth: {
         user: User;
@@ -38,7 +39,15 @@ interface WorkoutsShowProps {
 }
 
 export default function WorkoutsShow({ auth, workout }: WorkoutsShowProps) {
+
+
     const user = auth.user;
+    const [recorded, setRecorded] = useState(false);
+    const handleRecordWorkout = () => {
+        // Simulate logging workout (replace with API call in real app)
+        setRecorded(true);
+        setTimeout(() => setRecorded(false), 2500);
+    };
 
     // Function to extract YouTube video ID from URL
     const getYouTubeVideoId = (url: string) => {
@@ -318,8 +327,15 @@ export default function WorkoutsShow({ auth, workout }: WorkoutsShowProps) {
                                 Head to the gym with confidence knowing exactly what equipment you need and which muscles you'll be targeting.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                <Button
+                                    className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-8 py-3 text-lg"
+                                    onClick={handleRecordWorkout}
+                                    disabled={recorded}
+                                >
+                                    {recorded ? 'Workout Recorded!' : 'Record Workout'}
+                                </Button>
                                 <Link href="/members/workouts">
-                                    <Button className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-8 py-3 text-lg">
+                                    <Button variant="outline" className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white px-8 py-3 text-lg">
                                         Browse More Workouts
                                     </Button>
                                 </Link>

@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, usePage, router } from '@inertiajs/react';
 import { Button } from '@/components/ui/button';
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent } from '@/components/ui/dropdown-menu';
+import { UserMenuContent } from '@/components/user-menu-content';
 import { 
     Menu, 
     X, 
@@ -22,6 +24,11 @@ interface User {
     id: number;
     name: string;
     email: string;
+    avatar?: string;
+    email_verified_at: string | null;
+    created_at: string;
+    updated_at: string;
+    [key: string]: unknown;
 }
 
 interface AuthProps {
@@ -39,14 +46,8 @@ export default function Navbar({ auth }: NavbarProps) {
     const [userMenuOpen, setUserMenuOpen] = useState(false);
     const { url } = usePage();
 
-    // Close mobile menu when route changes
-    useEffect(() => {
-        setIsOpen(false);
-        setActiveDropdown(null);
-        setHoveredItem(null);
-        setUserMenuOpen(false);
-    }, [url]);
 
+    // Helper functions
     const isActive = (path: string) => {
         if (path === '/') return url === '/';
         return url.startsWith(path);
@@ -63,6 +64,14 @@ export default function Navbar({ auth }: NavbarProps) {
     const handleMouseLeave = () => {
         setHoveredItem(null);
     };
+
+    // Close mobile menu when route changes
+    useEffect(() => {
+        setIsOpen(false);
+        setActiveDropdown(null);
+        setHoveredItem(null);
+        setUserMenuOpen(false);
+    }, [url]);
 
     const navItems = [
         {
@@ -83,20 +92,16 @@ export default function Navbar({ auth }: NavbarProps) {
             dropdown: null
         },
         {
-            label: 'Equipment',
-            href: '/equipment',
+            label: 'Membership',
+            href: '/membership',
             icon: null,
             dropdown: null
         },
         {
-            label: 'Members Hub',
-            href: '/members',
+            label: 'About Us',
+            href: '/about',
             icon: null,
-            requiresAuth: true,
-            dropdown: [
-                { label: 'Workouts', href: '/members/workouts', icon: null },
-                { label: 'Nutrition', href: '/members/nutrition', icon: null }
-            ]
+            dropdown: null
         },
         {
             label: 'UltraFlex Clothing',
@@ -107,9 +112,7 @@ export default function Navbar({ auth }: NavbarProps) {
         {
             label: 'More',
             href: '#',
-            icon: <ChevronDown className="h-4 w-4" />,
             dropdown: [
-                { label: 'Gym Tours', href: '/tours', icon: null },
                 { label: 'Latest News', href: '/news', icon: null },
                 { label: 'Contact Us', href: '/contact', icon: null }
             ]
@@ -175,8 +178,7 @@ export default function Navbar({ auth }: NavbarProps) {
                     {/* Desktop Navigation */}
                     <div className="hidden lg:flex items-center space-x-8">
                         {navItems.map((item) => {
-                            // Skip Members Hub if user is not authenticated
-                            if (item.requiresAuth && !auth.user) return null;
+
 
                             if (item.dropdown) {
                                 return (
@@ -266,84 +268,39 @@ export default function Navbar({ auth }: NavbarProps) {
                         })}
                     </div>
 
-                    {/* Auth Buttons */}
+                    {/* Auth/CTA Button */}
                     <div className="hidden lg:flex items-center space-x-4">
                         {auth.user ? (
-                            <div 
-                                className="relative"
-                                onMouseEnter={() => setUserMenuOpen(true)}
-                                onMouseLeave={() => setUserMenuOpen(false)}
-                            >
-                                <button className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
-                                    userMenuOpen 
-                                        ? 'text-red-700 bg-white/10 scale-105' 
-                                        : 'text-gray-300'
-                                }`}>
-                                    <User className="h-4 w-4" />
-                                    <span className={`transition-transform duration-300 ${
-                                        userMenuOpen ? 'translate-x-1' : ''
-                                    }`}>{auth.user.name}</span>
-                                    <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${
-                                        userMenuOpen ? 'rotate-180' : ''
-                                    }`} />
-                                </button>
-                                
-                                {userMenuOpen && (
-                                    <div className="absolute top-full right-0 mt-1 w-48 bg-black/90 backdrop-blur-md rounded-md shadow-xl border border-white/10 py-1 animate-in fade-in slide-in-from-top-2 duration-200">
-                                        <Link
-                                            href="/members"
-                                            className="flex items-center space-x-2 px-4 py-2 text-sm text-gray-300 hover:text-red-700 hover:bg-red-700/10 hover:shadow-[0_0_10px_rgba(220,38,38,0.4)] transition-all duration-300 group"
-                                        >
-                                            <span className="group-hover:translate-x-1 transition-transform duration-300">Members Hub</span>
-                                        </Link>
-                                        <Link
-                                            href="/profile"
-                                            className="flex items-center space-x-2 px-4 py-2 text-sm text-gray-300 hover:text-red-700 hover:bg-red-700/10 hover:shadow-[0_0_10px_rgba(220,38,38,0.4)] transition-all duration-300 group"
-                                        >
-                                            <span className="group-hover:translate-x-1 transition-transform duration-300">Profile</span>
-                                        </Link>
-                                        <button
-                                            onClick={handleLogout}
-                                            className="flex items-center space-x-2 w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-red-700 hover:bg-red-700/10 hover:shadow-[0_0_10px_rgba(220,38,38,0.4)] transition-all duration-300 group"
-                                        >
-                                            <span className="group-hover:translate-x-1 transition-transform duration-300">Logout</span>
-                                        </button>
-                                    </div>
-                                )}
-                            </div>
+                            <DropdownMenu>
+                                <DropdownMenuTrigger asChild>
+                                    <button className="flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 text-gray-300 hover:text-red-700 hover:bg-white/10">
+                                        <User className="h-4 w-4" />
+                                        <span>{auth.user.name}</span>
+                                        <ChevronDown className="h-4 w-4" />
+                                    </button>
+                                </DropdownMenuTrigger>
+                                <DropdownMenuContent className="w-56" align="end">
+                                    <UserMenuContent user={auth.user} />
+                                </DropdownMenuContent>
+                            </DropdownMenu>
                         ) : (
-                            <>
-                                <Link 
-                                    href="/login"
-                                    onMouseEnter={() => handleMouseEnter('login')}
-                                    onMouseLeave={handleMouseLeave}
-                                >
-                                    <Button variant="outline" size="sm" className={`border-white/50 bg-white/90 text-black px-6 py-2 text-sm font-semibold rounded-lg shadow-lg backdrop-blur-sm transition-all duration-300 ${
-                                        hoveredItem === 'login' 
-                                            ? 'text-red-700 bg-white shadow-xl scale-105 border-red-700/30' 
-                                            : 'hover:text-red-700 hover:bg-white'
-                                    }`}>
-                                        <span className={`transition-transform duration-300 ${
-                                            hoveredItem === 'login' ? 'translate-x-1' : ''
-                                        }`}>Login</span>
-                                    </Button>
-                                </Link>
-                                <Link 
-                                    href="/register"
-                                    onMouseEnter={() => handleMouseEnter('register')}
-                                    onMouseLeave={handleMouseLeave}
-                                >
-                                    <Button size="sm" className={`bg-gradient-to-r from-red-700 to-red-800 text-white px-6 py-2 text-sm font-semibold rounded-lg shadow-lg border border-red-700/20 backdrop-blur-sm transition-all duration-300 ${
-                                        hoveredItem === 'register' 
-                                            ? 'from-red-600 to-red-700 shadow-xl scale-105 shadow-red-500/25' 
-                                            : 'hover:from-red-600 hover:to-red-700'
-                                    }`}>
-                                        <span className={`transition-transform duration-300 ${
-                                            hoveredItem === 'register' ? 'translate-x-1' : ''
-                                        }`}>Join Now</span>
-                                    </Button>
-                                </Link>
-                            </>
+                            <a 
+                                href="https://secure.ashbournemanagement.co.uk/signupuk/index.aspx?fn=grbh2"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onMouseEnter={() => handleMouseEnter('register')}
+                                onMouseLeave={handleMouseLeave}
+                            >
+                                <Button size="sm" className={`bg-gradient-to-r from-red-700 to-red-800 text-white px-6 py-2 text-sm font-semibold rounded-lg shadow-lg border border-red-700/20 backdrop-blur-sm transition-all duration-300 ${
+                                    hoveredItem === 'register' 
+                                        ? 'from-red-600 to-red-700 shadow-xl scale-105 shadow-red-500/25' 
+                                        : 'hover:from-red-600 hover:to-red-700'
+                                }`}>
+                                    <span className={`transition-transform duration-300 ${
+                                        hoveredItem === 'register' ? 'translate-x-1' : ''
+                                    }`}>Sign Up Now</span>
+                                </Button>
+                            </a>
                         )}
                     </div>
 
@@ -361,8 +318,7 @@ export default function Navbar({ auth }: NavbarProps) {
                     <div className="lg:hidden border-t border-white/10 py-4 animate-in slide-in-from-top duration-300">
                         <div className="space-y-2">
                             {navItems.map((item) => {
-                                // Skip Members Hub if user is not authenticated
-                                if (item.requiresAuth && !auth.user) return null;
+
 
                                 if (item.dropdown) {
                                     return (

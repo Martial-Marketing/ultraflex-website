@@ -1,4 +1,5 @@
 import { DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator } from '@/components/ui/dropdown-menu';
+import { Button } from '@/components/ui/button';
 import { UserInfo } from '@/components/user-info';
 import { useMobileNavigation } from '@/hooks/use-mobile-navigation';
 import { type User } from '@/types';
@@ -22,18 +23,22 @@ export function UserMenuContent({ user }: UserMenuContentProps) {
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
                 <DropdownMenuItem asChild>
-                    <Link className="block w-full" href={route('profile.edit')} as="button" prefetch onClick={cleanup}>
-                        <Settings className="mr-2" />
-                        Settings
-                    </Link>
+                    <Button asChild variant="ghost" className="block w-full text-left px-4 py-2 flex items-center gap-2 justify-start">
+                        <Link href={route('profile.index')} as="button" prefetch onClick={cleanup} className="flex items-center gap-2 w-full justify-start">
+                            <Settings className="mr-2 w-5 h-5" />
+                            <span>Settings</span>
+                        </Link>
+                    </Button>
                 </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem asChild>
-                <Link className="block w-full" method="post" href={route('logout')} as="button" onClick={cleanup}>
-                    <LogOut className="mr-2" />
-                    Log out
-                </Link>
+                <Button asChild variant="ghost" className="block w-full text-left px-4 py-2 flex items-center gap-2 justify-start">
+                    <Link method="post" href={route('auth.logout')} as="button" onClick={cleanup} className="flex items-center gap-2 w-full justify-start">
+                        <LogOut className="mr-2 w-5 h-5" />
+                        <span>Log out</span>
+                    </Link>
+                </Button>
             </DropdownMenuItem>
         </>
     );

@@ -5,10 +5,9 @@ import AppLayout from '@/layouts/app-layout';
 import AnimatedBackground from '@/components/AnimatedBackground';
 import { ArrowLeft, Calendar, User, Target, CheckCircle } from 'lucide-react';
 
-interface User {
-    id: number;
-    name: string;
-    email: string;
+
+import type { User as GlobalUser } from '@/types';
+interface User extends GlobalUser {
     memberSince: string;
     membershipType: string;
     profileImage?: string;
@@ -132,9 +131,21 @@ export default function NutritionShow({ auth, nutritionPlan }: NutritionShowProp
                                             </Button>
                                         </a>
                                     ) : (
-                                        <Button className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-8 py-3 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 group text-lg">
+                                        <Button
+                                            className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-8 py-3 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 group text-lg"
+                                            onClick={() => {
+                                                // Simulate PDF download (replace with real download logic)
+                                                const pdfUrl = `/pdfs/nutrition-plans/${nutritionPlan.id}.pdf`;
+                                                const link = document.createElement('a');
+                                                link.href = pdfUrl;
+                                                link.download = `${nutritionPlan.title}.pdf`;
+                                                document.body.appendChild(link);
+                                                link.click();
+                                                document.body.removeChild(link);
+                                            }}
+                                        >
                                             <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                                Start This Plan
+                                                Download Plan
                                             </span>
                                         </Button>
                                     )}
@@ -213,9 +224,21 @@ export default function NutritionShow({ auth, nutritionPlan }: NutritionShowProp
                                             </Button>
                                         </a>
                                     ) : (
-                                        <Button className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 px-8 py-3 group text-lg">
+                                        <Button
+                                            className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 px-8 py-3 group text-lg"
+                                            onClick={() => {
+                                                // Simulate PDF download (replace with real download logic)
+                                                const pdfUrl = `/pdfs/nutrition-plans/${nutritionPlan.id}.pdf`;
+                                                const link = document.createElement('a');
+                                                link.href = pdfUrl;
+                                                link.download = `${nutritionPlan.title}.pdf`;
+                                                document.body.appendChild(link);
+                                                link.click();
+                                                document.body.removeChild(link);
+                                            }}
+                                        >
                                             <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                                Start {nutritionPlan.title}
+                                                Download Plan
                                             </span>
                                         </Button>
                                     )}

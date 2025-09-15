@@ -25,18 +25,18 @@ export default function AnimatedFooter({ className = '' }: FooterProps) {
 
     const quickLinks = [
         { name: 'About Us', href: '/about' },
-        { name: 'Membership', href: '/membership' },
+        { name: 'Membership', href: '/membership' }, // Membership now links to location selector page
         { name: 'Personal Training', href: '/trainers' },
-        { name: 'Classes', href: '/classes' },
         { name: 'Locations', href: '/locations' },
         { name: 'Contact', href: '/contact' }
     ];
 
     const services = [
-        { name: 'Gym Equipment', href: '/equipment', icon: Dumbbell },
-        { name: 'Nutrition Plans', href: '/nutrition', icon: Heart },
-        { name: 'Virtual Tours', href: '/tours', icon: Award },
-        { name: 'Group Classes', href: '/classes', icon: Users }
+        // { name: 'Gym Equipment', href: '/equipment', icon: Dumbbell }, // Hide Gym Equipment
+        { name: 'Nutrition Plans', href: 'https://secure.ashbournemanagement.co.uk/signupuk/index.aspx?fn=grbh2', icon: Heart },
+        { name: 'Workout Plans', href: 'https://secure.ashbournemanagement.co.uk/signupuk/index.aspx?fn=grbh2', icon: Award },
+        { name: 'Virtual Tours', href: '/tours', icon: Award }
+        // { name: 'Group Classes', href: '/classes', icon: Users } // Remove Group Classes
     ];
 
     const locations = [

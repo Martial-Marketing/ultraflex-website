@@ -1,6 +1,7 @@
 import { Head } from '@inertiajs/react';
 import VideoLander from '@/sections/VideoLander';
 import SignUpCTA from '@/sections/SignUpCTA';
+import HomepageCarousel from '@/sections/HomepageCarousel';
 import OurLocations from '@/sections/OurLocations';
 import MemberTestimonials from '@/sections/MemberTestimonials';
 import UltraFlexClothing from '@/sections/UltraFlexClothing';
@@ -10,16 +11,11 @@ import FooterCTA from '@/sections/FooterCTA';
 import AnimatedBackground from '@/components/AnimatedBackground';
 import AppLayout from '@/layouts/app-layout';
 
-interface User {
-    id: number;
-    name: string;
-    email: string;
-}
 
+import type { User as GlobalUser } from '@/types';
 interface AuthProps {
-    user: User | null;
+    user: GlobalUser | null;
 }
-
 interface WelcomeProps {
     auth: AuthProps;
 }
@@ -176,9 +172,15 @@ export default function Welcome({ auth }: WelcomeProps) {
                         )}
                     </section>
 
+
                     {/* Sign Up CTA Section */}
                     <section className="relative">
                         <SignUpCTA />
+                    </section>
+
+                    {/* Homepage Carousel Section */}
+                    <section className="relative">
+                        <HomepageCarousel />
                     </section>
 
                     {/* Locations Section */}

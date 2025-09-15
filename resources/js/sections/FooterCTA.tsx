@@ -47,14 +47,15 @@ export default function FooterCTA() {
                         <Button 
                             size="lg" 
                             className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm"
+                            asChild
                         >
-                            <Link href={route('auth.register')} className="flex items-center">
+                            <a href="https://secure.ashbournemanagement.co.uk/signupuk/index.aspx?fn=grbh2" target="_blank" rel="noopener noreferrer" className="flex items-center">
                                 <Zap className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
                                 <span className="group-hover:translate-x-1 transition-transform duration-300">
                                     Get Started Today
                                 </span>
                                 <ArrowRight className="ml-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
-                            </Link>
+                            </a>
                         </Button>
 
                         {/* Secondary action */}

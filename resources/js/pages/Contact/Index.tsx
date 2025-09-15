@@ -62,11 +62,6 @@ export default function ContactIndex({ locations, generalContact, auth }: Contac
             color: 'bg-green-700/20 text-green-400 backdrop-blur-sm border border-green-700/30'
         },
         {
-            title: 'Class Bookings',
-            description: 'Schedule group fitness classes',
-            color: 'bg-purple-700/20 text-purple-400 backdrop-blur-sm border border-purple-700/30'
-        },
-        {
             title: 'Feedback',
             description: 'Share your experience or suggestions',
             color: 'bg-orange-700/20 text-orange-400 backdrop-blur-sm border border-orange-700/30'
@@ -125,7 +120,7 @@ export default function ContactIndex({ locations, generalContact, auth }: Contac
                             </h1>
                             <p className="text-xl text-gray-200 max-w-3xl mx-auto">
                                 Have questions? We're here to help! Reach out to us for membership information, 
-                                personal training, class bookings, or any other enquiries.
+                                personal training, or any other enquiries.
                             </p>
                         </div>
                     </section>
@@ -396,13 +391,6 @@ export default function ContactIndex({ locations, generalContact, auth }: Contac
                                     </p>
                                 </Card>
 
-                                <Card className="p-6 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 group">
-                                    <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">Do I need to book classes in advance?</h3>
-                                    <p className="text-gray-300 text-sm group-hover:text-gray-200 transition-colors duration-300">
-                                        Most group fitness classes can be booked online or through our app. 
-                                        Some popular classes may require advance booking.
-                                    </p>
-                                </Card>
 
                                 <Card className="p-6 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 group">
                                     <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">Can I freeze my membership?</h3>

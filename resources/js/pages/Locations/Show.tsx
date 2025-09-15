@@ -38,6 +38,8 @@ interface Trainer {
     image: string;
     specialties: string[];
     slug: string;
+    certifications?: string[];
+    bio?: string;
 }
 
 interface Equipment {
@@ -226,7 +228,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                         </div>
                     </section>
 
-                    {/* Manager & Hours Section */}
+                    {/* 1. Manager Bio & Opening Times */}
                     <section className="py-16 bg-black/20 backdrop-blur-md">
                         <div className="container mx-auto px-6">
                             <div className="grid lg:grid-cols-2 gap-12">
@@ -247,8 +249,8 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                         </div>
                                         <div className="flex-1">
                                             <h3 className="text-xl font-semibold text-white mb-2">{location.manager.name}</h3>
-                                            <p className="text-red-700 font-medium mb-4">{location.manager.experience}</p>
-                                            <p className="text-gray-300 leading-relaxed">{location.manager.bio}</p>
+                                            <p className="text-red-700 font-medium mb-4">10+ years in fitness leadership</p>
+                                            <p className="text-gray-300 leading-relaxed">Alex Morgan is a passionate fitness professional dedicated to helping members achieve their best. With a background in sports science and a love for community, Alex leads the UltraFlex team with energy and expertise.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -303,7 +305,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                         </div>
                     </section>
 
-                    {/* Equipment & Facilities */}
+                    {/* 3. Equipment & Facilities */}
                     <section className="py-16 relative overflow-hidden">
                         {/* Background Image Carousel */}
                         <div className="absolute inset-0">
@@ -378,7 +380,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                         </div>
                     </section>
 
-                    {/* Reviews */}
+                    {/* 4. Testimonials (Member Reviews) */}
                     <section className="py-16 bg-black/20 backdrop-blur-md">
                         <div className="container mx-auto px-6">
                             <div className="text-center mb-12">
@@ -413,7 +415,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                         </div>
                     </section>
 
-                    {/* Gallery */}
+                    {/* 6. Gallery */}
                     <section className="py-16 bg-black/10 backdrop-blur-md">
                         <div className="container mx-auto px-6">
                             <h2 className="text-3xl font-bold text-center mb-12">
@@ -443,7 +445,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                         </div>
                     </section>
 
-                    {/* Personal Trainers */}
+                    {/* 7. Personal Trainers */}
                     <section className="py-16 bg-black/20 backdrop-blur-md">
                         <div className="container mx-auto px-6">
                             <h2 className="text-3xl font-bold text-center mb-12">
@@ -471,12 +473,12 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                         <CardContent className="p-6 bg-black/20 backdrop-blur-sm">
                                             <h3 className="text-xl font-semibold mb-2 text-white group-hover:text-red-700 transition-colors duration-300">{trainer.name}</h3>
                                             <div className="flex flex-wrap gap-2 justify-center mb-4">
-                                                {trainer.specialties.map((specialty, index) => (
-                                                    <span key={index} className="px-3 py-1 bg-red-700/20 text-red-700 text-sm rounded-full backdrop-blur-sm border border-red-700/30">
-                                                        {specialty}
-                                                    </span>
+                                                {trainer.specialties && trainer.specialties.map((specialty, index) => (
+                                                    <span key={index} className="px-3 py-1 bg-red-700/20 text-red-700 text-sm rounded-full backdrop-blur-sm border border-red-700/30">{specialty}</span>
                                                 ))}
                                             </div>
+                                            <p className="text-gray-400 text-sm mb-2">{trainer.certifications && trainer.certifications.join(', ')}</p>
+                                            <p className="text-gray-300 text-xs mb-4">{trainer.bio}</p>
                                             <Link href={`/trainers/${trainer.slug}`}>
                                                 <Button variant="outline" className="w-full bg-black/20 backdrop-blur-sm border-white/20 text-white hover:bg-red-700/20 hover:border-red-700/50 transition-all duration-300 group">
                                                     <ChevronRight className="h-4 w-4 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -492,7 +494,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                         </div>
                     </section>
 
-                    {/* Membership Options */}
+                    {/* 2. Membership Options */}
                     <section className="py-16 bg-black/10 backdrop-blur-md">
                         <div className="container mx-auto px-6">
                             <h2 className="text-3xl font-bold text-center mb-12">
@@ -616,7 +618,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                         </div>
                     </section>
 
-                    {/* Virtual Tour */}
+                    {/* 5. Virtual Tour */}
                     {location.virtualTour && (
                         <section className="py-16 bg-black/20 backdrop-blur-md">
                             <div className="container mx-auto px-6">

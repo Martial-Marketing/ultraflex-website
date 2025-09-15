@@ -1658,6 +1658,54 @@ class LocationController extends Controller
             ];
         }
 
+
+        // --- Inject dynamic trainers for this location ---
+        $allTrainers = [
+            [
+                'id' => 1,
+                'name' => 'Sarah Johnson',
+                'image' => 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=500&fit=crop&crop=face',
+                'bio' => 'Certified personal trainer with 8+ years of experience specializing in strength training and weight loss.',
+                'specialties' => ['Strength Training', 'Weight Loss', 'Functional Training'],
+                'certifications' => ['ACSM-CPT', 'NASM-CES', 'Precision Nutrition Level 1'],
+                'slug' => 'sarah-johnson',
+                'locationSlug' => 'west-leeds'
+            ],
+            [
+                'id' => 2,
+                'name' => 'Mike Chen',
+                'image' => 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=500&fit=crop&crop=face',
+                'bio' => 'Former competitive bodybuilder turned personal trainer, specializing in muscle building and nutrition.',
+                'specialties' => ['Bodybuilding', 'Nutrition Coaching', 'Strength & Conditioning'],
+                'certifications' => ['NSCA-CSCS', 'ISSN-CNS', 'NASM-CPT'],
+                'slug' => 'mike-chen',
+                'locationSlug' => 'north-leeds'
+            ],
+            [
+                'id' => 3,
+                'name' => 'Emma Davis',
+                'image' => 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=500&fit=crop&crop=face',
+                'bio' => 'Yoga instructor and wellness coach passionate about helping clients achieve balance in fitness and life.',
+                'specialties' => ['Yoga', 'Pilates', 'Flexibility Training', 'Wellness Coaching'],
+                'certifications' => ['RYT-500', 'Pilates Method Alliance', 'ACE-CPT'],
+                'slug' => 'emma-davis',
+                'locationSlug' => 'normanton'
+            ],
+            [
+                'id' => 4,
+                'name' => 'James Rodriguez',
+                'image' => 'https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?w=400&h=500&fit=crop&crop=face',
+                'bio' => 'High-performance coach specializing in athletic training and sports-specific conditioning.',
+                'specialties' => ['Athletic Performance', 'Sports Conditioning', 'Injury Prevention'],
+                'certifications' => ['CSCS', 'USAW-L1', 'FMS-L2'],
+                'slug' => 'james-rodriguez',
+                'locationSlug' => 'rotherham'
+            ]
+        ];
+        $locationData['trainers'] = array_values(array_filter($allTrainers, function($trainer) use ($locationData) {
+            return isset($trainer['locationSlug']) && isset($locationData['slug']) && $trainer['locationSlug'] === $locationData['slug'];
+        }));
+
         $locationData = array_merge($commonData, $locationData);
 
         return Inertia::render('Locations/Show', [

@@ -1,3 +1,4 @@
+
 <?php
 
 use App\Http\Controllers\ProfileController;
@@ -124,3 +125,11 @@ Route::get('/example-contact-with-layout', function (Request $request) {
 })->name('example.contact.layout');
 
 // require __DIR__.'/auth.php'; // Remove this line if auth.php doesn't exist
+
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\MembershipController;
+// About Us
+Route::get('/about', [AboutController::class, 'index'])->name('about');
+
+// Membership Location Selector
+Route::get('/membership', [MembershipController::class, 'index'])->name('membership');
