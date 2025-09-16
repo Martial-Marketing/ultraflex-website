@@ -23,6 +23,7 @@ yarn-error.log
 /.vscode
 /.zed
 .vscode/claudesync.json
+/vendor
 
 .cursor/rules
 _ide_helper*.php
