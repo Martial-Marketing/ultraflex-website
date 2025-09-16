@@ -40,10 +40,10 @@ export default function FooterCTA() {
                     </p>
                 </div>
 
-                {/* Enhanced CTA with multiple elements */}
+                {/* Enhanced CTA with single primary button */}
                 <div className="space-y-6">
                     {/* Primary CTA button */}
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <div className="flex justify-center">
                         <Button 
                             size="lg" 
                             className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm"
@@ -57,19 +57,7 @@ export default function FooterCTA() {
                                 <ArrowRight className="ml-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
                             </a>
                         </Button>
-
-                        {/* Secondary action */}
-                        <Button 
-                            variant="outline" 
-                            size="lg"
-                            className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm"
-                        >
-                            <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                Learn More
-                            </span>
-                        </Button>
                     </div>
-
                 </div>
 
                 {/* Bottom accent elements */}

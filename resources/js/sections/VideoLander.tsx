@@ -56,7 +56,7 @@ export default function VideoLander() {
                     </div>
 
                     <p className="mb-8 text-xl font-medium text-gray-200 leading-relaxed">
-                        Experience fitness like never before. Premium equipment, expert trainers, limitless potential.
+                        Transform your fitness journey with premium equipment, expert trainers, and limitless potential.
                     </p>
 
                     {/* Enhanced button with hover effects */}

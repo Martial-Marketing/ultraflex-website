@@ -86,6 +86,12 @@ export default function Navbar({ auth }: NavbarProps) {
             dropdown: null
         },
         {
+            label: 'Virtual Tours',
+            href: '/tours',
+            icon: null,
+            dropdown: null
+        },
+        {
             label: 'Personal Trainers',
             href: '/trainers',
             icon: null,
@@ -114,7 +120,8 @@ export default function Navbar({ auth }: NavbarProps) {
             href: '#',
             dropdown: [
                 { label: 'Latest News', href: '/news', icon: null },
-                { label: 'Contact Us', href: '/contact', icon: null }
+                { label: 'Contact Us', href: '/contact', icon: null },
+                { label: 'UF Hub', href: 'https://secure.ashbournemanagement.co.uk/signupuk/index.aspx?fn=grbh2', icon: null, external: true }
             ]
         }
     ];
@@ -143,37 +150,58 @@ export default function Navbar({ auth }: NavbarProps) {
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="flex justify-between items-center h-16">
-                    {/* Logo */}
-                    <Link 
-                        href="/" 
-                        className="flex items-center space-x-3"
-                        onMouseEnter={() => handleMouseEnter('logo')}
-                        onMouseLeave={handleMouseLeave}
-                    >
-                        <div className="w-12 h-10 flex items-center justify-center">
-                            <img 
-                                src="/Images/logo/ultra-flex-200x167 (1).png" 
-                                alt="UltraFlex Logo" 
-                                className={`h-10 w-auto object-contain transition-all duration-300 ${
+                    {/* Back Button and Logo Section */}
+                    <div className="flex items-center space-x-8">
+                        {/* Back Button - Only show on non-home pages */}
+                        {url !== '/' && (
+                            <Link
+                                href="/"
+                                aria-label="Go Back to Home"
+                                className="flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 text-gray-300 hover:text-red-700 hover:bg-red-700/10 hover:shadow-[0_0_15px_rgba(220,38,38,0.5)] -ml-6"
+                                onMouseEnter={() => handleMouseEnter('back')}
+                                onMouseLeave={handleMouseLeave}
+                            >
+                                <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <polyline points="15 18 9 12 15 6" />
+                                </svg>
+                                <span className={`hidden md:inline transition-transform duration-300 ${
+                                    hoveredItem === 'back' ? 'translate-x-1' : ''
+                                }`}>Back</span>
+                            </Link>
+                        )}
+                        
+                        {/* Logo */}
+                        <Link 
+                            href="/" 
+                            className="flex items-center space-x-3"
+                            onMouseEnter={() => handleMouseEnter('logo')}
+                            onMouseLeave={handleMouseLeave}
+                        >
+                            <div className="w-12 h-10 flex items-center justify-center">
+                                <img 
+                                    src="/Images/logo/ultraflex-logo.webp" 
+                                    alt="UltraFlex Logo" 
+                                    className={`h-10 w-auto object-contain transition-all duration-300 ${
+                                        hoveredItem === 'logo' 
+                                            ? 'drop-shadow-[0_0_15px_rgba(220,38,38,0.8)] scale-110' 
+                                            : 'drop-shadow-[0_0_10px_rgba(220,38,38,0.5)]'
+                                    }`}
+                                />
+                            </div>
+                            <div className="text-2xl font-bold">
+                                <span className={`text-white transition-all duration-300 ${
                                     hoveredItem === 'logo' 
-                                        ? 'drop-shadow-[0_0_15px_rgba(220,38,38,0.8)] scale-110' 
-                                        : 'drop-shadow-[0_0_10px_rgba(220,38,38,0.5)]'
-                                }`}
-                            />
-                        </div>
-                        <div className="text-2xl font-bold">
-                            <span className={`text-white transition-all duration-300 ${
-                                hoveredItem === 'logo' 
-                                    ? 'drop-shadow-[0_0_25px_rgba(255,255,255,1)] scale-105' 
-                                    : 'drop-shadow-[0_0_20px_rgba(255,255,255,0.8)]'
-                            }`}>ULTRA</span>
-                            <span className={`text-red-700 transition-all duration-300 ${
-                                hoveredItem === 'logo' 
-                                    ? 'drop-shadow-[0_0_25px_rgba(220,38,38,1)] scale-105' 
-                                    : 'drop-shadow-[0_0_20px_rgba(220,38,38,0.8)]'
-                            }`}>FLEX</span>
-                        </div>
-                    </Link>
+                                        ? 'drop-shadow-[0_0_25px_rgba(255,255,255,1)] scale-105' 
+                                        : 'drop-shadow-[0_0_20px_rgba(255,255,255,0.8)]'
+                                }`}>ULTRA</span>
+                                <span className={`text-red-700 transition-all duration-300 ${
+                                    hoveredItem === 'logo' 
+                                        ? 'drop-shadow-[0_0_25px_rgba(220,38,38,1)] scale-105' 
+                                        : 'drop-shadow-[0_0_20px_rgba(220,38,38,0.8)]'
+                                }`}>FLEX</span>
+                            </div>
+                        </Link>
+                    </div>
 
                     {/* Desktop Navigation */}
                     <div className="hidden lg:flex items-center space-x-8">
@@ -208,17 +236,33 @@ export default function Navbar({ auth }: NavbarProps) {
                                         {(activeDropdown === item.label || hoveredItem === item.label) && (
                                             <div className="absolute top-full left-0 mt-1 w-48 bg-black/90 backdrop-blur-md rounded-md shadow-xl border border-white/10 py-1 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
                                                 {item.dropdown.map((subItem) => (
-                                                    <Link
-                                                        key={subItem.href}
-                                                        href={subItem.href}
-                                                        className={`flex items-center space-x-2 px-4 py-2 text-sm transition-all duration-300 group ${
-                                                            isActive(subItem.href)
-                                                                ? 'text-red-700 bg-red-700/10 shadow-[0_0_10px_rgba(220,38,38,0.4)]'
-                                                                : 'text-gray-300 hover:text-red-700 hover:bg-red-700/10 hover:shadow-[0_0_10px_rgba(220,38,38,0.4)]'
-                                                        }`}
-                                                    >
-                                                        <span className="group-hover:translate-x-1 transition-transform duration-300">{subItem.label}</span>
-                                                    </Link>
+                                                    subItem.external ? (
+                                                        <a
+                                                            key={subItem.href}
+                                                            href={subItem.href}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className={`flex items-center space-x-2 px-4 py-2 text-sm transition-all duration-300 group ${
+                                                                isActive(subItem.href)
+                                                                    ? 'text-red-700 bg-red-700/10 shadow-[0_0_10px_rgba(220,38,38,0.4)]'
+                                                                    : 'text-gray-300 hover:text-red-700 hover:bg-red-700/10 hover:shadow-[0_0_10px_rgba(220,38,38,0.4)]'
+                                                            }`}
+                                                        >
+                                                            <span className="group-hover:translate-x-1 transition-transform duration-300">{subItem.label}</span>
+                                                        </a>
+                                                    ) : (
+                                                        <Link
+                                                            key={subItem.href}
+                                                            href={subItem.href}
+                                                            className={`flex items-center space-x-2 px-4 py-2 text-sm transition-all duration-300 group ${
+                                                                isActive(subItem.href)
+                                                                    ? 'text-red-700 bg-red-700/10 shadow-[0_0_10px_rgba(220,38,38,0.4)]'
+                                                                    : 'text-gray-300 hover:text-red-700 hover:bg-red-700/10 hover:shadow-[0_0_10px_rgba(220,38,38,0.4)]'
+                                                            }`}
+                                                        >
+                                                            <span className="group-hover:translate-x-1 transition-transform duration-300">{subItem.label}</span>
+                                                        </Link>
+                                                    )
                                                 ))}
                                             </div>
                                         )}
@@ -338,17 +382,33 @@ export default function Navbar({ auth }: NavbarProps) {
                                             {activeDropdown === `mobile-${item.label}` && (
                                                 <div className="ml-6 mt-2 space-y-1 animate-in slide-in-from-left duration-200">
                                                     {item.dropdown.map((subItem) => (
-                                                        <Link
-                                                            key={subItem.href}
-                                                            href={subItem.href}
-                                                            className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm transition-all duration-300 group ${
-                                                                isActive(subItem.href)
-                                                                    ? 'text-red-700 bg-red-700/10 shadow-[0_0_10px_rgba(220,38,38,0.4)]'
-                                                                    : 'text-gray-300 hover:text-red-700 hover:bg-red-700/10 hover:shadow-[0_0_10px_rgba(220,38,38,0.4)]'
-                                                            }`}
-                                                        >
-                                                            <span className="group-hover:translate-x-1 transition-transform duration-300">{subItem.label}</span>
-                                                        </Link>
+                                                        subItem.external ? (
+                                                            <a
+                                                                key={subItem.href}
+                                                                href={subItem.href}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm transition-all duration-300 group ${
+                                                                    isActive(subItem.href)
+                                                                        ? 'text-red-700 bg-red-700/10 shadow-[0_0_10px_rgba(220,38,38,0.4)]'
+                                                                        : 'text-gray-300 hover:text-red-700 hover:bg-red-700/10 hover:shadow-[0_0_10px_rgba(220,38,38,0.4)]'
+                                                                }`}
+                                                            >
+                                                                <span className="group-hover:translate-x-1 transition-transform duration-300">{subItem.label}</span>
+                                                            </a>
+                                                        ) : (
+                                                            <Link
+                                                                key={subItem.href}
+                                                                href={subItem.href}
+                                                                className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm transition-all duration-300 group ${
+                                                                    isActive(subItem.href)
+                                                                        ? 'text-red-700 bg-red-700/10 shadow-[0_0_10px_rgba(220,38,38,0.4)]'
+                                                                        : 'text-gray-300 hover:text-red-700 hover:bg-red-700/10 hover:shadow-[0_0_10px_rgba(220,38,38,0.4)]'
+                                                                }`}
+                                                            >
+                                                                <span className="group-hover:translate-x-1 transition-transform duration-300">{subItem.label}</span>
+                                                            </Link>
+                                                        )
                                                     ))}
                                                 </div>
                                             )}
@@ -407,16 +467,16 @@ export default function Navbar({ auth }: NavbarProps) {
                                     </div>
                                 ) : (
                                     <div className="space-y-2">
-                                        <Link href="/login" className="block w-full">
-                                            <Button variant="outline" className="w-full border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white px-6 py-3 text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
-                                                <span className="group-hover:translate-x-1 transition-transform duration-300">Login</span>
-                                            </Button>
-                                        </Link>
-                                        <Link href="/register" className="block w-full">
+                                        <a 
+                                            href="https://secure.ashbournemanagement.co.uk/signupuk/index.aspx?fn=grbh2"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="block w-full"
+                                        >
                                             <Button className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-6 py-3 text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm">
-                                                <span className="group-hover:translate-x-1 transition-transform duration-300">Join Now</span>
+                                                <span className="group-hover:translate-x-1 transition-transform duration-300">Sign Up Now</span>
                                             </Button>
-                                        </Link>
+                                        </a>
                                     </div>
                                 )}
                             </div>

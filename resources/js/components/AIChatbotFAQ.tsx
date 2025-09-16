@@ -80,7 +80,7 @@ export default function AIChatbotFAQ() {
         onClick={() => setOpen(true)}
       >
         <img
-          src="/Images/ultra-flex-200x167.webp"
+          src="/Images/logo/ultraflex-logo.webp"
           alt="UltraFlex Chatbot"
           className="w-12 h-12 object-contain rounded-full"
           draggable="false"

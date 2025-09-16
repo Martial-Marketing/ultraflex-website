@@ -1,5 +1,14 @@
 
+import { usePage } from '@inertiajs/react';
+
 export default function AppBackButton() {
+  const { url } = usePage();
+  
+  // Don't show back button on home page
+  if (url === '/') {
+    return null;
+  }
+
   // Fallback for Inertia.js navigation
   const goBack = () => {
     if (window.history.length > 1) {

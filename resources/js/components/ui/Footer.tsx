@@ -79,7 +79,7 @@ export default function AnimatedFooter({ className = '' }: FooterProps) {
                             <div className="flex items-center space-x-3 mb-6">
                                 <div className="w-16 h-14 flex items-center justify-center">
                                     <img 
-                                        src="/Images/logo/ultra-flex-200x167 (1).png" 
+                                        src="/Images/logo/ultraflex-logo.webp" 
                                         alt="UltraFlex Logo" 
                                         className="h-14 w-auto object-contain drop-shadow-[0_0_10px_rgba(220,38,38,0.5)]"
                                     />

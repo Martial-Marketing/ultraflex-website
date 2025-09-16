@@ -27,19 +27,19 @@ export default function Welcome({ auth }: WelcomeProps) {
             id: 1,
             name: "ULTRAFLEX WEST LEEDS",
             address: "West Park Ring Road, Leeds LS16 6EB, UK",
-            image: "/Images/westleeds/UFG (100) (2).jpg"
+            image: "/Images/westleeds/gym-in-westleeds.webp"
         },
         {
             id: 2,
             name: "ULTRAFLEX NORTH LEEDS",
             address: "Limewood Centre, Limewood Avenue, Ring Road, Seacroft, Leeds LS14 1NH, UK",
-            image: "/Images/northleeds/DSC07392 (1).jpg"
+            image: "/Images/northleeds/gym-in-northleeds.webp"
         },
         {
             id: 3,
             name: "ULTRAFLEX NORMANTON",
             address: "High Street, Normanton WF6 2DB, UK",
-            image: "/Images/normanton/IMG_(61) (1).jpg"
+            image: "/Images/normanton/gym-in-normanton.webp"
         }
     ];
 
@@ -75,12 +75,12 @@ export default function Welcome({ auth }: WelcomeProps) {
     ];
 
     const galleryImages = [
-        "/Images/westleeds/UFG (100) (2).jpg",
-        "/Images/northleeds/DSC07392 (1).jpg",
-        "/Images/normanton/IMG_(61) (1).jpg",
-        "/Images/rotherham/IMG (19) (4).jpg",
-        "/Images/york/ForGallery/DSC07349.jpg",
-        "/Images/hull/IMG (19) (5).jpg",
+        "/Images/westleeds/gym-in-westleeds.webp",
+        "/Images/northleeds/gym-in-northleeds.webp",
+        "/Images/normanton/gym-in-normanton.webp",
+        "/Images/rotherham/gym-in-rotherham.webp",
+        "/Images/york/ForGallery/gym-in-york-6.webp",
+        "/Images/hull/gym-in-hull-22.webp",
     ];
 
     // Latest news with matching controller data

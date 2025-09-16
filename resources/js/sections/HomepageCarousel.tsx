@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
 const carouselImages = [
-  '/Images/westleeds/UFG (100) (2).jpg',
-  '/Images/northleeds/DSC07392 (1).jpg',
-  '/Images/normanton/IMG_(61) (1).jpg',
-  '/Images/rotherham/IMG (19) (4).jpg',
-  '/Images/york/ForGallery/DSC07349.jpg',
-  '/Images/hull/IMG (19) (5).jpg',
+  '/Images/westleeds/gym-in-westleeds.webp',
+  '/Images/northleeds/gym-in-northleeds.webp',
+  '/Images/normanton/gym-in-normanton.webp',
+  '/Images/rotherham/gym-in-rotherham.webp',
+  '/Images/york/ForGallery/gym-in-york-6.webp',
+  '/Images/hull/gym-in-hull-22.webp',
 ];
 
 export default function HomepageCarousel() {
