@@ -1476,6 +1476,7 @@ class LocationController extends Controller
         
         // Common data for all locations
         $commonData = [
+            'signupUrl' => 'https://secure.ashbournemanagement.co.uk/signupuk/index.aspx?fn=grbh2',
             'equipment' => [
                 ['name' => 'Top-Quality Fitness Machines', 'icon' => 'dumbbell', 'available' => true],
                 ['name' => 'Cardio Equipment', 'icon' => 'waves', 'available' => true],

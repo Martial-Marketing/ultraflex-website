@@ -18,8 +18,9 @@ import {
     Navigation,
     Play,
     Eye,
-    Award,
-    ChevronLeft
+    Mail,
+    ChevronLeft,
+    Check
 } from 'lucide-react';
 import AppLayout from '@/layouts/app-layout';
 import AnimatedBackground from '@/components/AnimatedBackground';
@@ -74,6 +75,7 @@ interface Location {
     image: string;
     heroVideo?: string;
     logo: string;
+    signupUrl?: string;
     hours: {
         monday: string;
         tuesday: string;
@@ -109,6 +111,8 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
     const [currentEquipmentBgIndex, setCurrentEquipmentBgIndex] = useState(0);
     const membershipPlansPerSlide = 3;
     const totalMembershipSlides = Math.ceil(location.membershipPlans.length / membershipPlansPerSlide);
+    const signupUrl = (location.signupUrl && location.signupUrl.trim() !== '' ? location.signupUrl : '/membership');
+    const isExternalSignup = /^https?:\/\//.test(signupUrl);
     
     const averageRating = location.reviews.reduce((acc, review) => acc + review.rating, 0) / location.reviews.length;
 
@@ -224,12 +228,40 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                         {location.address}
                                     </span>
                                 </p>
+                                {/* Quick CTA */}
+                                {signupUrl && (
+                                    <div className="mt-6">
+                                        <Button 
+                                            className="bg-red-700 hover:bg-red-600 transition-all duration-300 group"
+                                            onClick={() => window.open(signupUrl, isExternalSignup ? '_blank' : '_self')}
+                                            aria-label="Join UltraFlex"
+                                        >
+                                            <span className="group-hover:translate-x-1 transition-transform duration-300">Join Now</span>
+                                            <ChevronRight className="h-4 w-4 ml-2" />
+                                        </Button>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </section>
 
+                    {/* Sticky in-page navigation */}
+                    <nav className="sticky top-0 z-20 bg-black/50 backdrop-blur-md border-b border-white/10">
+                        <div className="container mx-auto px-6">
+                            <ul className="flex flex-wrap items-center gap-4 py-3 text-sm text-gray-300">
+                                <li><a href="#manager" className="hover:text-red-600 transition-colors">Manager & Hours</a></li>
+                                <li><a href="#membership" className="hover:text-red-600 transition-colors">Membership</a></li>
+                                <li><a href="#equipment" className="hover:text-red-600 transition-colors">Equipment</a></li>
+                                <li><a href="#testimonials" className="hover:text-red-600 transition-colors">Testimonials</a></li>
+                                <li><a href="#tour" className="hover:text-red-600 transition-colors">Virtual Tour</a></li>
+                                <li><a href="#gallery" className="hover:text-red-600 transition-colors">Gallery</a></li>
+                                <li><a href="#trainers" className="hover:text-red-600 transition-colors">Trainers</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+
                     {/* 1. Manager Bio & Opening Times */}
-                    <section className="py-16 bg-black/20 backdrop-blur-md">
+                    <section id="manager" className="py-16 bg-black/20 backdrop-blur-md scroll-mt-24">
                         <div className="container mx-auto px-6">
                             <div className="grid lg:grid-cols-2 gap-12">
                                 {/* Meet The Manager */}
@@ -249,8 +281,12 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                         </div>
                                         <div className="flex-1">
                                             <h3 className="text-xl font-semibold text-white mb-2">{location.manager.name}</h3>
-                                            <p className="text-red-700 font-medium mb-4">10+ years in fitness leadership</p>
-                                            <p className="text-gray-300 leading-relaxed">Alex Morgan is a passionate fitness professional dedicated to helping members achieve their best. With a background in sports science and a love for community, Alex leads the UltraFlex team with energy and expertise.</p>
+                                            {location.manager.experience && (
+                                                <p className="text-red-700 font-medium mb-4">{location.manager.experience}</p>
+                                            )}
+                                            {location.manager.bio && (
+                                                <p className="text-gray-300 leading-relaxed">{location.manager.bio}</p>
+                                            )}
                                         </div>
                                     </div>
                                 </div>
@@ -280,14 +316,20 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                         </div>
 
                                         <div className="space-y-3">
-                                            <div className="flex items-center space-x-3 group hover:text-red-700 transition-colors duration-300">
+                                            <a href={`tel:${location.phone?.replace(/\s+/g, '')}`} className="flex items-center space-x-3 group hover:text-red-700 transition-colors duration-300">
                                                 <Phone className="h-5 w-5 text-red-700" />
                                                 <span className="text-gray-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300">{location.phone}</span>
-                                            </div>
-                                            <div className="flex items-center space-x-3 group hover:text-red-700 transition-colors duration-300">
+                                            </a>
+                                            <a href={`https://maps.google.com/maps?q=${encodeURIComponent(location.address)}`} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 group hover:text-red-700 transition-colors duration-300">
                                                 <MapPin className="h-5 w-5 text-red-700" />
                                                 <span className="text-gray-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300">{location.address}</span>
-                                            </div>
+                                            </a>
+                                            {location.email && (
+                                                <a href={`mailto:${location.email}`} className="flex items-center space-x-3 group hover:text-red-700 transition-colors duration-300">
+                                                    <Mail className="h-5 w-5 text-red-700" />
+                                                    <span className="text-gray-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300">{location.email}</span>
+                                                </a>
+                                            )}
                                         </div>
 
                                         <Button 
@@ -305,8 +347,141 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                         </div>
                     </section>
 
+                    {/* 2. Membership Options */}
+                    <section id="membership" className="py-16 bg-black/10 backdrop-blur-md scroll-mt-24">
+                        <div className="container mx-auto px-6">
+                            <h2 className="text-3xl font-bold text-center mb-12">
+                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Membership</span>{' '}
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Options</span>
+                            </h2>
+                            
+                            {/* Carousel Container */}
+                            <div className="relative max-w-7xl mx-auto">
+                                {/* Carousel Navigation */}
+                                <div className="flex justify-between items-center mb-8">
+                                    <button
+                                        onClick={prevMembershipSlide}
+                                        className="p-3 bg-black/40 backdrop-blur-md rounded-full border border-white/10 hover:border-red-700/30 transition-all duration-300 group hover:bg-red-700/10"
+                                        disabled={currentMembershipSlide === 0}
+                                    >
+                                        <ChevronLeft className="h-6 w-6 text-gray-300 group-hover:text-red-700 transition-colors duration-300" />
+                                    </button>
+                                    
+                                    <div className="flex space-x-2">
+                                        {Array.from({ length: totalMembershipSlides }, (_, index) => (
+                                            <button
+                                                key={index}
+                                                onClick={() => setCurrentMembershipSlide(index)}
+                                                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                                                    currentMembershipSlide === index 
+                                                        ? 'bg-red-700 shadow-[0_0_10px_rgba(220,38,38,0.5)]' 
+                                                        : 'bg-white/20 hover:bg-white/40'
+                                                }`}
+                                            />
+                                        ))}
+                                    </div>
+                                    
+                                    <button
+                                        onClick={nextMembershipSlide}
+                                        className="p-3 bg-black/40 backdrop-blur-md rounded-full border border-white/10 hover:border-red-700/30 transition-all duration-300 group hover:bg-red-700/10"
+                                        disabled={currentMembershipSlide === totalMembershipSlides - 1}
+                                    >
+                                        <ChevronRight className="h-6 w-6 text-gray-300 group-hover:text-red-700 transition-colors duration-300" />
+                                    </button>
+                                </div>
+
+                                {/* Carousel Content */}
+                                <div className="overflow-hidden">
+                                    <div 
+                                        className="flex transition-transform duration-500 ease-in-out"
+                                        style={{ transform: `translateX(-${currentMembershipSlide * 100}%)` }}
+                                    >
+                                        {Array.from({ length: totalMembershipSlides }, (_, slideIndex) => (
+                                            <div key={slideIndex} className="w-full flex-shrink-0">
+                                                <div className="grid md:grid-cols-3 gap-8 px-4">
+                                                    {location.membershipPlans
+                                                        .slice(slideIndex * membershipPlansPerSlide, (slideIndex + 1) * membershipPlansPerSlide)
+                                                        .map((plan) => (
+                                                        <Card key={plan.id} className={`relative p-8 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 group hover:scale-105 hover:shadow-2xl hover:shadow-red-700/20 ${plan.popular ? 'ring-2 ring-red-700 scale-105' : ''}`}>
+                                                            {plan.popular && (
+                                                                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                                                                    <span className="bg-gradient-to-r from-red-700 to-red-800 text-white px-4 py-1 rounded-full text-sm font-medium backdrop-blur-sm border border-red-700/20 flex items-center animate-pulse">
+                                                                        <Star className="h-3 w-3 mr-1 fill-white" />
+                                                                        Most Popular
+                                                                    </span>
+                                                                </div>
+                                                            )}
+                                                            
+                                                            <div className="text-center mb-6">
+                                                                <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">{plan.name}</h3>
+                                                                <div className="text-4xl font-bold text-red-700 group-hover:scale-110 transition-transform duration-300">
+                                                                    £{plan.price}
+                                                                    <span className="text-lg text-gray-400">/{plan.period}</span>
+                                                                </div>
+                                                            </div>
+
+                                                            <ul className="space-y-3 mb-8 min-h-[160px]">
+                                                                {plan.features.map((feature, index) => (
+                                                                    <li key={index} className="flex items-start text-gray-300 group hover:text-white transition-colors duration-300">
+                                                                        <Check className="h-4 w-4 text-red-700 mr-2 mt-0.5" />
+                                                                        <span className="group-hover:translate-x-1 transition-transform duration-300 text-sm">{feature}</span>
+                                                                    </li>
+                                                                ))}
+                                                            </ul>
+
+                                                            {/* Ensure membership links go to signup URL */}
+                                                            <a 
+                                                                href={signupUrl}
+                                                                target={isExternalSignup ? '_blank' : undefined}
+                                                                rel={isExternalSignup ? 'noopener noreferrer' : undefined}
+                                                                aria-label="Sign up for membership"
+                                                                className="block"
+                                                            >
+                                                                <Button 
+                                                                    className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group hover:shadow-[0_0_20px_rgba(220,38,38,0.5)] transform hover:scale-105"
+                                                                >
+                                                                    <span className="group-hover:translate-x-1 transition-transform duration-300">
+                                                                        Sign Up Now
+                                                                    </span>
+                                                                    <ChevronRight className="h-4 w-4 ml-2 group-hover:scale-110 transition-transform duration-300" />
+                                                                </Button>
+                                                            </a>
+                                                        </Card>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Mobile swipe indicators */}
+                                <div className="flex justify-center mt-8 md:hidden">
+                                    <div className="flex space-x-2">
+                                        {Array.from({ length: totalMembershipSlides }, (_, index) => (
+                                            <div
+                                                key={index}
+                                                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                                                    currentMembershipSlide === index 
+                                                        ? 'bg-red-700' 
+                                                        : 'bg-white/20'
+                                                }`}
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Auto-advance hint */}
+                                <div className="text-center mt-6">
+                                    <p className="text-gray-400 text-sm">
+                                        Showing plans {currentMembershipSlide * membershipPlansPerSlide + 1}-{Math.min((currentMembershipSlide + 1) * membershipPlansPerSlide, location.membershipPlans.length)} of {location.membershipPlans.length}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
                     {/* 3. Equipment & Facilities */}
-                    <section className="py-16 relative overflow-hidden">
+                    <section id="equipment" className="py-16 relative overflow-hidden scroll-mt-24">
                         {/* Background Image Carousel */}
                         <div className="absolute inset-0">
                             {location.gallery.map((image, index) => (
@@ -381,7 +556,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                     </section>
 
                     {/* 4. Testimonials (Member Reviews) */}
-                    <section className="py-16 bg-black/20 backdrop-blur-md">
+                    <section id="testimonials" className="py-16 bg-black/20 backdrop-blur-md scroll-mt-24">
                         <div className="container mx-auto px-6">
                             <div className="text-center mb-12">
                                 <h2 className="text-3xl font-bold mb-4">
@@ -415,8 +590,44 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                         </div>
                     </section>
 
+                    {/* 5. Virtual Tour */}
+                    {location.virtualTour && (
+                        <section id="tour" className="py-16 bg-black/20 backdrop-blur-md scroll-mt-24">
+                            <div className="container mx-auto px-6">
+                                <div className="text-center mb-12">
+                                    <h2 className="text-3xl font-bold mb-4">
+                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Take</span>{' '}
+                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">a</span>{' '}
+                                        <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Virtual</span>{' '}
+                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Tour</span>
+                                    </h2>
+                                    <p className="text-gray-300">
+                                        Explore our facilities from the comfort of your home
+                                    </p>
+                                </div>
+                                <div className="max-w-4xl mx-auto">
+                                    <div className="relative aspect-video bg-gray-800 rounded-lg overflow-hidden border border-white/10 hover:border-red-700/30 transition-colors duration-300 group">
+                                        <iframe 
+                                            src={location.virtualTour}
+                                            className="w-full h-full"
+                                            allowFullScreen
+                                            title={`${location.name} Virtual Tour`}
+                                            loading="lazy"
+                                        />
+                                        <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                            <div className="bg-gradient-to-r from-red-700 to-red-800 text-white px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm border border-red-700/20 flex items-center">
+                                                <Play className="h-3 w-3 mr-1" />
+                                                360° Tour
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    )}
+
                     {/* 6. Gallery */}
-                    <section className="py-16 bg-black/10 backdrop-blur-md">
+                    <section id="gallery" className="py-16 bg-black/10 backdrop-blur-md scroll-mt-24">
                         <div className="container mx-auto px-6">
                             <h2 className="text-3xl font-bold text-center mb-12">
                                 <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Gallery</span>
@@ -446,7 +657,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                     </section>
 
                     {/* 7. Personal Trainers */}
-                    <section className="py-16 bg-black/20 backdrop-blur-md">
+                    <section id="trainers" className="py-16 bg-black/20 backdrop-blur-md scroll-mt-24">
                         <div className="container mx-auto px-6">
                             <h2 className="text-3xl font-bold text-center mb-12">
                                 <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Our</span>{' '}
@@ -461,6 +672,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                                 src={trainer.image} 
                                                 alt={trainer.name}
                                                 className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                                                loading="lazy"
                                             />
                                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -493,165 +705,6 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                             </div>
                         </div>
                     </section>
-
-                    {/* 2. Membership Options */}
-                    <section className="py-16 bg-black/10 backdrop-blur-md">
-                        <div className="container mx-auto px-6">
-                            <h2 className="text-3xl font-bold text-center mb-12">
-                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Membership</span>{' '}
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Options</span>
-                            </h2>
-                            
-                            {/* Carousel Container */}
-                            <div className="relative max-w-7xl mx-auto">
-                                {/* Carousel Navigation */}
-                                <div className="flex justify-between items-center mb-8">
-                                    <button
-                                        onClick={prevMembershipSlide}
-                                        className="p-3 bg-black/40 backdrop-blur-md rounded-full border border-white/10 hover:border-red-700/30 transition-all duration-300 group hover:bg-red-700/10"
-                                        disabled={currentMembershipSlide === 0}
-                                    >
-                                        <ChevronLeft className="h-6 w-6 text-gray-300 group-hover:text-red-700 transition-colors duration-300" />
-                                    </button>
-                                    
-                                    <div className="flex space-x-2">
-                                        {Array.from({ length: totalMembershipSlides }, (_, index) => (
-                                            <button
-                                                key={index}
-                                                onClick={() => setCurrentMembershipSlide(index)}
-                                                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                                                    currentMembershipSlide === index 
-                                                        ? 'bg-red-700 shadow-[0_0_10px_rgba(220,38,38,0.5)]' 
-                                                        : 'bg-white/20 hover:bg-white/40'
-                                                }`}
-                                            />
-                                        ))}
-                                    </div>
-                                    
-                                    <button
-                                        onClick={nextMembershipSlide}
-                                        className="p-3 bg-black/40 backdrop-blur-md rounded-full border border-white/10 hover:border-red-700/30 transition-all duration-300 group hover:bg-red-700/10"
-                                        disabled={currentMembershipSlide === totalMembershipSlides - 1}
-                                    >
-                                        <ChevronRight className="h-6 w-6 text-gray-300 group-hover:text-red-700 transition-colors duration-300" />
-                                    </button>
-                                </div>
-
-                                {/* Carousel Content */}
-                                <div className="overflow-hidden">
-                                    <div 
-                                        className="flex transition-transform duration-500 ease-in-out"
-                                        style={{ transform: `translateX(-${currentMembershipSlide * 100}%)` }}
-                                    >
-                                        {Array.from({ length: totalMembershipSlides }, (_, slideIndex) => (
-                                            <div key={slideIndex} className="w-full flex-shrink-0">
-                                                <div className="grid md:grid-cols-3 gap-8 px-4">
-                                                    {location.membershipPlans
-                                                        .slice(slideIndex * membershipPlansPerSlide, (slideIndex + 1) * membershipPlansPerSlide)
-                                                        .map((plan) => (
-                                                        <Card key={plan.id} className={`relative p-8 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 group hover:scale-105 hover:shadow-2xl hover:shadow-red-700/20 ${plan.popular ? 'ring-2 ring-red-700 scale-105' : ''}`}>
-                                                            {plan.popular && (
-                                                                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                                                                    <span className="bg-gradient-to-r from-red-700 to-red-800 text-white px-4 py-1 rounded-full text-sm font-medium backdrop-blur-sm border border-red-700/20 flex items-center animate-pulse">
-                                                                        <Star className="h-3 w-3 mr-1 fill-white" />
-                                                                        Most Popular
-                                                                    </span>
-                                                                </div>
-                                                            )}
-                                                            
-                                                            <div className="text-center mb-6">
-                                                                <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">{plan.name}</h3>
-                                                                <div className="text-4xl font-bold text-red-700 group-hover:scale-110 transition-transform duration-300">
-                                                                    £{plan.price}
-                                                                    <span className="text-lg text-gray-400">/{plan.period}</span>
-                                                                </div>
-                                                            </div>
-
-                                                            <ul className="space-y-3 mb-8 min-h-[160px]">
-                                                                {plan.features.map((feature, index) => (
-                                                                    <li key={index} className="flex items-center text-gray-300 group hover:text-white transition-colors duration-300">
-                                                                        <div className="w-2 h-2 bg-red-700 rounded-full mr-3 group-hover:bg-red-600 transition-colors duration-300 flex-shrink-0"></div>
-                                                                        <span className="group-hover:translate-x-1 transition-transform duration-300 text-sm">{feature}</span>
-                                                                    </li>
-                                                                ))}
-                                                            </ul>
-
-                                                            <Link href="/register" className="block w-full">
-                                                                <Button className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group hover:shadow-[0_0_20px_rgba(220,38,38,0.5)] transform hover:scale-105">
-                                                                    <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                                                        Sign Up Now
-                                                                    </span>
-                                                                    <ChevronRight className="h-4 w-4 ml-2 group-hover:scale-110 transition-transform duration-300" />
-                                                                </Button>
-                                                            </Link>
-                                                        </Card>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-
-                                {/* Mobile swipe indicators */}
-                                <div className="flex justify-center mt-8 md:hidden">
-                                    <div className="flex space-x-2">
-                                        {Array.from({ length: totalMembershipSlides }, (_, index) => (
-                                            <div
-                                                key={index}
-                                                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                                                    currentMembershipSlide === index 
-                                                        ? 'bg-red-700' 
-                                                        : 'bg-white/20'
-                                                }`}
-                                            />
-                                        ))}
-                                    </div>
-                                </div>
-
-                                {/* Auto-advance hint */}
-                                <div className="text-center mt-6">
-                                    <p className="text-gray-400 text-sm">
-                                        Showing plans {currentMembershipSlide * membershipPlansPerSlide + 1}-{Math.min((currentMembershipSlide + 1) * membershipPlansPerSlide, location.membershipPlans.length)} of {location.membershipPlans.length}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* 5. Virtual Tour */}
-                    {location.virtualTour && (
-                        <section className="py-16 bg-black/20 backdrop-blur-md">
-                            <div className="container mx-auto px-6">
-                                <div className="text-center mb-12">
-                                    <h2 className="text-3xl font-bold mb-4">
-                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Take</span>{' '}
-                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">a</span>{' '}
-                                        <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Virtual</span>{' '}
-                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Tour</span>
-                                    </h2>
-                                    <p className="text-gray-300">
-                                        Explore our facilities from the comfort of your home
-                                    </p>
-                                </div>
-                                <div className="max-w-4xl mx-auto">
-                                    <div className="relative aspect-video bg-gray-800 rounded-lg overflow-hidden border border-white/10 hover:border-red-700/30 transition-colors duration-300 group">
-                                        <iframe 
-                                            src={location.virtualTour}
-                                            className="w-full h-full"
-                                            allowFullScreen
-                                            title={`${location.name} Virtual Tour`}
-                                        />
-                                        <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                            <div className="bg-gradient-to-r from-red-700 to-red-800 text-white px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm border border-red-700/20 flex items-center">
-                                                <Play className="h-3 w-3 mr-1" />
-                                                360° Tour
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    )}
                 </div>
             </div>
         </AppLayout>
