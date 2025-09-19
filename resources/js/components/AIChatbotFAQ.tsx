@@ -32,29 +32,97 @@ const faqs = [
 ];
 
 export default function AIChatbotFAQ() {
-  const [open, setOpen] = useState(true);
+  // Load persisted state on first render
+  const [open, setOpen] = useState<boolean>(() => {
+    try {
+      const raw = localStorage.getItem('ufx.chat.open');
+      return raw ? JSON.parse(raw) : true;
+    } catch {
+      return true;
+    }
+  });
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const [input, setInput] = useState('');
-  const [messages, setMessages] = useState([
-    { sender: 'bot', text: 'Hi! I am the UltraFlex AI Assistant. Ask me anything about memberships, facilities, or trainers.', animate: true }
-  ]);
+  const [input, setInput] = useState<string>(() => {
+    try {
+      const raw = localStorage.getItem('ufx.chat.input');
+      return raw ? JSON.parse(raw) : '';
+    } catch {
+      return '';
+    }
+  });
+  const [messages, setMessages] = useState<{ sender: 'bot' | 'user'; text: string; animate?: boolean }[]>(() => {
+    try {
+      const raw = localStorage.getItem('ufx.chat.messages');
+      if (raw) return JSON.parse(raw);
+    } catch {}
+    return [
+      { sender: 'bot', text: 'Hi! I am the UltraFlex AI Assistant. Ask me anything about memberships, facilities, or trainers.', animate: true },
+    ];
+  });
 
-  // Scroll to bottom on new message
+  // Soft topic guard: only answer UltraFlex website/gym questions
+  const OFF_TOPIC_RESPONSE =
+    "I can help with the UltraFlex website and gyms only — try asking about memberships, prices, opening times, facilities, locations, trainers, or contact info.";
+
+  const websiteKeywords = [
+    'ultraflex', 'gym', 'membership', 'member', 'join', 'sign up', 'signup', 'price', 'pricing', 'cost', 'fee', 'day pass', 'guest pass',
+    'open', 'opening', 'hours', 'time', '24/7', 'staffed', 'holiday',
+    'location', 'address', 'where', 'near', 'map', 'directions', 'parking',
+    'facility', 'facilities', 'equipment', 'machines', 'weights', 'classes', 'class', 'timetable', 'schedule',
+    'trainer', 'personal trainer', 'pt', 'coaching',
+    'tour', 'virtual tour', 'video',
+    'contact', 'email', 'phone', 'support',
+    'cancel', 'freeze', 'pause', 'upgrade', 'downgrade', 'student', 'corporate'
+  ];
+
+  function isWebsiteQuestion(q: string) {
+    const text = q.toLowerCase();
+    // If it explicitly mentions UltraFlex, assume on-topic
+    if (text.includes('ultraflex')) return true;
+    // Keyword match
+    return websiteKeywords.some((k) => text.includes(k));
+  }
+
+  // Persist state to localStorage whenever it changes
   useEffect(() => {
+    try { localStorage.setItem('ufx.chat.open', JSON.stringify(open)); } catch {}
+  }, [open]);
+  useEffect(() => {
+    try { localStorage.setItem('ufx.chat.input', JSON.stringify(input)); } catch {}
+  }, [input]);
+  useEffect(() => {
+    try { localStorage.setItem('ufx.chat.messages', JSON.stringify(messages)); } catch {}
+    // Scroll to bottom on new message
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
   const handleSend = async () => {
     if (!input.trim()) return;
-  setMessages((msgs) => [...msgs, { sender: 'user', text: input, animate: true }]);
+    const question = input.trim();
+    setMessages((msgs) => [...msgs, { sender: 'user', text: question, animate: true }]);
     setInput('');
+
+    // Guard: Only proceed if question is about the website/gyms
+    if (!isWebsiteQuestion(question)) {
+      setMessages((msgs) => [
+        ...msgs,
+        { sender: 'bot', text: OFF_TOPIC_RESPONSE, animate: true },
+      ]);
+      return;
+    }
     try {
       const res = await fetch('/api/gemini', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ question: input })
+        // Include a strict instruction so the backend model also stays scoped
+        body: JSON.stringify({
+          question,
+          instructions:
+            'You are UltraFlex Gym website assistant. Only answer questions about UltraFlex gyms, memberships, facilities, locations, opening times, trainers, and site content. If the question is unrelated, politely refuse.',
+          max_tokens: 256,
+        })
       });
       const data = await res.json();
       setMessages((msgs) => [
@@ -63,7 +131,7 @@ export default function AIChatbotFAQ() {
       ]);
     } catch (err) {
       // fallback to FAQ if backend fails
-      const found = faqs.find(faq => input.toLowerCase().includes(faq.question.toLowerCase().split(' ')[0]));
+      const found = faqs.find((faq) => question.toLowerCase().includes(faq.question.toLowerCase().split(' ')[0]));
       setMessages((msgs) => [
         ...msgs,
         { sender: 'bot', text: found ? found.answer : "Sorry, I don't know that yet. Please contact our staff for more info!", animate: true }
@@ -131,7 +199,10 @@ export default function AIChatbotFAQ() {
                   alignSelf: msg.sender === 'bot' ? 'flex-start' : 'flex-end',
                 }}
               >
-                {msg.text}
+                {/* Ensure long words/URLs wrap and stay inside the bubble */}
+                <div className="whitespace-pre-wrap break-words [overflow-wrap:anywhere] [word-break:break-word] max-w-full">
+                  {msg.text}
+                </div>
                 {/* Bubble tail */}
                 <span
                   className={classNames(
@@ -150,7 +221,7 @@ export default function AIChatbotFAQ() {
           </CardContent>
           <CardFooter className="absolute left-0 right-0 bottom-0 flex px-0 py-0 bg-transparent rounded-b-2xl overflow-hidden border-t border-transparent m-0" style={{background: 'rgba(255,255,255,0.95)', marginBottom: 0}}>
             <input
-              className="flex-1 px-4 py-2 outline-none bg-white text-base placeholder:text-gray-400 focus:bg-red-50 transition border-none shadow-none rounded-none rounded-bl-2xl"
+              className="flex-1 px-4 py-2 outline-none bg-white text-base placeholder:text-gray-400 focus:bg-red-50 transition border-none shadow-none rounded-none rounded-bl-2xl min-w-0"
               style={{ borderRight: 'none', borderTopLeftRadius: '0', borderBottomLeftRadius: '1rem' }}
               placeholder="Ask a question..."
               value={input}

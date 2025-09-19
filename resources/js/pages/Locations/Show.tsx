@@ -109,6 +109,8 @@ interface LocationShowProps {
 export default function LocationShow({ location, auth }: LocationShowProps) {
     const [currentMembershipSlide, setCurrentMembershipSlide] = useState(0);
     const [currentEquipmentBgIndex, setCurrentEquipmentBgIndex] = useState(0);
+    const [activeSection, setActiveSection] = useState<string>('manager');
+    const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
     const membershipPlansPerSlide = 3;
     const totalMembershipSlides = Math.ceil(location.membershipPlans.length / membershipPlansPerSlide);
     const signupUrl = (location.signupUrl && location.signupUrl.trim() !== '' ? location.signupUrl : '/membership');
@@ -126,6 +128,48 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
             return () => clearInterval(interval);
         }
     }, [location.gallery.length]);
+
+    // Observe sections to highlight active item in sticky nav
+    useEffect(() => {
+        const sectionIds = ['manager', 'membership', 'equipment', 'testimonials', 'tour', 'gallery', 'trainers'];
+        const elements = sectionIds
+            .map(id => document.getElementById(id))
+            .filter((el): el is HTMLElement => !!el);
+
+        if (elements.length === 0) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                // Get the most visible entry
+                const visible = entries
+                    .filter(e => e.isIntersecting)
+                    .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+                if (visible?.target?.id) {
+                    setActiveSection(visible.target.id);
+                }
+            },
+            {
+                root: null,
+                rootMargin: '0px 0px -50% 0px', // trigger a bit earlier
+                threshold: [0.25, 0.5, 0.75],
+            }
+        );
+
+        elements.forEach(el => observer.observe(el));
+        return () => observer.disconnect();
+    }, []);
+
+    // Lightbox keyboard handlers
+    useEffect(() => {
+        if (lightboxIndex === null) return;
+        const onKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') setLightboxIndex(null);
+            if (e.key === 'ArrowRight') setLightboxIndex((prev) => (prev === null ? 0 : (prev + 1) % location.gallery.length));
+            if (e.key === 'ArrowLeft') setLightboxIndex((prev) => (prev === null ? 0 : (prev - 1 + location.gallery.length) % location.gallery.length));
+        };
+        window.addEventListener('keydown', onKeyDown);
+        return () => window.removeEventListener('keydown', onKeyDown);
+    }, [lightboxIndex, location.gallery.length]);
 
     const nextMembershipSlide = () => {
         setCurrentMembershipSlide((prev) => (prev + 1) % totalMembershipSlides);
@@ -246,22 +290,37 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                     </section>
 
                     {/* Sticky in-page navigation */}
-                    <nav className="sticky top-0 z-20 bg-black/50 backdrop-blur-md border-b border-white/10">
+                    <nav className="sticky top-0 z-20 bg-transparent border-b border-transparent">
                         <div className="container mx-auto px-6">
                             <ul className="flex flex-wrap items-center gap-4 py-3 text-sm text-gray-300">
-                                <li><a href="#manager" className="hover:text-red-600 transition-colors">Manager & Hours</a></li>
-                                <li><a href="#membership" className="hover:text-red-600 transition-colors">Membership</a></li>
-                                <li><a href="#equipment" className="hover:text-red-600 transition-colors">Equipment</a></li>
-                                <li><a href="#testimonials" className="hover:text-red-600 transition-colors">Testimonials</a></li>
-                                <li><a href="#tour" className="hover:text-red-600 transition-colors">Virtual Tour</a></li>
-                                <li><a href="#gallery" className="hover:text-red-600 transition-colors">Gallery</a></li>
-                                <li><a href="#trainers" className="hover:text-red-600 transition-colors">Trainers</a></li>
+                                {[
+                                    { id: 'manager', label: 'Manager & Hours' },
+                                    { id: 'membership', label: 'Membership' },
+                                    { id: 'equipment', label: 'Equipment' },
+                                    { id: 'testimonials', label: 'Testimonials' },
+                                    { id: 'tour', label: 'Virtual Tour' },
+                                    { id: 'gallery', label: 'Gallery' },
+                                    { id: 'trainers', label: 'Trainers' },
+                                ].map(item => (
+                                    <li key={item.id}>
+                                        <a
+                                            href={`#${item.id}`}
+                                            className={`inline-flex items-center gap-2 px-2 py-1 rounded transition-colors border-b-2 ${
+                                                activeSection === item.id
+                                                    ? 'text-red-600 border-red-700'
+                                                    : 'text-gray-300 border-transparent hover:text-red-600 hover:border-red-700/40'
+                                            }`}
+                                        >
+                                            {item.label}
+                                        </a>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                     </nav>
 
                     {/* 1. Manager Bio & Opening Times */}
-                    <section id="manager" className="py-16 bg-black/20 backdrop-blur-md scroll-mt-24">
+                    <section id="manager" className="py-16 scroll-mt-24">
                         <div className="container mx-auto px-6">
                             <div className="grid lg:grid-cols-2 gap-12">
                                 {/* Meet The Manager */}
@@ -348,7 +407,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                     </section>
 
                     {/* 2. Membership Options */}
-                    <section id="membership" className="py-16 bg-black/10 backdrop-blur-md scroll-mt-24">
+                    <section id="membership" className="py-16 scroll-mt-24">
                         <div className="container mx-auto px-6">
                             <h2 className="text-3xl font-bold text-center mb-12">
                                 <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Membership</span>{' '}
@@ -481,42 +540,8 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                     </section>
 
                     {/* 3. Equipment & Facilities */}
-                    <section id="equipment" className="py-16 relative overflow-hidden scroll-mt-24">
-                        {/* Background Image Carousel */}
-                        <div className="absolute inset-0">
-                            {location.gallery.map((image, index) => (
-                                <div
-                                    key={index}
-                                    className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
-                                        index === currentEquipmentBgIndex ? 'opacity-100' : 'opacity-0'
-                                    }`}
-                                    style={{
-                                        backgroundImage: `url('${image}')`
-                                    }}
-                                />
-                            ))}
-                        </div>
-
-                        {/* Dark Overlay */}
-                        <div className="absolute inset-0 bg-black/70" />
-
-                        {/* Animated Particles */}
-                        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                            {Array.from({ length: 15 }, (_, i) => (
-                                <div
-                                    key={i}
-                                    className="absolute w-1 h-1 bg-white/30 rounded-full animate-pulse"
-                                    style={{
-                                        top: `${Math.random() * 100}%`,
-                                        left: `${Math.random() * 100}%`,
-                                        animationDelay: `${Math.random() * 3}s`,
-                                        animationDuration: `${2 + Math.random() * 2}s`
-                                    }}
-                                />
-                            ))}
-                        </div>
-
-                        <div className="container mx-auto px-6 relative z-10">
+                    <section id="equipment" className="py-16 scroll-mt-24">
+                        <div className="container mx-auto px-6">
                             <h2 className="text-3xl font-bold text-center mb-12">
                                 <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Equipment</span>{' '}
                                 <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">&</span>{' '}
@@ -538,25 +563,12 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                 ))}
                             </div>
 
-                            {/* Image Indicator Dots */}
-                            <div className="flex justify-center mt-8 space-x-2">
-                                {location.gallery.map((_, index) => (
-                                    <button
-                                        key={index}
-                                        onClick={() => setCurrentEquipmentBgIndex(index)}
-                                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                                            index === currentEquipmentBgIndex 
-                                                ? 'bg-red-700 w-6 shadow-[0_0_10px_rgba(220,38,38,0.5)]' 
-                                                : 'bg-white/30 hover:bg-white/50'
-                                        }`}
-                                    />
-                                ))}
-                            </div>
+                            {/* Background indicators removed to keep section transparent */}
                         </div>
                     </section>
 
                     {/* 4. Testimonials (Member Reviews) */}
-                    <section id="testimonials" className="py-16 bg-black/20 backdrop-blur-md scroll-mt-24">
+                    <section id="testimonials" className="py-16 scroll-mt-24">
                         <div className="container mx-auto px-6">
                             <div className="text-center mb-12">
                                 <h2 className="text-3xl font-bold mb-4">
@@ -592,7 +604,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
 
                     {/* 5. Virtual Tour */}
                     {location.virtualTour && (
-                        <section id="tour" className="py-16 bg-black/20 backdrop-blur-md scroll-mt-24">
+                        <section id="tour" className="py-16 scroll-mt-24">
                             <div className="container mx-auto px-6">
                                 <div className="text-center mb-12">
                                     <h2 className="text-3xl font-bold mb-4">
@@ -627,14 +639,19 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                     )}
 
                     {/* 6. Gallery */}
-                    <section id="gallery" className="py-16 bg-black/10 backdrop-blur-md scroll-mt-24">
+                    <section id="gallery" className="py-16 scroll-mt-24">
                         <div className="container mx-auto px-6">
                             <h2 className="text-3xl font-bold text-center mb-12">
                                 <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Gallery</span>
                             </h2>
                             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                                 {location.gallery.map((image, index) => (
-                                    <div key={index} className="aspect-square overflow-hidden rounded-lg hover:scale-105 transition-all duration-500 cursor-pointer border border-white/10 hover:border-red-700/30 group relative">
+                                    <button
+                                        key={index}
+                                        className="aspect-square overflow-hidden rounded-lg hover:scale-105 transition-all duration-500 cursor-pointer border border-white/10 hover:border-red-700/30 group relative"
+                                        onClick={() => setLightboxIndex(index)}
+                                        aria-label={`Open gallery image ${index + 1}`}
+                                    >
                                         <img 
                                             src={image} 
                                             alt={`${location.name} facility ${index + 1}`}
@@ -650,14 +667,59 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                         <div className="absolute bottom-2 left-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                             <span className="bg-black/60 backdrop-blur-sm text-white px-2 py-1 rounded text-xs">#{index + 1}</span>
                                         </div>
-                                    </div>
+                                    </button>
                                 ))}
                             </div>
+
+                            {/* Lightbox Modal */}
+                            {lightboxIndex !== null && (
+                                <div
+                                    className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+                                    role="dialog"
+                                    aria-modal="true"
+                                    aria-label="Image viewer"
+                                    onClick={() => setLightboxIndex(null)}
+                                >
+                                    <div className="relative max-w-6xl w-full" onClick={(e) => e.stopPropagation()}>
+                                        <img
+                                            src={location.gallery[lightboxIndex]}
+                                            alt={`${location.name} gallery image ${lightboxIndex + 1}`}
+                                            className="w-full h-auto max-h-[80vh] object-contain rounded-lg border border-white/10"
+                                        />
+                                        {/* Controls */}
+                                        <button
+                                            className="absolute top-2 right-2 bg-black/70 text-white rounded-full p-2 hover:bg-red-700/80 transition"
+                                            onClick={() => setLightboxIndex(null)}
+                                            aria-label="Close"
+                                        >
+                                            ✕
+                                        </button>
+                                        <button
+                                            className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/70 text-white rounded-full p-3 hover:bg-red-700/80 transition"
+                                            onClick={() => setLightboxIndex((prev) => prev === null ? 0 : (prev - 1 + location.gallery.length) % location.gallery.length)}
+                                            aria-label="Previous image"
+                                        >
+                                            ‹
+                                        </button>
+                                        <button
+                                            className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/70 text-white rounded-full p-3 hover:bg-red-700/80 transition"
+                                            onClick={() => setLightboxIndex((prev) => prev === null ? 0 : (prev + 1) % location.gallery.length)}
+                                            aria-label="Next image"
+                                        >
+                                            ›
+                                        </button>
+                                        {/* Counter */}
+                                        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 bg-black/70 text-white px-3 py-1 rounded-full text-sm border border-white/10">
+                                            {lightboxIndex + 1} / {location.gallery.length}
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     </section>
 
                     {/* 7. Personal Trainers */}
-                    <section id="trainers" className="py-16 bg-black/20 backdrop-blur-md scroll-mt-24">
+                    <section id="trainers" className="py-16 scroll-mt-24">
                         <div className="container mx-auto px-6">
                             <h2 className="text-3xl font-bold text-center mb-12">
                                 <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Our</span>{' '}

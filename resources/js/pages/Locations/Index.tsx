@@ -80,7 +80,7 @@ export default function LocationsIndex({ locations, membershipPlans, auth }: Loc
                         />
                         
                         {/* Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-red-900/70 to-black/80 backdrop-blur-sm" />
+                        <div className="absolute inset-0 pointer-events-none" />
                         
                         {/* Hero particles */}
                         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -116,7 +116,7 @@ export default function LocationsIndex({ locations, membershipPlans, auth }: Loc
                         <div className="container mx-auto px-6">
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                                 {locations.map((location) => (
-                                    <Card key={location.id} className="overflow-hidden hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 hover:-translate-y-1 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 group">
+                                    <Card key={location.id} className="overflow-hidden hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 hover:-translate-y-1 bg-black/20 border border-white/10 hover:border-red-700/30 group">
                                         <div className="h-64 bg-gray-800 relative overflow-hidden">
                                             <img 
                                                 src={location.image} 
@@ -146,7 +146,7 @@ export default function LocationsIndex({ locations, membershipPlans, auth }: Loc
                                             </div>
                                         </div>
                                         
-                                        <CardContent className="p-6 bg-black/20 backdrop-blur-sm">
+                                        <CardContent className="p-6 bg-transparent">
                                             <div className="space-y-3 mb-6">
                                                 <div className="flex items-start space-x-2 group hover:text-red-700 transition-colors duration-300">
                                                     <MapPin className="h-5 w-5 text-red-700 mt-0.5 flex-shrink-0" />
