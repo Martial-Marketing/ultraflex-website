@@ -81,12 +81,23 @@ class MemberController extends Controller
             ]
         ];
 
+        $announcements = [
+            ['id' => 1, 'title' => 'New class schedule released', 'date' => now()->subDays(1)->format('M d, Y'), 'href' => '/news'],
+            ['id' => 2, 'title' => 'Refer a friend and get a free month', 'date' => now()->subDays(3)->format('M d, Y')],
+        ];
+
         return Inertia::render('Members/Index', [
             'auth' => [
                 'user' => [
                     'id' => $user->id,
                     'name' => $user->name,
                     'email' => $user->email,
+                    'avatar' => $user->profile_image ?? null,
+                    // Required fields in frontend types
+                    'email_verified_at' => optional($user->email_verified_at)?->toISOString(),
+                    'created_at' => $user->created_at?->toISOString(),
+                    'updated_at' => $user->updated_at?->toISOString(),
+                    // Extra UI fields tolerated by index signature
                     'memberSince' => $user->created_at->format('M Y'),
                     'membershipType' => 'Premium',
                     'profileImage' => $user->profile_image ?? null,
@@ -94,7 +105,8 @@ class MemberController extends Controller
             ],
             'workoutStats' => $workoutStats,
             'recentActivity' => $recentActivity,
-            'featuredContent' => $featuredContent
+            'featuredContent' => $featuredContent,
+            'announcements' => $announcements,
         ]);
     }
 }

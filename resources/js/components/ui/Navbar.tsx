@@ -73,6 +73,8 @@ export default function Navbar({ auth }: NavbarProps) {
         setUserMenuOpen(false);
     }, [url]);
 
+    const hubHref = auth?.user ? '/members' : '/login';
+
     const navItems = [
         {
             label: 'Home',
@@ -98,6 +100,12 @@ export default function Navbar({ auth }: NavbarProps) {
             dropdown: null
         },
         {
+            label: 'UF Hub',
+            href: hubHref,
+            icon: null,
+            dropdown: null,
+        },
+        {
             label: 'Membership',
             href: '/membership',
             icon: null,
@@ -121,7 +129,8 @@ export default function Navbar({ auth }: NavbarProps) {
             dropdown: [
                 { label: 'Latest News', href: '/news', icon: null },
                 { label: 'Contact Us', href: '/contact', icon: null },
-                { label: 'UF Hub', href: 'https://secure.ashbournemanagement.co.uk/signupuk/index.aspx?fn=grbh2', icon: null, external: true }
+                // UF Hub should navigate to the internal login/hub, not external signup
+                { label: 'UF Hub', href: '/login', icon: null }
             ]
         }
     ];
@@ -130,8 +139,16 @@ export default function Navbar({ auth }: NavbarProps) {
         router.post('/logout');
     };
 
+    const goBack = () => {
+        if (typeof window !== 'undefined' && window.history.length > 1) {
+            window.history.back();
+        } else {
+            router.visit('/');
+        }
+    };
+
     return (
-        <nav className="bg-black/80 backdrop-blur-md border-b border-white/10 shadow-lg sticky top-0 z-50">
+        <nav className="relative bg-black/80 backdrop-blur-md border-b border-white/10 shadow-lg sticky top-0 z-50">
             {/* Animated particles overlay */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 {Array.from({ length: 5 }, (_, i) => (
@@ -148,28 +165,10 @@ export default function Navbar({ auth }: NavbarProps) {
                 ))}
             </div>
 
-            <div className="container mx-auto px-6 relative z-10">
+            <div className="max-w-screen-2xl w-full mx-auto px-6 relative z-10">
                 <div className="flex justify-between items-center h-16">
                     {/* Back Button and Logo Section */}
-                    <div className="flex items-center space-x-8">
-                        {/* Back Button - Only show on non-home pages */}
-                        {url !== '/' && (
-                            <Link
-                                href="/"
-                                aria-label="Go Back to Home"
-                                className="flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 text-gray-300 hover:text-red-700 hover:bg-red-700/10 hover:shadow-[0_0_15px_rgba(220,38,38,0.5)] -ml-6"
-                                onMouseEnter={() => handleMouseEnter('back')}
-                                onMouseLeave={handleMouseLeave}
-                            >
-                                <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                    <polyline points="15 18 9 12 15 6" />
-                                </svg>
-                                <span className={`hidden md:inline transition-transform duration-300 ${
-                                    hoveredItem === 'back' ? 'translate-x-1' : ''
-                                }`}>Back</span>
-                            </Link>
-                        )}
-                        
+                    <div className="flex items-center space-x-6 shrink-0 mr-10 md:mr-12 lg:mr-16 xl:mr-20">
                         {/* Logo */}
                         <Link 
                             href="/" 
@@ -204,7 +203,7 @@ export default function Navbar({ auth }: NavbarProps) {
                     </div>
 
                     {/* Desktop Navigation */}
-                    <div className="hidden lg:flex items-center space-x-8">
+                    <div className="hidden lg:flex items-center space-x-8 flex-1 justify-center min-w-0 px-4 xl:px-8 2xl:px-12">
                         {navItems.map((item) => {
 
 
@@ -224,7 +223,7 @@ export default function Navbar({ auth }: NavbarProps) {
                                                     : 'text-gray-300'
                                             }`}
                                         >
-                                            <span className={`transition-transform duration-300 ${
+                                            <span className={`transition-transform duration-300 whitespace-nowrap leading-none ${
                                                 hoveredItem === item.label ? 'translate-x-1' : ''
                                             }`}>{item.label}</span>
                                             <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${
@@ -236,7 +235,7 @@ export default function Navbar({ auth }: NavbarProps) {
                                         {(activeDropdown === item.label || hoveredItem === item.label) && (
                                             <div className="absolute top-full left-0 mt-1 w-48 bg-black/90 backdrop-blur-md rounded-md shadow-xl border border-white/10 py-1 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
                                                 {item.dropdown.map((subItem) => (
-                                                    subItem.external ? (
+                                                    (typeof subItem.href === 'string' && subItem.href.startsWith('http')) ? (
                                                         <a
                                                             key={subItem.href}
                                                             href={subItem.href}
@@ -285,7 +284,7 @@ export default function Navbar({ auth }: NavbarProps) {
                                                 : 'text-gray-300'
                                         }`}
                                     >
-                                        <span className={`transition-transform duration-300 ${
+                                        <span className={`transition-transform duration-300 whitespace-nowrap leading-none ${
                                             hoveredItem === item.label ? 'translate-x-1' : ''
                                         }`}>{item.label}</span>
                                     </a>
@@ -304,7 +303,7 @@ export default function Navbar({ auth }: NavbarProps) {
                                             : 'text-gray-300'
                                     }`}
                                 >
-                                    <span className={`transition-transform duration-300 ${
+                                    <span className={`transition-transform duration-300 whitespace-nowrap leading-none ${
                                         hoveredItem === item.label ? 'translate-x-1' : ''
                                     }`}>{item.label}</span>
                                 </Link>
@@ -313,7 +312,7 @@ export default function Navbar({ auth }: NavbarProps) {
                     </div>
 
                     {/* Auth/CTA Button */}
-                    <div className="hidden lg:flex items-center space-x-4">
+                    <div className="hidden lg:flex items-center space-x-4 shrink-0 ml-8 lg:ml-10 xl:ml-12">
                         {auth.user ? (
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
@@ -382,7 +381,7 @@ export default function Navbar({ auth }: NavbarProps) {
                                             {activeDropdown === `mobile-${item.label}` && (
                                                 <div className="ml-6 mt-2 space-y-1 animate-in slide-in-from-left duration-200">
                                                     {item.dropdown.map((subItem) => (
-                                                        subItem.external ? (
+                                                        (typeof subItem.href === 'string' && subItem.href.startsWith('http')) ? (
                                                             <a
                                                                 key={subItem.href}
                                                                 href={subItem.href}

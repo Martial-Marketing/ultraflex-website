@@ -32,7 +32,7 @@ export default function Login({ auth, flash }: LoginProps) {
         message: string | null;
     }>({ type: null, message: null });
 
-    // Check for flash messages
+    // Check for flash messages (including Socialite errors from callback)
     useEffect(() => {
         if (flash?.success) {
             setFlashMessage({

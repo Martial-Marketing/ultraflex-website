@@ -2,16 +2,11 @@ import { Head, Link } from '@inertiajs/react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import AppLayout from '@/layouts/app-layout';
+import type { User as SharedUser } from '@/types';
 import AnimatedBackground from '@/components/AnimatedBackground';
 
-interface User {
-    id: number;
-    name: string;
-    email: string;
-    memberSince: string;
-    membershipType: string;
-    profileImage?: string;
-}
+// Use shared User type expected by AppLayout (from '@/types')
+type User = SharedUser;
 
 interface NutritionPlan {
     id: number;
@@ -26,9 +21,7 @@ interface NutritionPlan {
 }
 
 interface NutritionIndexProps {
-    auth: {
-        user: User;
-    };
+    auth: { user: User };
     nutritionPlans: NutritionPlan[];
 }
 
@@ -36,10 +29,10 @@ export default function NutritionIndex({ auth, nutritionPlans }: NutritionIndexP
     const user = auth.user;
 
     const nutritionStats = [
-        { label: 'Nutrition Plans', value: nutritionPlans?.length.toString() || '6', color: 'bg-red-700/20', textColor: 'text-red-700' },
-        { label: 'Active Plans', value: '3', color: 'bg-green-700/20', textColor: 'text-green-400' },
-        { label: 'Avg Calories/Day', value: '2,100', color: 'bg-purple-700/20', textColor: 'text-purple-400' },
-        { label: 'Goal Progress', value: '85%', color: 'bg-yellow-700/20', textColor: 'text-yellow-400' },
+    { label: 'Nutrition Plans', value: nutritionPlans?.length.toString() || '6', color: 'bg-white/10', textColor: 'text-white' },
+    { label: 'Active Plans', value: '3', color: 'bg-white/10', textColor: 'text-white' },
+    { label: 'Avg Calories/Day', value: '2,100', color: 'bg-white/10', textColor: 'text-white' },
+    { label: 'Goal Progress', value: '85%', color: 'bg-white/10', textColor: 'text-white' },
     ];
 
     return (
@@ -67,7 +60,7 @@ export default function NutritionIndex({ auth, nutritionPlans }: NutritionIndexP
                         />
                         
                         {/* Gradient Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-green-900/70 to-black/80" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-white/5 to-black/80" />
                         
                         {/* Animated Particles */}
                         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -88,7 +81,7 @@ export default function NutritionIndex({ auth, nutritionPlans }: NutritionIndexP
                         <div className="container mx-auto px-6 relative z-10">
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center space-x-6">
-                                    <div className="w-16 h-16 rounded-full overflow-hidden bg-red-700/20 backdrop-blur-sm flex items-center justify-center border border-red-700/30">
+                                    <div className="w-16 h-16 rounded-full overflow-hidden bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20">
                                         <span className="text-white text-xl font-bold">N</span>
                                     </div>
                                     <div className="text-white">
@@ -135,9 +128,9 @@ export default function NutritionIndex({ auth, nutritionPlans }: NutritionIndexP
                                             {/* Difficulty badge */}
                                             <div className="absolute top-3 left-3">
                                                 <span className={`px-3 py-1 rounded-full text-xs backdrop-blur-sm border ${
-                                                    plan.difficulty === 'Beginner' ? 'bg-green-700/20 text-green-400 border-green-700/30' :
-                                                    plan.difficulty === 'Intermediate' ? 'bg-yellow-700/20 text-yellow-400 border-yellow-700/30' :
-                                                    'bg-red-700/20 text-red-700 border-red-700/30'
+                                                    plan.difficulty === 'Beginner' ? 'bg-white/10 text-white border-white/20' :
+                                                    plan.difficulty === 'Intermediate' ? 'bg-white/10 text-white border-white/20' :
+                                                    'bg-white/10 text-white border-white/20'
                                                 }`}>
                                                     {plan.difficulty}
                                                 </span>
@@ -175,7 +168,7 @@ export default function NutritionIndex({ auth, nutritionPlans }: NutritionIndexP
                                             <div className="space-y-3">
                                                 <div className="flex items-center justify-between text-sm text-gray-300">
                                                     <span>Type: <span className="text-white">{plan.type}</span></span>
-                                                    <span>Level: <span className="text-red-400">{plan.difficulty}</span></span>
+                                                    <span>Level: <span className="text-white">{plan.difficulty}</span></span>
                                                 </div>
                                                 
                                                 <div className="space-y-2">
@@ -183,7 +176,7 @@ export default function NutritionIndex({ auth, nutritionPlans }: NutritionIndexP
                                                     <div className="grid grid-cols-2 gap-1 text-xs">
                                                         {plan.features.slice(0, 4).map((feature, index) => (
                                                             <div key={index} className="flex items-center text-gray-300">
-                                                                <div className="w-1 h-1 bg-red-400 rounded-full mr-2"></div>
+                                                                <div className="w-1 h-1 bg-white/60 rounded-full mr-2"></div>
                                                                 {feature}
                                                             </div>
                                                         ))}
@@ -223,8 +216,8 @@ export default function NutritionIndex({ auth, nutritionPlans }: NutritionIndexP
                             <h2 className="text-3xl font-bold text-white text-center mb-12">Your Nutrition Journey</h2>
                             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                                 {nutritionStats.map((stat, index) => (
-                                    <Card key={index} className="p-6 text-center bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 group">
-                                        <div className={`w-16 h-16 ${stat.color} backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-red-700/30 group-hover:scale-110 transition-transform duration-300`}>
+                                    <Card key={index} className="p-6 text-center bg-black/40 backdrop-blur-md border border-white/10 hover:border-white/20 transition-all duration-300 group">
+                                        <div className={`w-16 h-16 ${stat.color} backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20 group-hover:scale-110 transition-transform duration-300`}>
                                             <span className={`${stat.textColor} text-xl font-bold`}>
                                                 {stat.label.charAt(0)}
                                             </span>

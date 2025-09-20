@@ -2,17 +2,11 @@ import { Head, Link } from '@inertiajs/react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import AppLayout from '@/layouts/app-layout';
+import type { User as SharedUser } from '@/types';
 import AnimatedBackground from '@/components/AnimatedBackground';
 import { ArrowLeft, Calculator, Activity, Scale } from 'lucide-react';
 
-interface User {
-    id: number;
-    name: string;
-    email: string;
-    memberSince: string;
-    membershipType: string;
-    profileImage?: string;
-}
+type User = SharedUser;
 
 interface CalculatorIndexProps {
     auth: {
@@ -57,7 +51,7 @@ export default function CalculatorIndex({ auth }: CalculatorIndexProps) {
                 
                 <div className="relative z-10">
                     {/* Header */}
-                    <section className="bg-gradient-to-r from-red-900/80 to-red-700/80 py-16 backdrop-blur-sm relative overflow-hidden">
+                    <section className="bg-gradient-to-r from-black/80 via-white/5 to-black/80 py-16 backdrop-blur-sm relative overflow-hidden">
                         <div className="absolute inset-0 overflow-hidden pointer-events-none">
                             {Array.from({ length: 15 }, (_, i) => (
                                 <div
@@ -87,7 +81,7 @@ export default function CalculatorIndex({ auth }: CalculatorIndexProps) {
 
                             <div className="text-center text-white">
                                 <div className="flex items-center justify-center gap-4 mb-4">
-                                    <div className="w-16 h-16 bg-gradient-to-r from-red-700 to-red-800 rounded-full flex items-center justify-center shadow-lg">
+                                    <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center shadow-lg border border-white/20">
                                         <Calculator className="h-8 w-8 text-white" />
                                     </div>
                                 </div>
@@ -106,12 +100,12 @@ export default function CalculatorIndex({ auth }: CalculatorIndexProps) {
                                 <h2 className="text-3xl font-bold text-white mb-8 text-center">Select Your Calculator</h2>
                                 <div className="grid md:grid-cols-2 gap-8">
                                     {calculators.map((calculator) => (
-                                        <Card key={calculator.id} className="overflow-hidden hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 group">
+                                        <Card key={calculator.id} className="overflow-hidden hover:shadow-2xl transition-all duration-300 bg-black/40 backdrop-blur-md border border-white/10 hover:border-white/20 group">
                                             <CardHeader className="text-center pb-4">
-                                                <div className="w-20 h-20 bg-gradient-to-r from-red-700 to-red-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg transform group-hover:scale-110 transition-all duration-300">
+                                                <div className="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg transform group-hover:scale-110 transition-all duration-300 border border-white/20">
                                                     <calculator.icon className="h-10 w-10 text-white" />
                                                 </div>
-                                                <CardTitle className="text-white text-2xl group-hover:text-red-700 transition-colors duration-300">
+                                                <CardTitle className="text-white text-2xl transition-colors duration-300">
                                                     {calculator.title}
                                                 </CardTitle>
                                             </CardHeader>
@@ -122,7 +116,7 @@ export default function CalculatorIndex({ auth }: CalculatorIndexProps) {
                                                 
                                                 <div className="space-y-4">
                                                     <div className="flex items-center justify-center">
-                                                        <span className={`px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm border bg-green-700/20 text-green-400 border-green-700/30`}>
+                                                        <span className={`px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm border bg-white/10 text-white border-white/20`}>
                                                             {calculator.difficulty}
                                                         </span>
                                                     </div>
@@ -132,7 +126,7 @@ export default function CalculatorIndex({ auth }: CalculatorIndexProps) {
                                                         <div className="grid grid-cols-2 gap-2 text-sm">
                                                             {calculator.features.map((feature, index) => (
                                                                 <div key={index} className="flex items-center text-gray-300">
-                                                                    <div className="w-1 h-1 bg-red-400 rounded-full mr-2"></div>
+                                                                    <div className="w-1 h-1 bg-white/60 rounded-full mr-2"></div>
                                                                     {feature}
                                                                 </div>
                                                             ))}
@@ -142,7 +136,7 @@ export default function CalculatorIndex({ auth }: CalculatorIndexProps) {
                                                 
                                                 <div className="pt-4">
                                                     <Link href={calculator.route}>
-                                                        <Button className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group text-lg py-3">
+                                                        <Button className="w-full bg-white/10 hover:bg-white/20 transition-all duration-300 group text-lg py-3">
                                                             <calculator.icon className="mr-2 h-5 w-5" />
                                                             <span className="group-hover:translate-x-1 transition-transform duration-300">
                                                                 Open {calculator.title}
@@ -165,8 +159,8 @@ export default function CalculatorIndex({ auth }: CalculatorIndexProps) {
                                 <h2 className="text-3xl font-bold text-white mb-6">Why Use Our Calculators?</h2>
                                 <div className="grid md:grid-cols-3 gap-8 mb-8">
                                     <div className="space-y-4">
-                                        <div className="w-16 h-16 bg-gradient-to-r from-red-700 to-red-800 rounded-full flex items-center justify-center mx-auto">
-                                            <Activity className="h-8 w-8 text-white" />
+                                        <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto border border-white/20">
+                                            <Activity className="h-8 w-8 text-white/80" />
                                         </div>
                                         <h3 className="text-xl font-semibold text-white">Accurate Formulas</h3>
                                         <p className="text-gray-300">
@@ -174,8 +168,8 @@ export default function CalculatorIndex({ auth }: CalculatorIndexProps) {
                                         </p>
                                     </div>
                                     <div className="space-y-4">
-                                        <div className="w-16 h-16 bg-gradient-to-r from-red-700 to-red-800 rounded-full flex items-center justify-center mx-auto">
-                                            <Calculator className="h-8 w-8 text-white" />
+                                        <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto border border-white/20">
+                                            <Calculator className="h-8 w-8 text-white/80" />
                                         </div>
                                         <h3 className="text-xl font-semibold text-white">Multiple Methods</h3>
                                         <p className="text-gray-300">
@@ -183,8 +177,8 @@ export default function CalculatorIndex({ auth }: CalculatorIndexProps) {
                                         </p>
                                     </div>
                                     <div className="space-y-4">
-                                        <div className="w-16 h-16 bg-gradient-to-r from-red-700 to-red-800 rounded-full flex items-center justify-center mx-auto">
-                                            <Scale className="h-8 w-8 text-white" />
+                                        <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto border border-white/20">
+                                            <Scale className="h-8 w-8 text-white/80" />
                                         </div>
                                         <h3 className="text-xl font-semibold text-white">Personalized Results</h3>
                                         <p className="text-gray-300">

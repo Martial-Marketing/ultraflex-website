@@ -15,6 +15,8 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
+        // Redirect unauthenticated (guest) users to the custom login route
+        $middleware->redirectGuestsTo(fn () => route('auth.login'));
         $middleware->encryptCookies(except: ['appearance']);
 
         $middleware->web(append: [

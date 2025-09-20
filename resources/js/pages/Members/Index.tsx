@@ -2,16 +2,12 @@ import { Head, Link } from '@inertiajs/react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import AppLayout from '@/layouts/app-layout';
-import AnimatedBackground from '@/components/AnimatedBackground'; // Import the animated background
+import AnimatedBackground from '@/components/AnimatedBackground';
+import Section from '@/components/hub/Section';
+import StatCard from '@/components/hub/StatCard';
+import TileLink from '@/components/hub/TileLink';
 
-interface User {
-    id: number;
-    name: string;
-    email: string;
-    memberSince: string;
-    membershipType: string;
-    profileImage?: string;
-}
+type SharedUser = import('@/types').User;
 
 interface WorkoutStats {
     totalWorkouts: number;
@@ -40,16 +36,15 @@ interface FeaturedContent {
 }
 
 interface MembersIndexProps {
-    auth: {
-        user: User;
-    };
+    auth: { user: SharedUser };
     workoutStats: WorkoutStats;
     recentActivity: RecentActivity[];
     featuredContent: FeaturedContent;
+    announcements?: { id: number; title: string; date: string; href?: string }[];
 }
 
-export default function MembersIndex({ auth, workoutStats, recentActivity, featuredContent }: MembersIndexProps) {
-    const user = auth.user;
+export default function MembersIndex({ auth, workoutStats, recentActivity, featuredContent, announcements = [] }: MembersIndexProps) {
+    const user = auth.user as SharedUser & { profileImage?: string; membershipType?: string; memberSince?: string };
 
     const quickActions = [
         {
@@ -79,39 +74,14 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
     ];
 
     const statsCards = [
-        {
-            title: 'Total Workouts',
-            value: workoutStats.totalWorkouts,
-            subtitle: 'All time',
-            color: 'text-red-700',
-            bgColor: 'bg-red-700/20 backdrop-blur-sm border border-red-700/30',
-        },
-        {
-            title: 'This Week',
-            value: workoutStats.thisWeek,
-            subtitle: 'Workouts completed',
-            color: 'text-green-400',
-            bgColor: 'bg-green-700/20 backdrop-blur-sm border border-green-700/30',
-        },
-        {
-            title: 'Total Hours',
-            value: workoutStats.totalHours,
-            subtitle: 'Time spent training',
-            color: 'text-purple-400',
-            bgColor: 'bg-purple-700/20 backdrop-blur-sm border border-purple-700/30',
-        },
-        {
-            title: 'Favorite Type',
-            value: workoutStats.favoriteWorkout,
-            subtitle: 'Most completed',
-            color: 'text-orange-400',
-            bgColor: 'bg-orange-700/20 backdrop-blur-sm border border-orange-700/30',
-            isString: true,
-        },
+        { title: 'Total Workouts', value: workoutStats.totalWorkouts, subtitle: 'All time', tone: 'red' as const },
+        { title: 'This Week', value: workoutStats.thisWeek, subtitle: 'Workouts completed', tone: 'green' as const },
+        { title: 'Total Hours', value: workoutStats.totalHours, subtitle: 'Time spent training', tone: 'purple' as const },
+        { title: 'Favorite Type', value: workoutStats.favoriteWorkout, subtitle: 'Most completed', tone: 'orange' as const },
     ];
 
     return (
-        <AppLayout auth={auth}>
+    <AppLayout auth={{ user }}>
             <Head title="Members Hub - UltraFlex">
                 <meta name="description" content="Welcome to your UltraFlex Members Hub. Access workouts, nutrition plans, and track your fitness journey." />
             </Head>
@@ -159,7 +129,7 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                             {/* Responsive header: stack on small screens, row on md+ */}
                             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 md:gap-0">
                                 <div className="flex items-center space-x-6">
-                                    <div className="w-20 h-20 rounded-full overflow-hidden bg-red-700/20 backdrop-blur-sm flex items-center justify-center border border-red-700/30 group hover:scale-105 transition-transform duration-300">
+                                    <div className="w-20 h-20 rounded-full overflow-hidden bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20 group hover:scale-105 transition-transform duration-300">
                                         {user.profileImage ? (
                                             <img 
                                                 src={user.profileImage} 
@@ -203,62 +173,24 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                     </section>
 
                     {/* Quick Actions */}
-                    <section className="py-16 relative z-10">
-                        <div className="container mx-auto px-6">
-                            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                                {quickActions.map((action, index) => {
-                                    return (
-                                        <Link key={index} href={action.href}>
-                                            <Card className="hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 hover:-translate-y-1 cursor-pointer bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 group">
-                                                <CardContent className="p-6 text-center">
-                                                    <div className={`w-12 h-12 ${action.color} rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg transform group-hover:scale-110 transition-all duration-300`}>
-                                                        <div className="text-white text-lg font-bold">
-                                                            {action.title.charAt(0)}
-                                                        </div>
-                                                    </div>
-                                                    <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">{action.title}</h3>
-                                                    <p className="text-gray-300 text-sm group-hover:text-gray-200 transition-colors duration-300">{action.description}</p>
-                                                </CardContent>
-                                            </Card>
-                                        </Link>
-                                    );
-                                })}
-                            </div>
+                    <Section title="Quick Actions" subtitle="Jump into key areas">
+                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            {quickActions.map((qa, i) => (
+                                <TileLink key={i} title={qa.title} description={qa.description} href={qa.href} />
+                            ))}
                         </div>
-                    </section>
+                    </Section>
 
                     {/* Stats Overview */}
-                    <section className="py-16">
-                        <div className="container mx-auto px-6">
-                            <h2 className="text-3xl font-bold text-white mb-8">Your Progress</h2>
-                            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                                {statsCards.map((stat, index) => {
-                                    return (
-                                        <Card key={index} className="bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 group">
-                                            <CardContent className="p-6">
-                                                <div className="flex items-center justify-between mb-4">
-                                                    <div className={`w-12 h-12 ${stat.bgColor} rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                                                        <div className={`text-white text-lg font-bold`}>
-                                                            {stat.title.charAt(0)}
-                                                        </div>
-                                                    </div>
-                                                    <div className="text-green-400 text-xs font-semibold">+</div>
-                                                </div>
-                                                <div>
-                                                    <div className="text-2xl font-bold text-white mb-1 group-hover:text-red-700 transition-colors duration-300">
-                                                        {stat.isString ? stat.value : `${stat.value}`}
-                                                    </div>
-                                                    <div className="text-sm text-gray-400">{stat.subtitle}</div>
-                                                </div>
-                                            </CardContent>
-                                        </Card>
-                                    );
-                                })}
-                            </div>
+                    <Section title="Your Progress" subtitle="Overview of your activity">
+                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            {statsCards.map((s, i) => (
+                                <StatCard key={i} title={s.title} value={s.value} subtitle={s.subtitle} tone={s.tone} />
+                            ))}
                         </div>
-                    </section>
+                    </Section>
 
-                    {/* Recent Activity */}
+                    {/* Activity & Featured */}
                     <section className="py-16 bg-black/20 backdrop-blur-md">
                         <div className="container mx-auto px-6">
                             <div className="grid lg:grid-cols-3 gap-12">
@@ -267,9 +199,7 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                                     <div className="space-y-4">
                                         {recentActivity.map((activity) => (
                                             <div key={activity.id} className="flex items-center space-x-4 p-4 bg-black/30 backdrop-blur-sm rounded-lg border border-white/10 hover:border-red-700/30 transition-colors duration-300 group">
-                                                <div className={`w-10 h-10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 ${
-                                                    activity.type === 'workout' ? 'bg-red-700/20 text-red-700 border border-red-700/30' : 'bg-green-700/20 text-green-400 border border-green-700/30'
-                                                }`}>
+                                                <div className={"w-10 h-10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 bg-white/10 text-white border border-white/20"}>
                                                     <span className="text-sm font-bold">
                                                         {activity.type === 'workout' ? 'W' : 'N'}
                                                     </span>
@@ -330,7 +260,7 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
 
                                                         {/* Play overlay */}
                                                         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                                            <div className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white p-3 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 border border-red-700/20 backdrop-blur-sm">
+                                                            <div className="bg-white/10 text-white p-3 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 border border-white/20 backdrop-blur-sm">
                                                                 <span className="text-sm font-bold">PLAY</span>
                                                             </div>
                                                         </div>
@@ -342,11 +272,7 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                                                                 <span className="text-red-700 mr-1 text-xs">TYPE:</span>
                                                                 {workout.type}
                                                             </span>
-                                                            <span className={`px-2 py-1 rounded-full text-xs backdrop-blur-sm border ${
-                                                                workout.difficulty === 'Beginner' ? 'bg-green-700/20 text-green-400 border-green-700/30' :
-                                                                workout.difficulty === 'Intermediate' ? 'bg-yellow-700/20 text-yellow-400 border-yellow-700/30' :
-                                                                'bg-red-700/20 text-red-700 border-red-700/30'
-                                                            }`}>
+                                                            <span className={"px-2 py-1 rounded-full text-xs backdrop-blur-sm border bg-white/10 text-white border-white/20"}>
                                                                 {workout.difficulty}
                                                             </span>
                                                         </div>
@@ -360,6 +286,32 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                                             ))}
                                         </div>
                                     </div>
+                                    {/* Announcements */}
+                                    {announcements.length > 0 && (
+                                        <div>
+                                            <div className="flex items-center justify-between mb-6">
+                                                <h2 className="text-2xl font-bold text-white">Announcements</h2>
+                                                <Link href="/news">
+                                                    <Button variant="outline" className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
+                                                        <span className="group-hover:translate-x-1 transition-transform duration-300">View News</span>
+                                                    </Button>
+                                                </Link>
+                                            </div>
+                                            <div className="space-y-4">
+                                                {announcements.map(a => (
+                                                    <Card key={a.id} className="bg-black/40 backdrop-blur-md border border-white/10">
+                                                        <CardContent className="p-4">
+                                                            <div className="text-sm text-gray-400">{a.date}</div>
+                                                            <div className="text-white font-medium">{a.title}</div>
+                                                            {a.href && (
+                                                                <Link href={a.href} className="text-red-500 text-sm hover:underline">Read more</Link>
+                                                            )}
+                                                        </CardContent>
+                                                    </Card>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -370,9 +322,9 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                         <div className="container mx-auto px-6">
                             <h2 className="text-3xl font-bold text-white text-center mb-12">Your Fitness Journey</h2>
                             <div className="grid md:grid-cols-3 gap-8">
-                                <Card className="p-6 text-center bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 group">
-                                    <div className="w-16 h-16 bg-red-700/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-red-700/30 group-hover:scale-110 transition-transform duration-300">
-                                        <span className="text-red-700 text-lg font-bold">G</span>
+                                <Card className="p-6 text-center bg-black/40 backdrop-blur-md border border-white/10 hover:border-white/20 transition-all duration-300 group">
+                                    <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20 group-hover:scale-110 transition-transform duration-300">
+                                        <span className="text-white text-lg font-bold">G</span>
                                     </div>
                                     <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">Set Goals</h3>
                                     <p className="text-gray-300 mb-4 group-hover:text-gray-200 transition-colors duration-300">
@@ -383,9 +335,9 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                                     </Button>
                                 </Card>
 
-                                <Card className="p-6 text-center bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 group">
-                                    <div className="w-16 h-16 bg-green-700/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-green-700/30 group-hover:scale-110 transition-transform duration-300">
-                                        <span className="text-green-400 text-lg font-bold">P</span>
+                                <Card className="p-6 text-center bg-black/40 backdrop-blur-md border border-white/10 hover:border-white/20 transition-all duration-300 group">
+                                    <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20 group-hover:scale-110 transition-transform duration-300">
+                                        <span className="text-white text-lg font-bold">P</span>
                                     </div>
                                     <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">Track Progress</h3>
                                     <p className="text-gray-300 mb-4 group-hover:text-gray-200 transition-colors duration-300">
@@ -396,9 +348,9 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                                     </Button>
                                 </Card>
 
-                                <Card className="p-6 text-center bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 group">
-                                    <div className="w-16 h-16 bg-yellow-700/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-yellow-700/30 group-hover:scale-110 transition-transform duration-300">
-                                        <span className="text-yellow-400 text-lg font-bold">R</span>
+                                <Card className="p-6 text-center bg-black/40 backdrop-blur-md border border-white/10 hover:border-white/20 transition-all duration-300 group">
+                                    <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20 group-hover:scale-110 transition-transform duration-300">
+                                        <span className="text-white text-lg font-bold">R</span>
                                     </div>
                                     <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">Earn Rewards</h3>
                                     <p className="text-gray-300 mb-4 group-hover:text-gray-200 transition-colors duration-300">
@@ -413,47 +365,13 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                     </section>
 
                     {/* Help & Support */}
-                    <section className="py-16 bg-black/20 backdrop-blur-md">
-                        <div className="container mx-auto px-6">
-                            <div className="max-w-4xl mx-auto text-center">
-                                <h2 className="text-3xl font-bold text-white mb-6">Need Help?</h2>
-                                <p className="text-xl text-gray-300 mb-8">
-                                    Our team is here to support you on your fitness journey
-                                </p>
-                                <div className="grid md:grid-cols-3 gap-6">
-                                    <Link href="/trainers">
-                                        <Card className="p-6 hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 cursor-pointer bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 group">
-                                            <div className="w-12 h-12 bg-red-700/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-red-700/30 group-hover:scale-110 transition-transform duration-300">
-                                                <span className="text-red-700 text-xl font-bold">PT</span>
-                                            </div>
-                                            <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">Personal Training</h3>
-                                            <p className="text-gray-300 text-sm group-hover:text-gray-200 transition-colors duration-300">Get one-on-one guidance from our expert trainers</p>
-                                        </Card>
-                                    </Link>
-
-                                    <Link href="/contact">
-                                        <Card className="p-6 hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 cursor-pointer bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 group">
-                                            <div className="w-12 h-12 bg-green-700/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-green-700/30 group-hover:scale-110 transition-transform duration-300">
-                                                <span className="text-green-400 text-xl font-bold">?</span>
-                                            </div>
-                                            <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">Support Center</h3>
-                                            <p className="text-gray-300 text-sm group-hover:text-gray-200 transition-colors duration-300">Find answers to common questions and get help</p>
-                                        </Card>
-                                    </Link>
-
-                                    <Link href="/locations">
-                                        <Card className="p-6 hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 cursor-pointer bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 group">
-                                            <div className="w-12 h-12 bg-purple-700/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-purple-700/30 group-hover:scale-110 transition-transform duration-300">
-                                                <span className="text-purple-400 text-lg font-bold">L</span>
-                                            </div>
-                                            <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">Visit a Location</h3>
-                                            <p className="text-gray-300 text-sm group-hover:text-gray-200 transition-colors duration-300">Talk to our staff at any UltraFlex location</p>
-                                        </Card>
-                                    </Link>
-                                </div>
-                            </div>
+                    <Section title="Need Help?" subtitle="We're here to support you">
+                        <div className="grid md:grid-cols-3 gap-6">
+                            <TileLink title="Personal Training" description="Get one-on-one guidance from our expert trainers" href="/trainers" tone="red" />
+                            <TileLink title="Support Center" description="Find answers and get help" href="/contact" tone="green" />
+                            <TileLink title="Visit a Location" description="Talk to our staff at any UltraFlex location" href="/locations" tone="purple" />
                         </div>
-                    </section>
+                    </Section>
                 </div>
             </div>
         </AppLayout>

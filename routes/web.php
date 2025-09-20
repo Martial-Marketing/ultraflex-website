@@ -14,6 +14,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\SocialAuthController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -55,6 +56,10 @@ Route::get('/login', [LoginController::class, 'index'])->name('auth.login');
 Route::post('/login', [LoginController::class, 'store'])->name('auth.login.store');
 Route::post('/logout', [LoginController::class, 'destroy'])->name('auth.logout');
 
+// Social Authentication (Google)
+Route::get('/auth/google', [SocialAuthController::class, 'redirectToGoogle'])->name('auth.google');
+Route::get('/auth/google/callback', [SocialAuthController::class, 'handleGoogleCallback'])->name('auth.google.callback');
+
 Route::get('/register', [RegisterController::class, 'index'])->name('auth.register');
 Route::post('/register', [RegisterController::class, 'store'])->name('auth.register.store');
 
@@ -82,6 +87,31 @@ Route::middleware(['auth'])->group(function () {
 
 // Gym Rules & Etiquette
 Route::get('/gymrules', [\App\Http\Controllers\GymRulesController::class, 'index'])->name('gymrules');
+
+// Basic legal pages (placeholder inertia routes)
+Route::get('/privacy', function (Request $request) {
+    return inertia('Legal/Privacy', [
+        'auth' => ['user' => $request->user()],
+    ]);
+})->name('privacy');
+
+Route::get('/terms', function (Request $request) {
+    return inertia('Legal/Terms', [
+        'auth' => ['user' => $request->user()],
+    ]);
+})->name('terms');
+
+Route::get('/cookies', function (Request $request) {
+    return inertia('Legal/Cookies', [
+        'auth' => ['user' => $request->user()],
+    ]);
+})->name('cookies');
+
+Route::get('/accessibility', function (Request $request) {
+    return inertia('Legal/Accessibility', [
+        'auth' => ['user' => $request->user()],
+    ]);
+})->name('accessibility');
 
 // Example page with layout
 Route::get('/example-with-layout', function (Request $request) {

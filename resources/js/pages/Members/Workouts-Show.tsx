@@ -108,15 +108,10 @@ export default function WorkoutsShow({ auth, workout }: WorkoutsShowProps) {
                                 <div>
                                     <h1 className="text-5xl font-bold text-white mb-4">{workout.title}</h1>
                                     <div className="flex items-center gap-4">
-                                        <span className={`px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm border ${
-                                            workout.difficulty === 'Beginner' ? 'bg-green-700/20 text-green-400 border-green-700/30' :
-                                            workout.difficulty === 'Intermediate' ? 'bg-yellow-700/20 text-yellow-400 border-yellow-700/30' :
-                                            workout.difficulty === 'Expert' ? 'bg-purple-700/20 text-purple-400 border-purple-700/30' :
-                                            'bg-red-700/20 text-red-400 border-red-700/30'
-                                        }`}>
+                                        <span className={"px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm border bg-white/10 text-white border-white/20"}>
                                             {workout.difficulty}
                                         </span>
-                                        <span className="px-4 py-2 rounded-full text-sm font-medium bg-red-700/20 text-red-400 border border-red-700/30 backdrop-blur-sm">
+                                        <span className="px-4 py-2 rounded-full text-sm font-medium bg-white/10 text-white border border-white/20 backdrop-blur-sm">
                                             {workout.type}
                                         </span>
                                     </div>
@@ -238,19 +233,19 @@ export default function WorkoutsShow({ auth, workout }: WorkoutsShowProps) {
                                             <h2 className="text-3xl font-bold text-white mb-6">Workout Tips</h2>
                                             <div className="space-y-4">
                                                 <div className="flex items-start space-x-3">
-                                                    <div className="w-2 h-2 bg-red-700 rounded-full mt-2"></div>
+                                                    <div className="w-2 h-2 bg-white/50 rounded-full mt-2"></div>
                                                     <p className="text-gray-300">Always warm up for 5-10 minutes before starting your workout</p>
                                                 </div>
                                                 <div className="flex items-start space-x-3">
-                                                    <div className="w-2 h-2 bg-red-700 rounded-full mt-2"></div>
+                                                    <div className="w-2 h-2 bg-white/50 rounded-full mt-2"></div>
                                                     <p className="text-gray-300">Focus on proper form rather than heavy weights</p>
                                                 </div>
                                                 <div className="flex items-start space-x-3">
-                                                    <div className="w-2 h-2 bg-red-700 rounded-full mt-2"></div>
+                                                    <div className="w-2 h-2 bg-white/50 rounded-full mt-2"></div>
                                                     <p className="text-gray-300">Stay hydrated throughout your workout session</p>
                                                 </div>
                                                 <div className="flex items-start space-x-3">
-                                                    <div className="w-2 h-2 bg-red-700 rounded-full mt-2"></div>
+                                                    <div className="w-2 h-2 bg-white/50 rounded-full mt-2"></div>
                                                     <p className="text-gray-300">Cool down and stretch after completing the workout</p>
                                                 </div>
                                             </div>
@@ -267,7 +262,7 @@ export default function WorkoutsShow({ auth, workout }: WorkoutsShowProps) {
                                             <ul className="space-y-3">
                                                 {workout.equipment.map((item, index) => (
                                                     <li key={index} className="text-gray-300 flex items-center">
-                                                        <span className="w-2 h-2 bg-red-700 rounded-full mr-3"></span>
+                                                        <span className="w-2 h-2 bg-white/50 rounded-full mr-3"></span>
                                                         {item}
                                                     </li>
                                                 ))}
@@ -282,7 +277,7 @@ export default function WorkoutsShow({ auth, workout }: WorkoutsShowProps) {
                                             <ul className="space-y-3">
                                                 {workout.targetMuscles.map((muscle, index) => (
                                                     <li key={index} className="text-gray-300 flex items-center">
-                                                        <span className="w-2 h-2 bg-red-700 rounded-full mr-3"></span>
+                                                        <span className="w-2 h-2 bg-white/50 rounded-full mr-3"></span>
                                                         {muscle}
                                                     </li>
                                                 ))}

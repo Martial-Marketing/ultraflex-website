@@ -5,18 +5,12 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import AppLayout from '@/layouts/app-layout';
+import type { User as SharedUser } from '@/types';
 import AnimatedBackground from '@/components/AnimatedBackground';
 import { ArrowLeft, Calculator } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
-interface User {
-    id: number;
-    name: string;
-    email: string;
-    memberSince: string;
-    membershipType: string;
-    profileImage?: string;
-}
+type User = SharedUser;
 
 interface DietCalculatorProps {
     auth: {
@@ -324,7 +318,7 @@ export default function DietCalculator({ auth }: DietCalculatorProps) {
                 
                 <div className="relative z-10">
                     {/* Header */}
-                    <section className="bg-gradient-to-r from-red-900/80 to-red-700/80 py-16 backdrop-blur-sm relative overflow-hidden">
+                    <section className="bg-gradient-to-r from-black/80 via-white/5 to-black/80 py-16 backdrop-blur-sm relative overflow-hidden">
                         <div className="absolute inset-0 overflow-hidden pointer-events-none">
                             {Array.from({ length: 15 }, (_, i) => (
                                 <div
@@ -354,7 +348,7 @@ export default function DietCalculator({ auth }: DietCalculatorProps) {
 
                             <div className="text-center text-white">
                                 <div className="flex items-center justify-center gap-4 mb-4">
-                                    <div className="w-16 h-16 bg-gradient-to-r from-red-700 to-red-800 rounded-full flex items-center justify-center shadow-lg">
+                                    <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center shadow-lg border border-white/20">
                                         <Calculator className="h-8 w-8 text-white" />
                                     </div>
                                 </div>
@@ -388,7 +382,7 @@ export default function DietCalculator({ auth }: DietCalculatorProps) {
                                                         value="imperial"
                                                         checked={data.units === 'imperial'}
                                                         onChange={(e) => updateData('units', e.target.value)}
-                                                        className="text-red-600"
+                                                        className="text-white"
                                                     />
                                                     <Label htmlFor="imperial" className="text-white">Imperial</Label>
                                                 </div>
@@ -400,7 +394,7 @@ export default function DietCalculator({ auth }: DietCalculatorProps) {
                                                         value="metric"
                                                         checked={data.units === 'metric'}
                                                         onChange={(e) => updateData('units', e.target.value)}
-                                                        className="text-red-600"
+                                                        className="text-white"
                                                     />
                                                     <Label htmlFor="metric" className="text-white">Metric</Label>
                                                 </div>
@@ -419,7 +413,7 @@ export default function DietCalculator({ auth }: DietCalculatorProps) {
                                                         value="male"
                                                         checked={data.gender === 'male'}
                                                         onChange={(e) => updateData('gender', e.target.value)}
-                                                        className="text-red-600"
+                                                        className="text-white"
                                                     />
                                                     <Label htmlFor="male" className="text-white">Male</Label>
                                                 </div>
@@ -431,7 +425,7 @@ export default function DietCalculator({ auth }: DietCalculatorProps) {
                                                         value="female"
                                                         checked={data.gender === 'female'}
                                                         onChange={(e) => updateData('gender', e.target.value)}
-                                                        className="text-red-600"
+                                                        className="text-white"
                                                     />
                                                     <Label htmlFor="female" className="text-white">Female</Label>
                                                 </div>
@@ -605,7 +599,7 @@ export default function DietCalculator({ auth }: DietCalculatorProps) {
 
                                         <Button 
                                             onClick={calculateAll}
-                                            className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group text-lg py-3"
+                                            className="w-full bg-white/10 hover:bg-white/20 transition-all duration-300 group text-lg py-3"
                                         >
                                             <Calculator className="mr-2 h-5 w-5" />
                                             <span className="group-hover:translate-x-1 transition-transform duration-300">
@@ -622,18 +616,18 @@ export default function DietCalculator({ auth }: DietCalculatorProps) {
                                     </CardHeader>
                                     <CardContent className="space-y-4">
                                         <div className="grid grid-cols-2 gap-4">
-                                            <div className="bg-red-700/20 rounded-lg p-4 border border-red-700/30">
-                                                <Label className="text-red-400 text-sm">BMR</Label>
+                                            <div className="bg-white/10 rounded-lg p-4 border border-white/20">
+                                                <Label className="text-white/80 text-sm">BMR</Label>
                                                 <p className="text-white text-2xl font-bold">{results.bmr || '--'}</p>
                                                 <p className="text-gray-400 text-xs">calories/day</p>
                                             </div>
-                                            <div className="bg-blue-700/20 rounded-lg p-4 border border-blue-700/30">
-                                                <Label className="text-blue-400 text-sm">TDEE</Label>
+                                            <div className="bg-white/10 rounded-lg p-4 border border-white/20">
+                                                <Label className="text-white/80 text-sm">TDEE</Label>
                                                 <p className="text-white text-2xl font-bold">{results.tdee || '--'}</p>
                                                 <p className="text-gray-400 text-xs">calories/day</p>
                                             </div>
-                                            <div className="bg-green-700/20 rounded-lg p-4 border border-green-700/30">
-                                                <Label className="text-green-400 text-sm">LBM</Label>
+                                            <div className="bg-white/10 rounded-lg p-4 border border-white/20">
+                                                <Label className="text-white/80 text-sm">LBM</Label>
                                                 <p className="text-white text-2xl font-bold">{results.lbm || '--'}</p>
                                                 <p className="text-gray-400 text-xs">lbs</p>
                                             </div>

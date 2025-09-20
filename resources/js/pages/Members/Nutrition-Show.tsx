@@ -39,11 +39,11 @@ export default function NutritionShow({ auth, nutritionPlan }: NutritionShowProp
     const getDifficultyColor = (difficulty: string) => {
         switch (difficulty) {
             case 'Beginner':
-                return 'bg-green-700/20 text-green-400 border-green-700/30';
+                return 'bg-white/10 text-white border-white/20';
             case 'Intermediate':
-                return 'bg-yellow-700/20 text-yellow-400 border-yellow-700/30';
+                return 'bg-white/10 text-white border-white/20';
             case 'Advanced':
-                return 'bg-red-700/20 text-red-700 border-red-700/30';
+                return 'bg-white/10 text-white border-white/20';
             default:
                 return 'bg-gray-700/20 text-gray-400 border-gray-700/30';
         }

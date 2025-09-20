@@ -23,16 +23,8 @@ class GuestMiddleware
                 // Get the authenticated user
                 $user = Auth::guard($guard)->user();
 
-                // Redirect based on user role
-                // Check the user_role property or method based on your implementation
-                if ($user->user_role === 'admin') {
-                    return redirect()->route('admin.dashboard');
-                } elseif ($user->user_role === 'user') {
-                    return redirect()->route('user.dashboard');
-                }
-
-                // Default dashboard for any authenticated user
-                return redirect()->route('user.dashboard');
+                // Redirect any authenticated user to the Members Hub
+                return redirect()->route('members.index');
             }
         }
 

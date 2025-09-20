@@ -22,7 +22,13 @@ class SocialAuthController extends Controller
      */
     public function redirectToGoogle()
     {
-        return Socialite::driver('google')->redirect();
+        // If Google OAuth isn't configured, show a friendly error
+        if (empty(config('services.google.client_id')) || empty(config('services.google.client_secret'))) {
+            return redirect()->route('auth.login')->with('error', 'Google sign-in is not configured. Please try email login for now.');
+        }
+
+        // Use stateless in case sessions are not yet configured during OAuth (prevents 500 on callback)
+        return Socialite::driver('google')->stateless()->redirect();
     }
 
     /**
@@ -34,7 +40,8 @@ class SocialAuthController extends Controller
     {
         try {
             // Get user data from Google
-            $googleUser = Socialite::driver('google')->user();
+            // Use stateless to avoid state mismatch when using certain session drivers / proxies
+            $googleUser = Socialite::driver('google')->stateless()->user();
 
             Log::info('Google login attempt', ['email' => $googleUser->email]);
 
@@ -101,11 +108,10 @@ class SocialAuthController extends Controller
             }
 
             // Redirect based on user role
-            if ($user->user_role === 'admin') {
-                return redirect()->route('admin.dashboard');
-            } else {
-                return redirect()->route('user.dashboard')->with('email_status', session('email_sent') ? 'sent' : 'failed');
-            }
+            // Redirect all users to the Members Hub (admin/user dashboards not defined in routes)
+            return redirect()
+                ->route('members.index')
+                ->with('email_status', session('email_sent') ? 'sent' : 'failed');
         } catch (Exception $e) {
             // Log the error with details
             Log::error('Google login error', [

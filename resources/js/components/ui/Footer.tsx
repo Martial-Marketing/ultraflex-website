@@ -33,8 +33,8 @@ export default function AnimatedFooter({ className = '' }: FooterProps) {
 
     const services = [
         // { name: 'Gym Equipment', href: '/equipment', icon: Dumbbell }, // Hide Gym Equipment
-        { name: 'Nutrition Plans', href: 'https://secure.ashbournemanagement.co.uk/signupuk/index.aspx?fn=grbh2', icon: Heart },
-        { name: 'Workout Plans', href: 'https://secure.ashbournemanagement.co.uk/signupuk/index.aspx?fn=grbh2', icon: Award },
+        { name: 'Nutrition Plans', href: '/members/nutrition', icon: Heart },
+        { name: 'Workout Plans', href: '/members/workouts', icon: Award },
         { name: 'Virtual Tours', href: '/tours', icon: Award }
         // { name: 'Group Classes', href: '/classes', icon: Users } // Remove Group Classes
     ];

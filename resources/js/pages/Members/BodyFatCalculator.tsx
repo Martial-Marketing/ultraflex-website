@@ -5,18 +5,12 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import AppLayout from '@/layouts/app-layout';
+import type { User as SharedUser } from '@/types';
 import AnimatedBackground from '@/components/AnimatedBackground';
 import { ArrowLeft, Scale } from 'lucide-react';
 import { useState } from 'react';
 
-interface User {
-    id: number;
-    name: string;
-    email: string;
-    memberSince: string;
-    membershipType: string;
-    profileImage?: string;
-}
+type User = SharedUser;
 
 interface BodyFatCalculatorProps {
     auth: {
@@ -132,7 +126,7 @@ export default function BodyFatCalculator({ auth }: BodyFatCalculatorProps) {
                 
                 <div className="relative z-10">
                     {/* Header */}
-                    <section className="bg-gradient-to-r from-red-900/80 to-red-700/80 py-16 backdrop-blur-sm relative overflow-hidden">
+                    <section className="bg-gradient-to-r from-black/80 via-white/5 to-black/80 py-16 backdrop-blur-sm relative overflow-hidden">
                         <div className="absolute inset-0 overflow-hidden pointer-events-none">
                             {Array.from({ length: 15 }, (_, i) => (
                                 <div
@@ -162,8 +156,8 @@ export default function BodyFatCalculator({ auth }: BodyFatCalculatorProps) {
 
                             <div className="text-center text-white">
                                 <div className="flex items-center justify-center gap-4 mb-4">
-                                    <div className="w-16 h-16 bg-gradient-to-r from-red-700 to-red-800 rounded-full flex items-center justify-center shadow-lg">
-                                        <Scale className="h-8 w-8 text-white" />
+                                    <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center shadow-lg border border-white/20">
+                                        <Scale className="h-8 w-8 text-white/90" />
                                     </div>
                                 </div>
                                 <h1 className="text-5xl font-bold mb-4">MWP Body Fat Calculator</h1>
@@ -196,7 +190,7 @@ export default function BodyFatCalculator({ auth }: BodyFatCalculatorProps) {
                                                         value="imperial"
                                                         checked={data.units === 'imperial'}
                                                         onChange={(e) => updateData('units', e.target.value)}
-                                                        className="text-red-600"
+                                                        className="text-white"
                                                     />
                                                     <Label htmlFor="imperial-bf" className="text-white">Imperial</Label>
                                                 </div>
@@ -208,7 +202,7 @@ export default function BodyFatCalculator({ auth }: BodyFatCalculatorProps) {
                                                         value="metric"
                                                         checked={data.units === 'metric'}
                                                         onChange={(e) => updateData('units', e.target.value)}
-                                                        className="text-red-600"
+                                                        className="text-white"
                                                     />
                                                     <Label htmlFor="metric-bf" className="text-white">Metric</Label>
                                                 </div>
@@ -227,7 +221,7 @@ export default function BodyFatCalculator({ auth }: BodyFatCalculatorProps) {
                                                         value="male"
                                                         checked={data.gender === 'male'}
                                                         onChange={(e) => updateData('gender', e.target.value)}
-                                                        className="text-red-600"
+                                                        className="text-white"
                                                     />
                                                     <Label htmlFor="male-bf" className="text-white">Male</Label>
                                                 </div>
@@ -239,7 +233,7 @@ export default function BodyFatCalculator({ auth }: BodyFatCalculatorProps) {
                                                         value="female"
                                                         checked={data.gender === 'female'}
                                                         onChange={(e) => updateData('gender', e.target.value)}
-                                                        className="text-red-600"
+                                                        className="text-white"
                                                     />
                                                     <Label htmlFor="female-bf" className="text-white">Female</Label>
                                                 </div>
@@ -382,28 +376,28 @@ export default function BodyFatCalculator({ auth }: BodyFatCalculatorProps) {
                                     </CardHeader>
                                     <CardContent className="space-y-6">
                                         <div className="grid grid-cols-1 gap-6">
-                                            <div className="bg-red-700/20 rounded-lg p-6 border border-red-700/30 text-center">
-                                                <Label className="text-red-400 text-sm">Body Fat</Label>
+                                            <div className="bg-white/10 rounded-lg p-6 border border-white/20 text-center">
+                                                <Label className="text-white/80 text-sm">Body Fat</Label>
                                                 <p className="text-white text-4xl font-bold">{results.bodyfat || '--'}</p>
                                                 <p className="text-gray-400 text-sm">%</p>
                                             </div>
                                             
                                             <div className="grid grid-cols-2 gap-4">
-                                                <div className="bg-blue-700/20 rounded-lg p-4 border border-blue-700/30 text-center">
-                                                    <Label className="text-blue-400 text-sm">LBM</Label>
+                                                <div className="bg-white/10 rounded-lg p-4 border border-white/20 text-center">
+                                                    <Label className="text-white/80 text-sm">LBM</Label>
                                                     <p className="text-white text-2xl font-bold">{results.lbm || '--'}</p>
                                                     <p className="text-gray-400 text-xs">lbs</p>
                                                 </div>
-                                                <div className="bg-yellow-700/20 rounded-lg p-4 border border-yellow-700/30 text-center">
-                                                    <Label className="text-yellow-400 text-sm">FBM</Label>
+                                                <div className="bg-white/10 rounded-lg p-4 border border-white/20 text-center">
+                                                    <Label className="text-white/80 text-sm">FBM</Label>
                                                     <p className="text-white text-2xl font-bold">{results.fbm || '--'}</p>
                                                     <p className="text-gray-400 text-xs">lbs</p>
                                                 </div>
                                             </div>
                                             
                                             {results.classification && (
-                                                <div className="bg-green-700/20 rounded-lg p-6 border border-green-700/30 text-center">
-                                                    <Label className="text-green-400 text-sm">Classification</Label>
+                                                <div className="bg-white/10 rounded-lg p-6 border border-white/20 text-center">
+                                                    <Label className="text-white/80 text-sm">Classification</Label>
                                                     <p className="text-white text-xl font-bold">{results.classification}</p>
                                                 </div>
                                             )}
