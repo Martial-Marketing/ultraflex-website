@@ -97,6 +97,10 @@ interface Location {
         lat: number;
         lng: number;
     };
+    // Newly added optional structured enhancements
+    features?: string[];
+    services?: { name: string; description?: string; icon?: string }[];
+    serviceLinks?: { label: string; url: string; type?: 'internal' | 'external' }[];
 }
 
 interface LocationShowProps {
@@ -107,6 +111,7 @@ interface LocationShowProps {
 }
 
 export default function LocationShow({ location, auth }: LocationShowProps) {
+    const DEFAULT_MANAGER_IMAGE = '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp';
     const [currentMembershipSlide, setCurrentMembershipSlide] = useState(0);
     const [currentEquipmentBgIndex, setCurrentEquipmentBgIndex] = useState(0);
     const [activeSection, setActiveSection] = useState<string>('manager');
@@ -117,6 +122,11 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
     const isExternalSignup = /^https?:\/\//.test(signupUrl);
     
     const averageRating = location.reviews.reduce((acc, review) => acc + review.rating, 0) / location.reviews.length;
+
+    // Normalise manager image (backend may send blank or lowercase variant)
+    const managerImage = (location.manager?.image && location.manager.image.trim() !== '')
+        ? location.manager.image
+        : DEFAULT_MANAGER_IMAGE;
 
     // Auto-rotate equipment background images
     useEffect(() => {
@@ -131,7 +141,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
 
     // Observe sections to highlight active item in sticky nav
     useEffect(() => {
-        const sectionIds = ['manager', 'membership', 'equipment', 'testimonials', 'tour', 'gallery', 'trainers'];
+    const sectionIds = ['manager', 'membership', 'features', 'services', 'equipment', 'testimonials', 'tour', 'gallery', 'trainers'];
         const elements = sectionIds
             .map(id => document.getElementById(id))
             .filter((el): el is HTMLElement => !!el);
@@ -294,14 +304,16 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                         <div className="container mx-auto px-6">
                             <ul className="flex flex-wrap items-center gap-4 py-3 text-sm text-gray-300">
                                 {[
-                                    { id: 'manager', label: 'Manager & Hours' },
-                                    { id: 'membership', label: 'Membership' },
-                                    { id: 'equipment', label: 'Equipment' },
-                                    { id: 'testimonials', label: 'Testimonials' },
-                                    { id: 'tour', label: 'Virtual Tour' },
-                                    { id: 'gallery', label: 'Gallery' },
-                                    { id: 'trainers', label: 'Trainers' },
-                                ].map(item => (
+                                    { id: 'manager', label: 'Manager & Hours', show: true },
+                                    { id: 'membership', label: 'Membership', show: true },
+                                    { id: 'features', label: 'Features', show: (location.features && location.features.length > 0) },
+                                    { id: 'services', label: 'Services', show: (location.services && location.services.length > 0) || (location.serviceLinks && location.serviceLinks.length > 0) },
+                                    { id: 'equipment', label: 'Equipment', show: true },
+                                    { id: 'testimonials', label: 'Testimonials', show: location.reviews && location.reviews.length > 0 },
+                                    { id: 'tour', label: 'Virtual Tour', show: !!location.virtualTour },
+                                    { id: 'gallery', label: 'Gallery', show: location.gallery && location.gallery.length > 0 },
+                                    { id: 'trainers', label: 'Trainers', show: location.trainers && location.trainers.length > 0 },
+                                ].filter(i => i.show).map(item => (
                                     <li key={item.id}>
                                         <a
                                             href={`#${item.id}`}
@@ -332,11 +344,17 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                     </h2>
                                     <div className="flex space-x-6">
                                         <div className="relative group">
-                                            <img 
-                                                src={location.manager.image} 
-                                                alt={location.manager.name}
-                                                className="w-32 h-32 rounded-full object-cover border-4 border-red-700/30 backdrop-blur-sm transform group-hover:scale-105 transition-transform duration-300"
-                                            />
+                                                <img
+                                                    src={managerImage}
+                                                    alt={location.manager.name}
+                                                    className="w-32 h-32 rounded-full object-cover border-4 border-red-700/30 backdrop-blur-sm transform group-hover:scale-105 transition-transform duration-300"
+                                                    onError={(e) => {
+                                                        const target = e.currentTarget as HTMLImageElement;
+                                                        if (target.src !== window.location.origin + DEFAULT_MANAGER_IMAGE) {
+                                                            target.src = DEFAULT_MANAGER_IMAGE;
+                                                        }
+                                                    }}
+                                                />
                                         </div>
                                         <div className="flex-1">
                                             <h3 className="text-xl font-semibold text-white mb-2">{location.manager.name}</h3>
@@ -539,6 +557,77 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                         </div>
                     </section>
 
+                    {/* 2b. Features */}
+                    {location.features && location.features.length > 0 && (
+                        <section id="features" className="py-16 scroll-mt-24">
+                            <div className="container mx-auto px-6">
+                                <h2 className="text-3xl font-bold text-center mb-12">
+                                    <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Gym</span>{' '}
+                                    <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Features</span>
+                                </h2>
+                                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                                    {location.features.map((feature, idx) => (
+                                        <div key={idx} className="bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/40 rounded-xl p-6 flex items-start space-x-4 group transition-all duration-300">
+                                            <div className="w-10 h-10 rounded-full bg-red-700/20 border border-red-700/30 flex items-center justify-center text-red-700 font-bold group-hover:scale-110 group-hover:bg-red-700/30 transition-transform duration-300">{idx + 1}</div>
+                                            <p className="text-gray-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300 font-medium">{feature}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </section>
+                    )}
+
+                    {/* 2c. Services & Partner Links */}
+                    {( (location.services && location.services.length > 0) || (location.serviceLinks && location.serviceLinks.length > 0) ) && (
+                        <section id="services" className="py-16 scroll-mt-24">
+                            <div className="container mx-auto px-6">
+                                <h2 className="text-3xl font-bold text-center mb-12">
+                                    <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Services</span>{' '}
+                                    <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">& Partners</span>
+                                </h2>
+                                {location.services && location.services.length > 0 && (
+                                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                                        {location.services.map((svc, i) => (
+                                            <div key={i} className="bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/40 rounded-xl p-6 group transition-all duration-300 flex flex-col">
+                                                <div className="flex items-center mb-4">
+                                                    <div className="w-12 h-12 rounded-lg bg-red-700/20 border border-red-700/30 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                                                        {svc.icon ? <span className="text-red-700 text-lg font-semibold">{svc.icon}</span> : <Users className="h-6 w-6 text-red-700" />}
+                                                    </div>
+                                                    <h3 className="text-xl font-semibold text-white group-hover:text-red-700 transition-colors duration-300">{svc.name}</h3>
+                                                </div>
+                                                {svc.description && <p className="text-gray-300 text-sm leading-relaxed flex-1">{svc.description}</p>}
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+                                {location.serviceLinks && location.serviceLinks.length > 0 && (
+                                    <div className="max-w-5xl mx-auto">
+                                        <h3 className="text-xl font-semibold text-white mb-6 flex items-center">
+                                            <ChevronRight className="h-5 w-5 text-red-700 mr-2" /> Useful Links
+                                        </h3>
+                                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                            {location.serviceLinks.map((link, i) => {
+                                                const external = link.type === 'external' || /^https?:\/\//.test(link.url);
+                                                return (
+                                                    <a
+                                                        key={i}
+                                                        href={link.url}
+                                                        target={external ? '_blank' : undefined}
+                                                        rel={external ? 'noopener noreferrer' : undefined}
+                                                        className="group bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/40 rounded-lg p-4 flex items-center justify-between transition-all duration-300 hover:shadow-lg hover:shadow-red-700/10"
+                                                    >
+                                                        <span className="text-gray-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300 text-sm font-medium">{link.label}</span>
+                                                        <ChevronRight className="h-4 w-4 text-red-700 group-hover:scale-110 transition-transform duration-300" />
+                                                    </a>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        </section>
+                    )}
+
                     {/* 3. Equipment & Facilities */}
                     <section id="equipment" className="py-16 scroll-mt-24">
                         <div className="container mx-auto px-6">
@@ -652,11 +741,16 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                         onClick={() => setLightboxIndex(index)}
                                         aria-label={`Open gallery image ${index + 1}`}
                                     >
-                                        <img 
-                                            src={image} 
+                                        <img
+                                            src={image}
                                             alt={`${location.name} facility ${index + 1}`}
                                             className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                                             loading="lazy"
+                                            onError={(e) => {
+                                                const t = e.currentTarget as HTMLImageElement;
+                                                t.classList.add('grayscale', 'opacity-40');
+                                                t.alt = 'Image unavailable';
+                                            }}
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -685,6 +779,11 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                             src={location.gallery[lightboxIndex]}
                                             alt={`${location.name} gallery image ${lightboxIndex + 1}`}
                                             className="w-full h-auto max-h-[80vh] object-contain rounded-lg border border-white/10"
+                                            onError={(e) => {
+                                                const t = e.currentTarget as HTMLImageElement;
+                                                t.classList.add('opacity-30');
+                                                t.alt = 'Image unavailable';
+                                            }}
                                         />
                                         {/* Controls */}
                                         <button

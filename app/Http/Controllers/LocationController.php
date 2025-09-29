@@ -255,9 +255,35 @@ class LocationController extends Controller
                     ],
                     'manager' => [
                         'name' => 'Sophia',
-                        'bio' => 'UltraFlex Gym in Leeds is regarded as one of the best gyms in Leeds. Our team ensures members can train on top-quality equipment manufactured by the best brand names in the world.',
-                        'image' => '/images/managers/sophia.jpg',
-                        'experience' => '15+ years experience'
+                        'bio' => 'As the Manager of Ultraflex West Leeds, I’m proud to lead the team at the very first Ultraflex gym established in the UK on 17th January 2017. Since opening our doors, West Leeds has built a strong reputation as a cornerstone of the Ultraflex community—known for our unbeatable atmosphere, elite equipment, and commitment to helping people at all levels of fitness achieve real results.\n\nMy journey with Ultraflex has been driven by a passion for creating an environment where members feel empowered, supported, and motivated. Whether you\'re stepping into the gym for the first time or preparing for your next competition, we’re here to provide expert guidance, a welcoming community, and world-class facilities.\n\nI oversee day-to-day operations, member engagement, staff development, and community outreach, ensuring Ultraflex West Leeds continues to set the standard for excellence in fitness. I’m proud of our diverse membership base—from beginners to IFBB pros—and the culture of respect, discipline, and dedication that makes our gym more than just a place to train.\n\nUltraflex West Leeds is where it all started—and under my management, we continue to innovate, grow, and lead the way for all the Ultraflex gyms across the UK.',
+                        'image' => '/Images/managers/sophia.jpg',
+                        'experience' => null
+                    ],
+                    'services' => [
+                        [
+                            'name' => 'Ostas Boxing',
+                            'description' => 'Boxing coaching and training development based within the facility.',
+                            'icon' => null
+                        ],
+                        [
+                            'name' => 'Smitin Hair Systems',
+                            'description' => 'Specialist hair system services and consultation.',
+                            'icon' => null
+                        ],
+                        [
+                            'name' => 'Pudsey Judo Club',
+                            'description' => 'Local judo club partnership promoting grappling and discipline.',
+                            'icon' => null
+                        ]
+                    ],
+                    'serviceLinks' => [
+                        [ 'label' => 'RnR Bodytherapy Website', 'url' => 'https://www.rnrbodytherappy.co.uk', 'type' => 'website' ],
+                        [ 'label' => 'Ostas Boxing Instagram', 'url' => 'https://www.instagram.com/ostasboxing', 'type' => 'instagram' ],
+                        [ 'label' => 'Smitin Hair Systems Email', 'url' => 'mailto:Smitinhairsystems@outlook.com', 'type' => 'email' ],
+                        [ 'label' => 'Smitin Hair Systems Instagram', 'url' => 'https://www.instagram.com/smitin_hairsystems', 'type' => 'instagram' ],
+                        [ 'label' => 'Pudsey Judo Club Facebook', 'url' => 'https://www.facebook.com/pudseyjudoclub', 'type' => 'facebook' ],
+                        [ 'label' => 'Pudsey Judo Club Instagram', 'url' => 'https://www.instagram.com/pudseyjudoclub', 'type' => 'instagram' ],
+                        [ 'label' => 'Ostas Boxing Instagram (Alt)', 'url' => 'https://www.instagram.com/ostasboxing', 'type' => 'instagram' ]
                     ],
                 ];
                 break;
@@ -295,10 +321,26 @@ class LocationController extends Controller
                         'sunday' => '06:00 – 20:00'
                     ],
                     'manager' => [
-                        'name' => 'Curtis Ryan',
-                        'bio' => 'UltraFlex North Leeds is our brand new site which is opening soon in Seacroft, Leeds. This is going to be our biggest and best site yet and just like our other sites, members can train on top-quality equipment manufactured by the best brand names in the world. Whatever the type of physical training you seek, we can provide it.',
-                        'image' => '/images/managers/curtis.jpg',
-                        'experience' => '12+ years experience'
+                        'name' => 'Curtis',
+                        'bio' => 'Hello and welcome to UltraFlex North Leeds I’m Curtis and I cannot wait to welcome you through our doors. Now of course I am bias but when becoming a member at North Leeds you are joining the best gym in country, with a friendly face to welcome you on every visit and staff on hand all the time to make sure your experience with us is the best every time we really do ensure that all your sessions are amazing. Do not just take my word for it thought, come down, check us out and I know you’ll never need to look for another gym again.',
+                        'image' => '/Images/North Leeds Gym Manager.webp',
+                        'experience' => ''
+                    ],
+                    // Services & partners for North Leeds
+                    'services' => [
+                        ['name' => 'Levels Barbers', 'description' => 'On-site barber services for members.'],
+                        ['name' => 'Regen Physio', 'description' => 'Physiotherapy & rehab services supporting recovery.'],
+                        ['name' => 'Fika Aesthetics', 'description' => 'Aesthetic treatments and wellness support.'],
+                        ['name' => 'IMA', 'description' => 'Specialist coaching / instruction (details forthcoming).'],
+                        ['name' => 'Ultra Car Wash', 'description' => 'Convenient on-site car wash service while you train.']
+                    ],
+                    'serviceLinks' => [
+                        ['label' => 'Fika Aesthetics Website', 'url' => 'https://www.fikaaesthetics.co.uk', 'type' => 'external'],
+                        ['label' => 'Fika Aesthetics Instagram', 'url' => 'https://www.instagram.com/fikaaesthetics', 'type' => 'external'],
+                        ['label' => 'Levels Barbers Instagram', 'url' => 'https://www.instagram.com/levelsbarbershopnorthleeds', 'type' => 'external'],
+                        ['label' => 'Regen Physio Link', 'url' => 'https://bit.ly/m/RegenPhysio', 'type' => 'external'],
+                        ['label' => 'Ultra Car Wash Instagram', 'url' => 'https://www.instagram.com/ultracarwashnorthleeds', 'type' => 'external'],
+                        ['label' => 'IMA Instagram', 'url' => 'https://www.instagram.com/IMA.leeds', 'type' => 'external']
                     ],
                     'membershipPlans' => [
                         [
@@ -402,11 +444,11 @@ class LocationController extends Controller
                         '/Images/newimages/Normanton/gym-in-normanton-7.webp',
                         '/Images/newimages/Normanton/gym-in-normanton-4.webp',
                         '/Images/newimages/Normanton/gym-in-normanton-5.webp',
-                        '/Images/newimages/Normanton/gym-in-normanton-8',
+                        '/Images/newimages/Normanton/gym-in-normanton-8.webp',
                         '/Images/newimages/Normanton/gym-in-normanton-3.webp',
-                        '/Images/newimages/Normanton/gym-in-normanton-9',
-                        '/Images/newimages/Normanton/gym-in-normanton-10',
-                        '/Images/newimages/Normanton/gym-in-normanton-11'
+                        '/Images/newimages/Normanton/gym-in-normanton-9.webp',
+                        '/Images/newimages/Normanton/gym-in-normanton-10.webp',
+                        '/Images/newimages/Normanton/gym-in-normanton-11.webp'
                     ],
                     'slug' => 'normanton',
                     'hours' => [
@@ -419,10 +461,30 @@ class LocationController extends Controller
                         'sunday' => '08:00 – 20:00'
                     ],
                     'manager' => [
-                        'name' => 'Shaun Howe',
-                        'bio' => 'UltraFlex Normanton offers great location and free parking for all our members. We provide top-quality equipment and excellent facilities in the heart of Normanton.',
-                        'image' => '/images/managers/shaun.jpg',
-                        'experience' => '10+ years experience'
+                        'name' => 'Shaun',
+                        'bio' => 'Welcome to our gym! I’m thrilled to have you as part of our community and can’t wait for you to experience everything we have to offer. What makes our gym so special isn’t just the state-of-the-art equipment, but the welcoming atmosphere where everyone—from beginners to seasoned athletes—can feel comfortable and supported.\n\nI truly believe fitness should be fun, motivating, and something you look forward to each day. That’s why we’ve built a team of friendly, knowledgeable staff and trainers who are always here to help you reach your goals. Whether you’re lifting, cycling, stretching, or just starting your journey, you’ll always find encouragement here.\n\nA little about me—I’m passionate about health, wellness, and helping people discover what works best for them. I love seeing members achieve milestones, big or small, and I’m always up for a chat about training, nutrition, or even just your favorite workout playlist.\n\nThe best way to reach me is by stopping by the front desk for a quick hello, or you can drop me an email or call anytime—I’m always happy to help.\n\nThank you for choosing our gym. I’m excited to see you around and to be part of your fitness journey!',
+                        'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
+                        'experience' => ''
+                    ],
+                    // Newly added structured fields for Normanton
+                    'features' => [
+                        'Male & Female Recovery Rooms',
+                        'Sauna',
+                        'Ice Bath'
+                    ],
+                    // Location Services intentionally left blank as requested
+                    'services' => [],
+                    'serviceLinks' => [
+                        // House of Wellness
+                        ['label' => 'House of Wellness (Bloods)', 'url' => 'https://houseofwellness.com', 'type' => 'external'],
+                        ['label' => 'House of Wellness Facebook', 'url' => 'https://www.facebook.com/HouseOfWellnessUK', 'type' => 'external'],
+                        ['label' => 'House of Wellness Instagram', 'url' => 'https://www.instagram.com/houseofwellnessuk', 'type' => 'external'],
+                        ['label' => 'House of Wellness TikTok', 'url' => 'https://www.tiktok.com/@houseofwellnessuk', 'type' => 'external'],
+                        // Elite Osteo Midlands
+                        ['label' => 'Elite Osteo Midlands Website', 'url' => 'https://eliteosteo.co.uk', 'type' => 'external'],
+                        ['label' => 'Elite Osteo Midlands Instagram', 'url' => 'https://www.instagram.com/eliteosteo.midlands', 'type' => 'external'],
+                        // Fusion Rehab
+                        ['label' => 'Fusion Rehab Instagram', 'url' => 'https://www.instagram.com/Fusion_rehab_', 'type' => 'external']
                     ],
                     'membershipPlans' => [
                         [
@@ -585,10 +647,27 @@ class LocationController extends Controller
                         'sunday' => '06:00 – 20:00'
                     ],
                     'manager' => [
-                        'name' => 'Morgan Hudson',
-                        'bio' => 'UltraFlex Rotherham offers great location and free parking for all our members. We provide top-quality equipment and excellent facilities with early opening times from 5 AM to accommodate all schedules.',
-                        'image' => '/images/managers/morgan.jpg',
-                        'experience' => '8+ years experience'
+                        'name' => 'Morgan',
+                        'bio' => 'Hi all, I’m Morgan the manager at Ultraflex Rotherham and I take great pride in the continuation of building and progressing our reputation that we have earned for being one of the best training facilities around, I’m passionate that I am able to contribute to this gym that many members find as a second home, and creating a space where you are all able to fit right into the community. I work closely with our staff team in ensuring that our gym is accommodating for all, and standards are pushed and maintained to exceed expectations across all aspects. Fitness and training has always played a key role for me personally, and speaking from experience 6 years ago I was drawn into what Ultraflex Rotherham had to offer to me as a member, and I soon realised that it was the best around, for what started as a personal fitness journey I soon realised that I wanted to be in a position where I could grow both physically and mentally, which years later has led me to be in the position where I feel proud to be able to manage this world renowned facility and how important it is to be able to create an environment that supports our members individual journeys. Throughout my duration of being a part of Ultraflex Rotherham, whether that being member or manager it has been amazing to witness just how Ultraflex has evolved and the impact it has on the people that spend their time here. I’m excited to see what else lies ahead and hopefully we’ll see you down here.',
+                        'image' => '/Images/managers/morgan.jpg',
+                        'experience' => ''
+                    ],
+                    'features' => [
+                        '2x Posing Rooms',
+                        'Recovery Room (Infrared Sauna & Ice Bath)'
+                    ],
+                    'services' => [
+                        [
+                            'name' => 'RnR Bodytherapy',
+                            'description' => 'Sports massage service supporting recovery and performance.'
+                        ]
+                    ],
+                    'serviceLinks' => [
+                        [
+                            'label' => 'RnR Bodytherapy Website',
+                            'url' => 'https://www.rnrbodytherappy.co.uk',
+                            'type' => 'external'
+                        ]
                     ],
                     'membershipPlans' => [
                         [
@@ -733,10 +812,37 @@ class LocationController extends Controller
                         'sunday' => '08:00 – 20:00'
                     ],
                     'manager' => [
-                        'name' => 'Jason Milner',
-                        'bio' => 'UltraFlex Gym in York is rated as one of the best gyms in York, providing members with versatile and top-of-the-line equipment to train on. From 100kg dumbbells to yoga mats, our gym offers something for everyone! The gym location near the city centre also makes it easy for city dwellers looking for a place close by where they can work out after their long day at the office.',
-                        'image' => '/images/managers/jason.jpg',
-                        'experience' => '11+ years experience'
+                        'name' => 'Jason',
+                        'bio' => 'Welcome to UltraFlex York, my name is Jason and I\'m your General Manager. I\'ve been running the York UltraFlex for two years now and in that time I\'ve seen so much re-investment into the gym and the facilities here which makes my job infinitely easier. In total over two years, we have added over a dozen new items of top-quality kit from cardio equipment to strength training to an entire new area dedicated to Boxing and Martial Arts. I\'ve never worked in a business that consistently re-invests like UltraFlex and it reflects with the loyalty and community that our members feel here. We have some of the best PTs in the business and as an ex-Fighter I train with our Thai Boxing Coach as well as our PT who was England NABBA Winner & UK NABBA Winner. I personally could not imagine training anywhere else now that I’ve been exposed to UltraFlex gyms.\n\nWe are always active on our socials and respond to DMs straight away as well as encouraging members to tag us in their workouts or comps. We regularly host Open Days and Member Giveaways as well as charity events and member socials which are great meet and greets for the members and staff.\n\nAny information you need you can email us on york@ultraflexgym.co.uk or drop us a message on any of our socials.',
+                        'image' => '/Images/managers/jason.jpg',
+                        'experience' => null
+                    ],
+                    'services' => [
+                        [
+                            'name' => 'Fika Aesthetics',
+                            'description' => 'Advanced aesthetics treatments supporting member confidence and recovery.',
+                            'icon' => null
+                        ],
+                        [
+                            'name' => 'Regen Physio',
+                            'description' => 'Physiotherapy and rehabilitation clinic for injury prevention and performance.',
+                            'icon' => null
+                        ],
+                        [
+                            'name' => 'The Yorkshire Clipper',
+                            'description' => 'On-site barber services for member convenience.',
+                            'icon' => null
+                        ]
+                    ],
+                    'serviceLinks' => [
+                        [ 'label' => 'Fika Aesthetics Instagram', 'url' => 'https://www.instagram.com/fikaaesthetics/', 'type' => 'instagram' ],
+                        [ 'label' => 'Fika Aesthetics Email', 'url' => 'mailto:fikaaestheticsyork@gmail.com', 'type' => 'email' ],
+                        [ 'label' => 'Fika Aesthetics Website', 'url' => 'https://www.fikaaesthetics.co.uk/', 'type' => 'website' ],
+                        [ 'label' => 'Regen Physio Instagram', 'url' => 'https://www.instagram.com/regenphysio/', 'type' => 'instagram' ],
+                        [ 'label' => 'Regen Physio Email', 'url' => 'mailto:info@regenphysio.co.uk', 'type' => 'email' ],
+                        [ 'label' => 'Regen Physio Website', 'url' => 'https://www.regenphysio.co.uk/clinics/york', 'type' => 'website' ],
+                        [ 'label' => 'The Yorkshire Clipper Instagram', 'url' => 'https://www.instagram.com/the_yorkshireclipper/', 'type' => 'instagram' ],
+                        [ 'label' => 'The Yorkshire Clipper Website', 'url' => 'https://booksy.com/en-gb/55134_the-yorkshire-clipper_barber_1498807_york', 'type' => 'website' ]
                     ],
                     'membershipPlans' => [
                         [
@@ -884,11 +990,21 @@ class LocationController extends Controller
                         'sunday' => '06:00 – 20:00'
                     ],
                     'manager' => [
-                        'name' => 'Tronn Bramhill',
-                        'bio' => 'UltraFlex Hull provides exceptional fitness facilities in the heart of Hull. Our modern equipment and experienced team create the perfect environment for achieving your fitness goals.',
-                        'image' => '/images/managers/tronn.jpg',
-                        'experience' => '11+ years experience'
+                        'name' => 'Tronn',
+                        'bio' => 'Welcome to Ultraflex Gym Hull, the ultimate training facility for those serious about fitness.\n\nMy name is Tronn (yes, it’s a strange name, yes, it is my real name!) and I’ve been the manager of this incredible facility for over 3 years now.\n\nWhether you\'re a competitive athlete, aspiring bodybuilder, or just beginning your fitness journey, Ultraflex Hull is designed to help you push boundaries and achieve real results. Our state-of-the-art gym is packed with industry-leading equipment, an intense training atmosphere, and a community that thrives on hard work and dedication.\n\nWe offer a full range of strength and conditioning machines, free weights, cardio equipment, and specialist areas for functional and combat training. At Ultraflex, every detail is designed to support performance, progress, and passion. This isn’t just a place to work out – it’s where you transform both body and mind.\n\nOur expert team of personal trainers, coaches, and athletes are on hand to guide, motivate, and challenge you. Whether your goals are to build muscle, lose fat, increase endurance, or simply become the best version of yourself, you’ll find the tools and support here to make it happen.\n\nLocated in the heart of Hull with ample parking and flexible memberships, Ultraflex Gym is open seven days a week to fit around your lifestyle. We also host regular seminars, competitions, and events to keep your training fresh and focused.',
+                        'image' => '/Images/Hull Gym Manager.webp',
+                        'experience' => ''
                     ],
+                    'features' => [
+                        'Industry-Leading Equipment',
+                        'Intense Training Atmosphere',
+                        'Functional & Combat Training Areas',
+                        'Strength & Conditioning Machines',
+                        'Free Weights & Cardio Zones',
+                        'Seminars, Competitions & Events'
+                    ],
+                    'services' => [],
+                    'serviceLinks' => [],
                     'membershipPlans' => [
                         [
                             'id' => 1,
@@ -969,9 +1085,17 @@ class LocationController extends Controller
                     ],
                     'manager' => [
                         'name' => 'Mark Bailes',
-                        'bio' => 'UltraFlex Durham offers a premium fitness experience in the historic city of Durham. Our facility combines modern equipment with expert guidance to help members achieve their fitness goals.',
-                        'image' => '/images/managers/mark.jpg',
-                        'experience' => '9+ years experience'
+                        'bio' => 'I have been working here for 5 years since we opened in 2020.\n\nI have worked in the gym industry now for 20 years and have a lot of knowledge and experience, I am also a qualified level 3 personal trainer and offer 1 to 1 sessions in the gym.\n\nI am also a competitive bodybuilder who can offer training and nutrition advice if required.\n\nI am a very friendly and approachable person and will go out of my way to help anyone who requires any assistance.',
+                        'image' => '/Images/Durham Gym Manager.webp',
+                        'experience' => ''
+                    ],
+                    'services' => [
+                        ['name' => 'Baxters Barbers', 'description' => 'On-site barber services for members.'],
+                        ['name' => 'Regen Physio (George)', 'description' => 'Physiotherapy and rehabilitation support from George.']
+                    ],
+                    'serviceLinks' => [
+                        ['label' => 'Baxters Barbers Instagram', 'url' => 'https://www.instagram.com/Baxters_barbers', 'type' => 'external'],
+                        ['label' => 'Regen Physio (George) Instagram', 'url' => 'https://www.instagram.com/George_regendurham', 'type' => 'external']
                     ],
                     'membershipPlans' => [
                         [
@@ -1054,10 +1178,36 @@ class LocationController extends Controller
                         'sunday' => '06:00 – 20:00'
                     ],
                     'manager' => [
-                        'name' => 'Ian Evans',
-                        'bio' => 'UltraFlex Derby provides our members with a comprehensive fitness experience in the heart of the city. Our facility features state-of-the-art equipment and a welcoming atmosphere for fitness enthusiasts of all levels.',
-                        'image' => '/images/managers/ian.jpg',
-                        'experience' => '10+ years experience'
+                        'name' => 'Ian',
+                        'bio' => 'Welcome to Ultraflex Derby. With over 200 pieces of the best gym machinery from several different brands, a full sized boxing ring, and powerlifting cage, located in a 20k sq ft facility, you are entering the best equipped gym in the Midlands. Here we bring the best training experience for everyone, an amazing team to support you and provide the perfect environment no matter what you’re training for. Tired of messy gyms? Here we work hard to provide you with the cleanest facility, no more looking for weights or attachments, all weights are kept in order, and leaving weights out isn’t tolerated.\n\nLooking for more than just a gym? Come sit down and relax in one of our 3 saunas, enjoy a shake with a brownie after a hard workout (healthier options available). For those braver souls out there, we also have ice baths available to help with your recovery. On site we also have an Osteopath, Sports Massage and Therapy, and blood testing available. All this in one place!\n\nIf you ever need anything come see us. If you would like to enquire or ever need to reach me, please contact me on derby@ultraflexgym.co.uk.',
+                        'image' => '/Images/managers/ian.jpg',
+                        'experience' => null
+                    ],
+                    'services' => [
+                        [
+                            'name' => 'House of Wellness',
+                            'description' => 'Blood testing and wellness diagnostics.',
+                            'icon' => null
+                        ],
+                        [
+                            'name' => 'Elite Osteo Midlands',
+                            'description' => 'On-site osteopathy supporting recovery and performance.',
+                            'icon' => null
+                        ],
+                        [
+                            'name' => 'Fusion Rehab',
+                            'description' => 'Sports therapy and rehabilitation services.',
+                            'icon' => null
+                        ]
+                    ],
+                    'serviceLinks' => [
+                        [ 'label' => 'House of Wellness Facebook', 'url' => 'https://www.facebook.com/houseofwellnessuk', 'type' => 'facebook' ],
+                        [ 'label' => 'House of Wellness Instagram', 'url' => 'https://www.instagram.com/houseofwellnessuk', 'type' => 'instagram' ],
+                        [ 'label' => 'House of Wellness TikTok', 'url' => 'https://www.tiktok.com/@houseofwellnessuk', 'type' => 'tiktok' ],
+                        [ 'label' => 'House of Wellness Website', 'url' => 'https://houseofwellness.com', 'type' => 'website' ],
+                        [ 'label' => 'Elite Osteo Midlands Instagram', 'url' => 'https://www.instagram.com/eliteosteo.midlands', 'type' => 'instagram' ],
+                        [ 'label' => 'Elite Osteo Midlands Website', 'url' => 'https://eliteosteo.co.uk', 'type' => 'website' ],
+                        [ 'label' => 'Fusion Rehab Instagram', 'url' => 'https://www.instagram.com/Fusion_rehab_', 'type' => 'instagram' ]
                     ],
                     'membershipPlans' => [
                         [
@@ -1143,7 +1293,7 @@ class LocationController extends Controller
                     'manager' => [
                         'name' => 'Dimitris Papadopoulos',
                         'bio' => 'UltraFlex Athens is currently under development and will be our first international location! This exciting new facility in Glyfada will bring the UltraFlex experience to Greece, featuring state-of-the-art equipment and premium amenities. Stay tuned for updates on our grand opening!',
-                        'image' => '/images/managers/dimitris.jpg',
+                        'image' => '/Images/managers/dimitris.jpg',
                         'experience' => '16+ years experience'
                     ],
                     'membershipPlans' => [
@@ -1257,9 +1407,27 @@ class LocationController extends Controller
                     ],
                     'manager' => [
                         'name' => 'Lynsey Hind',
-                        'bio' => 'Welcome to UltraFlex Lincoln! Ultra Flex Gym in Lincoln is the very first 24hr UltraFlex. It is known for its state-of-the-art facilities and supportive fitness community. Catering to beginners, seasoned athletes, and bodybuilders alike, it offers a comprehensive range of cutting-edge equipment and additional facilities to enhance the membership experience.',
-                        'image' => '/images/managers/lynsey.jpg',
-                        'experience' => '12+ years experience'
+                        'bio' => "💪 I’m proud to be the Gym Manager here at Ultraflex – the friendliest, most motivating place to train!\nFrom the moment you walk through the doors, you’re part of the family. Our amazing team is always ready with a smile, a helping hand, and a bit of encouragement to keep you smashing your goals.\nWe’ve built an environment where everyone works together – no egos, just great vibes, hard work, and a shared love for health & fitness. Whether you’re lifting big, starting your journey, or just here for a feel-good session, you’ll always feel welcome.\nOutside of the gym, life is just as full of energy. I’m a proud mum to Ava-Lily, my eight-year-old daughter who has a real need for speed. Most weekends you’ll find us at the track, where she’s racing her go-kart with the same determination and focus we value so much in the gym.\nFor me, both work and home life are about dedication, community, and enjoying the journey – and that’s exactly what we aim to bring to every member’s experience at Ultraflex.\nIt’s all about community, support, and results – and we can’t wait to welcome you in! 💥\nIf you need any more information, then please feel free to contact me:\nEmail: l.hind@ultraflexgym.co.uk\nPhone: 07926 528367\n#Ultraflex #GymManagerLife #FitnessFamily #CommunityVibes #MumLife #KartingKid #StrongerTogether",
+                        'image' => '/Images/managers/lynsey.jpg',
+                        'experience' => ''
+                    ],
+                    'features' => [
+                        '24hr Access',
+                        'Barbershop (BLNK Barbers)',
+                        'The Recovery Hub',
+                        'Supplements Shop',
+                        'Clothing Area',
+                        'GSN Food',
+                        'Wide Range of Personal Trainers (Bodybuilding to General Health & Weight Loss)'
+                    ],
+                    'services' => [
+                        ['name' => 'BLNK Barbers', 'description' => 'In-gym barbershop providing grooming services for members.', 'icon' => '✂️'],
+                        ['name' => 'The Recovery Hub', 'description' => 'Physio & recovery services (location moving upstairs - update pending).', 'icon' => '🩺']
+                    ],
+                    'serviceLinks' => [
+                        ['label' => 'BLNK Barbers Website', 'url' => 'https://www.blnkbarbers.com', 'type' => 'external'],
+                        ['label' => 'BLNK Barbers Booking', 'url' => 'https://www.blnkbarbers.com/book/shops/IONEJG/services', 'type' => 'external'],
+                        ['label' => 'The Recovery Hub Linktree', 'url' => 'https://linktr.ee/Therecoveryhub_UF?utm_source=linktree_profile_share&ltsid=b2001f13-c003-4d72-b057-d5f49113b697', 'type' => 'external']
                     ],
                     'membershipPlans' => [
                         [
@@ -1360,10 +1528,37 @@ class LocationController extends Controller
                         'sunday' => '08:00 – 20:00'
                     ],
                     'manager' => [
-                        'name' => 'Oliver Harrison',
-                        'bio' => 'UltraFlex West London is our premier location in the heart of London, situated in the iconic Westfield Shopping Centre. We provide world-class fitness facilities with extended opening hours to accommodate the busy London lifestyle.',
-                        'image' => '/images/managers/oliver.jpg',
-                        'experience' => '15+ years experience'
+                        'name' => 'Tiff Nelhams',
+                        'bio' => 'Tiff is the manager at Ultra Flex West London and has an impressive background in fitness, clinical massage and physiotherapy. She has worked in gyms, sports therapy clinics and hospitals in both operational and treatment capacities, including in-patient and out-patient settings in NHS hospitals and clinics and in private hospitals in London. In these roles she has worked as an occupational physiotherapist, assisting patients in their recovery from surgeries and helping them regain or improve abilities to carry out everyday tasks.\n\nHaving been a fitness instructor and sports therapist since 2016, Tiff combines her clinical knowledge with her training experience to support members with injury rehab, prehab and training performance. Alongside her clinical and gym-based experience, she has also worked in the aesthetic industry, using her knowledge of muscle anatomy to deliver safe and effective facial treatments.\n\nTiff is fully committed to creating an inclusive and supportive environment at Ultra Flex West London, ensuring that every member feels welcome to train and progress within the facility. Her holistic understanding of physical health, rehabilitation and performance makes her a valuable asset to the Ultra Flex team.',
+                        'image' => '/Images/managers/tiff.jpg',
+                        'experience' => null
+                    ],
+                    // Added structured partner services for West London
+                    'services' => [
+                        [
+                            'name' => 'Head2Heel Physio',
+                            'description' => 'Physiotherapy and rehab support for injury recovery and performance optimisation.',
+                            'icon' => null
+                        ],
+                        [
+                            'name' => 'NMK Aesthetics',
+                            'description' => 'Aesthetic treatments delivered with anatomical expertise for safe, effective results.',
+                            'icon' => null
+                        ],
+                        [
+                            'name' => 'Faded Group Barber',
+                            'description' => 'Professional barber services on-site for member convenience.',
+                            'icon' => null
+                        ]
+                    ],
+                    'serviceLinks' => [
+                        [ 'label' => 'Head2Heel Physio Instagram', 'url' => 'https://www.instagram.com/Head2Heal.Clinic', 'type' => 'instagram' ],
+                        [ 'label' => 'Head2Heel Physio Phone', 'url' => 'tel:07951472144', 'type' => 'phone' ],
+                        [ 'label' => 'NMK Aesthetics Instagram', 'url' => 'https://www.instagram.com/nmk_aesthetics', 'type' => 'instagram' ],
+                        [ 'label' => 'NMK Aesthetics Website', 'url' => 'https://nmkaesthetics.com/', 'type' => 'website' ],
+                        [ 'label' => 'NMK Aesthetics Phone', 'url' => 'tel:07377190361', 'type' => 'phone' ],
+                        [ 'label' => 'Faded Group Barber Instagram', 'url' => 'https://www.instagram.com/fadedgroup_uxbridge', 'type' => 'instagram' ],
+                        [ 'label' => 'Faded Group Barber Phone', 'url' => 'tel:07900626284', 'type' => 'phone' ]
                     ],
                     'membershipPlans' => [
                         [
@@ -1468,7 +1663,7 @@ class LocationController extends Controller
                     'manager' => [
                         'name' => 'James Mitchell',
                         'bio' => 'UltraFlex Gym in Leeds is regarded as one of the best gyms in Leeds. Our team ensures members can train on top-quality equipment manufactured by the best brand names in the world.',
-                        'image' => '/images/managers/james.jpg',
+                        'image' => '/Images/managers/james.jpg',
                         'experience' => '15+ years experience'
                     ],
                 ];
@@ -1495,6 +1690,10 @@ class LocationController extends Controller
                 'Free on-site parking',
                 'Easy public transport access'
             ],
+            // New placeholder structured fields (can be overridden per location case)
+            'features' => [], // e.g. ['24/7 Access', 'Competition Grade Equipment']
+            'services' => [], // e.g. [['name' => 'Physiotherapy', 'description' => 'On-site rehab specialists']]
+            'serviceLinks' => [], // e.g. [['label' => 'Book PT Session', 'url' => '/services/personal-training']]
             'trainers' => [
                 [
                     'id' => 1,
