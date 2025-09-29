@@ -172,7 +172,7 @@ export default function Navbar({ auth }: NavbarProps) {
                         {/* Logo */}
                         <Link 
                             href="/" 
-                            className="flex items-center space-x-3"
+                            className="flex items-center"
                             onMouseEnter={() => handleMouseEnter('logo')}
                             onMouseLeave={handleMouseLeave}
                         >
@@ -186,18 +186,6 @@ export default function Navbar({ auth }: NavbarProps) {
                                             : 'drop-shadow-[0_0_10px_rgba(220,38,38,0.5)]'
                                     }`}
                                 />
-                            </div>
-                            <div className="text-2xl font-bold">
-                                <span className={`text-white transition-all duration-300 ${
-                                    hoveredItem === 'logo' 
-                                        ? 'drop-shadow-[0_0_25px_rgba(255,255,255,1)] scale-105' 
-                                        : 'drop-shadow-[0_0_20px_rgba(255,255,255,0.8)]'
-                                }`}>ULTRA</span>
-                                <span className={`text-red-700 transition-all duration-300 ${
-                                    hoveredItem === 'logo' 
-                                        ? 'drop-shadow-[0_0_25px_rgba(220,38,38,1)] scale-105' 
-                                        : 'drop-shadow-[0_0_20px_rgba(220,38,38,0.8)]'
-                                }`}>FLEX</span>
                             </div>
                         </Link>
                     </div>
