@@ -17,6 +17,8 @@ interface Location {
         weekdays: string;
         weekends: string;
     };
+    // Optional virtual tour flag (in case backend adds later)
+    virtualTour?: string | null;
 }
 
 interface MembershipPlan {
@@ -43,6 +45,8 @@ export default function LocationsIndex({ locations, membershipPlans, auth }: Loc
 
     const nextMembershipSlide = () => {
         setCurrentMembershipSlide((prev) => (prev + 1) % totalMembershipSlides);
+        // Sound files referenced elsewhere (success/error/warning/info) are currently missing.
+        // If audio feedback is required later, place mp3 files in public/sounds/ and implement a hook.
     };
 
     const prevMembershipSlide = () => {
@@ -115,28 +119,28 @@ export default function LocationsIndex({ locations, membershipPlans, auth }: Loc
                         <div className="container mx-auto px-6">
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                                 {locations.map((location) => (
-                                    <Card key={location.id} className="overflow-hidden hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 hover:-translate-y-1 bg-black/20 border border-white/10 hover:border-red-700/30 group">
+                                    <Card key={location.id} className="overflow-hidden hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 hover:-translate-y-1 bg-black/20 border border-white/10 hover:border-red-700/30 group" aria-label={`Gym location card for ${location.name}`}> 
                                         <div className="h-64 bg-gray-800 relative overflow-hidden">
-                                            <img 
-                                                src={location.image} 
-                                                alt={`${location.name} - UltraFlex Gym`}
+                                            <img
+                                                src={location.image}
+                                                alt={`${location.name} facility hero image`}
                                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                                 loading="lazy"
                                             />
                                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                            
-                                            {/* Location name overlay */}
+                                            {location.virtualTour && (
+                                                <div className="absolute top-4 left-4 bg-white/90 text-black text-xs font-semibold px-2 py-1 rounded-md shadow-md flex items-center gap-1">
+                                                    <span className="inline-block w-2 h-2 bg-red-700 rounded-full animate-pulse" />
+                                                    Virtual Tour
+                                                </div>
+                                            )}
                                             <div className="absolute bottom-4 left-4 text-white">
                                                 <h3 className="text-xl font-bold drop-shadow-lg group-hover:text-red-700 transition-colors duration-300">{location.name}</h3>
                                             </div>
-
-                                            {/* Premium badge */}
                                             <div className="absolute top-4 right-4 bg-gradient-to-r from-red-700 to-red-800 text-white px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm border border-red-700/20">
                                                 Premium
                                             </div>
-
-                                            {/* View details overlay */}
                                             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                                 <div className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-4 py-2 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 border border-red-700/20 backdrop-blur-sm flex items-center">
                                                     <Building className="h-4 w-4 mr-2" />
@@ -144,7 +148,6 @@ export default function LocationsIndex({ locations, membershipPlans, auth }: Loc
                                                 </div>
                                             </div>
                                         </div>
-                                        
                                         <CardContent className="p-6 bg-transparent">
                                             <div className="space-y-3 mb-6">
                                                 <div className="flex items-start space-x-2 group hover:text-red-700 transition-colors duration-300">
@@ -240,14 +243,18 @@ export default function LocationsIndex({ locations, membershipPlans, auth }: Loc
                                                             </div>
                                                         </div>
                                                         
-                                                        <ul className="space-y-3 mb-6 flex-1">
-                                                            {plan.features.map((feature, index) => (
-                                                                <li key={index} className="flex items-start text-gray-300 group-hover:text-white transition-colors duration-300">
-                                                                    <Check className="h-4 w-4 text-red-700 mr-3 flex-shrink-0 mt-0.5" />
-                                                                    <span className="text-sm leading-relaxed">{feature}</span>
-                                                                </li>
-                                                            ))}
-                                                        </ul>
+                                                        {plan.features?.length ? (
+                                                            <ul className="space-y-3 mb-6 flex-1">
+                                                                {plan.features.map((feature, index) => (
+                                                                    <li key={index} className="flex items-start text-gray-300 group-hover:text-white transition-colors duration-300">
+                                                                        <Check className="h-4 w-4 text-red-700 mr-3 flex-shrink-0 mt-0.5" />
+                                                                        <span className="text-sm leading-relaxed">{feature}</span>
+                                                                    </li>
+                                                                ))}
+                                                            </ul>
+                                                        ) : (
+                                                            <div className="text-gray-400 text-sm mb-6 flex-1 flex items-center justify-center italic">Features updating...</div>
+                                                        )}
                                                         
                                                         <Button 
                                                             className={`w-full font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group mt-auto ${
@@ -355,6 +362,7 @@ export default function LocationsIndex({ locations, membershipPlans, auth }: Loc
                     </section>
                 </div>
             </div>
+
         </AppLayout>
     );
 }

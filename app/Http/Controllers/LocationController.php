@@ -17,7 +17,9 @@ class LocationController extends Controller
                 'name' => 'Day Pass',
                 'price' => 12,
                 'period' => 'day',
-                'features' => ['Single Day Access', 'Top-Quality Equipment', 'Changing Rooms', 'Free Parking'],
+                // Updated processed hero image
+                'image' => '/Images/processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.jpeg',
+                'features' => ['Single Day Access', 'All Equipment Access', 'Visitor Friendly'],
                 'popular' => false
             ],
             [
@@ -97,7 +99,8 @@ class LocationController extends Controller
                 'name' => 'ULTRAFLEX NORTH LEEDS',
                 'address' => 'Limewood Centre, Limewood Avenue, Ring Road, Seacroft, Leeds LS14 1NH, UK',
                 'phone' => '0113 513 7669',
-                'image' => '/Images/newimages/North Leeds/gym-in-northleeds.webp',
+                // Updated processed hero image
+                'image' => '/Images/processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.jpeg',
                 'slug' => 'north-leeds',
                 'hours' => [
                     'weekdays' => '06:00 - 22:00',
@@ -145,7 +148,8 @@ class LocationController extends Controller
                 'name' => 'ULTRAFLEX HULL',
                 'address' => 'Jameson Street, Hull HU1 3DX, UK',
                 'phone' => '+44 1482 678 901',
-                'image' => '/Images/newimages/Hull/gym-in-hull.webp',
+                // Updated processed hero image
+                'image' => '/Images/processed-E08A33F0-0FB6-43A5-BF60-EC1147B6517D-min-min.jpeg',
                 'slug' => 'hull',
                 'hours' => [
                     'weekdays' => '5:00 AM - 11:00 PM',
@@ -157,7 +161,8 @@ class LocationController extends Controller
                 'name' => 'ULTRAFLEX DURHAM',
                 'address' => 'North Road, Durham DH1 4SQ, UK',
                 'phone' => '+44 1913 789 012',
-                'image' => '/Images/newimages/Durham/gym-in-durham.webp',
+                // Updated processed hero image
+                'image' => '/Images/original-787FADAA-6849-48F3-B005-6AD9FB2E74C4-min-min.jpeg',
                 'slug' => 'durham',
                 'hours' => [
                     'weekdays' => '5:00 AM - 11:00 PM',
@@ -169,7 +174,8 @@ class LocationController extends Controller
                 'name' => 'ULTRAFLEX DERBY',
                 'address' => 'St Peters Street, Derby DE1 2AB, UK',
                 'phone' => '+44 1332 890 123',
-                'image' => '/Images/derby/ForGallery/gym-in-derby-4.webp',
+                // Updated processed hero image
+                'image' => '/Images/processed-5AB78E5E-3190-4963-8AAF-9B3B527D73AD-min-min.jpeg',
                 'slug' => 'derby',
                 'hours' => [
                     'weekdays' => '5:00 AM - 11:00 PM',
@@ -193,7 +199,8 @@ class LocationController extends Controller
                 'name' => 'ULTRAFLEX LINCOLN',
                 'address' => 'High Street, Lincoln LN5 7PJ, UK',
                 'phone' => '+44 1522 012 345',
-                'image' => '/Images/newimages/Lincoln/gym-in-lincoln.webp',
+                // Updated processed hero image
+                'image' => '/Images/processed-3CBED414-67C5-41E8-A885-3D42BA69744C-min-min.jpeg',
                 'slug' => 'lincoln',
                 'hours' => [
                     'weekdays' => '5:00 AM - 11:00 PM',
@@ -205,7 +212,8 @@ class LocationController extends Controller
                 'name' => 'ULTRAFLEX WEST LONDON',
                 'address' => 'Westfield Shopping Centre, London W12 7GF, UK',
                 'phone' => '+44 20 3456 7890',
-                'image' => '/Images/westlondon/gym-in-westlondon.webp',
+                // Updated processed hero image
+                'image' => '/Images/processed-F7DB5741-8540-4974-9CCC-A37F83D8733B-min-min.jpeg',
                 'slug' => 'west-london',
                 'hours' => [
                     'weekdays' => '5:30 AM - 11:00 PM',
@@ -330,7 +338,7 @@ class LocationController extends Controller
                     'address' => 'Limewood Centre, Limewood Avenue, Ring Road, Seacroft, Leeds LS14 1NH, UK',
                     'phone' => '0113 513 7669',
                     'email' => 'northleeds@ultraflexgym.co.uk',
-                    'image' => '/Images/newimages/North Leeds/gym-in-northleeds.webp',
+                    'image' => '/Images/processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.jpeg',
                     'gallery' => [
                         '/Images/newimages/North Leeds/gym-in-northleeds.webp',
                         '/Images/newimages/North Leeds/gym-in-northleeds-2.webp',
@@ -1002,7 +1010,8 @@ class LocationController extends Controller
                     'address' => 'Jameson Street, Hull HU1 3DX, UK',
                     'phone' => '+44 1482 678 901',
                     'email' => 'hull@ultraflexgym.co.uk',
-                    'image' => '/Images/newimages/Hull/gym-in-hull-2.webp',
+                    // Updated primary image for Hull location
+                    'image' => '/Images/processed-E08A33F0-0FB6-43A5-BF60-EC1147B6517D-min-min.jpeg',
                     'gallery' => [
                         '/Images/newimages/Hull/gym-in-hull-2.webp',
                         '/Images/newimages/Hull/gym-in-hull-4.webp',
@@ -1099,7 +1108,8 @@ class LocationController extends Controller
                     'address' => 'North Road, Durham DH1 4SQ, UK',
                     'phone' => '+44 1913 789 012',
                     'email' => 'durham@ultraflexgym.co.uk',
-                    'image' => '/Images/newimages/Durham/gym-in-durham-3.webp',
+                    // Updated primary image for Durham location
+                    'image' => '/Images/original-787FADAA-6849-48F3-B005-6AD9FB2E74C4-min-min.jpeg',
                     'gallery' => [
                         '/Images/newimages/Durham/gym-in-durham-3.webp',
                         '/Images/newimages/Durham/gym-in-durham-4.webp',
@@ -1193,7 +1203,8 @@ class LocationController extends Controller
                     'address' => 'St Peters Street, Derby DE1 2AB, UK',
                     'phone' => '+44 1332 890 123',
                     'email' => 'derby@ultraflexgym.co.uk',
-                    'image' => '/Images/derby/ForGallery/gym-in-derby-4.webp',
+                    // Updated primary image for Derby location
+                    'image' => '/Images/processed-5AB78E5E-3190-4963-8AAF-9B3B527D73AD-min-min.jpeg',
                     'gallery' => [
                         '/Images/derby/ForGallery/gym-in-derby-5.webp',
                         '/Images/derby/ForGallery/gym-in-derby-6.webp',
@@ -1424,7 +1435,8 @@ class LocationController extends Controller
                     'address' => 'High Street, Lincoln LN5 7PJ, UK',
                     'phone' => '+44 1522 012 345',
                     'email' => 'lincoln@ultraflexgym.co.uk',
-                    'image' => '/Images/newimages/Lincoln/gym-in-lincoln-2.webp',
+                    // Updated primary image for Lincoln location
+                    'image' => '/Images/processed-3CBED414-67C5-41E8-A885-3D42BA69744C-min-min.jpeg',
                     'gallery' => [
                         '/Images/newimages/Lincoln/gym-in-lincoln-2.webp',
                         '/Images/newimages/Lincoln/gym-in-lincoln-3.webp',
@@ -1450,7 +1462,8 @@ class LocationController extends Controller
                     'manager' => [
                         'name' => 'Lynsey Hind',
                         'bio' => "💪 I’m proud to be the Gym Manager here at Ultraflex – the friendliest, most motivating place to train!\nFrom the moment you walk through the doors, you’re part of the family. Our amazing team is always ready with a smile, a helping hand, and a bit of encouragement to keep you smashing your goals.\nWe’ve built an environment where everyone works together – no egos, just great vibes, hard work, and a shared love for health & fitness. Whether you’re lifting big, starting your journey, or just here for a feel-good session, you’ll always feel welcome.\nOutside of the gym, life is just as full of energy. I’m a proud mum to Ava-Lily, my eight-year-old daughter who has a real need for speed. Most weekends you’ll find us at the track, where she’s racing her go-kart with the same determination and focus we value so much in the gym.\nFor me, both work and home life are about dedication, community, and enjoying the journey – and that’s exactly what we aim to bring to every member’s experience at Ultraflex.\nIt’s all about community, support, and results – and we can’t wait to welcome you in! 💥\nIf you need any more information, then please feel free to contact me:\nEmail: l.hind@ultraflexgym.co.uk\nPhone: 07926 528367\n#Ultraflex #GymManagerLife #FitnessFamily #CommunityVibes #MumLife #KartingKid #StrongerTogether",
-                        'image' => '/Images/managers/lynsey.jpg',
+                        // TODO: Manager image missing (lynsey.jpg). Add file to public/Images/managers or update path.
+                        'image' => null,
                         'experience' => ''
                     ],
                     'features' => [
@@ -1549,7 +1562,8 @@ class LocationController extends Controller
                     'address' => 'Westfield Shopping Centre, London W12 7GF, UK',
                     'phone' => '+44 20 3456 7890',
                     'email' => 'westlondon@ultraflexgym.co.uk',
-                    'image' => '/Images/westlondon/DSC06653-2.jpg',
+                    // Updated primary image for West London location
+                    'image' => '/Images/processed-F7DB5741-8540-4974-9CCC-A37F83D8733B-min-min.jpeg',
                     'gallery' => [
                         '/Images/westlondon/DSC06653-2.jpg',
                         '/Images/westlondon/DSC06686.jpg',

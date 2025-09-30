@@ -33,7 +33,8 @@ class TourController extends Controller
                 'id' => 6,
                 'locationName' => 'ULTRAFLEX HULL',
                 'locationSlug' => 'hull',
-                'image' => '/Images/hull/gym-in-hull-22.webp',
+                // Updated primary image for Hull tour card
+                'image' => '/Images/processed-E08A33F0-0FB6-43A5-BF60-EC1147B6517D-min-min.jpeg',
                 // Updated to Matterport link supplied
                 'tourUrl' => 'https://my.matterport.com/show/?m=nfWTbfybzYt&back=1',
                 'duration' => '4-6 minutes',
@@ -52,7 +53,8 @@ class TourController extends Controller
                 'id' => 7,
                 'locationName' => 'ULTRAFLEX DURHAM',
                 'locationSlug' => 'durham',
-                'image' => '/Images/durham/equipment-in-durham.webp',
+                // Updated primary image for Durham tour card
+                'image' => '/Images/original-787FADAA-6849-48F3-B005-6AD9FB2E74C4-min-min.jpeg',
                 // Updated to YouTube link supplied
                 'tourUrl' => 'https://youtu.be/JpALX5roRKE',
                 'duration' => '6-8 minutes',
@@ -71,7 +73,8 @@ class TourController extends Controller
                 'id' => 8,
                 'locationName' => 'ULTRAFLEX DERBY',
                 'locationSlug' => 'derby',
-                'image' => '/Images/derby/ForGallery/gym-in-derby-6.webp',
+                // Updated primary image for Derby tour card
+                'image' => '/Images/processed-5AB78E5E-3190-4963-8AAF-9B3B527D73AD-min-min.jpeg',
                 // Updated to YouTube link supplied
                 'tourUrl' => 'https://youtu.be/VKlANmwoDPQ',
                 'duration' => '5-7 minutes',
@@ -109,7 +112,8 @@ class TourController extends Controller
                 'id' => 10,
                 'locationName' => 'ULTRAFLEX LINCOLN',
                 'locationSlug' => 'lincoln',
-                'image' => '/Images/lincoln/ForGallery/gym-in-lincoln-7.webp',
+                // Updated primary image for Lincoln tour card
+                'image' => '/Images/processed-3CBED414-67C5-41E8-A885-3D42BA69744C-min-min.jpeg',
                 // Temporary YouTube fallback while waiting for tour video
                 'tourUrl' => 'https://youtu.be/u3qFZpkqxyI',
                 'duration' => '4-6 minutes',
@@ -128,7 +132,8 @@ class TourController extends Controller
                 'id' => 11,
                 'locationName' => 'ULTRAFLEX WEST LONDON',
                 'locationSlug' => 'west-london',
-                'image' => '/Images/westlondon/gym-in-westlondon.webp',
+                // Updated primary image for West London tour card
+                'image' => '/Images/processed-F7DB5741-8540-4974-9CCC-A37F83D8733B-min-min.jpeg',
                 // Updated tour video nearly ready - placeholder until launch
                 'tourUrl' => null,
                 'duration' => '7-9 minutes',
@@ -167,7 +172,7 @@ class TourController extends Controller
                 'id' => 2,
                 'locationName' => 'ULTRAFLEX NORTH LEEDS',
                 'locationSlug' => 'north-leeds',
-                'image' => '/Images/northleeds/gym-in-northleeds.webp',
+                'image' => '/Images/processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.jpeg',
                 // Provided YouTube link
                 'tourUrl' => 'https://youtu.be/VgF1a6XxAkc?si=Ki3Z0VdqdKVocs52',
                 'duration' => '5-7 minutes',
@@ -279,7 +284,8 @@ class TourController extends Controller
                 'id' => 6,
                 'locationName' => 'ULTRAFLEX HULL',
                 'locationSlug' => 'hull',
-                'image' => '/Images/hull/gym-in-hull-22.webp',
+                // Updated primary image for Hull tour detail
+                'image' => '/Images/processed-E08A33F0-0FB6-43A5-BF60-EC1147B6517D-min-min.jpeg',
                 'gallery' => [
                     '/Images/hull/hull/ForGallery/DSC07341.jpg',
                     '/Images/hull/hull/ForGallery/DSC07345.jpg',
@@ -288,6 +294,7 @@ class TourController extends Controller
                     '/Images/hull/hull/ForGallery/DSC07350.jpg',
                     '/Images/hull/hull/ForGallery/DSC07359 (1).jpg',
                     '/Images/hull/hull/ForGallery/DSC07359.jpg',
+                    // Keeping old image at end of gallery for now (optional removal later)
                     '/Images/hull/gym-in-hull-22.webp'
                 ],
                 'address' => 'Jameson Street, Hull HU1 3DX, UK',
@@ -299,7 +306,8 @@ class TourController extends Controller
                 'id' => 7,
                 'locationName' => 'ULTRAFLEX DURHAM',
                 'locationSlug' => 'durham',
-                'image' => '/Images/durham/equipment-in-durham.webp',
+                // Updated primary image for Durham tour detail
+                'image' => '/Images/original-787FADAA-6849-48F3-B005-6AD9FB2E74C4-min-min.jpeg',
                 'gallery' => [
                     '/Images/durham/durham/ForGallery/DSC07341.jpg',
                     '/Images/durham/durham/ForGallery/DSC07345.jpg',
@@ -308,6 +316,7 @@ class TourController extends Controller
                     '/Images/durham/durham/ForGallery/DSC07350.jpg',
                     '/Images/durham/durham/ForGallery/DSC07359 (1).jpg',
                     '/Images/durham/durham/ForGallery/DSC07359.jpg',
+                    // Retaining previous webp image at end of gallery for now
                     '/Images/durham/equipment-in-durham.webp'
                 ],
                 'address' => 'North Road, Durham DH1 4SQ, UK',
@@ -319,7 +328,8 @@ class TourController extends Controller
                 'id' => 8,
                 'locationName' => 'ULTRAFLEX DERBY',
                 'locationSlug' => 'derby',
-                'image' => '/Images/derby/ForGallery/gym-in-derby-6.webp',
+                // Updated primary image for Derby tour detail
+                'image' => '/Images/processed-5AB78E5E-3190-4963-8AAF-9B3B527D73AD-min-min.jpeg',
                 'gallery' => [
                     '/Images/derby/ForGallery/gym-in-derby-4',
                     '/Images/derby/ForGallery/gym-in-derby-5',
@@ -358,7 +368,8 @@ class TourController extends Controller
                 'id' => 10,
                 'locationName' => 'ULTRAFLEX LINCOLN',
                 'locationSlug' => 'lincoln',
-                'image' => '/Images/lincoln/ForGallery/gym-in-lincoln-7.webp',
+                // Updated primary image for Lincoln tour detail
+                'image' => '/Images/processed-3CBED414-67C5-41E8-A885-3D42BA69744C-min-min.jpeg',
                 'gallery' => [
                     '/Images/lincoln/ForGallery/gym-in-lincoln-3',
                     '/Images/lincoln/ForGallery/gym-in-lincoln-4',
@@ -377,7 +388,8 @@ class TourController extends Controller
                 'id' => 11,
                 'locationName' => 'ULTRAFLEX WEST LONDON',
                 'locationSlug' => 'west-london',
-                'image' => '/Images/westlondon/gym-in-westlondon.webp',
+                // Updated primary image for West London tour detail
+                'image' => '/Images/processed-F7DB5741-8540-4974-9CCC-A37F83D8733B-min-min.jpeg',
                 'gallery' => [
                     '/Images/westlondon/gym-in-westlondon.webp',
                     '/Images/westlondon/gym-in-westlondon-2',
@@ -417,7 +429,7 @@ class TourController extends Controller
                 'id' => 2,
                 'locationName' => 'ULTRAFLEX NORTH LEEDS',
                 'locationSlug' => 'north-leeds',
-                'image' => '/Images/northleeds/gym-in-northleeds.webp',
+                'image' => '/Images/processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.jpeg',
                 'gallery' => [
                     '/Images/northleeds/northleeds/ForGallery/DSC07341.jpg',
                     '/Images/northleeds/northleeds/ForGallery/DSC07345.jpg',
@@ -426,7 +438,7 @@ class TourController extends Controller
                     '/Images/northleeds/northleeds/ForGallery/DSC07350.jpg',
                     '/Images/northleeds/northleeds/ForGallery/DSC07359 (1).jpg',
                     '/Images/northleeds/northleeds/ForGallery/DSC07359.jpg',
-                    '/Images/northleeds/gym-in-northleeds.webp'
+                    '/Images/processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.jpeg'
                 ],
                 'address' => 'Limewood Centre, Limewood Avenue, Ring Road, Seacroft, Leeds LS14 1NH, UK',
                 'phone' => '0113 513 7669',

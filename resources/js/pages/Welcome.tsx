@@ -34,7 +34,7 @@ export default function Welcome({ auth }: WelcomeProps) {
             id: 2,
             name: "ULTRAFLEX NORTH LEEDS",
             address: "Limewood Centre, Limewood Avenue, Ring Road, Seacroft, Leeds LS14 1NH, UK",
-            image: "/Images/northleeds/gym-in-northleeds.webp",
+            image: "/Images/processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.jpeg",
             slug: 'north-leeds'
         },
         {
@@ -79,11 +79,12 @@ export default function Welcome({ auth }: WelcomeProps) {
 
     const galleryImages = [
         "/Images/westleeds/gym-in-westleeds.webp",
-        "/Images/northleeds/gym-in-northleeds.webp",
+    "/Images/processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.jpeg",
         "/Images/normanton/gym-in-normanton.webp",
         "/Images/rotherham/gym-in-rotherham.webp",
         "/Images/york/ForGallery/gym-in-york-6.webp",
-        "/Images/hull/gym-in-hull-22.webp",
+        // Updated Hull image
+        "/Images/processed-E08A33F0-0FB6-43A5-BF60-EC1147B6517D-min-min.jpeg",
     ];
 
     // Latest news with matching controller data

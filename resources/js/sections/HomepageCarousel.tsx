@@ -2,11 +2,13 @@ import { useState } from 'react';
 
 const carouselImages = [
   '/Images/westleeds/gym-in-westleeds.webp',
-  '/Images/northleeds/gym-in-northleeds.webp',
+  // Updated processed North Leeds hero image
+  '/Images/processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.jpeg',
   '/Images/normanton/gym-in-normanton.webp',
   '/Images/rotherham/gym-in-rotherham.webp',
   '/Images/york/ForGallery/gym-in-york-6.webp',
-  '/Images/hull/gym-in-hull-22.webp',
+  // Updated processed Hull hero image
+  '/Images/processed-E08A33F0-0FB6-43A5-BF60-EC1147B6517D-min-min.jpeg',
 ];
 
 export default function HomepageCarousel() {
