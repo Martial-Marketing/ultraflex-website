@@ -4,6 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import AppLayout from '@/layouts/app-layout';
+import LocationSelect from '@/components/LocationSelect';
 
 import AnimatedBackground from '@/components/AnimatedBackground'; // Import the animated background
 
@@ -25,20 +26,22 @@ interface GeneralContact {
     address: string;
 }
 
+interface LocationOption { id: number; name: string; }
+
 interface ContactIndexProps {
     locations: Location[];
+    locationOptions?: LocationOption[];
     generalContact: GeneralContact;
-    auth: {
-        user: any;
-    };
+    auth: { user: any };
 }
 
-export default function ContactIndex({ locations, generalContact, auth }: ContactIndexProps) {
+export default function ContactIndex({ locations, locationOptions = [], generalContact, auth }: ContactIndexProps) {
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         email: '',
         subject: '',
         message: '',
+        location_id: '' as number | string,
     });
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -205,6 +208,18 @@ export default function ContactIndex({ locations, generalContact, auth }: Contac
                                                     placeholder="What is your enquiry about?"
                                                 />
                                                 {errors.subject && <p className="text-red-500 text-sm mt-1">{errors.subject}</p>}
+                                            </div>
+
+                                            <div>
+                                                <LocationSelect
+                                                    options={locationOptions}
+                                                    value={data.location_id}
+                                                    onChange={(val) => setData('location_id', val)}
+                                                    label="Location (Optional)"
+                                                    placeholder="Select a location or Head Office"
+                                                    className="text-sm"
+                                                />
+                                                {errors.location_id && <p className="text-red-500 text-sm mt-1">{errors.location_id}</p>}
                                             </div>
 
                                             <div>

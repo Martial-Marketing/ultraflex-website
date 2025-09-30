@@ -482,8 +482,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                                         <Card key={plan.id} className={`relative p-8 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 group hover:scale-105 hover:shadow-2xl hover:shadow-red-700/20 ${plan.popular ? 'ring-2 ring-red-700 scale-105' : ''}`}>
                                                             {plan.popular && (
                                                                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                                                                    <span className="bg-gradient-to-r from-red-700 to-red-800 text-white px-4 py-1 rounded-full text-sm font-medium backdrop-blur-sm border border-red-700/20 flex items-center animate-pulse">
-                                                                        <Star className="h-3 w-3 mr-1 fill-white" />
+                                                                    <span className="bg-gradient-to-r from-red-700 to-red-800 text-white px-4 py-1 rounded-full text-sm font-medium backdrop-blur-sm border border-red-700/20 animate-pulse">
                                                                         Most Popular
                                                                     </span>
                                                                 </div>
@@ -692,7 +691,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                     </section>
 
                     {/* 5. Virtual Tour */}
-                    {location.virtualTour && (
+                    {location.virtualTour ? (
                         <section id="tour" className="py-16 scroll-mt-24">
                             <div className="container mx-auto px-6">
                                 <div className="text-center mb-12">
@@ -722,6 +721,25 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </section>
+                    ) : (
+                        <section id="tour" className="py-16 scroll-mt-24">
+                            <div className="container mx-auto px-6 text-center">
+                                <h2 className="text-3xl font-bold mb-6">
+                                    <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Virtual</span>{' '}
+                                    <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Tour</span>{' '}
+                                    <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Coming</span>{' '}
+                                    <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Soon</span>
+                                </h2>
+                                <p className="text-gray-300 max-w-2xl mx-auto mb-8">We're currently preparing an immersive virtual tour experience for this location. Check back soon to explore the facility online.</p>
+                                <div className="max-w-3xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 opacity-60">
+                                    {Array.from({ length: 4 }).map((_, i) => (
+                                        <div key={i} className="aspect-video rounded-lg bg-gradient-to-br from-black/40 to-black/20 border border-white/10 animate-pulse relative overflow-hidden">
+                                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(220,38,38,0.15),transparent_70%)]" />
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                         </section>
@@ -826,43 +844,54 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                 <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Trainers</span>
                             </h2>
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                {location.trainers.map((trainer) => (
-                                    <Card key={trainer.id} className="text-center overflow-hidden hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 group">
-                                        <div className="h-64 bg-gray-800 relative overflow-hidden">
-                                            <img 
-                                                src={trainer.image} 
-                                                alt={trainer.name}
-                                                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                                                loading="lazy"
-                                            />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                                <div className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-3 py-2 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 border border-red-700/20 backdrop-blur-sm flex items-center text-sm">
-                                                    <Users className="h-4 w-4 mr-1" />
-                                                    View Profile
+                                {location.trainers.map((trainer) => {
+                                    const firstName = (trainer.name || '').split(/\s+/)[0];
+                                    const shortBio = (trainer.bio || '').split(/\n+/)[0];
+                                    return (
+                                    <Link key={trainer.id} href={`/trainers/${trainer.slug}`} className="group focus:outline-none block">
+                                        <div className="relative overflow-hidden rounded-xl border border-white/10 bg-black/40 backdrop-blur-md flex flex-col transition-all duration-300 hover:border-red-700/40 hover:shadow-red-700/20 hover:shadow-xl hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-red-700" style={{minHeight:'420px'}}>
+                                            <div className="relative flex-[0_0_50%]" style={{flexBasis:'50%', maxHeight:'50%'}}>
+                                                <img
+                                                    src={trainer.image}
+                                                    alt={trainer.name}
+                                                    loading="lazy"
+                                                    className="w-full h-full object-cover object-top -translate-y-3 transition-transform duration-500 ease-out"
+                                                    onError={(e:any)=>{ e.currentTarget.src='/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp'; }}
+                                                />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-95 pointer-events-none"></div>
+                                                <div className="absolute top-2 left-2 z-10 px-2 py-1 rounded-md text-[10px] uppercase tracking-wide bg-red-700/80 text-white shadow shadow-black/40">Trainer</div>
+                                                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                                                    <div className="bg-black/50 backdrop-blur-md px-4 py-2 rounded-full text-xs text-white flex items-center gap-2 border border-white/10">
+                                                        <Users className="w-4 h-4" /> View Profile
+                                                    </div>
+                                                </div>
+                                                <div className="absolute inset-0 ring-0 group-hover:ring-2 ring-red-700/50 rounded-xl transition-all duration-300 pointer-events-none"></div>
+                                            </div>
+                                            <div className="flex-1 flex flex-col p-4 gap-2">
+                                                <h3 className="text-lg font-semibold text-white group-hover:text-red-600 transition-colors duration-300">{firstName}</h3>
+                                                {trainer.specialties && trainer.specialties.length > 0 && (
+                                                    <div className="flex flex-wrap gap-1.5">
+                                                        {trainer.specialties.slice(0,3).map((specialty, index) => (
+                                                            <span key={index} className="px-2 py-0.5 bg-red-700/15 text-red-500 text-[11px] rounded-full border border-red-700/30">{specialty}</span>
+                                                        ))}
+                                                        {trainer.specialties.length > 3 && (
+                                                            <span className="px-2 py-0.5 bg-white/10 text-white/70 text-[11px] rounded-full">+{trainer.specialties.length - 3}</span>
+                                                        )}
+                                                    </div>
+                                                )}
+                                                {trainer.certifications && trainer.certifications.length > 0 && (
+                                                    <p className="text-[11px] text-gray-400 leading-snug">{trainer.certifications.join(', ')}</p>
+                                                )}
+                                                <p className="text-xs text-gray-300 line-clamp-2 mt-1 flex-1">{shortBio}</p>
+                                                <div className="mt-2 flex items-center justify-end">
+                                                    <span className="inline-flex items-center text-[11px] text-red-500 font-medium tracking-wide">
+                                                        View Profile <ChevronRight className="w-3 h-3 ml-1 group-hover:translate-x-0.5 transition-transform" />
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <CardContent className="p-6 bg-black/20 backdrop-blur-sm">
-                                            <h3 className="text-xl font-semibold mb-2 text-white group-hover:text-red-700 transition-colors duration-300">{trainer.name}</h3>
-                                            <div className="flex flex-wrap gap-2 justify-center mb-4">
-                                                {trainer.specialties && trainer.specialties.map((specialty, index) => (
-                                                    <span key={index} className="px-3 py-1 bg-red-700/20 text-red-700 text-sm rounded-full backdrop-blur-sm border border-red-700/30">{specialty}</span>
-                                                ))}
-                                            </div>
-                                            <p className="text-gray-400 text-sm mb-2">{trainer.certifications && trainer.certifications.join(', ')}</p>
-                                            <p className="text-gray-300 text-xs mb-4">{trainer.bio}</p>
-                                            <Link href={`/trainers/${trainer.slug}`}>
-                                                <Button variant="outline" className="w-full bg-black/20 backdrop-blur-sm border-white/20 text-white hover:bg-red-700/20 hover:border-red-700/50 transition-all duration-300 group">
-                                                    <ChevronRight className="h-4 w-4 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                                                    <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                                        View Profile
-                                                    </span>
-                                                </Button>
-                                            </Link>
-                                        </CardContent>
-                                    </Card>
-                                ))}
+                                    </Link>
+                                );})}
                             </div>
                         </div>
                     </section>

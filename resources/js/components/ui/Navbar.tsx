@@ -129,8 +129,7 @@ export default function Navbar({ auth }: NavbarProps) {
             dropdown: [
                 { label: 'Latest News', href: '/news', icon: null },
                 { label: 'Contact Us', href: '/contact', icon: null },
-                // UF Hub should navigate to the internal login/hub, not external signup
-                { label: 'UF Hub', href: '/login', icon: null }
+                // removed UF Hub from More dropdown per request
             ]
         }
     ];

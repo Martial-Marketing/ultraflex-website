@@ -9,13 +9,14 @@ class TourController extends Controller
 {
     public function index()
     {
-        $tours = [
+    $tours = [
             [
                 'id' => 5,
                 'locationName' => 'ULTRAFLEX YORK',
                 'locationSlug' => 'york',
                 'image' => '/Images/york/ForGallery/gym-in-york-6.webp',
-                'tourUrl' => 'https://tour.ultraflex.com/york',
+        // Updated to Matterport link supplied
+        'tourUrl' => 'https://my.matterport.com/show/?m=kZ7SPKSyTMt&back=1',
                 'duration' => '5-7 minutes',
                 'address' => 'Clifton Moor Centre, York YO30 4WR, UK',
                 'phone' => '+44 1904 567 890',
@@ -33,7 +34,8 @@ class TourController extends Controller
                 'locationName' => 'ULTRAFLEX HULL',
                 'locationSlug' => 'hull',
                 'image' => '/Images/hull/gym-in-hull-22.webp',
-                'tourUrl' => 'https://tour.ultraflex.com/hull',
+                // Updated to Matterport link supplied
+                'tourUrl' => 'https://my.matterport.com/show/?m=nfWTbfybzYt&back=1',
                 'duration' => '4-6 minutes',
                 'address' => 'Jameson Street, Hull HU1 3DX, UK',
                 'phone' => '+44 1482 678 901',
@@ -51,7 +53,8 @@ class TourController extends Controller
                 'locationName' => 'ULTRAFLEX DURHAM',
                 'locationSlug' => 'durham',
                 'image' => '/Images/durham/equipment-in-durham.webp',
-                'tourUrl' => 'https://tour.ultraflex.com/durham',
+                // Updated to YouTube link supplied
+                'tourUrl' => 'https://youtu.be/JpALX5roRKE',
                 'duration' => '6-8 minutes',
                 'address' => 'North Road, Durham DH1 4SQ, UK',
                 'phone' => '+44 1913 789 012',
@@ -69,7 +72,8 @@ class TourController extends Controller
                 'locationName' => 'ULTRAFLEX DERBY',
                 'locationSlug' => 'derby',
                 'image' => '/Images/derby/ForGallery/gym-in-derby-6.webp',
-                'tourUrl' => 'https://tour.ultraflex.com/derby',
+                // Updated to YouTube link supplied
+                'tourUrl' => 'https://youtu.be/VKlANmwoDPQ',
                 'duration' => '5-7 minutes',
                 'address' => 'St Peters Street, Derby DE1 2AB, UK',
                 'phone' => '+44 1332 890 123',
@@ -87,7 +91,8 @@ class TourController extends Controller
                 'locationName' => 'ULTRAFLEX ATHENS (GREECE)',
                 'locationSlug' => 'athens-greece',
                 'image' => '/Images/athens/HeroBG/gym-in-athens-16.webp',
-                'tourUrl' => 'https://tour.ultraflex.com/athens',
+                // Pending drone tour upload (placeholder)
+                'tourUrl' => null,
                 'duration' => '6-8 minutes',
                 'address' => 'Vouliagmenis Avenue, Glyfada 166 74, Greece',
                 'phone' => '+30 210 901 2345',
@@ -105,7 +110,8 @@ class TourController extends Controller
                 'locationName' => 'ULTRAFLEX LINCOLN',
                 'locationSlug' => 'lincoln',
                 'image' => '/Images/lincoln/ForGallery/gym-in-lincoln-7.webp',
-                'tourUrl' => 'https://tour.ultraflex.com/lincoln',
+                // Temporary YouTube fallback while waiting for tour video
+                'tourUrl' => 'https://youtu.be/u3qFZpkqxyI',
                 'duration' => '4-6 minutes',
                 'address' => 'High Street, Lincoln LN5 7PJ, UK',
                 'phone' => '+44 1522 012 345',
@@ -123,7 +129,8 @@ class TourController extends Controller
                 'locationName' => 'ULTRAFLEX WEST LONDON',
                 'locationSlug' => 'west-london',
                 'image' => '/Images/westlondon/gym-in-westlondon.webp',
-                'tourUrl' => 'https://tour.ultraflex.com/west-london',
+                // Updated tour video nearly ready - placeholder until launch
+                'tourUrl' => null,
                 'duration' => '7-9 minutes',
                 'address' => 'Westfield Shopping Centre, London W12 7GF, UK',
                 'phone' => '+44 20 3456 7890',
@@ -142,7 +149,8 @@ class TourController extends Controller
                 'locationName' => 'ULTRAFLEX WEST LEEDS',
                 'locationSlug' => 'west-leeds',
                 'image' => '/Images/westleeds/gym-in-westleeds.webp',
-                'tourUrl' => 'https://tour.ultraflex.com/west-leeds',
+                // Provided Matterport link
+                'tourUrl' => 'https://my.matterport.com/show/?m=8gw4DT8ZmVc&back=1',
                 'duration' => '5-7 minutes',
                 'address' => 'West Park Ring Road, Leeds LS16 6EB, UK',
                 'phone' => '0113 256 5107',
@@ -160,7 +168,8 @@ class TourController extends Controller
                 'locationName' => 'ULTRAFLEX NORTH LEEDS',
                 'locationSlug' => 'north-leeds',
                 'image' => '/Images/northleeds/gym-in-northleeds.webp',
-                'tourUrl' => 'https://tour.ultraflex.com/north-leeds',
+                // Provided YouTube link
+                'tourUrl' => 'https://youtu.be/VgF1a6XxAkc?si=Ki3Z0VdqdKVocs52',
                 'duration' => '5-7 minutes',
                 'address' => 'Limewood Centre, Limewood Avenue, Ring Road, Seacroft, Leeds LS14 1NH, UK',
                 'phone' => '0113 513 7669',
@@ -178,7 +187,8 @@ class TourController extends Controller
                 'locationName' => 'ULTRAFLEX NORMANTON',
                 'locationSlug' => 'normanton',
                 'image' => '/Images/normanton/gym-in-normanton.webp',
-                'tourUrl' => 'https://tour.ultraflex.com/normanton',
+                // Provided link (scene3d)
+                'tourUrl' => 'https://my.scene3d.co.uk/tour/ultraflex-normanton-2022',
                 'duration' => '4-6 minutes',
                 'address' => 'High Street, Normanton WF6 2DB, UK',
                 'phone' => '+44 1924 890 123',
@@ -196,7 +206,8 @@ class TourController extends Controller
                 'locationName' => 'ULTRAFLEX ROTHERHAM',
                 'locationSlug' => 'rotherham',
                 'image' => '/Images/rotherham/gym-in-rotherham.webp',
-                'tourUrl' => 'https://tour.ultraflex.com/rotherham',
+                // Provided Matterport link
+                'tourUrl' => 'https://my.matterport.com/show/?m=qcrWz3BZzrj&back=1',
                 'duration' => '5-7 minutes',
                 'address' => 'Moorgate Street, Rotherham S60 2EY, UK',
                 'phone' => '+44 1709 456 789',
@@ -262,7 +273,7 @@ class TourController extends Controller
                 'address' => 'Clifton Moor Centre, York YO30 4WR, UK',
                 'phone' => '+44 1904 567 890',
                 'email' => 'york@ultraflexgym.co.uk',
-                'tourUrl' => 'https://tour.ultraflex.com/york'
+                'tourUrl' => 'https://my.matterport.com/show/?m=kZ7SPKSyTMt&back=1'
             ],
             'hull' => [
                 'id' => 6,
@@ -282,7 +293,7 @@ class TourController extends Controller
                 'address' => 'Jameson Street, Hull HU1 3DX, UK',
                 'phone' => '+44 1482 678 901',
                 'email' => 'hull@ultraflexgym.co.uk',
-                'tourUrl' => 'https://tour.ultraflex.com/hull'
+                'tourUrl' => 'https://my.matterport.com/show/?m=nfWTbfybzYt&back=1'
             ],
             'durham' => [
                 'id' => 7,
@@ -302,7 +313,7 @@ class TourController extends Controller
                 'address' => 'North Road, Durham DH1 4SQ, UK',
                 'phone' => '+44 1913 789 012',
                 'email' => 'durham@ultraflexgym.co.uk',
-                'tourUrl' => 'https://tour.ultraflex.com/durham'
+                'tourUrl' => 'https://youtu.be/JpALX5roRKE'
             ],
             'derby' => [
                 'id' => 8,
@@ -321,7 +332,7 @@ class TourController extends Controller
                 'address' => 'St Peters Street, Derby DE1 2AB, UK',
                 'phone' => '+44 1332 890 123',
                 'email' => 'derby@ultraflexgym.co.uk',
-                'tourUrl' => 'https://tour.ultraflex.com/derby'
+                'tourUrl' => 'https://youtu.be/VKlANmwoDPQ'
             ],
             'athens-greece' => [
                 'id' => 9,
@@ -341,7 +352,7 @@ class TourController extends Controller
                 'address' => 'Vouliagmenis Avenue, Glyfada 166 74, Greece',
                 'phone' => '+30 210 901 2345',
                 'email' => 'athens@ultraflexgym.co.uk',
-                'tourUrl' => 'https://tour.ultraflex.com/athens'
+                'tourUrl' => null
             ],
             'lincoln' => [
                 'id' => 10,
@@ -360,7 +371,7 @@ class TourController extends Controller
                 'address' => 'High Street, Lincoln LN5 7PJ, UK',
                 'phone' => '+44 1522 012 345',
                 'email' => 'lincoln@ultraflexgym.co.uk',
-                'tourUrl' => 'https://tour.ultraflex.com/lincoln'
+                'tourUrl' => 'https://youtu.be/u3qFZpkqxyI'
             ],
             'west-london' => [
                 'id' => 11,
@@ -379,7 +390,7 @@ class TourController extends Controller
                 'address' => 'Westfield Shopping Centre, London W12 7GF, UK',
                 'phone' => '+44 20 3456 7890',
                 'email' => 'westlondon@ultraflexgym.co.uk',
-                'tourUrl' => 'https://tour.ultraflex.com/west-london'
+                'tourUrl' => null
             ],
             // Add missing locations based on LocationController
             'west-leeds' => [
@@ -400,7 +411,7 @@ class TourController extends Controller
                 'address' => 'West Park Ring Road, Leeds LS16 6EB, UK',
                 'phone' => '0113 256 5107',
                 'email' => 'leeds@ultraflexgym.co.uk',
-                'tourUrl' => 'https://tour.ultraflex.com/west-leeds'
+                'tourUrl' => 'https://my.matterport.com/show/?m=8gw4DT8ZmVc&back=1'
             ],
             'north-leeds' => [
                 'id' => 2,
@@ -420,7 +431,7 @@ class TourController extends Controller
                 'address' => 'Limewood Centre, Limewood Avenue, Ring Road, Seacroft, Leeds LS14 1NH, UK',
                 'phone' => '0113 513 7669',
                 'email' => 'northleeds@ultraflexgym.co.uk',
-                'tourUrl' => 'https://tour.ultraflex.com/north-leeds'
+                'tourUrl' => 'https://youtu.be/VgF1a6XxAkc?si=Ki3Z0VdqdKVocs52'
             ],
             'normanton' => [
                 'id' => 3,
@@ -440,7 +451,7 @@ class TourController extends Controller
                 'address' => 'High Street, Normanton WF6 2DB, UK',
                 'phone' => '+44 1924 890 123',
                 'email' => 'normanton@ultraflexgym.co.uk',
-                'tourUrl' => 'https://tour.ultraflex.com/normanton'
+                'tourUrl' => 'https://my.scene3d.co.uk/tour/ultraflex-normanton-2022'
             ],
             'rotherham' => [
                 'id' => 4,
@@ -460,7 +471,7 @@ class TourController extends Controller
                 'address' => 'Moorgate Street, Rotherham S60 2EY, UK',
                 'phone' => '+44 1709 456 789',
                 'email' => 'rotherham@ultraflexgym.co.uk',
-                'tourUrl' => 'https://tour.ultraflex.com/rotherham'
+                'tourUrl' => 'https://my.matterport.com/show/?m=qcrWz3BZzrj&back=1'
             ],
             // ...existing code for other locations...
         ];

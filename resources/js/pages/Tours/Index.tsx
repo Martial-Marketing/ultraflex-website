@@ -11,7 +11,7 @@ interface Tour {
     locationName: string;
     locationSlug: string;
     image: string;
-    tourUrl: string;
+    tourUrl: string | null; // allow null for pending
     duration: string;
     highlights: string[];
     featured: boolean;
@@ -58,17 +58,9 @@ export default function ToursIndex({ tours, tourFeatures, featuredTours, auth }:
         setMatterportIndex((prev) => (prev === matterportTours.length - 1 ? 0 : prev + 1));
     };
 
-    const handleTourClick = (tourUrl: string, locationSlug?: string) => {
-        // Special case for York, Hull, Rotherham: open respective Matterport in new tab
-        if (locationSlug === 'york') {
-            window.open('https://my.matterport.com/show/?m=kZ7SPKSyTMt', '_blank', 'width=1200,height=800');
-        } else if (locationSlug === 'hull') {
-            window.open('https://my.matterport.com/show/?m=nfWTbfybzYt', '_blank', 'width=1200,height=800');
-        } else if (locationSlug === 'rotherham') {
-            window.open('https://my.matterport.com/show/?m=qcrWz3BZzrj', '_blank', 'width=1200,height=800');
-        } else {
-            window.open(tourUrl, '_blank', 'width=1200,height=800');
-        }
+    const handleTourClick = (tourUrl: string | null) => {
+        if (!tourUrl) return; // do nothing if pending
+        window.open(tourUrl, '_blank', 'width=1200,height=800');
     };
 
     return (
@@ -153,10 +145,11 @@ export default function ToursIndex({ tours, tourFeatures, featuredTours, auth }:
                                                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                                     <Button 
                                                         size="lg"
-                                                        className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white backdrop-blur-sm border border-red-700/20 shadow-lg transform hover:scale-105 transition-all duration-300"
+                                                        className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white backdrop-blur-sm border border-red-700/20 shadow-lg transform hover:scale-105 transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed"
                                                         onClick={() => handleTourClick(tour.tourUrl)}
+                                                        disabled={!tour.tourUrl}
                                                     >
-                                                        Start Tour
+                                                        {tour.tourUrl ? 'Start Tour' : 'Coming Soon'}
                                                     </Button>
                                                 </div>
 
@@ -195,11 +188,12 @@ export default function ToursIndex({ tours, tourFeatures, featuredTours, auth }:
 
                                                 <div className="space-y-2">
                                                     <Button 
-                                                        className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group"
+                                                        className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group disabled:opacity-40 disabled:cursor-not-allowed"
                                                         onClick={() => handleTourClick(tour.tourUrl)}
+                                                        disabled={!tour.tourUrl}
                                                     >
                                                         <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                                            Start Virtual Tour
+                                                            {tour.tourUrl ? 'Start Virtual Tour' : 'Coming Soon'}
                                                         </span>
                                                     </Button>
                                                     <Link href={`/locations/${tour.locationSlug}`} className="block w-full">
@@ -242,7 +236,7 @@ export default function ToursIndex({ tours, tourFeatures, featuredTours, auth }:
                                             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                                 <Button 
                                                     className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white backdrop-blur-sm border border-red-700/20 shadow-lg transform hover:scale-105 transition-all duration-300"
-                                                    onClick={() => handleTourClick(tour.tourUrl, tour.locationSlug)}
+                                                    onClick={() => handleTourClick(tour.tourUrl)}
                                                 >
                                                     Take Tour
                                                 </Button>
@@ -265,11 +259,12 @@ export default function ToursIndex({ tours, tourFeatures, featuredTours, auth }:
                                             </p>
                                             <div className="space-y-2">
                                                 <Button 
-                                                    className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group"
-                                                    onClick={() => handleTourClick(tour.tourUrl, tour.locationSlug)}
+                                                    className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group disabled:opacity-40 disabled:cursor-not-allowed"
+                                                    onClick={() => handleTourClick(tour.tourUrl)}
+                                                    disabled={!tour.tourUrl}
                                                 >
                                                     <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                                        Take Tour
+                                                        {tour.tourUrl ? 'Take Tour' : 'Coming Soon'}
                                                     </span>
                                                 </Button>
                                                 <Link href={`/locations/${tour.locationSlug}`} className="block w-full">

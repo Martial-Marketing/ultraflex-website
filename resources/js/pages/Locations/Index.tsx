@@ -75,12 +75,11 @@ export default function LocationsIndex({ locations, membershipPlans, auth }: Loc
                         <div 
                             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                             style={{
-                                backgroundImage: 'url(https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1920&h=1080&fit=crop&q=80)'
+                                backgroundImage: "url('/Images/athens/gym-in-athens-2.webp')"
                             }}
                         />
-                        
-                        {/* Overlay */}
-                        <div className="absolute inset-0 pointer-events-none" />
+                        {/* Black Overlay */}
+                        <div className="absolute inset-0 bg-black opacity-40 pointer-events-none z-0" />
                         
                         {/* Hero particles */}
                         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -225,8 +224,7 @@ export default function LocationsIndex({ locations, membershipPlans, auth }: Loc
                                                 >
                                                                     {plan.popular && (
                                                                         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-                                                                            <div className="bg-gradient-to-r from-red-700 to-red-800 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg border border-red-700/20 backdrop-blur-sm flex items-center">
-                                                                                <Star className="h-3 w-3 mr-1 fill-current" />
+                                                                            <div className="bg-gradient-to-r from-red-700 to-red-800 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg border border-red-700/20 backdrop-blur-sm">
                                                                                 MOST POPULAR
                                                                             </div>
                                                                         </div>

@@ -1,12 +1,14 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { MapPin } from 'lucide-react';
+import { Link } from '@inertiajs/react';
 
 interface Location {
     id: number;
     name: string;
     address: string;
     image: string;
+    slug?: string; // added for navigation
 }
 
 interface OurLocationsProps {
@@ -62,12 +64,14 @@ export default function OurLocations({ locations }: OurLocationsProps) {
                                 {/* Hover overlay with visit button */}
                                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     <div className="text-center">
-                                        <Button 
-                                            size="sm" 
-                                            className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-4 py-2 text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm"
-                                        >
-                                            <span className="group-hover:translate-x-1 transition-transform duration-300">Visit Location</span>
-                                        </Button>
+                                        <Link href={`/locations/${location.slug}`}> 
+                                            <Button 
+                                                size="sm" 
+                                                className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-4 py-2 text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm"
+                                            >
+                                                <span className="group-hover:translate-x-1 transition-transform duration-300">Visit Location</span>
+                                            </Button>
+                                        </Link>
                                     </div>
                                 </div>
 
@@ -112,15 +116,17 @@ export default function OurLocations({ locations }: OurLocationsProps) {
                 
                 {/* Enhanced call-to-action button */}
                 <div className="text-center">
-                    <Button 
-                        variant="outline" 
-                        size="lg" 
-                        className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm"
-                    >
-                        <span className="group-hover:translate-x-1 transition-transform duration-300">
-                            View All Locations
-                        </span>
-                    </Button>
+                    <Link href="/locations">
+                        <Button 
+                            variant="outline" 
+                            size="lg" 
+                            className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm"
+                        >
+                            <span className="group-hover:translate-x-1 transition-transform duration-300">
+                                View All Locations
+                            </span>
+                        </Button>
+                    </Link>
                 </div>
 
                 {/* Bottom accent line */}

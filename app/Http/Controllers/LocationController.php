@@ -244,6 +244,8 @@ class LocationController extends Controller
                         '/Images/newimages/West Leeds/gym-in-westleeds-4.webp'
                     ],
                     'slug' => 'west-leeds',
+                    // Provided Matterport link
+                    'virtualTour' => 'https://my.matterport.com/show/?m=8gw4DT8ZmVc&back=1',
                     'hours' => [
                         'monday' => '06:00 – 22:00',
                         'tuesday' => '06:00 – 22:00',
@@ -285,6 +287,39 @@ class LocationController extends Controller
                         [ 'label' => 'Pudsey Judo Club Instagram', 'url' => 'https://www.instagram.com/pudseyjudoclub', 'type' => 'instagram' ],
                         [ 'label' => 'Ostas Boxing Instagram (Alt)', 'url' => 'https://www.instagram.com/ostasboxing', 'type' => 'instagram' ]
                     ],
+                    'trainers' => [
+                        [
+                            'id' => 1,
+                            'name' => 'Zarina Rashid',
+                            'slug' => 'zarina-rashid',
+                            'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
+                            'bio' => "Hi, I'm Zarina, Face to Face and Online Personal Trainer. With over 10 years experience in the Industry. My background is in Bodybuilding, Nutrition and Martial Arts. My affinity for Health and Wellbeing is reflected in my approach when working with clients. Though I am extremely results oriented, and have created many excellent Body Transformations, my work has a great emphasis on nutrition, and creating excellent lifestyle habits rendering my clients able to live a Happier, stronger more functional life. My clients range from 16 yrs to 70 yrs plus, and vary from students to Company CEO's. If you are looking for help to improve your shape, your health and abilities in the gym message me for a complimentary session and chat about how I can support you.",
+                            'specialties' => ['Bodybuilding', 'Nutrition', 'Martial Arts', 'Lifestyle Coaching'],
+                            'certifications' => [],
+                            'experienceYears' => 10,
+                            'contact' => [
+                                'instagram' => 'https://www.instagram.com/zarina_rashid_',
+                                'phone' => '+447954848477'
+                            ],
+                            'availability' => 'Accepting Clients'
+                        ],
+                        [
+                            'id' => 2,
+                            'name' => 'Holly McV Fitness',
+                            'slug' => 'holly-mcv-fitness',
+                            'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
+                            'bio' => "Hiya, my name's Holly and I’m a fully qualified personal trainer! I have around 5 years of experience training, and teaching myself everything as a beginner to where I am now! My passion for fitness started when I first started lifting weights; from this day onwards I fell in love with the gym. This love soon turned into a passion of wanting to help and teach others, alongside achieving some amazing physical but also mental goals! My aim as your trainer and friend is to help reach your goals, teach you, show you, work on building up your confidence and self esteem, and make some incredible changes both body and mind! Your journey with me includes support 24/7—keeping you motivated, teaching you, showing you, educating you, designing fitness programmes for you, and of course making each session fun and enjoyable! When you start with me we are working on life long habits, maintaining balance so you can enjoy the gym as well as life! Remember your goals do not need to stop you from enjoying your life. Here we will work together to find that balance! I can’t do this on my own, so I need us to work together as a team to make these goals achievable. We will work together to get you exactly where you want to be, this is all about you so bring on the journey.",
+                            'specialties' => ['Confidence Building', 'Strength Training', 'Habit Coaching', 'Lifestyle Balance'],
+                            'certifications' => ['Fully Qualified Personal Trainer'],
+                            'experienceYears' => 5,
+                            'contact' => [
+                                'instagram' => 'https://www.instagram.com/hollymcvfitnesscoach',
+                                'facebook' => 'https://www.facebook.com/hollymcvfitnesscoach',
+                                'email' => 'hollymcvfitnesscoach@gmail.com'
+                            ],
+                            'availability' => 'Accepting Clients'
+                        ]
+                    ],
                 ];
                 break;
                 
@@ -311,6 +346,8 @@ class LocationController extends Controller
                         '/Images/newimages/North Leeds/gym-in-northleeds-12.webp'
                     ],
                     'slug' => 'north-leeds',
+                    // YouTube link (direct) for North Leeds virtual tour
+                    'virtualTour' => 'https://youtu.be/VgF1a6XxAkc?si=Ki3Z0VdqdKVocs52',
                     'hours' => [
                         'monday' => '06:00 – 22:00',
                         'tuesday' => '06:00 – 22:00',
@@ -330,13 +367,10 @@ class LocationController extends Controller
                     'services' => [
                         ['name' => 'Levels Barbers', 'description' => 'On-site barber services for members.'],
                         ['name' => 'Regen Physio', 'description' => 'Physiotherapy & rehab services supporting recovery.'],
-                        ['name' => 'Fika Aesthetics', 'description' => 'Aesthetic treatments and wellness support.'],
                         ['name' => 'IMA', 'description' => 'Specialist coaching / instruction (details forthcoming).'],
                         ['name' => 'Ultra Car Wash', 'description' => 'Convenient on-site car wash service while you train.']
                     ],
                     'serviceLinks' => [
-                        ['label' => 'Fika Aesthetics Website', 'url' => 'https://www.fikaaesthetics.co.uk', 'type' => 'external'],
-                        ['label' => 'Fika Aesthetics Instagram', 'url' => 'https://www.instagram.com/fikaaesthetics', 'type' => 'external'],
                         ['label' => 'Levels Barbers Instagram', 'url' => 'https://www.instagram.com/levelsbarbershopnorthleeds', 'type' => 'external'],
                         ['label' => 'Regen Physio Link', 'url' => 'https://bit.ly/m/RegenPhysio', 'type' => 'external'],
                         ['label' => 'Ultra Car Wash Instagram', 'url' => 'https://www.instagram.com/ultracarwashnorthleeds', 'type' => 'external'],
@@ -451,6 +485,8 @@ class LocationController extends Controller
                         '/Images/newimages/Normanton/gym-in-normanton-11.webp'
                     ],
                     'slug' => 'normanton',
+                    // Scene3D tour link
+                    'virtualTour' => 'https://my.scene3d.co.uk/tour/ultraflex-normanton-2022',
                     'hours' => [
                         'monday' => '06:00 – 22:00',
                         'tuesday' => '06:00 – 22:00',
@@ -637,6 +673,8 @@ class LocationController extends Controller
                         '/Images/newimages/Rotherham/gym-in-rotherham-5.webp'
                     ],
                     'slug' => 'rotherham',
+                    // Provided Matterport link (updated)
+                    'virtualTour' => 'https://my.matterport.com/show/?m=qcrWz3BZzrj&back=1',
                     'hours' => [
                         'monday' => '05:00 – 22:00',
                         'tuesday' => '05:00 – 22:00',
@@ -802,6 +840,8 @@ class LocationController extends Controller
                         '/Images/newimages/York/gym-in-york-3.webp'
                     ],
                     'slug' => 'york',
+                    // Provided Matterport link (updated)
+                    'virtualTour' => 'https://my.matterport.com/show/?m=kZ7SPKSyTMt&back=1',
                     'hours' => [
                         'monday' => '06:00 – 22:00',
                         'tuesday' => '06:00 – 22:00',
@@ -819,11 +859,6 @@ class LocationController extends Controller
                     ],
                     'services' => [
                         [
-                            'name' => 'Fika Aesthetics',
-                            'description' => 'Advanced aesthetics treatments supporting member confidence and recovery.',
-                            'icon' => null
-                        ],
-                        [
                             'name' => 'Regen Physio',
                             'description' => 'Physiotherapy and rehabilitation clinic for injury prevention and performance.',
                             'icon' => null
@@ -835,9 +870,6 @@ class LocationController extends Controller
                         ]
                     ],
                     'serviceLinks' => [
-                        [ 'label' => 'Fika Aesthetics Instagram', 'url' => 'https://www.instagram.com/fikaaesthetics/', 'type' => 'instagram' ],
-                        [ 'label' => 'Fika Aesthetics Email', 'url' => 'mailto:fikaaestheticsyork@gmail.com', 'type' => 'email' ],
-                        [ 'label' => 'Fika Aesthetics Website', 'url' => 'https://www.fikaaesthetics.co.uk/', 'type' => 'website' ],
                         [ 'label' => 'Regen Physio Instagram', 'url' => 'https://www.instagram.com/regenphysio/', 'type' => 'instagram' ],
                         [ 'label' => 'Regen Physio Email', 'url' => 'mailto:info@regenphysio.co.uk', 'type' => 'email' ],
                         [ 'label' => 'Regen Physio Website', 'url' => 'https://www.regenphysio.co.uk/clinics/york', 'type' => 'website' ],
@@ -980,6 +1012,8 @@ class LocationController extends Controller
                         '/Images/newimages/Hull/gym-in-hull-6.webp'
                     ],
                     'slug' => 'hull',
+                    // Provided Matterport link (updated)
+                    'virtualTour' => 'https://my.matterport.com/show/?m=nfWTbfybzYt&back=1',
                     'hours' => [
                         'monday' => '05:00 – 22:00',
                         'tuesday' => '05:00 – 22:00',
@@ -1074,6 +1108,8 @@ class LocationController extends Controller
                         '/Images/newimages/Durham/gym-in-durham-5.webp'
                     ],
                     'slug' => 'durham',
+                    // YouTube link
+                    'virtualTour' => 'https://www.youtube.com/embed/JpALX5roRKE',
                     'hours' => [
                         'monday' => '05:00 – 22:00',
                         'tuesday' => '05:00 – 22:00',
@@ -1168,6 +1204,8 @@ class LocationController extends Controller
                         '/Images/derby/ForGallery/gym-in-derby-10.webp'
                     ],
                     'slug' => 'derby',
+                    // YouTube link
+                    'virtualTour' => 'https://www.youtube.com/embed/VKlANmwoDPQ',
                     'hours' => [
                         'monday' => '05:00 – 22:00',
                         'tuesday' => '05:00 – 22:00',
@@ -1281,6 +1319,8 @@ class LocationController extends Controller
                         '/Images/athens/HeroBG/DSC07413.jpg'
                     ],
                     'slug' => 'athens-greece',
+                    // Coming soon – awaiting YouTube drone tour
+                    'virtualTour' => null,
                     'hours' => [
                         'monday' => '6:00 AM - 11:00 PM',
                         'tuesday' => '6:00 AM - 11:00 PM',
@@ -1396,6 +1436,8 @@ class LocationController extends Controller
                         '/Images/newimages/Lincoln/gym-in-lincoln-8.webp'
                     ],
                     'slug' => 'lincoln',
+                    // YouTube link
+                    'virtualTour' => 'https://www.youtube.com/embed/u3qFZpkqxyI',
                     'hours' => [
                         'monday' => '24/7 (Full Access) | 06:00 - 22:00 (Day Access)',
                         'tuesday' => '24/7 (Full Access) | 06:00 - 22:00 (Day Access)',
@@ -1518,6 +1560,8 @@ class LocationController extends Controller
                         '/Images/westlondon/DSC07372.jpg'
                     ],
                     'slug' => 'west-london',
+                    // West London tour video nearly ready (placeholder null)
+                    'virtualTour' => null,
                     'hours' => [
                         'monday' => '05:30 – 22:30',
                         'tuesday' => '05:30 – 22:30',
@@ -1651,6 +1695,8 @@ class LocationController extends Controller
                         '/Images/westleeds/UFG (100) (2).jpg'
                     ],
                     'slug' => 'west-leeds',
+                    // Provided Matterport link (default West Leeds)
+                    'virtualTour' => 'https://my.matterport.com/show/?m=8gw4DT8ZmVc&back=1',
                     'hours' => [
                         'monday' => '06:00 – 22:00',
                         'tuesday' => '06:00 – 22:00',
@@ -1815,7 +1861,8 @@ class LocationController extends Controller
                     'popular' => false
                 ]
             ],
-            'virtualTour' => 'https://www.youtube.com/embed/sample-virtual-tour'
+            // Removed placeholder; per-location cases now define virtualTour (can be null)
+            'virtualTour' => $locationData['virtualTour'] ?? null
         ];
 
         // Add default reviews and coordinates if not specified
@@ -1860,52 +1907,275 @@ class LocationController extends Controller
         }
 
 
-        // --- Inject dynamic trainers for this location ---
+        // --- Inject dynamic trainers for this location (real data) ---
+        // NOTE: Bios trimmed to 2-3 sentences for card display; full versions can later move to a dedicated config or DB.
         $allTrainers = [
+            // North Leeds
             [
-                'id' => 1,
-                'name' => 'Sarah Johnson',
-                'image' => 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=500&fit=crop&crop=face',
-                'bio' => 'Certified personal trainer with 8+ years of experience specializing in strength training and weight loss.',
-                'specialties' => ['Strength Training', 'Weight Loss', 'Functional Training'],
-                'certifications' => ['ACSM-CPT', 'NASM-CES', 'Precision Nutrition Level 1'],
-                'slug' => 'sarah-johnson',
-                'locationSlug' => 'west-leeds'
+                'id' => 101,
+                'name' => 'Andy Cowell',
+                'slug' => 'andy-cowell',
+                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
+                'bio' => 'Over 30 years experience in bodybuilding, weight loss, strength and wellbeing. Also coaches competition and photo-shoot prep with nutrition, supplement and injury rehab guidance.',
+                'specialties' => ['Bodybuilding', 'Weight Loss', 'Strength', 'Rehab'],
+                'certifications' => [],
+                'locationSlug' => 'north-leeds',
+                'contact' => ['instagram' => null]
             ],
             [
-                'id' => 2,
-                'name' => 'Mike Chen',
-                'image' => 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=500&fit=crop&crop=face',
-                'bio' => 'Former competitive bodybuilder turned personal trainer, specializing in muscle building and nutrition.',
-                'specialties' => ['Bodybuilding', 'Nutrition Coaching', 'Strength & Conditioning'],
-                'certifications' => ['NSCA-CSCS', 'ISSN-CNS', 'NASM-CPT'],
-                'slug' => 'mike-chen',
-                'locationSlug' => 'north-leeds'
+                'id' => 102,
+                'name' => 'Ali Mardomi',
+                'slug' => 'ali-mardomi',
+                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
+                'bio' => '23+ years coaching from first-time gym goers to stage competitors. Focus on effective, enjoyable training and confidence-building transformations.',
+                'specialties' => ['Contest Prep', 'Bodybuilding', 'General Fitness'],
+                'certifications' => ['Level 2', 'Level 3', 'Nutrition'],
+                'locationSlug' => 'north-leeds',
+                'contact' => ['instagram' => 'https://instagram.com/alimardomi']
+            ],
+            // York
+            [
+                'id' => 201,
+                'name' => 'Harry Strike',
+                'slug' => 'harry-strike',
+                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
+                'bio' => 'Dedicated PT helping clients achieve sustainable physical and mental progress through structured plans and in-person support.',
+                'specialties' => ['Body Recomposition', 'Mindset', 'Lifestyle Coaching'],
+                'certifications' => [],
+                'locationSlug' => 'york',
+                'contact' => []
             ],
             [
-                'id' => 3,
-                'name' => 'Emma Davis',
-                'image' => 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=500&fit=crop&crop=face',
-                'bio' => 'Yoga instructor and wellness coach passionate about helping clients achieve balance in fitness and life.',
-                'specialties' => ['Yoga', 'Pilates', 'Flexibility Training', 'Wellness Coaching'],
-                'certifications' => ['RYT-500', 'Pilates Method Alliance', 'ACE-CPT'],
-                'slug' => 'emma-davis',
-                'locationSlug' => 'normanton'
+                'id' => 202,
+                'name' => 'Dan',
+                'slug' => 'dan',
+                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
+                'bio' => 'Coaches a wide range of people in-person and online using a highly personal, service-focused approach beyond generic app programming.',
+                'specialties' => ['General Population', 'Accountability', 'Online Coaching'],
+                'certifications' => [],
+                'locationSlug' => 'york',
+                'contact' => []
             ],
             [
-                'id' => 4,
-                'name' => 'James Rodriguez',
-                'image' => 'https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?w=400&h=500&fit=crop&crop=face',
-                'bio' => 'High-performance coach specializing in athletic training and sports-specific conditioning.',
-                'specialties' => ['Athletic Performance', 'Sports Conditioning', 'Injury Prevention'],
-                'certifications' => ['CSCS', 'USAW-L1', 'FMS-L2'],
-                'slug' => 'james-rodriguez',
-                'locationSlug' => 'rotherham'
-            ]
+                'id' => 203,
+                'name' => 'Natalie',
+                'slug' => 'natalie',
+                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
+                'bio' => 'Bikini category champion helping women build confidence and elite stage or holiday condition while keeping lifestyle balance.',
+                'specialties' => ['Female Physique', 'Contest Prep', 'Body Recomposition'],
+                'certifications' => [],
+                'locationSlug' => 'york',
+                'contact' => ['instagram' => 'https://instagram.com/levelupfitness_bynat']
+            ],
+            [
+                'id' => 204,
+                'name' => 'Adam Gucwa',
+                'slug' => 'adam-gucwa',
+                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
+                'bio' => 'Physical Education & Sports Science background; 15+ years helping clients get stronger, leaner and lift safely with adaptive programming.',
+                'specialties' => ['Strength', 'Technique', 'Body Recomposition'],
+                'certifications' => ['PT Qualified'],
+                'locationSlug' => 'york',
+                'contact' => ['email' => 'adamgucwa.pt@gmail.com']
+            ],
+            // Hull
+            [
+                'id' => 301,
+                'name' => 'Luke Masters',
+                'slug' => 'luke-masters',
+                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
+                'bio' => '5+ years coaching helping clients gain strength and confidence in their physiques.',
+                'specialties' => ['Strength', 'Confidence Building'],
+                'certifications' => [],
+                'locationSlug' => 'hull',
+                'contact' => ['instagram' => 'https://instagram.com/luke_masters_physique']
+            ],
+            [
+                'id' => 302,
+                'name' => 'Leon',
+                'slug' => 'leon',
+                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
+                'bio' => '10+ years PT and 12+ years competitive bodybuilding; 2x Britain Champion guiding goals from fat loss to stage prep.',
+                'specialties' => ['Bodybuilding', 'Fat Loss', 'Contest Prep'],
+                'certifications' => [],
+                'locationSlug' => 'hull',
+                'contact' => ['email' => 'elitephysiquecoaching@gmail.com', 'instagram' => 'https://instagram.com/elite_physique_coaching']
+            ],
+            [
+                'id' => 303,
+                'name' => 'Stevie',
+                'slug' => 'stevie',
+                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
+                'bio' => 'Certified PT & nutrition certified—focus on education, empowerment and sustainable physique change.',
+                'specialties' => ['Nutrition', 'Sustainable Change', 'Muscle Gain'],
+                'certifications' => ['Nutrition Certificate'],
+                'locationSlug' => 'hull',
+                'contact' => ['instagram' => 'https://instagram.com/smphysiquecoaching']
+            ],
+            [
+                'id' => 304,
+                'name' => 'Cody Wilks',
+                'slug' => 'cody-wilks',
+                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
+                'bio' => 'Blends in-person coaching with app-based programming, tailored training, nutrition, weekly check-ins and education resources.',
+                'specialties' => ['Hybrid Coaching', 'Body Transformation'],
+                'certifications' => [],
+                'locationSlug' => 'hull',
+                'contact' => ['instagram' => 'https://instagram.com/codywilkscoachpt']
+            ],
+            // Lincoln
+            [
+                'id' => 401,
+                'name' => 'Dawid',
+                'slug' => 'dawid',
+                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
+                'bio' => '20+ years experience focusing on physique transformation, performance development and balanced lifestyle training.',
+                'specialties' => ['Physique Transformation', 'Performance', 'Mindset'],
+                'certifications' => ['Level 2', 'Level 3'],
+                'locationSlug' => 'lincoln',
+                'contact' => []
+            ],
+            [
+                'id' => 402,
+                'name' => 'Joanna Sirostan',
+                'slug' => 'joanna-sirostan',
+                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
+                'bio' => 'Level 2 & 3 PT with Precision Nutrition L1 helping clients build habits, strength and sustainable wellness.',
+                'specialties' => ['Habit Change', 'Strength', 'Wellness'],
+                'certifications' => ['Level 2', 'Level 3', 'PN L1'],
+                'locationSlug' => 'lincoln',
+                'contact' => ['instagram' => 'https://instagram.com/joanna_sirostan']
+            ],
+            [
+                'id' => 403,
+                'name' => 'Dale Bowman',
+                'slug' => 'dale-bowman',
+                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
+                'bio' => 'Experienced competitive bodybuilder offering tailored training, nutrition coaching and competition preparation.',
+                'specialties' => ['Contest Prep', 'Strength', 'Nutrition'],
+                'certifications' => ['Nutrition Diploma'],
+                'locationSlug' => 'lincoln',
+                'contact' => ['email' => 'dbfitness.lincoln@gmail.com', 'phone' => '+447784355668']
+            ],
+            [
+                'id' => 404,
+                'name' => 'TC',
+                'slug' => 'tc',
+                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
+                'bio' => 'Level 3 PT with 3 years professional experience and 20 years training; promotes sustainable mental and physical transformations.',
+                'specialties' => ['Lifestyle Coaching', 'Strength', 'Body Recomposition'],
+                'certifications' => ['Level 3'],
+                'locationSlug' => 'lincoln',
+                'contact' => ['email' => 'tccoaching85@gmail.com', 'instagram' => 'https://instagram.com/coach_by_tc']
+            ],
+            // Durham (removed Racheal Turnbull as requested)
+            [
+                'id' => 501,
+                'name' => 'James Tindale',
+                'slug' => 'james-tindale',
+                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
+                'bio' => 'Provides results-focused coaching and physique development with accountability.',
+                'specialties' => ['Physique', 'Accountability'],
+                'certifications' => [],
+                'locationSlug' => 'durham',
+                'contact' => ['instagram' => 'https://instagram.com/jamestindalefitness']
+            ],
+            [
+                'id' => 502,
+                'name' => 'Ashton Alderson',
+                'slug' => 'ashton-alderson',
+                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
+                'bio' => 'Coaches clients through structured training and progressive performance methods.',
+                'specialties' => ['Performance', 'Strength'],
+                'certifications' => [],
+                'locationSlug' => 'durham',
+                'contact' => ['instagram' => 'https://instagram.com/Ashtonaldersonfitness']
+            ],
+            [
+                'id' => 503,
+                'name' => 'Christopher',
+                'slug' => 'christopher',
+                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
+                'bio' => 'Delivers tailored coaching focused on technique, progression and consistency.',
+                'specialties' => ['Technique', 'Progressive Training'],
+                'certifications' => [],
+                'locationSlug' => 'durham',
+                'contact' => ['instagram' => 'https://instagram.com/khifiewest_']
+            ],
+            [
+                'id' => 504,
+                'name' => 'Conrad Ashton',
+                'slug' => 'conrad-ashton',
+                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
+                'bio' => 'Personal training with emphasis on effective execution and client education.',
+                'specialties' => ['Execution', 'Client Education'],
+                'certifications' => [],
+                'locationSlug' => 'durham',
+                'contact' => ['instagram' => 'https://instagram.com/ashtonpersonaltraining']
+            ],
+            [
+                'id' => 505,
+                'name' => 'Wendy McCready',
+                'slug' => 'wendy-mccready',
+                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
+                'bio' => 'IFBB Pro offering elite physique coaching and stage preparation.',
+                'specialties' => ['IFBB Prep', 'Physique'],
+                'certifications' => ['IFBB Pro'],
+                'locationSlug' => 'durham',
+                'contact' => ['instagram' => 'https://instagram.com/ifbbprowendymccready']
+            ],
+            // Derby
+            [
+                'id' => 601,
+                'name' => 'Dazz Kent',
+                'slug' => 'dazz-kent',
+                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
+                'bio' => 'Specialises in general population transformations, nutrition and stress management.',
+                'specialties' => ['Transformations', 'Nutrition', 'Stress Management'],
+                'certifications' => [],
+                'locationSlug' => 'derby',
+                'contact' => ['instagram' => 'https://instagram.com/dazzkent', 'email' => 'Dazzkentfitness@gmail.com', 'phone' => '+447738689130']
+            ],
+            [
+                'id' => 602,
+                'name' => 'Damon Hauge',
+                'slug' => 'damon-hauge',
+                'image' => '/Images/trainers/damon-hauge.webp',
+                'bio' => 'Ex-professional boxer sharing extensive training and nutrition knowledge for next-level results.',
+                'specialties' => ['Boxing', 'Nutrition', 'Strength & Conditioning'],
+                'certifications' => [],
+                'locationSlug' => 'derby',
+                'contact' => ['instagram' => 'https://instagram.com/d.htraining', 'email' => 'dhtraining@gmail.com', 'phone' => '+447460834333']
+            ],
+            // West London
+            [
+                'id' => 701,
+                'name' => 'Allan',
+                'slug' => 'allan',
+                'image' => '/Images/trainers/allan.webp',
+                'bio' => 'Focuses on mastery of fundamentals, precise execution and efficient progress toward strength, fat loss and performance goals.',
+                'specialties' => ['Strength', 'Execution', 'Fat Loss'],
+                'certifications' => [],
+                'locationSlug' => 'west-london',
+                'contact' => ['instagram' => 'https://instagram.com/avidity.fitness.uk', 'email' => 'Contact@avtfitness.com', 'phone' => '+447714245383', 'website' => 'https://www.avtfitness.com']
+            ],
         ];
-        $locationData['trainers'] = array_values(array_filter($allTrainers, function($trainer) use ($locationData) {
+        // If trainers already defined in the specific location case (e.g. West Leeds), merge them with dynamic ones.
+        $dynamicForLocation = array_values(array_filter($allTrainers, function($trainer) use ($locationData) {
             return isset($trainer['locationSlug']) && isset($locationData['slug']) && $trainer['locationSlug'] === $locationData['slug'];
         }));
+
+        if (isset($locationData['trainers']) && is_array($locationData['trainers']) && count($locationData['trainers']) > 0) {
+            // Avoid duplicate slugs when merging
+            $existingSlugs = array_column($locationData['trainers'], 'slug');
+            foreach ($dynamicForLocation as $t) {
+                if (!in_array($t['slug'], $existingSlugs, true)) {
+                    $locationData['trainers'][] = $t;
+                }
+            }
+        } else {
+            $locationData['trainers'] = $dynamicForLocation;
+        }
 
         $locationData = array_merge($commonData, $locationData);
 
