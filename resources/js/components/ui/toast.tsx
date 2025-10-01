@@ -123,9 +123,19 @@ export function ToastProviderComponent({ children }: { children: React.ReactNode
       }
 
       Object.keys(TOAST_SOUNDS).forEach((type) => {
-        const audioElement = new Audio(TOAST_SOUNDS[type as ToastType])
-        audioElement.preload = "auto"
-        currentAudioRefs[type as ToastType] = audioElement
+        const src = TOAST_SOUNDS[type as ToastType]
+        // Attempt to verify file exists to avoid 404 spam; graceful fallback
+        fetch(src, { method: 'HEAD' }).then(r => {
+          if (r.ok) {
+            const audioElement = new Audio(src)
+            audioElement.preload = "auto"
+            currentAudioRefs[type as ToastType] = audioElement
+          } else {
+            currentAudioRefs[type as ToastType] = null
+          }
+        }).catch(() => {
+          currentAudioRefs[type as ToastType] = null
+        })
       })
 
       audioRefs.current = currentAudioRefs
@@ -284,8 +294,7 @@ function ToastProgressBar({
         animate={{ width: "100%" }}
         transition={{
           duration: duration / 1000,
-          ease: "linear",
-          paused,
+          ease: "linear"
         }}
       />
     </div>

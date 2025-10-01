@@ -1,0 +1,6 @@
+import{o as s,g as t}from"./dropdown-menu-DL5bYpzk.js";import{j as r}from"./app-CpBKaq2J.js";/**
+ * @license lucide-react v0.475.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const o=[["path",{d:"M21.801 10A10 10 0 1 1 17 3.335",key:"yps3ct"}],["path",{d:"m9 11 3 3L22 4",key:"1pflzl"}]],n=s("CircleCheckBig",o);function i({className:a,...e}){return r.jsx("div",{"data-slot":"card",className:t("bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm",a),...e})}function l({className:a,...e}){return r.jsx("div",{"data-slot":"card-header",className:t("flex flex-col gap-1.5 px-6",a),...e})}function x({className:a,...e}){return r.jsx("div",{"data-slot":"card-title",className:t("leading-none font-semibold",a),...e})}function f({className:a,...e}){return r.jsx("div",{"data-slot":"card-description",className:t("text-muted-foreground text-sm",a),...e})}function u({className:a,...e}){return r.jsx("div",{"data-slot":"card-content",className:t("px-6",a),...e})}function m({className:a,...e}){return r.jsx("div",{"data-slot":"card-footer",className:t("flex items-center px-6",a),...e})}export{n as C,i as a,l as b,x as c,f as d,u as e,m as f};

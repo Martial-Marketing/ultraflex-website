@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Services\ImageService;
+use App\Data\TrainerData;
 
 class LocationController extends Controller
 {
     public function index()
     {
-        // Common membership plans for all locations
+        // Common membership plans for all locations (global carousel)
+        // Removed location-specific 'Martial Arts Area' reference to avoid inaccurate claims for gyms without that facility.
         $membershipPlans = [
             [
                 'id' => 1,
@@ -27,7 +29,7 @@ class LocationController extends Controller
                 'name' => 'Weekly Pass',
                 'price' => 22.50,
                 'period' => 'week',
-                'features' => ['7 Days Access', 'All Equipment Access', 'Martial Arts Area', 'Free Parking'],
+                'features' => ['7 Days Access', 'All Equipment Access', 'Free Parking'],
                 'popular' => false
             ],
             [
@@ -35,7 +37,7 @@ class LocationController extends Controller
                 'name' => 'Monthly Pass',
                 'price' => 45,
                 'period' => 'month',
-                'features' => ['30 Days Access', 'All Equipment Access', 'Martial Arts Area', 'Group Classes'],
+                'features' => ['30 Days Access', 'All Equipment Access', 'Group Classes'],
                 'popular' => false
             ],
             [
@@ -43,7 +45,7 @@ class LocationController extends Controller
                 'name' => 'Monthly Direct Debit',
                 'price' => 38.50,
                 'period' => 'month',
-                'features' => ['Monthly Rolling Contract', 'Min 12 Month Commitment', 'All Equipment Access', 'Martial Arts Area', 'Group Classes', 'Best Value'],
+                'features' => ['Monthly Rolling Contract', 'Min 12 Month Commitment', 'All Equipment Access', 'Group Classes', 'Best Value'],
                 'popular' => true
             ],
             [
@@ -51,7 +53,7 @@ class LocationController extends Controller
                 'name' => '3 Month Pass',
                 'price' => 130,
                 'period' => '3 months',
-                'features' => ['3 Months Access', 'Payment in Full', 'All Equipment Access', 'Martial Arts Area', 'Group Classes'],
+                'features' => ['3 Months Access', 'Payment in Full', 'All Equipment Access', 'Group Classes'],
                 'popular' => false
             ],
             [
@@ -59,7 +61,7 @@ class LocationController extends Controller
                 'name' => '6 Month Pass',
                 'price' => 230,
                 'period' => '6 months',
-                'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'Martial Arts Area', 'Group Classes'],
+                'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'Group Classes'],
                 'popular' => false
             ],
             [
@@ -67,7 +69,7 @@ class LocationController extends Controller
                 'name' => '12 Month Pass',
                 'price' => 420,
                 'period' => '12 months',
-                'features' => ['12 Months Access', 'Payment in Full', 'All Equipment Access', 'Martial Arts Area', 'Group Classes', 'Best Annual Value'],
+                'features' => ['12 Months Access', 'Payment in Full', 'All Equipment Access', 'Group Classes', 'Best Annual Value'],
                 'popular' => false
             ],
             [
@@ -75,7 +77,7 @@ class LocationController extends Controller
                 'name' => 'Student Monthly Rolling',
                 'price' => 40,
                 'period' => 'month',
-                'features' => ['Student Discount', 'Valid Student ID Required', 'Monthly Rolling', 'All Equipment Access', 'Martial Arts Area'],
+                'features' => ['Student Discount', 'Valid Student ID Required', 'Monthly Rolling', 'All Equipment Access'],
                 'popular' => false
             ],
         ];
@@ -90,7 +92,7 @@ class LocationController extends Controller
                 'image' => '/Images/newimages/West Leeds/gym-in-westleeds.webp',
                 'slug' => 'west-leeds',
                 'hours' => [
-                    'weekdays' => '06:00 - 22:00',
+                    'weekdays' => '05:30 - 22:00',
                     'weekends' => '08:00 - 20:00'
                 ]
             ],
@@ -115,8 +117,8 @@ class LocationController extends Controller
                 'image' => '/Images/newimages/Normanton/gym-in-normanton.webp',
                 'slug' => 'normanton',
                 'hours' => [
-                    'weekdays' => '5:00 AM - 11:00 PM',
-                    'weekends' => '6:00 AM - 10:00 PM'
+                    'weekdays' => '05:00 - 22:00',
+                    'weekends' => '06:00 - 20:00'
                 ]
             ],
             [
@@ -127,8 +129,8 @@ class LocationController extends Controller
                 'image' => '/Images/newimages/Rotherham/gym-in-rotherham.webp',
                 'slug' => 'rotherham',
                 'hours' => [
-                    'weekdays' => '5:00 AM - 11:00 PM',
-                    'weekends' => '6:00 AM - 10:00 PM'
+                    'weekdays' => '05:00 - 22:00',
+                    'weekends' => '08:00 - 20:00'
                 ]
             ],
             [
@@ -139,8 +141,8 @@ class LocationController extends Controller
                 'image' => '/Images/newimages/York/gym-in-york.webp',
                 'slug' => 'york',
                 'hours' => [
-                    'weekdays' => '5:00 AM - 11:00 PM',
-                    'weekends' => '6:00 AM - 10:00 PM'
+                    'weekdays' => '05:00 - 22:00',
+                    'weekends' => '08:00 - 20:00'
                 ]
             ],
             [
@@ -152,8 +154,8 @@ class LocationController extends Controller
                 'image' => '/Images/processed-E08A33F0-0FB6-43A5-BF60-EC1147B6517D-min-min.jpeg',
                 'slug' => 'hull',
                 'hours' => [
-                    'weekdays' => '5:00 AM - 11:00 PM',
-                    'weekends' => '6:00 AM - 10:00 PM'
+                    'weekdays' => '05:00 - 22:00',
+                    'weekends' => '07:00 - 20:00'
                 ]
             ],
             [
@@ -165,8 +167,8 @@ class LocationController extends Controller
                 'image' => '/Images/original-787FADAA-6849-48F3-B005-6AD9FB2E74C4-min-min.jpeg',
                 'slug' => 'durham',
                 'hours' => [
-                    'weekdays' => '5:00 AM - 11:00 PM',
-                    'weekends' => '6:00 AM - 10:00 PM'
+                    'weekdays' => '05:00 - 22:00',
+                    'weekends' => '07:00 - 20:00'
                 ]
             ],
             [
@@ -178,8 +180,8 @@ class LocationController extends Controller
                 'image' => '/Images/processed-5AB78E5E-3190-4963-8AAF-9B3B527D73AD-min-min.jpeg',
                 'slug' => 'derby',
                 'hours' => [
-                    'weekdays' => '5:00 AM - 11:00 PM',
-                    'weekends' => '6:00 AM - 10:00 PM'
+                    'weekdays' => '24hr (Full Access) / 06:00 - 22:00 (Day Access)',
+                    'weekends' => '24hr (Full Access) / 06:00 - 20:00 (Day Access)'
                 ]
             ],
             [
@@ -216,8 +218,8 @@ class LocationController extends Controller
                 'image' => '/Images/processed-F7DB5741-8540-4974-9CCC-A37F83D8733B-min-min.jpeg',
                 'slug' => 'west-london',
                 'hours' => [
-                    'weekdays' => '5:30 AM - 11:00 PM',
-                    'weekends' => '6:00 AM - 10:00 PM'
+                    'weekdays' => '05:30 - 22:30',
+                    'weekends' => '08:00 - 20:00'
                 ]
             ]
         ];
@@ -233,6 +235,35 @@ class LocationController extends Controller
 
     public function show($location)
     {
+        // Capability map (only boxing retained, martial arts removed per instructions)
+        $capabilities = [
+            'west-leeds' => ['boxing' => true],
+            'york' => ['boxing' => true],
+            // Other locations currently have no dedicated boxing area
+        ];
+
+        // Helper to clean and augment membership plan feature lists
+        $processPlans = function(array $plans, bool $hasBoxing) {
+            return array_map(function($plan) use ($hasBoxing) {
+                if (isset($plan['features']) && is_array($plan['features'])) {
+                    // Remove any legacy martial arts strings (case-insensitive contains 'martial')
+                    $plan['features'] = array_values(array_filter(array_map(function($f){
+                        return preg_match('/martial/i', $f) ? null : $f;
+                    }, $plan['features'])));
+                    if ($hasBoxing) {
+                        $hasBoxingFeature = false;
+                        foreach ($plan['features'] as $f) {
+                            if (stripos($f, 'boxing') !== false) { $hasBoxingFeature = true; break; }
+                        }
+                        if (!$hasBoxingFeature) {
+                            $plan['features'][] = 'Boxing Area';
+                        }
+                    }
+                }
+                return $plan;
+            }, $plans);
+        };
+
         // Define location-specific data
         $locationData = [];
         
@@ -255,11 +286,11 @@ class LocationController extends Controller
                     // Provided Matterport link
                     'virtualTour' => 'https://my.matterport.com/show/?m=8gw4DT8ZmVc&back=1',
                     'hours' => [
-                        'monday' => '06:00 – 22:00',
-                        'tuesday' => '06:00 – 22:00',
-                        'wednesday' => '06:00 – 22:00',
-                        'thursday' => '06:00 – 22:00',
-                        'friday' => '06:00 – 22:00',
+                        'monday' => '05:30 – 22:00',
+                        'tuesday' => '05:30 – 22:00',
+                        'wednesday' => '05:30 – 22:00',
+                        'thursday' => '05:30 – 22:00',
+                        'friday' => '05:30 – 22:00',
                         'saturday' => '08:00 – 20:00',
                         'sunday' => '08:00 – 20:00'
                     ],
@@ -689,8 +720,8 @@ class LocationController extends Controller
                         'wednesday' => '05:00 – 22:00',
                         'thursday' => '05:00 – 22:00',
                         'friday' => '05:00 – 22:00',
-                        'saturday' => '06:00 – 20:00',
-                        'sunday' => '06:00 – 20:00'
+                        'saturday' => '08:00 – 20:00',
+                        'sunday' => '08:00 – 20:00'
                     ],
                     'manager' => [
                         'name' => 'Morgan',
@@ -856,12 +887,12 @@ class LocationController extends Controller
                         'wednesday' => '06:00 – 22:00',
                         'thursday' => '06:00 – 22:00',
                         'friday' => '06:00 – 22:00',
-                        'saturday' => '06:00 – 20:00',
+                        'saturday' => '08:00 – 20:00',
                         'sunday' => '08:00 – 20:00'
                     ],
                     'manager' => [
                         'name' => 'Jason',
-                        'bio' => 'Welcome to UltraFlex York, my name is Jason and I\'m your General Manager. I\'ve been running the York UltraFlex for two years now and in that time I\'ve seen so much re-investment into the gym and the facilities here which makes my job infinitely easier. In total over two years, we have added over a dozen new items of top-quality kit from cardio equipment to strength training to an entire new area dedicated to Boxing and Martial Arts. I\'ve never worked in a business that consistently re-invests like UltraFlex and it reflects with the loyalty and community that our members feel here. We have some of the best PTs in the business and as an ex-Fighter I train with our Thai Boxing Coach as well as our PT who was England NABBA Winner & UK NABBA Winner. I personally could not imagine training anywhere else now that I’ve been exposed to UltraFlex gyms.\n\nWe are always active on our socials and respond to DMs straight away as well as encouraging members to tag us in their workouts or comps. We regularly host Open Days and Member Giveaways as well as charity events and member socials which are great meet and greets for the members and staff.\n\nAny information you need you can email us on york@ultraflexgym.co.uk or drop us a message on any of our socials.',
+                        'bio' => 'I am the general manager at UltraFlex Gym York. I\'ve been running the York UltraFlex for two years now and in that time I\'ve seen so much re-investment into the gym and the facilities here which makes my job infinitely easier. In total over two years, we have added over a dozen new items of top-quality kit from cardio equipment to strength training to an entire new area dedicated to Boxing. I\'ve never worked in a business that consistently re-invests like UltraFlex and it reflects with the loyalty and community that our members feel here. We have some of the best PTs in the business and as an ex-Fighter I train with our Thai Boxing Coach as well as our PT who was England NABBA Winner & UK NABBA Winner. I personally could not imagine training anywhere else now that I’ve been exposed to UltraFlex gyms.\n\nWe are always active on our socials and respond to DMs straight away as well as encouraging members to tag us in their workouts or comps. We regularly host Open Days and Member Giveaways as well as charity events and member socials which are great meet and greets for the members and staff.\n\nAny information you need you can email us on york@ultraflexgym.co.uk or drop us a message on any of our socials.',
                         'image' => '/Images/managers/jason.jpg',
                         'experience' => null
                     ],
@@ -1029,8 +1060,8 @@ class LocationController extends Controller
                         'wednesday' => '05:00 – 22:00',
                         'thursday' => '05:00 – 22:00',
                         'friday' => '05:00 – 22:00',
-                        'saturday' => '06:00 – 20:00',
-                        'sunday' => '06:00 – 20:00'
+                        'saturday' => '07:00 – 20:00',
+                        'sunday' => '07:00 – 20:00'
                     ],
                     'manager' => [
                         'name' => 'Tronn',
@@ -1097,6 +1128,39 @@ class LocationController extends Controller
                             'features' => ['12 Months Access', 'Payment in Full', 'All Equipment Access', 'Cardio Area', 'Group Classes', 'Best Annual Value'],
                             'popular' => false
                         ],
+                        // Added student options (pricing to be confirmed)
+                        [
+                            'id' => 7,
+                            'name' => 'Student Monthly Rolling',
+                            'price' => 46.00,
+                            'period' => 'month',
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Monthly Rolling Direct Debit', 'All Equipment Access', 'Cardio Area'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 8,
+                            'name' => 'Student 6 Month Pass',
+                            'price' => 255.00,
+                            'period' => '6 months',
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£255)', '£42.50 per month equivalent', 'All Equipment Access'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 9,
+                            'name' => 'Student 9 Month Pass',
+                            'price' => 375.00,
+                            'period' => '9 months',
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£375)', '£41.67 per month equivalent', 'All Equipment Access'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 10,
+                            'name' => 'Student 12 Month Pass',
+                            'price' => 480.00,
+                            'period' => '12 months',
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£480)', '£40.00 per month equivalent', 'Best Student Value'],
+                            'popular' => false
+                        ],
                     ]
                 ];
                 break;
@@ -1126,8 +1190,8 @@ class LocationController extends Controller
                         'wednesday' => '05:00 – 22:00',
                         'thursday' => '05:00 – 22:00',
                         'friday' => '05:00 – 22:00',
-                        'saturday' => '06:00 – 20:00',
-                        'sunday' => '06:00 – 20:00'
+                        'saturday' => '07:00 – 20:00',
+                        'sunday' => '07:00 – 20:00'
                     ],
                     'manager' => [
                         'name' => 'Mark Bailes',
@@ -1175,6 +1239,38 @@ class LocationController extends Controller
                             'period' => 'month',
                             'features' => ['Monthly Rolling Contract', 'Min 12 Month Commitment', 'All Equipment Access', 'Cardio Area', 'Group Classes', 'Best Value'],
                             'popular' => true
+                        ],
+                        [
+                            'id' => 5,
+                            'name' => 'Student Monthly Rolling',
+                            'price' => 44.00,
+                            'period' => 'month',
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Monthly Rolling Direct Debit', 'All Equipment Access'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 6,
+                            'name' => 'Student 6 Month Pass',
+                            'price' => 250.00,
+                            'period' => '6 months',
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£250)', '£41.67 per month equivalent', 'All Equipment Access'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 7,
+                            'name' => 'Student 9 Month Pass',
+                            'price' => 360.00,
+                            'period' => '9 months',
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£360)', '£40.00 per month equivalent', 'All Equipment Access'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 8,
+                            'name' => 'Student 12 Month Pass',
+                            'price' => 468.00,
+                            'period' => '12 months',
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£468)', '£39.00 per month equivalent', 'Best Student Value'],
+                            'popular' => false
                         ],
                         [
                             'id' => 5,
@@ -1265,6 +1361,38 @@ class LocationController extends Controller
                             'price' => 12.00,
                             'period' => 'day',
                             'features' => ['Single Day Access', 'Top-Quality Equipment', 'Changing Rooms', 'Free Parking'],
+                        [
+                            'id' => 5,
+                            'name' => 'Student Monthly Rolling',
+                            'price' => 46.00,
+                            'period' => 'month',
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Monthly Rolling Direct Debit', 'All Equipment Access'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 6,
+                            'name' => 'Student 6 Month Pass',
+                            'price' => 255.00,
+                            'period' => '6 months',
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£255)', '£42.50 per month equivalent', 'All Equipment Access'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 7,
+                            'name' => 'Student 9 Month Pass',
+                            'price' => 375.00,
+                            'period' => '9 months',
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£375)', '£41.67 per month equivalent', 'All Equipment Access'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 8,
+                            'name' => 'Student 12 Month Pass',
+                            'price' => 480.00,
+                            'period' => '12 months',
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£480)', '£40.00 per month equivalent', 'Best Student Value'],
+                            'popular' => false
+                        ],
                             'popular' => false
                         ],
                         [
@@ -1461,7 +1589,7 @@ class LocationController extends Controller
                     ],
                     'manager' => [
                         'name' => 'Lynsey Hind',
-                        'bio' => "💪 I’m proud to be the Gym Manager here at Ultraflex – the friendliest, most motivating place to train!\nFrom the moment you walk through the doors, you’re part of the family. Our amazing team is always ready with a smile, a helping hand, and a bit of encouragement to keep you smashing your goals.\nWe’ve built an environment where everyone works together – no egos, just great vibes, hard work, and a shared love for health & fitness. Whether you’re lifting big, starting your journey, or just here for a feel-good session, you’ll always feel welcome.\nOutside of the gym, life is just as full of energy. I’m a proud mum to Ava-Lily, my eight-year-old daughter who has a real need for speed. Most weekends you’ll find us at the track, where she’s racing her go-kart with the same determination and focus we value so much in the gym.\nFor me, both work and home life are about dedication, community, and enjoying the journey – and that’s exactly what we aim to bring to every member’s experience at Ultraflex.\nIt’s all about community, support, and results – and we can’t wait to welcome you in! 💥\nIf you need any more information, then please feel free to contact me:\nEmail: l.hind@ultraflexgym.co.uk\nPhone: 07926 528367\n#Ultraflex #GymManagerLife #FitnessFamily #CommunityVibes #MumLife #KartingKid #StrongerTogether",
+                        'bio' => "I’m proud to be the Gym Manager here at Ultraflex – the friendliest, most motivating place to train!\nFrom the moment you walk through the doors, you’re part of the family. Our amazing team is always ready with a smile, a helping hand, and encouragement to keep you progressing toward your goals.\nWe’ve built an environment where everyone works together – no egos, just great vibes, hard work, and a shared love for health & fitness. Whether you’re lifting big, starting your journey, or just here for a feel-good session, you’ll always feel welcome.\nOutside of the gym, I’m a proud mum to Ava-Lily, my eight-year-old daughter who has a real need for speed. Most weekends you’ll find us at the track, where she’s racing her go-kart with the same determination and focus we value so much in the gym.\nFor me, both work and home life are about dedication, community, and enjoying the journey – and that’s exactly what we aim to bring to every member’s experience at Ultraflex.\nIt’s all about community, support, and results – and we can’t wait to welcome you in.\nIf you need any more information, please feel free to contact me:\nEmail: l.hind@ultraflexgym.co.uk\nPhone: 07926 528367",
                         // TODO: Manager image missing (lynsey.jpg). Add file to public/Images/managers or update path.
                         'image' => null,
                         'experience' => ''
@@ -1516,7 +1644,39 @@ class LocationController extends Controller
                             'period' => '6 months',
                             'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'No Monthly Payments', 'Flexible Option'],
                             'popular' => false
-                        ]
+                        ],
+                        [
+                            'id' => 5,
+                            'name' => 'Student Monthly Rolling',
+                            'price' => 49.00,
+                            'period' => 'month',
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Monthly Rolling', 'Day Access Only'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 6,
+                            'name' => 'Student 6 Month Pass',
+                            'price' => 270.00,
+                            'period' => '6 months',
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£270)', '£45.00 per month equivalent', 'All Equipment Access'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 7,
+                            'name' => 'Student 9 Month Pass',
+                            'price' => 390.00,
+                            'period' => '9 months',
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£390)', '£43.33 per month equivalent', 'All Equipment Access'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 8,
+                            'name' => 'Student 12 Month Pass',
+                            'price' => 510.00,
+                            'period' => '12 months',
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£510)', '£42.50 per month equivalent', 'Best Student Value'],
+                            'popular' => false
+                        ],
                     ],
                     'reviews' => [
                         [
@@ -1624,7 +1784,7 @@ class LocationController extends Controller
                             'name' => 'Day Pass',
                             'price' => 12.50,
                             'period' => 'day',
-                            'features' => ['Single Day Access', 'All Equipment Access', 'Westfield Location', 'Extended Hours'],
+                            'features' => ['Single Day Access', 'All Equipment Access', 'Premium London Location'],
                             'popular' => false
                         ],
                         [
@@ -1649,6 +1809,38 @@ class LocationController extends Controller
                             'price' => 245.00,
                             'period' => '6 months',
                             'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'Best Value Option', '£40.83 per month equivalent'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 5,
+                            'name' => 'Student Monthly Rolling',
+                            'price' => 43.00,
+                            'period' => 'month',
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Monthly Rolling', 'All Equipment Access'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 6,
+                            'name' => 'Student 6 Month Pass',
+                            'price' => 255.00,
+                            'period' => '6 months',
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£255)', '£42.50 per month equivalent', 'All Equipment Access'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 7,
+                            'name' => 'Student 9 Month Pass',
+                            'price' => 375.00,
+                            'period' => '9 months',
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£375)', '£41.67 per month equivalent', 'All Equipment Access'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 8,
+                            'name' => 'Student 12 Month Pass',
+                            'price' => 480.00,
+                            'period' => '12 months',
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£480)', '£40.00 per month equivalent', 'Best Student Value'],
                             'popular' => false
                         ]
                     ],
@@ -1729,13 +1921,33 @@ class LocationController extends Controller
                 ];
         }
         
+        // Post-process: remove static martial arts feature/equipment references and inject boxing capability where applicable
+        $slug = isset($locationData['slug']) ? $locationData['slug'] : $location;
+        $hasBoxing = isset($capabilities[$slug]['boxing']) ? $capabilities[$slug]['boxing'] : false;
+
+        // Clean equipment list
+        if (isset($locationData['features']) && is_array($locationData['features'])) {
+            $locationData['features'] = array_values(array_filter(array_map(function($f){
+                return preg_match('/martial/i', $f) ? null : $f;
+            }, $locationData['features'])));
+            if ($hasBoxing) {
+                $already = false; foreach ($locationData['features'] as $f) { if (stripos($f, 'boxing') !== false) { $already = true; break; } }
+                if (!$already) { $locationData['features'][] = 'Boxing Area'; }
+            }
+        }
+
+        if (isset($locationData['membershipPlans'])) {
+            $locationData['membershipPlans'] = $processPlans($locationData['membershipPlans'], $hasBoxing);
+        }
+
         // Common data for all locations
         $commonData = [
             'signupUrl' => 'https://secure.ashbournemanagement.co.uk/signupuk/index.aspx?fn=grbh2',
             'equipment' => [
                 ['name' => 'Top-Quality Fitness Machines', 'icon' => 'dumbbell', 'available' => true],
                 ['name' => 'Cardio Equipment', 'icon' => 'waves', 'available' => true],
-                ['name' => 'Martial Arts Area', 'icon' => 'users', 'available' => true],
+                // Conditionally add Boxing Area (filter out null later)
+                $hasBoxing ? ['name' => 'Boxing Area', 'icon' => 'users', 'available' => true] : null,
                 ['name' => 'Physiotherapy Clinic', 'icon' => 'users', 'available' => true],
                 ['name' => 'Comfortable Changing Rooms', 'icon' => 'shower', 'available' => true],
                 ['name' => 'Free On-Site Parking', 'icon' => 'car', 'available' => true],
@@ -1745,7 +1957,7 @@ class LocationController extends Controller
             'amenities' => [
                 'Top-quality equipment from best brand names',
                 'Comfortable changing rooms',
-                'Martial arts area',
+                $hasBoxing ? 'Boxing area' : null,
                 'Physiotherapy clinic',
                 'Free on-site parking',
                 'Easy public transport access'
@@ -1920,260 +2132,28 @@ class LocationController extends Controller
             ];
         }
 
+        // Ensure a display name always exists on the location data (fallback to uppercase slug pattern if missing)
+        if (!isset($locationData['name']) && isset($locationData['slug'])) {
+            $locationData['name'] = 'ULTRAFLEX ' . strtoupper(str_replace('-', ' ', $locationData['slug']));
+        }
+
+        // Normalize virtual tour URLs (convert short YouTube or watch urls to embed form)
+        if (isset($locationData['virtualTour']) && is_string($locationData['virtualTour']) && $locationData['virtualTour']) {
+            $vt = $locationData['virtualTour'];
+            // youtu.be/<id>
+            if (preg_match('#https?://youtu\.be/([A-Za-z0-9_-]+)#', $vt, $m)) {
+                $locationData['virtualTour'] = 'https://www.youtube.com/embed/' . $m[1];
+            }
+            // youtube.com/watch?v=<id>
+            elseif (preg_match('#https?://(www\.)?youtube\.com/watch\?v=([A-Za-z0-9_-]+)#', $vt, $m)) {
+                $locationData['virtualTour'] = 'https://www.youtube.com/embed/' . $m[2];
+            }
+        }
+
 
         // --- Inject dynamic trainers for this location (real data) ---
-        // NOTE: Bios trimmed to 2-3 sentences for card display; full versions can later move to a dedicated config or DB.
-        $allTrainers = [
-            // North Leeds
-            [
-                'id' => 101,
-                'name' => 'Andy Cowell',
-                'slug' => 'andy-cowell',
-                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
-                'bio' => 'Over 30 years experience in bodybuilding, weight loss, strength and wellbeing. Also coaches competition and photo-shoot prep with nutrition, supplement and injury rehab guidance.',
-                'specialties' => ['Bodybuilding', 'Weight Loss', 'Strength', 'Rehab'],
-                'certifications' => [],
-                'locationSlug' => 'north-leeds',
-                'contact' => ['instagram' => null]
-            ],
-            [
-                'id' => 102,
-                'name' => 'Ali Mardomi',
-                'slug' => 'ali-mardomi',
-                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
-                'bio' => '23+ years coaching from first-time gym goers to stage competitors. Focus on effective, enjoyable training and confidence-building transformations.',
-                'specialties' => ['Contest Prep', 'Bodybuilding', 'General Fitness'],
-                'certifications' => ['Level 2', 'Level 3', 'Nutrition'],
-                'locationSlug' => 'north-leeds',
-                'contact' => ['instagram' => 'https://instagram.com/alimardomi']
-            ],
-            // York
-            [
-                'id' => 201,
-                'name' => 'Harry Strike',
-                'slug' => 'harry-strike',
-                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
-                'bio' => 'Dedicated PT helping clients achieve sustainable physical and mental progress through structured plans and in-person support.',
-                'specialties' => ['Body Recomposition', 'Mindset', 'Lifestyle Coaching'],
-                'certifications' => [],
-                'locationSlug' => 'york',
-                'contact' => []
-            ],
-            [
-                'id' => 202,
-                'name' => 'Dan',
-                'slug' => 'dan',
-                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
-                'bio' => 'Coaches a wide range of people in-person and online using a highly personal, service-focused approach beyond generic app programming.',
-                'specialties' => ['General Population', 'Accountability', 'Online Coaching'],
-                'certifications' => [],
-                'locationSlug' => 'york',
-                'contact' => []
-            ],
-            [
-                'id' => 203,
-                'name' => 'Natalie',
-                'slug' => 'natalie',
-                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
-                'bio' => 'Bikini category champion helping women build confidence and elite stage or holiday condition while keeping lifestyle balance.',
-                'specialties' => ['Female Physique', 'Contest Prep', 'Body Recomposition'],
-                'certifications' => [],
-                'locationSlug' => 'york',
-                'contact' => ['instagram' => 'https://instagram.com/levelupfitness_bynat']
-            ],
-            [
-                'id' => 204,
-                'name' => 'Adam Gucwa',
-                'slug' => 'adam-gucwa',
-                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
-                'bio' => 'Physical Education & Sports Science background; 15+ years helping clients get stronger, leaner and lift safely with adaptive programming.',
-                'specialties' => ['Strength', 'Technique', 'Body Recomposition'],
-                'certifications' => ['PT Qualified'],
-                'locationSlug' => 'york',
-                'contact' => ['email' => 'adamgucwa.pt@gmail.com']
-            ],
-            // Hull
-            [
-                'id' => 301,
-                'name' => 'Luke Masters',
-                'slug' => 'luke-masters',
-                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
-                'bio' => '5+ years coaching helping clients gain strength and confidence in their physiques.',
-                'specialties' => ['Strength', 'Confidence Building'],
-                'certifications' => [],
-                'locationSlug' => 'hull',
-                'contact' => ['instagram' => 'https://instagram.com/luke_masters_physique']
-            ],
-            [
-                'id' => 302,
-                'name' => 'Leon',
-                'slug' => 'leon',
-                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
-                'bio' => '10+ years PT and 12+ years competitive bodybuilding; 2x Britain Champion guiding goals from fat loss to stage prep.',
-                'specialties' => ['Bodybuilding', 'Fat Loss', 'Contest Prep'],
-                'certifications' => [],
-                'locationSlug' => 'hull',
-                'contact' => ['email' => 'elitephysiquecoaching@gmail.com', 'instagram' => 'https://instagram.com/elite_physique_coaching']
-            ],
-            [
-                'id' => 303,
-                'name' => 'Stevie',
-                'slug' => 'stevie',
-                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
-                'bio' => 'Certified PT & nutrition certified—focus on education, empowerment and sustainable physique change.',
-                'specialties' => ['Nutrition', 'Sustainable Change', 'Muscle Gain'],
-                'certifications' => ['Nutrition Certificate'],
-                'locationSlug' => 'hull',
-                'contact' => ['instagram' => 'https://instagram.com/smphysiquecoaching']
-            ],
-            [
-                'id' => 304,
-                'name' => 'Cody Wilks',
-                'slug' => 'cody-wilks',
-                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
-                'bio' => 'Blends in-person coaching with app-based programming, tailored training, nutrition, weekly check-ins and education resources.',
-                'specialties' => ['Hybrid Coaching', 'Body Transformation'],
-                'certifications' => [],
-                'locationSlug' => 'hull',
-                'contact' => ['instagram' => 'https://instagram.com/codywilkscoachpt']
-            ],
-            // Lincoln
-            [
-                'id' => 401,
-                'name' => 'Dawid',
-                'slug' => 'dawid',
-                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
-                'bio' => '20+ years experience focusing on physique transformation, performance development and balanced lifestyle training.',
-                'specialties' => ['Physique Transformation', 'Performance', 'Mindset'],
-                'certifications' => ['Level 2', 'Level 3'],
-                'locationSlug' => 'lincoln',
-                'contact' => []
-            ],
-            [
-                'id' => 402,
-                'name' => 'Joanna Sirostan',
-                'slug' => 'joanna-sirostan',
-                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
-                'bio' => 'Level 2 & 3 PT with Precision Nutrition L1 helping clients build habits, strength and sustainable wellness.',
-                'specialties' => ['Habit Change', 'Strength', 'Wellness'],
-                'certifications' => ['Level 2', 'Level 3', 'PN L1'],
-                'locationSlug' => 'lincoln',
-                'contact' => ['instagram' => 'https://instagram.com/joanna_sirostan']
-            ],
-            [
-                'id' => 403,
-                'name' => 'Dale Bowman',
-                'slug' => 'dale-bowman',
-                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
-                'bio' => 'Experienced competitive bodybuilder offering tailored training, nutrition coaching and competition preparation.',
-                'specialties' => ['Contest Prep', 'Strength', 'Nutrition'],
-                'certifications' => ['Nutrition Diploma'],
-                'locationSlug' => 'lincoln',
-                'contact' => ['email' => 'dbfitness.lincoln@gmail.com', 'phone' => '+447784355668']
-            ],
-            [
-                'id' => 404,
-                'name' => 'TC',
-                'slug' => 'tc',
-                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
-                'bio' => 'Level 3 PT with 3 years professional experience and 20 years training; promotes sustainable mental and physical transformations.',
-                'specialties' => ['Lifestyle Coaching', 'Strength', 'Body Recomposition'],
-                'certifications' => ['Level 3'],
-                'locationSlug' => 'lincoln',
-                'contact' => ['email' => 'tccoaching85@gmail.com', 'instagram' => 'https://instagram.com/coach_by_tc']
-            ],
-            // Durham (removed Racheal Turnbull as requested)
-            [
-                'id' => 501,
-                'name' => 'James Tindale',
-                'slug' => 'james-tindale',
-                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
-                'bio' => 'Provides results-focused coaching and physique development with accountability.',
-                'specialties' => ['Physique', 'Accountability'],
-                'certifications' => [],
-                'locationSlug' => 'durham',
-                'contact' => ['instagram' => 'https://instagram.com/jamestindalefitness']
-            ],
-            [
-                'id' => 502,
-                'name' => 'Ashton Alderson',
-                'slug' => 'ashton-alderson',
-                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
-                'bio' => 'Coaches clients through structured training and progressive performance methods.',
-                'specialties' => ['Performance', 'Strength'],
-                'certifications' => [],
-                'locationSlug' => 'durham',
-                'contact' => ['instagram' => 'https://instagram.com/Ashtonaldersonfitness']
-            ],
-            [
-                'id' => 503,
-                'name' => 'Christopher',
-                'slug' => 'christopher',
-                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
-                'bio' => 'Delivers tailored coaching focused on technique, progression and consistency.',
-                'specialties' => ['Technique', 'Progressive Training'],
-                'certifications' => [],
-                'locationSlug' => 'durham',
-                'contact' => ['instagram' => 'https://instagram.com/khifiewest_']
-            ],
-            [
-                'id' => 504,
-                'name' => 'Conrad Ashton',
-                'slug' => 'conrad-ashton',
-                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
-                'bio' => 'Personal training with emphasis on effective execution and client education.',
-                'specialties' => ['Execution', 'Client Education'],
-                'certifications' => [],
-                'locationSlug' => 'durham',
-                'contact' => ['instagram' => 'https://instagram.com/ashtonpersonaltraining']
-            ],
-            [
-                'id' => 505,
-                'name' => 'Wendy McCready',
-                'slug' => 'wendy-mccready',
-                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
-                'bio' => 'IFBB Pro offering elite physique coaching and stage preparation.',
-                'specialties' => ['IFBB Prep', 'Physique'],
-                'certifications' => ['IFBB Pro'],
-                'locationSlug' => 'durham',
-                'contact' => ['instagram' => 'https://instagram.com/ifbbprowendymccready']
-            ],
-            // Derby
-            [
-                'id' => 601,
-                'name' => 'Dazz Kent',
-                'slug' => 'dazz-kent',
-                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
-                'bio' => 'Specialises in general population transformations, nutrition and stress management.',
-                'specialties' => ['Transformations', 'Nutrition', 'Stress Management'],
-                'certifications' => [],
-                'locationSlug' => 'derby',
-                'contact' => ['instagram' => 'https://instagram.com/dazzkent', 'email' => 'Dazzkentfitness@gmail.com', 'phone' => '+447738689130']
-            ],
-            [
-                'id' => 602,
-                'name' => 'Damon Hauge',
-                'slug' => 'damon-hauge',
-                'image' => '/Images/trainers/damon-hauge.webp',
-                'bio' => 'Ex-professional boxer sharing extensive training and nutrition knowledge for next-level results.',
-                'specialties' => ['Boxing', 'Nutrition', 'Strength & Conditioning'],
-                'certifications' => [],
-                'locationSlug' => 'derby',
-                'contact' => ['instagram' => 'https://instagram.com/d.htraining', 'email' => 'dhtraining@gmail.com', 'phone' => '+447460834333']
-            ],
-            // West London
-            [
-                'id' => 701,
-                'name' => 'Allan',
-                'slug' => 'allan',
-                'image' => '/Images/trainers/allan.webp',
-                'bio' => 'Focuses on mastery of fundamentals, precise execution and efficient progress toward strength, fat loss and performance goals.',
-                'specialties' => ['Strength', 'Execution', 'Fat Loss'],
-                'certifications' => [],
-                'locationSlug' => 'west-london',
-                'contact' => ['instagram' => 'https://instagram.com/avidity.fitness.uk', 'email' => 'Contact@avtfitness.com', 'phone' => '+447714245383', 'website' => 'https://www.avtfitness.com']
-            ],
-        ];
+        // Centralised in App\Data\TrainerData to allow reuse by TrainerController.
+        $allTrainers = \App\Data\TrainerData::all();
         // If trainers already defined in the specific location case (e.g. West Leeds), merge them with dynamic ones.
         $dynamicForLocation = array_values(array_filter($allTrainers, function($trainer) use ($locationData) {
             return isset($trainer['locationSlug']) && isset($locationData['slug']) && $trainer['locationSlug'] === $locationData['slug'];
@@ -2191,6 +2171,13 @@ class LocationController extends Controller
             $locationData['trainers'] = $dynamicForLocation;
         }
 
+        // Filter null equipment/amenities introduced by conditional capability logic
+        if (isset($commonData['equipment'])) {
+            $commonData['equipment'] = array_values(array_filter($commonData['equipment'], function($e){ return $e !== null; }));
+        }
+        if (isset($commonData['amenities'])) {
+            $commonData['amenities'] = array_values(array_filter($commonData['amenities'], function($a){ return $a !== null; }));
+        }
         $locationData = array_merge($commonData, $locationData);
 
         return Inertia::render('Locations/Show', [

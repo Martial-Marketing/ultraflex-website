@@ -219,19 +219,8 @@ export default function LocationsIndex({ locations, membershipPlans, auth }: Loc
                                                             .slice(slideIndex * membershipPlansPerSlide, slideIndex * membershipPlansPerSlide + membershipPlansPerSlide)
                                                             .map((plan) => (                                                <Card 
                                                     key={plan.id} 
-                                                    className={`relative overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group h-full flex flex-col ${
-                                                        plan.popular 
-                                                            ? 'bg-gradient-to-br from-red-900/60 to-red-800/60 border-2 border-red-700/50' 
-                                                            : 'bg-black/40 border border-white/10 hover:border-red-700/30'
-                                                    } backdrop-blur-md`}
+                                                    className={`relative overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group h-full flex flex-col bg-black/40 border border-white/10 hover:border-red-700/30 backdrop-blur-md`}
                                                 >
-                                                                    {plan.popular && (
-                                                                        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-                                                                            <div className="bg-gradient-to-r from-red-700 to-red-800 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg border border-red-700/20 backdrop-blur-sm">
-                                                                                MOST POPULAR
-                                                                            </div>
-                                                                        </div>
-                                                                    )}
                                                                                       <CardContent className="p-6 relative flex-1 flex flex-col">
                                                         <div className="text-center mb-6">
                                                             <h3 className="text-xl font-bold text-white group-hover:text-red-700 transition-colors duration-300 mb-2">
@@ -257,11 +246,7 @@ export default function LocationsIndex({ locations, membershipPlans, auth }: Loc
                                                         )}
                                                         
                                                         <Button 
-                                                            className={`w-full font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group mt-auto ${
-                                                                plan.popular
-                                                                    ? 'bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white border border-red-700/20'
-                                                                    : 'bg-white text-black hover:bg-red-700 hover:text-white border border-white/20'
-                                                            } backdrop-blur-sm`}
+                                                            className={`w-full font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group mt-auto bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white border border-red-700/20 backdrop-blur-sm`}
                                                         >
                                                             <span className="group-hover:translate-x-1 transition-transform duration-300">
                                                                 Choose This Plan

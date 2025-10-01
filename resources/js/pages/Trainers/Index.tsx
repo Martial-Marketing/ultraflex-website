@@ -12,13 +12,13 @@ interface Trainer {
     image: string;
     bio: string;
     specialties: string[];
-    gender: 'Male' | 'Female' | 'Non-Binary';
-    location: string;
-    locationSlug: string;
-    rating: number;
-    reviewCount: number;
-    experience: string;
-    certifications: string[];
+    gender?: 'Male' | 'Female' | 'Non-Binary';
+    location?: string | null;
+    locationSlug?: string | null;
+    rating?: number;
+    reviewCount?: number;
+    experience?: string;
+    certifications?: string[];
     slug: string;
 }
 
@@ -44,13 +44,13 @@ export default function TrainersIndex({ trainers, locations, specialties, auth }
                             trainer.bio.toLowerCase().includes(searchTerm.toLowerCase());
         
         const matchesSpecialty = !selectedSpecialty || 
-                               trainer.specialties.some(specialty => 
+                               (trainer.specialties || []).some(specialty => 
                                    specialty.toLowerCase().includes(selectedSpecialty.toLowerCase())
                                );
         
         const matchesGender = !selectedGender || trainer.gender === selectedGender;
         
-        const matchesLocation = !selectedLocation || trainer.locationSlug === selectedLocation;
+    const matchesLocation = !selectedLocation || trainer.locationSlug === selectedLocation;
 
         return matchesSearch && matchesSpecialty && matchesGender && matchesLocation;
     });
@@ -90,7 +90,7 @@ export default function TrainersIndex({ trainers, locations, specialties, auth }
                         
                         {/* Additional particles for hero */}
                         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                            {Array.from({ length: 15 }, (_, i) => (
+                            {Array.from({ length: 8 }, (_, i) => (
                                 <div
                                     key={i}
                                     className="absolute w-1 h-1 bg-white/30 rounded-full animate-pulse"
@@ -106,9 +106,9 @@ export default function TrainersIndex({ trainers, locations, specialties, auth }
 
                         <div className="container mx-auto px-6 text-center relative z-10">
                             <h1 className="text-5xl font-bold mb-6">
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Our</span>{' '}
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Personal</span>{' '}
-                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Trainers</span>
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)]">Our</span>{' '}
+                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)]">Personal</span>{' '}
+                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)]">Trainers</span>
                             </h1>
                             <p className="text-xl text-gray-200 max-w-3xl mx-auto">
                                 Work with certified fitness professionals who are passionate about helping 
@@ -233,10 +233,12 @@ export default function TrainersIndex({ trainers, locations, specialties, auth }
                                             <CardContent className="p-6 bg-black/20 backdrop-blur-sm">
                                                 <div className="mb-4">
                                                     <h3 className="text-xl font-bold text-white mb-1 group-hover:text-red-700 transition-colors duration-300">{trainer.name}</h3>
-                                                    <p className="text-red-700 font-medium mb-2">{trainer.experience}</p>
+                                                    {trainer.experience && (
+                                                        <p className="text-red-700 font-medium mb-2">{trainer.experience}</p>
+                                                    )}
                                                     <div className="text-gray-300 text-sm mb-3 group hover:text-red-700 transition-colors duration-300">
                                                         <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                                            {trainer.location}
+                                                            {trainer.location || 'Location TBD'}
                                                         </span>
                                                     </div>
                                                 </div>
@@ -249,7 +251,7 @@ export default function TrainersIndex({ trainers, locations, specialties, auth }
                                                 <div className="mb-4">
                                                     <h4 className="text-sm font-medium text-white mb-2">Specialties:</h4>
                                                     <div className="flex flex-wrap gap-2">
-                                                        {trainer.specialties.slice(0, 3).map((specialty, index) => (
+                                                        {(trainer.specialties || []).slice(0, 3).map((specialty, index) => (
                                                             <span 
                                                                 key={index} 
                                                                 className="inline-flex items-center space-x-1 px-2 py-1 bg-red-700/20 text-red-700 text-xs rounded-full backdrop-blur-sm border border-red-700/30"
@@ -257,7 +259,7 @@ export default function TrainersIndex({ trainers, locations, specialties, auth }
                                                                 <span>{specialty}</span>
                                                             </span>
                                                         ))}
-                                                        {trainer.specialties.length > 3 && (
+                                                        {trainer.specialties && trainer.specialties.length > 3 && (
                                                             <span className="px-2 py-1 bg-white/10 text-gray-300 text-xs rounded-full backdrop-blur-sm border border-white/20">
                                                                 +{trainer.specialties.length - 3} more
                                                             </span>
@@ -306,10 +308,10 @@ export default function TrainersIndex({ trainers, locations, specialties, auth }
 
                                     <div className="relative z-10">
                                         <h2 className="text-3xl font-bold mb-4">
-                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Ready</span>{' '}
-                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">to</span>{' '}
-                                            <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Start</span>{' '}
-                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Training?</span>
+                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)]">Ready</span>{' '}
+                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)]">to</span>{' '}
+                                            <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)]">Start</span>{' '}
+                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)]">Training?</span>
                                         </h2>
                                         <p className="text-gray-300 mb-6 leading-relaxed">
                                             Book a consultation with one of our expert trainers and take the first 

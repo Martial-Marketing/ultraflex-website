@@ -479,14 +479,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                                     {location.membershipPlans
                                                         .slice(slideIndex * membershipPlansPerSlide, (slideIndex + 1) * membershipPlansPerSlide)
                                                         .map((plan) => (
-                                                        <Card key={plan.id} className={`relative p-8 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 group hover:scale-105 hover:shadow-2xl hover:shadow-red-700/20 ${plan.popular ? 'ring-2 ring-red-700 scale-105' : ''}`}>
-                                                            {plan.popular && (
-                                                                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                                                                    <span className="bg-gradient-to-r from-red-700 to-red-800 text-white px-4 py-1 rounded-full text-sm font-medium backdrop-blur-sm border border-red-700/20 animate-pulse">
-                                                                        Most Popular
-                                                                    </span>
-                                                                </div>
-                                                            )}
+                                                        <Card key={plan.id} className={`relative p-8 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 group hover:scale-105 hover:shadow-2xl hover:shadow-red-700/20`}>
                                                             
                                                             <div className="text-center mb-6">
                                                                 <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">{plan.name}</h3>
@@ -636,7 +629,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                 <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Facilities</span>
                             </h2>
                             <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
-                                {location.equipment.map((item, index) => (
+                                {location.equipment.filter((e: any) => e && typeof e === 'object').map((item: any, index: number) => (
                                     <Card key={index} className={`text-center p-6 bg-black/60 backdrop-blur-md border border-white/20 hover:border-red-700/50 transition-all duration-300 group hover:bg-black/70 ${!item.available ? 'opacity-50' : ''}`}>
                                         <div className="flex justify-center mb-4 text-red-700 group-hover:scale-110 transition-transform duration-300">
                                             {getEquipmentIcon(item.icon)}

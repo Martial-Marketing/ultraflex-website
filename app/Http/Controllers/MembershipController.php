@@ -19,13 +19,13 @@ class MembershipController extends Controller
                 'name' => 'ULTRAFLEX WEST LEEDS',
                 'plans' => [
                     ['id'=>1,'name'=>'Day Pass','price'=>12,'period'=>'day','features'=>['Single Day Access','Top-Quality Equipment','Changing Rooms','Free Parking'],'popular'=>false],
-                    ['id'=>2,'name'=>'Weekly Pass','price'=>22.50,'period'=>'week','features'=>['7 Days Access','All Equipment Access','Martial Arts Area','Free Parking'],'popular'=>false],
-                    ['id'=>3,'name'=>'Monthly Pass','price'=>45,'period'=>'month','features'=>['30 Days Access','All Equipment Access','Martial Arts Area','Group Classes'],'popular'=>false],
-                    ['id'=>4,'name'=>'Monthly Direct Debit','price'=>38.50,'period'=>'month','features'=>['Monthly Rolling Contract','Min 12 Month Commitment','All Equipment Access','Martial Arts Area','Group Classes','Best Value'],'popular'=>true],
-                    ['id'=>5,'name'=>'3 Month Pass','price'=>130,'period'=>'3 months','features'=>['3 Months Access','Payment in Full','All Equipment Access','Martial Arts Area','Group Classes'],'popular'=>false],
-                    ['id'=>6,'name'=>'6 Month Pass','price'=>230,'period'=>'6 months','features'=>['6 Months Access','Payment in Full','All Equipment Access','Martial Arts Area','Group Classes'],'popular'=>false],
-                    ['id'=>7,'name'=>'12 Month Pass','price'=>420,'period'=>'12 months','features'=>['12 Months Access','Payment in Full','All Equipment Access','Martial Arts Area','Group Classes','Best Annual Value'],'popular'=>false],
-                    ['id'=>8,'name'=>'Student Monthly Rolling','price'=>40,'period'=>'month','features'=>['Student Discount','Valid Student ID Required','Monthly Rolling','All Equipment Access','Martial Arts Area'],'popular'=>false],
+                    ['id'=>2,'name'=>'Weekly Pass','price'=>22.50,'period'=>'week','features'=>['7 Days Access','All Equipment Access','Free Parking'],'popular'=>false],
+                    ['id'=>3,'name'=>'Monthly Pass','price'=>45,'period'=>'month','features'=>['30 Days Access','All Equipment Access','Group Classes'],'popular'=>false],
+                    ['id'=>4,'name'=>'Monthly Direct Debit','price'=>38.50,'period'=>'month','features'=>['Monthly Rolling Contract','Min 12 Month Commitment','All Equipment Access','Group Classes','Best Value'],'popular'=>true],
+                    ['id'=>5,'name'=>'3 Month Pass','price'=>130,'period'=>'3 months','features'=>['3 Months Access','Payment in Full','All Equipment Access','Group Classes'],'popular'=>false],
+                    ['id'=>6,'name'=>'6 Month Pass','price'=>230,'period'=>'6 months','features'=>['6 Months Access','Payment in Full','All Equipment Access','Group Classes'],'popular'=>false],
+                    ['id'=>7,'name'=>'12 Month Pass','price'=>420,'period'=>'12 months','features'=>['12 Months Access','Payment in Full','All Equipment Access','Group Classes','Best Annual Value'],'popular'=>false],
+                    ['id'=>8,'name'=>'Student Monthly Rolling','price'=>40,'period'=>'month','features'=>['Student Discount','Valid Student ID Required','Monthly Rolling','All Equipment Access','Boxing Area'],'popular'=>false],
                 ],
             ],
             'north-leeds' => [
@@ -33,11 +33,12 @@ class MembershipController extends Controller
                 'name' => 'ULTRAFLEX NORTH LEEDS',
                 'plans' => [
                     ['id'=>1,'name'=>'Day Pass','price'=>12.50,'period'=>'day','features'=>['Single Day Access','Top-Quality Equipment','Changing Rooms','Free Parking'],'popular'=>false],
-                    ['id'=>2,'name'=>'Weekly Pass','price'=>25.00,'period'=>'week','features'=>['7 Days Access','All Equipment Access','Martial Arts Area','Free Parking'],'popular'=>false],
-                    ['id'=>3,'name'=>'Monthly Pass','price'=>52.50,'period'=>'month','features'=>['30 Days Access','All Equipment Access','Martial Arts Area','Group Classes'],'popular'=>false],
-                    ['id'=>4,'name'=>'Monthly Direct Debit','price'=>48.00,'period'=>'month','features'=>['Monthly Rolling Contract','Min 12 Month Commitment','All Equipment Access','Martial Arts Area','Group Classes','Best Value'],'popular'=>true],
-                    ['id'=>5,'name'=>'6 Month Pass','price'=>280.00,'period'=>'6 months','features'=>['6 Months Access','Payment in Full','All Equipment Access','Martial Arts Area','Group Classes'],'popular'=>false],
-                    ['id'=>6,'name'=>'12 Month Pass','price'=>505.00,'period'=>'12 months','features'=>['12 Months Access','Payment in Full','All Equipment Access','Martial Arts Area','Group Classes','Best Annual Value'],'popular'=>false],
+                    ['id'=>2,'name'=>'Weekly Pass','price'=>25.00,'period'=>'week','features'=>['7 Days Access','All Equipment Access','Free Parking'],'popular'=>false],
+                    ['id'=>3,'name'=>'Monthly Pass','price'=>52.50,'period'=>'month','features'=>['30 Days Access','All Equipment Access','Group Classes'],'popular'=>false],
+                    ['id'=>4,'name'=>'Monthly Direct Debit','price'=>48.00,'period'=>'month','features'=>['Monthly Rolling Contract','Min 12 Month Commitment','All Equipment Access','Group Classes','Best Value'],'popular'=>true],
+                    ['id'=>5,'name'=>'6 Month Pass','price'=>280.00,'period'=>'6 months','features'=>['6 Months Access','Payment in Full','All Equipment Access','Group Classes'],'popular'=>false],
+                    ['id'=>6,'name'=>'12 Month Pass','price'=>505.00,'period'=>'12 months','features'=>['12 Months Access','Payment in Full','All Equipment Access','Group Classes','Best Annual Value'],'popular'=>false],
+                    ['id'=>7,'name'=>'Student Monthly Rolling','price'=>45.00,'period'=>'month','features'=>['Student Discount','Valid Student ID Required','Monthly Rolling','All Equipment Access'],'popular'=>false],
                 ],
             ],
             'normanton' => [
@@ -64,6 +65,7 @@ class MembershipController extends Controller
                     ['id'=>2,'name'=>'Weekly Pass','price'=>23.00,'period'=>'week','features'=>['7 Days Access','All Equipment Access','All Facilities','Free Parking'],'popular'=>false],
                     ['id'=>3,'name'=>'Monthly Pass','price'=>50.00,'period'=>'month','features'=>['30 Days Access','All Equipment Access','All Facilities','Group Classes'],'popular'=>false],
                     ['id'=>4,'name'=>'Monthly Direct Debit','price'=>45.00,'period'=>'month','features'=>['Monthly Rolling Contract','12 Month Contract','All Equipment Access','All Facilities','Best Value'],'popular'=>true],
+                    ['id'=>5,'name'=>'Student Monthly Rolling','price'=>46.00,'period'=>'month','features'=>['Student Discount','Valid Student ID Required','Monthly Rolling','All Equipment Access'],'popular'=>false],
                 ],
             ],
             'york' => [
@@ -73,7 +75,8 @@ class MembershipController extends Controller
                     ['id'=>1,'name'=>'Day Pass','price'=>12.00,'period'=>'day','features'=>['Single Day Access','Versatile Equipment','100kg Dumbbells to Yoga Mats','Free Parking'],'popular'=>false],
                     ['id'=>2,'name'=>'Weekly Pass','price'=>25.00,'period'=>'week','features'=>['7 Days Access','All Equipment Access','City Centre Location','Free Parking'],'popular'=>false],
                     ['id'=>3,'name'=>'Monthly Pass','price'=>52.50,'period'=>'month','features'=>['30 Days Access','All Equipment Access','Knowledgeable Staff','Something for Everyone'],'popular'=>false],
-                    ['id'=>4,'name'=>'Monthly Direct Debit','price'=>47.50,'period'=>'month','features'=>['Monthly Rolling Contract','12 Month Contract','All Equipment Access','Expert Staff Support','Best Value'],'popular'=>true],
+                    ['id'=>4,'name'=>'Monthly Direct Debit','price'=>47.50,'period'=>'month','features'=>['Monthly Rolling Contract','12 Month Contract','All Equipment Access','Expert Staff Support','Best Value','Boxing Area'],'popular'=>true],
+                    ['id'=>5,'name'=>'Student Monthly Rolling','price'=>46.00,'period'=>'month','features'=>['Student Discount','Valid Student ID Required','Monthly Rolling','All Equipment Access','Boxing Area'],'popular'=>false],
                 ],
             ],
             'hull' => [
@@ -84,6 +87,7 @@ class MembershipController extends Controller
                     ['id'=>2,'name'=>'Weekly Pass','price'=>26.00,'period'=>'week','features'=>['7 Days Access','All Equipment Access','Cardio Area','Free Parking'],'popular'=>false],
                     ['id'=>3,'name'=>'Monthly Pass','price'=>53.00,'period'=>'month','features'=>['30 Days Access','All Equipment Access','Cardio Area','Group Classes'],'popular'=>false],
                     ['id'=>4,'name'=>'Monthly Direct Debit','price'=>48.00,'period'=>'month','features'=>['Monthly Rolling Contract','Min 12 Month Commitment','All Equipment Access','Cardio Area','Group Classes','Best Value'],'popular'=>true],
+                    ['id'=>5,'name'=>'Student Monthly Rolling','price'=>47.00,'period'=>'month','features'=>['Student Discount','Valid Student ID Required','Monthly Rolling','All Equipment Access'],'popular'=>false],
                 ],
             ],
             'durham' => [
@@ -94,6 +98,7 @@ class MembershipController extends Controller
                     ['id'=>2,'name'=>'Weekly Pass','price'=>24.00,'period'=>'week','features'=>['7 Days Access','All Equipment Access','Cardio Area','Free Parking'],'popular'=>false],
                     ['id'=>3,'name'=>'Monthly Pass','price'=>50.00,'period'=>'month','features'=>['30 Days Access','All Equipment Access','Cardio Area','Group Classes'],'popular'=>false],
                     ['id'=>4,'name'=>'Monthly Direct Debit','price'=>45.00,'period'=>'month','features'=>['Monthly Rolling Contract','Min 12 Month Commitment','All Equipment Access','Cardio Area','Group Classes','Best Value'],'popular'=>true],
+                    ['id'=>5,'name'=>'Student Monthly Rolling','price'=>45.00,'period'=>'month','features'=>['Student Discount','Valid Student ID Required','Monthly Rolling','All Equipment Access'],'popular'=>false],
                 ],
             ],
             'derby' => [
@@ -104,6 +109,7 @@ class MembershipController extends Controller
                     ['id'=>2,'name'=>'Weekly Pass','price'=>25.00,'period'=>'week','features'=>['7 Days Access','All Equipment Access','Cardio Area','Free Parking'],'popular'=>false],
                     ['id'=>3,'name'=>'Monthly Pass','price'=>52.00,'period'=>'month','features'=>['30 Days Access','All Equipment Access','Cardio Area','Group Classes'],'popular'=>false],
                     ['id'=>4,'name'=>'Monthly Direct Debit','price'=>47.00,'period'=>'month','features'=>['Monthly Rolling Contract','Min 12 Month Commitment','All Equipment Access','Cardio Area','Group Classes','Best Value'],'popular'=>true],
+                    ['id'=>5,'name'=>'Student Monthly Rolling','price'=>47.00,'period'=>'month','features'=>['Student Discount','Valid Student ID Required','Monthly Rolling','All Equipment Access'],'popular'=>false],
                 ],
             ],
             'athens-greece' => [
@@ -123,6 +129,7 @@ class MembershipController extends Controller
                     ['id'=>2,'name'=>'12 Month 24hr Access - Monthly Direct Debit','price'=>54.99,'period'=>'month','features'=>['12 Month Contract','24/7 Access','Train Anytime','First 24hr UltraFlex','Complete Flexibility'],'popular'=>true],
                     ['id'=>3,'name'=>'12 Month Pass - Paid in Full','price'=>530.00,'period'=>'12 months','features'=>['12 Months Access','Payment in Full','All Equipment Access','Best Annual Value','No Monthly Payments'],'popular'=>false],
                     ['id'=>4,'name'=>'6 Month Pass - Paid in Full','price'=>295.00,'period'=>'6 months','features'=>['6 Months Access','Payment in Full','All Equipment Access','No Monthly Payments','Flexible Option'],'popular'=>false],
+                    ['id'=>5,'name'=>'Student Monthly Rolling','price'=>49.00,'period'=>'month','features'=>['Student Discount','Valid Student ID Required','Monthly Rolling','Day Access Only'],'popular'=>false],
                 ],
             ],
             'west-london' => [
@@ -133,6 +140,7 @@ class MembershipController extends Controller
                     ['id'=>2,'name'=>'Weekly Pass','price'=>27.00,'period'=>'week','features'=>['7 Days Access','All Equipment Access','Premium London Location','Early Opening 05:30'],'popular'=>false],
                     ['id'=>3,'name'=>'Monthly Rolling','price'=>45.00,'period'=>'month','features'=>['No Contract','Monthly Rolling','All Equipment Access','Maximum Flexibility','Central London Location'],'popular'=>true],
                     ['id'=>4,'name'=>'6 Month Pass','price'=>245.00,'period'=>'6 months','features'=>['6 Months Access','Payment in Full','All Equipment Access','Best Value Option','£40.83 per month equivalent'],'popular'=>false],
+                    ['id'=>5,'name'=>'Student Monthly Rolling','price'=>43.00,'period'=>'month','features'=>['Student Discount','Valid Student ID Required','Monthly Rolling','All Equipment Access'],'popular'=>false],
                 ],
             ],
         ];

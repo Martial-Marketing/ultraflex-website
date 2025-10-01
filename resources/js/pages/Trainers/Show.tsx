@@ -10,6 +10,7 @@ import AnimatedBackground from '@/components/AnimatedBackground'; // Import the 
 
 interface Trainer {
     id: number;
+    slug: string;
     name: string;
     image: string;
     bio: string;
@@ -72,7 +73,7 @@ export default function TrainerShow({ trainer, auth }: TrainerShowProps) {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        post(`/trainers/${trainer.id}/contact`);
+    post(`/trainers/${trainer.slug}/contact`);
     };
 
 

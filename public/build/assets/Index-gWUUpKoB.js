@@ -1,0 +1,1 @@
+import{j as e}from"./app-CpBKaq2J.js";function s(){return e.jsx("div",{className:"flex items-center justify-center min-h-screen",children:e.jsx("h2",{className:"text-2xl text-gray-400",children:"This page is currently unavailable."})})}export{s as default};
