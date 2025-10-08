@@ -401,7 +401,7 @@ export default function ContactIndex({ locations, locationOptions = [], generalC
                                 <Card className="p-6 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 group">
                                     <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">What are your membership options?</h3>
                                     <p className="text-gray-300 text-sm group-hover:text-gray-200 transition-colors duration-300">
-                                        We offer flexible membership plans including monthly, annual, and day passes. 
+                                        We offer flexible membership plans including monthly and annual options. Day passes are available in-gym only. 
                                         Visit any location for detailed pricing and package options.
                                     </p>
                                 </Card>

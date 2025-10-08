@@ -11,7 +11,7 @@ class MembershipPageTest extends TestCase
     {
         $response = $this->get('/membership');
         $response->assertStatus(200);
-        // Inertia props assertion: ensure a known plan appears (e.g., 'Day Pass')
-        $response->assertSee('Day Pass');
+    // Assert a remaining known plan appears (Day Pass removed from online listing)
+    $response->assertSee('Weekly Pass');
     }
 }

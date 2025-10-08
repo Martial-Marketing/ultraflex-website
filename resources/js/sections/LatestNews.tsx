@@ -8,6 +8,9 @@ interface NewsArticle {
     excerpt: string;
     date: string;
     image: string;
+    readTime: string;
+    slug: string;
+    category: string;
 }
 
 interface LatestNewsProps {
@@ -92,7 +95,7 @@ export default function LatestNews({ latestNews }: LatestNewsProps) {
                                     <Calendar className="h-4 w-4 mr-2 text-red-700" />
                                     <span>{article.date}</span>
                                     <Clock className="h-3 w-3 ml-2 opacity-60" />
-                                    <span className="ml-1 text-xs">5 min read</span>
+                                    <span className="ml-1 text-xs">{article.readTime}</span>
                                 </div>
 
                                 {/* Enhanced title with hover effect */}
@@ -107,21 +110,17 @@ export default function LatestNews({ latestNews }: LatestNewsProps) {
 
                                 {/* Enhanced read more button */}
                                 <div className="flex items-center justify-between">
-                                    <Button 
-                                        variant="outline" 
-                                        size="sm" 
-                                        className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white px-4 py-2 text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm"
-                                    >
-                                        <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                            Read More
-                                        </span>
-                                    </Button>
+                                    <a href={`/news/${article.slug}`}
+                                       className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white px-4 py-2 text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm border inline-flex items-center gap-1">
+                                        <span className="group-hover:translate-x-1 transition-transform duration-300">Read More</span>
+                                        <ArrowRight className="h-4 w-4" />
+                                    </a>
 
                                     {/* Article category badge */}
                                     <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                         <div className="flex items-center space-x-2">
                                             <div className="w-2 h-2 bg-red-700 rounded-full"></div>
-                                            <span className="text-xs text-gray-400">Fitness</span>
+                                            <span className="text-xs text-gray-400">{article.category}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -144,16 +143,10 @@ export default function LatestNews({ latestNews }: LatestNewsProps) {
                 
                 {/* Enhanced call-to-action button */}
                 <div className="text-center mt-12">
-                    <Button 
-                        variant="outline" 
-                        size="lg" 
-                        className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm"
-                    >
-                        <span className="group-hover:translate-x-1 transition-transform duration-300">
-                            View All News
-                        </span>
+                    <a href="/news" className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm border inline-flex items-center">
+                        <span className="group-hover:translate-x-1 transition-transform duration-300">View All News</span>
                         <ArrowRight className="ml-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
-                    </Button>
+                    </a>
                 </div>
 
                 {/* Bottom accent line */}

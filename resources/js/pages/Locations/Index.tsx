@@ -138,9 +138,7 @@ export default function LocationsIndex({ locations, membershipPlans, auth }: Loc
                                             <div className="absolute bottom-4 left-4 text-white">
                                                 <h3 className="text-xl font-bold drop-shadow-lg group-hover:text-red-700 transition-colors duration-300">{location.name}</h3>
                                             </div>
-                                            <div className="absolute top-4 right-4 bg-gradient-to-r from-red-700 to-red-800 text-white px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm border border-red-700/20">
-                                                Premium
-                                            </div>
+                                            {/* Removed Premium badge per requirement */}
                                             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                                 <div className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-4 py-2 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 border border-red-700/20 backdrop-blur-sm flex items-center">
                                                     <Building className="h-4 w-4 mr-2" />

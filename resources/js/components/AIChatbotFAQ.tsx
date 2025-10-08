@@ -65,7 +65,7 @@ export default function AIChatbotFAQ() {
     "I can help with the UltraFlex website and gyms only — try asking about memberships, prices, opening times, facilities, locations, trainers, or contact info.";
 
   const websiteKeywords = [
-    'ultraflex', 'gym', 'membership', 'member', 'join', 'sign up', 'signup', 'price', 'pricing', 'cost', 'fee', 'day pass', 'guest pass',
+  'ultraflex', 'gym', 'membership', 'member', 'join', 'sign up', 'signup', 'price', 'pricing', 'cost', 'fee', 'guest pass',
     'open', 'opening', 'hours', 'time', '24/7', 'staffed', 'holiday',
     'location', 'address', 'where', 'near', 'map', 'directions', 'parking',
     'facility', 'facilities', 'equipment', 'machines', 'weights', 'classes', 'class', 'timetable', 'schedule',

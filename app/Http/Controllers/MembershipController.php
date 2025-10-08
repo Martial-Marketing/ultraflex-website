@@ -145,6 +145,16 @@ class MembershipController extends Controller
             ],
         ];
 
+        // Filter out any plan representing a Day Pass (including GOLD Day Pass or Founding Member (Day Pass))
+        $locations = collect($locations)->map(function($loc){
+            if(isset($loc['plans']) && is_array($loc['plans'])) {
+                $loc['plans'] = array_values(array_filter($loc['plans'], function($p){
+                    return stripos($p['name'], 'day pass') === false; // remove all day pass variants
+                }));
+            }
+            return $loc;
+        })->toArray();
+
         $locationsList = collect($locations)->map(function($data, $slug){
             return [
                 'id' => $data['id'],

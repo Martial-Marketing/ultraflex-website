@@ -15,16 +15,6 @@ class LocationController extends Controller
         // Removed location-specific 'Martial Arts Area' reference to avoid inaccurate claims for gyms without that facility.
         $membershipPlans = [
             [
-                'id' => 1,
-                'name' => 'Day Pass',
-                'price' => 12,
-                'period' => 'day',
-                // Updated processed hero image
-                'image' => '/Images/processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.jpeg',
-                'features' => ['Single Day Access', 'All Equipment Access', 'Visitor Friendly'],
-                'popular' => false
-            ],
-            [
                 'id' => 2,
                 'name' => 'Weekly Pass',
                 'price' => 22.50,
@@ -87,7 +77,7 @@ class LocationController extends Controller
             [
                 'id' => 1,
                 'name' => 'ULTRAFLEX WEST LEEDS',
-                'address' => 'West Park Ring Road, Leeds LS16 6EB, UK',
+                'address' => 'Cape Mills, Coal Hill Ln, Leeds LS28 5NA',
                 'phone' => '0113 256 5107',
                 'image' => '/Images/newimages/West Leeds/gym-in-westleeds.webp',
                 'slug' => 'west-leeds',
@@ -99,7 +89,7 @@ class LocationController extends Controller
             [
                 'id' => 2,
                 'name' => 'ULTRAFLEX NORTH LEEDS',
-                'address' => 'Limewood Centre, Limewood Avenue, Ring Road, Seacroft, Leeds LS14 1NH, UK',
+                'address' => 'Limewood Approach, Seacroft, Leeds LS14 1NH',
                 'phone' => '0113 513 7669',
                 // Updated processed hero image
                 'image' => '/Images/processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.jpeg',
@@ -112,7 +102,7 @@ class LocationController extends Controller
             [
                 'id' => 3,
                 'name' => 'ULTRAFLEX NORMANTON',
-                'address' => 'High Street, Normanton WF6 2DB, UK',
+                'address' => 'Ripley Dr, Normanton WF6 1QT',
                 'phone' => '+44 1924 890 123',
                 'image' => '/Images/newimages/Normanton/gym-in-normanton.webp',
                 'slug' => 'normanton',
@@ -124,7 +114,7 @@ class LocationController extends Controller
             [
                 'id' => 4,
                 'name' => 'ULTRAFLEX ROTHERHAM',
-                'address' => 'Moorgate Street, Rotherham S60 2EY, UK',
+                'address' => '175 Effingham St, Rotherham S65 1BL',
                 'phone' => '+44 1709 456 789',
                 'image' => '/Images/newimages/Rotherham/gym-in-rotherham.webp',
                 'slug' => 'rotherham',
@@ -136,7 +126,7 @@ class LocationController extends Controller
             [
                 'id' => 5,
                 'name' => 'ULTRAFLEX YORK',
-                'address' => 'Clifton Moor Centre, York YO30 4WR, UK',
+                'address' => '10 Layerthorpe, York YO31 7YW',
                 'phone' => '+44 1904 567 890',
                 'image' => '/Images/newimages/York/gym-in-york.webp',
                 'slug' => 'york',
@@ -148,7 +138,7 @@ class LocationController extends Controller
             [
                 'id' => 6,
                 'name' => 'ULTRAFLEX HULL',
-                'address' => 'Jameson Street, Hull HU1 3DX, UK',
+                'address' => 'Business Park, 261 Hawthorn Avenue Trackside, Hull HU3 5EN',
                 'phone' => '+44 1482 678 901',
                 // Updated processed hero image
                 'image' => '/Images/processed-E08A33F0-0FB6-43A5-BF60-EC1147B6517D-min-min.jpeg',
@@ -161,7 +151,7 @@ class LocationController extends Controller
             [
                 'id' => 7,
                 'name' => 'ULTRAFLEX DURHAM',
-                'address' => 'North Road, Durham DH1 4SQ, UK',
+                'address' => 'Mandale Business Park, Unit 28D, Kent House, Durham DH1 1TH',
                 'phone' => '+44 1913 789 012',
                 // Updated processed hero image
                 'image' => '/Images/original-787FADAA-6849-48F3-B005-6AD9FB2E74C4-min-min.jpeg',
@@ -174,7 +164,7 @@ class LocationController extends Controller
             [
                 'id' => 8,
                 'name' => 'ULTRAFLEX DERBY',
-                'address' => 'St Peters Street, Derby DE1 2AB, UK',
+                'address' => 'Chequers Rd, Derby DE21 6EN',
                 'phone' => '+44 1332 890 123',
                 // Updated processed hero image
                 'image' => '/Images/processed-5AB78E5E-3190-4963-8AAF-9B3B527D73AD-min-min.jpeg',
@@ -187,7 +177,7 @@ class LocationController extends Controller
             [
                 'id' => 9,
                 'name' => 'ULTRAFLEX ATHENS (GREECE)',
-                'address' => 'Vouliagmenis Avenue, Glyfada 166 74, Greece',
+                'address' => 'Ethnarchou Makariou 16, Peristeri 121 32, Greece',
                 'phone' => '+30 210 901 2345',
                 'image' => '/Images/athens/HeroBG/gym-in-athens-16.webp',
                 'slug' => 'athens-greece',
@@ -199,10 +189,10 @@ class LocationController extends Controller
             [
                 'id' => 10,
                 'name' => 'ULTRAFLEX LINCOLN',
-                'address' => 'High Street, Lincoln LN5 7PJ, UK',
+                'address' => '3 Pioneer Way, Lincoln LN6 3DH',
                 'phone' => '+44 1522 012 345',
-                // Updated processed hero image
-                'image' => '/Images/processed-3CBED414-67C5-41E8-A885-3D42BA69744C-min-min.jpeg',
+                // Updated processed hero image (Oct 8 2025 change request)
+                'image' => '/Images/processed-E72B606D-BB53-4CB2-90BA-4EB35AC99920.webp',
                 'slug' => 'lincoln',
                 'hours' => [
                     'weekdays' => '5:00 AM - 11:00 PM',
@@ -212,10 +202,10 @@ class LocationController extends Controller
             [
                 'id' => 11,
                 'name' => 'ULTRAFLEX WEST LONDON',
-                'address' => 'Westfield Shopping Centre, London W12 7GF, UK',
+                'address' => 'Point West, 2, Packet Boat Ln, Uxbridge UB8 2JP',
                 'phone' => '+44 20 3456 7890',
-                // Updated processed hero image
-                'image' => '/Images/processed-F7DB5741-8540-4974-9CCC-A37F83D8733B-min-min.jpeg',
+                // Updated processed hero image (Oct 8 2025 change request)
+                'image' => '/Images/processed-463489D0-F620-407E-BED0-4EB177EDCAC4 (1).webp',
                 'slug' => 'west-london',
                 'hours' => [
                     'weekdays' => '05:30 - 22:30',
@@ -272,7 +262,7 @@ class LocationController extends Controller
                 $locationData = [
                     'id' => 1,
                     'name' => 'ULTRAFLEX WEST LEEDS',
-                    'address' => 'West Park Ring Road, Leeds LS16 6EB, UK',
+                    'address' => 'Cape Mills, Coal Hill Ln, Leeds LS28 5NA',
                     'phone' => '0113 256 5107',
                     'email' => 'leeds@ultraflexgym.co.uk',
                     'image' => '/Images/newimages/West Leeds/gym-in-westleeds.webp',
@@ -366,7 +356,7 @@ class LocationController extends Controller
                 $locationData = [
                     'id' => 2,
                     'name' => 'ULTRAFLEX NORTH LEEDS',
-                    'address' => 'Limewood Centre, Limewood Avenue, Ring Road, Seacroft, Leeds LS14 1NH, UK',
+                    'address' => 'Limewood Approach, Seacroft, Leeds LS14 1NH',
                     'phone' => '0113 513 7669',
                     'email' => 'northleeds@ultraflexgym.co.uk',
                     'image' => '/Images/processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.jpeg',
@@ -506,7 +496,7 @@ class LocationController extends Controller
                 $locationData = [
                     'id' => 3,
                     'name' => 'ULTRAFLEX NORMANTON',
-                    'address' => 'High Street, Normanton WF6 2DB, UK',
+                    'address' => 'Ripley Dr, Normanton WF6 1QT',
                     'phone' => '0192 489 5794',
                     'email' => 'normanton@ultraflexgym.co.uk',
                     'image' => '/Images/newimages/Normanton/gym-in-normanton.webp',
@@ -700,7 +690,7 @@ class LocationController extends Controller
                 $locationData = [
                     'id' => 4,
                     'name' => 'ULTRAFLEX ROTHERHAM',
-                    'address' => 'Moorgate Street, Rotherham S60 2EY, UK',
+                    'address' => '175 Effingham St, Rotherham S65 1BL',
                     'phone' => '0170 937 7311',
                     'email' => 'rotherham@ultraflexgym.co.uk',
                     'image' => '/Images/newimages/Rotherham/gym-in-rotherham.webp',
@@ -869,7 +859,7 @@ class LocationController extends Controller
                 $locationData = [
                     'id' => 5,
                     'name' => 'ULTRAFLEX YORK',
-                    'address' => 'Clifton Moor Centre, York YO30 4WR, UK',
+                    'address' => '10 Layerthorpe, York YO31 7YW',
                     'phone' => '+44 1904 567 890',
                     'email' => 'york@ultraflexgym.co.uk',
                     'image' => '/Images/newimages/York/gym-in-york.webp',
@@ -1038,7 +1028,7 @@ class LocationController extends Controller
                 $locationData = [
                     'id' => 6,
                     'name' => 'ULTRAFLEX HULL',
-                    'address' => 'Jameson Street, Hull HU1 3DX, UK',
+                    'address' => 'Business Park, 261 Hawthorn Avenue Trackside, Hull HU3 5EN',
                     'phone' => '+44 1482 678 901',
                     'email' => 'hull@ultraflexgym.co.uk',
                     // Updated primary image for Hull location
@@ -1169,7 +1159,7 @@ class LocationController extends Controller
                 $locationData = [
                     'id' => 7,
                     'name' => 'ULTRAFLEX DURHAM',
-                    'address' => 'North Road, Durham DH1 4SQ, UK',
+                    'address' => 'Mandale Business Park, Unit 28D, Kent House, Durham DH1 1TH',
                     'phone' => '+44 1913 789 012',
                     'email' => 'durham@ultraflexgym.co.uk',
                     // Updated primary image for Durham location
@@ -1296,7 +1286,7 @@ class LocationController extends Controller
                 $locationData = [
                     'id' => 8,
                     'name' => 'ULTRAFLEX DERBY',
-                    'address' => 'St Peters Street, Derby DE1 2AB, UK',
+                    'address' => 'Chequers Rd, Derby DE21 6EN',
                     'phone' => '+44 1332 890 123',
                     'email' => 'derby@ultraflexgym.co.uk',
                     // Updated primary image for Derby location
@@ -1443,7 +1433,7 @@ class LocationController extends Controller
                 $locationData = [
                     'id' => 9,
                     'name' => 'ULTRAFLEX ATHENS (GREECE)',
-                    'address' => 'Vouliagmenis Avenue, Glyfada 166 74, Greece',
+                    'address' => 'Ethnarchou Makariou 16, Peristeri 121 32, Greece',
                     'phone' => '+30 210 901 2345',
                     'email' => 'athens@ultraflexgym.co.uk',
                     'image' => '/Images/athens/HeroBG/DSC07413.jpg',
@@ -1560,11 +1550,11 @@ class LocationController extends Controller
                 $locationData = [
                     'id' => 10,
                     'name' => 'ULTRAFLEX LINCOLN',
-                    'address' => 'High Street, Lincoln LN5 7PJ, UK',
+                    'address' => '3 Pioneer Way, Lincoln LN6 3DH',
                     'phone' => '+44 1522 012 345',
                     'email' => 'lincoln@ultraflexgym.co.uk',
-                    // Updated primary image for Lincoln location
-                    'image' => '/Images/processed-3CBED414-67C5-41E8-A885-3D42BA69744C-min-min.jpeg',
+                    // Updated primary image for Lincoln location (replaced per user request Oct 8 2025)
+                    'image' => '/Images/processed-E72B606D-BB53-4CB2-90BA-4EB35AC99920.webp',
                     'gallery' => [
                         '/Images/newimages/Lincoln/gym-in-lincoln-2.webp',
                         '/Images/newimages/Lincoln/gym-in-lincoln-3.webp',
@@ -1719,11 +1709,11 @@ class LocationController extends Controller
                 $locationData = [
                     'id' => 11,
                     'name' => 'ULTRAFLEX WEST LONDON',
-                    'address' => 'Westfield Shopping Centre, London W12 7GF, UK',
+                    'address' => 'Point West, 2, Packet Boat Ln, Uxbridge UB8 2JP',
                     'phone' => '+44 20 3456 7890',
                     'email' => 'westlondon@ultraflexgym.co.uk',
-                    // Updated primary image for West London location
-                    'image' => '/Images/processed-F7DB5741-8540-4974-9CCC-A37F83D8733B-min-min.jpeg',
+                    // Updated primary image for West London location (replaced per user request Oct 8 2025)
+                    'image' => '/Images/processed-463489D0-F620-407E-BED0-4EB177EDCAC4 (1).webp',
                     'gallery' => [
                         '/Images/westlondon/DSC06653-2.jpg',
                         '/Images/westlondon/DSC06686.jpg',
@@ -1886,7 +1876,7 @@ class LocationController extends Controller
                 $locationData = [
                     'id' => 1,
                     'name' => 'ULTRAFLEX WEST LEEDS',
-                    'address' => 'West Park Ring Road, Leeds LS16 6EB, UK',
+                    'address' => 'Cape Mills, Coal Hill Ln, Leeds LS28 5NA',
                     'phone' => '0113 256 5107',
                     'email' => 'leeds@ultraflexgym.co.uk',
                     'image' => '/Images/westleeds/UFG (100) (2).jpg',
@@ -1998,14 +1988,6 @@ class LocationController extends Controller
                 '/images/gallery/west-leeds-exterior.jpg'
             ],
             'membershipPlans' => [
-                [
-                    'id' => 1,
-                    'name' => 'Day Pass',
-                    'price' => 12,
-                    'period' => 'day',
-                    'features' => ['Single Day Access', 'Top-Quality Equipment', 'Changing Rooms', 'Free Parking'],
-                    'popular' => false
-                ],
                 [
                     'id' => 2,
                     'name' => 'Weekly Pass',
@@ -2179,6 +2161,13 @@ class LocationController extends Controller
             $commonData['amenities'] = array_values(array_filter($commonData['amenities'], function($a){ return $a !== null; }));
         }
         $locationData = array_merge($commonData, $locationData);
+
+        // Remove any Day Pass style plans (including GOLD Day Pass, Founding Member (Day Pass)) from displayed membershipPlans
+        if(isset($locationData['membershipPlans']) && is_array($locationData['membershipPlans'])) {
+            $locationData['membershipPlans'] = array_values(array_filter($locationData['membershipPlans'], function($plan){
+                return stripos($plan['name'], 'day pass') === false; // exclude all variants
+            }));
+        }
 
         return Inertia::render('Locations/Show', [
             'location' => $locationData,

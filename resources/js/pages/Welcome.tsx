@@ -18,9 +18,19 @@ interface AuthProps {
 }
 interface WelcomeProps {
     auth: AuthProps;
+    latestNews: {
+        id: number;
+        title: string;
+        excerpt: string;
+        date: string;
+        image: string;
+        readTime: string;
+        slug: string;
+        category: string;
+    }[];
 }
 
-export default function Welcome({ auth }: WelcomeProps) {
+export default function Welcome({ auth, latestNews }: WelcomeProps) {
     // Real UltraFlex locations data - showing top 3 locations
     const locations = [
         {
@@ -87,39 +97,7 @@ export default function Welcome({ auth }: WelcomeProps) {
         "/Images/processed-E08A33F0-0FB6-43A5-BF60-EC1147B6517D-min-min.jpeg",
     ];
 
-    // Latest news with matching controller data
-    const latestNews = [
-        { 
-            id: 1, 
-            title: "New HIIT Classes Starting This Month", 
-            excerpt: "Join our high-intensity interval training classes designed to maximize your workout efficiency and burn calories fast. Perfect for all fitness levels!", 
-            date: "June 20, 2025", 
-            image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop",
-            category: "Classes",
-            readTime: "3 min read",
-            slug: "new-hiit-classes-starting-this-month"
-        },
-        { 
-            id: 2, 
-            title: "UltraFlex Expansion: Coming to Southside", 
-            excerpt: "We're excited to announce our newest location opening in the Southside district this fall. 25,000 sq ft of premium fitness facilities!", 
-            date: "June 18, 2025", 
-            image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=400&fit=crop",
-            category: "News",
-            readTime: "5 min read",
-            slug: "ultraflex-expansion-coming-to-southside"
-        },
-        { 
-            id: 3, 
-            title: "Summer Fitness Challenge 2025", 
-            excerpt: "Get ready for our biggest fitness challenge yet! Join hundreds of members in achieving their summer fitness goals with amazing prizes.", 
-            date: "June 15, 2025", 
-            image: "https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=600&h=400&fit=crop",
-            category: "Events",
-            readTime: "4 min read",
-            slug: "summer-fitness-challenge-2025"
-        },
-    ];
+    // latestNews now comes from backend (HomeController)
 
     return (
         <AppLayout auth={auth}>

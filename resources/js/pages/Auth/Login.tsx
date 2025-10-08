@@ -210,7 +210,7 @@ export default function Login({ auth, flash }: LoginProps) {
                                     <div className="mt-6 p-4 bg-red-700/10 backdrop-blur-sm rounded-lg border border-red-700/30 text-center">
                                         <p className="text-sm text-gray-300">
                                             Don't have an account?{' '}
-                                            <a href={route('auth.register')} className="text-red-700 hover:text-red-600 font-medium transition-colors duration-300">
+                                            <a href={route('register')} className="text-red-700 hover:text-red-600 font-medium transition-colors duration-300">
                                                 Create account
                                             </a>
                                         </p>

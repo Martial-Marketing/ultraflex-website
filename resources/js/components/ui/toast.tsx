@@ -122,21 +122,21 @@ export function ToastProviderComponent({ children }: { children: React.ReactNode
         info: null,
       }
 
-      Object.keys(TOAST_SOUNDS).forEach((type) => {
-        const src = TOAST_SOUNDS[type as ToastType]
-        // Attempt to verify file exists to avoid 404 spam; graceful fallback
-        fetch(src, { method: 'HEAD' }).then(r => {
-          if (r.ok) {
-            const audioElement = new Audio(src)
-            audioElement.preload = "auto"
-            currentAudioRefs[type as ToastType] = audioElement
-          } else {
-            currentAudioRefs[type as ToastType] = null
-          }
-        }).catch(() => {
+      // Attempt to load audio only if files actually exist in public. We assume presence if window.__UF_SOUNDS__ = true.
+      const soundsEnabled = (window as any).__UF_SOUNDS__ === true;
+      if (soundsEnabled) {
+        Object.keys(TOAST_SOUNDS).forEach((type) => {
+          const src = TOAST_SOUNDS[type as ToastType]
+          const audioElement = new Audio(src)
+          audioElement.preload = "auto"
+          currentAudioRefs[type as ToastType] = audioElement
+        })
+      } else {
+        // Skip loading to prevent 404s; leave refs null
+        Object.keys(TOAST_SOUNDS).forEach((type) => {
           currentAudioRefs[type as ToastType] = null
         })
-      })
+      }
 
       audioRefs.current = currentAudioRefs
 
