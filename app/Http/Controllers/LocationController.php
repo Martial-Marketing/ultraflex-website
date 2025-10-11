@@ -394,13 +394,11 @@ class LocationController extends Controller
                     ],
                     // Services & partners for North Leeds
                     'services' => [
-                        ['name' => 'Levels Barbers', 'description' => 'On-site barber services for members.'],
                         ['name' => 'Regen Physio', 'description' => 'Physiotherapy & rehab services supporting recovery.'],
                         ['name' => 'IMA', 'description' => 'Specialist coaching / instruction (details forthcoming).'],
                         ['name' => 'Ultra Car Wash', 'description' => 'Convenient on-site car wash service while you train.']
                     ],
                     'serviceLinks' => [
-                        ['label' => 'Levels Barbers Instagram', 'url' => 'https://www.instagram.com/levelsbarbershopnorthleeds', 'type' => 'external'],
                         ['label' => 'Regen Physio Link', 'url' => 'https://bit.ly/m/RegenPhysio', 'type' => 'external'],
                         ['label' => 'Ultra Car Wash Instagram', 'url' => 'https://www.instagram.com/ultracarwashnorthleeds', 'type' => 'external'],
                         ['label' => 'IMA Instagram', 'url' => 'https://www.instagram.com/IMA.leeds', 'type' => 'external']
@@ -537,19 +535,18 @@ class LocationController extends Controller
                         'Sauna',
                         'Ice Bath'
                     ],
-                    // Location Services intentionally left blank as requested
-                    'services' => [],
+                    // Services & Partners: Normanton — only AmyClark Hair
+                    'services' => [
+                        [
+                            'name' => 'AmyClark Hair',
+                            'description' => 'Professional hair services available at UltraFlex Normanton.',
+                            'icon' => null
+                        ],
+                    ],
                     'serviceLinks' => [
-                        // House of Wellness
-                        ['label' => 'House of Wellness (Bloods)', 'url' => 'https://houseofwellness.com', 'type' => 'external'],
-                        ['label' => 'House of Wellness Facebook', 'url' => 'https://www.facebook.com/HouseOfWellnessUK', 'type' => 'external'],
-                        ['label' => 'House of Wellness Instagram', 'url' => 'https://www.instagram.com/houseofwellnessuk', 'type' => 'external'],
-                        ['label' => 'House of Wellness TikTok', 'url' => 'https://www.tiktok.com/@houseofwellnessuk', 'type' => 'external'],
-                        // Elite Osteo Midlands
-                        ['label' => 'Elite Osteo Midlands Website', 'url' => 'https://eliteosteo.co.uk', 'type' => 'external'],
-                        ['label' => 'Elite Osteo Midlands Instagram', 'url' => 'https://www.instagram.com/eliteosteo.midlands', 'type' => 'external'],
-                        // Fusion Rehab
-                        ['label' => 'Fusion Rehab Instagram', 'url' => 'https://www.instagram.com/Fusion_rehab_', 'type' => 'external']
+                        ['label' => 'AmyClark Hair Instagram', 'url' => 'https://www.instagram.com/amyclark_hair', 'type' => 'external'],
+                        // Booking platform link: update to the exact profile URL if provided
+                        ['label' => 'Book Appointments (Booksy)', 'url' => 'https://booksy.com', 'type' => 'external'],
                     ],
                     'membershipPlans' => [
                         [

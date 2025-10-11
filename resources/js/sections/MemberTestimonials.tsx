@@ -14,6 +14,16 @@ interface MemberTestimonialsProps {
 }
 
 export default function MemberTestimonials({ testimonials }: MemberTestimonialsProps) {
+    const getInitials = (name: string) => {
+        if (!name) return '';
+        const parts = name.trim().split(/\s+/);
+        if (parts.length >= 2) {
+            return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+        }
+        // Fallback: first two characters of single word
+        return name.slice(0, 2).toUpperCase();
+    };
+
     return (
         <section className="py-20 bg-transparent relative overflow-hidden">
             {/* Animated particles overlay */}
@@ -58,14 +68,15 @@ export default function MemberTestimonials({ testimonials }: MemberTestimonialsP
                             </div>
 
                             <div className="mb-6 relative z-10">
-                                {/* Enhanced member image with border */}
+                                {/* Member avatar with red background and initials */}
                                 <div className="relative mb-4">
                                     <div className="w-20 h-20 mx-auto rounded-full border-2 border-red-700/30 p-1 group-hover:border-red-700/60 transition-colors duration-300">
-                                        <img 
-                                            src={testimonial.image} 
-                                            alt={testimonial.name}
-                                            className="w-full h-full rounded-full object-cover transform group-hover:scale-105 transition-transform duration-300"
-                                        />
+                                        <div
+                                            aria-label={`${testimonial.name} avatar`}
+                                            className="w-full h-full rounded-full bg-red-700 flex items-center justify-center text-white font-bold text-xl select-none"
+                                        >
+                                            {getInitials(testimonial.name)}
+                                        </div>
                                     </div>
                                     {/* Member indicator */}
                                     <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-br from-red-700 to-red-800 rounded-full flex items-center justify-center border-2 border-black/40">

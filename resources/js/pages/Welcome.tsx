@@ -56,35 +56,29 @@ export default function Welcome({ auth, latestNews }: WelcomeProps) {
         }
     ];
 
-    // Real member testimonials with Unsplash profile images
+    // Member testimonials (from Google-style reviews provided)
     const testimonials = [
-        { 
-            id: 1, 
-            name: "", 
-            quote: "Sarah completely transformed my approach to fitness. I've lost 30 pounds and gained so much confidence! The trainers here are incredible and really care about your progress.", 
-            rating: 5, 
-            image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-            membership: "2 years",
-            location: "Downtown UltraFlex"
+        {
+            id: 1,
+            name: 'Gabrielle Furtado',
+            quote: "Best gym in the country!! I’ve been to gyms in NY, Miami, LA and nothing compares. Ultraflex is the best gym I have ever been to. This gym is the reason I can’t leave MA. They have a sauna, posing room, separate room dedicated to legs, every chest, shoulder, and back machine you can think of & it’s two levels. The dumbbells go up extremely high as well. If you’re in the area I 11/10 recommend you check it out & grab some merch while you’re there!",
+            rating: 5,
+            image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face'
         },
-        { 
-            id: 2, 
-            name: "David Rodriguez", 
-            quote: "Mike helped me gain 15 pounds of muscle in 6 months. His nutrition knowledge is incredible! Best bodybuilding coach I've worked with.", 
-            rating: 5, 
-            image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-            membership: "1.5 years",
-            location: "Westside UltraFlex"
+        {
+            id: 2,
+            name: 'Jessica',
+            quote: "Very nice gym. Has a sauna, lockers, showers, alot of equipment to use, great staff (my fav is Nick he is super kind/patient when I asked 101 questions like a true gentleman) and gym is CLEAN! I have been to several gyms and this 1 is my favorite 😍",
+            rating: 5,
+            image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face'
         },
-        { 
-            id: 3, 
-            name: "Sarah Martinez", 
-            quote: "Emma's yoga classes are transformative. I've never felt more balanced and centered. The mind-body connection I've developed here is life-changing.", 
-            rating: 5, 
-            image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
-            membership: "3 years",
-            location: "North UltraFlex"
-        },
+        {
+            id: 3,
+            name: 'azzurra de paola',
+            quote: "Best gym I have ever trained at . They have the best equipments , best trainers and the vibe is beautiful! Everyone is helpful and professional. Ultraflex is not just a gym . It’s a family 🇮🇹 I loveeee it",
+            rating: 5,
+            image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face'
+        }
     ];
 
     const galleryImages = [
