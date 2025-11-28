@@ -19,6 +19,7 @@ export interface AppLayoutProps {
 export default ({ children, breadcrumbs, auth, ...props }: AppLayoutProps) => {
     const { url } = usePage();
     const showBack = url !== '/';
+    const needsOffset = url !== '/';
 
     const goBack = () => {
         if (typeof window !== 'undefined' && window.history.length > 1) {
@@ -32,15 +33,15 @@ export default ({ children, breadcrumbs, auth, ...props }: AppLayoutProps) => {
         <ToastProviderComponent>
             <div className="min-h-screen flex flex-col">
                 <Navbar auth={auth || { user: null }} />
-                {/* Single spacer to offset sticky navbar height across breakpoints */}
-                <div className="h-20 md:h-24 xl:h-28" aria-hidden="true" />
+                {/* Spacer to offset sticky navbar height on non-home routes */}
+                {needsOffset && <div className="h-16" aria-hidden="true" />}
 
                 {/* Floating Back button at upper-right, below Navbar */}
                 {showBack && (
                     <button
                         onClick={goBack}
                         aria-label="Go Back"
-                        className="fixed left-4 top-[76px] md:left-6 md:top-[76px] inline-flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium text-white bg-black hover:bg-black/90 border border-white/10 z-40 shadow-lg"
+                        className="fixed left-4 top-[64px] md:left-6 md:top-[64px] inline-flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium text-white bg-black hover:bg-black/90 border border-white/10 z-40 shadow-lg"
                     >
                         <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <polyline points="15 18 9 12 15 6" />
