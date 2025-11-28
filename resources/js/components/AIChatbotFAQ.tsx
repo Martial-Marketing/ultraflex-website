@@ -1,249 +1,244 @@
+import { useEffect, useRef, useState } from 'react';
 
+type Msg = { sender: 'bot' | 'user'; text: string };
 
-import { useState, useRef, useEffect } from 'react';
-// Utility for fade-in animation
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ');
-}
-import AppLogoIcon from './app-logo-icon';
-import { Card, CardHeader, CardContent, CardTitle, CardDescription, CardFooter } from './ui/card';
-
-const faqs = [
-  {
-    question: 'What are your opening hours?',
-    answer: 'UltraFlex gyms are open 24/7 for members. Staffed hours may vary by location.'
-  },
-  {
-    question: 'How do I join UltraFlex?',
-    answer: 'Click the Sign Up button on our homepage or visit your nearest UltraFlex location.'
-  },
-  {
-    question: 'Do you offer personal training?',
-    answer: 'Yes! We have expert trainers available for personal and group sessions.'
-  },
-  {
-    question: 'Is there parking available?',
-    answer: 'All UltraFlex locations offer free parking for members.'
-  },
-  {
-    question: 'Can I freeze or cancel my membership?',
-    answer: 'Yes, you can freeze or cancel your membership by contacting our support team or visiting the front desk.'
-  },
-];
+const INTRO = 'Hi! I am the UltraFlex AI Assistant. Ask about memberships, opening times, facilities, locations, or trainers.';
 
 export default function AIChatbotFAQ() {
-  // Load persisted state on first render
-  const [open, setOpen] = useState<boolean>(() => {
-    try {
-      const raw = localStorage.getItem('ufx.chat.open');
-      return raw ? JSON.parse(raw) : true;
-    } catch {
-      return true;
+  const [open, setOpen] = useState(true);
+  const [messages, setMessages] = useState<Msg[]>([{ sender: 'bot', text: INTRO }]);
+  const [input, setInput] = useState('');
+  const [typing, setTyping] = useState(false);
+  const endRef = useRef<HTMLDivElement>(null);
+
+  const GEMINI_ENDPOINT = (import.meta as any)?.env?.VITE_GEMINI_BACKEND_URL || '/api/gemini';
+
+  useEffect(() => {
+    endRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages, typing]);
+
+  // no launcher nudge; keep UI minimal
+
+  const getContext = () => {
+    if (typeof window === 'undefined') return { currentPath: '/', locationSlug: null as string | null };
+    const currentPath = window.location.pathname || '/';
+    const m = currentPath.match(/^\/locations\/(.+)$/);
+    return { currentPath, locationSlug: m ? m[1] : null };
+  };
+
+  const canned = (q: string) => {
+    const t = q.toLowerCase();
+    const ashbourne = 'https://secure.ashbournemanagement.co.uk/signupuk/index.aspx?fn=grbh2';
+    const { locationSlug } = getContext();
+    const loc = locationSlug ? `/locations/${locationSlug}` : '/locations';
+    if (/^(hi|hello|hey|hiya|yo|help)\b/.test(t)) {
+      return 'Hi! I can help with UltraFlex memberships, opening times, facilities, locations, and trainers. Try “Membership options” or “Opening hours”.';
     }
-  });
-  const messagesEndRef = useRef<HTMLDivElement>(null);
-  const [input, setInput] = useState<string>(() => {
-    try {
-      const raw = localStorage.getItem('ufx.chat.input');
-      return raw ? JSON.parse(raw) : '';
-    } catch {
-      return '';
+    if (t.includes('price') || t.includes('how much') || t.includes('cost') || t.includes('pricing') || q.includes('£')) {
+      return `We don’t publish fixed prices. Please use our Ashbourne portal for current options: ${ashbourne}. Day passes are available at reception.`;
     }
-  });
-  const [messages, setMessages] = useState<{ sender: 'bot' | 'user'; text: string; animate?: boolean }[]>(() => {
-    try {
-      const raw = localStorage.getItem('ufx.chat.messages');
-      if (raw) return JSON.parse(raw);
-    } catch {}
-    return [
-      { sender: 'bot', text: 'Hi! I am the UltraFlex AI Assistant. Ask me anything about memberships, facilities, or trainers.', animate: true },
-    ];
-  });
+    if (t.includes('member') || t.includes('join') || t.includes('sign up') || t.includes('signup')) {
+      return `Join UltraFlex via our Ashbourne signup: ${ashbourne}.`;
+    }
+    if (t.includes('open') || t.includes('opening') || t.includes('hours') || t.includes('24/7')) {
+      return `Most sites are 24/7 for members; staffed hours vary. See your gym page: ${loc}.`;
+    }
+    if (t.includes('contact') || t.includes('email') || t.includes('phone')) {
+      return `For general enquiries: info@ultraflex.com. For site contacts, see ${loc}.`;
+    }
+    return null;
+  };
 
-  // Soft topic guard: only answer UltraFlex website/gym questions
-  const OFF_TOPIC_RESPONSE =
-    "I can help with the UltraFlex website and gyms only — try asking about memberships, prices, opening times, facilities, locations, trainers, or contact info.";
+  const extractLinks = (text: string) => {
+    const links: { label: string; href: string; external?: boolean }[] = [];
+    const ashbourne = 'https://secure.ashbournemanagement.co.uk/signupuk/index.aspx?fn=grbh2';
+    const { locationSlug } = getContext();
+    const locPath = locationSlug ? `/locations/${locationSlug}` : '/locations';
 
-  const websiteKeywords = [
-  'ultraflex', 'gym', 'membership', 'member', 'join', 'sign up', 'signup', 'price', 'pricing', 'cost', 'fee', 'guest pass',
-    'open', 'opening', 'hours', 'time', '24/7', 'staffed', 'holiday',
-    'location', 'address', 'where', 'near', 'map', 'directions', 'parking',
-    'facility', 'facilities', 'equipment', 'machines', 'weights', 'classes', 'class', 'timetable', 'schedule',
-    'trainer', 'personal trainer', 'pt', 'coaching',
-    'tour', 'virtual tour', 'video',
-    'contact', 'email', 'phone', 'support',
-    'cancel', 'freeze', 'pause', 'upgrade', 'downgrade', 'student', 'corporate'
-  ];
+    if (text.includes('ashbournemanagement') || text.includes(ashbourne)) {
+      links.push({ label: 'Join via Ashbourne', href: ashbourne, external: true });
+    }
+    if (text.includes('/membership')) {
+      links.push({ label: 'Membership Page', href: '/membership' });
+    }
+    if (text.includes('/locations/')) {
+      const m = text.match(/\/locations\/[a-z0-9-]+/i);
+      if (m) links.push({ label: 'View Location', href: m[0] });
+    } else if (text.includes('/locations')) {
+      links.push({ label: 'All Locations', href: '/locations' });
+    } else if (text.toLowerCase().includes('your gym page')) {
+      links.push({ label: 'Your Gym Page', href: locPath });
+    }
 
-  function isWebsiteQuestion(q: string) {
-    const text = q.toLowerCase();
-    // If it explicitly mentions UltraFlex, assume on-topic
-    if (text.includes('ultraflex')) return true;
-    // Keyword match
-    return websiteKeywords.some((k) => text.includes(k));
-  }
+    const urlMatches = text.match(/https?:\/\/[^\s)]+/g) || [];
+    for (const u of urlMatches) {
+      if (u.includes('ashbournemanagement')) continue;
+      try {
+        const host = new URL(u).hostname.replace(/^www\./, '');
+        links.push({ label: host, href: u, external: true });
+      } catch {}
+    }
 
-  // Persist state to localStorage whenever it changes
-  useEffect(() => {
-    try { localStorage.setItem('ufx.chat.open', JSON.stringify(open)); } catch {}
-  }, [open]);
-  useEffect(() => {
-    try { localStorage.setItem('ufx.chat.input', JSON.stringify(input)); } catch {}
-  }, [input]);
-  useEffect(() => {
-    try { localStorage.setItem('ufx.chat.messages', JSON.stringify(messages)); } catch {}
-    // Scroll to bottom on new message
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages]);
+    const seen = new Set<string>();
+    return links.filter(l => (seen.has(l.href) ? false : (seen.add(l.href), true)));
+  };
 
-  const handleSend = async () => {
-    if (!input.trim()) return;
-    const question = input.trim();
-    setMessages((msgs) => [...msgs, { sender: 'user', text: question, animate: true }]);
+  const sanitizeBotText = (text: string) => {
+    let t = text;
+    // Strip full URLs
+    t = t.replace(/https?:\/\/[^\s)]+/g, '').trim();
+    // Strip inline paths like /membership, /locations or /locations/slug
+    t = t.replace(/\/(membership|locations\/[a-z0-9-]+|locations)\b/gi, '').trim();
+    // Collapse extra spaces and remove trailing punctuation introduced by stripping
+    t = t.replace(/\s{2,}/g, ' ').replace(/[.,;:()\s]+$/g, '').trim();
+    return t || 'I’ve added quick links below.';
+  };
+
+  const send = async (forced?: string) => {
+    const text = (forced ?? input).trim();
+    if (!text) return;
+    setMessages((m) => [...m, { sender: 'user', text }]);
     setInput('');
+    setTyping(true);
 
-    // Guard: Only proceed if question is about the website/gyms
-    if (!isWebsiteQuestion(question)) {
-      setMessages((msgs) => [
-        ...msgs,
-        { sender: 'bot', text: OFF_TOPIC_RESPONSE, animate: true },
-      ]);
-      return;
-    }
     try {
-      const res = await fetch('/api/gemini', {
+      const cannedAns = canned(text);
+      const { currentPath, locationSlug } = getContext();
+      const res = await fetch(GEMINI_ENDPOINT, {
         method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json'
-        },
-        // Include a strict instruction so the backend model also stays scoped
-        body: JSON.stringify({
-          question,
-          instructions:
-            'You are UltraFlex Gym website assistant. Only answer questions about UltraFlex gyms, memberships, facilities, locations, opening times, trainers, and site content. If the question is unrelated, politely refuse.',
-          max_tokens: 256,
-        })
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question: text, context: { currentPath, locationSlug } })
       });
-      const data = await res.json();
-      setMessages((msgs) => [
-        ...msgs,
-        { sender: 'bot', text: data.answer || "Sorry, I don't know that yet. Please contact our staff for more info!", animate: true }
-      ]);
-    } catch (err) {
-      // fallback to FAQ if backend fails
-      const found = faqs.find((faq) => question.toLowerCase().includes(faq.question.toLowerCase().split(' ')[0]));
-      setMessages((msgs) => [
-        ...msgs,
-        { sender: 'bot', text: found ? found.answer : "Sorry, I don't know that yet. Please contact our staff for more info!", animate: true }
-      ]);
+      let answer = cannedAns;
+      if (res.ok) {
+        const data = await res.json();
+        answer = data.answer || cannedAns || "I’m not sure yet — try asking about memberships, opening times, facilities, locations, or trainers. For urgent help, contact your gym team.";
+      } else {
+        answer = cannedAns || "I’m not sure yet — try asking about memberships, opening times, facilities, locations, or trainers. For urgent help, contact your gym team.";
+      }
+      setMessages((m) => [...m, { sender: 'bot', text: answer! }]);
+    } catch {
+      const fallback = canned(text) || "I’m not sure yet — try asking about memberships, opening times, facilities, locations, or trainers. For urgent help, contact your gym team.";
+      setMessages((m) => [...m, { sender: 'bot', text: fallback }]);
+    } finally {
+      setTyping(false);
     }
   };
 
   if (!open) {
     return (
       <button
-        className="fixed bottom-6 right-6 z-50 bg-white hover:bg-red-100 transition rounded-full shadow-2xl w-16 h-16 flex items-center justify-center border-4 border-white p-0"
-        style={{ boxShadow: '0 4px 24px 0 rgba(0,0,0,0.18)' }}
-        aria-label="Open chatbot"
+        aria-label="Open chat"
+        className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-black/80 backdrop-blur-md border border-white/10 ring-1 ring-red-500/40 text-white shadow-xl hover:bg-black/70 hover:shadow-2xl hover:scale-105 transition transform"
         onClick={() => setOpen(true)}
       >
         <img
-          src="/Images/logo/ultraflex-logo.webp"
-          alt="UltraFlex Chatbot"
-          className="w-12 h-12 object-contain rounded-full"
+          src="/Images/ultra-flex-200x167%20(1).png"
+          alt="Open UltraFlex Assistant"
+          className="w-9 h-9 mx-auto object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.35)]"
           draggable="false"
         />
       </button>
     );
   }
 
+  const { locationSlug } = getContext();
+  const suggestions = locationSlug ? ['Opening hours', 'Facilities'] : ['Membership options', 'Day pass price'];
+
   return (
-    <div className="fixed bottom-6 right-6 z-50 w-[370px] max-w-full flex flex-col items-center justify-center">
-      <Card className="rounded-2xl shadow-2xl border-0 w-full bg-gradient-to-br from-white via-red-50 to-red-100/60 p-0" style={{height: 'auto', minHeight: 0}}>
-        <CardHeader className="px-8 pt-8 pb-0 text-center flex flex-col items-center gap-2 relative">
-          <button
-            className="absolute top-2 right-2 text-red-400 hover:text-red-700 transition text-xl font-bold rounded-full w-8 h-8 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-red-300"
-            aria-label="Close chatbot"
-            onClick={() => setOpen(false)}
-          >
-            ×
-          </button>
-          <div className="flex flex-col items-center gap-2">
-            <div className="flex h-14 w-14 items-center justify-center mb-1 bg-transparent">
-              <img
-                src="/Images/ultra-flex-200x167.webp"
-                alt="UltraFlex Chatbot"
-                className="w-12 h-12 object-contain bg-transparent"
-                style={{ background: 'transparent' }}
-                draggable="false"
-              />
-            </div>
-            <CardTitle className="text-2xl font-bold tracking-tight">UltraFlex AI Chatbot</CardTitle>
-            <CardDescription className="text-base">Ask anything about memberships, facilities, or trainers.</CardDescription>
+    <div className="fixed bottom-6 right-6 z-50 w-[420px] max-w-[92vw]">
+      <div className="flex flex-col rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-black/80 backdrop-blur-md" style={{ maxHeight: '70vh' }}>
+        <div className="relative flex items-center gap-3 px-4 py-3 border-b border-white/10">
+          <img src="/Images/ultra-flex-200x167.webp" alt="UF" className="w-7 h-7 object-contain" />
+          <div className="flex-1">
+            <div className="text-white font-semibold leading-tight">UltraFlex AI Assistant</div>
+            <div className="text-xs text-gray-300">Ask about memberships, facilities, or opening times.</div>
           </div>
-        </CardHeader>
-        <div className="relative flex-1 min-h-[250px] max-h-72 flex flex-col" style={{minHeight: 0}}>
-          <CardContent className="flex-1 flex flex-col gap-3 px-6 py-4 overflow-y-auto bg-transparent scrollbar-thin scrollbar-thumb-red-200 scrollbar-track-transparent m-0" style={{paddingBottom: 0, marginBottom: 0}}>
-            {messages.map((msg, i) => (
-              <div
-                key={i}
-                className={classNames(
-                  'relative text-sm px-4 py-2 rounded-2xl max-w-[85%] w-fit',
-                  msg.sender === 'bot'
-                    ? 'bg-gray-100 text-black self-start ml-1'
-                    : 'bg-red-600 text-white self-end mr-1',
-                  msg.animate ? 'animate-fadein' : ''
-                )}
-                style={{
-                  marginBottom: i === messages.length - 1 ? '56px' : '2px',
-                  alignSelf: msg.sender === 'bot' ? 'flex-start' : 'flex-end',
-                }}
-              >
-                {/* Ensure long words/URLs wrap and stay inside the bubble */}
-                <div className="whitespace-pre-wrap break-words [overflow-wrap:anywhere] [word-break:break-word] max-w-full">
-                  {msg.text}
+          <button aria-label="Close" onClick={() => setOpen(false)} className="text-gray-300 hover:text-red-400">×</button>
+        </div>
+
+        <div className="flex-1 min-h-[260px] max-h-[calc(70vh-150px)] overflow-y-auto px-4 py-3 space-y-3 flex flex-col">
+          {messages.map((m, i) => {
+            const isBot = m.sender === 'bot';
+            const links = isBot ? extractLinks(m.text) : [];
+            return (
+              <div key={i} className={isBot ? 'self-start max-w-[85%]' : 'self-end max-w-[85%]'}>
+                <div className={isBot ? 'bg-white/10 text-gray-100 border border-white/10 rounded-2xl px-4 py-2' : 'bg-red-600 text-white rounded-2xl px-4 py-2'}>
+                  <div className="whitespace-pre-wrap break-words [overflow-wrap:anywhere]">{isBot ? sanitizeBotText(m.text) : m.text}</div>
                 </div>
-                {/* Bubble tail */}
-                <span
-                  className={classNames(
-                    'absolute bottom-0',
-                    msg.sender === 'bot'
-                      ? 'left-0 -mb-2 -ml-2 w-3 h-3 bg-gray-100 rounded-bl-2xl'
-                      : 'right-0 -mb-2 -mr-2 w-3 h-3 bg-red-600 rounded-br-2xl'
-                  )}
-                  style={{
-                    clipPath: 'polygon(0 0, 100% 100%, 0 100%)',
-                  }}
-                />
+                {isBot && links.length > 0 && (
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {links.map((l) => (
+                      <a
+                        key={`${i}-${l.href}`}
+                        href={l.href}
+                        target={l.external ? '_blank' : undefined}
+                        rel={l.external ? 'noopener noreferrer' : undefined}
+                        className="group inline-flex items-center gap-2 text-sm px-4 py-2 rounded-full bg-gradient-to-r from-red-600 to-red-500 text-white shadow-md hover:from-red-500 hover:to-red-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-0 active:translate-y-px transition"
+                      >
+                        <span>{l.label}</span>
+                        {l.external ? (
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4 opacity-90 group-hover:opacity-100">
+                            <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z" />
+                          </svg>
+                        ) : (
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4 opacity-90 group-hover:opacity-100">
+                            <path d="M10 17l5-5-5-5v10z" />
+                          </svg>
+                        )}
+                      </a>
+                    ))}
+                  </div>
+                )}
               </div>
+            );
+          })}
+          {typing && (
+            <div className="self-start max-w-[85%] bg-white/10 text-gray-100 border border-white/10 rounded-2xl px-4 py-2">
+              <span className="inline-flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-gray-300 animate-bounce" />
+                <span className="w-2 h-2 rounded-full bg-gray-300 animate-bounce [animation-delay:0.15s]" />
+                <span className="w-2 h-2 rounded-full bg-gray-300 animate-bounce [animation-delay:0.3s]" />
+                <span className="text-xs text-gray-300 ml-1">Typing…</span>
+              </span>
+            </div>
+          )}
+          <div ref={endRef} />
+        </div>
+
+        <div className="px-4 pt-1 pb-2">
+          <div className="flex flex-wrap gap-2">
+            {suggestions.map((s) => (
+              <button key={s} className="text-xs px-3 py-1 rounded-full bg-white/10 text-gray-200 hover:bg-red-700/30 transition" onClick={() => send(s)}>
+                {s}
+              </button>
             ))}
-            <div ref={messagesEndRef} />
-          </CardContent>
-          <CardFooter className="absolute left-0 right-0 bottom-0 flex px-0 py-0 bg-transparent rounded-b-2xl overflow-hidden border-t border-transparent m-0" style={{background: 'rgba(255,255,255,0.95)', marginBottom: 0}}>
+          </div>
+        </div>
+
+        <div className="px-3 pb-3">
+          <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-3">
             <input
-              className="flex-1 px-4 py-2 outline-none bg-white text-base placeholder:text-gray-400 focus:bg-red-50 transition border-none shadow-none rounded-none rounded-bl-2xl min-w-0"
-              style={{ borderRight: 'none', borderTopLeftRadius: '0', borderBottomLeftRadius: '1rem' }}
+              className="flex-1 px-1 py-3 outline-none bg-transparent text-[15px] text-white placeholder:text-gray-400 border-none"
               placeholder="Ask a question..."
               value={input}
-              onChange={e => setInput(e.target.value)}
-              onKeyDown={e => { if (e.key === 'Enter') handleSend(); }}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } }}
               autoFocus
             />
             <button
-              className="bg-red-700 text-white px-6 py-2 rounded-none rounded-br-2xl hover:bg-red-800 transition font-semibold text-base focus:outline-none focus:ring-2 focus:ring-red-300"
-              style={{ borderTopRightRadius: '0', borderBottomRightRadius: '1rem', borderLeft: 'none' }}
-              onClick={handleSend}
+              aria-label="Send"
+              className="shrink-0 inline-flex items-center justify-center h-10 w-10 rounded-full bg-red-600 hover:bg-red-700 transition"
+              onClick={() => send()}
             >
-              Send
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5 text-white">
+                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+              </svg>
             </button>
-          </CardFooter>
+          </div>
         </div>
-      </Card>
+      </div>
     </div>
   );
 }
 
-// Add fade-in animation
-// Add this to your global CSS if not present:
-// .animate-fadein { animation: fadein 0.5s; }
-// @keyframes fadein { from { opacity: 0; transform: translateY(10px);} to { opacity: 1; transform: none; } }

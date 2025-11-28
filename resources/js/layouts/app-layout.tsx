@@ -32,6 +32,8 @@ export default ({ children, breadcrumbs, auth, ...props }: AppLayoutProps) => {
         <ToastProviderComponent>
             <div className="min-h-screen flex flex-col">
                 <Navbar auth={auth || { user: null }} />
+                {/* Single spacer to offset sticky navbar height across breakpoints */}
+                <div className="h-20 md:h-24 xl:h-28" aria-hidden="true" />
 
                 {/* Floating Back button at upper-right, below Navbar */}
                 {showBack && (

@@ -190,8 +190,8 @@ export default function Navbar({ auth }: NavbarProps) {
                         </Link>
                     </div>
 
-                    {/* Desktop Navigation */}
-                    <div className="hidden lg:flex items-center space-x-8 flex-1 justify-center min-w-0 px-4 xl:px-8 2xl:px-12">
+                    {/* Desktop Navigation (show from 2xl and up to avoid overlap around 1361px) */}
+                    <div className="hidden 2xl:flex items-center space-x-8 flex-1 justify-center min-w-0 px-4 xl:px-8 2xl:px-12">
                         {navItems.map((item) => {
 
 
@@ -335,18 +335,18 @@ export default function Navbar({ auth }: NavbarProps) {
                         )}
                     </div>
 
-                    {/* Mobile menu button */}
+                    {/* Mobile menu button (show until 2xl) */}
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="lg:hidden p-2 rounded-md text-gray-300 hover:text-red-700 hover:bg-white/10 transition-all duration-300"
+                        className="2xl:hidden p-2 rounded-md text-gray-300 hover:text-red-700 hover:bg-white/10 transition-all duration-300"
                     >
                         {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                     </button>
                 </div>
 
-                {/* Mobile Navigation */}
+                {/* Mobile Navigation (visible below 2xl to match toggle) */}
                 {isOpen && (
-                    <div className="lg:hidden border-t border-white/10 py-4 animate-in slide-in-from-top duration-300">
+                    <div className="2xl:hidden border-t border-white/10 py-4 animate-in slide-in-from-top duration-300">
                         <div className="space-y-2">
                             {navItems.map((item) => {
 

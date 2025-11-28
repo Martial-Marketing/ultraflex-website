@@ -58,6 +58,20 @@ Route::get('/news/{article}', [NewsController::class, 'show'])->name('news.show'
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
+// Legal pages (simple Inertia views)
+Route::get('/privacy', function () {
+    return inertia('Legal/Privacy');
+})->name('legal.privacy');
+Route::get('/terms', function () {
+    return inertia('Legal/Terms');
+})->name('legal.terms');
+Route::get('/cookies', function () {
+    return inertia('Legal/Cookies');
+})->name('legal.cookies');
+Route::get('/accessibility', function () {
+    return inertia('Legal/Accessibility');
+})->name('legal.accessibility');
+
 // Authentication Routes
 Route::get('/login', [LoginController::class, 'index'])->name('login'); // alias conventional
 Route::post('/login', [LoginController::class, 'store'])->name('auth.login.store');

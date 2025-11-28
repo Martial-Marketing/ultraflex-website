@@ -150,7 +150,7 @@ export default function Welcome({ auth, latestNews }: WelcomeProps) {
 
 
                     {/* Sign Up CTA Section */}
-                    <section className="relative">
+                    <section className="relative mt-8 sm:mt-10 lg:mt-0">
                         <SignUpCTA />
                     </section>
 

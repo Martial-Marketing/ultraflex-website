@@ -4,7 +4,7 @@ import { Users } from 'lucide-react';
 
 export default function SignUpCTA() {
     return (
-        <section className="bg-transparent py-20 relative overflow-hidden">
+        <section className="bg-transparent py-20 md:py-20 pt-24 md:pt-20 relative overflow-hidden">
             {/* Animated particles overlay */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 {Array.from({ length: 12 }, (_, i) => (
@@ -24,7 +24,7 @@ export default function SignUpCTA() {
             {/* Red accent overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-red-900/5 via-transparent to-red-900/5" />
 
-            <div className="container mx-auto px-6 text-center relative z-10">
+            <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
                 {/* Enhanced header */}
                 <div className="mb-8">
                     <h2 className="mb-6 text-4xl font-bold leading-tight">
@@ -42,7 +42,7 @@ export default function SignUpCTA() {
                 </div>
 
                 {/* Enhanced buttons with hover effects */}
-                <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 mt-4 md:mt-0">
                     <Button 
                         size="lg" 
                         className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm"
