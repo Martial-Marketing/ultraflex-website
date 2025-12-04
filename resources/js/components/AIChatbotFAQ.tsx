@@ -5,7 +5,8 @@ type Msg = { sender: 'bot' | 'user'; text: string };
 const INTRO = 'Hi! I am the UltraFlex AI Assistant. Ask about memberships, opening times, facilities, locations, or trainers.';
 
 export default function AIChatbotFAQ() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
+  const [showBubble, setShowBubble] = useState(true);
   const [messages, setMessages] = useState<Msg[]>([{ sender: 'bot', text: INTRO }]);
   const [input, setInput] = useState('');
   const [typing, setTyping] = useState(false);
@@ -125,20 +126,42 @@ export default function AIChatbotFAQ() {
     }
   };
 
+  // Auto-hide the inviting bubble after some time
+  useEffect(() => {
+    if (!open && showBubble) {
+      const t = setTimeout(() => setShowBubble(false), 15000);
+      return () => clearTimeout(t);
+    }
+  }, [open, showBubble]);
+
   if (!open) {
     return (
-      <button
-        aria-label="Open chat"
-        className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-black/80 backdrop-blur-md border border-white/10 ring-1 ring-red-500/40 text-white shadow-xl hover:bg-black/70 hover:shadow-2xl hover:scale-105 transition transform"
-        onClick={() => setOpen(true)}
-      >
-        <img
-          src="/Images/ultra-flex-200x167%20(1).png"
-          alt="Open UltraFlex Assistant"
-          className="w-9 h-9 mx-auto object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.35)]"
-          draggable="false"
-        />
-      </button>
+      <div className="fixed bottom-6 right-6 z-50 flex items-end gap-3">
+        {/* Inviting bubble */}
+        {showBubble && (
+          <button
+            type="button"
+            onClick={() => { setOpen(true); setShowBubble(false); }}
+            className="relative mb-2 max-w-[220px] rounded-2xl px-3 py-2 text-sm bg-white/10 text-gray-100 border border-white/15 backdrop-blur-md shadow-lg hover:bg-white/15 transition-colors animate-in fade-in zoom-in-95"
+          >
+            <span className="block">Need help? Ask our assistant.</span>
+            <span className="absolute -bottom-2 right-6 w-0 h-0 border-t-8 border-t-white/10 border-r-8 border-r-transparent" />
+          </button>
+        )}
+        {/* Launcher button */}
+        <button
+          aria-label="Open chat"
+          className="w-16 h-16 rounded-full bg-black/80 backdrop-blur-md border border-white/10 ring-1 ring-red-500/40 text-white shadow-xl hover:bg-black/70 hover:shadow-2xl hover:scale-105 transition transform"
+          onClick={() => { setOpen(true); setShowBubble(false); }}
+        >
+          <img
+            src="/Images/ultra-flex-200x167%20(1).png"
+            alt="Open UltraFlex Assistant"
+            className="w-9 h-9 mx-auto object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.35)]"
+            draggable="false"
+          />
+        </button>
+      </div>
     );
   }
 
@@ -224,7 +247,6 @@ export default function AIChatbotFAQ() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } }}
-              autoFocus
             />
             <button
               aria-label="Send"

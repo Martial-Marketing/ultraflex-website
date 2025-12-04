@@ -190,8 +190,8 @@ export default function Navbar({ auth }: NavbarProps) {
                         </Link>
                     </div>
 
-                    {/* Desktop Navigation (show from 2xl and up to avoid overlap around 1361px) */}
-                    <div className="hidden 2xl:flex items-center space-x-8 flex-1 justify-center min-w-0 px-4 xl:px-8 2xl:px-12">
+                    {/* Desktop Navigation (show from xl and up for broader support) */}
+                    <div className="hidden xl:flex items-center space-x-8 flex-1 justify-center min-w-0 px-4 lg:px-8 xl:px-12">
                         {navItems.map((item) => {
 
 
@@ -335,18 +335,32 @@ export default function Navbar({ auth }: NavbarProps) {
                         )}
                     </div>
 
-                    {/* Mobile menu button (show until 2xl) */}
+                    {/* Mobile menu button (show until xl) */}
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="2xl:hidden p-2 rounded-md text-gray-300 hover:text-red-700 hover:bg-white/10 transition-all duration-300"
+                        aria-expanded={isOpen}
+                        aria-label={isOpen ? 'Close navigation' : 'Open navigation'}
+                        className="xl:hidden p-2 rounded-md text-gray-300 hover:text-red-700 hover:bg-white/10 transition-colors duration-200"
                     >
-                        {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                        <span className="relative inline-block h-6 w-6">
+                            {/* Smooth crossfade between Menu and X icons to avoid jank */}
+                            <Menu
+                                className={`absolute inset-0 h-6 w-6 transition-all duration-200 ease-out ${
+                                    isOpen ? 'opacity-0 scale-90 rotate-90' : 'opacity-100 scale-100 rotate-0'
+                                }`}
+                            />
+                            <X
+                                className={`absolute inset-0 h-6 w-6 transition-all duration-200 ease-out ${
+                                    isOpen ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-90 -rotate-90'
+                                }`}
+                            />
+                        </span>
                     </button>
                 </div>
 
-                {/* Mobile Navigation (visible below 2xl to match toggle) */}
+                {/* Mobile Navigation (visible below xl to match toggle) */}
                 {isOpen && (
-                    <div className="2xl:hidden border-t border-white/10 py-4 animate-in slide-in-from-top duration-300">
+                    <div className="xl:hidden border-t border-white/10 py-4 animate-in fade-in slide-in-from-top-2 duration-300">
                         <div className="space-y-2">
                             {navItems.map((item) => {
 
