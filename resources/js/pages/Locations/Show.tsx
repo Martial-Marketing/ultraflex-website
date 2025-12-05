@@ -356,15 +356,23 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                                     }}
                                                 />
                                         </div>
-                                        <div className="flex-1">
-                                            <h3 className="text-xl font-semibold text-white mb-2">{location.manager.name}</h3>
-                                            {location.manager.experience && (
-                                                <p className="text-red-700 font-medium mb-4">{location.manager.experience}</p>
-                                            )}
-                                            {location.manager.bio && (
-                                                <p className="text-gray-300 leading-relaxed">{location.manager.bio}</p>
-                                            )}
-                                        </div>
+                                        {location.name?.toLowerCase().includes('york') ? (
+                                            <div className="flex-1 flex items-center">
+                                                <span className="text-sm text-gray-300">No manager at the moment.</span>
+                                            </div>
+                                        ) : (
+                                            <div className="flex-1">
+                                                {location.manager.name && (
+                                                    <h3 className="text-xl font-semibold text-white mb-2">{location.manager.name}</h3>
+                                                )}
+                                                {location.manager.experience && (
+                                                    <p className="text-red-700 font-medium mb-4">{location.manager.experience}</p>
+                                                )}
+                                                {location.manager.bio && (
+                                                    <p className="text-gray-300 leading-relaxed">{location.manager.bio}</p>
+                                                )}
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
 
