@@ -17,7 +17,7 @@ export default function About(props: AppLayoutProps) {
                         Welcome to UltraFlex – where your fitness journey becomes an experience. Since our founding, we’ve been committed to building more than just gyms; we build communities that inspire, support, and empower every member.
                     </p>
                     <p className="mb-4 text-gray-300">
-                        Our state-of-the-art facilities feature the latest equipment, innovative group classes, and a team of passionate trainers dedicated to helping you reach your goals. Whether you’re training for your first 5K, building strength, or seeking a healthier lifestyle, UltraFlex is your home for transformation.
+                        Our state-of-the-art facilities feature the latest equipment and a team of passionate trainers dedicated to helping you reach your goals. Whether you’re training for your first 5K, building strength, or seeking a healthier lifestyle, UltraFlex is your home for transformation.
                     </p>
                     <p className="mb-4 text-gray-300">
                         We believe fitness should be accessible, motivating, and fun. That’s why we offer flexible memberships, expert coaching, and a welcoming environment for all ages and abilities. Join us and discover the UltraFlex difference – where every member matters and every goal is possible.

@@ -5,7 +5,6 @@ import {
     Phone, 
     Mail, 
     Facebook, 
-    Twitter, 
     Instagram, 
     Youtube,
     Dumbbell,
@@ -15,6 +14,15 @@ import {
     ChevronRight,
     Clock
 } from 'lucide-react';
+
+// Minimal TikTok icon SVG component (since lucide-react does not include TikTok)
+function TikTokIcon(props: React.SVGProps<SVGSVGElement>) {
+    return (
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
+            <path d="M16 3c.3 2.1 1.6 3.9 3.6 4.7v3.1c-1.3-.1-2.6-.5-3.6-1.2v6.3c0 3.7-3 6.7-6.7 6.7S2.6 19.6 2.6 15.9 5.6 9.2 9.3 9.2c.5 0 1 .1 1.5.2v3.5c-.4-.2-.9-.3-1.5-.3-2 0-3.6 1.6-3.6 3.6s1.6 3.6 3.6 3.6c2 0 3.6-1.6 3.6-3.6V3H16z" />
+        </svg>
+    );
+}
 
 interface FooterProps {
     className?: string;
@@ -46,10 +54,10 @@ export default function AnimatedFooter({ className = '' }: FooterProps) {
     ];
 
     const socialLinks = [
-        { name: 'Facebook', icon: Facebook, href: '#', color: 'hover:text-blue-500' },
-        { name: 'Twitter', icon: Twitter, href: '#', color: 'hover:text-sky-400' },
-        { name: 'Instagram', icon: Instagram, href: '#', color: 'hover:text-pink-500' },
-        { name: 'YouTube', icon: Youtube, href: '#', color: 'hover:text-red-500' }
+        { name: 'Facebook', icon: Facebook, href: 'https://www.facebook.com/ultraflexgyms/', color: 'hover:text-blue-500' },
+        { name: 'TikTok', icon: TikTokIcon, href: 'https://www.tiktok.com/@ultraflexgym', color: 'hover:text-black' },
+        { name: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/ultraflexgym/?hl=en', color: 'hover:text-pink-500' },
+        { name: 'YouTube', icon: Youtube, href: 'https://www.youtube.com/@UltraFlexGyms', color: 'hover:text-red-500' }
     ];
 
     return (

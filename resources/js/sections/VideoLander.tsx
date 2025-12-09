@@ -64,6 +64,8 @@ export default function VideoLander() {
                         <Button 
                             size="lg" 
                             className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm"
+                            onClick={() => window.open('https://www.youtube.com/watch?v=CyWN8ipcwgo', '_blank')}
+                            aria-label="Watch our story on YouTube"
                         >
                             <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
                             <span className="group-hover:translate-x-1 transition-transform duration-300">
