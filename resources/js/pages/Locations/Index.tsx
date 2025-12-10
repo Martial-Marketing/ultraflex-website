@@ -190,7 +190,8 @@ export default function LocationsIndex({ locations, membershipPlans, auth }: Loc
                                 ))}
                             </div>
 
-                            {/* Membership Options Carousel */}
+                            {/* Membership Options Carousel - hidden per request */}
+                            {false && (
                             <div className="mt-24">
                                 <div className="text-center mb-12">
                                     <h2 className="text-4xl font-bold mb-4">
@@ -298,6 +299,7 @@ export default function LocationsIndex({ locations, membershipPlans, auth }: Loc
                                     )}
                                 </div>
                             </div>
+                            )}
 
                             {/* Call to Action */}
                             <div className="text-center mt-16">
