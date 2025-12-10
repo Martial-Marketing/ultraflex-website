@@ -1,30 +1,10 @@
 import { Head, Link } from '@inertiajs/react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { 
-    MapPin, 
-    Phone, 
-    Clock, 
-    Star, 
-    Dumbbell, 
-    Waves, 
-    Car, 
-    ShowerHead,
-    Coffee,
-    Wifi,
-    Users,
-    Camera,
-    ChevronRight,
-    Navigation,
-    Play,
-    Eye,
-    Mail,
-    ChevronLeft,
-    Check
-} from 'lucide-react';
 import AppLayout from '@/layouts/app-layout';
 import AnimatedBackground from '@/components/AnimatedBackground';
-import { useState, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { MapPin, Phone, Clock, Mail, Navigation, ChevronLeft, ChevronRight, Star, Check, Dumbbell, Waves, Car, ShowerHead, Coffee, Wifi, Users, Play, Eye } from 'lucide-react';
 
 interface Manager {
     name: string;
@@ -69,6 +49,7 @@ interface MembershipPlan {
 interface Location {
     id: number;
     name: string;
+    slug?: string;
     address: string;
     phone: string;
     email: string;
@@ -127,6 +108,74 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
     const managerImage = (location.manager?.image && location.manager.image.trim() !== '')
         ? location.manager.image
         : DEFAULT_MANAGER_IMAGE;
+
+    // Derby & North Leeds: replace virtual tour YouTube with provided Google Drive preview
+    const isDerby = (location.slug?.toLowerCase() === 'derby') || (location.name?.toLowerCase().includes('derby'));
+    const isNorthLeeds = (location.slug?.toLowerCase() === 'north-leeds') || (location.name?.toLowerCase().includes('north leeds'));
+    const derbyDrivePreview = 'https://drive.google.com/file/d/1jdqNRl2rdfuUTqgrtpEgJFrXcTqjqDcM/preview';
+    const northLeedsDrivePreview = 'https://drive.google.com/file/d/1BYZxK7AkFeieHoZkurcqd98mpcJEMelW/preview';
+    const derbyDriveId = '1jdqNRl2rdfuUTqgrtpEgJFrXcTqjqDcM';
+    const rawTourSrc = isDerby ? derbyDrivePreview : (isNorthLeeds ? northLeedsDrivePreview : location.virtualTour);
+    const isYouTubeTour = !!rawTourSrc && (rawTourSrc.includes('youtube.com') || rawTourSrc.includes('youtu.be'));
+    // Normalize YouTube URLs to embed format and enable autoplay (muted), JS API, and clean branding
+    const normalizeYouTubeEmbed = (src?: string) => {
+        if (!src) return src;
+        try {
+            const input = new URL(src);
+            let embedBase = src;
+            if (input.hostname.includes('youtu.be')) {
+                const id = input.pathname.replace(/^\//, '');
+                embedBase = `https://www.youtube.com/embed/${id}`;
+            } else if (input.hostname.includes('youtube.com')) {
+                if (input.pathname === '/watch') {
+                    const id = input.searchParams.get('v');
+                    if (id) embedBase = `https://www.youtube.com/embed/${id}`;
+                } else if (input.pathname.startsWith('/embed/')) {
+                    embedBase = `https://www.youtube.com${input.pathname}`;
+                }
+            }
+            const url = new URL(embedBase);
+            url.searchParams.set('autoplay', '1');
+            url.searchParams.set('mute', '1');
+            url.searchParams.set('enablejsapi', '1');
+            if (typeof window !== 'undefined' && window.location?.origin) {
+                url.searchParams.set('origin', window.location.origin);
+            }
+            url.searchParams.set('rel', '0');
+            url.searchParams.set('modestbranding', '1');
+            url.searchParams.set('playsinline', '1');
+            return url.toString();
+        } catch {
+            return src;
+        }
+    };
+    const tourSrc = isYouTubeTour ? normalizeYouTubeEmbed(rawTourSrc) : rawTourSrc;
+    const tourIframeRef = useRef<HTMLIFrameElement>(null);
+    const [tourPlaying, setTourPlaying] = useState(false);
+    // Derby Drive preview load tracking and fallback
+    const [driveReady, setDriveReady] = useState(false);
+    const [driveLoadTimedOut, setDriveLoadTimedOut] = useState(false);
+    const [driveReloadKey, setDriveReloadKey] = useState(0);
+    const playYouTubeTour = () => {
+        try {
+            const win = tourIframeRef.current?.contentWindow;
+            if (win) {
+                win.postMessage(JSON.stringify({ event: 'command', func: 'playVideo', args: '' }), '*');
+                setTourPlaying(true);
+            }
+        } catch {}
+    };
+
+    // If Derby or North Leeds Drive iframe is still not loaded after 7s, expose fallbacks
+    useEffect(() => {
+        if (!isDerby && !isNorthLeeds) return;
+        setDriveReady(false);
+        setDriveLoadTimedOut(false);
+        const t = setTimeout(() => setDriveLoadTimedOut(true), 7000);
+        return () => clearTimeout(t);
+    }, [isDerby, isNorthLeeds, driveReloadKey]);
+
+    
 
     // Auto-rotate equipment background images
     useEffect(() => {
@@ -310,7 +359,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                     { id: 'services', label: 'Services', show: (location.services && location.services.length > 0) || (location.serviceLinks && location.serviceLinks.length > 0) },
                                     { id: 'equipment', label: 'Equipment', show: true },
                                     { id: 'testimonials', label: 'Testimonials', show: location.reviews && location.reviews.length > 0 },
-                                    { id: 'tour', label: 'Virtual Tour', show: !!location.virtualTour },
+                                    { id: 'tour', label: 'Virtual Tour', show: !!tourSrc },
                                     { id: 'gallery', label: 'Gallery', show: location.gallery && location.gallery.length > 0 },
                                     { id: 'trainers', label: 'Trainers', show: location.trainers && location.trainers.length > 0 },
                                 ].filter(i => i.show).map(item => (
@@ -692,7 +741,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                     </section>
 
                     {/* 5. Virtual Tour */}
-                    {location.virtualTour ? (
+                    {tourSrc ? (
                         <section id="tour" className="py-16 scroll-mt-24">
                             <div className="container mx-auto px-6">
                                 <div className="text-center mb-12">
@@ -708,13 +757,59 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                 </div>
                                 <div className="max-w-4xl mx-auto">
                                     <div className="relative aspect-video bg-gray-800 rounded-lg overflow-hidden border border-white/10 hover:border-red-700/30 transition-colors duration-300 group">
-                                        <iframe 
-                                            src={location.virtualTour}
-                                            className="w-full h-full"
-                                            allowFullScreen
-                                            title={`${location.name} Virtual Tour`}
-                                            loading="lazy"
-                                        />
+                                        {isDerby ? (
+                                            <iframe
+                                                key={driveReloadKey}
+                                                src={`${derbyDrivePreview}?autoplay=1&mute=1`}
+                                                className="w-full h-full"
+                                                allow="autoplay"
+                                                allowFullScreen
+                                                title={`${location.name} Virtual Tour`}
+                                                onLoad={() => setDriveReady(true)}
+                                            />
+                                        ) : isNorthLeeds ? (
+                                            <iframe
+                                                key={driveReloadKey}
+                                                src={`${northLeedsDrivePreview}?autoplay=1&mute=1`}
+                                                className="w-full h-full"
+                                                allow="autoplay"
+                                                allowFullScreen
+                                                title={`${location.name} Virtual Tour`}
+                                                onLoad={() => setDriveReady(true)}
+                                            />
+                                        ) : (
+                                            <iframe 
+                                                ref={tourIframeRef}
+                                                src={tourSrc}
+                                                className="w-full h-full"
+                                                allow="autoplay; encrypted-media"
+                                                allowFullScreen
+                                                title={`${location.name} Virtual Tour`}
+                                                loading="lazy"
+                                            />
+                                        )}
+                                        {/* Helper: show an overlay if Drive preview seems stuck */}
+                                        {(isDerby || isNorthLeeds) && driveLoadTimedOut && !driveReady && (
+                                            <div className="absolute inset-0 flex items-center justify-center">
+                                                <div className="bg-black/70 text-white rounded-lg border border-white/10 p-4 shadow-lg flex items-center gap-3">
+                                                    <span>Buffering? Try opening the tour:</span>
+                                                    <a
+                                                        href={isDerby ? derbyDrivePreview : northLeedsDrivePreview}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="px-3 py-1 rounded bg-red-700 hover:bg-red-600 transition"
+                                                    >
+                                                        Open in New Tab
+                                                    </a>
+                                                    <button
+                                                        className="px-3 py-1 rounded bg-white/10 hover:bg-white/20 transition"
+                                                        onClick={() => setDriveReloadKey((k) => k + 1)}
+                                                    >
+                                                        Retry
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        )}
                                         <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                             <div className="bg-gradient-to-r from-red-700 to-red-800 text-white px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm border border-red-700/20 flex items-center">
                                                 <Play className="h-3 w-3 mr-1" />

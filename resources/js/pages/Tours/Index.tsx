@@ -46,6 +46,14 @@ export default function ToursIndex({ tours, tourFeatures, featuredTours, auth }:
             name: 'Rotherham',
             url: 'https://my.matterport.com/show/?m=qcrWz3BZzrj',
         },
+        {
+            name: 'Derby',
+            url: 'https://drive.google.com/file/d/1jdqNRl2rdfuUTqgrtpEgJFrXcTqjqDcM/preview',
+        },
+        {
+            name: 'North Leeds',
+            url: 'https://drive.google.com/file/d/1BYZxK7AkFeieHoZkurcqd98mpcJEMelW/preview',
+        },
     ];
 
     const [matterportIndex, setMatterportIndex] = useState(0);
@@ -58,9 +66,18 @@ export default function ToursIndex({ tours, tourFeatures, featuredTours, auth }:
         setMatterportIndex((prev) => (prev === matterportTours.length - 1 ? 0 : prev + 1));
     };
 
-    const handleTourClick = (tourUrl: string | null) => {
+    const handleTourClick = (tourUrl: string | null, locationSlug?: string) => {
         if (!tourUrl) return; // do nothing if pending
-        window.open(tourUrl, '_blank', 'width=1200,height=800');
+        
+        // Override with Google Drive links for Derby and North Leeds
+        let finalUrl = tourUrl;
+        if (locationSlug?.toLowerCase() === 'derby') {
+            finalUrl = 'https://drive.google.com/file/d/1jdqNRl2rdfuUTqgrtpEgJFrXcTqjqDcM/preview';
+        } else if (locationSlug?.toLowerCase() === 'north-leeds') {
+            finalUrl = 'https://drive.google.com/file/d/1BYZxK7AkFeieHoZkurcqd98mpcJEMelW/preview';
+        }
+        
+        window.open(finalUrl, '_blank', 'width=1200,height=800');
     };
 
     return (
@@ -146,7 +163,7 @@ export default function ToursIndex({ tours, tourFeatures, featuredTours, auth }:
                                                     <Button 
                                                         size="lg"
                                                         className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white backdrop-blur-sm border border-red-700/20 shadow-lg transform hover:scale-105 transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed"
-                                                        onClick={() => handleTourClick(tour.tourUrl)}
+                                                        onClick={() => handleTourClick(tour.tourUrl, tour.locationSlug)}
                                                         disabled={!tour.tourUrl}
                                                     >
                                                         {tour.tourUrl ? 'Start Tour' : 'Coming Soon'}
@@ -189,7 +206,7 @@ export default function ToursIndex({ tours, tourFeatures, featuredTours, auth }:
                                                 <div className="space-y-2">
                                                     <Button 
                                                         className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group disabled:opacity-40 disabled:cursor-not-allowed"
-                                                        onClick={() => handleTourClick(tour.tourUrl)}
+                                                        onClick={() => handleTourClick(tour.tourUrl, tour.locationSlug)}
                                                         disabled={!tour.tourUrl}
                                                     >
                                                         <span className="group-hover:translate-x-1 transition-transform duration-300">
@@ -236,7 +253,7 @@ export default function ToursIndex({ tours, tourFeatures, featuredTours, auth }:
                                             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                                 <Button 
                                                     className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white backdrop-blur-sm border border-red-700/20 shadow-lg transform hover:scale-105 transition-all duration-300"
-                                                    onClick={() => handleTourClick(tour.tourUrl)}
+                                                    onClick={() => handleTourClick(tour.tourUrl, tour.locationSlug)}
                                                 >
                                                     Take Tour
                                                 </Button>
@@ -260,7 +277,7 @@ export default function ToursIndex({ tours, tourFeatures, featuredTours, auth }:
                                             <div className="space-y-2">
                                                 <Button 
                                                     className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group disabled:opacity-40 disabled:cursor-not-allowed"
-                                                    onClick={() => handleTourClick(tour.tourUrl)}
+                                                    onClick={() => handleTourClick(tour.tourUrl, tour.locationSlug)}
                                                     disabled={!tour.tourUrl}
                                                 >
                                                     <span className="group-hover:translate-x-1 transition-transform duration-300">
