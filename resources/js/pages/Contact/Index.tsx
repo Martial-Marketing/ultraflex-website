@@ -1,4 +1,5 @@
 import { Head, Link, useForm } from '@inertiajs/react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -44,11 +45,58 @@ export default function ContactIndex({ locations, locationOptions = [], generalC
         location_id: '' as number | string,
     });
 
+    const [humanVerified, setHumanVerified] = useState(false);
+    const [localErrors, setLocalErrors] = useState<{ location_id?: string; human?: string }>({});
+    const [recaptchaToken, setRecaptchaToken] = useState('');
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        // Frontend guard: require location selection and human verification
+        const nextLocalErrors: { location_id?: string; human?: string } = {};
+        if (!data.location_id) {
+            nextLocalErrors.location_id = 'Please select Head Office or a specific site.';
+        }
+        // Run Invisible reCAPTCHA: trigger challenge popup on submit if no token
+        let recaptchaResponse = recaptchaToken;
+        try {
+            // @ts-ignore
+            recaptchaResponse = recaptchaResponse || window.grecaptcha?.getResponse?.() || '';
+        } catch {}
+        if (!recaptchaResponse) {
+            try {
+                // @ts-ignore
+                if (window.grecaptcha) {
+                    // @ts-ignore
+                    window.grecaptcha.execute();
+                    // Wait for user to solve the popup; do not proceed yet
+                    nextLocalErrors.human = '';
+                    setLocalErrors(nextLocalErrors);
+                    return;
+                }
+            } catch {}
+        }
+        if (!recaptchaResponse && !humanVerified) {
+            nextLocalErrors.human = 'Please complete the CAPTCHA verification.';
+        }
+        if (recaptchaResponse) {
+            // @ts-ignore
+            setData('g_recaptcha_response', recaptchaResponse);
+        }
+        setLocalErrors(nextLocalErrors);
+        if (nextLocalErrors.location_id || nextLocalErrors.human) {
+            return;
+        }
+
         post('/contact', {
             onSuccess: () => {
                 reset();
+                setHumanVerified(false);
+                setLocalErrors({});
+                setRecaptchaToken('');
+                try {
+                    // @ts-ignore
+                    window.grecaptcha?.reset?.();
+                } catch {}
             }
         });
     };
@@ -75,6 +123,10 @@ export default function ContactIndex({ locations, locationOptions = [], generalC
         <AppLayout auth={auth}>
             <Head title="Contact Us - UltraFlex">
                 <meta name="description" content="Get in touch with UltraFlex. Find our locations, contact information, and send us a message. We're here to help with all your fitness needs." />
+                <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                <script>
+                    {`window.onRecaptchaSuccess = function(token){ /* placeholder – bound in component via useEffect */ }`}
+                </script>
             </Head>
 
             <div className="min-h-screen relative">
@@ -215,11 +267,38 @@ export default function ContactIndex({ locations, locationOptions = [], generalC
                                                     options={locationOptions}
                                                     value={data.location_id}
                                                     onChange={(val) => setData('location_id', val)}
-                                                    label="Location (Optional)"
+                                                    label="Location (Required)"
                                                     placeholder="Select a location or Head Office"
                                                     className="text-sm"
                                                 />
-                                                {errors.location_id && <p className="text-red-500 text-sm mt-1">{errors.location_id}</p>}
+                                                {(errors.location_id || localErrors.location_id) && (
+                                                    <p className="text-red-500 text-sm mt-1">{errors.location_id || localErrors.location_id}</p>
+                                                )}
+                                            </div>
+
+                                            <div>
+                                                <label className="flex items-center gap-2 text-sm font-medium text-white">
+                                                    <input
+                                                        type="checkbox"
+                                                        checked={humanVerified}
+                                                        onChange={(e) => setHumanVerified(e.target.checked)}
+                                                        className="h-4 w-4 rounded border-white/30 bg-black/30"
+                                                        aria-label="Human verification"
+                                                    />
+                                                    <span>I am human (anti-spam verification)</span>
+                                                </label>
+                                                {localErrors.human && <p className="text-red-500 text-sm mt-1">{localErrors.human}</p>}
+                                            </div>
+
+                                            <div>
+                                                <div
+                                                    id="recaptcha"
+                                                    className="g-recaptcha"
+                                                    data-sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY || ''}
+                                                    data-size="invisible"
+                                                    data-callback="onRecaptchaSuccess"
+                                                ></div>
+                                                {localErrors.human && <p className="text-red-500 text-sm mt-1">{localErrors.human}</p>}
                                             </div>
 
                                             <div>

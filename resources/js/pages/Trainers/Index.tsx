@@ -38,6 +38,22 @@ export default function TrainersIndex({ trainers, locations, specialties, auth }
     const [selectedLocation, setSelectedLocation] = useState('');
     const [showFilters, setShowFilters] = useState(false);
 
+    const getThreeSentenceSummary = (text: string) => {
+        if (!text) return '';
+        const parts = text
+            .replace(/\n+/g, ' ')
+            .split(/([.!?])\s+/)
+            .reduce((acc: string[], cur: string, idx: number) => {
+                if (idx % 2 === 0) {
+                    const punctuation = (text.match(/([.!?])\s+/g) || [])[Math.floor(idx / 2)] || '';
+                    acc.push((cur + (punctuation ? punctuation.trim() : '')).trim());
+                }
+                return acc;
+            }, [])
+            .filter(Boolean);
+        return parts.slice(0, 3).join(' ');
+    };
+
     // Filter trainers based on search and filters
     const filteredTrainers = trainers.filter(trainer => {
         const matchesSearch = trainer.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -211,79 +227,59 @@ export default function TrainersIndex({ trainers, locations, specialties, auth }
                                 </div>
                             ) : (
                                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                    {filteredTrainers.map((trainer) => (
-                                        <Card key={trainer.id} className="overflow-hidden hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 hover:-translate-y-1 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 group">
-                                            <div className="h-64 bg-gray-800 relative overflow-hidden">
-                                                <img 
-                                                    src={trainer.image} 
-                                                    alt={`${trainer.name} - Personal Trainer`}
-                                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                                    loading="lazy"
-                                                />
-                                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                                
-                                                {/* View profile overlay */}
-                                                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                                    <div className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-4 py-2 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 border border-red-700/20 backdrop-blur-sm">
-                                                        View Profile
+                                    {filteredTrainers.map((trainer) => {
+                                        const firstName = (trainer.name || '').split(/\s+/)[0];
+                                        const bioThreeSentences = getThreeSentenceSummary(trainer.bio);
+                                        return (
+                                            <Link key={trainer.id} href={`/trainers/${trainer.slug}`} className="group focus:outline-none block">
+                                                <div className="relative overflow-hidden rounded-xl border border-white/10 bg-black/40 backdrop-blur-md flex flex-col h-[420px] transition-all duration-300 hover:border-red-700/40 hover:shadow-red-700/20 hover:shadow-xl hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-red-700">
+                                                    <div className="flex items-center justify-center pt-4">
+                                                        <div className="relative w-36 h-36 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-red-700/40 shadow-lg">
+                                                            <img
+                                                                src={trainer.image}
+                                                                alt={trainer.name}
+                                                                loading="lazy"
+                                                                className="w-full h-full object-cover object-top"
+                                                            />
+                                                            <div className="absolute inset-0 ring-0 group-hover:ring-2 ring-red-700/50 rounded-full transition-all duration-300 pointer-events-none"></div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                            
-                                            <CardContent className="p-6 bg-black/20 backdrop-blur-sm">
-                                                <div className="mb-4">
-                                                    <h3 className="text-xl font-bold text-white mb-1 group-hover:text-red-700 transition-colors duration-300">{trainer.name}</h3>
-                                                    {trainer.experience && (
-                                                        <p className="text-red-700 font-medium mb-2">{trainer.experience}</p>
-                                                    )}
-                                                    <div className="text-gray-300 text-sm mb-3 group hover:text-red-700 transition-colors duration-300">
-                                                        <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                                            {trainer.location || 'Location TBD'}
-                                                        </span>
-                                                    </div>
-                                                </div>
-
-                                                <p className="text-gray-300 text-sm mb-4 line-clamp-3 group-hover:text-gray-200 transition-colors duration-300">
-                                                    {trainer.bio}
-                                                </p>
-
-                                                {/* Specialties */}
-                                                <div className="mb-4">
-                                                    <h4 className="text-sm font-medium text-white mb-2">Specialties:</h4>
-                                                    <div className="flex flex-wrap gap-2">
-                                                        {(trainer.specialties || []).slice(0, 3).map((specialty, index) => (
-                                                            <span 
-                                                                key={index} 
-                                                                className="inline-flex items-center space-x-1 px-2 py-1 bg-red-700/20 text-red-700 text-xs rounded-full backdrop-blur-sm border border-red-700/30"
-                                                            >
-                                                                <span>{specialty}</span>
-                                                            </span>
-                                                        ))}
-                                                        {trainer.specialties && trainer.specialties.length > 3 && (
-                                                            <span className="px-2 py-1 bg-white/10 text-gray-300 text-xs rounded-full backdrop-blur-sm border border-white/20">
-                                                                +{trainer.specialties.length - 3} more
-                                                            </span>
+                                                    <div className="flex-1 flex flex-col p-4 gap-2">
+                                                        <h3 className="text-base font-semibold text-white group-hover:text-red-600 transition-colors duration-300">{firstName}</h3>
+                                                        {trainer.specialties && trainer.specialties.length > 0 && (
+                                                            <div className="flex flex-wrap gap-1.5">
+                                                                {trainer.specialties.slice(0,3).map((specialty, index) => (
+                                                                    <span key={index} className="px-2 py-0.5 bg-red-700/15 text-red-500 text-[10px] rounded-full border border-red-700/30">{specialty}</span>
+                                                                ))}
+                                                                {trainer.specialties.length > 3 && (
+                                                                    <span className="px-2 py-0.5 bg-white/10 text-white/70 text-[10px] rounded-full">+{trainer.specialties.length - 3}</span>
+                                                                )}
+                                                            </div>
                                                         )}
-                                                    </div>
-                                                </div>
-
-                                                <div className="space-y-2">
-                                                    <Link href={`/trainers/${trainer.slug}`} className="block w-full">
-                                                        <Button className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group">
-                                                            <span className="group-hover:translate-x-1 transition-transform duration-300">
+                                                        <p
+                                                            className="text-xs text-gray-300 overflow-hidden mt-1 flex-1"
+                                                            style={{
+                                                                display: '-webkit-box',
+                                                                WebkitLineClamp: 3,
+                                                                WebkitBoxOrient: 'vertical',
+                                                                overflow: 'hidden',
+                                                                lineHeight: '1rem',
+                                                                minHeight: '3rem',
+                                                                maxHeight: '3rem'
+                                                            }}
+                                                        >
+                                                            {bioThreeSentences}
+                                                        </p>
+                                                        <div className="mt-2 flex items-center justify-end">
+                                                            <span className="inline-flex items-center text-[11px] text-red-500 font-medium tracking-wide">
                                                                 View Profile
                                                             </span>
-                                                        </Button>
-                                                    </Link>
-                                                    <Button variant="outline" className="w-full border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
-                                                        <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                                            Contact Trainer
-                                                        </span>
-                                                    </Button>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </CardContent>
-                                        </Card>
-                                    ))}
+                                            </Link>
+                                        );
+                                    })}
                                 </div>
                             )}
 

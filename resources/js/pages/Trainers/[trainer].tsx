@@ -14,6 +14,13 @@ type Trainer = {
   rating: number;
   reviewCount: number;
   slug: string;
+  contact?: {
+    instagram?: string;
+    facebook?: string;
+    phone?: string;
+    email?: string;
+    website?: string;
+  };
 };
 
 
@@ -31,6 +38,13 @@ export default function TrainerProfile() {
     rating: 4.8,
     reviewCount: 42,
     slug: 'trainer-name',
+    contact: {
+      instagram: undefined,
+      facebook: undefined,
+      phone: undefined,
+      email: undefined,
+      website: undefined,
+    },
   };
 
   return (
@@ -56,11 +70,41 @@ export default function TrainerProfile() {
                 </div>
                 <div className="mb-4 text-gray-400 text-sm">Experience: {trainer.experience}</div>
                 <div className="mb-4 text-gray-400 text-sm">Certifications: {trainer.certifications.join(', ')}</div>
-                <Link href="/contact">
-                  <button className="bg-gradient-to-r from-red-700 to-red-800 text-white px-6 py-2 rounded shadow hover:from-red-600 hover:to-red-700 transition-all duration-300">
-                    Book a Session
-                  </button>
-                </Link>
+                {/* Contact & booking */}
+                <div className="flex flex-col gap-3">
+                  <div className="flex flex-wrap gap-2">
+                    {trainer.contact?.instagram && (
+                      <a href={trainer.contact.instagram} target="_blank" rel="noopener noreferrer" className="px-3 py-2 rounded bg-white/10 text-white text-sm hover:bg-white/20 transition">
+                        Instagram
+                      </a>
+                    )}
+                    {trainer.contact?.facebook && (
+                      <a href={trainer.contact.facebook} target="_blank" rel="noopener noreferrer" className="px-3 py-2 rounded bg-white/10 text-white text-sm hover:bg-white/20 transition">
+                        Facebook
+                      </a>
+                    )}
+                    {trainer.contact?.website && (
+                      <a href={trainer.contact.website} target="_blank" rel="noopener noreferrer" className="px-3 py-2 rounded bg-white/10 text-white text-sm hover:bg-white/20 transition">
+                        Website
+                      </a>
+                    )}
+                    {trainer.contact?.email && (
+                      <a href={`mailto:${trainer.contact.email}`} className="px-3 py-2 rounded bg-white/10 text-white text-sm hover:bg-white/20 transition">
+                        Email
+                      </a>
+                    )}
+                    {trainer.contact?.phone && (
+                      <a href={`tel:${trainer.contact.phone}`} className="px-3 py-2 rounded bg-white/10 text-white text-sm hover:bg-white/20 transition">
+                        Call
+                      </a>
+                    )}
+                  </div>
+                  <Link href="/contact">
+                    <button className="bg-gradient-to-r from-red-700 to-red-800 text-white px-6 py-2 rounded shadow hover:from-red-600 hover:to-red-700 transition-all duration-300">
+                      Book a Session
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
           </Card>

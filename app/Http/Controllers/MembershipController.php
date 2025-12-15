@@ -127,9 +127,20 @@ class MembershipController extends Controller
                 'plans' => [
                     ['id'=>1,'name'=>'12 Month Day Access - Monthly Direct Debit','price'=>49.99,'period'=>'month','features'=>['12 Month Contract','Day Access Only','Mon-Fri: 06:00-22:00','Sat-Sun: 06:00-20:00','State-of-the-art Equipment'],'popular'=>false],
                     ['id'=>2,'name'=>'12 Month 24hr Access - Monthly Direct Debit','price'=>54.99,'period'=>'month','features'=>['12 Month Contract','24/7 Access','Train Anytime','First 24hr UltraFlex','Complete Flexibility'],'popular'=>true],
+                    // General paid-in-full options
                     ['id'=>3,'name'=>'12 Month Pass - Paid in Full','price'=>530.00,'period'=>'12 months','features'=>['12 Months Access','Payment in Full','All Equipment Access','Best Annual Value','No Monthly Payments'],'popular'=>false],
                     ['id'=>4,'name'=>'6 Month Pass - Paid in Full','price'=>295.00,'period'=>'6 months','features'=>['6 Months Access','Payment in Full','All Equipment Access','No Monthly Payments','Flexible Option'],'popular'=>false],
-                    ['id'=>5,'name'=>'Student Monthly Rolling','price'=>49.00,'period'=>'month','features'=>['Student Discount','Valid Student ID Required','Monthly Rolling','Day Access Only'],'popular'=>false],
+
+                    // Existing student monthly (to be replaced on go-live)
+                    ['id'=>5,'name'=>'Student Monthly Rolling','price'=>49.00,'period'=>'month','features'=>['Student Discount','Valid Student ID Required','Monthly Rolling','Day Access Only'],'popular'=>false,'live_until'=>'2025-12-01 00:00:00'],
+
+                    // New Student plans (go-live January 19th 2026)
+                    ['id'=>101,'name'=>'Student Monthly Rolling','price'=>48.60,'period'=>'month','features'=>['Student Discount','Valid Student ID Required','Monthly Rolling','Day Access Only'],'popular'=>false],
+                    ['id'=>102,'name'=>'Student Monthly Rolling 24hr','price'=>58.50,'period'=>'month','features'=>['Student Discount','Valid Student ID Required','Monthly Rolling','24/7 Access'],'popular'=>true],
+                    ['id'=>103,'name'=>'Student 6 Month Pass - Paid in Full','price'=>265.50,'period'=>'6 months','features'=>['Student Discount','Valid Student ID Required','Payment in Full','All Equipment Access'],'popular'=>false],
+                    ['id'=>104,'name'=>'Student 6 Month Pass - Paid in Full 24hr','price'=>319.50,'period'=>'6 months','features'=>['Student Discount','Valid Student ID Required','Payment in Full','24/7 Access'],'popular'=>false],
+                    ['id'=>105,'name'=>'Student 12 Month Pass - Paid in Full','price'=>477.00,'period'=>'12 months','features'=>['Student Discount','Valid Student ID Required','Payment in Full','All Equipment Access'],'popular'=>false],
+                    ['id'=>106,'name'=>'Student 12 Month Pass - Paid in Full 24hr','price'=>531.00,'period'=>'12 months','features'=>['Student Discount','Valid Student ID Required','Payment in Full','24/7 Access'],'popular'=>false],
                 ],
             ],
             'west-london' => [
@@ -145,11 +156,34 @@ class MembershipController extends Controller
             ],
         ];
 
-        // Filter out any plan representing a Day Pass (including GOLD Day Pass or Founding Member (Day Pass))
-        $locations = collect($locations)->map(function($loc){
+        // Filter out any plan representing a Day Pass and apply schedule gating
+        $now = new \DateTime('now', new \DateTimeZone('Europe/London'));
+        $preview = request()->has('preview');
+        $locations = collect($locations)->map(function($loc) use ($now, $preview){
             if(isset($loc['plans']) && is_array($loc['plans'])) {
-                $loc['plans'] = array_values(array_filter($loc['plans'], function($p){
-                    return stripos($p['name'], 'day pass') === false; // remove all day pass variants
+                $loc['plans'] = array_values(array_filter($loc['plans'], function($p) use ($now, $preview){
+                    // remove all day pass variants
+                    if (stripos($p['name'], 'day pass') !== false) {
+                        return false;
+                    }
+                    // If preview is enabled, do not enforce time gating
+                    if ($preview) {
+                        return true;
+                    }
+                    // Schedule gating: live_from / live_until (Europe/London)
+                    if (isset($p['live_from']) && $p['live_from']) {
+                        try {
+                            $from = new \DateTime($p['live_from'], new \DateTimeZone('Europe/London'));
+                            if ($now < $from) return false;
+                        } catch (\Exception $e) { /* ignore parse errors */ }
+                    }
+                    if (isset($p['live_until']) && $p['live_until']) {
+                        try {
+                            $until = new \DateTime($p['live_until'], new \DateTimeZone('Europe/London'));
+                            if ($now > $until) return false;
+                        } catch (\Exception $e) { /* ignore parse errors */ }
+                    }
+                    return true;
                 }));
             }
             return $loc;

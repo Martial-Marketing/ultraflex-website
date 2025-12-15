@@ -943,42 +943,62 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                 {location.trainers.map((trainer) => {
                                     const firstName = (trainer.name || '').split(/\s+/)[0];
                                     const shortBio = (trainer.bio || '').split(/\n+/)[0];
+                                    const bioThreeSentences = shortBio
+                                        .split(/([.!?])\s+/)
+                                        .reduce((acc: string[], cur: string, idx: number, arr: string[]) => {
+                                            if (idx % 2 === 0) {
+                                                const punctuation = arr[idx + 1] || '';
+                                                acc.push((cur + punctuation).trim());
+                                            }
+                                            return acc;
+                                        }, [])
+                                        .filter(Boolean)
+                                        .slice(0, 3)
+                                        .join(' ');
                                     return (
                                     <Link key={trainer.id} href={`/trainers/${trainer.slug}`} className="group focus:outline-none block">
-                                        <div className="relative overflow-hidden rounded-xl border border-white/10 bg-black/40 backdrop-blur-md flex flex-col transition-all duration-300 hover:border-red-700/40 hover:shadow-red-700/20 hover:shadow-xl hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-red-700" style={{minHeight:'420px'}}>
-                                            <div className="relative flex-[0_0_50%]" style={{flexBasis:'50%', maxHeight:'50%'}}>
-                                                <img
-                                                    src={trainer.image}
-                                                    alt={trainer.name}
-                                                    loading="lazy"
-                                                    className="w-full h-full object-cover object-top -translate-y-3 transition-transform duration-500 ease-out"
-                                                    onError={(e:any)=>{ e.currentTarget.src='/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp'; }}
-                                                />
-                                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-95 pointer-events-none"></div>
-                                                <div className="absolute top-2 left-2 z-10 px-2 py-1 rounded-md text-[10px] uppercase tracking-wide bg-red-700/80 text-white shadow shadow-black/40">Trainer</div>
-                                                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                                                    <div className="bg-black/50 backdrop-blur-md px-4 py-2 rounded-full text-xs text-white flex items-center gap-2 border border-white/10">
-                                                        <Users className="w-4 h-4" /> View Profile
-                                                    </div>
+                                        <div className="relative overflow-hidden rounded-xl border border-white/10 bg-black/40 backdrop-blur-md flex flex-col h-[380px] transition-all duration-300 hover:border-red-700/40 hover:shadow-red-700/20 hover:shadow-xl hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-red-700">
+                                            <div className="flex items-center justify-center pt-4">
+                                                <div className="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full overflow-hidden border-4 border-red-700/40 shadow-lg">
+                                                    <img
+                                                        src={trainer.image}
+                                                        alt={trainer.name}
+                                                        loading="lazy"
+                                                        className="w-full h-full object-cover object-top"
+                                                        onError={(e:any)=>{ e.currentTarget.src='/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp'; }}
+                                                    />
+                                                    <div className="absolute inset-0 ring-0 group-hover:ring-2 ring-red-700/50 rounded-full transition-all duration-300 pointer-events-none"></div>
                                                 </div>
-                                                <div className="absolute inset-0 ring-0 group-hover:ring-2 ring-red-700/50 rounded-xl transition-all duration-300 pointer-events-none"></div>
                                             </div>
                                             <div className="flex-1 flex flex-col p-4 gap-2">
-                                                <h3 className="text-lg font-semibold text-white group-hover:text-red-600 transition-colors duration-300">{firstName}</h3>
+                                                <h3 className="text-base font-semibold text-white group-hover:text-red-600 transition-colors duration-300">{firstName}</h3>
                                                 {trainer.specialties && trainer.specialties.length > 0 && (
                                                     <div className="flex flex-wrap gap-1.5">
                                                         {trainer.specialties.slice(0,3).map((specialty, index) => (
-                                                            <span key={index} className="px-2 py-0.5 bg-red-700/15 text-red-500 text-[11px] rounded-full border border-red-700/30">{specialty}</span>
+                                                            <span key={index} className="px-2 py-0.5 bg-red-700/15 text-red-500 text-[10px] rounded-full border border-red-700/30">{specialty}</span>
                                                         ))}
                                                         {trainer.specialties.length > 3 && (
-                                                            <span className="px-2 py-0.5 bg-white/10 text-white/70 text-[11px] rounded-full">+{trainer.specialties.length - 3}</span>
+                                                            <span className="px-2 py-0.5 bg-white/10 text-white/70 text-[10px] rounded-full">+{trainer.specialties.length - 3}</span>
                                                         )}
                                                     </div>
                                                 )}
                                                 {trainer.certifications && trainer.certifications.length > 0 && (
-                                                    <p className="text-[11px] text-gray-400 leading-snug">{trainer.certifications.join(', ')}</p>
+                                                    <p className="text-[10px] text-gray-400 leading-snug">{trainer.certifications.join(', ')}</p>
                                                 )}
-                                                <p className="text-xs text-gray-300 line-clamp-2 mt-1 flex-1">{shortBio}</p>
+                                                <p
+                                                    className="text-xs text-gray-300 overflow-hidden mt-1 flex-1"
+                                                    style={{
+                                                        display: '-webkit-box',
+                                                        WebkitLineClamp: 3,
+                                                        WebkitBoxOrient: 'vertical',
+                                                        overflow: 'hidden',
+                                                        lineHeight: '1rem', // approximate leading for text-xs
+                                                        minHeight: '3rem',
+                                                        maxHeight: '3rem'
+                                                    }}
+                                                >
+                                                    {bioThreeSentences}
+                                                </p>
                                                 <div className="mt-2 flex items-center justify-end">
                                                     <span className="inline-flex items-center text-[11px] text-red-500 font-medium tracking-wide">
                                                         View Profile <ChevronRight className="w-3 h-3 ml-1 group-hover:translate-x-0.5 transition-transform" />

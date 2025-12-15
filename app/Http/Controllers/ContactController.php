@@ -45,8 +45,30 @@ class ContactController extends Controller
             'email' => 'required|email|max:255',
             'subject' => 'required|string|max:255',
             'message' => 'required|string|max:2000',
-            'location_id' => 'nullable|integer'
+            'location_id' => 'required|integer',
+            'g_recaptcha_response' => 'nullable|string'
         ]);
+
+        // Verify Google reCAPTCHA v2 token if provided
+        $recaptcha = $request->input('g_recaptcha_response');
+        if ($recaptcha) {
+            $secret = config('services.recaptcha.secret') ?? env('RECAPTCHA_SECRET');
+            if ($secret) {
+                try {
+                    $verify = \Illuminate\Support\Facades\Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+                        'secret' => $secret,
+                        'response' => $recaptcha,
+                        'remoteip' => $request->ip(),
+                    ]);
+                    $valid = $verify->ok() && ($verify->json('success') === true);
+                    if (! $valid) {
+                        return back()->withErrors(['captcha' => 'CAPTCHA verification failed. Please try again.'])->withInput();
+                    }
+                } catch (\Throwable $e) {
+                    return back()->withErrors(['captcha' => 'CAPTCHA service error. Please try again later.'])->withInput();
+                }
+            }
+        }
 
         // Here you would typically:
         // 1. Save to database

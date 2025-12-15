@@ -407,39 +407,7 @@ class LocationController extends Controller
                         [ 'label' => 'Pudsey Judo Club Instagram', 'url' => 'https://www.instagram.com/pudseyjudoclub', 'type' => 'instagram' ],
                         [ 'label' => 'Ostas Boxing Instagram (Alt)', 'url' => 'https://www.instagram.com/ostasboxing', 'type' => 'instagram' ]
                     ],
-                    'trainers' => [
-                        [
-                            'id' => 1,
-                            'name' => 'Zarina Rashid',
-                            'slug' => 'zarina-rashid',
-                            'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
-                            'bio' => "Hi, I'm Zarina, Face to Face and Online Personal Trainer. With over 10 years experience in the Industry. My background is in Bodybuilding, Nutrition and Martial Arts. My affinity for Health and Wellbeing is reflected in my approach when working with clients. Though I am extremely results oriented, and have created many excellent Body Transformations, my work has a great emphasis on nutrition, and creating excellent lifestyle habits rendering my clients able to live a Happier, stronger more functional life. My clients range from 16 yrs to 70 yrs plus, and vary from students to Company CEO's. If you are looking for help to improve your shape, your health and abilities in the gym message me for a complimentary session and chat about how I can support you.",
-                            'specialties' => ['Bodybuilding', 'Nutrition', 'Martial Arts', 'Lifestyle Coaching'],
-                            'certifications' => [],
-                            'experienceYears' => 10,
-                            'contact' => [
-                                'instagram' => 'https://www.instagram.com/zarina_rashid_',
-                                'phone' => '+447954848477'
-                            ],
-                            'availability' => 'Accepting Clients'
-                        ],
-                        [
-                            'id' => 2,
-                            'name' => 'Holly McV Fitness',
-                            'slug' => 'holly-mcv-fitness',
-                            'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
-                            'bio' => "Hiya, my name's Holly and I’m a fully qualified personal trainer! I have around 5 years of experience training, and teaching myself everything as a beginner to where I am now! My passion for fitness started when I first started lifting weights; from this day onwards I fell in love with the gym. This love soon turned into a passion of wanting to help and teach others, alongside achieving some amazing physical but also mental goals! My aim as your trainer and friend is to help reach your goals, teach you, show you, work on building up your confidence and self esteem, and make some incredible changes both body and mind! Your journey with me includes support 24/7—keeping you motivated, teaching you, showing you, educating you, designing fitness programmes for you, and of course making each session fun and enjoyable! When you start with me we are working on life long habits, maintaining balance so you can enjoy the gym as well as life! Remember your goals do not need to stop you from enjoying your life. Here we will work together to find that balance! I can’t do this on my own, so I need us to work together as a team to make these goals achievable. We will work together to get you exactly where you want to be, this is all about you so bring on the journey.",
-                            'specialties' => ['Confidence Building', 'Strength Training', 'Habit Coaching', 'Lifestyle Balance'],
-                            'certifications' => ['Fully Qualified Personal Trainer'],
-                            'experienceYears' => 5,
-                            'contact' => [
-                                'instagram' => 'https://www.instagram.com/hollymcvfitnesscoach',
-                                'facebook' => 'https://www.facebook.com/hollymcvfitnesscoach',
-                                'email' => 'hollymcvfitnesscoach@gmail.com'
-                            ],
-                            'availability' => 'Accepting Clients'
-                        ]
-                    ],
+                    // Trainers dynamically injected from App\Data\TrainerData based on locationSlug
                 ];
                 break;
                 
@@ -474,12 +442,16 @@ class LocationController extends Controller
                     'services' => [
                         ['name' => 'Regen Physio', 'description' => 'Physiotherapy & rehab services supporting recovery.'],
                         ['name' => 'IMA', 'description' => 'Specialist coaching / instruction (details forthcoming).'],
-                        ['name' => 'Ultra Car Wash', 'description' => 'Convenient on-site car wash service while you train.']
+                        ['name' => 'Ultra Car Wash', 'description' => 'Convenient on-site car wash service while you train.'],
+                        ['name' => 'Brotherhood Barbers (North Leeds)', 'description' => 'On-site barbers. Booking via Booksy. Instagram @brotherhood.leeds • TikTok @brotherhoodbarbers']
                     ],
                     'serviceLinks' => [
                         ['label' => 'Regen Physio Link', 'url' => 'https://bit.ly/m/RegenPhysio', 'type' => 'external'],
                         ['label' => 'Ultra Car Wash Instagram', 'url' => 'https://www.instagram.com/ultracarwashnorthleeds', 'type' => 'external'],
-                        ['label' => 'IMA Instagram', 'url' => 'https://www.instagram.com/IMA.leeds', 'type' => 'external']
+                        ['label' => 'IMA Instagram', 'url' => 'https://www.instagram.com/IMA.leeds', 'type' => 'external'],
+                        ['label' => 'Brotherhood Barbers – Book Now', 'url' => 'https://brotherhoodbarbershopleeds.booksy.com/a/', 'type' => 'external'],
+                        ['label' => 'Brotherhood Barbers – Instagram', 'url' => 'https://instagram.com/brotherhood.leeds', 'type' => 'external'],
+                        ['label' => 'Brotherhood Barbers – TikTok', 'url' => 'https://www.tiktok.com/@brotherhoodbarbers', 'type' => 'external']
                     ],
                     'membershipPlans' => [
                         [
@@ -1732,7 +1704,8 @@ class LocationController extends Controller
                             'price' => 49.00,
                             'period' => 'month',
                             'features' => ['Student Discount', 'Valid Student ID Required', 'Monthly Rolling', 'Day Access Only'],
-                            'popular' => false
+                            'popular' => false,
+                            'live_until' => '2025-12-01 00:00:00'
                         ],
                         [
                             'id' => 6,
@@ -1740,7 +1713,8 @@ class LocationController extends Controller
                             'price' => 270.00,
                             'period' => '6 months',
                             'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£270)', '£45.00 per month equivalent', 'All Equipment Access'],
-                            'popular' => false
+                            'popular' => false,
+                            'live_until' => '2025-12-01 00:00:00'
                         ],
                         [
                             'id' => 7,
@@ -1748,7 +1722,8 @@ class LocationController extends Controller
                             'price' => 390.00,
                             'period' => '9 months',
                             'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£390)', '£43.33 per month equivalent', 'All Equipment Access'],
-                            'popular' => false
+                            'popular' => false,
+                            'live_until' => '2025-12-01 00:00:00'
                         ],
                         [
                             'id' => 8,
@@ -1756,6 +1731,56 @@ class LocationController extends Controller
                             'price' => 510.00,
                             'period' => '12 months',
                             'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£510)', '£42.50 per month equivalent', 'Best Student Value'],
+                            'popular' => false,
+                            'live_until' => '2025-12-01 00:00:00'
+                        ],
+                        // New Student plans (go-live Jan 19, 2026)
+                        [
+                            'id' => 101,
+                            'name' => 'Student Monthly Rolling',
+                            'price' => 48.60,
+                            'period' => 'month',
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Monthly Rolling', 'Day Access Only'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 102,
+                            'name' => 'Student Monthly Rolling 24hr',
+                            'price' => 58.50,
+                            'period' => 'month',
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Monthly Rolling', '24/7 Access'],
+                            'popular' => true
+                        ],
+                        [
+                            'id' => 103,
+                            'name' => 'Student 6 Month Pass - Paid in Full',
+                            'price' => 265.50,
+                            'period' => '6 months',
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full', 'All Equipment Access'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 104,
+                            'name' => 'Student 6 Month Pass - Paid in Full 24hr',
+                            'price' => 319.50,
+                            'period' => '6 months',
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full', '24/7 Access'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 105,
+                            'name' => 'Student 12 Month Pass - Paid in Full',
+                            'price' => 477.00,
+                            'period' => '12 months',
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full', 'All Equipment Access'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 106,
+                            'name' => 'Student 12 Month Pass - Paid in Full 24hr',
+                            'price' => 531.00,
+                            'period' => '12 months',
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full', '24/7 Access'],
                             'popular' => false
                         ],
                     ],
@@ -2049,29 +2074,8 @@ class LocationController extends Controller
             'features' => [], // e.g. ['24/7 Access', 'Competition Grade Equipment']
             'services' => [], // e.g. [['name' => 'Physiotherapy', 'description' => 'On-site rehab specialists']]
             'serviceLinks' => [], // e.g. [['label' => 'Book PT Session', 'url' => '/services/personal-training']]
-            'trainers' => [
-                [
-                    'id' => 1,
-                    'name' => 'Sarah Wilson',
-                    'image' => '/images/trainers/sarah.jpg',
-                    'specialties' => ['Strength Training', 'Weight Loss'],
-                    'slug' => 'sarah-wilson'
-                ],
-                [
-                    'id' => 2,
-                    'name' => 'Mike Thompson',
-                    'image' => '/images/trainers/mike.jpg',
-                    'specialties' => ['Martial Arts', 'Functional Training'],
-                    'slug' => 'mike-thompson'
-                ],
-                [
-                    'id' => 3,
-                    'name' => 'Dr. Emma Roberts',
-                    'image' => '/images/trainers/emma.jpg',
-                    'specialties' => ['Physiotherapy', 'Injury Recovery'],
-                    'slug' => 'emma-roberts'
-                ]
-            ],
+            // Use dynamic trainers only; no placeholders to avoid duplication
+            'trainers' => [],
             'gallery' => [
                 '/images/gallery/west-leeds-machines.jpg',
                 '/images/gallery/west-leeds-changing.jpg',
@@ -2257,8 +2261,31 @@ class LocationController extends Controller
 
         // Remove any Day Pass style plans (including GOLD Day Pass, Founding Member (Day Pass)) from displayed membershipPlans
         if(isset($locationData['membershipPlans']) && is_array($locationData['membershipPlans'])) {
-            $locationData['membershipPlans'] = array_values(array_filter($locationData['membershipPlans'], function($plan){
-                return stripos($plan['name'], 'day pass') === false; // exclude all variants
+            $now = new \DateTime('now', new \DateTimeZone('Europe/London'));
+            $preview = request()->has('preview');
+            $locationData['membershipPlans'] = array_values(array_filter($locationData['membershipPlans'], function($plan) use ($now, $preview){
+                // Exclude all Day Pass variants
+                if (stripos($plan['name'], 'day pass') !== false) {
+                    return false;
+                }
+                // If preview flag is present, bypass time gating
+                if ($preview) {
+                    return true;
+                }
+                // Schedule gating (optional keys): live_from, live_until
+                if (isset($plan['live_from']) && $plan['live_from']) {
+                    try {
+                        $from = new \DateTime($plan['live_from'], new \DateTimeZone('Europe/London'));
+                        if ($now < $from) return false;
+                    } catch (\Exception $e) { /* ignore parse errors */ }
+                }
+                if (isset($plan['live_until']) && $plan['live_until']) {
+                    try {
+                        $until = new \DateTime($plan['live_until'], new \DateTimeZone('Europe/London'));
+                        if ($now > $until) return false;
+                    } catch (\Exception $e) { /* ignore parse errors */ }
+                }
+                return true;
             }));
         }
 
