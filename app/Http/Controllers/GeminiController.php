@@ -26,7 +26,7 @@ class GeminiController extends Controller
 
         try {
             // Add UltraFlex context to make responses more relevant
-            $context = "You are an AI assistant for UltraFlex, a premium fitness gym chain. 
+            $context = "You are an AI assistant for UltraFlex, a gym chain. 
             
 UltraFlex Details:
 - 24/7 gym access for members
@@ -35,7 +35,7 @@ UltraFlex Details:
 - Has expert trainers available for bookings
 - Provides nutrition plans and workout programs
 - Free parking at all locations
-- Premium equipment and facilities
+- Modern equipment and facilities
 - Members can access workout videos, nutrition plans, and book trainers online
 - Memberships can be frozen or cancelled by contacting support
 - Sign-up available at: https://secure.ashbournemanagement.co.uk/signupuk/index.aspx?fn=grbh2

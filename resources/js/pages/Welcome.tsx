@@ -95,7 +95,7 @@ export default function Welcome({ auth, latestNews }: WelcomeProps) {
 
     return (
         <AppLayout auth={auth}>
-            <Head title="UltraFlex - Premium Fitness Experience">
+            <Head title="UltraFlex - Fitness Experience">
                 <meta name="description" content="Transform your fitness journey at UltraFlex. Premium equipment, expert trainers, and a supportive community in Bacolod City. Join today!" />
                 <meta name="keywords" content="gym, fitness, personal training, Bacolod City, HIIT, strength training, yoga, nutrition" />
                 <link rel="preconnect" href="https://fonts.bunny.net" />

@@ -269,7 +269,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
     return (
         <AppLayout auth={auth}>
             <Head title={`${location.name} - UltraFlex`}>
-                <meta name="description" content={`Visit ${location.name} for premium fitness facilities, expert trainers, and state-of-the-art equipment. Located at ${location.address}.`} />
+                <meta name="description" content={`Visit ${location.name} for fitness facilities, expert trainers, and state-of-the-art equipment. Located at ${location.address}.`} />
             </Head>
 
             <div className="min-h-screen relative">

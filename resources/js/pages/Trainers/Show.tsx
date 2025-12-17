@@ -161,12 +161,6 @@ export default function TrainerShow({ trainer, auth }: TrainerShowProps) {
                                             alt={trainer.name}
                                             className="w-80 h-80 rounded-2xl object-cover shadow-2xl transform group-hover:scale-105 transition-transform duration-500"
                                         />
-                                        <div className="absolute -bottom-6 -right-6 bg-black/60 backdrop-blur-md rounded-xl p-4 shadow-2xl border border-red-700/30">
-                                            <div className="text-center">
-                                                <div className="text-2xl font-bold text-red-700">{trainer.reviewCount}</div>
-                                                <div className="text-sm text-gray-300">Happy Clients</div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -211,14 +205,7 @@ export default function TrainerShow({ trainer, auth }: TrainerShowProps) {
                                             </h2>
                                             <p className="text-gray-300 leading-relaxed mb-6">{trainer.detailedBio}</p>
                                             
-                                            {trainer.philosophy && (
-                                                <div>
-                                                    <h3 className="text-lg font-semibold text-white mb-3">Training Philosophy</h3>
-                                                    <div className="bg-red-700/10 border border-red-700/20 rounded-lg p-4">
-                                                        <p className="text-gray-300 leading-relaxed italic">"{trainer.philosophy}"</p>
-                                                    </div>
-                                                </div>
-                                            )}
+                                            {/* Training Philosophy section removed by request */}
                                         </Card>
 
                                         {/* Achievements */}

@@ -97,7 +97,6 @@ export default function AnimatedFooter({ className = '' }: FooterProps) {
                                         <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Ultra</span>
                                         <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Flex</span>
                                     </h3>
-                                    <p className="text-red-700 text-sm">Premium Fitness</p>
                                 </div>
                             </div>
                             <p className="text-gray-300 mb-4 leading-relaxed text-sm">
