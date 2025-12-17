@@ -80,7 +80,7 @@ interface Location {
     };
     // Newly added optional structured enhancements
     features?: string[];
-    services?: { name: string; description?: string; icon?: string }[];
+    services?: { name: string; description?: string; icon?: string; logo?: string }[];
     serviceLinks?: { label: string; url: string; type?: 'internal' | 'external' }[];
 }
 
@@ -639,8 +639,14 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                         {location.services.map((svc, i) => (
                                             <div key={i} className="bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/40 rounded-xl p-6 group transition-all duration-300 flex flex-col">
                                                 <div className="flex items-center mb-4">
-                                                    <div className="w-12 h-12 rounded-lg bg-red-700/20 border border-red-700/30 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                                                        {svc.icon ? <span className="text-red-700 text-lg font-semibold">{svc.icon}</span> : <Users className="h-6 w-6 text-red-700" />}
+                                                    <div className="w-12 h-12 rounded-lg bg-red-700/20 border border-red-700/30 flex items-center justify-center mr-4 overflow-hidden group-hover:scale-110 transition-transform duration-300">
+                                                        {svc.logo ? (
+                                                            <img src={svc.logo} alt={svc.name} className="w-full h-full object-contain" />
+                                                        ) : svc.icon ? (
+                                                            <span className="text-red-700 text-lg font-semibold">{svc.icon}</span>
+                                                        ) : (
+                                                            <Users className="h-6 w-6 text-red-700" />
+                                                        )}
                                                     </div>
                                                     <h3 className="text-xl font-semibold text-white group-hover:text-red-700 transition-colors duration-300">{svc.name}</h3>
                                                 </div>

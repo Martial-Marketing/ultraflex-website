@@ -156,33 +156,15 @@ class MembershipController extends Controller
             ],
         ];
 
-        // Filter out any plan representing a Day Pass and apply schedule gating
-        $now = new \DateTime('now', new \DateTimeZone('Europe/London'));
-        $preview = request()->has('preview');
-        $locations = collect($locations)->map(function($loc) use ($now, $preview){
+        // Filter out any plan representing a Day Pass (no schedule gating)
+        $locations = collect($locations)->map(function($loc){
             if(isset($loc['plans']) && is_array($loc['plans'])) {
-                $loc['plans'] = array_values(array_filter($loc['plans'], function($p) use ($now, $preview){
+                $loc['plans'] = array_values(array_filter($loc['plans'], function($p){
                     // remove all day pass variants
                     if (stripos($p['name'], 'day pass') !== false) {
                         return false;
                     }
-                    // If preview is enabled, do not enforce time gating
-                    if ($preview) {
-                        return true;
-                    }
-                    // Schedule gating: live_from / live_until (Europe/London)
-                    if (isset($p['live_from']) && $p['live_from']) {
-                        try {
-                            $from = new \DateTime($p['live_from'], new \DateTimeZone('Europe/London'));
-                            if ($now < $from) return false;
-                        } catch (\Exception $e) { /* ignore parse errors */ }
-                    }
-                    if (isset($p['live_until']) && $p['live_until']) {
-                        try {
-                            $until = new \DateTime($p['live_until'], new \DateTimeZone('Europe/London'));
-                            if ($now > $until) return false;
-                        } catch (\Exception $e) { /* ignore parse errors */ }
-                    }
+                    // Show all other plans immediately (no schedule gating)
                     return true;
                 }));
             }

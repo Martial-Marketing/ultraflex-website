@@ -232,9 +232,9 @@ export default function TrainersIndex({ trainers, locations, specialties, auth }
                                         const bioThreeSentences = getThreeSentenceSummary(trainer.bio);
                                         return (
                                             <Link key={trainer.id} href={`/trainers/${trainer.slug}`} className="group focus:outline-none block">
-                                                <div className="relative overflow-hidden rounded-xl border border-white/10 bg-black/40 backdrop-blur-md flex flex-col h-[420px] transition-all duration-300 hover:border-red-700/40 hover:shadow-red-700/20 hover:shadow-xl hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-red-700">
+                                                <div className="relative overflow-hidden rounded-xl border border-white/10 bg-black/40 backdrop-blur-md flex flex-col h-[380px] transition-all duration-300 hover:border-red-700/40 hover:shadow-red-700/20 hover:shadow-xl hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-red-700">
                                                     <div className="flex items-center justify-center pt-4">
-                                                        <div className="relative w-36 h-36 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-red-700/40 shadow-lg">
+                                                        <div className="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full overflow-hidden border-4 border-red-700/40 shadow-lg">
                                                             <img
                                                                 src={trainer.image}
                                                                 alt={trainer.name}

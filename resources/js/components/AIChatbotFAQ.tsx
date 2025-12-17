@@ -45,7 +45,7 @@ export default function AIChatbotFAQ() {
       return `Most sites are 24/7 for members; staffed hours vary. See your gym page: ${loc}.`;
     }
     if (t.includes('contact') || t.includes('email') || t.includes('phone')) {
-      return `For general enquiries: info@ultraflex.com. For site contacts, see ${loc}.`;
+      return `For general enquiries: info@ultraflexgym.co.uk. For site contacts, see ${loc}.`;
     }
     return null;
   };

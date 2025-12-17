@@ -181,8 +181,8 @@ export default function AnimatedFooter({ className = '' }: FooterProps) {
                             <div className="space-y-3">
                                 <div className="flex items-center space-x-2">
                                     <Mail className="h-4 w-4 text-red-700" />
-                                    <a href="mailto:info@ultraflex.com" className="text-gray-300 hover:text-red-700 transition-colors text-sm">
-                                        info@ultraflex.com
+                                    <a href="mailto:info@ultraflexgym.co.uk" className="text-gray-300 hover:text-red-700 transition-colors text-sm">
+                                        info@ultraflexgym.co.uk
                                     </a>
                                 </div>
 

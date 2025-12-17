@@ -32,7 +32,7 @@ class ContactController extends Controller
             ])->values(),
             'generalContact' => [
                 'phone' => '+44 20 1234 5678',
-                'email' => 'info@ultraflex.com',
+                'email' => 'info@ultraflexgym.co.uk',
                 'address' => 'UltraFlex Head Office, 123 Fitness Street, London'
             ]
         ]);

@@ -443,7 +443,11 @@ class LocationController extends Controller
                         ['name' => 'Regen Physio', 'description' => 'Physiotherapy & rehab services supporting recovery.'],
                         ['name' => 'IMA', 'description' => 'Specialist coaching / instruction (details forthcoming).'],
                         ['name' => 'Ultra Car Wash', 'description' => 'Convenient on-site car wash service while you train.'],
-                        ['name' => 'Brotherhood Barbers (North Leeds)', 'description' => 'On-site barbers. Booking via Booksy. Instagram @brotherhood.leeds • TikTok @brotherhoodbarbers']
+                        [
+                            'name' => 'Brotherhood Barbers (North Leeds)',
+                            'description' => 'On-site barbers. Booking via Booksy. Instagram @brotherhood.leeds • TikTok @brotherhoodbarbers',
+                            'logo' => '/Images/york/BROTHERHOOD no back ground .webp'
+                        ]
                     ],
                     'serviceLinks' => [
                         ['label' => 'Regen Physio Link', 'url' => 'https://bit.ly/m/RegenPhysio', 'type' => 'external'],
@@ -2261,30 +2265,12 @@ class LocationController extends Controller
 
         // Remove any Day Pass style plans (including GOLD Day Pass, Founding Member (Day Pass)) from displayed membershipPlans
         if(isset($locationData['membershipPlans']) && is_array($locationData['membershipPlans'])) {
-            $now = new \DateTime('now', new \DateTimeZone('Europe/London'));
-            $preview = request()->has('preview');
-            $locationData['membershipPlans'] = array_values(array_filter($locationData['membershipPlans'], function($plan) use ($now, $preview){
+            $locationData['membershipPlans'] = array_values(array_filter($locationData['membershipPlans'], function($plan){
                 // Exclude all Day Pass variants
                 if (stripos($plan['name'], 'day pass') !== false) {
                     return false;
                 }
-                // If preview flag is present, bypass time gating
-                if ($preview) {
-                    return true;
-                }
-                // Schedule gating (optional keys): live_from, live_until
-                if (isset($plan['live_from']) && $plan['live_from']) {
-                    try {
-                        $from = new \DateTime($plan['live_from'], new \DateTimeZone('Europe/London'));
-                        if ($now < $from) return false;
-                    } catch (\Exception $e) { /* ignore parse errors */ }
-                }
-                if (isset($plan['live_until']) && $plan['live_until']) {
-                    try {
-                        $until = new \DateTime($plan['live_until'], new \DateTimeZone('Europe/London'));
-                        if ($now > $until) return false;
-                    } catch (\Exception $e) { /* ignore parse errors */ }
-                }
+                // Show all other plans immediately (no schedule gating)
                 return true;
             }));
         }
