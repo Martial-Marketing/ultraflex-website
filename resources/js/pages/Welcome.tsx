@@ -36,21 +36,21 @@ export default function Welcome({ auth, latestNews }: WelcomeProps) {
         {
             id: 1,
             name: "ULTRAFLEX WEST LEEDS",
-            address: "West Park Ring Road, Leeds LS16 6EB, UK",
+            address: "Cape Mills, Coal Hill Ln, Leeds LS28 5NA",
             image: "/Images/westleeds/gym-in-westleeds.webp",
             slug: 'west-leeds'
         },
         {
             id: 2,
             name: "ULTRAFLEX NORTH LEEDS",
-            address: "Limewood Centre, Limewood Avenue, Ring Road, Seacroft, Leeds LS14 1NH, UK",
+            address: "Limewood Approach, Seacroft, Leeds LS14 1NH",
             image: "/Images/processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.jpeg",
             slug: 'north-leeds'
         },
         {
             id: 3,
             name: "ULTRAFLEX NORMANTON",
-            address: "High Street, Normanton WF6 2DB, UK",
+            address: "Ripley Dr, Normanton WF6 1QT",
             image: "/Images/normanton/gym-in-normanton.webp",
             slug: 'normanton'
         }

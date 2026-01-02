@@ -171,6 +171,24 @@ class TrainerData
                 'locationSlug' => 'lincoln',
                 'contact' => ['email' => 'tccoaching85@gmail.com', 'instagram' => 'https://instagram.com/coach_by_tc']
             ],
+            [
+                'id' => 405,
+                'name' => 'Mirella Ingamells',
+                'slug' => 'mirella-ingamells',
+                'image' => '/Images/PTS/Mirella pic 1.webp',
+                'bio' => 'Mirella is a strength and conditioning coach, former professional fitness model, and founder of Mirella Fitness Ltd / Strong Beats Skinny. With over 15 years of experience coaching women worldwide, both in person and online, she specialises in helping women build strength, confidence and power through effective weight training. Her coaching goes beyond fad diets or chasing a quick-fix bikini body; she focuses on purposeful training, sustainable nutrition and creating a lifestyle that feels enjoyable and achievable long term. After placing 2nd at the WBFF World Championships in Las Vegas and spending 10 years in Ibiza training clients, teaching classes and hosting wellness retreats, Mirella now coaches from UltraFlex Lincoln—dedicated to helping women lift, get strong and transform both body and mind.',
+                'specialties' => ['Strength & Conditioning', 'Women\'s Lifting', 'Confidence Building'],
+                'certifications' => [],
+                'locationSlug' => 'lincoln',
+                'gender' => 'Female',
+                'experience' => 'Strength and conditioning coach with over 15 years helping women worldwide build strength, confidence and a sustainable lifting lifestyle.',
+                'achievements' => [
+                    'WBFF World Championships – 2nd place, Las Vegas',
+                    'Former professional fitness model',
+                    'Founder of Mirella Fitness Ltd / Strong Beats Skinny'
+                ],
+                'contact' => []
+            ],
             // Durham
             [
                 'id' => 501,
