@@ -792,7 +792,7 @@ class LocationController extends Controller
                         [
                             'id' => 1,
                             'name' => 'Day Pass',
-                            'price' => 16.00,
+                            'price' => 17.00,
                             'period' => 'day',
                             'features' => ['Single Day Access', 'All Equipment Access', 'Changing Rooms', 'Free Parking'],
                             'popular' => false
@@ -800,7 +800,7 @@ class LocationController extends Controller
                         [
                             'id' => 2,
                             'name' => 'Weekly Pass',
-                            'price' => 23.00,
+                            'price' => 25.00,
                             'period' => 'week',
                             'features' => ['7 Days Access', 'All Equipment Access', 'All Facilities', 'Free Parking'],
                             'popular' => false
@@ -808,7 +808,7 @@ class LocationController extends Controller
                         [
                             'id' => 3,
                             'name' => 'Monthly Pass',
-                            'price' => 50.00,
+                            'price' => 55.00,
                             'period' => 'month',
                             'features' => ['30 Days Access', 'All Equipment Access', 'All Facilities', 'Group Classes'],
                             'popular' => false
@@ -816,7 +816,7 @@ class LocationController extends Controller
                         [
                             'id' => 4,
                             'name' => 'Monthly Direct Debit',
-                            'price' => 45.00,
+                            'price' => 50.00,
                             'period' => 'month',
                             'features' => ['Monthly Rolling Contract', '12 Month Contract', 'All Equipment Access', 'All Facilities', 'Best Value'],
                             'popular' => true
@@ -824,7 +824,7 @@ class LocationController extends Controller
                         [
                             'id' => 5,
                             'name' => '6 Month Pass',
-                            'price' => 265.00,
+                            'price' => 285.00,
                             'period' => '6 months',
                             'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'All Facilities', 'Group Classes'],
                             'popular' => false
@@ -832,7 +832,7 @@ class LocationController extends Controller
                         [
                             'id' => 6,
                             'name' => '12 Month Pass',
-                            'price' => 435.00,
+                            'price' => 465.00,
                             'period' => '12 months',
                             'features' => ['12 Months Access', 'Payment in Full', 'All Equipment Access', 'All Facilities', 'Best Annual Value'],
                             'popular' => false
@@ -2259,18 +2259,6 @@ class LocationController extends Controller
             $commonData['amenities'] = array_values(array_filter($commonData['amenities'], function($a){ return $a !== null; }));
         }
         $locationData = array_merge($commonData, $locationData);
-
-        // Remove any Day Pass style plans (including GOLD Day Pass, Founding Member (Day Pass)) from displayed membershipPlans
-        if(isset($locationData['membershipPlans']) && is_array($locationData['membershipPlans'])) {
-            $locationData['membershipPlans'] = array_values(array_filter($locationData['membershipPlans'], function($plan){
-                // Exclude all Day Pass variants
-                if (stripos($plan['name'], 'day pass') !== false) {
-                    return false;
-                }
-                // Show all other plans immediately (no schedule gating)
-                return true;
-            }));
-        }
 
         return Inertia::render('Locations/Show', [
             'location' => $locationData,
