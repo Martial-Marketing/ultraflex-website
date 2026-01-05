@@ -97,6 +97,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
     const [currentEquipmentBgIndex, setCurrentEquipmentBgIndex] = useState(0);
     const [activeSection, setActiveSection] = useState<string>('manager');
     const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+    const [expandedReviewId, setExpandedReviewId] = useState<number | null>(null);
     const membershipPlansPerSlide = 3;
     const totalMembershipSlides = Math.ceil(location.membershipPlans.length / membershipPlansPerSlide);
     const signupUrl = (location.signupUrl && location.signupUrl.trim() !== '' ? location.signupUrl : '/membership');
@@ -729,7 +730,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                 </div>
                             </div>
 
-                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
                                 {location.reviews.slice(0, 6).map((review) => (
                                     <Card key={review.id} className="p-6 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 group">
                                         <div className="flex items-center space-x-4 mb-4">
@@ -738,8 +739,41 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                             </div>
                                             <span className="text-sm text-gray-400">{review.date}</span>
                                         </div>
-                                        <p className="text-gray-300 mb-4 italic group-hover:text-gray-200 transition-colors duration-300">"{review.comment}"</p>
-                                        <p className="font-semibold text-white">- {review.name}</p>
+                                        {(() => {
+                                            const isExpanded = expandedReviewId === review.id;
+                                            const isLong = review.comment.length > 220;
+                                            return (
+                                                <>
+                                                    <div className="mb-2">
+                                                        <p
+                                                            className={`text-gray-300 italic group-hover:text-gray-200 transition-colors duration-300 ${
+                                                                !isExpanded && isLong ? 'line-clamp-3' : ''
+                                                            }`}
+                                                        >
+                                                            "{review.comment}"
+                                                        </p>
+                                                    </div>
+                                                    {isLong ? (
+                                                        <div className="mt-2 flex items-center justify-between">
+                                                            <p className="font-semibold text-white">- {review.name}</p>
+                                                            <button
+                                                                type="button"
+                                                                onClick={() =>
+                                                                    setExpandedReviewId((prev) =>
+                                                                        prev === review.id ? null : review.id
+                                                                    )
+                                                                }
+                                                                className="text-xs text-red-600 hover:text-red-500 underline underline-offset-2 ml-4"
+                                                            >
+                                                                {isExpanded ? 'See less' : 'See more'}
+                                                            </button>
+                                                        </div>
+                                                    ) : (
+                                                        <p className="mt-2 font-semibold text-white">- {review.name}</p>
+                                                    )}
+                                                </>
+                                            );
+                                        })()}
                                     </Card>
                                 ))}
                             </div>

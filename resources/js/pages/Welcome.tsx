@@ -56,36 +56,62 @@ export default function Welcome({ auth, latestNews }: WelcomeProps) {
         }
     ];
 
-    // Member testimonials (from Google-style reviews provided)
+    // Member testimonials built from real UltraFlex Google-style reviews (latest additions)
     const testimonials = [
         {
             id: 1,
-            name: 'Gabrielle Furtado',
-            quote: "Best gym in the country!! I’ve been to gyms in NY, Miami, LA and nothing compares. Ultraflex is the best gym I have ever been to. This gym is the reason I can’t leave MA. They have a sauna, posing room, separate room dedicated to legs, every chest, shoulder, and back machine you can think of & it’s two levels. The dumbbells go up extremely high as well. If you’re in the area I 11/10 recommend you check it out & grab some merch while you’re there!",
+            name: 'Ewan Hetherington – North Leeds',
+            quote: "I trained here for 6 months from Sept 2024-March 2025 and have been going to the gym since July 2021. This is easily the best gym I have ever trained at with the best equipment available for each body part.",
             rating: 5,
-            image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face'
+            image: '/Images/newimages/North Leeds/gym-in-northleeds-1.webp'
         },
         {
             id: 2,
-            name: 'Jessica',
-            quote: "Very nice gym. Has a sauna, lockers, showers, alot of equipment to use, great staff (my fav is Nick he is super kind/patient when I asked 101 questions like a true gentleman) and gym is CLEAN! I have been to several gyms and this 1 is my favorite 😍",
+            name: 'Alex Bard – Normanton',
+            quote: "If you're looking for a gym that has it all, UltraFlex Gym in Normanton is the place to be! The atmosphere is amazing, with a strong community vibe that makes working out enjoyable.",
             rating: 5,
-            image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face'
+            image: '/Images/newimages/Normanton/gym-in-normanton.webp'
         },
         {
             id: 3,
-            name: 'azzurra de paola',
-            quote: "Best gym I have ever trained at . They have the best equipments , best trainers and the vibe is beautiful! Everyone is helpful and professional. Ultraflex is not just a gym . It’s a family 🇮🇹 I loveeee it",
+            name: 'Taylor Shields – York',
+            quote: 'The best gym in York by far – since signing up I’ve met my goals and imma keep pushing. All staff friendly and chatty and help you out whenever you need a hand with anything.',
             rating: 5,
-            image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face'
+            image: '/Images/newimages/York/gym-in-york.webp'
+        },
+        {
+            id: 4,
+            name: 'Tyler Tee – Rotherham',
+            quote: 'I often visit and usually grab a weekly pass which is fantastic value for money. This place never disappoints, always a great atmosphere – every other gym will disappoint you after a visit!',
+            rating: 5,
+            image: '/Images/newimages/Rotherham/gym-in-rotherham.webp'
+        },
+        {
+            id: 5,
+            name: 'Kai Edwards – Durham',
+            quote: 'Amazing gym, best I’ve ever trained at. If you want to grow, this is the place to be.',
+            rating: 5,
+            image: '/Images/original-787FADAA-6849-48F3-B005-6AD9FB2E74C4-min-min.jpeg'
+        },
+        {
+            id: 6,
+            name: 'Callan Doherty – Derby',
+            quote: 'Been going to the gym for years and Derby UltraFlex is hands down the best gym I’ve ever been to.',
+            rating: 5,
+            image: '/Images/newimages/Derby/gym-in-derby.webp'
         }
     ];
 
     const galleryImages = [
         "/Images/westleeds/gym-in-westleeds.webp",
-    "/Images/processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.jpeg",
+	"/Images/processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.jpeg",
         "/Images/normanton/gym-in-normanton.webp",
         "/Images/rotherham/gym-in-rotherham.webp",
+        "/Images/newimages/Rotherham/2.webp",
+        "/Images/newimages/Rotherham/3.webp",
+        "/Images/newimages/Rotherham/4.webp",
+        "/Images/newimages/Rotherham/5.webp",
+        "/Images/newimages/Rotherham/WhatsApp Image 2026-01-05 at 11.02.36 AM.webp",
         "/Images/york/ForGallery/gym-in-york-6.webp",
         // Updated Hull image
         "/Images/processed-E08A33F0-0FB6-43A5-BF60-EC1147B6517D-min-min.jpeg",

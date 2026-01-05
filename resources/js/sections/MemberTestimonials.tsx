@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { Card } from '@/components/ui/card';
-import { Star, ChevronRight, Quote, Users } from 'lucide-react';
+import { Star, ChevronRight, ChevronLeft, Quote, Users } from 'lucide-react';
 
 interface Testimonial {
     id: number;
@@ -14,6 +15,8 @@ interface MemberTestimonialsProps {
 }
 
 export default function MemberTestimonials({ testimonials }: MemberTestimonialsProps) {
+    const [currentSlide, setCurrentSlide] = useState(0);
+
     const getInitials = (name: string) => {
         if (!name) return '';
         const parts = name.trim().split(/\s+/);
@@ -22,6 +25,22 @@ export default function MemberTestimonials({ testimonials }: MemberTestimonialsP
         }
         // Fallback: first two characters of single word
         return name.slice(0, 2).toUpperCase();
+    };
+
+    const itemsPerSlide = 3;
+    const totalSlides = Math.max(1, Math.ceil(testimonials.length / itemsPerSlide));
+    const safeCurrentSlide = Math.min(currentSlide, totalSlides - 1);
+    const startIndex = safeCurrentSlide * itemsPerSlide;
+    const visibleTestimonials = testimonials.slice(startIndex, startIndex + itemsPerSlide);
+
+    const goToPrev = () => {
+        if (totalSlides <= 1) return;
+        setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+    };
+
+    const goToNext = () => {
+        if (totalSlides <= 1) return;
+        setCurrentSlide((prev) => (prev + 1) % totalSlides);
     };
 
     return (
@@ -58,9 +77,9 @@ export default function MemberTestimonials({ testimonials }: MemberTestimonialsP
                     </p>
                 </div>
                 
-                {/* Enhanced testimonial cards */}
+                {/* Enhanced testimonial cards with 3-at-a-time carousel */}
                 <div className="grid md:grid-cols-3 gap-8">
-                    {testimonials.map((testimonial) => (
+                    {visibleTestimonials.map((testimonial) => (
                         <Card key={testimonial.id} className="p-6 text-center bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 hover:shadow-2xl hover:shadow-red-700/10 group relative overflow-hidden">
                             {/* Quote icon background */}
                             <div className="absolute top-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
@@ -128,7 +147,44 @@ export default function MemberTestimonials({ testimonials }: MemberTestimonialsP
                     ))}
                 </div>
 
+                {/* Carousel controls */}
+                {totalSlides > 1 && (
+                    <div className="mt-10 flex items-center justify-between">
+                        <button
+                            type="button"
+                            onClick={goToPrev}
+                            className="inline-flex items-center px-3 py-2 text-sm text-gray-200 hover:text-white rounded-full border border-white/10 hover:border-red-700/60 bg-black/40 hover:bg-black/60 transition-colors duration-300"
+                        >
+                            <ChevronLeft className="h-4 w-4 mr-1" />
+                            Previous
+                        </button>
 
+                        <div className="flex items-center space-x-2">
+                            {Array.from({ length: totalSlides }, (_, i) => (
+                                <button
+                                    key={i}
+                                    type="button"
+                                    onClick={() => setCurrentSlide(i)}
+                                    className={`h-2.5 w-2.5 rounded-full transition-all duration-300 ${
+                                        i === safeCurrentSlide
+                                            ? 'bg-red-700 w-6'
+                                            : 'bg-white/20 hover:bg-white/40'
+                                    }`}
+                                    aria-label={`Go to testimonials slide ${i + 1}`}
+                                />
+                            ))}
+                        </div>
+
+                        <button
+                            type="button"
+                            onClick={goToNext}
+                            className="inline-flex items-center px-3 py-2 text-sm text-gray-200 hover:text-white rounded-full border border-white/10 hover:border-red-700/60 bg-black/40 hover:bg-black/60 transition-colors duration-300"
+                        >
+                            Next
+                            <ChevronRight className="h-4 w-4 ml-1" />
+                        </button>
+                    </div>
+                )}
 
                 {/* Bottom accent line */}
                 <div className="mt-16 flex items-center justify-center">

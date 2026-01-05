@@ -507,32 +507,46 @@ class LocationController extends Controller
                     'reviews' => [
                         [
                             'id' => 1,
-                            'name' => 'Mark Thompson',
+                            'name' => 'Ewan Hetherington',
                             'rating' => 5,
-                            'comment' => 'Excited for this new location to open! From what I\'ve seen, it\'s going to be the biggest and best UltraFlex site yet.',
-                            'date' => '2025-06-25'
+                            'comment' => 'I trained here for 6 months from Sept 2024-March 2025 and have been going to the gym since July 2021. This is easily the best gym I have ever trained at with the best equipment available for each body part. Can wait to get back training there when back at uni in September this year. Just seen new recovery place has been built which is sick. Only critique would be that sometimes the music is stupidly loud but it does help squeeze some extra reps.',
+                            'date' => '5 months ago'
                         ],
                         [
                             'id' => 2,
-                            'name' => 'Lisa Johnson',
+                            'name' => 'Cameron Coid PT',
                             'rating' => 5,
-                            'comment' => 'Perfect location in Seacroft. Can\'t wait to train on the top-quality equipment they\'re installing.',
-                            'date' => '2025-06-23'
+                            'comment' => 'Hands down the best gym in Leeds & probably the north west of England. Fully loaded with the best equipment & supplements, staff are helpful & friendly too.',
+                            'date' => '2 months ago'
                         ],
                         [
                             'id' => 3,
-                            'name' => 'David Wilson',
+                            'name' => 'khudaja liton',
                             'rating' => 5,
-                            'comment' => 'Great to have a premium gym coming to North Leeds. The facilities look amazing!',
-                            'date' => '2025-06-21'
+                            'comment' => 'The best gym by far in Leeds, with the most amazing equipment. You are never waiting for a machine and if you are, you will be talking away to the friendly members (no matter how scary they actually look).',
+                            'date' => '2 months ago'
                         ],
                         [
                             'id' => 4,
-                            'name' => 'Emma Roberts',
+                            'name' => 'Ali Mardomi',
                             'rating' => 5,
-                            'comment' => 'Love that they\'ll have all types of physical training available. Perfect for my varied workout routine.',
-                            'date' => '2025-06-19'
-                        ]
+                            'comment' => "One of the best gyms I've ever had the privilege to train in 21 years experience. Super well equipped, with Hoist, Hammer Strength, Nautilus and other such high quality equipment. Awesome range of machines, lots of space, great parking spaces. Very friendly staff and management. If you're a serious athlete or serious about training, I'd highly recommend UltraFlex Gym North Leeds.",
+                            'date' => '2 years ago'
+                        ],
+                        [
+                            'id' => 5,
+                            'name' => 'Botond Molnar',
+                            'rating' => 5,
+                            'comment' => 'The ultimate gym experience you only see on the US bodybuilding videos. Machines that you have never seen before and the atmosphere is energetic and vibrant. Get your ass down and get to work.',
+                            'date' => '4 months ago'
+                        ],
+                        [
+                            'id' => 6,
+                            'name' => 'Kelly Ashton',
+                            'rating' => 5,
+                            'comment' => 'A phenomenal space with so much equipment to choose from. Every area has been well thought out down to the smallest detail, the place is next level! Sun beds, saunas, ice baths and The Savvy Baker offering up protein-fuelled brownies and smoothies – it is well worth a visit.',
+                            'date' => '2 years ago'
+                        ],
                     ],
                     'coordinates' => [
                         'lat' => 53.8371,
@@ -702,32 +716,46 @@ class LocationController extends Controller
                     'reviews' => [
                         [
                             'id' => 1,
-                            'name' => 'James Parker',
+                            'name' => 'Alex Bard',
                             'rating' => 5,
-                            'comment' => 'Great location in Normanton with excellent free parking. The GOLD membership is definitely worth the upgrade!',
-                            'date' => '2025-06-25'
+                            'comment' => "If you're looking for a gym that has it all, UltraFlex Gym in Normanton is the place to be! The atmosphere is amazing, with a strong community vibe that makes working out enjoyable. The staff are incredibly friendly, always ready to help and make you feel welcome. The gym is packed with high-quality equipment for both weight training and cardio. The sauna is a great addition, perfect for unwinding after a tough session. Clean, well-maintained, and spacious – this gym truly stands out. Highly recommend it to anyone serious about their fitness journey!",
+                            'date' => '9 months ago'
                         ],
                         [
                             'id' => 2,
-                            'name' => 'Lisa Thompson',
+                            'name' => 'Ben D',
                             'rating' => 5,
-                            'comment' => 'Love the convenient location and the equipment is top quality. Free parking makes it so easy to visit.',
-                            'date' => '2025-06-22'
+                            'comment' => "Best gym I've been to. Equipment is top of the range and always expanding. Good atmosphere, never too busy from what I've seen and there's more than enough stations to get quality sessions in even at peak times. Layout of the gym is bang on – everything is where you'd expect it to be, 10/10.",
+                            'date' => '1 year ago'
                         ],
                         [
                             'id' => 3,
-                            'name' => 'Robert Wilson',
+                            'name' => 'L',
                             'rating' => 5,
-                            'comment' => 'The GOLD membership perks are fantastic. Priority access and exclusive classes make the difference.',
-                            'date' => '2025-06-20'
+                            'comment' => 'Great gym, fab equipment – a little pricey but overall good.',
+                            'date' => '6 months ago'
                         ],
                         [
                             'id' => 4,
-                            'name' => 'Sarah Mitchell',
+                            'name' => 'Antony Sykes',
                             'rating' => 5,
-                            'comment' => 'Perfect gym in Normanton. Great opening hours and the staff are always helpful.',
-                            'date' => '2025-06-18'
-                        ]
+                            'comment' => 'Superb gym with top quality equipment and lots of it so no need to wait around. Would be even better if they fitted a water cooler',
+                            'date' => '5 months ago'
+                        ],
+                        [
+                            'id' => 5,
+                            'name' => 'Kieran Broughan',
+                            'rating' => 5,
+                            'comment' => 'Possibly the best gym i have been in, the equipment & machines are like state of the art! Hat off to Charlie.',
+                            'date' => 'Edited 2 years ago'
+                        ],
+                        [
+                            'id' => 6,
+                            'name' => 'Warren Ackroyd',
+                            'rating' => 5,
+                            'comment' => 'Love this Gym. Staff are amazing. The gym is always clean. Music is excellent for working out to. Showers are clean & brilliant. Clientele in the gym is all helpful too. Everyone loves working out & this shows, vibe is amazing.',
+                            'date' => '2 years ago'
+                        ],
                     ],
                     'coordinates' => [
                         'lat' => 53.7085,
@@ -747,11 +775,15 @@ class LocationController extends Controller
                     'email' => 'rotherham@ultraflexgym.co.uk',
                     'image' => '/Images/newimages/Rotherham/gym-in-rotherham.webp',
                     'gallery' => [
-                        '/Images/newimages/Rotherham/gym-in-rotherham.webp',
-                        '/Images/newimages/Rotherham/gym-in-rotherham-2.webp',
+                        // Removed #1 and #2 from the location gallery per request
                         '/Images/newimages/Rotherham/gym-in-rotherham-3.webp',
                         '/Images/newimages/Rotherham/gym-in-rotherham-4.webp',
-                        '/Images/newimages/Rotherham/gym-in-rotherham-5.webp'
+                        '/Images/newimages/Rotherham/gym-in-rotherham-5.webp',
+                        '/Images/newimages/Rotherham/2.webp',
+                        '/Images/newimages/Rotherham/3.webp',
+                        '/Images/newimages/Rotherham/4.webp',
+                        '/Images/newimages/Rotherham/5.webp',
+                        '/Images/newimages/Rotherham/WhatsApp Image 2026-01-05 at 11.02.36 AM.webp',
                     ],
                     'slug' => 'rotherham',
                     // Provided Matterport link (updated)
@@ -873,32 +905,46 @@ class LocationController extends Controller
                     'reviews' => [
                         [
                             'id' => 1,
-                            'name' => 'Tom Anderson',
+                            'name' => 'Tyler Tee',
                             'rating' => 5,
-                            'comment' => 'Perfect location in Rotherham with excellent free parking. Love that they open at 5 AM - great for early morning workouts!',
-                            'date' => '2025-06-26'
+                            'comment' => "I often visit, usually grab a weekly pass, which by the way is fantastic value for money. This place never disappoints, always a great atmosphere and I've been fortunate enough to bump into Kuba a few times. I'd highly recommend – every other gym will disappoint you after a visit!",
+                            'date' => '5 months ago'
                         ],
                         [
                             'id' => 2,
-                            'name' => 'Kelly Roberts',
+                            'name' => 'benjamin wild',
                             'rating' => 5,
-                            'comment' => 'As a student, the student membership options are fantastic value. Great facilities and the staff are always helpful.',
-                            'date' => '2025-06-24'
+                            'comment' => "I've signed up and had my first session. I was so scared to join at first as I thought it would be full of big scary guys. It is full of big guys but they're not scary. In fact, everyone was great and friendly. The equipment is clean and well looked after and the staff were incredibly helpful. I can't wait to be a regular face here.",
+                            'date' => '4 months ago'
                         ],
                         [
                             'id' => 3,
-                            'name' => 'Steve Johnson',
+                            'name' => 'Samuel Pitchford',
                             'rating' => 5,
-                            'comment' => 'Great location with easy access. The early opening hours fit perfectly with my work schedule.',
-                            'date' => '2025-06-22'
+                            'comment' => 'Excellent gym, well catered for most people\'s needs. Huge range of equipment. Friendly staff.',
+                            'date' => '2 weeks ago'
                         ],
                         [
                             'id' => 4,
-                            'name' => 'Amy Wilson',
+                            'name' => 'Quinten',
                             'rating' => 5,
-                            'comment' => 'Excellent gym with top-quality equipment. Free parking is a huge plus and the opening hours are very convenient.',
-                            'date' => '2025-06-20'
-                        ]
+                            'comment' => 'This was probably the best gym I have ever seen. Also employees are strict on clean stuff (that is not something you often see these days).',
+                            'date' => '1 month ago'
+                        ],
+                        [
+                            'id' => 5,
+                            'name' => 'Billy',
+                            'rating' => 5,
+                            'comment' => "If you’re looking for a gym that offers not only top-tier equipment but also a welcoming community, Ultra Flex Rotherham is the place to be. I’ve been going since I was 15, and in that time, I’ve met so many amazing people, made lifelong friends, and seen insane progress in my fitness journey. The staff here are incredible – they’re not just employees, they’re genuinely great people who are always willing to lend a hand, offer advice, or just check in with you. It’s that personal touch that really sets this gym apart. As for the equipment, it’s simply the best I’ve ever used. Whether you’re a seasoned gym-goer or a beginner, this place has everything you need to succeed. Highly recommend!",
+                            'date' => '9 months ago'
+                        ],
+                        [
+                            'id' => 6,
+                            'name' => 'Connor John',
+                            'rating' => 5,
+                            'comment' => 'Had the pleasure of training at this amazing gym and also had the chance to meet Kuba! What a gym!',
+                            'date' => '10 months ago'
+                        ],
                     ],
                     'coordinates' => [
                         'lat' => 53.4326,
@@ -1052,32 +1098,46 @@ class LocationController extends Controller
                     'reviews' => [
                         [
                             'id' => 1,
-                            'name' => 'Charlotte Evans',
+                            'name' => 'Taylor Shields',
                             'rating' => 5,
-                            'comment' => 'Definitely one of the best gyms in York! The equipment range is incredible - from 100kg dumbbells to yoga mats, they really do have something for everyone.',
-                            'date' => '2025-06-26'
+                            'comment' => "The best gym in York by far since signing up I’ve met my goals and imma keep pushing all staff friendly and chatty aswell help you out whenever you need a hand with anything",
+                            'date' => 'a month ago'
                         ],
                         [
                             'id' => 2,
-                            'name' => 'James Mitchell',
+                            'name' => 'Paul Riley',
                             'rating' => 5,
-                            'comment' => 'Perfect location near the city centre. So convenient to pop in after work! The staff are knowledgeable and really help with fitness goals.',
-                            'date' => '2025-06-24'
+                            'comment' => "This is definitely not an economy option - £9.25 for a day pass - but this has to be one of the best equipped gyms I've ever been to, so it was well worth it. The range of machines and equipment they have is emense and its modern, well maintained and clean. Even the dumbells are racked in the right order. The place was busy, but there were still no waits for machines.",
+                            'date' => '2 years ago'
                         ],
                         [
                             'id' => 3,
-                            'name' => 'Sophie Turner',
+                            'name' => 'Lily Pearson',
                             'rating' => 5,
-                            'comment' => 'As a student, the membership rates are very affordable. Great value for money and the experienced staff really help you get started.',
-                            'date' => '2025-06-22'
+                            'comment' => "Tried many gyms across York however this is by far the best🙌 great atmosphere and every piece of equipment you could ever need 🤌🏼 …",
+                            'date' => 'a month ago'
                         ],
                         [
                             'id' => 4,
-                            'name' => 'Robert Davis',
+                            'name' => 'Reening Lau',
                             'rating' => 5,
-                            'comment' => 'Fantastic gym with versatile equipment. The location is excellent for city dwellers and free parking is a huge bonus!',
-                            'date' => '2025-06-20'
-                        ]
+                            'comment' => "Came down for a visit since I would be leaving York after finishing university and was quite impressed with the facilities here. It's basically a powerlifter/weightlifter's heaven. Barbells are from Rogue Fitness and are pretty good and there are an assortment of machines to target each specific body part. It wasn't too crowded when I visited but I should say this gym gets a lot of traffic during the weekdays. Cardio stuff is upstairs but who uses them anyways? Membership is a little bit more expensive as compared to Swift Fitness but you get what you pay for: more squat racks and dedicated spaces for lifting massive weights. If I was a working adult, this would be my go to gym.",
+                            'date' => '6 years ago'
+                        ],
+                        [
+                            'id' => 5,
+                            'name' => 'Jonathan Elliott',
+                            'rating' => 5,
+                            'comment' => "Excellent gym, has made my student experience in York worthwhile! Absolutely love this gym and the people with it. Jason and the team do an amazing job making me feel welcome, and even gave me a discount when it was my birthday for some of their clothing! Couldn't recommend more.\n\nJonny",
+                            'date' => 'Edited 8 months ago'
+                        ],
+                        [
+                            'id' => 6,
+                            'name' => 'Alex Bard',
+                            'rating' => 5,
+                            'comment' => "UltraFlex is an amazing place to workout and the staff is super helpful, encouraging, and friendly. They know how to push you to the limit in the best way possible with your workouts. This gym has the best energy, staff, and feel. Everything is so clean , you will not leave disappointed! Such a family vibe as soon as you walk in the doors – I highly recommend checking this gym out.",
+                            'date' => '4 years ago'
+                        ],
                     ],
                     'coordinates' => [
                         'lat' => 54.0059,
@@ -1215,6 +1275,50 @@ class LocationController extends Controller
                             'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£480)', '£40.00 per month equivalent', 'Best Student Value'],
                             'popular' => false
                         ],
+                    ],
+                    'reviews' => [
+                        [
+                            'id' => 1,
+                            'name' => 'John Higgins',
+                            'rating' => 5,
+                            'comment' => 'Best gym in Hull by far (for bodybuilding and resistance training in particular). Has everything you need, and more. I paid for a month and once that is up, I\'ll most likely get the 12 month contract. Great atmosphere too. Other members actually put things back here, and properly so you\'re not fatiguing yourself by unracking or putting weights back for other people. I feel quite lucky to have this gym in walking distance.',
+                            'date' => '4 months ago'
+                        ],
+                        [
+                            'id' => 2,
+                            'name' => 'Chris Rowse',
+                            'rating' => 5,
+                            'comment' => 'THIS, IS, ULTRAFLEX!! We visited UltraFlex Hull for the third time today completing two sessions - legs before lunch, and then upper body in the afternoon. We were blown away when we visited the gym last month, and we couldn\'t wait to return. The gym is modern, filled with high-end equipment, and has a great clientele. The staff are friendly, approachable, and really helpful. The only thing stopping us getting a monthly membership is logistics, or we would definitely be signing on the dotted line. See you again soon.',
+                            'date' => 'Edited 4 months ago'
+                        ],
+                        [
+                            'id' => 3,
+                            'name' => 'Sebby',
+                            'rating' => 5,
+                            'comment' => 'Amazing gym, staff are helpful and know what they\'re talking about and the equipment is all high quality and easy to use.',
+                            'date' => 'Recent review'
+                        ],
+                        [
+                            'id' => 4,
+                            'name' => 'Jordan Fawcett',
+                            'rating' => 5,
+                            'comment' => 'Really good gym, only draw back is the lockers need updating, they\'re pretty small and some are damaged but overall the variety and quality of equipment and facilities is top notch.',
+                            'date' => 'Recent review'
+                        ],
+                        [
+                            'id' => 5,
+                            'name' => 'Katrina Henderson',
+                            'rating' => 5,
+                            'comment' => 'If I could award more than 5 stars I would. The gym, staff, equipment are second to none. I have only been in for a few days and it\'s always spotless with never a weight left out of place. Everyone is friendly and willing to help. Changing rooms are clean and fresh, what more could you ask for? Definitely recommend to friends, keep up the good work guys.',
+                            'date' => 'Recent review'
+                        ],
+                        [
+                            'id' => 6,
+                            'name' => 'Christopher Rudd',
+                            'rating' => 5,
+                            'comment' => "Great gym with loads of quality machines, free weights and squat racks that's reasonably priced. Plenty of space even at peak times. The recovery room is a great feature as well. I was very impressed. Will definitely use this gym again if I'm in the area. Really impressive.",
+                            'date' => '9 months ago'
+                        ],
                     ]
                 ];
                 break;
@@ -1327,6 +1431,50 @@ class LocationController extends Controller
                             'period' => '9 months',
                             'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£285)', 'All Equipment Access'],
                             'popular' => false
+                        ],
+                    ],
+                    'reviews' => [
+                        [
+                            'id' => 1,
+                            'name' => 'Kai Edwards',
+                            'rating' => 5,
+                            'comment' => 'Ultraflex Durham is an excellent gym and easily one of the best in the area. The whole place is spotless, with equipment that is well-maintained and laid out so everything is easy to access. The atmosphere is welcoming from the moment you walk in. Tracey on the front desk deserves a special mention - she was incredibly helpful, friendly, and had an amazing attitude that set the tone for the whole visit. Her approach made the experience even better. Overall, Ultraflex Durham is a top-quality gym that is a pleasure to train in. Me and a friend both got a day pass and could not recommend it enough.',
+                            'date' => '4 weeks ago'
+                        ],
+                        [
+                            'id' => 2,
+                            'name' => 'IFBB PRO JAMES HOLLINGSHEAD',
+                            'rating' => 5,
+                            'comment' => 'Incredible gym. One of the owners Anth is full of wisdom. Huge selection of equipment. I visit every now and then from afar and never fail to have a great time. Spoilt for choice. A true haven under one roof. Everything is looked after and the selection of equipment is hand picked by great eyes with years of experience. Lucky to have such an epic playground if you are local. Take advantage of it! 100% or nothing x',
+                            'date' => '3 weeks ago'
+                        ],
+                        [
+                            'id' => 3,
+                            'name' => 'Lewis Barter',
+                            'rating' => 5,
+                            'comment' => 'Amazing gym, all the kit you could want, particularly fond of the Hardcore Corner with the oldschool kit. Great facilities and super friendly staff. I travel here a few times a year, 100% worth the 5 hour drive.',
+                            'date' => '4 weeks ago'
+                        ],
+                        [
+                            'id' => 4,
+                            'name' => 'Anthony North East',
+                            'rating' => 5,
+                            'comment' => 'It is insanely expensive for a gym but that is reflected in the machines: Hammer Strength, Cybex, Atlantis, Nautilus - all the best machines and loads to choose from. It is also nice that they open on Christmas and let anyone train for free for a few hours on Christmas.',
+                            'date' => '1 week ago'
+                        ],
+                        [
+                            'id' => 5,
+                            'name' => 'Charlie Cook',
+                            'rating' => 5,
+                            'comment' => 'UltraFlex is by far the best gym in the North East. They have got all of the equipment you need for a serious workout, the rules on reracking weights are enforced so you are not chasing down missing dumbbells and the staff are all quality people.',
+                            'date' => '1 month ago'
+                        ],
+                        [
+                            'id' => 6,
+                            'name' => 'Ewan Hetherington',
+                            'rating' => 5,
+                            'comment' => 'I trained here for 6 months from Sept 2024 to March 2025 and have been going to the gym since July 2021. This is easily the best gym I have ever trained at with the best equipment available for each body part. Can\'t wait to get back training there when back at uni in September this year. Just seen a new recovery place has been built which is sick. Only critique would be that sometimes the music is stupidly loud but it does help squeeze some extra reps.',
+                            'date' => '5 months ago'
                         ],
                     ]
                 ];
@@ -1476,6 +1624,50 @@ class LocationController extends Controller
                             'period' => 'month',
                             'features' => ['Boxing Access', 'MMA Access', 'Full Gym Membership'],
                             'popular' => false
+                        ],
+                    ],
+                    'reviews' => [
+                        [
+                            'id' => 1,
+                            'name' => 'Callan Doherty',
+                            'rating' => 5,
+                            'comment' => 'Top Class Gym! World Class Facilities! Best Set Up I Have Ever Experienced! Great, Friendly Staff! Highly Recommend! No Better Place To Guide You To Your Goals! Would give a 10x Star Rating If Possible. Credit To Owner + Staff.',
+                            'date' => '1 month ago'
+                        ],
+                        [
+                            'id' => 2,
+                            'name' => 'Dan Saunders',
+                            'rating' => 5,
+                            'comment' => "Excellent gym ... Equipment is unbelievable and more than enough equipment regardless of how busy it can potentially get... Great atmosphere and the staff are very welcoming and can't do enough to help! Can't recommend highly enough!!",
+                            'date' => '3 months ago'
+                        ],
+                        [
+                            'id' => 3,
+                            'name' => 'Heine Kaas',
+                            'rating' => 5,
+                            'comment' => 'This is really a prime gym, the service is amazing, machines are great. And they keep it so clean. If you are in UK, jump on the train ride and get to Derby, it will be worth it!',
+                            'date' => '1 month ago'
+                        ],
+                        [
+                            'id' => 4,
+                            'name' => 'UncrowndKing',
+                            'rating' => 5,
+                            'comment' => 'Out of all the gyms I have been to this has been the best in terms of equipment available. Joe has been amazing with her customer service. Megan the cleaner does a great job of keeping the equipment clean. Also like to add how delicious their protein shake was - 53g of PROTEIN!',
+                            'date' => '5 months ago'
+                        ],
+                        [
+                            'id' => 5,
+                            'name' => 'Lee Desoiza',
+                            'rating' => 5,
+                            'comment' => 'What an amazing gym. Every piece of kit from every top quality brand. I would move to Derby just to train here everyday.',
+                            'date' => '1 month ago'
+                        ],
+                        [
+                            'id' => 6,
+                            'name' => 'Eesah Najib',
+                            'rating' => 5,
+                            'comment' => 'Great gym, in my opinion best in the UK. Very clean and friendly environment. The staff are amazing, great customer service especially from the two Lukes on the front desk. Met the gym owner Charles and he is a top man, goes out of his way for all the members in the gym to make sure the gym is the best it can be.',
+                            'date' => '6 months ago'
                         ],
                     ]
                 ];

@@ -391,14 +391,17 @@ Route::get('/gallery', function (Request $request) {
             'https://www.dropbox.com/scl/fi/sha3y5chtjlo8wpszv1zy/DSC07391.jpg?rlkey=ch7ac551fz15myu4bcbp4pwbx&raw=1',
             'https://www.dropbox.com/scl/fi/fj9wnuv1vpnm3jpapsn3e/DSC07399.jpg?rlkey=ennklsvx3nvajzlwepzdcz4sg&raw=1',
         ],
-        // Rotherham: images provided via Dropbox
+        // Rotherham: images provided via Dropbox + local newimages (4th & 5th removed per request)
         'rotherham' => [
             'https://www.dropbox.com/scl/fi/dcymdsets91jgp3xzsq8k/akv_podcast_-2.jpg?rlkey=9yjsf5d1xm6hqynfvx6ou0w8z&raw=1',
             'https://www.dropbox.com/scl/fi/6ez6s9nwdm30y50t24l2d/IMG-61.jpg?rlkey=ie8y4r3fand8iptdw14s5zqob&raw=1',
             'https://www.dropbox.com/scl/fi/gff5pf1juakxwldmj18on/IMG-120.jpg?rlkey=anzt4ypn6mo8ryji2cyalk60z&raw=1',
-            'https://www.dropbox.com/scl/fi/oyftrquqn3j0k1erwrvyd/Large-cardio-area.jpg?rlkey=gpo0n5hihpw8kg3kz3mvn91ar&raw=1',
-            'https://www.dropbox.com/scl/fi/ewlhimnxuun0a6090zjr6/Photo-17-06-2025-17-04-51-1.jpg?rlkey=s37s5dj3bmkigzyy4i0ayqcu8&raw=1',
             'https://www.dropbox.com/scl/fi/k329igqoefpf7d4czai46/Photo-17-06-2025-17-04-51.jpg?rlkey=hc53w58w1ur335fz9pijlxi40&raw=1',
+            '/Images/newimages/Rotherham/2.webp',
+            '/Images/newimages/Rotherham/3.webp',
+            '/Images/newimages/Rotherham/4.webp',
+            '/Images/newimages/Rotherham/5.webp',
+            '/Images/newimages/Rotherham/WhatsApp Image 2026-01-05 at 11.02.36 AM.webp',
         ],
         // West Leeds: images provided via Dropbox
         'west-leeds' => [
