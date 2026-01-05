@@ -173,8 +173,8 @@ class LocationController extends Controller
                 'image' => '/Images/processed-5AB78E5E-3190-4963-8AAF-9B3B527D73AD-min-min.jpeg',
                 'slug' => 'derby',
                 'hours' => [
-                    'weekdays' => '24hr (Full Access) / 06:00 - 22:00 (Day Access)',
-                    'weekends' => '24hr (Full Access) / 06:00 - 20:00 (Day Access)'
+                    'weekdays' => '05:00 - 22:00',
+                    'weekends' => '06:00 - 20:00'
                 ]
             ],
             [
@@ -198,8 +198,8 @@ class LocationController extends Controller
                 'image' => '/Images/processed-E72B606D-BB53-4CB2-90BA-4EB35AC99920.webp',
                 'slug' => 'lincoln',
                 'hours' => [
-                    'weekdays' => '5:00 AM - 11:00 PM',
-                    'weekends' => '6:00 AM - 10:00 PM'
+                    'weekdays' => '24hr (Full Access) / 06:00 - 22:00 (Day Access)',
+                    'weekends' => '24hr (Full Access) / 06:00 - 20:00 (Day Access)'
                 ]
             ],
             [
