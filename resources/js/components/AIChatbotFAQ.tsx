@@ -36,7 +36,7 @@ export default function AIChatbotFAQ() {
       return 'Hi! I can help with UltraFlex memberships, opening times, facilities, locations, and trainers. Try “Membership options” or “Opening hours”.';
     }
     if (t.includes('price') || t.includes('how much') || t.includes('cost') || t.includes('pricing') || q.includes('£')) {
-      return `We don’t publish fixed prices. Please use our Ashbourne portal for current options: ${ashbourne}. Day passes are available at reception.`;
+      return `We don’t publish fixed prices. Please use our Ashbourne portal for current options: ${ashbourne}.`;
     }
     if (t.includes('member') || t.includes('join') || t.includes('sign up') || t.includes('signup')) {
       return `Join UltraFlex via our Ashbourne signup: ${ashbourne}.`;
@@ -166,7 +166,7 @@ export default function AIChatbotFAQ() {
   }
 
   const { locationSlug } = getContext();
-  const suggestions = locationSlug ? ['Opening hours', 'Facilities'] : ['Membership options', 'Day pass price'];
+  const suggestions = locationSlug ? ['Opening hours', 'Facilities'] : ['Membership options', 'Opening hours'];
 
   return (
     <div className="fixed bottom-6 right-6 z-50 w-[420px] max-w-[92vw]">

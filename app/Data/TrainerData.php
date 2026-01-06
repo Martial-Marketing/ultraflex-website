@@ -276,7 +276,7 @@ class TrainerData
                 'image' => '/Images/PTS/Picture15.webp',
                 'bio' => 'Are you getting the most out of every session and every rep? The fundamentals and execution unlock real results. I focus on execution, targeting the right muscles, and pushing effectively to drop stubborn fat. I\'ll guide you and make sure your training works for you. Let’s hit your goal — and go beyond it.',
                 'specialties' => ['Strength', 'Execution', 'Fat Loss'],
-                'certifications' => [],
+                'certifications' => ['Qualified in Sports Nutrition for Physique Athletes', 'Contest Prep Coach', 'Hypertrophy Training Specialist'],
                 'locationSlug' => 'west-london',
                 'contact' => ['instagram' => 'https://instagram.com/avidity.fitness.uk', 'email' => 'Contact@avtfitness.com', 'phone' => '+447714245383', 'website' => 'https://www.avtfitness.com']
             ],

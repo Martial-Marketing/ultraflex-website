@@ -102,7 +102,7 @@ export default function OurLocations({ locations }: OurLocationsProps) {
                                     </div>
                                     <div className="flex items-center text-sm text-gray-400">
                                         <div className="w-2 h-2 bg-red-700 rounded-full mr-2"></div>
-                                        24/7 Access
+                                        Extended Opening Hours
                                     </div>
                                     <div className="flex items-center text-sm text-gray-400">
                                         <div className="w-2 h-2 bg-red-700 rounded-full mr-2"></div>

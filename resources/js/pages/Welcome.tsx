@@ -51,7 +51,7 @@ export default function Welcome({ auth, latestNews }: WelcomeProps) {
             id: 3,
             name: "ULTRAFLEX NORMANTON",
             address: "Ripley Dr, Normanton WF6 1QT",
-            image: "/Images/normanton/gym-in-normanton.webp",
+            image: "/Images/newimages/Normanton/gym-in-normanton.webp",
             slug: 'normanton'
         }
     ];

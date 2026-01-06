@@ -42,22 +42,6 @@ export default function MembershipIndex({ auth }: { auth: { user: any | null } }
 
           {/* Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-            {/* Day Passes */}
-              <div className="group rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:border-red-700/30">
-              <div className="flex items-center gap-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-red-700/20 border border-red-700/30 text-red-600">
-                  <Ticket className="h-5 w-5" />
-                </div>
-                <h2 className="text-xl font-semibold text-white">Day Passes</h2>
-              </div>
-              <p className="mt-4 text-gray-300">Day passes are available to purchase at the gym reception.</p>
-              <div className="mt-3">
-                <a href="/locations" className="text-sm text-red-600 hover:text-red-500 underline underline-offset-2">
-                  View locations
-                </a>
-              </div>
-            </div>
-
             {/* Weekly / Monthly */}
               <div className="group rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:border-red-700/30">
               <div className="flex items-center gap-3">
@@ -76,7 +60,6 @@ export default function MembershipIndex({ auth }: { auth: { user: any | null } }
                 </a>
               </div>
             </div>
-
             {/* Dual Site Access */}
               <div className="group rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:border-red-700/30">
               <div className="flex items-center gap-3">

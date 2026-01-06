@@ -98,7 +98,7 @@ class LocationController extends Controller
                 'image' => '/Images/processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.jpeg',
                 'slug' => 'north-leeds',
                 'hours' => [
-                    'weekdays' => '06:00 - 22:00',
+                    'weekdays' => '05:00 - 22:00',
                     'weekends' => '06:00 - 20:00'
                 ]
             ],
@@ -106,12 +106,12 @@ class LocationController extends Controller
                 'id' => 3,
                 'name' => 'ULTRAFLEX NORMANTON',
                 'address' => 'Ripley Dr, Normanton WF6 1QT',
-                'phone' => '+44 1924 890 123',
+                'phone' => '01924 895794',
                 'image' => '/Images/newimages/Normanton/gym-in-normanton.webp',
                 'slug' => 'normanton',
                 'hours' => [
-                    'weekdays' => '05:00 - 22:00',
-                    'weekends' => '06:00 - 20:00'
+                    'weekdays' => '06:00 - 22:00',
+                    'weekends' => '08:00 - 20:00'
                 ]
             ],
             [
@@ -123,7 +123,7 @@ class LocationController extends Controller
                 'slug' => 'rotherham',
                 'hours' => [
                     'weekdays' => '05:00 - 22:00',
-                    'weekends' => '08:00 - 20:00'
+                    'weekends' => '06:00 - 20:00'
                 ]
             ],
             [
@@ -142,13 +142,13 @@ class LocationController extends Controller
                 'id' => 6,
                 'name' => 'ULTRAFLEX HULL',
                 'address' => 'Business Park, 261 Hawthorn Avenue Trackside, Hull HU3 5EN',
-                'phone' => '+44 1482 678 901',
+                'phone' => '01482 327874',
                 // Updated processed hero image
                 'image' => '/Images/processed-E08A33F0-0FB6-43A5-BF60-EC1147B6517D-min-min.jpeg',
                 'slug' => 'hull',
                 'hours' => [
                     'weekdays' => '05:00 - 22:00',
-                    'weekends' => '07:00 - 20:00'
+                    'weekends' => '06:00 - 20:00'
                 ]
             ],
             [
@@ -168,13 +168,13 @@ class LocationController extends Controller
                 'id' => 8,
                 'name' => 'ULTRAFLEX DERBY',
                 'address' => 'Chequers Rd, Derby DE21 6EN',
-                'phone' => '+44 1332 890 123',
+                'phone' => '07395616771',
                 // Updated processed hero image
                 'image' => '/Images/processed-5AB78E5E-3190-4963-8AAF-9B3B527D73AD-min-min.jpeg',
                 'slug' => 'derby',
                 'hours' => [
                     'weekdays' => '05:00 - 22:00',
-                    'weekends' => '06:00 - 20:00'
+                    'weekends' => '07:00 - 20:00'
                 ]
             ],
             [
@@ -198,15 +198,15 @@ class LocationController extends Controller
                 'image' => '/Images/processed-E72B606D-BB53-4CB2-90BA-4EB35AC99920.webp',
                 'slug' => 'lincoln',
                 'hours' => [
-                    'weekdays' => '24hr (Full Access) / 06:00 - 22:00 (Day Access)',
-                    'weekends' => '24hr (Full Access) / 06:00 - 20:00 (Day Access)'
+                    'weekdays' => '06:00 - 22:00',
+                    'weekends' => '06:00 - 20:00'
                 ]
             ],
             [
                 'id' => 11,
                 'name' => 'ULTRAFLEX WEST LONDON',
                 'address' => 'Point West, 2, Packet Boat Ln, Uxbridge UB8 2JP',
-                'phone' => '+44 20 3456 7890',
+                'phone' => '01895 436000',
                 // Updated processed hero image (Oct 8 2025 change request)
                 'image' => '/Images/processed-463489D0-F620-407E-BED0-4EB177EDCAC4 (1).webp',
                 'slug' => 'west-london',
@@ -271,8 +271,8 @@ class LocationController extends Controller
                     'image' => '/Images/newimages/West Leeds/gym-in-westleeds.webp',
                     'gallery' => isset(self::$externalImages['west-leeds']) ? self::$externalImages['west-leeds'] : [],
                     'slug' => 'west-leeds',
-                    // Provided Matterport link
-                    'virtualTour' => 'https://my.matterport.com/show/?m=8gw4DT8ZmVc&back=1',
+                    // West Leeds drone video tour
+                    'virtualTour' => 'https://youtu.be/hvSoOHsIh28?si=W54SgypdpDfu2kRo',
                     'hours' => [
                         'monday' => '05:30 – 22:00',
                         'tuesday' => '05:30 – 22:00',
@@ -285,7 +285,7 @@ class LocationController extends Controller
                     'manager' => [
                         'name' => 'Sophia',
                         'bio' => 'As the Manager of Ultraflex West Leeds, I’m proud to lead the team at the very first Ultraflex gym established in the UK on 17th January 2017. Since opening our doors, West Leeds has built a strong reputation as a cornerstone of the Ultraflex community—known for our unbeatable atmosphere, elite equipment, and commitment to helping people at all levels of fitness achieve real results. My journey with Ultraflex has been driven by a passion for creating an environment where members feel empowered, supported, and motivated. Whether you\'re stepping into the gym for the first time or preparing for your next competition, we’re here to provide expert guidance, a welcoming community, and world-class facilities. I oversee day-to-day operations, member engagement, staff development, and community outreach, ensuring Ultraflex West Leeds continues to set the standard for excellence in fitness. I’m proud of our diverse membership base—from beginners to IFBB pros—and the culture of respect, discipline, and dedication that makes our gym more than just a place to train. Ultraflex West Leeds is where it all started—and under my management, we continue to innovate, grow, and lead the way for all the Ultraflex gyms across the UK.',
-                        'image' => '/Images/managers/sophia.jpg',
+                        'image' => '/Images/vecteezy_user-icon-on-transparent-background_19879198.webp',
                         'experience' => null
                     ],
                     'services' => [
@@ -303,10 +303,15 @@ class LocationController extends Controller
                             'name' => 'Pudsey Judo Club',
                             'description' => 'Local judo club partnership promoting grappling and discipline.',
                             'icon' => null
+                        ],
+                        [
+                            'name' => 'Regen Physio',
+                            'description' => 'Physiotherapy and rehabilitation clinic supporting injury recovery and performance.',
+                            'icon' => null
                         ]
                     ],
                     'serviceLinks' => [
-                        [ 'label' => 'RnR Bodytherapy Website', 'url' => 'https://www.rnrbodytherappy.co.uk', 'type' => 'website' ],
+                        [ 'label' => 'Regen Physio Website', 'url' => 'https://www.regenphysio.co.uk/', 'type' => 'website' ],
                         [ 'label' => 'Ostas Boxing Instagram', 'url' => 'https://www.instagram.com/ostasboxing', 'type' => 'instagram' ],
                         [ 'label' => 'Smitin Hair Systems Email', 'url' => 'mailto:Smitinhairsystems@outlook.com', 'type' => 'email' ],
                         [ 'label' => 'Smitin Hair Systems Instagram', 'url' => 'https://www.instagram.com/smitin_hairsystems', 'type' => 'instagram' ],
@@ -315,14 +320,6 @@ class LocationController extends Controller
                         [ 'label' => 'Ostas Boxing Instagram (Alt)', 'url' => 'https://www.instagram.com/ostasboxing', 'type' => 'instagram' ]
                     ],
                     'membershipPlans' => [
-                        [
-                            'id' => 1,
-                            'name' => 'Day Pass',
-                            'price' => 14.00,
-                            'period' => 'day',
-                            'features' => ['Single Day Access', 'All Equipment Access', 'Changing Rooms', 'Free Parking'],
-                            'popular' => false
-                        ],
                         [
                             'id' => 2,
                             'name' => 'Weekly Pass',
@@ -421,11 +418,11 @@ class LocationController extends Controller
                     // YouTube link (direct) for North Leeds virtual tour
                     'virtualTour' => 'https://youtu.be/VgF1a6XxAkc?si=Ki3Z0VdqdKVocs52',
                     'hours' => [
-                        'monday' => '06:00 – 22:00',
-                        'tuesday' => '06:00 – 22:00',
-                        'wednesday' => '06:00 – 22:00',
-                        'thursday' => '06:00 – 22:00',
-                        'friday' => '06:00 – 22:00',
+                        'monday' => '05:00 – 22:00',
+                        'tuesday' => '05:00 – 22:00',
+                        'wednesday' => '05:00 – 22:00',
+                        'thursday' => '05:00 – 22:00',
+                        'friday' => '05:00 – 22:00',
                         'saturday' => '06:00 – 20:00',
                         'sunday' => '06:00 – 20:00'
                     ],
@@ -455,14 +452,6 @@ class LocationController extends Controller
                         ['label' => 'Brotherhood Barbers – TikTok', 'url' => 'https://www.tiktok.com/@brotherhoodbarbers', 'type' => 'external']
                     ],
                     'membershipPlans' => [
-                        [
-                            'id' => 1,
-                            'name' => 'Day Pass',
-                            'price' => 14.50,
-                            'period' => 'day',
-                            'features' => ['Single Day Access', 'Top-Quality Equipment', 'Changing Rooms', 'Free Parking'],
-                            'popular' => false
-                        ],
                         [
                             'id' => 2,
                             'name' => 'Weekly Pass',
@@ -562,7 +551,7 @@ class LocationController extends Controller
                     'id' => 3,
                     'name' => 'ULTRAFLEX NORMANTON',
                     'address' => 'Ripley Dr, Normanton WF6 1QT',
-                    'phone' => '0192 489 5794',
+                    'phone' => '01924 895794',
                     'email' => 'normanton@ultraflexgym.co.uk',
                     'image' => '/Images/newimages/Normanton/gym-in-normanton.webp',
                     'gallery' => [
@@ -598,9 +587,24 @@ class LocationController extends Controller
                     ],
                     // Newly added structured fields for Normanton
                     'features' => [
-                        'Male & Female Recovery Rooms',
+                        '1 Female Recovery Room',
+                        '1 Male Recovery Room',
                         'Sauna',
                         'Ice Bath'
+                    ],
+                    // Override equipment and amenities to remove physio and WiFi for Normanton
+                    'equipment' => [
+                        ['name' => 'Top-Quality Fitness Machines', 'icon' => 'dumbbell', 'available' => true],
+                        ['name' => 'Cardio Equipment', 'icon' => 'waves', 'available' => true],
+                        ['name' => 'Comfortable Changing Rooms', 'icon' => 'shower', 'available' => true],
+                        ['name' => 'Free On-Site Parking', 'icon' => 'car', 'available' => true],
+                        ['name' => 'Easy Public Transport Access', 'icon' => 'users', 'available' => true],
+                    ],
+                    'amenities' => [
+                        'Top-quality equipment from best brand names',
+                        'Comfortable changing rooms',
+                        'Free on-site parking',
+                        'Easy public transport access'
                     ],
                     // Services & Partners: Normanton — only AmyClark Hair
                     'services' => [
@@ -616,14 +620,6 @@ class LocationController extends Controller
                         ['label' => 'Book Appointments (Booksy)', 'url' => 'https://booksy.com', 'type' => 'external'],
                     ],
                     'membershipPlans' => [
-                        [
-                            'id' => 1,
-                            'name' => 'Day Pass',
-                            'price' => 14.00,
-                            'period' => 'day',
-                            'features' => ['Single Day Access', 'Standard Equipment', 'Changing Rooms', 'Free Parking'],
-                            'popular' => false
-                        ],
                         [
                             'id' => 2,
                             'name' => 'Weekly Pass',
@@ -662,14 +658,6 @@ class LocationController extends Controller
                             'price' => 465.00,
                             'period' => '12 months',
                             'features' => ['12 Months Access', 'Payment in Full', 'Standard Equipment', 'All Facilities', 'Best Annual Value'],
-                            'popular' => false
-                        ],
-                        [
-                            'id' => 7,
-                            'name' => 'GOLD Day Pass',
-                            'price' => 17.00,
-                            'period' => 'day',
-                            'features' => ['Single Day Access', 'Premium Equipment', 'Priority Access', 'Free Parking', 'Towel Service'],
                             'popular' => false
                         ],
                         [
@@ -775,7 +763,6 @@ class LocationController extends Controller
                     'email' => 'rotherham@ultraflexgym.co.uk',
                     'image' => '/Images/newimages/Rotherham/gym-in-rotherham.webp',
                     'gallery' => [
-                        // Removed #1 and #2 from the location gallery per request
                         '/Images/newimages/Rotherham/gym-in-rotherham-3.webp',
                         '/Images/newimages/Rotherham/gym-in-rotherham-4.webp',
                         '/Images/newimages/Rotherham/gym-in-rotherham-5.webp',
@@ -794,41 +781,15 @@ class LocationController extends Controller
                         'wednesday' => '05:00 – 22:00',
                         'thursday' => '05:00 – 22:00',
                         'friday' => '05:00 – 22:00',
-                        'saturday' => '08:00 – 20:00',
-                        'sunday' => '08:00 – 20:00'
+                        'saturday' => '06:00 – 20:00',
+                        'sunday' => '06:00 – 20:00'
                     ],
                     'manager' => [
                         'name' => 'Morgan',
                         'bio' => 'Hi all, I’m Morgan the manager at Ultraflex Rotherham and I take great pride in the continuation of building and progressing our reputation that we have earned for being one of the best training facilities around, I’m passionate that I am able to contribute to this gym that many members find as a second home, and creating a space where you are all able to fit right into the community. I work closely with our staff team in ensuring that our gym is accommodating for all, and standards are pushed and maintained to exceed expectations across all aspects. Fitness and training has always played a key role for me personally, and speaking from experience 6 years ago I was drawn into what Ultraflex Rotherham had to offer to me as a member, and I soon realised that it was the best around, for what started as a personal fitness journey I soon realised that I wanted to be in a position where I could grow both physically and mentally, which years later has led me to be in the position where I feel proud to be able to manage this world renowned facility and how important it is to be able to create an environment that supports our members individual journeys. Throughout my duration of being a part of Ultraflex Rotherham, whether that being member or manager it has been amazing to witness just how Ultraflex has evolved and the impact it has on the people that spend their time here. I’m excited to see what else lies ahead and hopefully we’ll see you down here.',
                         'image' => '/Images/managers/morgan.jpg',
-                        'experience' => ''
-                    ],
-                    'features' => [
-                        '2x Posing Rooms',
-                        'Recovery Room (Infrared Sauna & Ice Bath)'
-                    ],
-                    'services' => [
-                        [
-                            'name' => 'RnR Bodytherapy',
-                            'description' => 'Sports massage service supporting recovery and performance.'
-                        ]
-                    ],
-                    'serviceLinks' => [
-                        [
-                            'label' => 'RnR Bodytherapy Website',
-                            'url' => 'https://www.rnrbodytherappy.co.uk',
-                            'type' => 'external'
-                        ]
                     ],
                     'membershipPlans' => [
-                        [
-                            'id' => 1,
-                            'name' => 'Day Pass',
-                            'price' => 17.00,
-                            'period' => 'day',
-                            'features' => ['Single Day Access', 'All Equipment Access', 'Changing Rooms', 'Free Parking'],
-                            'popular' => false
-                        ],
                         [
                             'id' => 2,
                             'name' => 'Weekly Pass',
@@ -847,10 +808,10 @@ class LocationController extends Controller
                         ],
                         [
                             'id' => 4,
-                            'name' => 'Monthly Direct Debit',
+                            'name' => 'Monthly Direct Debit (12 mth)',
                             'price' => 50.00,
                             'period' => 'month',
-                            'features' => ['Monthly Rolling Contract', '12 Month Contract', 'All Equipment Access', 'All Facilities', 'Best Value'],
+                            'features' => ['Monthly Direct Debit', '12 Month Contract', 'All Equipment Access', 'All Facilities', 'Best Value'],
                             'popular' => true
                         ],
                         [
@@ -874,7 +835,7 @@ class LocationController extends Controller
                             'name' => 'Student Monthly Rolling',
                             'price' => 46.00,
                             'period' => 'month',
-                            'features' => ['Student Discount', 'Valid Student ID Required', 'Monthly Rolling Direct Debit', 'All Equipment Access', 'All Facilities'],
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Monthly Rolling', 'All Equipment Access'],
                             'popular' => false
                         ],
                         [
@@ -882,7 +843,7 @@ class LocationController extends Controller
                             'name' => 'Student 6 Month Pass',
                             'price' => 246.00,
                             'period' => '6 months',
-                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£246)', '£41 per month equivalent', 'All Equipment Access'],
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£246)', 'All Equipment Access'],
                             'popular' => false
                         ],
                         [
@@ -890,7 +851,7 @@ class LocationController extends Controller
                             'name' => 'Student 9 Month Pass',
                             'price' => 360.00,
                             'period' => '9 months',
-                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£360)', '£40 per month equivalent', 'All Equipment Access'],
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£360)', 'All Equipment Access'],
                             'popular' => false
                         ],
                         [
@@ -898,9 +859,9 @@ class LocationController extends Controller
                             'name' => 'Student 12 Month Pass',
                             'price' => 468.00,
                             'period' => '12 months',
-                            'features' => ['Student Discount', 'Valid Student ID Required', 'Direct Debit (£468 total)', '£39 per month', 'Best Student Value'],
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£468)', 'All Equipment Access', 'Best Student Value'],
                             'popular' => false
-                        ]
+                        ],
                     ],
                     'reviews' => [
                         [
@@ -1006,14 +967,6 @@ class LocationController extends Controller
                         [ 'label' => 'The Yorkshire Clipper Website', 'url' => 'https://booksy.com/en-gb/55134_the-yorkshire-clipper_barber_1498807_york', 'type' => 'website' ]
                     ],
                     'membershipPlans' => [
-                        [
-                            'id' => 1,
-                            'name' => 'Day Pass',
-                            'price' => 14.00,
-                            'period' => 'day',
-                            'features' => ['Single Day Access', 'Versatile Equipment', '100kg Dumbbells to Yoga Mats', 'Free Parking'],
-                            'popular' => false
-                        ],
                         [
                             'id' => 2,
                             'name' => 'Weekly Pass',
@@ -1153,7 +1106,7 @@ class LocationController extends Controller
                     'id' => 6,
                     'name' => 'ULTRAFLEX HULL',
                     'address' => 'Business Park, 261 Hawthorn Avenue Trackside, Hull HU3 5EN',
-                    'phone' => '+44 1482 678 901',
+                    'phone' => '01482 327874',
                     'email' => 'hull@ultraflexgym.co.uk',
                     // Updated primary image for Hull location
                     'image' => '/Images/processed-E08A33F0-0FB6-43A5-BF60-EC1147B6517D-min-min.jpeg',
@@ -1185,27 +1138,32 @@ class LocationController extends Controller
                     ],
                     'features' => [
                         'Industry-Leading Equipment',
-                        'Intense Training Atmosphere',
                         'Functional & Combat Training Areas',
                         'Strength & Conditioning Machines',
                         'Free Weights & Cardio Zones',
                         'Seminars, Competitions & Events'
                     ],
+                    // Override equipment and amenities to remove physio and WiFi for Hull
+                    'equipment' => [
+                        ['name' => 'Top-Quality Fitness Machines', 'icon' => 'dumbbell', 'available' => true],
+                        ['name' => 'Cardio Equipment', 'icon' => 'waves', 'available' => true],
+                        ['name' => 'Comfortable Changing Rooms', 'icon' => 'shower', 'available' => true],
+                        ['name' => 'Free On-Site Parking', 'icon' => 'car', 'available' => true],
+                        ['name' => 'Easy Public Transport Access', 'icon' => 'users', 'available' => true],
+                    ],
+                    'amenities' => [
+                        'Top-quality equipment from best brand names',
+                        'Comfortable changing rooms',
+                        'Free on-site parking',
+                        'Easy public transport access'
+                    ],
                     'services' => [],
                     'serviceLinks' => [],
                     'membershipPlans' => [
                         [
-                            'id' => 1,
-                            'name' => 'Day Pass',
-                            'price' => 12.50,
-                            'period' => 'day',
-                            'features' => ['Single Day Access', 'Top-Quality Equipment', 'Changing Rooms', 'Free Parking'],
-                            'popular' => false
-                        ],
-                        [
                             'id' => 2,
                             'name' => 'Weekly Pass',
-                            'price' => 26.00,
+                            'price' => 22.00,
                             'period' => 'week',
                             'features' => ['7 Days Access', 'All Equipment Access', 'Cardio Area', 'Free Parking'],
                             'popular' => false
@@ -1213,66 +1171,41 @@ class LocationController extends Controller
                         [
                             'id' => 3,
                             'name' => 'Monthly Pass',
-                            'price' => 53.00,
+                            'price' => 45.00,
                             'period' => 'month',
                             'features' => ['30 Days Access', 'All Equipment Access', 'Cardio Area', 'Group Classes'],
                             'popular' => false
                         ],
                         [
                             'id' => 4,
-                            'name' => 'Monthly Direct Debit',
-                            'price' => 48.00,
+                            'name' => 'Monthly Rolling Direct Debit',
+                            'price' => 47.00,
                             'period' => 'month',
-                            'features' => ['Monthly Rolling Contract', 'Min 12 Month Commitment', 'All Equipment Access', 'Cardio Area', 'Group Classes', 'Best Value'],
-                            'popular' => true
+                            'features' => ['Monthly Rolling', 'All Equipment Access', 'Cardio Area', 'Group Classes'],
+                            'popular' => false
                         ],
                         [
                             'id' => 5,
+                            'name' => '12 Month Direct Debit',
+                            'price' => 41.00,
+                            'period' => 'month',
+                            'features' => ['Monthly Direct Debit', '12 Month Contract', 'All Equipment Access', 'Cardio Area', 'Group Classes', 'Best Value'],
+                            'popular' => true
+                        ],
+                        [
+                            'id' => 6,
                             'name' => '6 Month Pass',
-                            'price' => 280.00,
+                            'price' => 230.00,
                             'period' => '6 months',
                             'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'Cardio Area', 'Group Classes'],
                             'popular' => false
                         ],
                         [
-                            'id' => 6,
+                            'id' => 7,
                             'name' => '12 Month Pass',
-                            'price' => 510.00,
+                            'price' => 450.00,
                             'period' => '12 months',
                             'features' => ['12 Months Access', 'Payment in Full', 'All Equipment Access', 'Cardio Area', 'Group Classes', 'Best Annual Value'],
-                            'popular' => false
-                        ],
-                        // Added student options (pricing to be confirmed)
-                        [
-                            'id' => 7,
-                            'name' => 'Student Monthly Rolling',
-                            'price' => 46.00,
-                            'period' => 'month',
-                            'features' => ['Student Discount', 'Valid Student ID Required', 'Monthly Rolling Direct Debit', 'All Equipment Access', 'Cardio Area'],
-                            'popular' => false
-                        ],
-                        [
-                            'id' => 8,
-                            'name' => 'Student 6 Month Pass',
-                            'price' => 255.00,
-                            'period' => '6 months',
-                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£255)', '£42.50 per month equivalent', 'All Equipment Access'],
-                            'popular' => false
-                        ],
-                        [
-                            'id' => 9,
-                            'name' => 'Student 9 Month Pass',
-                            'price' => 375.00,
-                            'period' => '9 months',
-                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£375)', '£41.67 per month equivalent', 'All Equipment Access'],
-                            'popular' => false
-                        ],
-                        [
-                            'id' => 10,
-                            'name' => 'Student 12 Month Pass',
-                            'price' => 480.00,
-                            'period' => '12 months',
-                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£480)', '£40.00 per month equivalent', 'Best Student Value'],
                             'popular' => false
                         ],
                     ],
@@ -1368,14 +1301,6 @@ class LocationController extends Controller
                         ['label' => 'Regen Physio (George) Instagram', 'url' => 'https://www.instagram.com/George_regendurham', 'type' => 'external']
                     ],
                     'membershipPlans' => [
-                        [
-                            'id' => 1,
-                            'name' => 'Day Pass',
-                            'price' => 14.00,
-                            'period' => 'day',
-                            'features' => ['Single Day Access', 'Top-Quality Equipment', 'Changing Rooms', 'Free Parking'],
-                            'popular' => false
-                        ],
                         [
                             'id' => 2,
                             'name' => 'Weekly Pass',
@@ -1487,7 +1412,7 @@ class LocationController extends Controller
                     'id' => 8,
                     'name' => 'ULTRAFLEX DERBY',
                     'address' => 'Chequers Rd, Derby DE21 6EN',
-                    'phone' => '+44 1332 890 123',
+                    'phone' => '07395616771',
                     'email' => 'derby@ultraflexgym.co.uk',
                     // Updated primary image for Derby location
                     'image' => '/Images/processed-5AB78E5E-3190-4963-8AAF-9B3B527D73AD-min-min.jpeg',
@@ -1545,14 +1470,6 @@ class LocationController extends Controller
                         [ 'label' => 'Fusion Rehab Instagram', 'url' => 'https://www.instagram.com/Fusion_rehab_', 'type' => 'instagram' ]
                     ],
                     'membershipPlans' => [
-                        [
-                            'id' => 1,
-                            'name' => 'Day Pass',
-                            'price' => 15.00,
-                            'period' => 'day',
-                            'features' => ['Single Day Access', 'Top-Quality Equipment', 'Changing Rooms', 'Free Parking'],
-                            'popular' => false
-                        ],
                         [
                             'id' => 2,
                             'name' => 'Weekly Pass',
@@ -1705,38 +1622,8 @@ class LocationController extends Controller
                         'saturday' => '7:00 AM - 10:00 PM',
                         'sunday' => '7:00 AM - 10:00 PM'
                     ],
-                    'manager' => [
-                        'name' => 'Dimitris Papadopoulos',
-                        'bio' => 'UltraFlex Athens is currently under development and will be our first international location! This exciting new facility in Glyfada will bring the UltraFlex experience to Greece, featuring state-of-the-art equipment and premium amenities. Stay tuned for updates on our grand opening!',
-                        'image' => '/Images/managers/dimitris.jpg',
-                        'experience' => '16+ years experience'
-                    ],
-                    'membershipPlans' => [
-                        [
-                            'id' => 1,
-                            'name' => 'Pre-Launch Registration',
-                            'price' => 0,
-                            'period' => 'registration',
-                            'features' => ['Early Access Registration', 'Opening Day Notifications', 'Special Launch Offers', 'VIP Opening Event Invite'],
-                            'popular' => true
-                        ],
-                        [
-                            'id' => 2,
-                            'name' => 'Founding Member (Day Pass)',
-                            'price' => 15,
-                            'period' => 'day',
-                            'features' => ['Coming Soon', 'Founding Member Benefits', 'Premium Equipment Access', 'Mediterranean Fitness Experience'],
-                            'popular' => false
-                        ],
-                        [
-                            'id' => 3,
-                            'name' => 'Founding Member (Monthly)',
-                            'price' => 65,
-                            'period' => 'month',
-                            'features' => ['Coming Soon', 'Founding Member Discount', 'All Equipment Access', 'International UltraFlex Standards'],
-                            'popular' => false
-                        ]
-                    ],
+                    'manager' => null,
+                    'membershipPlans' => [],
                     'reviews' => [
                         [
                             'id' => 1,
@@ -1817,13 +1704,13 @@ class LocationController extends Controller
                     // YouTube link
                     'virtualTour' => 'https://www.youtube.com/embed/u3qFZpkqxyI',
                     'hours' => [
-                        'monday' => '24/7 (Full Access) | 06:00 - 22:00 (Day Access)',
-                        'tuesday' => '24/7 (Full Access) | 06:00 - 22:00 (Day Access)',
-                        'wednesday' => '24/7 (Full Access) | 06:00 - 22:00 (Day Access)',
-                        'thursday' => '24/7 (Full Access) | 06:00 - 22:00 (Day Access)',
-                        'friday' => '24/7 (Full Access) | 06:00 - 22:00 (Day Access)',
-                        'saturday' => '24/7 (Full Access) | 06:00 - 20:00 (Day Access)',
-                        'sunday' => '24/7 (Full Access) | 06:00 - 20:00 (Day Access)'
+                        'monday' => '06:00 – 22:00',
+                        'tuesday' => '06:00 – 22:00',
+                        'wednesday' => '06:00 – 22:00',
+                        'thursday' => '06:00 – 22:00',
+                        'friday' => '06:00 – 22:00',
+                        'saturday' => '06:00 – 20:00',
+                        'sunday' => '06:00 – 20:00'
                     ],
                     'manager' => [
                         'name' => 'Lynsey Hind',
@@ -1853,22 +1740,38 @@ class LocationController extends Controller
                     'membershipPlans' => [
                         [
                             'id' => 1,
-                            'name' => '12 Month Day Access - Monthly Direct Debit',
-                            'price' => 49.99,
+                            'name' => 'Monthly Rolling Direct Debit',
+                            'price' => 54.99,
                             'period' => 'month',
-                            'features' => ['12 Month Contract', 'Day Access Only', 'Mon-Fri: 06:00-22:00', 'Sat-Sun: 06:00-20:00', 'State-of-the-art Equipment'],
+                            'features' => ['Monthly Rolling', 'Day Access Only', 'Mon-Fri: 06:00-22:00', 'Sat-Sun: 06:00-20:00', 'State-of-the-art Equipment'],
                             'popular' => false
                         ],
                         [
                             'id' => 2,
-                            'name' => '12 Month 24hr Access - Monthly Direct Debit',
-                            'price' => 54.99,
+                            'name' => 'Monthly Rolling 24hr Direct Debit',
+                            'price' => 65.00,
                             'period' => 'month',
-                            'features' => ['12 Month Contract', '24/7 Access', 'Train Anytime', 'First 24hr UltraFlex', 'Complete Flexibility'],
+                            'features' => ['Monthly Rolling', '24/7 Access', 'Train Anytime', 'First 24hr UltraFlex', 'Complete Flexibility'],
                             'popular' => true
                         ],
                         [
                             'id' => 3,
+                            'name' => '12 Month Direct Debit',
+                            'price' => 49.99,
+                            'period' => 'month',
+                            'features' => ['12 Month Contract', 'Day Access Only', 'Mon-Fri: 06:00-22:00', 'Sat-Sun: 06:00-20:00', 'Best Value'],
+                            'popular' => true
+                        ],
+                        [
+                            'id' => 4,
+                            'name' => '12 Month 24hr Direct Debit',
+                            'price' => 54.99,
+                            'period' => 'month',
+                            'features' => ['12 Month Contract', '24/7 Access', 'Train Anytime', 'First 24hr UltraFlex', 'Complete Flexibility'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 5,
                             'name' => '12 Month Pass - Paid in Full',
                             'price' => 530.00,
                             'period' => '12 months',
@@ -1876,52 +1779,31 @@ class LocationController extends Controller
                             'popular' => false
                         ],
                         [
-                            'id' => 4,
+                            'id' => 6,
+                            'name' => '12 Month 24hr Pass - Paid in Full',
+                            'price' => 590.00,
+                            'period' => '12 months',
+                            'features' => ['12 Months Access', 'Payment in Full', '24/7 Access', 'Best 24hr Annual Value', 'No Monthly Payments'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 7,
                             'name' => '6 Month Pass - Paid in Full',
-                            'price' => 295.00,
+                            'price' => 270.00,
                             'period' => '6 months',
                             'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'No Monthly Payments', 'Flexible Option'],
                             'popular' => false
                         ],
                         [
-                            'id' => 5,
-                            'name' => 'Student Monthly Rolling',
-                            'price' => 49.00,
-                            'period' => 'month',
-                            'features' => ['Student Discount', 'Valid Student ID Required', 'Monthly Rolling', 'Day Access Only'],
-                            'popular' => false,
-                            'live_until' => '2025-12-01 00:00:00'
-                        ],
-                        [
-                            'id' => 6,
-                            'name' => 'Student 6 Month Pass',
-                            'price' => 270.00,
-                            'period' => '6 months',
-                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£270)', '£45.00 per month equivalent', 'All Equipment Access'],
-                            'popular' => false,
-                            'live_until' => '2025-12-01 00:00:00'
-                        ],
-                        [
-                            'id' => 7,
-                            'name' => 'Student 9 Month Pass',
-                            'price' => 390.00,
-                            'period' => '9 months',
-                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£390)', '£43.33 per month equivalent', 'All Equipment Access'],
-                            'popular' => false,
-                            'live_until' => '2025-12-01 00:00:00'
-                        ],
-                        [
                             'id' => 8,
-                            'name' => 'Student 12 Month Pass',
-                            'price' => 510.00,
-                            'period' => '12 months',
-                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£510)', '£42.50 per month equivalent', 'Best Student Value'],
-                            'popular' => false,
-                            'live_until' => '2025-12-01 00:00:00'
+                            'name' => '6 Month 24hr Pass - Paid in Full',
+                            'price' => 300.00,
+                            'period' => '6 months',
+                            'features' => ['6 Months Access', 'Payment in Full', '24/7 Access', 'No Monthly Payments', 'Flexible Option'],
+                            'popular' => false
                         ],
-                        // New Student plans (go-live Jan 19, 2026)
                         [
-                            'id' => 101,
+                            'id' => 9,
                             'name' => 'Student Monthly Rolling',
                             'price' => 48.60,
                             'period' => 'month',
@@ -1929,15 +1811,15 @@ class LocationController extends Controller
                             'popular' => false
                         ],
                         [
-                            'id' => 102,
+                            'id' => 10,
                             'name' => 'Student Monthly Rolling 24hr',
                             'price' => 58.50,
                             'period' => 'month',
                             'features' => ['Student Discount', 'Valid Student ID Required', 'Monthly Rolling', '24/7 Access'],
-                            'popular' => true
+                            'popular' => false
                         ],
                         [
-                            'id' => 103,
+                            'id' => 11,
                             'name' => 'Student 6 Month Pass - Paid in Full',
                             'price' => 265.50,
                             'period' => '6 months',
@@ -1945,7 +1827,7 @@ class LocationController extends Controller
                             'popular' => false
                         ],
                         [
-                            'id' => 104,
+                            'id' => 12,
                             'name' => 'Student 6 Month Pass - Paid in Full 24hr',
                             'price' => 319.50,
                             'period' => '6 months',
@@ -1953,7 +1835,7 @@ class LocationController extends Controller
                             'popular' => false
                         ],
                         [
-                            'id' => 105,
+                            'id' => 13,
                             'name' => 'Student 12 Month Pass - Paid in Full',
                             'price' => 477.00,
                             'period' => '12 months',
@@ -1961,7 +1843,7 @@ class LocationController extends Controller
                             'popular' => false
                         ],
                         [
-                            'id' => 106,
+                            'id' => 14,
                             'name' => 'Student 12 Month Pass - Paid in Full 24hr',
                             'price' => 531.00,
                             'period' => '12 months',
@@ -2013,7 +1895,7 @@ class LocationController extends Controller
                     'id' => 11,
                     'name' => 'ULTRAFLEX WEST LONDON',
                     'address' => 'Point West, 2, Packet Boat Ln, Uxbridge UB8 2JP',
-                    'phone' => '+44 20 3456 7890',
+                    'phone' => '01895 436000',
                     'email' => 'westlondon@ultraflexgym.co.uk',
                     // Updated primary image for West London location (replaced per user request Oct 8 2025)
                     'image' => '/Images/processed-463489D0-F620-407E-BED0-4EB177EDCAC4 (1).webp',
@@ -2072,14 +1954,6 @@ class LocationController extends Controller
                         [ 'label' => 'Faded Group Barber Phone', 'url' => 'tel:07900626284', 'type' => 'phone' ]
                     ],
                     'membershipPlans' => [
-                        [
-                            'id' => 1,
-                            'name' => 'Day Pass',
-                            'price' => 17.00,
-                            'period' => 'day',
-                            'features' => ['Single Day Access', 'All Equipment Access', 'Premium London Location'],
-                            'popular' => false
-                        ],
                         [
                             'id' => 2,
                             'name' => 'Weekly Pass',

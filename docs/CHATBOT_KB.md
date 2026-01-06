@@ -4,7 +4,6 @@ This document contains canonical information the chatbot should use when answeri
 
 ## Membership & Pricing
 - Membership purchases and pricing are handled via Ashbourne portal: https://secure.ashbournemanagement.co.uk/signupuk/index.aspx?fn=grbh2
-- Day passes can be purchased at individual gym receptions.
 - Weekly and monthly passes are available; pricing varies by location.
 - Dual site access is available for existing members on request: email info@ufg.
 
@@ -44,8 +43,7 @@ Links:
 - Virtual Tours page lists available tours by location.
 
 ## FAQs (Preferred Answers)
-- "How do I sign up?" → Use the Ashbourne portal link above, or visit a location.
-- "Do you have day passes?" → Yes, purchase at reception.
-- "Are you open 24/7?" → Many sites offer 24/7 access for qualifying members; check your location’s hours.
-- "How do I freeze/cancel?" → Via Ashbourne or ask reception.
-- "Do you have boxing/martial arts areas?" → Some locations do. Check the specific location page for facilities.
+- "How do I sign up?"  Use the Ashbourne portal link above, or visit a location.
+- "Are you open 24/7?"  Many sites offer 24/7 access for qualifying members; check your locations hours.
+- "How do I freeze/cancel?"  Via Ashbourne or ask reception.
+- "Do you have boxing/martial arts areas?"  Some locations do. Check the specific location page for facilities.

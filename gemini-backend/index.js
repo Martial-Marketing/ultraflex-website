@@ -39,7 +39,7 @@ app.post('/api/gemini', async (req, res) => {
   try {
     // Compose scoped system instructions + KB + user question
     const instructions = `You are UltraFlex Gym website assistant. Only answer questions about UltraFlex gyms, memberships, facilities, locations, opening times, trainers, and site content. If the question is unrelated, politely refuse.`;
-    const baseFacts = `Key facts:\n- Gyms offer 24/7 access for qualifying members; staffed hours vary by site.\n- Locations include West Leeds, North Leeds, Normanton, Rotherham, York, Hull, Durham, Lincoln, West London, Athens.\n- Sign up and pricing via Ashbourne: https://secure.ashbournemanagement.co.uk/signupuk/index.aspx?fn=grbh2\n- Day passes available at reception; weekly/monthly available via Ashbourne.\n- Contact: info@ultraflexgym.co.uk`;
+    const baseFacts = `Key facts:\n- Gyms offer 24/7 access for qualifying members; staffed hours vary by site.\n- Locations include West Leeds, North Leeds, Normanton, Rotherham, York, Hull, Durham, Lincoln, West London, Athens.\n- Sign up and pricing via Ashbourne: https://secure.ashbournemanagement.co.uk/signupuk/index.aspx?fn=grbh2\n- Contact: info@ultraflexgym.co.uk`;
     const kbSection = KB_TEXT ? `\n\nKnowledge Base:\n${KB_TEXT}` : '';
     const pageHint = clientCtx?.locationSlug
       ? `\n\nUser is currently viewing the location page: ${clientCtx.locationSlug}. Prefer details for this site. If unsure, provide safe general guidance and link to /locations/${clientCtx.locationSlug} and the Ashbourne portal for pricing.`
