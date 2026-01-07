@@ -1420,7 +1420,7 @@ class LocationController extends Controller
                     ],
                     'serviceLinks' => [
                         ['label' => 'Baxters Barbers Instagram', 'url' => 'https://www.instagram.com/Baxters_barbers', 'type' => 'external'],
-                        ['label' => 'Regen Physio Instagram', 'url' => 'https://www.instagram.com/George_regendurham', 'type' => 'external']
+                        ['label' => 'Regen Physio', 'url' => 'https://bit.ly/m/RegenPhysio', 'type' => 'external']
                     ],
                     'membershipPlans' => [
                         [
@@ -1814,7 +1814,7 @@ class LocationController extends Controller
                     'id' => 10,
                     'name' => 'ULTRAFLEX LINCOLN',
                     'address' => '3 Pioneer Way, Lincoln LN6 3DH',
-                    'phone' => '+44 1522 012 345',
+                    'phone' => '01522 454320',
                     'email' => 'lincoln@ultraflexgym.co.uk',
                     // Updated primary image for Lincoln location (replaced per user request Oct 8 2025)
                     'image' => '/Images/processed-E72B606D-BB53-4CB2-90BA-4EB35AC99920.webp',
