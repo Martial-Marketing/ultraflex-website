@@ -1,14 +1,14 @@
 import { useState } from 'react';
 
 const carouselImages = [
+  // Dramatic night shots from North Leeds and Derby (prioritized per user request)
+  '/Images/processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.jpeg', // North Leeds dramatic shot
+  '/Images/processed-5AB78E5E-3190-4963-8AAF-9B3B527D73AD-min-min.jpeg', // Derby dramatic shot
   '/Images/westleeds/gym-in-westleeds.webp',
-  // Updated processed North Leeds hero image
-  '/Images/processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.jpeg',
   '/Images/normanton/gym-in-normanton.webp',
   '/Images/rotherham/gym-in-rotherham.webp',
   '/Images/york/ForGallery/gym-in-york-6.webp',
-  // Updated processed Hull hero image
-  '/Images/processed-E08A33F0-0FB6-43A5-BF60-EC1147B6517D-min-min.jpeg',
+  '/Images/processed-E08A33F0-0FB6-43A5-BF60-EC1147B6517D-min-min.jpeg', // Hull
 ];
 
 export default function HomepageCarousel() {
@@ -22,7 +22,7 @@ export default function HomepageCarousel() {
       <img
         src={carouselImages[current]}
         alt={`UltraFlex Carousel ${current + 1}`}
-        className="w-full h-96 object-cover transition-all duration-700"
+        className="w-full h-96 object-cover transition-all duration-[1500ms]"
       />
       <button
         onClick={prev}

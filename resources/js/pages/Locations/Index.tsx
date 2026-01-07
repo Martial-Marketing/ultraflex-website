@@ -17,6 +17,7 @@ interface Location {
         weekdays: string;
         weekends: string;
     };
+    mapUrl?: string;
     // Optional virtual tour flag (in case backend adds later)
     virtualTour?: string | null;
 }
@@ -178,7 +179,7 @@ export default function LocationsIndex({ locations, membershipPlans, auth }: Loc
                                                 <Button 
                                                     variant="outline" 
                                                     className="w-full border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white px-4 py-2 text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm"
-                                                    onClick={() => window.open(`https://maps.google.com/maps?q=${encodeURIComponent(location.address)}`, '_blank')}
+                                                    onClick={() => window.open(location.mapUrl || `https://maps.google.com/maps?q=${encodeURIComponent(location.address)}`, '_blank')}
                                                 >
                                                     <span className="group-hover:translate-x-1 transition-transform duration-300">
                                                         Get Directions

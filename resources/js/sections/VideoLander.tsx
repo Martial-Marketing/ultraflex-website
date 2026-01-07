@@ -24,8 +24,8 @@ export default function VideoLander() {
                 }}
             />
             
-            {/* Enhanced overlay with gradient */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+            {/* Enhanced overlay with stronger gradient for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
             
             {/* Animated particles overlay */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">

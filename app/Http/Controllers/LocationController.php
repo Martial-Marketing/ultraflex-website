@@ -10,7 +10,114 @@ use App\Data\TrainerData;
 class LocationController extends Controller
 {
     // Single source of truth for gallery images (matches Gallery route in web.php)
-    private static $externalImages = [];
+    private static $externalImages = [
+        // Derby: images provided via Dropbox; use raw=1 for inline display
+        'derby' => [
+            'https://www.dropbox.com/scl/fi/rskqdsy7pojj730bmntbx/DSC05684.jpeg?rlkey=pt39pjwzhadxjjxsvuuczh2gx&raw=1',
+            'https://www.dropbox.com/scl/fi/qcs42onp3nbkbv4nrdx6x/DSC05689.jpeg?rlkey=v71ce5fb1baaiop6ipzslzdt2&raw=1',
+            'https://www.dropbox.com/scl/fi/dk7xkz7ujqnb0z3p4m72b/DSC05697.jpeg?rlkey=0dh2nrsg9jok1xl9k5r6nrhpm&raw=1',
+            'https://www.dropbox.com/scl/fi/5piandw32oii9rga1ei4s/DSC05724.jpeg?rlkey=guze3apjq3lpjylussgutzwla&raw=1',
+            'https://www.dropbox.com/scl/fi/659v2gmy5imo5l6nyo3bq/DSC05731.jpeg?rlkey=i5eo1nih41kf3f0h1sg8tnxvr&raw=1',
+            'https://www.dropbox.com/scl/fi/oa8w66dddjmx8ev3tfzc2/DSC05733.jpeg?rlkey=jag7gsha5op6ey6oaa6hqux0z&raw=1',
+            'https://www.dropbox.com/scl/fi/ju6r5fo6t751pvmy59l8t/DSC05739.jpeg?rlkey=3f69e5eaj0nfgnjrr0z9nb2gc&raw=1',
+            'https://www.dropbox.com/scl/fi/6vidj6dx9ibkkr6iksyls/DSC05762.jpeg?rlkey=oidthpzom5098daiujk83v34l&raw=1',
+            'https://www.dropbox.com/scl/fi/wwbcch5jllmvq2yi3bivu/DSC05764.jpeg?rlkey=1xofpyqh6zilpjkxh4iypufda&raw=1',
+            'https://www.dropbox.com/scl/fi/hhmgdgsyesw7m8c111byy/DSC05780.jpeg?rlkey=tuasn0bzhws9xrgsvu55gy7eh&raw=1',
+            'https://www.dropbox.com/scl/fi/oz0bw7b05l0ps7ofuzi8b/DSC05805.jpeg?rlkey=h8gj3w261j7q78z6wtmjwbks7&raw=1',
+            'https://www.dropbox.com/scl/fi/p3qdj1oompuvpo2d1esoa/DSC05816.jpeg?rlkey=7zwmduvng2v7frznxx8otl923&raw=1',
+            'https://www.dropbox.com/scl/fi/tbo66lbci5nz6fjkx0yx8/DSC05818.jpeg?rlkey=5nkbxp3ckou9e0fd3u8gxgru3&raw=1',
+            'https://www.dropbox.com/scl/fi/j2oanoz5d2x04fjv4eq5t/DSC05828.jpeg?rlkey=9wxnsf6gx7l2htpty3vnh3cbf&raw=1',
+        ],
+        // Hull: images provided via Dropbox
+        'hull' => [
+            'https://www.dropbox.com/scl/fi/in4ej490anf23ipvx8ewi/IMG-4.jpg?rlkey=v2ampzl63i13a2ab1y6fhnuw2&raw=1',
+            'https://www.dropbox.com/scl/fi/8whbqkx4jslrx9ec3q9fv/IMG-15.jpg?rlkey=0fdsni86elpsj5ap9e3x59gux&raw=1',
+            'https://www.dropbox.com/scl/fi/k809s2y4onmg0h55ygydy/IMG-19.jpg?rlkey=5nn6hfdtcosuek7pq3zke98cf&raw=1',
+            'https://www.dropbox.com/scl/fi/13i8gj5zsb3ss58ed4lle/IMG-27.jpg?rlkey=lwexgkujdo64u8p51bz5hswn7&raw=1',
+            'https://www.dropbox.com/scl/fi/8n1f55sclfuhw9lxyqp7d/IMG-34.jpg?rlkey=j8lx1534nrioyz17ki4yjdifw&raw=1',
+            'https://www.dropbox.com/scl/fi/1p7l0kjuy4z0ghy5utb1r/Photo-07-10-2025-16-46-52.jpg?rlkey=vzzyp8up3az298uoq2l91vfmr&raw=1',
+        ],
+        // Lincoln: images provided via Dropbox
+        'lincoln' => [
+            'https://www.dropbox.com/scl/fi/eq90b2fzy2eur6fyab9d6/ultraflex-full-8.jpg?rlkey=ei4vcglt6cf2z7eihho9xm2cy&raw=1',
+            'https://www.dropbox.com/scl/fi/zvenze3pz13k34lua8bcs/ultraflex-full-4637.jpg?rlkey=yp2nux73846dzdrc9rxmhi5iu&raw=1',
+            'https://www.dropbox.com/scl/fi/4ay06ko4jyu0z819axnhn/ultraflex-full-4711.jpg?rlkey=5pbfodxwu6ea3gndx2den7z34&raw=1',
+            'https://www.dropbox.com/scl/fi/qio6w7qnyuw8t2zn0ye2r/ultraflex-full-4722.jpg?rlkey=wy66dnev34w6xz3y4j9cj0ayl&raw=1',
+            'https://www.dropbox.com/scl/fi/7a45mbgqyv386r8jzex0b/ultraflex-full-4814.jpg?rlkey=kxpwzpc0irruwaoz0m5vp20qg&raw=1',
+            'https://www.dropbox.com/scl/fi/4mvjodehjwj6g6avnvyta/ultraflex-full-4849.jpg?rlkey=ws4ut5m8hut0oa9fo04pky9h1&raw=1',
+            'https://www.dropbox.com/scl/fi/dij1ym92btemztkask47v/ultraflex-full-4859.jpg?rlkey=67f1lm89u453da197ihz9dycw&raw=1',
+            'https://www.dropbox.com/scl/fi/pdulj4pozuwoqjnez6ety/Ultraflex-2.jpg?rlkey=8womnmv9x3x86ci3f6h10wfbs&raw=1',
+            'https://www.dropbox.com/scl/fi/bcctusmubqmrfhqs1ys5d/Ultraflex-5036.jpg?rlkey=61cmlq3znsrjdg7nbmdf5804a&raw=1',
+            'https://www.dropbox.com/scl/fi/i1ds1aspf6gz4m2wvjpuk/Ultraflex-5042.jpg?rlkey=oe7nv0al7g8xxauvr3jfl5l6w&raw=1',
+            'https://www.dropbox.com/scl/fi/b2tdsb0uudvolgqe370so/Ultraflex-5065.jpg?rlkey=emtzmggg3luetgepkma4tvrfn&raw=1',
+            'https://www.dropbox.com/scl/fi/lk0kgnz8r8ar97xtmwacy/Ultraflex-5123.jpg?rlkey=f4pm0ra903itoo8kl4rigsh4q&raw=1',
+            'https://www.dropbox.com/scl/fi/6a03y29gms5kjtv3yail8/Ultraflex-5163.jpg?rlkey=8y9e5v6opmgn8lgwwj2dv56tx&raw=1',
+        ],
+        // Normanton: images provided via Dropbox
+        'normanton' => [
+            'https://www.dropbox.com/scl/fi/y1nva7472ko6hgbgr0nze/Ultraflex-5183.jpg?rlkey=by2cb42i3g48nphfwg01ahpd9&raw=1',
+            'https://www.dropbox.com/scl/fi/5xdd95r5tjj0hm07yczpj/IMG_-58.jpg?rlkey=pzx38w997h2wv9mwn6v7fnsp5&raw=1',
+            'https://www.dropbox.com/scl/fi/opc56ztx9i10xuskj7zqt/IMG_-61.jpg?rlkey=w26853ezlwwqt1hgvv4t89atw&raw=1',
+            'https://www.dropbox.com/scl/fi/54o1rm8vx5qt5ol1vhyq4/IMG_-63.jpg?rlkey=qez2uxt3j12qgbf7ybhb5skit&raw=1',
+            'https://www.dropbox.com/scl/fi/pql53de11puhvlyps9cye/IMG_-65.jpg?rlkey=ssrjtiph9ryu7w2hi66tngu7g&raw=1',
+            'https://www.dropbox.com/scl/fi/3czoeor6fhhnpitehsjgd/IMG_-82.jpg?rlkey=t327tzcp5ncgq0icr5ratchp6&raw=1',
+            'https://www.dropbox.com/scl/fi/qg45a4eaoopgkwmydlmch/IMG_1272.jpg?rlkey=0wh8thn17wh43hx6cylooildw&raw=1',
+        ],
+        // North Leeds: images provided via Dropbox
+        'north-leeds' => [
+            'https://www.dropbox.com/scl/fi/dh3c9ym12pfmbjjbgn9w0/IMG_1296.jpg?rlkey=it8aqy0b7lcpte9yt4c7wp871&raw=1',
+            'https://www.dropbox.com/scl/fi/so5n3eq32g17l0cm6377b/DSC07346.jpg?rlkey=dq07yp23ugzd038a1ayrjfit5&raw=1',
+            'https://www.dropbox.com/scl/fi/eygd360cvsm3foacxmp1q/DSC07348.jpg?rlkey=ikplg2gq38jccibktmupdu7z8&raw=1',
+            'https://www.dropbox.com/scl/fi/6nh9d3unh9b086lf8yvbc/DSC07349.jpg?rlkey=pk4lqyxmuuefnak4nmermiqxb&raw=1',
+            'https://www.dropbox.com/scl/fi/qe49fw3vow7fav598zpb1/DSC07384.jpg?rlkey=gxnszyjrh7zv5axuptys9twly&raw=1',
+            'https://www.dropbox.com/scl/fi/sha3y5chtjlo8wpszv1zy/DSC07391.jpg?rlkey=ch7ac551fz15myu4bcbp4pwbx&raw=1',
+            'https://www.dropbox.com/scl/fi/fj9wnuv1vpnm3jpapsn3e/DSC07399.jpg?rlkey=ennklsvx3nvajzlwepzdcz4sg&raw=1',
+        ],
+        // Rotherham: images provided via Dropbox + local newimages (4th & 5th removed per request)
+        'rotherham' => [
+            'https://www.dropbox.com/scl/fi/dcymdsets91jgp3xzsq8k/akv_podcast_-2.jpg?rlkey=9yjsf5d1xm6hqynfvx6ou0w8z&raw=1',
+            'https://www.dropbox.com/scl/fi/6ez6s9nwdm30y50t24l2d/IMG-61.jpg?rlkey=ie8y4r3fand8iptdw14s5zqob&raw=1',
+            'https://www.dropbox.com/scl/fi/gff5pf1juakxwldmj18on/IMG-120.jpg?rlkey=anzt4ypn6mo8ryji2cyalk60z&raw=1',
+            'https://www.dropbox.com/scl/fi/k329igqoefpf7d4czai46/Photo-17-06-2025-17-04-51.jpg?rlkey=hc53w58w1ur335fz9pijlxi40&raw=1',
+            '/Images/newimages/Rotherham/2.webp',
+            '/Images/newimages/Rotherham/3.webp',
+            '/Images/newimages/Rotherham/4.webp',
+            '/Images/newimages/Rotherham/5.webp',
+            '/Images/newimages/Rotherham/WhatsApp Image 2026-01-05 at 11.02.36 AM.webp',
+        ],
+        // West Leeds: images provided via Dropbox
+        'west-leeds' => [
+            'https://www.dropbox.com/scl/fi/s187094gha1c3y4bhr12b/Posing-studio.jpg?rlkey=f87yqpdytcj9s8l2jj8w9wm3f&raw=1',
+            'https://www.dropbox.com/scl/fi/tiljdrvr1u10fqqb36h9q/_AKD0960-copy.jpg?rlkey=lbs8vodcj7s6f2plpqex0gdm8&raw=1',
+            'https://www.dropbox.com/scl/fi/tbgxyomvrkrd8hiop6f55/_AKD1151-copy.jpg?rlkey=p1886ygiwuhxkicq9axeqb0sh&raw=1',
+            'https://www.dropbox.com/scl/fi/7ncm853bz8kibb6e9mklx/_AKD1366-copy.jpg?rlkey=v2kd6gq9oyomcdrcmqtv9wl61&raw=1',
+            'https://www.dropbox.com/scl/fi/ijy5qlknnvrmwae7s5e42/_AKD1461-copy.jpg?rlkey=6fu0b0tblss8a6mxru1kzn48u&raw=1',
+            'https://www.dropbox.com/scl/fi/4t7quluixrtw50f2u9f3l/UFG-64.jpg?rlkey=9sws7hvp60j55njw88r92dg1v&raw=1',
+            'https://www.dropbox.com/scl/fi/7me7ulnm7dqwym8url73c/UFG-100.jpg?rlkey=z80cjsqxarpam0gmwrqecr2da&raw=1',
+        ],
+        // West London: images provided via Dropbox
+        'west-london' => [
+            'https://www.dropbox.com/scl/fi/4f1xj9rve5h8z9euxcgr0/Photo-03-09-2025-14-02-45.jpg?rlkey=yjkkh0nesax6pfzvqryp4eyrx&raw=1',
+            'https://www.dropbox.com/scl/fi/i3frbh1ac99ipf46hvklw/Photo-03-09-2025-14-02-51.jpg?rlkey=2f6t6gbw9gbsc5gkzypwhaxds&raw=1',
+            'https://www.dropbox.com/scl/fi/frmjggmrr5069uzrj6oz1/Photo-03-09-2025-14-03-03.jpg?rlkey=9zftb1e1twqoghwud61snd2xk&raw=1',
+            'https://www.dropbox.com/scl/fi/tmtxltzqy8o25tqi9pukz/Photo-03-09-2025-14-03-12.jpg?rlkey=s9u303dm4eg1kdpvjnwnu6lhn&raw=1',
+            'https://www.dropbox.com/scl/fi/a4jg3q9b38lzcs64tfahs/Photo-03-09-2025-14-08-02.jpg?rlkey=dkya08c7rd4ljo4s81hkq29sp&raw=1',
+        ],
+        // York: images provided via Dropbox
+        'york' => [
+            'https://www.dropbox.com/scl/fi/epsqmglmx84fhzffwf95j/IMG-14.jpg?rlkey=xqk38evqjmya93dcdrwctsf7u&raw=1',
+            'https://www.dropbox.com/scl/fi/r090st20jw5arucxlk4px/IMG-34.jpg?rlkey=3ch59042gck1y9qunj4ic4j96&raw=1',
+            'https://www.dropbox.com/scl/fi/dnf8vehb7rokdswh0ux9s/IMG-48.jpg?rlkey=2l3hyi59sm89t6s5hp51xvrvi&raw=1',
+        ],
+        // Durham: images provided via Dropbox
+        'durham' => [
+            'https://www.dropbox.com/scl/fi/dc9atjt8rd3pin3f648hc/8-Section-MultiStation.jpg?rlkey=22vqm74lx6pgez24xf6t32nck&raw=1',
+            'https://www.dropbox.com/scl/fi/ll3hf7q5ae7hj8ira9434/25m-Functional-Track-2.jpg?rlkey=oppe2pit4pouqh5m2f6vs5w85&raw=1',
+            'https://www.dropbox.com/scl/fi/quahvezf56f39ofjw5lxz/Cardio-Funcional-Rig-Area.jpg?rlkey=sdrc370l253hldilmh3dy3k4c&raw=1',
+            'https://www.dropbox.com/scl/fi/7vgj42v57vs67mt23wo44/Hardcore-Corner1.jpg?rlkey=no4rwbnkyuww20kbfcxeql2d4&raw=1',
+            'https://www.dropbox.com/scl/fi/jhzucrz3vc6xeh1tp4wyc/Lifting-Platforms.jpg?rlkey=bkgk20wvhvk2lraj25yxldu5c&raw=1',
+        ],
+    ];
 
     public function index()
     {
@@ -271,8 +378,8 @@ class LocationController extends Controller
                     'image' => '/Images/newimages/West Leeds/gym-in-westleeds.webp',
                     'gallery' => isset(self::$externalImages['west-leeds']) ? self::$externalImages['west-leeds'] : [],
                     'slug' => 'west-leeds',
-                    // West Leeds drone video tour
-                    'virtualTour' => 'https://youtu.be/hvSoOHsIh28?si=W54SgypdpDfu2kRo',
+                    // West Leeds drone video tour (converted to embed format for proper iframe display)
+                    'virtualTour' => 'https://www.youtube.com/embed/hvSoOHsIh28',
                     'hours' => [
                         'monday' => '05:30 – 22:00',
                         'tuesday' => '05:30 – 22:00',
@@ -285,7 +392,7 @@ class LocationController extends Controller
                     'manager' => [
                         'name' => 'Sophia',
                         'bio' => 'As the Manager of Ultraflex West Leeds, I’m proud to lead the team at the very first Ultraflex gym established in the UK on 17th January 2017. Since opening our doors, West Leeds has built a strong reputation as a cornerstone of the Ultraflex community—known for our unbeatable atmosphere, elite equipment, and commitment to helping people at all levels of fitness achieve real results. My journey with Ultraflex has been driven by a passion for creating an environment where members feel empowered, supported, and motivated. Whether you\'re stepping into the gym for the first time or preparing for your next competition, we’re here to provide expert guidance, a welcoming community, and world-class facilities. I oversee day-to-day operations, member engagement, staff development, and community outreach, ensuring Ultraflex West Leeds continues to set the standard for excellence in fitness. I’m proud of our diverse membership base—from beginners to IFBB pros—and the culture of respect, discipline, and dedication that makes our gym more than just a place to train. Ultraflex West Leeds is where it all started—and under my management, we continue to innovate, grow, and lead the way for all the Ultraflex gyms across the UK.',
-                        'image' => '/Images/vecteezy_user-icon-on-transparent-background_19879198.webp',
+                        'image' => '/Images/newimages/unnamed.webp',
                         'experience' => null
                     ],
                     'services' => [
@@ -311,13 +418,20 @@ class LocationController extends Controller
                         ]
                     ],
                     'serviceLinks' => [
+                        // Regen Physio (Physiotherapy)
                         [ 'label' => 'Regen Physio Website', 'url' => 'https://www.regenphysio.co.uk/', 'type' => 'website' ],
+                        
+                        // Ostas Boxing (Martial Arts)
                         [ 'label' => 'Ostas Boxing Instagram', 'url' => 'https://www.instagram.com/ostasboxing', 'type' => 'instagram' ],
-                        [ 'label' => 'Smitin Hair Systems Email', 'url' => 'mailto:Smitinhairsystems@outlook.com', 'type' => 'email' ],
-                        [ 'label' => 'Smitin Hair Systems Instagram', 'url' => 'https://www.instagram.com/smitin_hairsystems', 'type' => 'instagram' ],
+                        [ 'label' => 'Ostas Boxing Instagram (Alt)', 'url' => 'https://www.instagram.com/ostasboxing', 'type' => 'instagram' ],
+                        
+                        // Pudsey Judo Club (Martial Arts)
                         [ 'label' => 'Pudsey Judo Club Facebook', 'url' => 'https://www.facebook.com/pudseyjudoclub', 'type' => 'facebook' ],
                         [ 'label' => 'Pudsey Judo Club Instagram', 'url' => 'https://www.instagram.com/pudseyjudoclub', 'type' => 'instagram' ],
-                        [ 'label' => 'Ostas Boxing Instagram (Alt)', 'url' => 'https://www.instagram.com/ostasboxing', 'type' => 'instagram' ]
+                        
+                        // Smitin Hair Systems (Hair Services)
+                        [ 'label' => 'Smitin Hair Systems Email', 'url' => 'mailto:Smitinhairsystems@outlook.com', 'type' => 'email' ],
+                        [ 'label' => 'Smitin Hair Systems Instagram', 'url' => 'https://www.instagram.com/smitin_hairsystems', 'type' => 'instagram' ],
                     ],
                     'membershipPlans' => [
                         [
@@ -402,6 +516,7 @@ class LocationController extends Controller
                         ],
                     ],
                     // Trainers dynamically injected from App\Data\TrainerData based on locationSlug
+                    'mapUrl' => 'https://www.google.com/maps/place/UltraFlex+-+Gym+in+Leeds/@53.8145635,-1.8008911,12z/data=!4m10!1m2!2m1!1sUltraFlex+Gym+west+Leeds!3m6!1s0x487be20054e5db95:0xb639aa48f8129fed!8m2!3d53.8145635!4d-1.6608154!15sChhVbHRyYUZsZXggR3ltIHdlc3QgTGVlZHNaGiIYdWx0cmFmbGV4IGd5bSB3ZXN0IGxlZWRzkgEDZ3ltmgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDJ4a2NWVllXbGxaTVZaQ1lsZHNNMkp0VW5SVlZUbHhWRlJTTkZGV1JSQULgAQD6AQUIwwEQQg!16s%2Fg%2F11c319zc40?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
                 ];
                 break;
                 
@@ -540,7 +655,8 @@ class LocationController extends Controller
                     'coordinates' => [
                         'lat' => 53.8371,
                         'lng' => -1.4909
-                    ]
+                    ],
+                    'mapUrl' => 'https://www.google.com/maps/place/UltraFlex+Gym+North+Leeds/@53.8310007,-1.4685853,17z/data=!3m1!4b1!4m6!3m5!1s0x48795bdf67a4199d:0x161674f7e205d7b2!8m2!3d53.8309976!4d-1.4660104!16s%2Fg%2F11kbymfhg8?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
                 ];
                 break;
                 
@@ -748,7 +864,8 @@ class LocationController extends Controller
                     'coordinates' => [
                         'lat' => 53.7085,
                         'lng' => -1.4168
-                    ]
+                    ],
+                    'mapUrl' => 'https://www.google.com/maps/place/UltraFlex+Normanton/@53.7018856,-1.4042812,17z/data=!3m1!4b1!4m6!3m5!1s0x48795da40af09e07:0x586579d496b76ed3!8m2!3d53.7018825!4d-1.4017063!16s%2Fg%2F11fdkx44lv?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
                 ];
                 break;
                 
@@ -910,7 +1027,8 @@ class LocationController extends Controller
                     'coordinates' => [
                         'lat' => 53.4326,
                         'lng' => -1.3568
-                    ]
+                    ],
+                    'mapUrl' => 'https://www.google.com/maps/place/UltraFlex+-+Gym+in+Rotherham/@53.4380464,-1.3554535,17z/data=!3m1!4b1!4m6!3m5!1s0x48797709d1450b65:0x25be57d0fbe940e3!8m2!3d53.4380432!4d-1.3528786!16s%2Fg%2F11gp35wlzk?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
                 ];
                 break;
                 
@@ -1095,7 +1213,8 @@ class LocationController extends Controller
                     'coordinates' => [
                         'lat' => 54.0059,
                         'lng' => -1.0810
-                    ]
+                    ],
+                    'mapUrl' => 'https://www.google.com/maps/place/UltraFlex+-+Gym+in+York/@53.9620338,-1.0749673,17z/data=!3m1!4b1!4m6!3m5!1s0x487931d9a664f0c1:0xa5b0aa55abc8b897!8m2!3d53.9620307!4d-1.0723924!16s%2Fg%2F11h7fzf0w2?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
                 ];
                 break;
                 
@@ -1119,16 +1238,16 @@ class LocationController extends Controller
                         'https://www.dropbox.com/scl/fi/1p7l0kjuy4z0ghy5utb1r/Photo-07-10-2025-16-46-52.jpg?rlkey=vzzyp8up3az298uoq2l91vfmr&raw=1',
                     ],
                     'slug' => 'hull',
-                    // Provided Matterport link (updated)
-                    'virtualTour' => 'https://my.matterport.com/show/?m=nfWTbfybzYt&back=1',
+                    // Hull drone tour video
+                    'virtualTour' => 'https://www.youtube.com/embed/xJI-E8q2b9o',
                     'hours' => [
                         'monday' => '05:00 – 22:00',
                         'tuesday' => '05:00 – 22:00',
                         'wednesday' => '05:00 – 22:00',
                         'thursday' => '05:00 – 22:00',
                         'friday' => '05:00 – 22:00',
-                        'saturday' => '07:00 – 20:00',
-                        'sunday' => '07:00 – 20:00'
+                        'saturday' => '06:00 – 20:00',
+                        'sunday' => '06:00 – 20:00'
                     ],
                     'manager' => [
                         'name' => 'Tronn',
@@ -1157,7 +1276,9 @@ class LocationController extends Controller
                         'Free on-site parking',
                         'Easy public transport access'
                     ],
-                    'services' => [],
+                    'services' => [
+                        ['name' => 'Sports Rehab Massage', 'description' => 'Professional sports massage and rehabilitation services.']
+                    ],
                     'serviceLinks' => [],
                     'membershipPlans' => [
                         [
@@ -1252,7 +1373,8 @@ class LocationController extends Controller
                             'comment' => "Great gym with loads of quality machines, free weights and squat racks that's reasonably priced. Plenty of space even at peak times. The recovery room is a great feature as well. I was very impressed. Will definitely use this gym again if I'm in the area. Really impressive.",
                             'date' => '9 months ago'
                         ],
-                    ]
+                    ],
+                    'mapUrl' => 'https://www.google.com/maps/place/UltraFlex+Hull/@53.7370945,-0.3793473,17z/data=!3m1!4b1!4m6!3m5!1s0x4878bf4224c223bf:0xdf1edfef5956e5db!8m2!3d53.7370945!4d-0.3793473!16s%2Fg%2F11h_46zghn?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
                 ];
                 break;
                 
@@ -1263,7 +1385,7 @@ class LocationController extends Controller
                     'id' => 7,
                     'name' => 'ULTRAFLEX DURHAM',
                     'address' => 'Mandale Business Park, Unit 28D, Kent House, Durham DH1 1TH',
-                    'phone' => '+44 1913 789 012',
+                    'phone' => '0191 3898321',
                     'email' => 'durham@ultraflexgym.co.uk',
                     // Updated primary image for Durham location
                     'image' => '/Images/original-787FADAA-6849-48F3-B005-6AD9FB2E74C4-min-min.jpeg',
@@ -1294,11 +1416,11 @@ class LocationController extends Controller
                     ],
                     'services' => [
                         ['name' => 'Baxters Barbers', 'description' => 'On-site barber services for members.'],
-                        ['name' => 'Regen Physio (George)', 'description' => 'Physiotherapy and rehabilitation support from George.']
+                        ['name' => 'Regen Physio', 'description' => 'Physiotherapy and rehabilitation support.']
                     ],
                     'serviceLinks' => [
                         ['label' => 'Baxters Barbers Instagram', 'url' => 'https://www.instagram.com/Baxters_barbers', 'type' => 'external'],
-                        ['label' => 'Regen Physio (George) Instagram', 'url' => 'https://www.instagram.com/George_regendurham', 'type' => 'external']
+                        ['label' => 'Regen Physio Instagram', 'url' => 'https://www.instagram.com/George_regendurham', 'type' => 'external']
                     ],
                     'membershipPlans' => [
                         [
@@ -1314,7 +1436,7 @@ class LocationController extends Controller
                             'name' => 'Monthly Pass',
                             'price' => 54.00,
                             'period' => 'month',
-                            'features' => ['30 Days Access', 'All Equipment Access', 'Cardio Area', 'Group Classes'],
+                            'features' => ['30 Days Access', 'All Equipment Access', 'Cardio Area'],
                             'popular' => false
                         ],
                         [
@@ -1322,7 +1444,7 @@ class LocationController extends Controller
                             'name' => 'Monthly Direct Debit (12mth)',
                             'price' => 48.00,
                             'period' => 'month',
-                            'features' => ['Monthly Direct Debit', '12 Month Commitment', 'All Equipment Access', 'Cardio Area', 'Group Classes', 'Best Value'],
+                            'features' => ['Monthly Direct Debit', '12 Month Commitment', 'All Equipment Access', 'Cardio Area', 'Best Value'],
                             'popular' => true
                         ],
                         [
@@ -1330,7 +1452,7 @@ class LocationController extends Controller
                             'name' => '6 Month Pass',
                             'price' => 250.00,
                             'period' => '6 months',
-                            'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'Cardio Area', 'Group Classes'],
+                            'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'Cardio Area'],
                             'popular' => false
                         ],
                         [
@@ -1338,7 +1460,7 @@ class LocationController extends Controller
                             'name' => '12 Month Pass',
                             'price' => 435.00,
                             'period' => '12 months',
-                            'features' => ['12 Months Access', 'Payment in Full', 'All Equipment Access', 'Cardio Area', 'Group Classes', 'Best Annual Value'],
+                            'features' => ['12 Months Access', 'Payment in Full', 'All Equipment Access', 'Cardio Area', 'Best Annual Value'],
                             'popular' => false
                         ],
                         [
@@ -1401,7 +1523,8 @@ class LocationController extends Controller
                             'comment' => 'I trained here for 6 months from Sept 2024 to March 2025 and have been going to the gym since July 2021. This is easily the best gym I have ever trained at with the best equipment available for each body part. Can\'t wait to get back training there when back at uni in September this year. Just seen a new recovery place has been built which is sick. Only critique would be that sometimes the music is stupidly loud but it does help squeeze some extra reps.',
                             'date' => '5 months ago'
                         ],
-                    ]
+                    ],
+                    'mapUrl' => 'https://www.google.com/maps/place/UltraFlex+-+Gym+in+Durham/@54.7885757,-1.5341394,17z/data=!3m1!4b1!4m6!3m5!1s0x487e7ddf0af67a83:0xc2c9d1ae77103247!8m2!3d54.7885757!4d-1.5341394!16s%2Fg%2F11fs7zcll9?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
                 ];
                 break;
                 
@@ -1434,8 +1557,8 @@ class LocationController extends Controller
                         'wednesday' => '05:00 – 22:00',
                         'thursday' => '05:00 – 22:00',
                         'friday' => '05:00 – 22:00',
-                        'saturday' => '06:00 – 20:00',
-                        'sunday' => '06:00 – 20:00'
+                        'saturday' => '07:00 – 20:00',
+                        'sunday' => '07:00 – 20:00'
                     ],
                     'manager' => [
                         'name' => 'Ian',
@@ -1586,7 +1709,12 @@ class LocationController extends Controller
                             'comment' => 'Great gym, in my opinion best in the UK. Very clean and friendly environment. The staff are amazing, great customer service especially from the two Lukes on the front desk. Met the gym owner Charles and he is a top man, goes out of his way for all the members in the gym to make sure the gym is the best it can be.',
                             'date' => '6 months ago'
                         ],
-                    ]
+                    ],
+                    'coordinates' => [
+                        'lat' => 52.9219,
+                        'lng' => -1.4758
+                    ],
+                    'mapUrl' => 'https://www.google.com/maps/place/UltraFlex+Derby/@52.9209207,-1.4514623,17z/data=!3m1!4b1!4m6!3m5!1s0x4879f1ba94609079:0x22c967098ab40dcd!8m2!3d52.9209175!4d-1.4488874!16s%2Fg%2F11vb8bxxlh?coh=277535&entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoKLDEwMDc5MjA3M0gBUAM%3D&skid=00b71a2c-ba9f-4c14-8f06-71774134c920'
                 ];
                 break;
 
@@ -1714,7 +1842,7 @@ class LocationController extends Controller
                     ],
                     'manager' => [
                         'name' => 'Lynsey Hind',
-                        'bio' => "I’m proud to be the Gym Manager here at Ultraflex – the friendliest, most motivating place to train!\nFrom the moment you walk through the doors, you’re part of the family. Our amazing team is always ready with a smile, a helping hand, and encouragement to keep you progressing toward your goals.\nWe’ve built an environment where everyone works together – no egos, just great vibes, hard work, and a shared love for health & fitness. Whether you’re lifting big, starting your journey, or just here for a feel-good session, you’ll always feel welcome.\nOutside of the gym, I’m a proud mum to Ava-Lily, my eight-year-old daughter who has a real need for speed. Most weekends you’ll find us at the track, where she’s racing her go-kart with the same determination and focus we value so much in the gym.\nFor me, both work and home life are about dedication, community, and enjoying the journey – and that’s exactly what we aim to bring to every member’s experience at Ultraflex.\nIt’s all about community, support, and results – and we can’t wait to welcome you in.\nIf you need any more information, please feel free to contact me:\nEmail: l.hind@ultraflexgym.co.uk\nPhone: 07926 528367",
+                        'bio' => "I’m proud to be the Gym Manager here at Ultraflex – the friendliest, most motivating place to train!\nFrom the moment you walk through the doors, you’re part of the family. Our amazing team is always ready with a smile, a helping hand, and encouragement to keep you progressing toward your goals.\nWe’ve built an environment where everyone works together – no egos, just great vibes, hard work, and a shared love for health & fitness. Whether you’re lifting big, starting your journey, or just here for a feel-good session, you’ll always feel welcome.\nOutside of the gym, I’m a proud mum to Ava-Lily, my eight-year-old daughter who has a real need for speed. Most weekends you’ll find us at the track, where she’s racing her go-kart with the same determination and focus we value so much in the gym.\nFor me, both work and home life are about dedication, community, and enjoying the journey – and that’s exactly what we aim to bring to every member’s experience at Ultraflex.\nIt’s all about community, support, and results – and we can’t wait to welcome you in.",
                         // TODO: Manager image missing (lynsey.jpg). Add file to public/Images/managers or update path.
                         'image' => null,
                         'experience' => ''
@@ -1884,7 +2012,8 @@ class LocationController extends Controller
                     'coordinates' => [
                         'lat' => 53.2307,
                         'lng' => -0.5406
-                    ]
+                    ],
+                    'mapUrl' => 'https://www.google.com/maps/place/UltraFlex+Lincoln/@53.2010099,-0.5950846,17z/data=!3m1!4b1!4m6!3m5!1s0x4878453a2df04e4d:0x2e4b6b6facf2e70d!8m2!3d53.2010068!4d-0.5902137!16s%2Fg%2F11wg7fn_1m?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
                 ];
                 break;
 
@@ -1945,11 +2074,14 @@ class LocationController extends Controller
                         ]
                     ],
                     'serviceLinks' => [
+                        // Head2Heel Physio
                         [ 'label' => 'Head2Heel Physio Instagram', 'url' => 'https://www.instagram.com/Head2Heal.Clinic', 'type' => 'instagram' ],
                         [ 'label' => 'Head2Heel Physio Phone', 'url' => 'tel:07951472144', 'type' => 'phone' ],
+                        // NMK Aesthetics
                         [ 'label' => 'NMK Aesthetics Instagram', 'url' => 'https://www.instagram.com/nmk_aesthetics', 'type' => 'instagram' ],
                         [ 'label' => 'NMK Aesthetics Website', 'url' => 'https://nmkaesthetics.com/', 'type' => 'website' ],
                         [ 'label' => 'NMK Aesthetics Phone', 'url' => 'tel:07377190361', 'type' => 'phone' ],
+                        // Faded Group Barber
                         [ 'label' => 'Faded Group Barber Instagram', 'url' => 'https://www.instagram.com/fadedgroup_uxbridge', 'type' => 'instagram' ],
                         [ 'label' => 'Faded Group Barber Phone', 'url' => 'tel:07900626284', 'type' => 'phone' ]
                     ],
@@ -2052,7 +2184,8 @@ class LocationController extends Controller
                     'coordinates' => [
                         'lat' => 51.5074,
                         'lng' => -0.2296
-                    ]
+                    ],
+                    'mapUrl' => 'https://www.google.com/maps/place/UltraFlex+-+Gym+in+West+London/@51.5199897,-0.4833574,17z/data=!3m1!4b1!4m6!3m5!1s0x48766e049076b79b:0x50c88ea22ee842ae!8m2!3d51.5199864!4d-0.4807825!16s%2Fg%2F1tj88y5l?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
                 ];
                 break;
                 

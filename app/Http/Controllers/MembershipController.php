@@ -100,8 +100,8 @@ class MembershipController extends Controller
                 'name' => 'ULTRAFLEX DURHAM',
                 'plans' => [
                     ['id'=>2,'name'=>'Weekly Pass','price'=>24.00,'period'=>'week','features'=>['7 Days Access','All Equipment Access','Cardio Area','Free Parking'],'popular'=>false],
-                    ['id'=>3,'name'=>'Monthly Pass','price'=>54.00,'period'=>'month','features'=>['30 Days Access','All Equipment Access','Cardio Area','Group Classes'],'popular'=>false],
-                    ['id'=>4,'name'=>'Monthly Direct Debit (12mth)','price'=>48.00,'period'=>'month','features'=>['12 Month Contract','All Equipment Access','Cardio Area','Group Classes','Best Value'],'popular'=>true],
+                    ['id'=>3,'name'=>'Monthly Pass','price'=>54.00,'period'=>'month','features'=>['30 Days Access','All Equipment Access','Cardio Area'],'popular'=>false],
+                    ['id'=>4,'name'=>'Monthly Direct Debit (12mth)','price'=>48.00,'period'=>'month','features'=>['12 Month Contract','All Equipment Access','Cardio Area','Best Value'],'popular'=>true],
                     ['id'=>5,'name'=>'6 Month Pass','price'=>250.00,'period'=>'6 months','features'=>['Payment in Full','All Equipment Access'],'popular'=>false],
                     ['id'=>6,'name'=>'12 Month Pass','price'=>435.00,'period'=>'12 months','features'=>['Payment in Full','All Equipment Access','Best Annual Value'],'popular'=>false],
                     ['id'=>7,'name'=>'Student 6 Month Pass','price'=>200.00,'period'=>'6 months','features'=>['Student Discount','Valid Student ID Required','Payment in Full'],'popular'=>false],

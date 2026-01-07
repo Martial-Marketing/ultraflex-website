@@ -73,15 +73,11 @@ export default function TrainerShow({ trainer, auth }: TrainerShowProps) {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-    post(`/trainers/${trainer.slug}/contact`);
+        post(`/trainers/${trainer.slug}/contact`);
     };
-
-
 
     const tabs = [
         { id: 'about', label: 'About' },
-        { id: 'sessions', label: 'Sessions & Pricing' },
-        { id: 'testimonials', label: 'Testimonials' },
         { id: 'contact', label: 'Contact' },
     ];
 
@@ -240,7 +236,7 @@ export default function TrainerShow({ trainer, auth }: TrainerShowProps) {
                                             </div>
                                         </Card>
 
-                                        {/* Quick Contact */}
+                                        {/* Contact Information */}
                                         <Card className="p-6 bg-red-700/10 backdrop-blur-md border border-red-700/30 relative overflow-hidden">
                                             <div className="absolute inset-0 bg-gradient-to-br from-red-700/5 to-red-800/5"></div>
                                             <div className="relative z-10">
@@ -250,7 +246,7 @@ export default function TrainerShow({ trainer, auth }: TrainerShowProps) {
                                                     <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Start?</span>
                                                 </h3>
                                                 <p className="text-gray-300 mb-4">
-                                                    Book a consultation with {trainer.name} today!
+                                                    Get in touch with {trainer.name} today!
                                                 </p>
                                                 <Button 
                                                     className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group"
@@ -262,122 +258,6 @@ export default function TrainerShow({ trainer, auth }: TrainerShowProps) {
                                                 </Button>
                                             </div>
                                         </Card>
-                                    </div>
-                                </div>
-                            )}
-
-                            {/* Sessions & Pricing Tab */}
-                            {activeTab === 'sessions' && (
-                                <div className="grid lg:grid-cols-2 gap-12">
-                                    <div>
-                                        <h2 className="text-3xl font-bold mb-8">
-                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Session</span>{' '}
-                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Types</span>{' '}
-                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">&</span>{' '}
-                                            <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Pricing</span>
-                                        </h2>
-                                        <div className="space-y-6">
-                                            {trainer.sessionTypes.map((session, index) => (
-                                                <Card key={index} className="p-6 hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 group">
-                                                    <div className="flex justify-between items-start mb-4">
-                                                        <div>
-                                                            <h3 className="text-xl font-semibold text-white group-hover:text-red-700 transition-colors duration-300">{session.type}</h3>
-                                                            <p className="text-gray-300 mt-1">
-                                                                {session.duration}
-                                                            </p>
-                                                        </div>
-                                                        <div className="text-right">
-                                                            <div className="text-2xl font-bold text-red-700">£{session.price}</div>
-                                                            <div className="text-sm text-gray-400">per session</div>
-                                                        </div>
-                                                    </div>
-                                                    <Button variant="outline" className="w-full border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
-                                                        <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                                            Book This Session
-                                                        </span>
-                                                    </Button>
-                                                </Card>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <h2 className="text-3xl font-bold mb-8">
-                                            <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Availability</span>
-                                        </h2>
-                                        <Card className="p-6 bg-black/40 backdrop-blur-md border border-white/10">
-                                            <div className="space-y-4">
-                                                {trainer.availability.map((day, index) => (
-                                                    <div key={index} className="flex justify-between items-center py-3 border-b border-white/10 last:border-b-0">
-                                                        <span className="font-medium text-white">{day.day}</span>
-                                                        <div className="flex flex-wrap gap-2">
-                                                            {day.times.map((time, timeIndex) => (
-                                                                <span 
-                                                                    key={timeIndex}
-                                                                    className="px-2 py-1 bg-red-700/20 text-red-700 text-sm rounded backdrop-blur-sm border border-red-700/30"
-                                                                >
-                                                                    {time}
-                                                                </span>
-                                                            ))}
-                                                        </div>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                            
-                                            <div className="mt-6 p-4 bg-yellow-600/20 backdrop-blur-sm rounded-lg border border-yellow-600/30">
-                                                <p className="text-sm text-yellow-200">
-                                                    <strong>Note:</strong> Availability shown is general schedule. 
-                                                    Specific times may vary. Please contact for exact availability.
-                                                </p>
-                                            </div>
-                                        </Card>
-                                    </div>
-                                </div>
-                            )}
-
-                            {/* Testimonials Tab */}
-                            {activeTab === 'testimonials' && (
-                                <div>
-                                    <h2 className="text-3xl font-bold text-center mb-12">
-                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">What</span>{' '}
-                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Clients</span>{' '}
-                                        <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Say</span>{' '}
-                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">About</span>{' '}
-                                        <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">{trainer.name}</span>
-                                    </h2>
-                                    
-                                    <div className="grid md:grid-cols-2 gap-8">
-                                        {trainer.testimonials.map((testimonial) => (
-                                            <Card key={testimonial.id} className="p-6 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 group">
-                                                <div className="flex items-center justify-start mb-4">
-                                                    <span className="text-sm text-gray-400">{testimonial.date}</span>
-                                                </div>
-                                                
-                                                <p className="text-gray-300 mb-4 italic group-hover:text-gray-200 transition-colors duration-300">"{testimonial.comment}"</p>
-                                                <p className="font-semibold text-white">- {testimonial.name}</p>
-                                                
-                                                {testimonial.beforeAfter && (
-                                                    <div className="mt-6 grid grid-cols-2 gap-4">
-                                                        <div>
-                                                            <p className="text-sm font-medium text-white mb-2">Before</p>
-                                                            <img 
-                                                                src={testimonial.beforeAfter.before} 
-                                                                alt="Before transformation"
-                                                                className="w-full h-32 object-cover rounded-lg border border-white/10"
-                                                            />
-                                                        </div>
-                                                        <div>
-                                                            <p className="text-sm font-medium text-white mb-2">After</p>
-                                                            <img 
-                                                                src={testimonial.beforeAfter.after} 
-                                                                alt="After transformation"
-                                                                className="w-full h-32 object-cover rounded-lg border border-white/10"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                )}
-                                            </Card>
-                                        ))}
                                     </div>
                                 </div>
                             )}
@@ -628,7 +508,7 @@ export default function TrainerShow({ trainer, auth }: TrainerShowProps) {
                                     onClick={() => setActiveTab('contact')}
                                 >
                                     <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                        Book Consultation
+                                        Contact {trainer.name}
                                     </span>
                                 </Button>
                                 <Link href="/trainers">

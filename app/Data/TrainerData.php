@@ -234,17 +234,6 @@ class TrainerData
                 'locationSlug' => 'durham',
                 'contact' => ['instagram' => 'https://instagram.com/ashtonpersonaltraining']
             ],
-            [
-                'id' => 505,
-                'name' => 'Wendy McCready',
-                'slug' => 'wendy-mccready',
-                'image' => '/Images/PTS/Picture12.webp',
-                'bio' => 'IFBB Pro offering elite physique coaching and stage preparation.',
-                'specialties' => ['IFBB Prep', 'Physique'],
-                'certifications' => ['IFBB Pro'],
-                'locationSlug' => 'durham',
-                'contact' => ['instagram' => 'https://instagram.com/ifbbprowendymccready']
-            ],
             // Derby
             [
                 'id' => 601,

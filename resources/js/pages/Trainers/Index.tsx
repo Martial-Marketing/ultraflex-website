@@ -66,7 +66,7 @@ export default function TrainersIndex({ trainers, locations, specialties, auth }
         
         const matchesGender = !selectedGender || trainer.gender === selectedGender;
         
-    const matchesLocation = !selectedLocation || trainer.locationSlug === selectedLocation;
+        const matchesLocation = !selectedLocation || trainer.locationSlug === selectedLocation;
 
         return matchesSearch && matchesSpecialty && matchesGender && matchesLocation;
     });
@@ -310,19 +310,12 @@ export default function TrainersIndex({ trainers, locations, specialties, auth }
                                             <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)]">Training?</span>
                                         </h2>
                                         <p className="text-gray-300 mb-6 leading-relaxed">
-                                            Book a consultation with one of our expert trainers and take the first 
+                                            Connect with one of our expert trainers and take the first 
                                             step towards achieving your fitness goals.
                                         </p>
                                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                            <Link href="/contact">
-                                                <Button size="lg" className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group">
-                                                    <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                                        Book Consultation
-                                                    </span>
-                                                </Button>
-                                            </Link>
                                             <Link href="/locations">
-                                                <Button size="lg" variant="outline" className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
+                                                <Button size="lg" className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group">
                                                     <span className="group-hover:translate-x-1 transition-transform duration-300">
                                                         Find a Location
                                                     </span>

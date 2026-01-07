@@ -16,21 +16,21 @@ export default function About(props: AppLayoutProps) {
                     <p className="mb-4 text-lg text-gray-200">
                         Welcome to UltraFlex – where your fitness journey becomes an experience. Since our founding, we’ve been committed to building more than just gyms; we build communities that inspire, support, and empower every member.
                     </p>
-                    <p className="mb-4 text-gray-300">
-                        Our state-of-the-art facilities feature the latest equipment and a team of passionate trainers dedicated to helping you reach your goals. Whether you’re training for your first 5K, building strength, or seeking a healthier lifestyle, UltraFlex is your home for transformation.
+                    <p className="mb-4 text-lg text-gray-200">
+                        Our state-of-the-art facilities feature the latest equipment and a team of passionate trainers dedicated to helping you reach your goals. Whether you're training for your first 5K, building strength, or seeking a healthier lifestyle, UltraFlex is your home for transformation.
                     </p>
-                    <p className="mb-4 text-gray-300">
+                    <p className="mb-4 text-lg text-gray-200">
                         We believe fitness should be accessible, motivating, and fun. That’s why we offer flexible memberships, expert coaching, and a welcoming environment for all ages and abilities. Join us and discover the UltraFlex difference – where every member matters and every goal is possible.
                     </p>
-                    <ul className="list-disc pl-6 mb-4 text-gray-400">
+                    <ul className="list-disc pl-6 mb-4 text-lg text-gray-200">
                         <li>Multiple locations across the region</li>
                         <li>Personal training and nutrition support</li>
                         <li>Modern equipment and functional training zones</li>
-                        <li>Group classes for all levels</li>
                         <li>Friendly, expert staff</li>
                     </ul>
-                    <div className="mt-8">
-                        <Link href="/locations" className="text-red-400 hover:underline font-semibold">Find a Location</Link>
+                    <div className="mt-8 flex gap-4">
+                        <Link href="/locations" className="text-red-400 hover:underline text-lg">Find a Location</Link>
+                        <Link href="/contact" className="text-red-400 hover:underline text-lg">Contact Us</Link>
                     </div>
                 </div>
             </div>

@@ -78,6 +78,7 @@ interface Location {
         lat: number;
         lng: number;
     };
+    mapUrl?: string;
     // Newly added optional structured enhancements
     features?: string[];
     services?: { name: string; description?: string; icon?: string; logo?: string }[];
@@ -242,6 +243,36 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
     const getCurrentMembershipPlans = () => {
         const startIndex = currentMembershipSlide * membershipPlansPerSlide;
         return location.membershipPlans.slice(startIndex, startIndex + membershipPlansPerSlide);
+    };
+
+    // Helper function to categorize service links with titles
+    const categorizeServiceLinks = (links: { label: string; url: string; type?: string }[]) => {
+        const categories: { title: string; links: { label: string; url: string; type?: string }[] }[] = [];
+        
+        // Group links by service type based on label patterns
+        const physioLinks = links.filter(link => link.label.toLowerCase().includes('physio') || link.label.toLowerCase().includes('regen'));
+        const boxingLinks = links.filter(link => link.label.toLowerCase().includes('boxing') || link.label.toLowerCase().includes('ostas'));
+        const judoLinks = links.filter(link => link.label.toLowerCase().includes('judo') || link.label.toLowerCase().includes('pudsey'));
+        const hairLinks = links.filter(link => link.label.toLowerCase().includes('hair') || link.label.toLowerCase().includes('smitin'));
+        const barberLinks = links.filter(link => link.label.toLowerCase().includes('barber') || link.label.toLowerCase().includes('jax'));
+        const otherLinks = links.filter(link => {
+            const label = link.label.toLowerCase();
+            return !label.includes('physio') && !label.includes('regen') &&
+                   !label.includes('boxing') && !label.includes('ostas') &&
+                   !label.includes('judo') && !label.includes('pudsey') &&
+                   !label.includes('hair') && !label.includes('smitin') &&
+                   !label.includes('barber') && !label.includes('jax');
+        });
+        
+        // Add categories only if they have links
+        if (physioLinks.length > 0) categories.push({ title: 'Physiotherapy & Recovery', links: physioLinks });
+        if (boxingLinks.length > 0) categories.push({ title: 'Boxing', links: boxingLinks });
+        if (judoLinks.length > 0) categories.push({ title: 'Judo', links: judoLinks });
+        if (hairLinks.length > 0) categories.push({ title: 'Hair Services', links: hairLinks });
+        if (barberLinks.length > 0) categories.push({ title: 'Barber Services', links: barberLinks });
+        if (otherLinks.length > 0) categories.push({ title: 'Other Services', links: otherLinks });
+        
+        return categories;
     };
 
     const renderStars = (rating: number) => {
@@ -455,7 +486,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                                 <Phone className="h-5 w-5 text-red-700" />
                                                 <span className="text-gray-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300">{location.phone}</span>
                                             </a>
-                                            <a href={`https://maps.google.com/maps?q=${encodeURIComponent(location.address)}`} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 group hover:text-red-700 transition-colors duration-300">
+                                            <a href={location.mapUrl || `https://maps.google.com/maps?q=${encodeURIComponent(location.address)}`} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 group hover:text-red-700 transition-colors duration-300">
                                                 <MapPin className="h-5 w-5 text-red-700" />
                                                 <span className="text-gray-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300">{location.address}</span>
                                             </a>
@@ -469,7 +500,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
 
                                         <Button 
                                             className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group"
-                                            onClick={() => window.open(`https://maps.google.com/maps?q=${location.coordinates.lat},${location.coordinates.lng}`, '_blank')}
+                                            onClick={() => window.open(location.mapUrl || `https://maps.google.com/maps?q=${location.coordinates.lat},${location.coordinates.lng}`, '_blank')}
                                         >
                                             <Navigation className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
                                             <span className="group-hover:translate-x-1 transition-transform duration-300">
@@ -661,22 +692,31 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                         <h3 className="text-xl font-semibold text-white mb-6 flex items-center">
                                             <ChevronRight className="h-5 w-5 text-red-700 mr-2" /> Useful Links
                                         </h3>
-                                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                                            {location.serviceLinks.map((link, i) => {
-                                                const external = link.type === 'external' || /^https?:\/\//.test(link.url);
-                                                return (
-                                                    <a
-                                                        key={i}
-                                                        href={link.url}
-                                                        target={external ? '_blank' : undefined}
-                                                        rel={external ? 'noopener noreferrer' : undefined}
-                                                        className="group bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/40 rounded-lg p-4 flex items-center justify-between transition-all duration-300 hover:shadow-lg hover:shadow-red-700/10"
-                                                    >
-                                                        <span className="text-gray-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300 text-sm font-medium">{link.label}</span>
-                                                        <ChevronRight className="h-4 w-4 text-red-700 group-hover:scale-110 transition-transform duration-300" />
-                                                    </a>
-                                                );
-                                            })}
+                                        <div className="space-y-8">
+                                            {categorizeServiceLinks(location.serviceLinks).map((category, catIndex) => (
+                                                <div key={catIndex} className="space-y-4">
+                                                    <h4 className="text-lg font-semibold text-red-700 border-b border-red-700/30 pb-2">
+                                                        {category.title}
+                                                    </h4>
+                                                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                                        {category.links.map((link, i) => {
+                                                            const external = link.type === 'external' || /^https?:\/\//.test(link.url);
+                                                            return (
+                                                                <a
+                                                                    key={i}
+                                                                    href={link.url}
+                                                                    target={external ? '_blank' : undefined}
+                                                                    rel={external ? 'noopener noreferrer' : undefined}
+                                                                    className="group bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/40 rounded-lg p-4 flex items-center justify-between transition-all duration-300 hover:shadow-lg hover:shadow-red-700/10"
+                                                                >
+                                                                    <span className="text-gray-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300 text-sm font-medium">{link.label}</span>
+                                                                    <ChevronRight className="h-4 w-4 text-red-700 group-hover:scale-110 transition-transform duration-300" />
+                                                                </a>
+                                                            );
+                                                        })}
+                                                    </div>
+                                                </div>
+                                            ))}
                                         </div>
                                     </div>
                                 )}
