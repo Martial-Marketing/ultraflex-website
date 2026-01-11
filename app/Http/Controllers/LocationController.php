@@ -225,7 +225,7 @@ class LocationController extends Controller
                 'id' => 4,
                 'name' => 'ULTRAFLEX ROTHERHAM',
                 'address' => '175 Effingham St, Rotherham S65 1BL',
-                'phone' => '+44 1709 456 789',
+                'phone' => '0170 937 7311',
                 'image' => '/Images/newimages/Rotherham/gym-in-rotherham.webp',
                 'slug' => 'rotherham',
                 'hours' => [
@@ -237,11 +237,11 @@ class LocationController extends Controller
                 'id' => 5,
                 'name' => 'ULTRAFLEX YORK',
                 'address' => '10 Layerthorpe, York YO31 7YW',
-                'phone' => '+44 1904 567 890',
+                'phone' => '01904 567890',
                 'image' => '/Images/newimages/York/gym-in-york.webp',
                 'slug' => 'york',
                 'hours' => [
-                    'weekdays' => '05:00 - 22:00',
+                    'weekdays' => '06:00 - 22:00',
                     'weekends' => '08:00 - 20:00'
                 ]
             ],
@@ -262,7 +262,7 @@ class LocationController extends Controller
                 'id' => 7,
                 'name' => 'ULTRAFLEX DURHAM',
                 'address' => 'Mandale Business Park, Unit 28D, Kent House, Durham DH1 1TH',
-                'phone' => '+44 1913 789 012',
+                'phone' => '0191 3898321',
                 // Updated processed hero image
                 'image' => '/Images/original-787FADAA-6849-48F3-B005-6AD9FB2E74C4-min-min.jpeg',
                 'slug' => 'durham',
@@ -289,7 +289,7 @@ class LocationController extends Controller
                 'name' => 'ULTRAFLEX ATHENS (GREECE)',
                 'address' => 'Ethnarchou Makariou 16, Peristeri 121 32, Greece',
                 'phone' => '+30 210 901 2345',
-                'image' => '/Images/athens/HeroBG/gym-in-athens-16.webp',
+                'image' => '/Images/athens/HeroBG/DSC07413.jpg',
                 'slug' => 'athens-greece',
                 'hours' => [
                     'weekdays' => '6:00 AM - 11:00 PM',
@@ -300,9 +300,9 @@ class LocationController extends Controller
                 'id' => 10,
                 'name' => 'ULTRAFLEX LINCOLN',
                 'address' => '3 Pioneer Way, Lincoln LN6 3DH',
-                'phone' => '+44 1522 012 345',
-                // Updated processed hero image (Oct 8 2025 change request)
-                'image' => '/Images/processed-E72B606D-BB53-4CB2-90BA-4EB35AC99920.webp',
+                'phone' => '01522 454320',
+                // Updated processed hero image (Jan 12 2026 change request)
+                'image' => '/Images/newimages/processed-7CE97793-CFE2-44A3-9BC7-AC26D84DB463.webp',
                 'slug' => 'lincoln',
                 'hours' => [
                     'weekdays' => '06:00 - 22:00',
@@ -378,8 +378,8 @@ class LocationController extends Controller
                     'image' => '/Images/newimages/West Leeds/gym-in-westleeds.webp',
                     'gallery' => isset(self::$externalImages['west-leeds']) ? self::$externalImages['west-leeds'] : [],
                     'slug' => 'west-leeds',
-                    // West Leeds drone video tour (converted to embed format for proper iframe display)
-                    'virtualTour' => 'https://www.youtube.com/embed/hvSoOHsIh28',
+                    // West Leeds drone video tour (updated Jan 12 2026)
+                    'virtualTour' => 'https://www.youtube.com/embed/hvSoOHsIh28?rel=0&modestbranding=1',
                     'hours' => [
                         'monday' => '05:30 – 22:00',
                         'tuesday' => '05:30 – 22:00',
@@ -1816,8 +1816,8 @@ class LocationController extends Controller
                     'address' => '3 Pioneer Way, Lincoln LN6 3DH',
                     'phone' => '01522 454320',
                     'email' => 'lincoln@ultraflexgym.co.uk',
-                    // Updated primary image for Lincoln location (replaced per user request Oct 8 2025)
-                    'image' => '/Images/processed-E72B606D-BB53-4CB2-90BA-4EB35AC99920.webp',
+                    // Updated primary image for Lincoln location (replaced per user request Jan 12 2026)
+                    'image' => '/Images/newimages/processed-7CE97793-CFE2-44A3-9BC7-AC26D84DB463.webp',
                     'gallery' => [
                         '/Images/newimages/Lincoln/gym-in-lincoln-2.webp',
                         '/Images/newimages/Lincoln/gym-in-lincoln-3.webp',
