@@ -177,7 +177,7 @@ class TourController extends Controller
                 'tourUrl' => 'https://youtu.be/VgF1a6XxAkc?si=Ki3Z0VdqdKVocs52',
                 'duration' => '5-7 minutes',
                 'address' => 'Limewood Approach, Seacroft, Leeds LS14 1NH',
-                'phone' => '0113 513 7669',
+                'phone' => '0113 513 7671',
                 'email' => 'northleeds@ultraflexgym.co.uk',
                 'highlights' => [
                     'Brand new site',
@@ -441,7 +441,7 @@ class TourController extends Controller
                     '/Images/processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.jpeg'
                 ],
                 'address' => 'Limewood Approach, Seacroft, Leeds LS14 1NH',
-                'phone' => '0113 513 7669',
+                'phone' => '0113 513 7671',
                 'email' => 'northleeds@ultraflexgym.co.uk',
                 'tourUrl' => 'https://youtu.be/VgF1a6XxAkc?si=Ki3Z0VdqdKVocs52'
             ],

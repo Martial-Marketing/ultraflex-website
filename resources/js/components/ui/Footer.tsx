@@ -186,13 +186,6 @@ export default function AnimatedFooter({ className = '' }: FooterProps) {
                                 </div>
 
                                 <div className="flex items-center space-x-2">
-                                    <Phone className="h-4 w-4 text-red-700" />
-                                    <a href="tel:+1555123456" className="text-gray-300 hover:text-red-700 transition-colors text-sm">
-                                        (555) 123-4567
-                                    </a>
-                                </div>
-
-                                <div className="flex items-center space-x-2">
                                     <MapPin className="h-4 w-4 text-red-700" />
                                     <Link href="/locations" className="text-gray-300 hover:text-red-700 transition-colors text-sm">
                                         Find Locations

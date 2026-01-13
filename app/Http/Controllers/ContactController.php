@@ -11,7 +11,7 @@ class ContactController extends Controller
     {
         $locations = [
             [ 'id'=>1,'name'=>'ULTRAFLEX WEST LEEDS','slug'=>'west-leeds','address'=>'Cape Mills, Coal Hill Ln, Leeds LS28 5NA','phone'=>'0113 256 5107','email'=>'leeds@ultraflexgym.co.uk','coordinates'=>['lat'=>53.8508,'lng'=>-1.6044] ],
-            [ 'id'=>2,'name'=>'ULTRAFLEX NORTH LEEDS','slug'=>'north-leeds','address'=>'Limewood Approach, Seacroft, Leeds LS14 1NH','phone'=>'0113 513 7669','email'=>'northleeds@ultraflexgym.co.uk','coordinates'=>['lat'=>53.8371,'lng'=>-1.4909] ],
+            [ 'id'=>2,'name'=>'ULTRAFLEX NORTH LEEDS','slug'=>'north-leeds','address'=>'Limewood Approach, Seacroft, Leeds LS14 1NH','phone'=>'0113 513 7671','email'=>'northleeds@ultraflexgym.co.uk','coordinates'=>['lat'=>53.8371,'lng'=>-1.4909] ],
             [ 'id'=>3,'name'=>'ULTRAFLEX NORMANTON','slug'=>'normanton','address'=>'Ripley Dr, Normanton WF6 1QT','phone'=>'01924 895794','email'=>'normanton@ultraflexgym.co.uk','coordinates'=>['lat'=>53.7085,'lng'=>-1.4168] ],
             [ 'id'=>4,'name'=>'ULTRAFLEX ROTHERHAM','slug'=>'rotherham','address'=>'175 Effingham St, Rotherham S65 1BL','phone'=>'0170 937 7311','email'=>'rotherham@ultraflexgym.co.uk','coordinates'=>['lat'=>53.4326,'lng'=>-1.3568] ],
             [ 'id'=>5,'name'=>'ULTRAFLEX YORK','slug'=>'york','address'=>'10 Layerthorpe, York YO31 7YW','phone'=>'+44 1904 567 890','email'=>'york@ultraflexgym.co.uk','coordinates'=>['lat'=>54.0059,'lng'=>-1.0810] ],

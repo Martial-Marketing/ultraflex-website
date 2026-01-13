@@ -101,6 +101,7 @@ class TrainerController extends Controller
         $base['philosophy'] = $base['philosophy'] ?? 'Coaching focused on sustainable progress, proper technique, and building confidence.';
         $base['achievements'] = $base['achievements'] ?? [];
         $base['socialMedia'] = $base['contact'] ?? [];
+        $base['contact'] = $base['contact'] ?? [];
         $base['sessionTypes'] = $base['sessionTypes'] ?? [
             ['type' => '1:1 Personal Training Session', 'duration' => '60 minutes', 'price' => 40],
             ['type' => 'Consultation & Goal Setting', 'duration' => '45 minutes', 'price' => 25],

@@ -31,6 +31,12 @@ interface Trainer {
         facebook?: string;
         youtube?: string;
     };
+    contact: {
+        instagram?: string;
+        facebook?: string;
+        phone?: string;
+        email?: string;
+    };
     sessionTypes: {
         type: string;
         duration: string;
@@ -62,23 +68,9 @@ interface TrainerShowProps {
 
 export default function TrainerShow({ trainer, auth }: TrainerShowProps) {
     const [activeTab, setActiveTab] = useState('about');
-    
-    const { data, setData, post, processing, errors } = useForm({
-        name: '',
-        email: '',
-        phone: '',
-        message: '',
-        preferred_session: '',
-    });
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        post(`/trainers/${trainer.slug}/contact`);
-    };
 
     const tabs = [
         { id: 'about', label: 'About' },
-        { id: 'contact', label: 'Contact' },
     ];
 
     return (
@@ -241,229 +233,83 @@ export default function TrainerShow({ trainer, auth }: TrainerShowProps) {
                                             <div className="absolute inset-0 bg-gradient-to-br from-red-700/5 to-red-800/5"></div>
                                             <div className="relative z-10">
                                                 <h3 className="text-lg font-bold mb-4">
-                                                    <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Ready</span>{' '}
-                                                    <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">to</span>{' '}
-                                                    <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Start?</span>
+                                                    <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Contact</span>{' '}
+                                                    <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">{trainer.name}</span>
                                                 </h3>
-                                                <p className="text-gray-300 mb-4">
-                                                    Get in touch with {trainer.name} today!
-                                                </p>
-                                                <Button 
-                                                    className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group"
-                                                    onClick={() => setActiveTab('contact')}
-                                                >
-                                                    <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                                        Contact {trainer.name}
-                                                    </span>
-                                                </Button>
-                                            </div>
-                                        </Card>
-                                    </div>
-                                </div>
-                            )}
-
-                            {/* Contact Tab */}
-                            {activeTab === 'contact' && (
-                                <div className="grid lg:grid-cols-2 gap-12">
-                                    <div>
-                                        <h2 className="text-3xl font-bold mb-8">
-                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Get</span>{' '}
-                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">In</span>{' '}
-                                            <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Touch</span>
-                                        </h2>
-                                        
-                                        <Card className="p-6 bg-black/40 backdrop-blur-md border border-white/10">
-                                            <form onSubmit={handleSubmit} className="space-y-6">
-                                                <div>
-                                                    <label className="block text-sm font-medium text-white mb-2">
-                                                        Full Name
-                                                    </label>
-                                                    <Input
-                                                        type="text"
-                                                        value={data.name}
-                                                        onChange={(e) => setData('name', e.target.value)}
-                                                        required
-                                                        className={`bg-black/20 backdrop-blur-sm border-white/20 text-white placeholder-gray-400 focus:border-red-700/50 focus:ring-red-700/50 ${errors.name ? 'border-red-500' : ''}`}
-                                                    />
-                                                    {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
-                                                </div>
-
-                                                <div>
-                                                    <label className="block text-sm font-medium text-white mb-2">
-                                                        Email
-                                                    </label>
-                                                    <Input
-                                                        type="email"
-                                                        value={data.email}
-                                                        onChange={(e) => setData('email', e.target.value)}
-                                                        required
-                                                        className={`bg-black/20 backdrop-blur-sm border-white/20 text-white placeholder-gray-400 focus:border-red-700/50 focus:ring-red-700/50 ${errors.email ? 'border-red-500' : ''}`}
-                                                    />
-                                                    {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
-                                                </div>
-
-                                                <div>
-                                                    <label className="block text-sm font-medium text-white mb-2">
-                                                        Phone Number
-                                                    </label>
-                                                    <Input
-                                                        type="tel"
-                                                        value={data.phone}
-                                                        onChange={(e) => setData('phone', e.target.value)}
-                                                        className={`bg-black/20 backdrop-blur-sm border-white/20 text-white placeholder-gray-400 focus:border-red-700/50 focus:ring-red-700/50 ${errors.phone ? 'border-red-500' : ''}`}
-                                                    />
-                                                    {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
-                                                </div>
-
-                                                <div>
-                                                    <label className="block text-sm font-medium text-white mb-2">
-                                                        Preferred Session Type
-                                                    </label>
-                                                    <select
-                                                        value={data.preferred_session}
-                                                        onChange={(e) => setData('preferred_session', e.target.value)}
-                                                        className="w-full px-3 py-2 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-red-700 bg-black/20 backdrop-blur-sm text-white"
-                                                    >
-                                                        <option value="" className="bg-black text-white">Select a session type</option>
-                                                        {trainer.sessionTypes.map((session, index) => (
-                                                            <option key={index} value={session.type} className="bg-black text-white">
-                                                                {session.type} - £{session.price}
-                                                            </option>
-                                                        ))}
-                                                    </select>
-                                                </div>
-
-                                                <div>
-                                                    <label className="block text-sm font-medium text-white mb-2">
-                                                        Message
-                                                    </label>
-                                                    <Textarea
-                                                        value={data.message}
-                                                        onChange={(e) => setData('message', e.target.value)}
-                                                        rows={4}
-                                                        placeholder="Tell us about your fitness goals and any questions you have..."
-                                                        required
-                                                        className={`bg-black/20 backdrop-blur-sm border-white/20 text-white placeholder-gray-400 focus:border-red-700/50 focus:ring-red-700/50 ${errors.message ? 'border-red-500' : ''}`}
-                                                    />
-                                                    {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
-                                                </div>
-
-                                                <Button 
-                                                    type="submit" 
-                                                    className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group"
-                                                    disabled={processing}
-                                                >
-                                                    {processing ? (
-                                                        'Sending...'
-                                                    ) : (
-                                                        <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                                            Send Message
-                                                        </span>
-                                                    )}
-                                                </Button>
-                                            </form>
-                                        </Card>
-                                    </div>
-
-                                    <div className="space-y-6">
-                                        <Card className="p-6 bg-black/40 backdrop-blur-md border border-white/10">
-                                            <h3 className="text-xl font-bold text-white mb-4">Why Choose {trainer.name}?</h3>
-                                            <div className="space-y-4">
-                                                <div className="group hover:text-red-700 transition-colors duration-300">
-                                                    <div>
-                                                        <p className="font-medium text-white group-hover:text-red-700 transition-colors duration-300">Certified Professional</p>
-                                                        <p className="text-sm text-gray-400">Multiple certifications and qualifications</p>
-                                                    </div>
-                                                </div>
-                                                <div className="group hover:text-red-700 transition-colors duration-300">
-                                                    <div>
-                                                        <p className="font-medium text-white group-hover:text-red-700 transition-colors duration-300">Proven Results</p>
-                                                        <p className="text-sm text-gray-400">{trainer.reviewCount}+ satisfied clients</p>
-                                                    </div>
-                                                </div>
-                                                <div className="group hover:text-red-700 transition-colors duration-300">
-                                                    <div>
-                                                        <p className="font-medium text-white group-hover:text-red-700 transition-colors duration-300">Personalized Approach</p>
-                                                        <p className="text-sm text-gray-400">Tailored programs for your goals</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </Card>
-
-                                        <Card className="p-6 bg-green-700/10 backdrop-blur-md border border-green-700/30">
-                                            <h3 className="text-lg font-bold text-white mb-4">Response Time</h3>
-                                            <p className="text-gray-300 mb-4">
-                                                {trainer.name} typically responds to enquiries within 24 hours.
-                                            </p>
-                                            <div className="text-green-400">
-                                                <span className="text-sm font-medium">Usually responds quickly</span>
-                                            </div>
-                                        </Card>
-
-                                        {/* Social Media */}
-                                        {(trainer.socialMedia.instagram || trainer.socialMedia.facebook || trainer.socialMedia.youtube) && (
-                                            <Card className="p-6 bg-black/40 backdrop-blur-md border border-white/10">
-                                                <h3 className="text-lg font-bold text-white mb-4">Follow {trainer.name}</h3>
                                                 <div className="space-y-3">
-                                                    {trainer.socialMedia.instagram && (
+                                                    {trainer.contact?.phone && (
                                                         <a 
-                                                            href={trainer.socialMedia.instagram}
-                                                            target="_blank"
-                                                            rel="noopener noreferrer"
-                                                            className="flex items-center space-x-3 text-gray-300 hover:text-pink-500 transition-colors duration-300 group"
+                                                            href={`tel:${trainer.contact.phone}`}
+                                                            className="flex items-center gap-3 p-3 rounded-lg bg-black/20 hover:bg-red-700/20 transition-all duration-300 group"
                                                         >
-                                                            <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-                                                                <span className="text-white text-sm font-bold">IG</span>
+                                                            <div className="w-10 h-10 rounded-full bg-red-700/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                                                <svg className="w-5 h-5 text-red-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                                                </svg>
                                                             </div>
-                                                            <span className="group-hover:translate-x-1 transition-transform duration-300">Instagram</span>
+                                                            <div className="flex-1">
+                                                                <p className="text-xs text-gray-400">Phone</p>
+                                                                <p className="text-white group-hover:text-red-700 transition-colors duration-300">{trainer.contact.phone}</p>
+                                                            </div>
                                                         </a>
                                                     )}
-                                                    {trainer.socialMedia.facebook && (
+                                                    {trainer.contact?.email && (
                                                         <a 
-                                                            href={trainer.socialMedia.facebook}
-                                                            target="_blank"
-                                                            rel="noopener noreferrer"
-                                                            className="flex items-center space-x-3 text-gray-300 hover:text-blue-500 transition-colors duration-300 group"
+                                                            href={`mailto:${trainer.contact.email}`}
+                                                            className="flex items-center gap-3 p-3 rounded-lg bg-black/20 hover:bg-red-700/20 transition-all duration-300 group"
                                                         >
-                                                            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                                                                <span className="text-white text-sm font-bold">FB</span>
+                                                            <div className="w-10 h-10 rounded-full bg-red-700/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                                                <svg className="w-5 h-5 text-red-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                                                </svg>
                                                             </div>
-                                                            <span className="group-hover:translate-x-1 transition-transform duration-300">Facebook</span>
+                                                            <div className="flex-1">
+                                                                <p className="text-xs text-gray-400">Email</p>
+                                                                <p className="text-white group-hover:text-red-700 transition-colors duration-300 text-sm break-all">{trainer.contact.email}</p>
+                                                            </div>
                                                         </a>
                                                     )}
-                                                    {trainer.socialMedia.youtube && (
+                                                    {trainer.contact?.instagram && (
                                                         <a 
-                                                            href={trainer.socialMedia.youtube}
+                                                            href={trainer.contact.instagram}
                                                             target="_blank"
                                                             rel="noopener noreferrer"
-                                                            className="flex items-center space-x-3 text-gray-300 hover:text-red-500 transition-colors duration-300 group"
+                                                            className="flex items-center gap-3 p-3 rounded-lg bg-black/20 hover:bg-red-700/20 transition-all duration-300 group"
                                                         >
-                                                            <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center">
-                                                                <span className="text-white text-sm font-bold">YT</span>
+                                                            <div className="w-10 h-10 rounded-full bg-red-700/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                                                <svg className="w-5 h-5 text-red-700" fill="currentColor" viewBox="0 0 24 24">
+                                                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                                                </svg>
                                                             </div>
-                                                            <span className="group-hover:translate-x-1 transition-transform duration-300">YouTube</span>
+                                                            <div className="flex-1">
+                                                                <p className="text-xs text-gray-400">Instagram</p>
+                                                                <p className="text-white group-hover:text-red-700 transition-colors duration-300">@{trainer.contact.instagram.split('/').pop()}</p>
+                                                            </div>
                                                         </a>
                                                     )}
-                                                </div>
-                                            </Card>
-                                        )}
-
-                                        {/* Location Info */}
-                                        <Card className="p-6 bg-black/40 backdrop-blur-md border border-white/10">
-                                            <h3 className="text-lg font-bold text-white mb-4">Training Location</h3>
-                                            <div className="mb-4 group hover:text-red-700 transition-colors duration-300">
-                                                <div>
-                                                    <p className="font-medium text-white group-hover:text-red-700 transition-colors duration-300">{trainer.location}</p>
-                                                    <p className="text-sm text-gray-400">Primary training location</p>
+                                                    {trainer.contact?.facebook && (
+                                                        <a 
+                                                            href={trainer.contact.facebook}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="flex items-center gap-3 p-3 rounded-lg bg-black/20 hover:bg-red-700/20 transition-all duration-300 group"
+                                                        >
+                                                            <div className="w-10 h-10 rounded-full bg-red-700/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                                                <svg className="w-5 h-5 text-red-700" fill="currentColor" viewBox="0 0 24 24">
+                                                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                                                </svg>
+                                                            </div>
+                                                            <div className="flex-1">
+                                                                <p className="text-xs text-gray-400">Facebook</p>
+                                                                <p className="text-white group-hover:text-red-700 transition-colors duration-300">View Profile</p>
+                                                            </div>
+                                                        </a>
+                                                    )}
+                                                    {!trainer.contact?.phone && !trainer.contact?.email && !trainer.contact?.instagram && !trainer.contact?.facebook && (
+                                                        <p className="text-gray-400 text-sm">Contact information coming soon</p>
+                                                    )}
                                                 </div>
                                             </div>
-                                            <Link href={`/locations/${trainer.locationSlug}`}>
-                                                <Button variant="outline" className="w-full border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
-                                                    <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                                        View Gym Details
-                                                    </span>
-                                                </Button>
-                                            </Link>
                                         </Card>
                                     </div>
                                 </div>

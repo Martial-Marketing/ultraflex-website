@@ -134,10 +134,10 @@ class LocationController extends Controller
             ],
             [
                 'id' => 3,
-                'name' => 'Monthly Pass',
+                'name' => 'Monthly Rolling Direct Debit',
                 'price' => 45,
                 'period' => 'month',
-                'features' => ['30 Days Access', 'All Equipment Access', 'Group Classes'],
+                'features' => ['Rolling Contract', 'All Equipment Access'],
                 'popular' => false
             ],
             [
@@ -145,7 +145,7 @@ class LocationController extends Controller
                 'name' => 'Monthly Direct Debit',
                 'price' => 38.50,
                 'period' => 'month',
-                'features' => ['Monthly Rolling Contract', 'Min 12 Month Commitment', 'All Equipment Access', 'Group Classes', 'Best Value'],
+                'features' => ['Min 12 Month Commitment', 'All Equipment Access', 'Best Value'],
                 'popular' => true
             ],
             [
@@ -153,7 +153,7 @@ class LocationController extends Controller
                 'name' => '3 Month Pass',
                 'price' => 130,
                 'period' => '3 months',
-                'features' => ['3 Months Access', 'Payment in Full', 'All Equipment Access', 'Group Classes'],
+                'features' => ['3 Months Access', 'Payment in Full', 'All Equipment Access'],
                 'popular' => false
             ],
             [
@@ -161,7 +161,7 @@ class LocationController extends Controller
                 'name' => '6 Month Pass',
                 'price' => 230,
                 'period' => '6 months',
-                'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'Group Classes'],
+                'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access'],
                 'popular' => false
             ],
             [
@@ -169,7 +169,7 @@ class LocationController extends Controller
                 'name' => '12 Month Pass',
                 'price' => 420,
                 'period' => '12 months',
-                'features' => ['12 Months Access', 'Payment in Full', 'All Equipment Access', 'Group Classes', 'Best Annual Value'],
+                'features' => ['12 Months Access', 'Payment in Full', 'All Equipment Access', 'Best Annual Value'],
                 'popular' => false
             ],
             [
@@ -200,7 +200,7 @@ class LocationController extends Controller
                 'id' => 2,
                 'name' => 'ULTRAFLEX NORTH LEEDS',
                 'address' => 'Limewood Approach, Seacroft, Leeds LS14 1NH',
-                'phone' => '0113 513 7669',
+                'phone' => '0113 513 7671',
                 // Updated processed hero image
                 'image' => '/Images/processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.jpeg',
                 'slug' => 'north-leeds',
@@ -241,8 +241,8 @@ class LocationController extends Controller
                 'image' => '/Images/newimages/York/gym-in-york.webp',
                 'slug' => 'york',
                 'hours' => [
-                    'weekdays' => '06:00 - 22:00',
-                    'weekends' => '08:00 - 20:00'
+                    'weekdays' => '05:00 - 23:00',
+                    'weekends' => '05:00 - 23:00'
                 ]
             ],
             [
@@ -444,15 +444,15 @@ class LocationController extends Controller
                         ],
                         [
                             'id' => 3,
-                            'name' => 'Monthly Pass',
+                            'name' => 'Monthly Rolling Direct Debit',
                             'price' => 47.50,
                             'period' => 'month',
-                            'features' => ['30 Days Access', 'All Equipment Access', 'All Facilities', 'Group Classes'],
+                            'features' => ['Rolling Contract', 'All Equipment Access', 'All Facilities'],
                             'popular' => false
                         ],
                         [
                             'id' => 4,
-                            'name' => 'Monthly Direct Debit (12 mth)',
+                            'name' => '12month Direct Debit',
                             'price' => 40.00,
                             'period' => 'month',
                             'features' => ['Monthly Direct Debit', '12 Month Contract', 'All Equipment Access', 'All Facilities', 'Best Value'],
@@ -525,7 +525,7 @@ class LocationController extends Controller
                     'id' => 2,
                     'name' => 'ULTRAFLEX NORTH LEEDS',
                     'address' => 'Limewood Approach, Seacroft, Leeds LS14 1NH',
-                    'phone' => '0113 513 7669',
+                    'phone' => '0113 513 7671',
                     'email' => 'northleeds@ultraflexgym.co.uk',
                     'image' => '/Images/processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.jpeg',
                     'gallery' => isset(self::$externalImages['north-leeds']) ? self::$externalImages['north-leeds'] : [],
@@ -566,6 +566,9 @@ class LocationController extends Controller
                         ['label' => 'Brotherhood Barbers – Instagram', 'url' => 'https://instagram.com/brotherhood.leeds', 'type' => 'external'],
                         ['label' => 'Brotherhood Barbers – TikTok', 'url' => 'https://www.tiktok.com/@brotherhoodbarbers', 'type' => 'external']
                     ],
+                    'features' => [
+                        'Sauna & Ice Bath'
+                    ],
                     'membershipPlans' => [
                         [
                             'id' => 2,
@@ -577,18 +580,18 @@ class LocationController extends Controller
                         ],
                         [
                             'id' => 3,
-                            'name' => 'Monthly Pass',
+                            'name' => 'Monthly Rolling Direct Debit',
                             'price' => 55.00,
                             'period' => 'month',
-                            'features' => ['30 Days Access', 'All Equipment Access', 'Martial Arts Area', 'Group Classes'],
+                            'features' => ['Rolling Contract', 'All Equipment Access', 'Martial Arts Area'],
                             'popular' => false
                         ],
                         [
                             'id' => 4,
-                            'name' => 'Monthly Direct Debit',
+                            'name' => '12month Direct Debit',
                             'price' => 52.00,
                             'period' => 'month',
-                            'features' => ['Monthly Rolling Contract', 'Min 12 Month Commitment', 'All Equipment Access', 'Martial Arts Area', 'Group Classes', 'Best Value'],
+                            'features' => ['Min 12 Month Commitment', 'All Equipment Access', 'Martial Arts Area', 'Best Value'],
                             'popular' => true
                         ],
                         [
@@ -596,7 +599,7 @@ class LocationController extends Controller
                             'name' => '6 Month Pass',
                             'price' => 299.00,
                             'period' => '6 months',
-                            'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'Martial Arts Area', 'Group Classes'],
+                            'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'Martial Arts Area'],
                             'popular' => false
                         ],
                         [
@@ -604,7 +607,7 @@ class LocationController extends Controller
                             'name' => '12 Month Pass',
                             'price' => 540.00,
                             'period' => '12 months',
-                            'features' => ['12 Months Access', 'Payment in Full', 'All Equipment Access', 'Martial Arts Area', 'Group Classes', 'Best Annual Value'],
+                            'features' => ['12 Months Access', 'Payment in Full', 'All Equipment Access', 'Martial Arts Area', 'Best Annual Value'],
                             'popular' => false
                         ],
                     ],
@@ -732,8 +735,7 @@ class LocationController extends Controller
                     ],
                     'serviceLinks' => [
                         ['label' => 'AmyClark Hair Instagram', 'url' => 'https://www.instagram.com/amyclark_hair', 'type' => 'external'],
-                        // Booking platform link: update to the exact profile URL if provided
-                        ['label' => 'Book Appointments (Booksy)', 'url' => 'https://booksy.com', 'type' => 'external'],
+                        ['label' => 'AmyClark Hair - Book Appointments (Booksy)', 'url' => 'https://booksy.com', 'type' => 'external'],
                     ],
                     'membershipPlans' => [
                         [
@@ -746,18 +748,18 @@ class LocationController extends Controller
                         ],
                         [
                             'id' => 3,
-                            'name' => 'Monthly Pass',
+                            'name' => 'Monthly Rolling Direct Debit',
                             'price' => 52.00,
                             'period' => 'month',
-                            'features' => ['30 Days Access', 'Standard Equipment', 'All Facilities', 'Group Classes'],
+                            'features' => ['Rolling Contract', 'Standard Equipment', 'All Facilities'],
                             'popular' => false
                         ],
                         [
                             'id' => 4,
-                            'name' => 'Monthly Direct Debit',
+                            'name' => '12month Direct Debit',
                             'price' => 47.00,
                             'period' => 'month',
-                            'features' => ['Monthly Rolling Contract', 'Min 12 Month Commitment', 'Standard Equipment', 'All Facilities', 'Best Value'],
+                            'features' => ['Min 12 Month Commitment', 'Standard Equipment', 'All Facilities', 'Best Value'],
                             'popular' => true
                         ],
                         [
@@ -765,7 +767,7 @@ class LocationController extends Controller
                             'name' => '6 Month Pass',
                             'price' => 269.00,
                             'period' => '6 months',
-                            'features' => ['6 Months Access', 'Payment in Full', 'Standard Equipment', 'All Facilities', 'Group Classes'],
+                            'features' => ['6 Months Access', 'Payment in Full', 'Standard Equipment', 'All Facilities'],
                             'popular' => false
                         ],
                         [
@@ -781,7 +783,7 @@ class LocationController extends Controller
                             'name' => 'GOLD Weekly Pass',
                             'price' => 32.50,
                             'period' => 'week',
-                            'features' => ['7 Days Access', 'Premium Equipment', 'Priority Access', 'Personal Training Discounts'],
+                            'features' => ['7 Days Access', 'Recovery Room Access', 'Personal Training Discounts'],
                             'popular' => false
                         ],
                         [
@@ -789,7 +791,7 @@ class LocationController extends Controller
                             'name' => 'GOLD Monthly Rolling Pass',
                             'price' => 59.00,
                             'period' => 'month',
-                            'features' => ['Monthly Rolling', 'Premium Equipment', 'Priority Access', 'Exclusive Classes', 'Personal Training Discounts'],
+                            'features' => ['Monthly Rolling', 'Recovery Room Access', 'Personal Training Discounts'],
                             'popular' => false
                         ],
                         [
@@ -797,7 +799,7 @@ class LocationController extends Controller
                             'name' => 'GOLD Monthly Direct Debit',
                             'price' => 53.00,
                             'period' => 'month',
-                            'features' => ['Monthly Rolling Contract', 'Premium Equipment', 'Priority Access', 'Exclusive Classes', 'Best GOLD Value'],
+                            'features' => ['Recovery Room Access', 'Best GOLD Value'],
                             'popular' => false
                         ],
                         [
@@ -805,7 +807,7 @@ class LocationController extends Controller
                             'name' => 'GOLD 6 Month Pass',
                             'price' => 324.00,
                             'period' => '6 months',
-                            'features' => ['6 Months Access', 'Payment in Full', 'Premium Equipment', 'Priority Access', 'All GOLD Benefits'],
+                            'features' => ['6 Months Access', 'Payment in Full', 'Recovery Room Access', 'All GOLD Benefits'],
                             'popular' => false
                         ],
                         [
@@ -813,7 +815,7 @@ class LocationController extends Controller
                             'name' => 'GOLD 12 Month Pass',
                             'price' => 519.00,
                             'period' => '12 months',
-                            'features' => ['12 Months Access', 'Payment in Full', 'Premium Equipment', 'Priority Access', 'Best GOLD Annual Value'],
+                            'features' => ['12 Months Access', 'Payment in Full', 'Recovery Room Access', 'Best GOLD Annual Value'],
                             'popular' => false
                         ],
                     ],
@@ -906,6 +908,9 @@ class LocationController extends Controller
                         'bio' => 'Hi all, I’m Morgan the manager at Ultraflex Rotherham and I take great pride in the continuation of building and progressing our reputation that we have earned for being one of the best training facilities around, I’m passionate that I am able to contribute to this gym that many members find as a second home, and creating a space where you are all able to fit right into the community. I work closely with our staff team in ensuring that our gym is accommodating for all, and standards are pushed and maintained to exceed expectations across all aspects. Fitness and training has always played a key role for me personally, and speaking from experience 6 years ago I was drawn into what Ultraflex Rotherham had to offer to me as a member, and I soon realised that it was the best around, for what started as a personal fitness journey I soon realised that I wanted to be in a position where I could grow both physically and mentally, which years later has led me to be in the position where I feel proud to be able to manage this world renowned facility and how important it is to be able to create an environment that supports our members individual journeys. Throughout my duration of being a part of Ultraflex Rotherham, whether that being member or manager it has been amazing to witness just how Ultraflex has evolved and the impact it has on the people that spend their time here. I’m excited to see what else lies ahead and hopefully we’ll see you down here.',
                         'image' => '/Images/managers/morgan.jpg',
                     ],
+                    'features' => [
+                        'Sauna & Ice Bath'
+                    ],
                     'membershipPlans' => [
                         [
                             'id' => 2,
@@ -917,15 +922,15 @@ class LocationController extends Controller
                         ],
                         [
                             'id' => 3,
-                            'name' => 'Monthly Pass',
+                            'name' => 'Monthly Rolling Direct Debit',
                             'price' => 55.00,
                             'period' => 'month',
-                            'features' => ['30 Days Access', 'All Equipment Access', 'All Facilities', 'Group Classes'],
+                            'features' => ['Rolling Contract', 'All Equipment Access', 'All Facilities'],
                             'popular' => false
                         ],
                         [
                             'id' => 4,
-                            'name' => 'Monthly Direct Debit (12 mth)',
+                            'name' => '12month Direct Debit',
                             'price' => 50.00,
                             'period' => 'month',
                             'features' => ['Monthly Direct Debit', '12 Month Contract', 'All Equipment Access', 'All Facilities', 'Best Value'],
@@ -936,7 +941,7 @@ class LocationController extends Controller
                             'name' => '6 Month Pass',
                             'price' => 285.00,
                             'period' => '6 months',
-                            'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'All Facilities', 'Group Classes'],
+                            'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'All Facilities'],
                             'popular' => false
                         ],
                         [
@@ -1051,18 +1056,18 @@ class LocationController extends Controller
                     // Provided Matterport link (updated)
                     'virtualTour' => 'https://my.matterport.com/show/?m=kZ7SPKSyTMt&back=1',
                     'hours' => [
-                        'monday' => '06:00 – 22:00',
-                        'tuesday' => '06:00 – 22:00',
-                        'wednesday' => '06:00 – 22:00',
-                        'thursday' => '06:00 – 22:00',
-                        'friday' => '06:00 – 22:00',
-                        'saturday' => '08:00 – 20:00',
-                        'sunday' => '08:00 – 20:00'
+                        'monday' => '05:00 – 23:00',
+                        'tuesday' => '05:00 – 23:00',
+                        'wednesday' => '05:00 – 23:00',
+                        'thursday' => '05:00 – 23:00',
+                        'friday' => '05:00 – 23:00',
+                        'saturday' => '05:00 – 23:00',
+                        'sunday' => '05:00 – 23:00'
                     ],
                     'manager' => [
-                        'name' => 'Jason',
-                        'bio' => 'I am the general manager at UltraFlex Gym York. I\'ve been running the York UltraFlex for two years now and in that time I\'ve seen so much re-investment into the gym and the facilities here which makes my job infinitely easier. In total over two years, we have added over a dozen new items of top-quality kit from cardio equipment to strength training to an entire new area dedicated to Boxing. I\'ve never worked in a business that consistently re-invests like UltraFlex and it reflects with the loyalty and community that our members feel here. We have some of the best PTs in the business and as an ex-Fighter I train with our Thai Boxing Coach as well as our PT who was England NABBA Winner & UK NABBA Winner. I personally could not imagine training anywhere else now that I’ve been exposed to UltraFlex gyms. We are always active on our socials and respond to DMs straight away as well as encouraging members to tag us in their workouts or comps. We regularly host Open Days and Member Giveaways as well as charity events and member socials which are great meet and greets for the members and staff. Any information you need you can email us on york@ultraflexgym.co.uk or drop us a message on any of our socials.',
-                        'image' => '/Images/managers/jason.jpg',
+                        'name' => 'Liam',
+                        'bio' => 'Hi, I\'m Liam, and I\'d like to give you the warmest welcome to Ultraflex York - the gym where everyone fits in, whether you\'re lifting 5kg, 50kg, or just lifting your mood for the day. We\'re proud to be more than just a place to train. We\'re a community, a support system, and occasionally... a group of people bonding over how sore leg day made us. What I love most about Ultraflex York is that it\'s truly for everyone. First-time gym-goer? Perfect. Seasoned lifter? You\'ll feel right at home. Someone who comes purely for a walk and a chat? We\'ve got a spot for you too. Our members are friendly, our atmosphere is welcoming, and our equipment - well, there\'s a lot of it, and it\'s all top-notch. I\'m usually buzzing around the gym floor, talking to members, organising the weight plates, or trying to resist the protein Cookies. If you ever need help, advice, or just want someone to celebrate a PB with, come find me. And if you prefer messages over conversations (absolutely no judgement - I love a good email), you can reach our team on this email address york@ultraflexgym.co.uk We\'re proud to have you as part of the family - now let\'s make some progress, have some laughs, and enjoy the journey together.',
+                        'image' => '/Images/managers/liam.jpg',
                         'experience' => null
                     ],
                     'services' => [
@@ -1075,6 +1080,11 @@ class LocationController extends Controller
                             'name' => 'The Yorkshire Clipper',
                             'description' => 'On-site barber services for member convenience.',
                             'icon' => null
+                        ],
+                        [
+                            'name' => 'Fika Aesthetics',
+                            'description' => 'Professional aesthetics services for beauty and wellness.',
+                            'icon' => null
                         ]
                     ],
                     'serviceLinks' => [
@@ -1082,7 +1092,11 @@ class LocationController extends Controller
                         [ 'label' => 'Regen Physio Email', 'url' => 'mailto:info@regenphysio.co.uk', 'type' => 'email' ],
                         [ 'label' => 'Regen Physio Website', 'url' => 'https://www.regenphysio.co.uk/clinics/york', 'type' => 'website' ],
                         [ 'label' => 'The Yorkshire Clipper Instagram', 'url' => 'https://www.instagram.com/the_yorkshireclipper/', 'type' => 'instagram' ],
-                        [ 'label' => 'The Yorkshire Clipper Website', 'url' => 'https://booksy.com/en-gb/55134_the-yorkshire-clipper_barber_1498807_york', 'type' => 'website' ]
+                        [ 'label' => 'The Yorkshire Clipper Website', 'url' => 'https://www.theyorkshireclipper.co.uk/', 'type' => 'website' ],
+                        [ 'label' => 'Fika Aesthetics Website', 'url' => 'https://www.fikaaesthetics.co.uk/', 'type' => 'website' ]
+                    ],
+                    'features' => [
+                        'Sauna & Ice Bath'
                     ],
                     'membershipPlans' => [
                         [
@@ -1095,15 +1109,15 @@ class LocationController extends Controller
                         ],
                         [
                             'id' => 3,
-                            'name' => 'Monthly Pass',
+                            'name' => 'Monthly Rolling Direct Debit',
                             'price' => 55.00,
                             'period' => 'month',
-                            'features' => ['30 Days Access', 'All Equipment Access', 'Knowledgeable Staff', 'Something for Everyone'],
+                            'features' => ['Rolling Contract', 'All Equipment Access', 'Knowledgeable Staff', 'Something for Everyone'],
                             'popular' => false
                         ],
                         [
                             'id' => 4,
-                            'name' => 'Monthly Direct Debit (12 mth)',
+                            'name' => '12month Direct Debit',
                             'price' => 50.00,
                             'period' => 'month',
                             'features' => ['Monthly Direct Debit', '12 Month Commitment', 'All Equipment Access', 'Expert Staff Support', 'Best Value'],
@@ -1176,34 +1190,27 @@ class LocationController extends Controller
                         ],
                         [
                             'id' => 2,
-                            'name' => 'Paul Riley',
-                            'rating' => 5,
-                            'comment' => "This is definitely not an economy option - £9.25 for a day pass - but this has to be one of the best equipped gyms I've ever been to, so it was well worth it. The range of machines and equipment they have is emense and its modern, well maintained and clean. Even the dumbells are racked in the right order. The place was busy, but there were still no waits for machines.",
-                            'date' => '2 years ago'
-                        ],
-                        [
-                            'id' => 3,
                             'name' => 'Lily Pearson',
                             'rating' => 5,
                             'comment' => "Tried many gyms across York however this is by far the best🙌 great atmosphere and every piece of equipment you could ever need 🤌🏼 …",
                             'date' => 'a month ago'
                         ],
                         [
-                            'id' => 4,
+                            'id' => 3,
                             'name' => 'Reening Lau',
                             'rating' => 5,
                             'comment' => "Came down for a visit since I would be leaving York after finishing university and was quite impressed with the facilities here. It's basically a powerlifter/weightlifter's heaven. Barbells are from Rogue Fitness and are pretty good and there are an assortment of machines to target each specific body part. It wasn't too crowded when I visited but I should say this gym gets a lot of traffic during the weekdays. Cardio stuff is upstairs but who uses them anyways? Membership is a little bit more expensive as compared to Swift Fitness but you get what you pay for: more squat racks and dedicated spaces for lifting massive weights. If I was a working adult, this would be my go to gym.",
                             'date' => '6 years ago'
                         ],
                         [
-                            'id' => 5,
+                            'id' => 4,
                             'name' => 'Jonathan Elliott',
                             'rating' => 5,
                             'comment' => "Excellent gym, has made my student experience in York worthwhile! Absolutely love this gym and the people with it. Jason and the team do an amazing job making me feel welcome, and even gave me a discount when it was my birthday for some of their clothing! Couldn't recommend more.\n\nJonny",
                             'date' => 'Edited 8 months ago'
                         ],
                         [
-                            'id' => 6,
+                            'id' => 5,
                             'name' => 'Alex Bard',
                             'rating' => 5,
                             'comment' => "UltraFlex is an amazing place to workout and the staff is super helpful, encouraging, and friendly. They know how to push you to the limit in the best way possible with your workouts. This gym has the best energy, staff, and feel. Everything is so clean , you will not leave disappointed! Such a family vibe as soon as you walk in the doors – I highly recommend checking this gym out.",
@@ -1260,6 +1267,7 @@ class LocationController extends Controller
                         'Functional & Combat Training Areas',
                         'Strength & Conditioning Machines',
                         'Free Weights & Cardio Zones',
+                        'Sauna & Ice Bath',
                         'Seminars, Competitions & Events'
                     ],
                     // Override equipment and amenities to remove physio and WiFi for Hull
@@ -1291,26 +1299,26 @@ class LocationController extends Controller
                         ],
                         [
                             'id' => 3,
-                            'name' => 'Monthly Pass',
+                            'name' => 'Monthly Rolling Direct Debit',
                             'price' => 45.00,
                             'period' => 'month',
-                            'features' => ['30 Days Access', 'All Equipment Access', 'Cardio Area', 'Group Classes'],
+                            'features' => ['Rolling Contract', 'All Equipment Access', 'Cardio Area'],
                             'popular' => false
                         ],
                         [
                             'id' => 4,
-                            'name' => 'Monthly Rolling Direct Debit',
+                            'name' => '1 Month Pass',
                             'price' => 47.00,
                             'period' => 'month',
-                            'features' => ['Monthly Rolling', 'All Equipment Access', 'Cardio Area', 'Group Classes'],
+                            'features' => ['Monthly Rolling', 'All Equipment Access', 'Cardio Area'],
                             'popular' => false
                         ],
                         [
                             'id' => 5,
-                            'name' => '12 Month Direct Debit',
+                            'name' => '12month Direct Debit',
                             'price' => 41.00,
                             'period' => 'month',
-                            'features' => ['Monthly Direct Debit', '12 Month Contract', 'All Equipment Access', 'Cardio Area', 'Group Classes', 'Best Value'],
+                            'features' => ['Monthly Direct Debit', '12 Month Contract', 'All Equipment Access', 'Cardio Area', 'Best Value'],
                             'popular' => true
                         ],
                         [
@@ -1318,7 +1326,7 @@ class LocationController extends Controller
                             'name' => '6 Month Pass',
                             'price' => 230.00,
                             'period' => '6 months',
-                            'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'Cardio Area', 'Group Classes'],
+                            'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'Cardio Area'],
                             'popular' => false
                         ],
                         [
@@ -1326,7 +1334,7 @@ class LocationController extends Controller
                             'name' => '12 Month Pass',
                             'price' => 450.00,
                             'period' => '12 months',
-                            'features' => ['12 Months Access', 'Payment in Full', 'All Equipment Access', 'Cardio Area', 'Group Classes', 'Best Annual Value'],
+                            'features' => ['12 Months Access', 'Payment in Full', 'All Equipment Access', 'Cardio Area', 'Best Annual Value'],
                             'popular' => false
                         ],
                     ],
@@ -1422,6 +1430,9 @@ class LocationController extends Controller
                         ['label' => 'Baxters Barbers Instagram', 'url' => 'https://www.instagram.com/Baxters_barbers', 'type' => 'external'],
                         ['label' => 'Regen Physio', 'url' => 'https://bit.ly/m/RegenPhysio', 'type' => 'external']
                     ],
+                    'features' => [
+                        'Sauna & Ice Bath'
+                    ],
                     'membershipPlans' => [
                         [
                             'id' => 2,
@@ -1433,15 +1444,15 @@ class LocationController extends Controller
                         ],
                         [
                             'id' => 3,
-                            'name' => 'Monthly Pass',
+                            'name' => 'Monthly Rolling Direct Debit',
                             'price' => 54.00,
                             'period' => 'month',
-                            'features' => ['30 Days Access', 'All Equipment Access', 'Cardio Area'],
+                            'features' => ['Rolling Contract', 'All Equipment Access', 'Cardio Area'],
                             'popular' => false
                         ],
                         [
                             'id' => 4,
-                            'name' => 'Monthly Direct Debit (12mth)',
+                            'name' => '12month Direct Debit',
                             'price' => 48.00,
                             'period' => 'month',
                             'features' => ['Monthly Direct Debit', '12 Month Commitment', 'All Equipment Access', 'Cardio Area', 'Best Value'],
@@ -1530,7 +1541,6 @@ class LocationController extends Controller
                 
             case 'derby':
                 $locationData = [
-                    // Add gallery field for Derby
                     'gallery' => isset(self::$externalImages['derby']) ? self::$externalImages['derby'] : [],
                     'id' => 8,
                     'name' => 'ULTRAFLEX DERBY',
@@ -1539,15 +1549,6 @@ class LocationController extends Controller
                     'email' => 'derby@ultraflexgym.co.uk',
                     // Updated primary image for Derby location
                     'image' => '/Images/processed-5AB78E5E-3190-4963-8AAF-9B3B527D73AD-min-min.jpeg',
-                    'gallery' => [
-                        '/Images/derby/ForGallery/gym-in-derby-5.webp',
-                        '/Images/derby/ForGallery/gym-in-derby-6.webp',
-                        '/Images/derby/ForGallery/gym-in-derby-4.webp',
-                        '/Images/derby/ForGallery/gym-in-derby-7.webp',
-                        '/Images/derby/ForGallery/gym-in-derby-8.webp',
-                        '/Images/derby/ForGallery/gym-in-derby-9.webp',
-                        '/Images/derby/ForGallery/gym-in-derby-10.webp'
-                    ],
                     'slug' => 'derby',
                     // YouTube link
                     'virtualTour' => 'https://www.youtube.com/embed/VKlANmwoDPQ',
@@ -1570,17 +1571,20 @@ class LocationController extends Controller
                         [
                             'name' => 'House of Wellness',
                             'description' => 'Blood testing and wellness diagnostics.',
-                            'icon' => null
+                            'icon' => null,
+                            'category' => 'Blood Testing & Analysis'
                         ],
                         [
                             'name' => 'Elite Osteo Midlands',
                             'description' => 'On-site osteopathy supporting recovery and performance.',
-                            'icon' => null
+                            'icon' => null,
+                            'category' => 'Chiropractor'
                         ],
                         [
                             'name' => 'Fusion Rehab',
                             'description' => 'Sports therapy and rehabilitation services.',
-                            'icon' => null
+                            'icon' => null,
+                            'category' => 'Sports Massage'
                         ]
                     ],
                     'serviceLinks' => [
@@ -1591,6 +1595,24 @@ class LocationController extends Controller
                         [ 'label' => 'Elite Osteo Midlands Instagram', 'url' => 'https://www.instagram.com/eliteosteo.midlands', 'type' => 'instagram' ],
                         [ 'label' => 'Elite Osteo Midlands Website', 'url' => 'https://eliteosteo.co.uk', 'type' => 'website' ],
                         [ 'label' => 'Fusion Rehab Instagram', 'url' => 'https://www.instagram.com/Fusion_rehab_', 'type' => 'instagram' ]
+                    ],
+                    'features' => [
+                        'Sauna & Ice Bath'
+                    ],
+                    'equipment' => [
+                        ['name' => 'Top-Quality Fitness Machines', 'icon' => 'dumbbell', 'available' => true],
+                        ['name' => 'Cardio Equipment', 'icon' => 'waves', 'available' => true],
+                        ['name' => 'Boxing Area', 'icon' => 'users', 'available' => true],
+                        ['name' => 'Comfortable Changing Rooms', 'icon' => 'shower', 'available' => true],
+                        ['name' => 'Free On-Site Parking', 'icon' => 'car', 'available' => true],
+                        ['name' => 'Easy Public Transport Access', 'icon' => 'users', 'available' => true],
+                    ],
+                    'amenities' => [
+                        'Top-quality equipment from best brand names',
+                        'Comfortable changing rooms',
+                        'Boxing area',
+                        'Free on-site parking',
+                        'Easy public transport access'
                     ],
                     'membershipPlans' => [
                         [
@@ -1603,26 +1625,26 @@ class LocationController extends Controller
                         ],
                         [
                             'id' => 3,
-                            'name' => 'Monthly Pass',
+                            'name' => 'Monthly Rolling Direct Debit',
                             'price' => 62.00,
                             'period' => 'month',
-                            'features' => ['30 Days Access', 'All Equipment Access', 'Cardio Area', 'Group Classes'],
+                            'features' => ['Rolling Contract', 'All Equipment Access', 'Cardio Area'],
                             'popular' => false
                         ],
                         [
                             'id' => 4,
-                            'name' => 'Monthly Rolling',
+                            'name' => '1 Month Pass',
                             'price' => 56.00,
                             'period' => 'month',
-                            'features' => ['Monthly Rolling', 'All Equipment Access', 'Cardio Area', 'Group Classes'],
+                            'features' => ['Monthly Rolling', 'All Equipment Access', 'Cardio Area'],
                             'popular' => false
                         ],
                         [
                             'id' => 5,
-                            'name' => 'Monthly Direct Debit',
+                            'name' => '12month Direct Debit',
                             'price' => 54.00,
                             'period' => 'month',
-                            'features' => ['Monthly Direct Debit', '12 Month Commitment', 'All Equipment Access', 'Cardio Area', 'Group Classes', 'Best Value'],
+                            'features' => ['Monthly Direct Debit', '12 Month Commitment', 'All Equipment Access', 'Cardio Area', 'Best Value'],
                             'popular' => true
                         ],
                         [
@@ -1630,7 +1652,7 @@ class LocationController extends Controller
                             'name' => '6 Month Pass',
                             'price' => 315.00,
                             'period' => '6 months',
-                            'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'Cardio Area', 'Group Classes'],
+                            'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'Cardio Area'],
                             'popular' => false
                         ],
                         [
@@ -1638,7 +1660,7 @@ class LocationController extends Controller
                             'name' => '12 Month Pass',
                             'price' => 570.00,
                             'period' => '12 months',
-                            'features' => ['12 Months Access', 'Payment in Full', 'All Equipment Access', 'Cardio Area', 'Group Classes', 'Best Annual Value'],
+                            'features' => ['12 Months Access', 'Payment in Full', 'All Equipment Access', 'Cardio Area', 'Best Annual Value'],
                             'popular' => false
                         ],
                         [
@@ -1851,10 +1873,11 @@ class LocationController extends Controller
                         '24hr Access',
                         'Barbershop (BLNK Barbers)',
                         'The Recovery Hub',
-                        'Supplements Shop',
+                        'Supplement Store',
                         'Clothing Area',
                         'GSN Food',
-                        'Wide Range of Personal Trainers (Bodybuilding to General Health & Weight Loss)'
+                        'Wide Range of Personal Trainers (Bodybuilding to General Health & Weight Loss)',
+                        'Sauna & Ice Bath'
                     ],
                     'services' => [
                         ['name' => 'BLNK Barbers', 'description' => 'In-gym barbershop providing grooming services for members.', 'icon' => '✂️'],
@@ -1864,6 +1887,19 @@ class LocationController extends Controller
                         ['label' => 'BLNK Barbers Website', 'url' => 'https://www.blnkbarbers.com', 'type' => 'external'],
                         ['label' => 'BLNK Barbers Booking', 'url' => 'https://www.blnkbarbers.com/book/shops/IONEJG/services', 'type' => 'external'],
                         ['label' => 'The Recovery Hub Linktree', 'url' => 'https://linktr.ee/Therecoveryhub_UF?utm_source=linktree_profile_share&ltsid=b2001f13-c003-4d72-b057-d5f49113b697', 'type' => 'external']
+                    ],
+                    'equipment' => [
+                        ['name' => 'Top-Quality Fitness Machines', 'icon' => 'dumbbell', 'available' => true],
+                        ['name' => 'Cardio Equipment', 'icon' => 'waves', 'available' => true],
+                        ['name' => 'Comfortable Changing Rooms', 'icon' => 'shower', 'available' => true],
+                        ['name' => 'Free On-Site Parking', 'icon' => 'car', 'available' => true],
+                        ['name' => 'Easy Public Transport Access', 'icon' => 'users', 'available' => true],
+                    ],
+                    'amenities' => [
+                        'Top-quality equipment from best brand names',
+                        'Comfortable changing rooms',
+                        'Free on-site parking',
+                        'Easy public transport access'
                     ],
                     'membershipPlans' => [
                         [
@@ -1884,7 +1920,7 @@ class LocationController extends Controller
                         ],
                         [
                             'id' => 3,
-                            'name' => '12 Month Direct Debit',
+                            'name' => '12month Direct Debit',
                             'price' => 49.99,
                             'period' => 'month',
                             'features' => ['12 Month Contract', 'Day Access Only', 'Mon-Fri: 06:00-22:00', 'Sat-Sun: 06:00-20:00', 'Best Value'],
@@ -1919,7 +1955,7 @@ class LocationController extends Controller
                             'name' => '6 Month Pass - Paid in Full',
                             'price' => 270.00,
                             'period' => '6 months',
-                            'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'No Monthly Payments', 'Flexible Option'],
+                            'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'No Monthly Payments'],
                             'popular' => false
                         ],
                         [
@@ -1927,7 +1963,7 @@ class LocationController extends Controller
                             'name' => '6 Month 24hr Pass - Paid in Full',
                             'price' => 300.00,
                             'period' => '6 months',
-                            'features' => ['6 Months Access', 'Payment in Full', '24/7 Access', 'No Monthly Payments', 'Flexible Option'],
+                            'features' => ['6 Months Access', 'Payment in Full', '24/7 Access', 'No Monthly Payments'],
                             'popular' => false
                         ],
                         [
@@ -2085,6 +2121,22 @@ class LocationController extends Controller
                         [ 'label' => 'Faded Group Barber Instagram', 'url' => 'https://www.instagram.com/fadedgroup_uxbridge', 'type' => 'instagram' ],
                         [ 'label' => 'Faded Group Barber Phone', 'url' => 'tel:07900626284', 'type' => 'phone' ]
                     ],
+                    'features' => [
+                        'Sauna & Ice Bath'
+                    ],
+                    'equipment' => [
+                        ['name' => 'Top-Quality Fitness Machines', 'icon' => 'dumbbell', 'available' => true],
+                        ['name' => 'Cardio Equipment', 'icon' => 'waves', 'available' => true],
+                        ['name' => 'Comfortable Changing Rooms', 'icon' => 'shower', 'available' => true],
+                        ['name' => 'Free On-Site Parking', 'icon' => 'car', 'available' => true],
+                        ['name' => 'Easy Public Transport Access', 'icon' => 'users', 'available' => true],
+                    ],
+                    'amenities' => [
+                        'Top-quality equipment from best brand names',
+                        'Comfortable changing rooms',
+                        'Free on-site parking',
+                        'Easy public transport access'
+                    ],
                     'membershipPlans' => [
                         [
                             'id' => 2,
@@ -2104,7 +2156,7 @@ class LocationController extends Controller
                         ],
                         [
                             'id' => 4,
-                            'name' => 'Monthly Direct Debit',
+                            'name' => '12month Direct Debit',
                             'price' => 50.00,
                             'period' => 'month',
                             'features' => ['Monthly Direct Debit', '12 Month Commitment', 'All Equipment Access'],
@@ -2260,7 +2312,6 @@ class LocationController extends Controller
                 ['name' => 'Comfortable Changing Rooms', 'icon' => 'shower', 'available' => true],
                 ['name' => 'Free On-Site Parking', 'icon' => 'car', 'available' => true],
                 ['name' => 'Easy Public Transport Access', 'icon' => 'users', 'available' => true],
-                ['name' => 'WiFi', 'icon' => 'wifi', 'available' => true],
             ],
             'amenities' => [
                 'Top-quality equipment from best brand names',
@@ -2295,10 +2346,10 @@ class LocationController extends Controller
                 ],
                 [
                     'id' => 3,
-                    'name' => 'Monthly Pass',
+                    'name' => 'Monthly Rolling Direct Debit',
                     'price' => 45,
                     'period' => 'month',
-                    'features' => ['30 Days Access', 'All Equipment Access', 'Martial Arts Area', 'Group Classes'],
+                    'features' => ['Rolling Contract', 'All Equipment Access', 'Martial Arts Area'],
                     'popular' => false
                 ],
                 [
@@ -2306,7 +2357,7 @@ class LocationController extends Controller
                     'name' => 'Monthly Direct Debit',
                     'price' => 38.50,
                     'period' => 'month',
-                    'features' => ['Monthly Rolling Contract', 'Min 12 Month Commitment', 'All Equipment Access', 'Martial Arts Area', 'Group Classes', 'Best Value'],
+                    'features' => ['Min 12 Month Commitment', 'All Equipment Access', 'Martial Arts Area', 'Best Value'],
                     'popular' => true
                 ],
                 [
@@ -2314,7 +2365,7 @@ class LocationController extends Controller
                     'name' => '3 Month Pass',
                     'price' => 130,
                     'period' => '3 months',
-                    'features' => ['3 Months Access', 'Payment in Full', 'All Equipment Access', 'Martial Arts Area', 'Group Classes'],
+                    'features' => ['3 Months Access', 'Payment in Full', 'All Equipment Access', 'Martial Arts Area'],
                     'popular' => false
                 ],
                 [
@@ -2322,7 +2373,7 @@ class LocationController extends Controller
                     'name' => '6 Month Pass',
                     'price' => 230,
                     'period' => '6 months',
-                    'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'Martial Arts Area', 'Group Classes'],
+                    'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'Martial Arts Area'],
                     'popular' => false
                 ],
                 [
@@ -2330,7 +2381,7 @@ class LocationController extends Controller
                     'name' => '12 Month Pass',
                     'price' => 420,
                     'period' => '12 months',
-                    'features' => ['12 Months Access', 'Payment in Full', 'All Equipment Access', 'Martial Arts Area', 'Group Classes', 'Best Annual Value'],
+                    'features' => ['12 Months Access', 'Payment in Full', 'All Equipment Access', 'Martial Arts Area', 'Best Annual Value'],
                     'popular' => false
                 ],
                 [
@@ -2467,3 +2518,4 @@ class LocationController extends Controller
         ]);
     }
 }
+

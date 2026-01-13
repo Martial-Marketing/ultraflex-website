@@ -81,17 +81,7 @@ class TrainerData
                 'locationSlug' => 'york',
                 'contact' => []
             ],
-            [
-                'id' => 203,
-                'name' => 'Natalie',
-                'slug' => 'natalie',
-                'image' => '/Images/Picture6.webp',
-                'bio' => 'If you’re looking to boost your confidence at the gym and achieve your best shape ever, you’ve come to the right place. I focus on empowering women to become the best versions of themselves by showing them that they can reach their goals without giving up the foods they enjoy. With years of experience in competitive bodybuilding and winning shows in the bikini category, I can help you go from general holiday condition to extreme stage condition. Book a consultation to discuss your goals and create a plan!',
-                'specialties' => ['Female Physique', 'Contest Prep', 'Body Recomposition'],
-                'certifications' => [],
-                'locationSlug' => 'york',
-                'contact' => ['instagram' => 'https://instagram.com/levelupfitness_bynat']
-            ],
+
             [
                 'id' => 204,
                 'name' => 'Adam Gucwa',

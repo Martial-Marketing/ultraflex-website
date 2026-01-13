@@ -81,7 +81,7 @@ interface Location {
     mapUrl?: string;
     // Newly added optional structured enhancements
     features?: string[];
-    services?: { name: string; description?: string; icon?: string; logo?: string }[];
+    services?: { name: string; description?: string; icon?: string; logo?: string; category?: string }[];
     serviceLinks?: { label: string; url: string; type?: 'internal' | 'external' }[];
 }
 
@@ -249,27 +249,60 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
     const categorizeServiceLinks = (links: { label: string; url: string; type?: string }[]) => {
         const categories: { title: string; links: { label: string; url: string; type?: string }[] }[] = [];
         
-        // Group links by service type based on label patterns
-        const physioLinks = links.filter(link => link.label.toLowerCase().includes('physio') || link.label.toLowerCase().includes('regen'));
-        const boxingLinks = links.filter(link => link.label.toLowerCase().includes('boxing') || link.label.toLowerCase().includes('ostas'));
-        const judoLinks = links.filter(link => link.label.toLowerCase().includes('judo') || link.label.toLowerCase().includes('pudsey'));
-        const hairLinks = links.filter(link => link.label.toLowerCase().includes('hair') || link.label.toLowerCase().includes('smitin'));
-        const barberLinks = links.filter(link => link.label.toLowerCase().includes('barber') || link.label.toLowerCase().includes('jax'));
-        const otherLinks = links.filter(link => {
+        // First, try to match links to services with categories
+        const categorizedLinks = new Set<string>();
+        
+        if (location.services) {
+            location.services.forEach(service => {
+                if (service.category) {
+                    // Find links that match this service
+                    const matchingLinks = links.filter(link => {
+                        const linkLower = link.label.toLowerCase();
+                        const serviceLower = service.name.toLowerCase();
+                        // Match if link contains service name or service name words
+                        const serviceWords = serviceLower.split(' ');
+                        return serviceWords.some(word => word.length > 3 && linkLower.includes(word));
+                    });
+                    
+                    if (matchingLinks.length > 0) {
+                        // Add to category
+                        const existingCategory = categories.find(cat => cat.title === service.category);
+                        if (existingCategory) {
+                            existingCategory.links.push(...matchingLinks);
+                        } else {
+                            categories.push({ title: service.category, links: [...matchingLinks] });
+                        }
+                        matchingLinks.forEach(link => categorizedLinks.add(link.label));
+                    }
+                }
+            });
+        }
+        
+        // Fallback: categorize remaining links by label patterns
+        const uncategorizedLinks = links.filter(link => !categorizedLinks.has(link.label));
+        
+        const physioLinks = uncategorizedLinks.filter(link => link.label.toLowerCase().includes('physio') || link.label.toLowerCase().includes('regen'));
+        const boxingLinks = uncategorizedLinks.filter(link => link.label.toLowerCase().includes('boxing') || link.label.toLowerCase().includes('ostas'));
+        const judoLinks = uncategorizedLinks.filter(link => link.label.toLowerCase().includes('judo') || link.label.toLowerCase().includes('pudsey'));
+        const hairLinks = uncategorizedLinks.filter(link => link.label.toLowerCase().includes('hair') || link.label.toLowerCase().includes('smitin'));
+        const barberLinks = uncategorizedLinks.filter(link => link.label.toLowerCase().includes('barber') && !link.label.toLowerCase().includes('brotherhood'));
+        const brotherhoodLinks = uncategorizedLinks.filter(link => link.label.toLowerCase().includes('brotherhood'));
+        const otherLinks = uncategorizedLinks.filter(link => {
             const label = link.label.toLowerCase();
             return !label.includes('physio') && !label.includes('regen') &&
                    !label.includes('boxing') && !label.includes('ostas') &&
                    !label.includes('judo') && !label.includes('pudsey') &&
                    !label.includes('hair') && !label.includes('smitin') &&
-                   !label.includes('barber') && !label.includes('jax');
+                   !label.includes('barber') && !label.includes('brotherhood');
         });
         
-        // Add categories only if they have links
+        // Add fallback categories only if they have links
         if (physioLinks.length > 0) categories.push({ title: 'Physiotherapy & Recovery', links: physioLinks });
         if (boxingLinks.length > 0) categories.push({ title: 'Boxing', links: boxingLinks });
         if (judoLinks.length > 0) categories.push({ title: 'Judo', links: judoLinks });
         if (hairLinks.length > 0) categories.push({ title: 'Hair Services', links: hairLinks });
         if (barberLinks.length > 0) categories.push({ title: 'Barber Services', links: barberLinks });
+        if (brotherhoodLinks.length > 0) categories.push({ title: 'Barber Services', links: brotherhoodLinks });
         if (otherLinks.length > 0) categories.push({ title: 'Other Services', links: otherLinks });
         
         return categories;
@@ -437,23 +470,17 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                                     }}
                                                 />
                                         </div>
-                                        {location.name?.toLowerCase().includes('york') ? (
-                                            <div className="flex-1 flex items-center">
-                                                <span className="text-sm text-gray-300">No manager at the moment.</span>
-                                            </div>
-                                        ) : (
-                                            <div className="flex-1">
-                                                {location.manager.name && (
-                                                    <h3 className="text-xl font-semibold text-white mb-2">{location.manager.name}</h3>
-                                                )}
-                                                {location.manager.experience && (
-                                                    <p className="text-red-700 font-medium mb-4">{location.manager.experience}</p>
-                                                )}
-                                                {location.manager.bio && (
-                                                    <p className="text-gray-300 leading-relaxed">{location.manager.bio}</p>
-                                                )}
-                                            </div>
-                                        )}
+                                        <div className="flex-1">
+                                            {location.manager.name && (
+                                                <h3 className="text-xl font-semibold text-white mb-2">{location.manager.name}</h3>
+                                            )}
+                                            {location.manager.experience && (
+                                                <p className="text-red-700 font-medium mb-4">{location.manager.experience}</p>
+                                            )}
+                                            {location.manager.bio && (
+                                                <p className="text-gray-300 leading-relaxed">{location.manager.bio}</p>
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
 
