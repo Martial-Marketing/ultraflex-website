@@ -51,7 +51,7 @@ export default function VideoLander() {
                     {/* Simplified logo/brand section */}
                     <div className="mb-6">
                         <h1 className="text-6xl font-bold tracking-tight">
-                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">ULTRA</span><span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">FLEX</span>
+                            <span className="font-black text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">ULTRA</span><span className="font-normal text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">FLEX</span>
                         </h1>
                     </div>
 

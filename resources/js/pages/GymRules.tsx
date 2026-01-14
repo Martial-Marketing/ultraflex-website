@@ -10,12 +10,12 @@ export default function GymRules() {
                 <AnimatedBackground variant="gradient" intensity="medium" className="z-0" />
                 <div className="relative z-10 w-full max-w-4xl bg-black/70 rounded-2xl shadow-2xl border border-gray-800 backdrop-blur-md p-6 sm:p-10">
                     <h1 className="text-4xl sm:text-5xl font-black mb-6 text-center text-red-600 tracking-tight leading-tight drop-shadow-lg">
-                        UltraFlex Gyms
+                        <span className="font-black text-white">ULTRA</span><span className="font-normal text-red-600">FLEX</span> Gyms
                         <span className="block text-2xl sm:text-3xl text-white font-bold mt-1 tracking-wide">Rules & Etiquette</span>
                     </h1>
                     <div className="border-b border-gray-700 mb-8"></div>
                     <p className="text-base sm:text-lg text-gray-200 mb-8 text-center font-normal leading-relaxed max-w-xl mx-auto">
-                        Welcome to UltraFlex. Our community is built on a foundation of <span className="font-semibold text-white">respect</span>, <span className="font-semibold text-white">effort</span>, and a shared passion for training. To ensure a safe, productive, and world-class environment for all members, we require adherence to the following rules and code of conduct.
+                        Welcome to <span className="font-black text-white">ULTRA</span><span className="font-normal text-red-600">FLEX</span>. Our community is built on a foundation of <span className="font-semibold text-white">respect</span>, <span className="font-semibold text-white">effort</span>, and a shared passion for training. To ensure a safe, productive, and world-class environment for all members, we require adherence to the following rules and code of conduct.
                     </p>
                     <div className="space-y-12">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -56,7 +56,7 @@ export default function GymRules() {
                                         <ul className="list-disc ml-6 space-y-2 text-base text-gray-300">
                                             <li><span className="font-semibold text-red-400">Spotters:</span> For heavy lifts (e.g., bench press, squats), we strongly recommend you use a spotter. Don't be afraid to ask someone for a spot – and be willing to give one in return.</li>
                                             <li><span className="font-semibold text-red-400">Access:</span> You must scan your membership card or fob upon every entry. Do not allow access to non-members. All guests must be registered at reception.</li>
-                                            <li><span className="font-semibold text-red-400">Lockers:</span> Lockers are for use only while you are training in the gym. Locks may be removed from lockers left secured overnight. UltraFlex is not responsible for any lost or stolen items.</li>
+                                            <li><span className="font-semibold text-red-400">Lockers:</span> Lockers are for use only while you are training in the gym. Locks may be removed from lockers left secured overnight. <span className="font-black text-white">ULTRA</span><span className="font-normal text-red-600">FLEX</span> is not responsible for any lost or stolen items.</li>
                                             <li><span className="font-semibold text-red-400">Listen to Staff:</span> Our team is here to ensure your safety and the smooth operation of the gym. Please follow their instructions at all times.</li>
                                         </ul>
                                     </li>
@@ -79,7 +79,7 @@ export default function GymRules() {
                     </div>
                     <div className="border-t border-gray-700 mt-10 mb-6"></div>
                     <div className="text-center">
-                        <p className="text-base sm:text-lg text-gray-300 mb-3 font-normal leading-relaxed max-w-xl mx-auto">Thank you for your cooperation. By following these rules, we can all contribute to making UltraFlex the ultimate training environment.</p>
+                        <p className="text-base sm:text-lg text-gray-300 mb-3 font-normal leading-relaxed max-w-xl mx-auto">Thank you for your cooperation. By following these rules, we can all contribute to making <span className="font-black text-white">ULTRA</span><span className="font-normal text-red-600">FLEX</span> the ultimate training environment.</p>
                         <p className="text-lg sm:text-xl font-bold text-red-500 animate-pulse tracking-tight mb-2">Now, go train hard.</p>
                         <Link href="/" className="inline-block mt-6 text-red-500 hover:text-white font-semibold underline underline-offset-4 decoration-2 transition-colors duration-300">Back to Home</Link>
                     </div>

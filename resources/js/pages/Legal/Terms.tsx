@@ -82,7 +82,7 @@ export default function Terms({ auth }: { auth: any }) {
                   <FileText className="h-5 w-5 text-red-600" />
                   <h2 className="text-xl font-semibold">Contact</h2>
                 </div>
-                <p className="mt-4 text-gray-300">Questions: <a href="mailto:info@ufg" className="text-red-600 underline underline-offset-2">info@ufg</a>.</p>
+                <p className="mt-4 text-gray-300">Questions: <a href="mailto:info@ultraflexgym.co.uk" className="text-red-600 underline underline-offset-2">info@ultraflexgym.co.uk</a>.</p>
                 <p className="mt-6 text-gray-400 text-sm">Last updated: 15 Dec 2025</p>
               </section>
             </div>

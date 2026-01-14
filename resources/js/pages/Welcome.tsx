@@ -163,7 +163,7 @@ export default function Welcome({ auth, latestNews }: WelcomeProps) {
                                 <div className="container mx-auto px-6">
                                     <div className="text-center">
                                         <p className="text-white font-semibold text-lg drop-shadow-[0_0_10px_rgba(255,255,255,0.6)]">
-                                            Join the <span className="text-red-600 animate-pulse drop-shadow-[0_0_10px_rgba(220,38,38,0.6)]">UltraFlex</span> Community Today!
+                                            Join the <span className="text-red-600 animate-pulse drop-shadow-[0_0_10px_rgba(220,38,38,0.6)]"><span className="font-black text-white">ULTRA</span><span className="font-normal text-red-600">FLEX</span></span> Community Today!
                                         </p>
                                         <p className="text-white text-sm mt-1">
                                             Login or register to access exclusive member benefits, book trainers, and track your fitness journey.

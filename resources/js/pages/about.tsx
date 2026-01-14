@@ -12,15 +12,15 @@ export default function About(props: AppLayoutProps) {
                 <AnimatedBackground variant="default" intensity="medium" />
                 <div className="container mx-auto px-6 py-16 max-w-3xl relative z-10">
                     <Head title="About Us" />
-                    <h1 className="text-4xl font-bold mb-6 text-red-700 drop-shadow">About UltraFlex</h1>
+                    <h1 className="text-4xl font-bold mb-6 text-red-700 drop-shadow">About <span className="font-black text-white">ULTRA</span><span className="font-normal text-red-700">FLEX</span></h1>
                     <p className="mb-4 text-lg text-gray-200">
-                        Welcome to UltraFlex – where your fitness journey becomes an experience. Since our founding, we’ve been committed to building more than just gyms; we build communities that inspire, support, and empower every member.
+                        Welcome to <span className="font-black text-white">ULTRA</span><span className="font-normal text-red-700">FLEX</span> – where your fitness journey becomes an experience. Since our founding, we've been committed to building more than just gyms; we build communities that inspire, support, and empower every member.
                     </p>
                     <p className="mb-4 text-lg text-gray-200">
-                        Our state-of-the-art facilities feature the latest equipment and a team of passionate trainers dedicated to helping you reach your goals. Whether you're training for your first 5K, building strength, or seeking a healthier lifestyle, UltraFlex is your home for transformation.
+                        Our state-of-the-art facilities feature the latest equipment and a team of passionate trainers dedicated to helping you reach your goals. Whether you're training for your first 5K, building strength, or seeking a healthier lifestyle, <span className="font-black text-white">ULTRA</span><span className="font-normal text-red-700">FLEX</span> is your home for transformation.
                     </p>
                     <p className="mb-4 text-lg text-gray-200">
-                        We believe fitness should be accessible, motivating, and fun. That’s why we offer flexible memberships, expert coaching, and a welcoming environment for all ages and abilities. Join us and discover the UltraFlex difference – where every member matters and every goal is possible.
+                        We believe fitness should be accessible, motivating, and fun. That's why we offer flexible memberships, expert coaching, and a welcoming environment for all ages and abilities. Join us and discover the <span className="font-black text-white">ULTRA</span><span className="font-normal text-red-700">FLEX</span> difference – where every member matters and every goal is possible.
                     </p>
                     <ul className="list-disc pl-6 mb-4 text-lg text-gray-200">
                         <li>Multiple locations across the region</li>

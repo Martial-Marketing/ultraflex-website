@@ -94,8 +94,8 @@ export default function AnimatedFooter({ className = '' }: FooterProps) {
                                 </div>
                                 <div>
                                     <h3 className="text-2xl font-bold">
-                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Ultra</span>
-                                        <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Flex</span>
+                                        <span className="font-black text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">ULTRA</span>
+                                        <span className="font-normal text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">FLEX</span>
                                     </h3>
                                 </div>
                             </div>
@@ -223,7 +223,7 @@ export default function AnimatedFooter({ className = '' }: FooterProps) {
                     <div className="container mx-auto px-6 py-4">
                         <div className="flex flex-col md:flex-row items-center justify-between space-y-2 md:space-y-0">
                             <div className="text-gray-400 text-sm">
-                                © {currentYear} UltraFlex. All rights reserved.
+                                © {currentYear} ULTRAFLEX. All rights reserved.
                             </div>
                             <div className="flex flex-wrap items-center space-x-4 text-xs">
                                 <Link href="/privacy" className="text-gray-400 hover:text-red-700 transition-colors">
