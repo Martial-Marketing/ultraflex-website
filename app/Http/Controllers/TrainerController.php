@@ -91,7 +91,7 @@ class TrainerController extends Controller
         $base['location'] = $base['locationSlug'] && isset($locationNames[$base['locationSlug']]) ? $locationNames[$base['locationSlug']] : null;
 
         // Enrich with extended fields (placeholder or synthesized) to satisfy Trainer Show page expectations
-        $base['detailedBio'] = $base['detailedBio'] ?? ($base['bio'] . ' This profile is being expanded. More background, coaching philosophy, and achievements will be added soon.');
+        $base['detailedBio'] = $base['detailedBio'] ?? $base['bio'];
         $base['gender'] = $base['gender'] ?? 'Male';
         $base['rating'] = $base['rating'] ?? 5.0;
         $base['reviewCount'] = $base['reviewCount'] ?? 0;

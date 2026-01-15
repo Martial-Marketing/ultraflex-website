@@ -63,12 +63,14 @@ class TrainerData
                 'id' => 201,
                 'name' => 'Harry Strike',
                 'slug' => 'harry-strike',
-                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
-                'bio' => 'Dedicated PT helping clients achieve sustainable physical and mental progress through structured plans and in-person support.',
-                'specialties' => ['Body Recomposition', 'Mindset', 'Lifestyle Coaching'],
-                'certifications' => [],
+                'image' => '/Images/original-89A5DC61-CEB4-4CFE-9D4F-125BA7320B03.webp',
+                'bio' => 'I\'ve been personal training male and female clients of all different ages, for almost three years. Focusing on improving overall body composition, maximising muscle gain, fat loss, sleep, nutrition and macros, mindset, stress management, and confidence. I am constantly working to expand my knowledge and understanding of the many facets of health and fitness through seminars and workshops with some of the best coaches and trainers in the world. After competing in Men\'s Physique in 2017, coming in 3rd, I gained knowledge in this division in regards to diet and posing. I am currently working towards competing in Classic Physique next year. If you want to achieve the results you desire and improve your lifestyle overall, then contact me for a free session and consultation.',
+                'specialties' => ['Body Recomposition', 'Muscle Gain', 'Fat Loss', 'Nutrition & Macros', 'Mindset', 'Stress Management'],
+                'certifications' => ['Men\'s Physique Competitor (3rd Place, 2017)'],
                 'locationSlug' => 'york',
-                'contact' => []
+                'contact' => [
+                    'email' => 'harry-strike@hotmail.co.uk'
+                ]
             ],
             [
                 'id' => 202,
