@@ -390,7 +390,9 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                         <div className="relative z-10 flex h-full items-center">
                             <div className="container mx-auto px-6">
                                 <div className="mb-6">
-                                    <h1 className="text-4xl font-bold text-white ">{location.name}</h1>
+                                    <h1 className="text-4xl font-bold text-white ">
+                                        <span className="ultraflex-ultra text-white">ULTRA</span><span className="ultraflex-flex text-red-700">FLEX</span> {location.name.replace(/ULTRAFLEX\s*/i, '')}
+                                    </h1>
                                 </div>
                                 <p className="text-xl text-gray-200 flex items-center group hover:text-red-700 transition-colors duration-300">
                                     <MapPin className="h-5 w-5 mr-2 text-red-700" />

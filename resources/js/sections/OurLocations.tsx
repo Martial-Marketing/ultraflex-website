@@ -85,7 +85,7 @@ export default function OurLocations({ locations }: OurLocationsProps) {
                             
                             <CardContent className="p-6 bg-black/20 backdrop-blur-sm">
                                 <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-red-700 transition-colors duration-300">
-                                    {location.name}
+                                    <span className="ultraflex-ultra text-white">ULTRA</span><span className="ultraflex-flex text-red-700">FLEX</span> {location.name.replace(/ULTRAFLEX\s*/i, '')}
                                 </h3>
                                 <div className="flex items-center text-gray-300 hover:text-red-700 transition-colors duration-300 group">
                                     <MapPin className="h-4 w-4 mr-2 text-red-700" />

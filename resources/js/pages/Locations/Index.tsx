@@ -138,7 +138,9 @@ export default function LocationsIndex({ locations, membershipPlans, auth }: Loc
                                                 </div>
                                             )}
                                             <div className="absolute bottom-4 left-4 text-white">
-                                                <h3 className="text-xl font-bold group-hover:text-red-700 transition-colors duration-300">{location.name}</h3>
+                                                <h3 className="text-xl font-bold group-hover:text-red-700 transition-colors duration-300">
+                                                    <span className="ultraflex-ultra text-white">ULTRA</span><span className="ultraflex-flex text-red-700">FLEX</span> {location.name.replace(/ULTRAFLEX\s*/i, '')}
+                                                </h3>
                                             </div>
                                             {/* Removed Premium badge per requirement */}
                                             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
