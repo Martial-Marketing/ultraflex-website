@@ -65,8 +65,8 @@ export default function NewsIndex({ articles, categories, featuredArticles, auth
 
     return (
         <AppLayout auth={auth}>
-            <Head title="Latest News - UltraFlex">
-                <meta name="description" content="Stay updated with the latest news, fitness tips, and announcements from UltraFlex. Read our blog for expert advice and community updates." />
+            <Head title="Latest News - ULTRAFLEX">
+                <meta name="description" content="Stay updated with the latest news, fitness tips, and announcements from ULTRAFLEX. Read our blog for expert advice and community updates." />
             </Head>
 
             <div className="min-h-screen relative">
@@ -116,7 +116,7 @@ export default function NewsIndex({ articles, categories, featuredArticles, auth
                                 <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Updates</span>
                             </h1>
                             <p className="text-xl text-gray-200 max-w-3xl mx-auto">
-                                Stay informed with the latest fitness trends, UltraFlex updates, class schedules, 
+                                Stay informed with the latest fitness trends, ULTRAFLEX updates, class schedules, 
                                 nutrition tips, and community news.
                             </p>
                         </div>
@@ -400,7 +400,7 @@ export default function NewsIndex({ articles, categories, featuredArticles, auth
                             </h2>
                             <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
                                 Subscribe to our newsletter and never miss the latest fitness tips, 
-                                class schedules, and UltraFlex updates.
+                                class schedules, and ULTRAFLEX updates.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
                                 <Input

@@ -82,8 +82,8 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
 
     return (
     <AppLayout auth={{ user }}>
-            <Head title="Members Hub - UltraFlex">
-                <meta name="description" content="Welcome to your UltraFlex Members Hub. Access workouts, nutrition plans, and track your fitness journey." />
+            <Head title="Members Hub - ULTRAFLEX">
+                <meta name="description" content="Welcome to your ULTRAFLEX Members Hub. Access workouts, nutrition plans, and track your fitness journey." />
             </Head>
 
             <div className="min-h-screen relative">
@@ -143,7 +143,7 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                                         )}
                                     </div>
                                     <div className="text-white">
-                                        <h1 className="text-4xl font-bold mb-2">Welcome back, {user.name}!</h1>
+                                        <h1 className="text-4xl font-bold mb-2">Welcome to <span className="ultraflex-ultra text-white">ULTRA</span><span className="ultraflex-flex text-red-600">FLEX</span>, {user.name}!</h1>
                                         <p className="text-xl text-gray-200">
                                             {user.membershipType} Member since {user.memberSince}
                                         </p>
@@ -369,7 +369,7 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                         <div className="grid md:grid-cols-3 gap-6">
                             <TileLink title="Personal Training" description="Get one-on-one guidance from our expert trainers" href="/trainers" tone="red" />
                             <TileLink title="Support Center" description="Find answers and get help" href="/contact" tone="green" />
-                            <TileLink title="Visit a Location" description="Talk to our staff at any UltraFlex location" href="/locations" tone="purple" />
+                            <TileLink title="Visit a Location" description="Talk to our staff at any ULTRAFLEX location" href="/locations" tone="purple" />
                         </div>
                     </Section>
                 </div>

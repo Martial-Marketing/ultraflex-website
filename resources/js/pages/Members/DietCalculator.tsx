@@ -305,8 +305,8 @@ export default function DietCalculator({ auth }: DietCalculatorProps) {
 
     return (
         <AppLayout auth={auth}>
-            <Head title="Diet Calculator - UltraFlex Members">
-                <meta name="description" content="Calculate your BMR, TDEE, and personalized nutrition targets with UltraFlex's advanced diet calculator." />
+            <Head title="Diet Calculator - ULTRAFLEX Members">
+                <meta name="description" content="Calculate your BMR, TDEE, and personalized nutrition targets with ULTRAFLEX's advanced diet calculator." />
             </Head>
 
             <div className="min-h-screen relative">

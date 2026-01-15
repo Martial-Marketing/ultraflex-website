@@ -62,14 +62,10 @@ export default function TrainerProfile() {
               <div>
                 <h1 className="text-3xl font-bold text-white mb-2">{trainer.name}</h1>
                 <h2 className="text-lg text-red-700 mb-4">Personal Trainer</h2>
-                <p className="text-gray-300 mb-4">{trainer.bio}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {trainer.specialties.map((s, i) => (
-                    <span key={i} className="px-3 py-1 bg-red-700/20 text-red-700 text-sm rounded-full">{s}</span>
-                  ))}
-                </div>
-                <div className="mb-4 text-gray-400 text-sm">Experience: {trainer.experience}</div>
-                <div className="mb-4 text-gray-400 text-sm">Certifications: {trainer.certifications.join(', ')}</div>
+                {trainer.location && (
+                  <p className="text-gray-400 mb-4">{trainer.location}</p>
+                )}
+                <p className="text-gray-300 mb-6">{trainer.bio}</p>
                 {/* Contact & booking */}
                 <div className="flex flex-col gap-3">
                   <div className="flex flex-wrap gap-2">

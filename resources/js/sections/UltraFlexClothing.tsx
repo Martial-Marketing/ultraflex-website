@@ -10,25 +10,25 @@ export default function UltraFlexClothing() {
     const images = [
         {
             src: "/Images/Clothing/Acid-grey-male-back-300x300.jpg",
-            alt: "UltraFlex Acid Grey Male Shirt",
+            alt: "ULTRAFLEX Acid Grey Male Shirt",
             title: "Acid Grey Performance Shirt",
             price: "From $29.99"
         },
         {
             src: "/Images/Clothing/Beige-female-back-300x300.jpg",
-            alt: "UltraFlex Beige Female Shirt",
+            alt: "ULTRAFLEX Beige Female Shirt",
             title: "Beige Athletic Top",
             price: "From $24.99"
         },
         {
             src: "/Images/Clothing/Drop-Sleeve-Vest-2-1-300x300.jpg",
-            alt: "UltraFlex Drop Sleeve Vest",
+            alt: "ULTRAFLEX Drop Sleeve Vest",
             title: "Drop Sleeve Vest",
             price: "From $34.99"
         },
         {
             src: "/Images/Clothing/IMG-0784-300x300.jpg",
-            alt: "UltraFlex Athletic Wear",
+            alt: "ULTRAFLEX Athletic Wear",
             title: "Premium Athletic Wear",
             price: "From $39.99"
         }
@@ -73,7 +73,7 @@ export default function UltraFlexClothing() {
                         {/* Simplified header */}
                         <div className="mb-6">
                             <h2 className="text-4xl font-bold">
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">UltraFlex</span>{' '}
+                                <span className="ultraflex-ultra text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">ULTRA</span><span className="ultraflex-flex text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">FLEX</span>{' '}
                                 <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Clothing</span>
                             </h2>
                         </div>
@@ -82,19 +82,6 @@ export default function UltraFlexClothing() {
                             Elevate your workout style with our premium athletic wear. 
                             Designed for performance, built for comfort, made to inspire.
                         </p>
-
-                        {/* Features list with hover effects */}
-                        <div className="mb-8 space-y-3">
-                            <div className="flex items-center text-gray-300 hover:text-red-700 transition-colors duration-300 group">
-                                <span className="group-hover:translate-x-1 transition-transform duration-300">Premium moisture-wicking fabric</span>
-                            </div>
-                            <div className="flex items-center text-gray-300 hover:text-red-700 transition-colors duration-300 group">
-                                <span className="group-hover:translate-x-1 transition-transform duration-300">Ergonomic athletic fit</span>
-                            </div>
-                            <div className="flex items-center text-gray-300 hover:text-red-700 transition-colors duration-300 group">
-                                <span className="group-hover:translate-x-1 transition-transform duration-300">Sustainable materials</span>
-                            </div>
-                        </div>
 
                         {/* Enhanced button with hover effects */}
                         <a 

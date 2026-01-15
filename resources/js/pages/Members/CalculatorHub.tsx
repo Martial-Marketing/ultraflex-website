@@ -38,8 +38,8 @@ export default function CalculatorIndex({ auth }: CalculatorIndexProps) {
 
     return (
         <AppLayout auth={auth}>
-            <Head title="Nutrition Calculator - UltraFlex Members">
-                <meta name="description" content="Access advanced nutrition and body composition calculators designed for UltraFlex members." />
+            <Head title="Nutrition Calculator - ULTRAFLEX Members">
+                <meta name="description" content="Access advanced nutrition and body composition calculators designed for ULTRAFLEX members." />
             </Head>
 
             <div className="min-h-screen relative">

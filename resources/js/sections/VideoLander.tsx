@@ -7,7 +7,7 @@ export default function VideoLander() {
             <iframe
                 className="absolute inset-0 w-full h-full"
                 src="https://www.youtube.com/embed/CyWN8ipcwgo?autoplay=1&mute=1&loop=1&playlist=CyWN8ipcwgo&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1&fs=0"
-                title="UltraFlex Hero Video"
+                title="ULTRAFLEX Hero Video"
                 frameBorder="0"
                 allow="autoplay; encrypted-media"
                 allowFullScreen
@@ -51,7 +51,7 @@ export default function VideoLander() {
                     {/* Simplified logo/brand section */}
                     <div className="mb-6">
                         <h1 className="text-6xl font-bold tracking-tight">
-                            <span className="font-black text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">ULTRA</span><span className="font-normal text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">FLEX</span>
+                            <span className="ultraflex-ultra text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">ULTRA</span><span className="ultraflex-flex text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">FLEX</span>
                         </h1>
                     </div>
 

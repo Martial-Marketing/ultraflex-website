@@ -35,8 +35,8 @@ export default function Register({ auth }: RegisterProps) {
 
     return (
         <AppLayout auth={auth || { user: null }}>
-            <Head title="Register - UltraFlex">
-                <meta name="description" content="Join UltraFlex today and start your fitness journey. Create your account to access premium gym facilities and expert training." />
+            <Head title="Register - ULTRAFLEX">
+                <meta name="description" content="Join ULTRAFLEX today and start your fitness journey. Create your account to access premium gym facilities and expert training." />
             </Head>
 
             <div className="min-h-screen relative">

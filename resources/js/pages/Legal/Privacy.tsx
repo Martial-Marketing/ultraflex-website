@@ -10,32 +10,24 @@ export default function Privacy({ auth }: { auth: any }) {
         <AnimatedBackground variant="gradient" intensity="medium" className="z-0" />
         <div className="relative z-10 container mx-auto px-6 py-12 text-white">
           <div className="mb-8">
-            <h1 className="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight">Privacy Policy</h1>
-            <p className="mt-3 max-w-3xl text-gray-300">This Privacy Policy mirrors the current policy on ultraflexclothing.com.</p>
+            <h1 className="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight"><span className="ultraflex-ultra text-white">ULTRA</span><span className="ultraflex-flex text-red-600">FLEX</span> Gym Privacy Policy</h1>
+            <p className="mt-3 max-w-3xl text-gray-300">Effective Date: April 30th, 2025</p>
           </div>
 
-          {/* Sidebar + Content layout for better navigation */}
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
             <aside className="lg:col-span-1">
               <nav className="sticky top-24 space-y-2">
                 {[
                   { id: 'intro', label: 'Introduction' },
-                  { id: 'pii', label: 'Personal Information' },
-                  { id: 'collected', label: 'Info Collected' },
-                  { id: 'orgs', label: 'Collecting Orgs' },
-                  { id: 'usage', label: 'How We Use' },
-                  { id: 'sharing', label: 'Sharing' },
-                  { id: 'storage', label: 'Storage' },
-                  { id: 'choices', label: 'Your Choices' },
-                  { id: 'cookies', label: 'Cookies' },
-                  { id: 'login', label: 'Login Info' },
-                  { id: 'partners', label: 'Partners' },
-                  { id: 'security', label: 'Security' },
-                  { id: 'accuracy', label: 'Accuracy' },
-                  { id: 'deletion', label: 'Deletion' },
+                  { id: 'key-terms', label: 'Key Terms' },
+                  { id: 'info-collect', label: 'Information We Collect' },
+                  { id: 'how-use', label: 'How We Use Your Info' },
+                  { id: 'sharing', label: 'Sharing Your Info' },
+                  { id: 'security', label: 'Data Security' },
                   { id: 'rights', label: 'Your Rights' },
+                  { id: 'cookies', label: 'Cookies' },
                   { id: 'changes', label: 'Policy Changes' },
-                  { id: 'links', label: 'Links' },
+                  { id: 'contact', label: 'Contact Us' },
                 ].map((item) => (
                   <a key={item.id} href={`#${item.id}`} className="block rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-300 hover:text-red-600 hover:border-red-700/40 transition">
                     {item.label}
@@ -46,169 +38,151 @@ export default function Privacy({ auth }: { auth: any }) {
 
             <div className="lg:col-span-3 space-y-6">
               <section id="intro" className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-              <p className="text-gray-300">
-                Welcome to www.ultraflexclothing.com (the “Site”). We understand that privacy online is important to users of our Site,
-                especially when conducting business. This statement governs our privacy policies with respect to those
-                users of the Site (“Visitors”) who visit without transacting business and Visitors who register to
-                transact business on the Site and make use of the various services offered by Ultraflex Gym Clothing LTD t/a Ultraflex Clothing
-                (collectively, “Services”) (“Authorized Customers”).
-              </p>
-            </section>
+                <h2 className="text-2xl font-bold text-white mb-4">Introduction</h2>
+                <p className="text-gray-300">
+                  We take your privacy very seriously. Please read this privacy policy carefully as it contains important information on who we are and how and why we collect, store, use, and share your personal information. It also explains your rights in relation to your personal information and how to contact us or supervisory authorities in the event you have a complaint.
+                </p>
+                <p className="text-gray-300 mt-4">
+                  We collect, use, and are responsible for certain personal information about you. When we do so, we are subject to the General Data Protection Regulation, which applies across the European Union (including in the United Kingdom and elsewhere), and we are responsible as the 'controller' of that personal information for the purposes of those laws.
+                </p>
+              </section>
 
-            <section id="pii" className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-              <h2 className="text-xl font-semibold mb-3">“Personally Identifiable Information”</h2>
-              <p className="text-gray-300">
-                Refers to any information that identifies or can be used to identify, contact, or locate the person to
-                whom such information pertains, including, but not limited to, name, address, phone number, fax number,
-                email address, financial profiles, social security number, and credit card information. Personally
-                Identifiable Information does not include information that is collected anonymously (that is, without
-                identification of the individual user) or demographic information not connected to an identified
-                individual.
-              </p>
-            </section>
+              <section id="key-terms" className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+                <h2 className="text-2xl font-bold text-white mb-4">Key Terms</h2>
+                <p className="text-gray-300">
+                  It would be helpful to start by explaining some key terms used in this policy.
+                </p>
+              </section>
 
-            <section id="collected" className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-              <h2 className="text-xl font-semibold mb-3">What Personally Identifiable Information is collected?</h2>
-              <p className="text-gray-300">We may collect basic user profile information from all of our Visitors.</p>
-              <p className="text-gray-300 mt-2">
-                We collect the following additional information from our Authorized Customers: the names, addresses,
-                phone numbers and email addresses of Authorized Customers, the nature and size of the business, and
-                the nature and size of the advertising inventory that the Authorized Customer intends to purchase or
-                sell.
-              </p>
-            </section>
+              <section id="info-collect" className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+                <div className="flex items-start gap-4">
+                  <span className="text-4xl font-black text-red-600">1</span>
+                  <div className="flex-1">
+                    <h2 className="text-2xl font-bold mb-3"><span className="text-red-600">Information</span> <span className="text-white">We Collect</span></h2>
+                    <p className="text-gray-300 mb-3">We may collect and process the following data about you:</p>
+                    <ul className="list-disc pl-6 text-gray-300 space-y-2">
+                      <li><strong>Personal Identification Information:</strong> Name, date of birth, gender, and contact details including email address and phone number.</li>
+                      <li><strong>Financial Information:</strong> Payment details, billing address, and transaction history.</li>
+                      <li><strong>Health and Fitness Information:</strong> Data provided in the Physical Activity Readiness Questionnaire (PARQ), fitness assessments, and related health information.</li>
+                      <li><strong>Biometric Data:</strong> Fingerprint data used for gym access systems, stored securely and used solely for authentication purposes.</li>
+                      <li><strong>Technical Data:</strong> IP address, browser type, operating system, and information about your use of our website.</li>
+                      <li><strong>Usage Data:</strong> Information about how you use our services, including gym attendance and participation in classes or programs.</li>
+                      <li><strong>Marketing and Communications Data:</strong> Your preferences in receiving marketing from us and your communication preferences.</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
 
-            <section id="orgs" className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-              <h2 className="text-xl font-semibold mb-3">What organizations are collecting the information?</h2>
-              <p className="text-gray-300">
-                In addition to our direct collection of information, our third party service vendors (such as credit
-                card companies, clearinghouses and banks) who may provide such services as credit, insurance, and
-                escrow services may collect this information from our Visitors and Authorized Customers.
-                We do not control how these third parties use such information, but we do ask them to disclose how
-                they use personal information provided to them from Visitors and Authorized Customers. Some of
-                these third parties may be intermediaries that act solely as links in the distribution chain,
-                and do not store, retain, or use the information given to them.
-              </p>
-            </section>
+              <section id="how-use" className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+                <div className="flex items-start gap-4">
+                  <span className="text-4xl font-black text-red-600">2</span>
+                  <div className="flex-1">
+                    <h2 className="text-2xl font-bold mb-3"><span className="text-red-600">How We Use</span> <span className="text-white">Your Information</span></h2>
+                    <p className="text-gray-300 mb-3">We use the information we collect in the following ways:</p>
+                    <ul className="list-disc pl-6 text-gray-300 space-y-2">
+                      <li>To provide and manage your membership and our services.</li>
+                      <li>To process payments and prevent fraudulent transactions.</li>
+                      <li>To communicate with you about your membership, including updates and administrative messages.</li>
+                      <li>To personalize your experience and deliver content and product offerings relevant to your interests.</li>
+                      <li>To provide secure and efficient access to our facilities using biometric authentication.</li>
+                      <li>To comply with legal obligations and enforce our terms and conditions.</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
 
-            <section id="usage" className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-              <h2 className="text-xl font-semibold mb-3">How does the Site use Personally Identifiable Information?</h2>
-              <p className="text-gray-300">
-                We use Personally Identifiable Information to customize the Site, to make appropriate service
-                offerings, and to fulfill buying and selling requests on the Site. We may email Visitors and
-                Authorized Customers about research or purchase and selling opportunities on the Site or information
-                related to the subject matter of the Site. We may also use Personally Identifiable Information to
-                contact Visitors and Authorized Customers in response to specific inquiries, or to provide requested
-                information.
-              </p>
-            </section>
+              <section id="sharing" className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+                <div className="flex items-start gap-4">
+                  <span className="text-4xl font-black text-red-600">3</span>
+                  <div className="flex-1">
+                    <h2 className="text-2xl font-bold mb-3"><span className="text-red-600">Sharing</span> <span className="text-white">Your Information</span></h2>
+                    <p className="text-gray-300 mb-3">We may share your information with:</p>
+                    <ul className="list-disc pl-6 text-gray-300 space-y-2">
+                      <li><strong>Service Providers:</strong> Third-party vendors who provide services such as payment processing, data analysis, email delivery, hosting services, and customer service.</li>
+                      <li><strong>Affiliated Gyms and Partners:</strong> For the purpose of providing joint services or promotions.</li>
+                      <li><strong>Legal Obligations:</strong> When required by law or to respond to legal processes.</li>
+                    </ul>
+                    <p className="text-gray-300 mt-3">
+                      We ensure that any third parties with whom we share your data are obligated to keep your information secure and confidential. Biometric data is not shared with any third parties and is stored securely in accordance with applicable data protection laws.
+                    </p>
+                  </div>
+                </div>
+              </section>
 
-            <section id="sharing" className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-              <h2 className="text-xl font-semibold mb-3">With whom may the information may be shared?</h2>
-              <p className="text-gray-300">
-                Personally Identifiable Information about Authorized Customers may be shared with other Authorized
-                Customers who wish to evaluate potential transactions with other Authorized Customers.
-                We may share aggregated information about our Visitors, including the demographics of our
-                Visitors and Authorized Customers, with our affiliated agencies and third party vendors.
-                We also offer the opportunity to “opt out” of receiving information or being contacted by
-                us or by any agency acting on our behalf.
-              </p>
-            </section>
+              <section id="security" className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+                <div className="flex items-start gap-4">
+                  <span className="text-4xl font-black text-red-600">4</span>
+                  <div className="flex-1">
+                    <h2 className="text-2xl font-bold mb-3"><span className="text-red-600">Data</span> <span className="text-white">Security</span></h2>
+                    <p className="text-gray-300">
+                      We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, alteration, disclosure, or destruction. This includes secure servers, firewalls, encrypted storage of biometric identifiers, and restricted access protocols.
+                    </p>
+                  </div>
+                </div>
+              </section>
 
-            <section id="storage" className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-              <h2 className="text-xl font-semibold mb-3">How is Personally identifiable Information stored?</h2>
-              <p className="text-gray-300">
-                Personally Identifiable Information collected by
-                Ultraflex Gym Clothing LTD t/a Ultraflex Clothing is securely stored and is not accessible to third parties or employees of
-                Ultraflex Gym Clothing LTD t/a Ultraflex Clothing except for use as indicated above.
-              </p>
-            </section>
+              <section id="rights" className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+                <div className="flex items-start gap-4">
+                  <span className="text-4xl font-black text-red-600">5</span>
+                  <div className="flex-1">
+                    <h2 className="text-2xl font-bold mb-3"><span className="text-red-600">Your Data Protection</span> <span className="text-white">Rights</span></h2>
+                    <p className="text-gray-300 mb-3">Under data protection laws, you have rights including:</p>
+                    <ul className="list-disc pl-6 text-gray-300 space-y-2">
+                      <li>The right to access the personal data we hold about you.</li>
+                      <li>The right to request correction of inaccurate or incomplete data.</li>
+                      <li>The right to request deletion of your personal data.</li>
+                      <li>The right to object to or restrict processing of your data.</li>
+                      <li>The right to data portability.</li>
+                    </ul>
+                    <p className="text-gray-300 mt-3">
+                      To exercise any of these rights, please contact us using the details provided below.
+                    </p>
+                  </div>
+                </div>
+              </section>
 
-            <section id="choices" className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-              <h2 className="text-xl font-semibold mb-3">What choices are available to Visitors regarding collection, use and distribution of the information?</h2>
-              <p className="text-gray-300">
-                Visitors and Authorized Customers may opt out of receiving unsolicited information from or being contacted by us and/or our vendors and affiliated agencies by responding to emails as instructed, or by contacting us at Ultraflex gym clothing LTD 1285 Century Way, LS15 8ZB
-              </p>
-            </section>
+              <section id="cookies" className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+                <div className="flex items-start gap-4">
+                  <span className="text-4xl font-black text-red-600">6</span>
+                  <div className="flex-1">
+                    <h2 className="text-2xl font-bold mb-3"><span className="text-red-600">Cookies</span> <span className="text-white">and Tracking Technologies</span></h2>
+                    <p className="text-gray-300">
+                      Our website uses cookies to enhance user experience, analyze website traffic, and for marketing purposes. You can set your browser to refuse all or some browser cookies or to alert you when websites set or access cookies.
+                    </p>
+                  </div>
+                </div>
+              </section>
 
-            <section id="cookies" className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-              <h2 className="text-xl font-semibold mb-3">Cookies</h2>
-              <p className="text-gray-300">
-                A cookie is a string of information that a website stores on a visitor’s computer, and that the visitor’s browser provides to the website each time the visitor returns.
-              </p>
-              <h3 className="text-lg font-semibold mt-4">Are Cookies Used on the Site?</h3>
-              <p className="text-gray-300 mt-2">
-                Cookies are used for a variety of reasons. We use Cookies to obtain information about the preferences of our Visitors and the services they select. We also use Cookies for security purposes to protect our Authorized Customers. For example, if an Authorized Customer is logged on and the site is unused for more than 10 minutes, we will automatically log the Authorized Customer off. Visitors who do not wish to have cookies placed on their computers should set their browsers to refuse cookies before using www.ultraflexclothing.com, with the drawback that certain features of website may not function properly without the aid of cookies.
-              </p>
-              <h3 className="text-lg font-semibold mt-4">Cookies used by our service providers</h3>
-              <p className="text-gray-300 mt-2">
-                Our service providers use cookies and those cookies may be stored on your computer when you visit our website. You can find more details about which cookies are used in our cookies info page.
-              </p>
-            </section>
+              <section id="changes" className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+                <div className="flex items-start gap-4">
+                  <span className="text-4xl font-black text-red-600">7</span>
+                  <div className="flex-1">
+                    <h2 className="text-2xl font-bold mb-3"><span className="text-red-600">Changes</span> <span className="text-white">to This Privacy Policy</span></h2>
+                    <p className="text-gray-300">
+                      We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated revision date.
+                    </p>
+                    <p className="text-gray-300 mt-3">
+                      <strong>Last updated:</strong> 30/04/2025
+                    </p>
+                  </div>
+                </div>
+              </section>
 
-            <section id="login" className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-              <h2 className="text-xl font-semibold mb-3">How does Athletic Club LTD t/a Ultra Flex Gym use login information?</h2>
-              <p className="text-gray-300">
-                Ultraflex Clothing LTD uses login information, including, but not limited to, IP addresses, ISPs, and browser types, to analyze trends, administer the Site, track a user’s movement and use, and gather broad demographic information.
-              </p>
-            </section>
-
-            <section id="partners" className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-              <h2 className="text-xl font-semibold mb-3">What partners or service providers have access to Personally Identifiable Information from Visitors and/or Authorized Customers on the Site?</h2>
-              <p className="text-gray-300">
-                Ultra Flex Clothing LTD has entered into and will continue to enter into partnerships and other affiliations with a number of vendors. Such vendors may have access to certain Personally Identifiable Information on a need to know the basis for evaluating Authorized Customers for service eligibility. Our privacy policy does not cover their collection or use of this information. Disclosure of Personally Identifiable Information to comply with the law. We will disclose Personally Identifiable Information in order to comply with a court order or subpoena or a request from a law enforcement agency to release information. We will also disclose Personally Identifiable Information when reasonably necessary to protect the safety of our Visitors and Authorized Customers.
-              </p>
-            </section>
-
-            <section id="security" className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-              <h2 className="text-xl font-semibold mb-3">How does the Site keep Personally Identifiable Information secure?</h2>
-              <p className="text-gray-300">
-                All of our employees are familiar with our security policy and practices. The Personally Identifiable Information of our Visitors and Authorized Customers is only accessible to a limited number of qualified employees who are given a password in order to gain access to the information. We audit our security systems and processes on a regular basis. Sensitive information, such as credit card numbers or social security numbers, is protected by encryption protocols, in place to protect information sent over the Internet. While we take commercially reasonable measures to maintain a secure site, electronic communications and databases are subject to errors, tampering, and break-ins, and we cannot guarantee or warrant that such events will not take place and we will not be liable to Visitors or Authorized Customers for any such occurrences.
-              </p>
-            </section>
-
-            <section id="accuracy" className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-              <h2 className="text-xl font-semibold mb-3">How can Visitors correct any inaccuracies in Personally Identifiable Information?</h2>
-              <p className="text-gray-300">
-                Visitors and Authorized Customers may contact us to update Personally Identifiable Information about them or to correct any inaccuracies by emailing us at info@ultraflexclothing.com
-              </p>
-            </section>
-
-            <section id="deletion" className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-              <h2 className="text-xl font-semibold mb-3">Can a Visitor delete or deactivate Personally Identifiable Information collected by the Site?</h2>
-              <p className="text-gray-300">
-                We provide Visitors and Authorized Customers with a mechanism to delete/deactivate Personally Identifiable Information from the Site’s database by contacting. However, because of backups and records of deletions, it may be impossible to delete a Visitor’s entry without retaining some residual information. An individual who requests to have Personally Identifiable Information deactivated will have this information functionally deleted, and we will not sell, transfer, or use Personally Identifiable Information relating to that individual in any way moving forward.
-              </p>
-            </section>
-
-            <section id="rights" className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-              <h2 className="text-xl font-semibold mb-3">Your rights</h2>
-              <p className="text-gray-300">These are summarized rights that you have under data protection law</p>
-              <ul className="mt-2 list-disc pl-6 text-gray-300 space-y-1">
-                <li>The right to access</li>
-                <li>The right to rectification</li>
-                <li>The right to erasure</li>
-                <li>The right to restrict processing</li>
-                <li>The right to object to processing</li>
-                <li>The right to data portability</li>
-                <li>The right to complain to a supervisory authority</li>
-                <li>The right to withdraw consent</li>
-              </ul>
-            </section>
-
-            <section id="changes" className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-              <h2 className="text-xl font-semibold mb-3">What happens if the Privacy Policy Changes?</h2>
-              <p className="text-gray-300">
-                We will let our Visitors and Authorized Customers know about changes to our privacy policy by posting such changes on the Site. However, if we are changing our privacy policy in a manner that might cause disclosure of Personally Identifiable Information that a Visitor or Authorized Customer has previously requested not be disclosed, we will contact such Visitor or Authorized Customer to allow such Visitor or Authorized Customer to prevent such disclosure.
-              </p>
-            </section>
-
-            <section id="links" className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-              <h2 className="text-xl font-semibold mb-3">Links</h2>
-              <p className="text-gray-300">
-                https://www.ultraflexclothing.com contains links to other websites. Please note that when you click on one of these links, you are moving to another website. We encourage you to read the privacy statements of these linked sites as their privacy policies may differ from ours.
-              </p>
-            </section>
+              <section id="contact" className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+                <div className="flex items-start gap-4">
+                  <span className="text-4xl font-black text-red-600">8</span>
+                  <div className="flex-1">
+                    <h2 className="text-2xl font-bold mb-3"><span className="text-red-600">Contact</span> <span className="text-white">Us</span></h2>
+                    <p className="text-gray-300 mb-3">
+                      If you have any questions about this Privacy Policy or our data practices, please contact us at:
+                    </p>
+                    <div className="text-gray-300 space-y-1">
+                      <p><strong>Email:</strong> <a href="mailto:info@ultraflexgym.co.uk" className="text-red-600 underline underline-offset-2">info@ultraflexgym.co.uk</a></p>
+                      <p><strong>Address:</strong> 1265 Century Way, Leeds, LS15 8ZB, United Kingdom</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
             </div>
           </div>
         </div>

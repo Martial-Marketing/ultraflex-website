@@ -12,9 +12,7 @@ interface Tour {
     locationSlug: string;
     image: string;
     tourUrl: string | null; // allow null for pending
-    duration: string;
     highlights: string[];
-    featured: boolean;
 }
 
 interface TourFeature {
@@ -26,13 +24,12 @@ interface TourFeature {
 interface ToursIndexProps {
     tours: Tour[];
     tourFeatures: TourFeature[];
-    featuredTours: Tour[];
     auth: {
         user: any;
     };
 }
 
-export default function ToursIndex({ tours, tourFeatures, featuredTours, auth }: ToursIndexProps) {
+export default function ToursIndex({ tours, tourFeatures, auth }: ToursIndexProps) {
     const matterportTours = [
         {
             name: 'York',
@@ -82,8 +79,8 @@ export default function ToursIndex({ tours, tourFeatures, featuredTours, auth }:
 
     return (
         <AppLayout auth={auth}>
-            <Head title="Virtual Gym Tours - UltraFlex">
-                <meta name="description" content="Take a virtual tour of our UltraFlex gyms. Explore our state-of-the-art facilities from the comfort of your home." />
+            <Head title="Virtual Gym Tours - ULTRAFLEX">
+                <meta name="description" content="Take a virtual tour of our ULTRAFLEX gyms. Explore our state-of-the-art facilities from the comfort of your home." />
             </Head>
 
             <div className="min-h-screen relative">
@@ -133,101 +130,10 @@ export default function ToursIndex({ tours, tourFeatures, featuredTours, auth }:
                             </h1>
                             <p className="text-xl text-gray-200 max-w-3xl mx-auto">
                                 Explore our world-class facilities from anywhere. Take immersive 360° virtual tours 
-                                of all UltraFlex locations and see what makes us special.
+                                of all ULTRAFLEX locations and see what makes us special.
                             </p>
                         </div>
                     </section>
-
-                    {/* Featured Tours */}
-                    {featuredTours.length > 0 && (
-                        <section className="py-16 bg-black/20 backdrop-blur-md">
-                            <div className="container mx-auto px-6">
-                                <h2 className="text-3xl font-bold text-center mb-12">
-                                    <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Featured</span>{' '}
-                                    <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Tours</span>
-                                </h2>
-                                <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                                    {featuredTours.map((tour) => (
-                                        <Card key={tour.id} className="overflow-hidden hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 hover:-translate-y-1 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 group">
-                                            <div className="relative h-64 bg-gray-800 overflow-hidden">
-                                                <img 
-                                                    src={tour.image} 
-                                                    alt={`${tour.locationName} virtual tour`}
-                                                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                                                    loading="lazy"
-                                                />
-                                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                                
-                                                {/* Start tour overlay */}
-                                                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                                    <Button 
-                                                        size="lg"
-                                                        className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white backdrop-blur-sm border border-red-700/20 shadow-lg transform hover:scale-105 transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed"
-                                                        onClick={() => handleTourClick(tour.tourUrl, tour.locationSlug)}
-                                                        disabled={!tour.tourUrl}
-                                                    >
-                                                        {tour.tourUrl ? 'Start Tour' : 'Coming Soon'}
-                                                    </Button>
-                                                </div>
-
-                                                {/* Featured badge */}
-                                                <div className="absolute top-4 left-4 bg-gradient-to-r from-red-700 to-red-800 text-white px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm border border-red-700/20">
-                                                    Featured
-                                                </div>
-
-                                                {/* Tour indicator */}
-                                                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                                    <div className="bg-red-700/20 backdrop-blur-sm rounded-full px-3 py-1 border border-red-700/30 text-red-700 text-xs">
-                                                        360° Tour
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                            <CardContent className="p-6 bg-black/20 backdrop-blur-sm">
-                                                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">{tour.locationName}</h3>
-                                                <p className="text-gray-300 mb-4">
-                                                    {tour.duration} tour
-                                                </p>
-                                                
-                                                <div className="mb-4">
-                                                    <h4 className="text-sm font-medium text-white mb-2">Tour Highlights:</h4>
-                                                    <ul className="space-y-1">
-                                                        {tour.highlights.map((highlight, index) => (
-                                                            <li key={index} className="text-sm text-gray-300 flex items-center group hover:text-red-700 transition-colors duration-300">
-                                                                <div className="w-1 h-1 bg-red-700 rounded-full mr-2 group-hover:bg-red-600 transition-colors duration-300"></div>
-                                                                <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                                                    {highlight}
-                                                                </span>
-                                                            </li>
-                                                        ))}
-                                                    </ul>
-                                                </div>
-
-                                                <div className="space-y-2">
-                                                    <Button 
-                                                        className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group disabled:opacity-40 disabled:cursor-not-allowed"
-                                                        onClick={() => handleTourClick(tour.tourUrl, tour.locationSlug)}
-                                                        disabled={!tour.tourUrl}
-                                                    >
-                                                        <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                                            {tour.tourUrl ? 'Start Virtual Tour' : 'Coming Soon'}
-                                                        </span>
-                                                    </Button>
-                                                    <Link href={`/locations/${tour.locationSlug}`} className="block w-full">
-                                                        <Button variant="outline" className="w-full border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
-                                                            <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                                                View Location Details
-                                                            </span>
-                                                        </Button>
-                                                    </Link>
-                                                </div>
-                                            </CardContent>
-                                        </Card>
-                                    ))}
-                                </div>
-                            </div>
-                        </section>
-                    )}
 
                     {/* All Tours */}
                     <section className="py-16">
@@ -258,22 +164,9 @@ export default function ToursIndex({ tours, tourFeatures, featuredTours, auth }:
                                                     Take Tour
                                                 </Button>
                                             </div>
-                                            {tour.featured && (
-                                                <div className="absolute top-3 right-3 bg-gradient-to-r from-red-700 to-red-800 text-white px-2 py-1 rounded text-xs font-medium backdrop-blur-sm border border-red-700/20">
-                                                    Featured
-                                                </div>
-                                            )}
-
-                                            {/* Duration indicator */}
-                                            <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white px-2 py-1 rounded text-xs border border-white/10">
-                                                {tour.duration}
-                                            </div>
                                         </div>
                                         <CardContent className="p-6 bg-black/20 backdrop-blur-sm">
                                             <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">{tour.locationName}</h3>
-                                            <p className="text-gray-300 mb-4 text-sm">
-                                                {tour.duration} virtual tour
-                                            </p>
                                             <div className="space-y-2">
                                                 <Button 
                                                     className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group disabled:opacity-40 disabled:cursor-not-allowed"
@@ -333,7 +226,7 @@ export default function ToursIndex({ tours, tourFeatures, featuredTours, auth }:
                                     </div>
                                     <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">Choose a Location</h3>
                                     <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">
-                                        Select any UltraFlex location to explore virtually
+                                        Select any ULTRAFLEX location to explore virtually
                                     </p>
                                 </div>
                                 
@@ -383,11 +276,11 @@ export default function ToursIndex({ tours, tourFeatures, featuredTours, auth }:
                                 <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Ready</span>{' '}
                                 <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">to</span>{' '}
                                 <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Experience</span>{' '}
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">UltraFlex?</span>
+                                <span className="ultraflex-ultra text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">ULTRA</span><span className="ultraflex-flex text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">FLEX</span><span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">?</span>
                             </h2>
                             <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
                                 Virtual tours are great, but nothing beats experiencing our facilities in person. 
-                                Visit any location for a real tour and see why members love UltraFlex.
+                                Visit any location for a real tour and see why members love <span className="ultraflex-ultra text-white">ULTRA</span><span className="ultraflex-flex text-red-600">FLEX</span>.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                 <Link href="/locations">
@@ -424,7 +317,7 @@ export default function ToursIndex({ tours, tourFeatures, featuredTours, auth }:
                                     allowFullScreen
                                     allow="xr-spatial-tracking"
                                     style={{ border: 0, width: '100%', height: '480px', minHeight: 320 }}
-                                    title={`UltraFlex Matterport Virtual Tour - ${matterportTours[matterportIndex].name}`}
+                                    title={`ULTRAFLEX Matterport Virtual Tour - ${matterportTours[matterportIndex].name}`}
                                 />
                                 {/* Carousel controls */}
                                 <button
@@ -449,7 +342,7 @@ export default function ToursIndex({ tours, tourFeatures, featuredTours, auth }:
                                 </div>
                             </div>
                             <p className="text-center text-gray-400 mt-4 text-sm">
-                                Explore UltraFlex gyms in 3D with Matterport.
+                                Explore ULTRAFLEX gyms in 3D with Matterport.
                             </p>
                         </div>
                     </section>

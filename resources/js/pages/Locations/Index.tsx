@@ -20,6 +20,7 @@ interface Location {
     mapUrl?: string;
     // Optional virtual tour flag (in case backend adds later)
     virtualTour?: string | null;
+    features?: string[];
 }
 
 interface MembershipPlan {
@@ -60,8 +61,8 @@ export default function LocationsIndex({ locations, membershipPlans, auth }: Loc
     };
     return (
         <AppLayout auth={auth}>
-            <Head title="Our Locations - UltraFlex">
-                <meta name="description" content="Find the UltraFlex gym nearest to you. State-of-the-art equipment and premium amenities at every location." />
+            <Head title="Our Locations - ULTRAFLEX">
+                <meta name="description" content="Find the ULTRAFLEX gym nearest to you. State-of-the-art equipment and premium amenities at every location." />
             </Head>
 
             <div className="min-h-screen relative">
@@ -108,7 +109,7 @@ export default function LocationsIndex({ locations, membershipPlans, auth }: Loc
                                 <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Locations</span>
                             </h1>
                             <p className="text-xl text-gray-200 max-w-3xl mx-auto">
-                                Find the UltraFlex gym nearest to you. Each location features 
+                                Find the <span className="ultraflex-ultra text-white">ULTRA</span><span className="ultraflex-flex text-red-600">FLEX</span> gym nearest to you. Each location features 
                                 state-of-the-art equipment, expert trainers, and premium amenities 
                                 to help you achieve your fitness goals.
                             </p>
@@ -164,6 +165,11 @@ export default function LocationsIndex({ locations, membershipPlans, auth }: Loc
                                                     <div className="text-gray-300 text-sm group-hover:text-white group-hover:translate-x-1 transition-all duration-300">
                                                         <div>Mon-Fri: {location.hours.weekdays}</div>
                                                         <div>Sat-Sun: {location.hours.weekends}</div>
+                                                        {location.features?.includes('24hr access') && (
+                                                            <div className="mt-1 inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-red-700/20 text-red-400 border border-red-700/30">
+                                                                24hr access
+                                                            </div>
+                                                        )}
                                                     </div>
                                                 </div>
                                             </div>
@@ -332,7 +338,7 @@ export default function LocationsIndex({ locations, membershipPlans, auth }: Loc
                                         </h2>
                                         <p className="text-gray-300 mb-6 leading-relaxed">
                                             We're constantly expanding! Let us know where you'd like to see 
-                                            a new UltraFlex location.
+                                            a new ULTRAFLEX location.
                                         </p>
                                         <Link href="/contact">
                                             <Button size="lg" className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm">

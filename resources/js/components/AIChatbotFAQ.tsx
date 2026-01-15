@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 
 type Msg = { sender: 'bot' | 'user'; text: string };
 
-const INTRO = 'Hi! I am the UltraFlex AI Assistant. Ask about memberships, opening times, facilities, locations, or trainers.';
+const INTRO = 'Hi! I am the ULTRAFLEX AI Assistant. Ask about memberships, opening times, facilities, locations, or trainers.';
 
 export default function AIChatbotFAQ() {
   const [open, setOpen] = useState(false);
@@ -33,13 +33,13 @@ export default function AIChatbotFAQ() {
     const { locationSlug } = getContext();
     const loc = locationSlug ? `/locations/${locationSlug}` : '/locations';
     if (/^(hi|hello|hey|hiya|yo|help)\b/.test(t)) {
-      return 'Hi! I can help with UltraFlex memberships, opening times, facilities, locations, and trainers. Try “Membership options” or “Opening hours”.';
+      return 'Hi! I can help with ULTRAFLEX memberships, opening times, facilities, locations, and trainers. Try "Membership options" or "Opening hours".';
     }
     if (t.includes('price') || t.includes('how much') || t.includes('cost') || t.includes('pricing') || q.includes('£')) {
       return `We don’t publish fixed prices. Please use our Ashbourne portal for current options: ${ashbourne}.`;
     }
     if (t.includes('member') || t.includes('join') || t.includes('sign up') || t.includes('signup')) {
-      return `Join UltraFlex via our Ashbourne signup: ${ashbourne}.`;
+      return `Join ULTRAFLEX via our Ashbourne signup: ${ashbourne}.`;
     }
     if (t.includes('open') || t.includes('opening') || t.includes('hours') || t.includes('24/7')) {
       return `Most sites are 24/7 for members; staffed hours vary. See your gym page: ${loc}.`;
@@ -156,7 +156,7 @@ export default function AIChatbotFAQ() {
         >
           <img
             src="/Images/ultra-flex-200x167%20(1).png"
-            alt="Open UltraFlex Assistant"
+            alt="Open ULTRAFLEX Assistant"
             className="w-9 h-9 mx-auto object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.35)]"
             draggable="false"
           />
@@ -174,7 +174,7 @@ export default function AIChatbotFAQ() {
         <div className="relative flex items-center gap-3 px-4 py-3 border-b border-white/10">
           <img src="/Images/ultra-flex-200x167.webp" alt="UF" className="w-7 h-7 object-contain" />
           <div className="flex-1">
-            <div className="text-white font-semibold leading-tight">UltraFlex AI Assistant</div>
+            <div className="text-white font-semibold leading-tight"><span className="ultraflex-ultra">ULTRA</span><span className="ultraflex-flex text-red-600">FLEX</span> AI Assistant</div>
             <div className="text-xs text-gray-300">Ask about memberships, facilities, or opening times.</div>
           </div>
           <button aria-label="Close" onClick={() => setOpen(false)} className="text-gray-300 hover:text-red-400">×</button>

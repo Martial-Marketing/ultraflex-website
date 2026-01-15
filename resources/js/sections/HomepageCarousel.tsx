@@ -21,7 +21,7 @@ export default function HomepageCarousel() {
     <div className="relative w-full max-w-4xl mx-auto my-12 rounded-2xl overflow-hidden shadow-2xl">
       <img
         src={carouselImages[current]}
-        alt={`UltraFlex Carousel ${current + 1}`}
+        alt={`ULTRAFLEX Carousel ${current + 1}`}
         className="w-full h-96 object-cover transition-all duration-[1500ms]"
       />
       <button

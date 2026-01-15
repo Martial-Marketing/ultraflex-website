@@ -333,7 +333,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
 
     return (
         <AppLayout auth={auth}>
-            <Head title={`${location.name} - UltraFlex`}>
+            <Head title={`${location.name} - ULTRAFLEX`}>
                 <meta name="description" content={`Visit ${location.name} for fitness facilities, expert trainers, and state-of-the-art equipment. Located at ${location.address}.`} />
             </Head>
 
@@ -402,7 +402,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                         <Button 
                                             className="bg-red-700 hover:bg-red-600 transition-all duration-300 group"
                                             onClick={() => window.open(signupUrl, isExternalSignup ? '_blank' : '_self')}
-                                            aria-label="Join UltraFlex"
+                                            aria-label="Join ULTRAFLEX"
                                         >
                                             <span className="group-hover:translate-x-1 transition-transform duration-300">Join Now</span>
                                             <ChevronRight className="h-4 w-4 ml-2" />
@@ -497,6 +497,11 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                             <h3 className="text-lg font-semibold text-white mb-4 flex items-center">
                                                 <Clock className="h-5 w-5 mr-2 text-red-700" />
                                                 Opening Hours
+                                                {location.features?.includes('24hr access') && (
+                                                    <span className="ml-3 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-red-700/20 text-red-400 border border-red-700/30">
+                                                        24hr access
+                                                    </span>
+                                                )}
                                             </h3>
                                             <div className="space-y-2 text-gray-300">
                                                 {Object.entries(location.hours).map(([day, hours]) => (

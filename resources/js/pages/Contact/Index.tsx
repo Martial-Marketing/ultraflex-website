@@ -1,5 +1,6 @@
 import { Head, Link, useForm } from '@inertiajs/react';
 import { useState } from 'react';
+import { Mail, Phone, Search, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -17,12 +18,6 @@ interface Location {
   coordinates: { lat: number; lng: number };
 }
 
-interface GeneralContact {
-  phone: string;
-  email: string;
-  address: string;
-}
-
 interface LocationOption {
   id: number;
   name: string;
@@ -31,14 +26,14 @@ interface LocationOption {
 interface ContactIndexProps {
   locations: Location[];
   locationOptions?: LocationOption[];
-  generalContact: GeneralContact;
+  gymContacts: Location[];
   auth: { user: any };
 }
 
 export default function ContactIndex({
   locations,
   locationOptions = [],
-  generalContact,
+  gymContacts,
   auth,
 }: ContactIndexProps) {
   const { data, setData, post, processing, errors, reset } = useForm({
@@ -52,6 +47,31 @@ export default function ContactIndex({
   const [humanVerified, setHumanVerified] = useState(false);
   const [localErrors, setLocalErrors] = useState<{ location_id?: string; human?: string }>({});
   const [recaptchaToken, setRecaptchaToken] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedFilter, setSelectedFilter] = useState<string>('all');
+
+  const filterOptions = [
+    { id: 'all', label: 'All Locations', cities: [] },
+    { id: 'leeds', label: 'Leeds', cities: ['WEST LEEDS', 'NORTH LEEDS'] },
+    { id: 'yorkshire', label: 'Yorkshire', cities: ['YORK', 'HULL', 'NORMANTON', 'ROTHERHAM'] },
+    { id: 'midlands', label: 'Midlands', cities: ['DERBY', 'LINCOLN'] },
+    { id: 'durham', label: 'Durham', cities: ['DURHAM'] },
+    { id: 'london', label: 'London', cities: ['WEST LONDON'] },
+    { id: 'international', label: 'International', cities: ['ATHENS'] },
+  ];
+
+  const filteredGymContacts = gymContacts.filter((gym) => {
+    const matchesSearch = gym.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      gym.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      gym.phone.toLowerCase().includes(searchQuery.toLowerCase());
+    
+    if (selectedFilter === 'all') return matchesSearch;
+    
+    const filterOption = filterOptions.find(f => f.id === selectedFilter);
+    const matchesFilter = filterOption?.cities.some(city => gym.name.toUpperCase().includes(city));
+    
+    return matchesSearch && matchesFilter;
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -115,10 +135,10 @@ export default function ContactIndex({
 
   return (
     <AppLayout auth={auth}>
-      <Head title="Contact Us - UltraFlex">
+      <Head title="Contact Us - ULTRAFLEX">
         <meta
           name="description"
-          content="Get in touch with UltraFlex. Find our locations, contact information, and send us a message. We're here to help with all your fitness needs."
+          content="Get in touch with ULTRAFLEX. Find our locations, contact information, and send us a message. We're here to help with all your fitness needs."
         />
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
         <script>{`window.onRecaptchaSuccess = function(token){ /* handled in component */ }`}</script>
@@ -304,11 +324,72 @@ export default function ContactIndex({
                   <div>
                     <h2 className="text-3xl font-bold mb-8 text-white">Get In Touch</h2>
                     <Card className="p-6 mb-6 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-colors">
-                      <h3 className="text-xl font-semibold text-white mb-4">General Contact</h3>
-                      <div className="space-y-3">
-                        <div className="flex items-center space-x-3">
-                          <span className="text-gray-300">Email: {generalContact.email}</span>
-                        </div>
+                      <h3 className="text-xl font-semibold text-white mb-4">Gym Contacts</h3>
+                      
+                      {/* Search Input */}
+                      <div className="mb-3 relative">
+                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                        <Input
+                          type="text"
+                          value={searchQuery}
+                          onChange={(e) => setSearchQuery(e.target.value)}
+                          placeholder="Search by name, email or phone..."
+                          className="pl-10 bg-black/20 border-white/20 text-white placeholder-gray-400 focus:border-red-700"
+                        />
+                      </div>
+
+                      {/* Filter Chips */}
+                      <div className="mb-4 flex flex-wrap gap-2">
+                        {filterOptions.map((filter) => (
+                          <button
+                            key={filter.id}
+                            onClick={() => setSelectedFilter(filter.id)}
+                            className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 ${
+                              selectedFilter === filter.id
+                                ? 'bg-red-700 text-white shadow-lg shadow-red-700/50'
+                                : 'bg-white/10 text-gray-300 hover:bg-white/20 hover:text-white'
+                            }`}
+                          >
+                            {filter.label}
+                          </button>
+                        ))}
+                        {(selectedFilter !== 'all' || searchQuery) && (
+                          <button
+                            onClick={() => {
+                              setSelectedFilter('all');
+                              setSearchQuery('');
+                            }}
+                            className="px-3 py-1.5 rounded-full text-xs font-medium bg-white/10 text-gray-300 hover:bg-red-700/20 hover:text-red-400 transition-all duration-300 flex items-center gap-1"
+                          >
+                            <X className="h-3 w-3" />
+                            Clear
+                          </button>
+                        )}
+                      </div>
+
+                      {/* Gym Contacts List with Custom Scrollbar */}
+                      <div className="space-y-4 max-h-96 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-red-700 scrollbar-track-white/10 hover:scrollbar-thumb-red-600">
+                        {filteredGymContacts.length > 0 ? (
+                          filteredGymContacts.map((gym) => (
+                            <div key={gym.id} className="pb-3 border-b border-white/10 last:border-b-0">
+                              <h4 className="font-semibold text-white text-sm mb-2">{gym.name}</h4>
+                              <div className="space-y-1">
+                                <div className="flex items-center gap-2 text-gray-300 text-xs">
+                                  <Mail className="h-3 w-3 text-red-600" />
+                                  <span>{gym.email}</span>
+                                </div>
+                                <div className="flex items-center gap-2 text-gray-300 text-xs">
+                                  <Phone className="h-3 w-3 text-red-600" />
+                                  <span>{gym.phone}</span>
+                                </div>
+                              </div>
+                            </div>
+                          ))
+                        ) : (
+                          <div className="text-center py-8">
+                            <p className="text-gray-400 text-sm">No gyms found matching "{searchQuery}"</p>
+                          </div>
+                        )}
                       </div>
                     </Card>
                   </div>
@@ -419,9 +500,9 @@ export default function ContactIndex({
                   </p>
                 </Card>
                 <Card className="p-6 bg-black/40 backdrop-blur-md border border-white/10">
-                  <h3 className="text-white font-semibold mb-2">What are your staffed hours?</h3>
+                  <h3 className="text-white font-semibold mb-2">What are your opening hours?</h3>
                   <p className="text-gray-300 text-sm">
-                    Staffed hours vary by location. Please view your location page for specifics.
+                    Each location varies in opening times. Please review the location page to see your gym's opening hours.
                   </p>
                 </Card>
               </div>

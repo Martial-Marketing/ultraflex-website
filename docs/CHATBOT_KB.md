@@ -1,4 +1,4 @@
-# UltraFlex Chatbot Knowledge Base
+# ULTRAFLEX Chatbot Knowledge Base
 
 This document contains canonical information the chatbot should use when answering.
 

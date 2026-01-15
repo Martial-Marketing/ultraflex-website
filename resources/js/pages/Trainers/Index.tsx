@@ -33,8 +33,6 @@ interface TrainersIndexProps {
 
 export default function TrainersIndex({ trainers, locations, specialties, auth }: TrainersIndexProps) {
     const [searchTerm, setSearchTerm] = useState('');
-    const [selectedSpecialty, setSelectedSpecialty] = useState('');
-    const [selectedGender, setSelectedGender] = useState('');
     const [selectedLocation, setSelectedLocation] = useState('');
     const [showFilters, setShowFilters] = useState(false);
 
@@ -59,16 +57,9 @@ export default function TrainersIndex({ trainers, locations, specialties, auth }
         const matchesSearch = trainer.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                             trainer.bio.toLowerCase().includes(searchTerm.toLowerCase());
         
-        const matchesSpecialty = !selectedSpecialty || 
-                               (trainer.specialties || []).some(specialty => 
-                                   specialty.toLowerCase().includes(selectedSpecialty.toLowerCase())
-                               );
-        
-        const matchesGender = !selectedGender || trainer.gender === selectedGender;
-        
         const matchesLocation = !selectedLocation || trainer.locationSlug === selectedLocation;
 
-        return matchesSearch && matchesSpecialty && matchesGender && matchesLocation;
+        return matchesSearch && matchesLocation;
     });
 
 
@@ -77,8 +68,8 @@ export default function TrainersIndex({ trainers, locations, specialties, auth }
 
     return (
         <AppLayout auth={auth}>
-            <Head title="Personal Trainers - UltraFlex">
-                <meta name="description" content="Find expert personal trainers at UltraFlex. Filter by specialty, location, and gender to find the perfect trainer for your fitness goals." />
+            <Head title="Personal Trainers - ULTRAFLEX">
+                <meta name="description" content="Find expert personal trainers at ULTRAFLEX. Filter by specialty, location, and gender to find the perfect trainer for your fitness goals." />
             </Head>
 
             <div className="min-h-screen relative">
@@ -160,28 +151,6 @@ export default function TrainersIndex({ trainers, locations, specialties, auth }
                                 {/* Desktop Filters */}
                                 <div className={`flex flex-col lg:flex-row gap-4 ${showFilters ? 'block' : 'hidden lg:flex'} w-full lg:w-auto`}>
                                     <select
-                                        value={selectedSpecialty}
-                                        onChange={(e) => setSelectedSpecialty(e.target.value)}
-                                        className="px-3 py-2 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-red-700 bg-black/20 backdrop-blur-sm text-white"
-                                    >
-                                        <option value="" className="bg-black text-white">All Specialties</option>
-                                        {specialties.map(specialty => (
-                                            <option key={specialty} value={specialty} className="bg-black text-white">{specialty}</option>
-                                        ))}
-                                    </select>
-
-                                    <select
-                                        value={selectedGender}
-                                        onChange={(e) => setSelectedGender(e.target.value)}
-                                        className="px-3 py-2 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-red-700 bg-black/20 backdrop-blur-sm text-white"
-                                    >
-                                        <option value="" className="bg-black text-white">All Genders</option>
-                                        <option value="Male" className="bg-black text-white">Male</option>
-                                        <option value="Female" className="bg-black text-white">Female</option>
-                                        <option value="Non-Binary" className="bg-black text-white">Non-Binary</option>
-                                    </select>
-
-                                    <select
                                         value={selectedLocation}
                                         onChange={(e) => setSelectedLocation(e.target.value)}
                                         className="px-3 py-2 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-red-700 bg-black/20 backdrop-blur-sm text-white"
@@ -213,8 +182,6 @@ export default function TrainersIndex({ trainers, locations, specialties, auth }
                                     <Button 
                                         onClick={() => {
                                             setSearchTerm('');
-                                            setSelectedSpecialty('');
-                                            setSelectedGender('');
                                             setSelectedLocation('');
                                         }}
                                         variant="outline"

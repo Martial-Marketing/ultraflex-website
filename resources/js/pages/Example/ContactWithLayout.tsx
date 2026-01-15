@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import AppLayout from '@/layouts/app-layout';
 import AnimatedBackground from '@/components/AnimatedBackground';
+import { User } from '@/types';
 
 interface Location {
     id: number;
@@ -22,12 +23,6 @@ interface GeneralContact {
     phone: string;
     email: string;
     address: string;
-}
-
-interface User {
-    id: number;
-    name: string;
-    email: string;
 }
 
 interface AuthProps {
@@ -59,8 +54,8 @@ export default function ContactWithLayout({ locations, generalContact, auth }: C
 
     return (
         <AppLayout auth={auth}>
-            <Head title="Contact Us - UltraFlex">
-                <meta name="description" content="Get in touch with UltraFlex. Find our locations, contact information, and send us a message." />
+            <Head title="Contact Us - ULTRAFLEX">
+                <meta name="description" content="Get in touch with ULTRAFLEX. Find our locations, contact information, and send us a message." />
             </Head>
 
             <div className="min-h-screen relative">
@@ -77,7 +72,7 @@ export default function ContactWithLayout({ locations, generalContact, auth }: C
                     <section className="bg-gradient-to-r from-red-900/80 to-red-700/80 py-16 backdrop-blur-sm relative overflow-hidden">
                         <div className="container mx-auto px-6">
                             <div className="text-center">
-                                <h1 className="text-5xl font-bold text-white mb-4">Contact UltraFlex</h1>
+                                <h1 className="text-5xl font-bold text-white mb-4">Contact <span className="ultraflex-ultra text-white">ULTRA</span><span className="ultraflex-flex text-red-600">FLEX</span></h1>
                                 <p className="text-xl text-gray-200 max-w-2xl mx-auto">
                                     We're here to help you achieve your fitness goals. Get in touch with us today.
                                 </p>

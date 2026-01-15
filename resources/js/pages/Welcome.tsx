@@ -31,7 +31,7 @@ interface WelcomeProps {
 }
 
 export default function Welcome({ auth, latestNews }: WelcomeProps) {
-    // Real UltraFlex locations data - showing top 3 locations
+    // Real ULTRAFLEX locations data - showing top 3 locations
     const locations = [
         {
             id: 1,
@@ -56,19 +56,19 @@ export default function Welcome({ auth, latestNews }: WelcomeProps) {
         }
     ];
 
-    // Member testimonials built from real UltraFlex Google-style reviews (latest additions)
+    // Member testimonials built from real ULTRAFLEX Google-style reviews (latest additions)
     const testimonials = [
         {
             id: 1,
-            name: 'Ewan Hetherington – North Leeds',
-            quote: "I trained here for 6 months from Sept 2024-March 2025 and have been going to the gym since July 2021. This is easily the best gym I have ever trained at with the best equipment available for each body part.",
+            name: 'Lewis Williams – North Leeds',
+            quote: "Just joined this week after over a year out of the gym, and honestly best decision I've made in a long time. Staff are great and the equipment is next level. Not only do they have everything you'll ever need they've got 3 or 4 of it, so you're not stood around waiting for machines.",
             rating: 5,
             image: '/Images/newimages/North Leeds/gym-in-northleeds-1.webp'
         },
         {
             id: 2,
             name: 'Alex Bard – Normanton',
-            quote: "If you're looking for a gym that has it all, UltraFlex Gym in Normanton is the place to be! The atmosphere is amazing, with a strong community vibe that makes working out enjoyable.",
+            quote: "If you're looking for a gym that has it all, ULTRAFLEX Gym in Normanton is the place to be! The atmosphere is amazing, with a strong community vibe that makes working out enjoyable.",
             rating: 5,
             image: '/Images/newimages/Normanton/gym-in-normanton.webp'
         },
@@ -96,7 +96,7 @@ export default function Welcome({ auth, latestNews }: WelcomeProps) {
         {
             id: 6,
             name: 'Callan Doherty – Derby',
-            quote: 'Been going to the gym for years and Derby UltraFlex is hands down the best gym I’ve ever been to.',
+            quote: 'Been going to the gym for years and Derby ULTRAFLEX is hands down the best gym I\'ve ever been to.',
             rating: 5,
             image: '/Images/newimages/Derby/gym-in-derby.webp'
         }
@@ -121,8 +121,8 @@ export default function Welcome({ auth, latestNews }: WelcomeProps) {
 
     return (
         <AppLayout auth={auth}>
-            <Head title="UltraFlex - Fitness Experience">
-                <meta name="description" content="Transform your fitness journey at UltraFlex. Premium equipment, expert trainers, and a supportive community in Bacolod City. Join today!" />
+            <Head title="ULTRAFLEX - Fitness Experience">
+                <meta name="description" content="Transform your fitness journey at ULTRAFLEX. Premium equipment, expert trainers, and a supportive community in Bacolod City. Join today!" />
                 <meta name="keywords" content="gym, fitness, personal training, Bacolod City, HIIT, strength training, yoga, nutrition" />
                 <link rel="preconnect" href="https://fonts.bunny.net" />
                 <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet" />
@@ -163,7 +163,7 @@ export default function Welcome({ auth, latestNews }: WelcomeProps) {
                                 <div className="container mx-auto px-6">
                                     <div className="text-center">
                                         <p className="text-white font-semibold text-lg drop-shadow-[0_0_10px_rgba(255,255,255,0.6)]">
-                                            Join the <span className="text-red-600 animate-pulse drop-shadow-[0_0_10px_rgba(220,38,38,0.6)]"><span className="font-black text-white">ULTRA</span><span className="font-normal text-red-600">FLEX</span></span> Community Today!
+                                            Join the <span className="text-red-600 animate-pulse drop-shadow-[0_0_10px_rgba(220,38,38,0.6)]"><span className="ultraflex-ultra text-white">ULTRA</span><span className="ultraflex-flex text-red-600">FLEX</span></span> Community Today!
                                         </p>
                                         <p className="text-white text-sm mt-1">
                                             Login or register to access exclusive member benefits, book trainers, and track your fitness journey.

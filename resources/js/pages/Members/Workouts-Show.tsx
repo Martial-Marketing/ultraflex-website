@@ -63,8 +63,8 @@ export default function WorkoutsShow({ auth, workout }: WorkoutsShowProps) {
 
     return (
         <AppLayout auth={auth}>
-            <Head title={`${workout.title} - UltraFlex Members`}>
-                <meta name="description" content={`${workout.description} - Exclusive workout routine for UltraFlex members.`} />
+            <Head title={`${workout.title} - ULTRAFLEX Members`}>
+                <meta name="description" content={`${workout.description} - Exclusive workout routine for ULTRAFLEX members.`} />
             </Head>
 
             <div className="min-h-screen relative">

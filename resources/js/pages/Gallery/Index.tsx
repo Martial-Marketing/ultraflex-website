@@ -31,7 +31,7 @@ export default function GalleryIndex({ images, locations = [], selected, auth }:
 
   return (
     <AppLayout auth={auth}>
-      <Head title="Gallery - UltraFlex" />
+      <Head title="Gallery - ULTRAFLEX" />
       <div className="min-h-screen relative">
         <AnimatedBackground variant="gradient" intensity="medium" className="z-0" />
         <div className="relative z-10 py-16 container mx-auto px-6">
@@ -65,14 +65,14 @@ export default function GalleryIndex({ images, locations = [], selected, auth }:
                 <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
                   {selected ? (
                     <>
-                      {selected.name} <span className="text-red-700">Gallery</span>
+                      <span className="ultraflex-ultra text-white">ULTRA</span><span className="ultraflex-flex text-red-600">FLEX</span> {selected.name} <span className="text-red-700">Gallery</span>
                     </>
                   ) : (
                     <>Our <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)]">Gallery</span></>
                   )}
                 </h1>
                 <p className="text-gray-300 max-w-2xl">
-                  {selected ? 'Browse images from this UltraFlex location.' : 'Explore our locations and dive into their image galleries.'}
+                  {selected ? 'Browse images from this ULTRAFLEX location.' : 'Explore our locations and dive into their image galleries.'}
                 </p>
               </div>
               {!selected && (

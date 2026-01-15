@@ -37,8 +37,8 @@ export default function NutritionIndex({ auth, nutritionPlans }: NutritionIndexP
 
     return (
         <AppLayout auth={auth}>
-            <Head title="Nutrition - UltraFlex Members">
-                <meta name="description" content="Access exclusive nutrition plans and healthy recipes designed for UltraFlex members." />
+            <Head title="Nutrition - ULTRAFLEX Members">
+                <meta name="description" content="Access exclusive nutrition plans and healthy recipes designed for ULTRAFLEX members." />
             </Head>
 
             <div className="min-h-screen relative">
@@ -107,7 +107,7 @@ export default function NutritionIndex({ auth, nutritionPlans }: NutritionIndexP
                     {/* Nutrition Plans */}
                     <section className="py-16">
                         <div className="container mx-auto px-6">
-                            <h2 className="text-3xl font-bold text-white mb-8">UltraFlex Nutrition Plans</h2>
+                            <h2 className="text-3xl font-bold text-white mb-8"><span className="ultraflex-ultra text-white">ULTRA</span><span className="ultraflex-flex text-red-600">FLEX</span> Nutrition Plans</h2>
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {nutritionPlans?.map((plan) => (
                                     <Card key={plan.id} className="overflow-hidden hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 group">

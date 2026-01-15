@@ -81,7 +81,7 @@ export default function NewsShow({ article, auth }: NewsShowProps) {
 
     return (
         <AppLayout auth={auth}>
-            <Head title={`${article.title} - News - UltraFlex`}>
+            <Head title={`${article.title} - News - ULTRAFLEX`}>
                 <meta name="description" content={article.excerpt} />
                 <meta property="og:title" content={article.title} />
                 <meta property="og:description" content={article.excerpt} />
@@ -449,13 +449,13 @@ export default function NewsShow({ article, auth }: NewsShowProps) {
                                 <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Journey?</span>
                             </h2>
                             <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-                                Join UltraFlex today and transform your health and fitness with our expert guidance and state-of-the-art facilities.
+                                Join ULTRAFLEX today and transform your health and fitness with our expert guidance and state-of-the-art facilities.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                 <Link href="/contact">
                                     <Button size="lg" className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group">
                                         <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                            Join UltraFlex
+                                            Join ULTRAFLEX
                                         </span>
                                     </Button>
                                 </Link>

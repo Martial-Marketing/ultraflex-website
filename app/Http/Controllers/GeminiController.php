@@ -25,10 +25,10 @@ class GeminiController extends Controller
         }
 
         try {
-            // Add UltraFlex context to make responses more relevant
-            $context = "You are an AI assistant for UltraFlex, a gym chain. 
+            // Add ULTRAFLEX context to make responses more relevant
+            $context = "You are an AI assistant for ULTRAFLEX, a gym chain. 
             
-UltraFlex Details:
+ULTRAFLEX Details:
 - 24/7 gym access for members
 - Multiple locations: West Leeds, North Leeds, Normanton, Rotherham, York, Hull, Durham, Lincoln, West London, Athens
 - Offers personal training, group classes, HIIT, strength training, yoga
@@ -40,7 +40,7 @@ UltraFlex Details:
 - Memberships can be frozen or cancelled by contacting support
 - Sign-up available at: https://secure.ashbournemanagement.co.uk/signupuk/index.aspx?fn=grbh2
 
-Answer the following question as a helpful UltraFlex assistant: {$question}";
+Answer the following question as a helpful ULTRAFLEX assistant: {$question}";
 
             $response = Http::timeout(30)->post(
                 "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key={$apiKey}",

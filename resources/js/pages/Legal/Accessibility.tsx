@@ -15,7 +15,7 @@ export default function Accessibility({ auth }: { auth: any }) {
               <CheckCircle2 className="h-3.5 w-3.5 text-red-600" /> Accessibility
             </div>
             <h1 className="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight">Accessibility</h1>
-            <p className="mt-3 max-w-3xl text-gray-300">UltraFlex is committed to accessibility and inclusive design.</p>
+            <p className="mt-3 max-w-3xl text-gray-300">ULTRAFLEX is committed to accessibility and inclusive design.</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
@@ -50,7 +50,7 @@ export default function Accessibility({ auth }: { auth: any }) {
                   <Mail className="h-5 w-5 text-red-600" />
                   <h2 className="text-xl font-semibold">Feedback</h2>
                 </div>
-                <p className="mt-4 text-gray-300">If you encounter accessibility barriers, email <a href="mailto:info@ufg" className="text-red-600 underline underline-offset-2">info@ufg</a>.</p>
+                <p className="mt-4 text-gray-300">If you encounter accessibility barriers, email <a href="mailto:info@ultraflexgym.co.uk" className="text-red-600 underline underline-offset-2">info@ultraflexgym.co.uk</a>.</p>
                 <p className="mt-6 text-gray-400 text-sm">Last updated: 28 Nov 2025</p>
               </section>
             </div>

@@ -1,16 +1,9 @@
 import { Head } from '@inertiajs/react';
 import AppLayout from '@/layouts/app-layout';
 import { Button } from '@/components/ui/button';
-import { User, Mail, Calendar, MapPin, Phone } from 'lucide-react';
+import { User as UserIcon, Mail, Calendar, MapPin, Phone } from 'lucide-react';
 import AnimatedBackground from '@/components/AnimatedBackground';
-
-interface User {
-    id: number;
-    name: string;
-    email: string;
-    user_role?: string;
-    created_at?: string;
-}
+import { User } from '@/types';
 
 interface AuthProps {
     user: User | null;
@@ -26,7 +19,7 @@ export default function ProfileIndex({ auth }: ProfileProps) {
     if (!user) {
         return (
             <AppLayout auth={auth}>
-                <Head title="Profile - UltraFlex" />
+                <Head title="Profile - ULTRAFLEX" />
                 <div className="min-h-screen relative">
                     {/* Global Animated Background */}
                     <AnimatedBackground 
@@ -49,7 +42,7 @@ export default function ProfileIndex({ auth }: ProfileProps) {
 
     return (
         <AppLayout auth={auth}>
-            <Head title="Profile - UltraFlex" />
+            <Head title="Profile - ULTRAFLEX" />
             
             <div className="min-h-screen relative">
                 {/* Global Animated Background */}
@@ -68,7 +61,7 @@ export default function ProfileIndex({ auth }: ProfileProps) {
                                 My <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Profile</span>
                             </h1>
                             <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-                                Manage your UltraFlex account information and preferences
+                                Manage your ULTRAFLEX account information and preferences
                             </p>
                         </div>
 
@@ -78,11 +71,11 @@ export default function ProfileIndex({ auth }: ProfileProps) {
                                 <div className="lg:col-span-1">
                                     <div className="bg-black/40 backdrop-blur-md rounded-xl border border-white/10 p-8 text-center shadow-[0_0_30px_rgba(220,38,38,0.3)]">
                                         <div className="w-24 h-24 bg-gradient-to-br from-red-700/20 to-red-800/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-red-700/30 mx-auto mb-6 shadow-[0_0_20px_rgba(220,38,38,0.5)]">
-                                            <User className="h-12 w-12 text-red-700" />
+                                            <UserIcon className="h-12 w-12 text-red-700" />
                                         </div>
                                         <h2 className="text-2xl font-bold text-white mb-2">{user.name}</h2>
                                         <p className="text-red-700 font-medium mb-4 capitalize">
-                                            {user.user_role || 'Member'}
+                                            {(user as any).user_role || 'Member'}
                                         </p>
                                         <Button className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white border border-red-700/20 transition-all duration-300 group hover:shadow-[0_0_20px_rgba(220,38,38,0.5)] transform hover:scale-105">
                                             <span className="group-hover:translate-x-1 transition-transform duration-300">
@@ -120,11 +113,11 @@ export default function ProfileIndex({ auth }: ProfileProps) {
 
                                             {/* Membership Type */}
                                             <div className="flex items-center space-x-4 p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-all duration-300">
-                                                <User className="h-5 w-5 text-red-700" />
+                                                <UserIcon className="h-5 w-5 text-red-700" />
                                                 <div>
                                                     <label className="text-gray-400 text-sm">Membership Type</label>
                                                     <p className="text-white font-medium capitalize">
-                                                        {user.user_role || 'Standard Member'}
+                                                        {(user as any).user_role || 'Standard Member'}
                                                     </p>
                                                 </div>
                                             </div>

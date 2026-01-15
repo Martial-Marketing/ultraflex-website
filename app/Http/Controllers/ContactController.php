@@ -21,7 +21,6 @@ class ContactController extends Controller
             [ 'id'=>9,'name'=>'ULTRAFLEX ATHENS (GREECE)','slug'=>'athens-greece','address'=>'Ethnarchou Makariou 16, Peristeri 121 32, Greece','phone'=>'+30 210 901 2345','email'=>'athens@ultraflexgym.co.uk','coordinates'=>['lat'=>37.8651,'lng'=>23.7622] ],
             [ 'id'=>10,'name'=>'ULTRAFLEX LINCOLN','slug'=>'lincoln','address'=>'3 Pioneer Way, Lincoln LN6 3DH','phone'=>'+44 1522 012 345','email'=>'lincoln@ultraflexgym.co.uk','coordinates'=>['lat'=>53.2307,'lng'=>-0.5406] ],
             [ 'id'=>11,'name'=>'ULTRAFLEX WEST LONDON','slug'=>'west-london','address'=>'Point West, 2, Packet Boat Ln, Uxbridge UB8 2JP','phone'=>'01895 436000','email'=>'westlondon@ultraflexgym.co.uk','coordinates'=>['lat'=>51.5074,'lng'=>-0.2296] ],
-            [ 'id'=>999,'name'=>'Head Office','slug'=>'head-office','address'=>'UltraFlex Head Office, 123 Fitness Street, London','phone'=>'+44 20 1234 5678','email'=>'headoffice@ultraflex.com','coordinates'=>['lat'=>51.509865,'lng'=>-0.118092] ],
         ];
 
         return Inertia::render('Contact/Index', [
@@ -30,11 +29,7 @@ class ContactController extends Controller
                 'id' => $l['id'],
                 'name' => $l['name']
             ])->values(),
-            'generalContact' => [
-                'phone' => '+44 20 1234 5678',
-                'email' => 'info@ultraflexgym.co.uk',
-                'address' => 'UltraFlex Head Office, 123 Fitness Street, London'
-            ]
+            'gymContacts' => $locations
         ]);
     }
 

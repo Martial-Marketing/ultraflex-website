@@ -75,8 +75,8 @@ export default function TrainerShow({ trainer, auth }: TrainerShowProps) {
 
     return (
         <AppLayout auth={auth}>
-            <Head title={`${trainer.name} - Personal Trainer - UltraFlex`}>
-                <meta name="description" content={`${trainer.name} is a certified personal trainer at UltraFlex specializing in ${trainer.specialties.join(', ')}. Book a session today!`} />
+            <Head title={`${trainer.name} - Personal Trainer - ULTRAFLEX`}>
+                <meta name="description" content={`${trainer.name} is a certified personal trainer at ULTRAFLEX specializing in ${trainer.specialties.join(', ')}. Book a session today!`} />
             </Head>
 
             <div className="min-h-screen relative">
@@ -214,20 +214,6 @@ export default function TrainerShow({ trainer, auth }: TrainerShowProps) {
                                     </div>
 
                                     <div className="space-y-6">
-                                        {/* Qualifications */}
-                                        <Card className="p-6 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-colors duration-300">
-                                            <h3 className="text-lg font-bold mb-4">
-                                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Qualifications</span>
-                                            </h3>
-                                            <div className="space-y-3">
-                                                {trainer.qualifications.map((qual, index) => (
-                                                    <div key={index} className="group hover:text-red-700 transition-colors duration-300">
-                                                        <span className="text-gray-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300">{qual}</span>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        </Card>
-
                                         {/* Contact Information */}
                                         <Card className="p-6 bg-red-700/10 backdrop-blur-md border border-red-700/30 relative overflow-hidden">
                                             <div className="absolute inset-0 bg-gradient-to-br from-red-700/5 to-red-800/5"></div>
@@ -314,57 +300,6 @@ export default function TrainerShow({ trainer, auth }: TrainerShowProps) {
                                     </div>
                                 </div>
                             )}
-                        </div>
-                    </section>
-
-                    {/* Bottom CTA */}
-                    <section className="py-16 bg-gradient-to-r from-red-900/80 to-red-700/80 backdrop-blur-sm relative overflow-hidden">
-                        {/* CTA particles */}
-                        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                            {Array.from({ length: 15 }, (_, i) => (
-                                <div
-                                    key={i}
-                                    className="absolute w-1 h-1 bg-white/30 rounded-full animate-pulse"
-                                    style={{
-                                        top: `${Math.random() * 100}%`,
-                                        left: `${Math.random() * 100}%`,
-                                        animationDelay: `${Math.random() * 3}s`,
-                                        animationDuration: `${2 + Math.random() * 2}s`
-                                    }}
-                                />
-                            ))}
-                        </div>
-
-                        <div className="container mx-auto px-6 text-center relative z-10">
-                            <h2 className="text-3xl font-bold mb-4">
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Ready</span>{' '}
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">to</span>{' '}
-                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Transform</span>{' '}
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Your</span>{' '}
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Fitness</span>{' '}
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Journey?</span>
-                            </h2>
-                            <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-                                Join the many clients who have achieved their fitness goals with {trainer.name}'s expert guidance.
-                            </p>
-                            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                <Button 
-                                    size="lg" 
-                                    className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group"
-                                    onClick={() => setActiveTab('contact')}
-                                >
-                                    <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                        Contact {trainer.name}
-                                    </span>
-                                </Button>
-                                <Link href="/trainers">
-                                    <Button size="lg" variant="outline" className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
-                                        <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                            View All Trainers
-                                        </span>
-                                    </Button>
-                                </Link>
-                            </div>
                         </div>
                     </section>
                 </div>

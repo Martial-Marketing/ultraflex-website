@@ -9,7 +9,7 @@ class NutritionController extends Controller
 {
     public function index()
     {
-        // Real nutrition plans based on UltraFlex programs
+        // Real nutrition plans based on ULTRAFLEX programs
         $nutritionPlans = [
             [
                 'id' => 1,
@@ -173,7 +173,7 @@ BMR = 88.362 + (13.397 x weight in kg) + (4.799 x height in cm) – (5.677 x age
 Women:
 BMR = 447.593 + (9.247 x weight in kg) + (3.098 x height in cm) – (4.330 x age in years)
 
-Or you can use the UltraFlex Calories Calculator.
+Or you can use the ULTRAFLEX Calories Calculator.
 
 As you have your maintenance calories, now you need to find your calorie requirement to gain lean muscle mass. To gain muscle mass you have to consume more calories than the requirement. Yet eating too many extra calories (more than 500 calories) may be bad for you. Since your body has a limit to the rate of muscle growth, the rest of the excess calories would be stored as fat in your body. Once you establish the number of calories you need for bulking, you can determine your macronutrient ratios.
 
@@ -224,7 +224,7 @@ Women: BMR = 10 x weight (kg) + 6.25 x height (cm) – 5 x age (years) – 161
 700 calorie deficit per day = 4,900 calorie deficit per week
 (*BMR: Basal Metabolic Rate)
 
-Or use the UltraFlex Calorie Calculator.
+Or use the ULTRAFLEX Calorie Calculator.
 
 **What foods are best?**
 

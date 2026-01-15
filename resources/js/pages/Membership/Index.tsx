@@ -22,7 +22,7 @@ export default function MembershipIndex({ auth }: { auth: { user: any | null } }
   ];
   return (
     <AppLayout auth={auth}>
-      <Head title="Membership Options - UltraFlex" />
+      <Head title="Membership Options - ULTRAFLEX" />
       <div className="min-h-screen relative">
         <AnimatedBackground variant="gradient" intensity="medium" className="z-0" />
         <div className="relative z-10 container mx-auto px-6 py-16">
@@ -33,7 +33,7 @@ export default function MembershipIndex({ auth }: { auth: { user: any | null } }
               Pricing varies by site
             </div>
             <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-white">
-              Membership Options
+              <span className="ultraflex-ultra text-white">ULTRA</span><span className="ultraflex-flex text-red-600">FLEX</span> Membership Options
             </h1>
             <p className="mt-3 max-w-3xl text-gray-300">
               Each site has different price ranges, so we don’t advertise fixed prices here. Use the options below and check Ashbourne for the site you’re interested in.
@@ -69,7 +69,7 @@ export default function MembershipIndex({ auth }: { auth: { user: any | null } }
                 <h2 className="text-xl font-semibold text-white">Dual Site Access</h2>
               </div>
               <p className="mt-4 text-gray-300">
-                To set up dual site access, first set up your direct debit with the gym that will be your home gym. Then, at the gym, the team can add a dual membership for access to another UltraFlex site.
+                To set up dual site access, first set up your direct debit with the gym that will be your home gym. Then, at the gym, the team can add a dual membership for access to another ULTRAFLEX site.
               </p>
               <div className="mt-3">
                 <a href="/contact" className="text-sm text-red-600 hover:text-red-500 underline underline-offset-2">
@@ -87,7 +87,7 @@ export default function MembershipIndex({ auth }: { auth: { user: any | null } }
                 New for Lincoln
               </div>
               <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white">Lincoln Student Memberships</h2>
-              <p className="mt-3 max-w-3xl text-gray-300">Available at UltraFlex Lincoln. Bring a valid student ID. Join via Ashbourne.</p>
+              <p className="mt-3 max-w-3xl text-gray-300">Available at ULTRAFLEX Lincoln. Bring a valid student ID. Join via Ashbourne.</p>
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
                 {lincolnStudentPlans.map((plan) => (
                   <div key={plan.id} className="group rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:border-red-700/30">

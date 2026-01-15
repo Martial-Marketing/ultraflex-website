@@ -137,7 +137,7 @@ export default function MemberTestimonials({ testimonials }: MemberTestimonialsP
                             <div className="mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                 <div className="inline-flex items-center px-3 py-1 bg-red-700/20 backdrop-blur-sm rounded-full border border-red-700/30 text-xs text-red-700 font-medium">
                                     <Star className="h-3 w-3 mr-1 fill-red-700" />
-                                    UltraFlex Member
+                                    ULTRAFLEX Member
                                 </div>
                             </div>
 

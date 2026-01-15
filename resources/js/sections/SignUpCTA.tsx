@@ -36,7 +36,7 @@ export default function SignUpCTA() {
                         <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Journey?</span>
                     </h2>
                     <p className="mb-8 text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-                        Join thousands of members who have already discovered the UltraFlex difference. 
+                        Join thousands of members who have already discovered the <span className="ultraflex-ultra text-white">ULTRA</span><span className="ultraflex-flex text-red-600">FLEX</span> difference. 
                         Your transformation starts today.
                     </p>
                 </div>

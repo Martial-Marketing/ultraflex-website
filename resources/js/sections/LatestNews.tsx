@@ -47,7 +47,7 @@ export default function LatestNews({ latestNews }: LatestNewsProps) {
                         <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">News</span>
                     </h2>
                     <p className="text-xl text-gray-300 leading-relaxed">
-                        Stay updated with the latest from UltraFlex
+                        Stay updated with the latest from <span className="ultraflex-ultra text-white">ULTRA</span><span className="ultraflex-flex text-red-600">FLEX</span>
                     </p>
                 </div>
                 

@@ -64,7 +64,7 @@ class MemberController extends Controller
             'nutrition' => [
                 [
                     'id' => 1,
-                    'title' => 'UltraFlex Cut',
+                    'title' => 'ULTRAFLEX Cut',
                     'image' => '/Images/nutritionn/UF-Cut.jpg',
                     'prepTime' => '12 weeks',
                     'calories' => '1800-2200',
@@ -72,7 +72,7 @@ class MemberController extends Controller
                 ],
                 [
                     'id' => 2,
-                    'title' => 'UltraFlex Bulk',
+                    'title' => 'ULTRAFLEX Bulk',
                     'image' => '/Images/nutritionn/UF-Bulk.jpg',
                     'prepTime' => '16 weeks',
                     'calories' => '2800-3500',

@@ -36,7 +36,7 @@ export default function FooterCTA() {
                         <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Journey?</span>
                     </h2>
                     <p className="text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto">
-                        Join the UltraFlex community today and unlock your potential
+                        Join the <span className="ultraflex-ultra text-white">ULTRA</span><span className="ultraflex-flex text-red-600">FLEX</span> community today and unlock your potential
                     </p>
                 </div>
 

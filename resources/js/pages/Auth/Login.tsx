@@ -66,7 +66,7 @@ export default function Login({ auth, flash }: LoginProps) {
 
     return (
         <AppLayout auth={auth || { user: null }}>
-            <Head title="Login - UltraFlex" />
+            <Head title="Login - ULTRAFLEX" />
             
             <div className="min-h-screen relative">
                 {/* Global Animated Background */}
@@ -88,7 +88,7 @@ export default function Login({ auth, flash }: LoginProps) {
                                             <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Sign</span>{' '}
                                             <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">In</span>
                                         </h2>
-                                        <p className="text-gray-300">Access your UltraFlex account</p>
+                                        <p className="text-gray-300">Access your <span className="ultraflex-ultra text-white">ULTRA</span><span className="ultraflex-flex text-red-600">FLEX</span> account</p>
                                     </div>
 
                                     {/* Show flash messages */}

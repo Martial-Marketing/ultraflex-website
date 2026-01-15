@@ -66,8 +66,8 @@ export default function EquipmentShow({ equipment, auth }: EquipmentShowProps) {
 
     return (
         <AppLayout auth={auth}>
-            <Head title={`${equipment.name} - Equipment - UltraFlex`}>
-                <meta name="description" content={`Learn about the ${equipment.name} at UltraFlex. ${equipment.description}`} />
+            <Head title={`${equipment.name} - Equipment - ULTRAFLEX`}>
+                <meta name="description" content={`Learn about the ${equipment.name} at ULTRAFLEX. ${equipment.description}`} />
             </Head>
 
             <div className="min-h-screen relative">
@@ -494,7 +494,7 @@ export default function EquipmentShow({ equipment, auth }: EquipmentShowProps) {
                                 <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Equipment?</span>
                             </h2>
                             <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-                                Visit any UltraFlex location to try the {equipment.name} and discover how it can enhance your workout routine.
+                                Visit any ULTRAFLEX location to try the {equipment.name} and discover how it can enhance your workout routine.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                 <Link href="/locations">

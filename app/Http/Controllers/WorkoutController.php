@@ -9,7 +9,7 @@ class WorkoutController extends Controller
 {
     public function index()
     {
-        // Real workout data based on UltraFlex programs
+        // Real workout data based on ULTRAFLEX programs
         $workouts = [
             [
                 'id' => 1,
@@ -166,7 +166,7 @@ class WorkoutController extends Controller
     
     public function show($id)
     {
-        // Real workout data based on UltraFlex programs
+        // Real workout data based on ULTRAFLEX programs
         $workouts = [
             [
                 'id' => 1,
@@ -313,7 +313,7 @@ class WorkoutController extends Controller
                 'type' => 'Competition',
                 'equipment' => ['Full Gym Access', 'All Equipment'],
                 'targetMuscles' => ['Full Body', 'Competition Focus'],
-                'detailedDescription' => 'UltraFlex Contest Prep is our most elite program, designed specifically for athletes preparing for bodybuilding, physique, or fitness competitions. This comprehensive program combines advanced training methodologies with precise nutritional guidance and mental preparation strategies.
+                'detailedDescription' => 'ULTRAFLEX Contest Prep is our most elite program, designed specifically for athletes preparing for bodybuilding, physique, or fitness competitions. This comprehensive program combines advanced training methodologies with precise nutritional guidance and mental preparation strategies.
 
 Our contest prep program is built on years of experience working with competitive athletes at all levels, from local competitions to professional stages. We understand that preparing for a contest requires more than just training hard – it demands a scientific approach to every aspect of your preparation.
 

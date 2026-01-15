@@ -45,7 +45,7 @@ export default function OurLocations({ locations }: OurLocationsProps) {
                         <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Locations</span>
                     </h2>
                     <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-                        Find the UltraFlex gym nearest to you. Each location features state-of-the-art equipment and premium amenities.
+                        Find the <span className="ultraflex-ultra text-white">ULTRA</span><span className="ultraflex-flex text-red-600">FLEX</span> gym nearest to you. Each location features state-of-the-art equipment and premium amenities.
                     </p>
                 </div>
                 

@@ -48,9 +48,9 @@ export default function AnimatedFooter({ className = '' }: FooterProps) {
     ];
 
     const locations = [
-        { name: 'Downtown UltraFlex', address: '123 Main St, City Center', phone: '(555) 123-4567' },
-        { name: 'Westside UltraFlex', address: '456 West Ave, Westside', phone: '(555) 234-5678' },
-        { name: 'North UltraFlex', address: '789 North Blvd, Uptown', phone: '(555) 345-6789' }
+        { name: 'Downtown ULTRAFLEX', address: '123 Main St, City Center', phone: '(555) 123-4567' },
+        { name: 'Westside ULTRAFLEX', address: '456 West Ave, Westside', phone: '(555) 234-5678' },
+        { name: 'North ULTRAFLEX', address: '789 North Blvd, Uptown', phone: '(555) 345-6789' }
     ];
 
     const socialLinks = [
@@ -88,14 +88,14 @@ export default function AnimatedFooter({ className = '' }: FooterProps) {
                                 <div className="w-16 h-14 flex items-center justify-center">
                                     <img 
                                         src="/Images/logo/ultraflex-logo.webp" 
-                                        alt="UltraFlex Logo" 
+                                        alt="ULTRAFLEX Logo" 
                                         className="h-14 w-auto object-contain drop-shadow-[0_0_10px_rgba(220,38,38,0.5)]"
                                     />
                                 </div>
                                 <div>
                                     <h3 className="text-2xl font-bold">
-                                        <span className="font-black text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">ULTRA</span>
-                                        <span className="font-normal text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">FLEX</span>
+                                        <span className="ultraflex-ultra text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">ULTRA</span>
+                                        <span className="ultraflex-flex text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">FLEX</span>
                                     </h3>
                                 </div>
                             </div>

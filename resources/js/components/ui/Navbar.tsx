@@ -118,7 +118,7 @@ export default function Navbar({ auth }: NavbarProps) {
             dropdown: null
         },
         {
-            label: 'UltraFlex Clothing',
+            label: 'ULTRAFLEX Clothing',
             href: 'https://www.ultraflexclothing.com/',
             icon: null,
             external: true
@@ -179,7 +179,7 @@ export default function Navbar({ auth }: NavbarProps) {
                             <div className="w-12 h-10 flex items-center justify-center">
                                 <img 
                                     src="/Images/logo/ultraflex-logo.webp" 
-                                    alt="UltraFlex Logo" 
+                                    alt="ULTRAFLEX Logo" 
                                     className={`h-10 w-auto object-contain transition-all duration-300 ${
                                         hoveredItem === 'logo' 
                                             ? 'drop-shadow-[0_0_15px_rgba(220,38,38,0.8)] scale-110' 

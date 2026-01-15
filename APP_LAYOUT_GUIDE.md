@@ -1,8 +1,8 @@
-# UltraFlex App Layout Guide
+# ULTRAFLEX App Layout Guide
 
 ## Overview
 
-The `app-layout.tsx` has been updated to provide a consistent layout structure with navbar and footer for all pages in the UltraFlex application.
+The `app-layout.tsx` has been updated to provide a consistent layout structure with navbar and footer for all pages in the ULTRAFLEX application.
 
 ## Features
 
@@ -38,7 +38,7 @@ interface MyPageProps {
 export default function MyPage({ auth, ...otherProps }: MyPageProps) {
     return (
         <AppLayout auth={auth}>
-            <Head title="My Page - UltraFlex">
+            <Head title="My Page - ULTRAFLEX">
                 <meta name="description" content="My page description" />
             </Head>
 

@@ -51,7 +51,7 @@ export default function NutritionShow({ auth, nutritionPlan }: NutritionShowProp
 
     return (
         <AppLayout auth={auth}>
-            <Head title={`${nutritionPlan.title} - UltraFlex Nutrition`}>
+            <Head title={`${nutritionPlan.title} - ULTRAFLEX Nutrition`}>
                 <meta name="description" content={nutritionPlan.description} />
             </Head>
 
@@ -212,7 +212,7 @@ export default function NutritionShow({ auth, nutritionPlan }: NutritionShowProp
                             <div className="max-w-4xl mx-auto text-center">
                                 <h2 className="text-3xl font-bold text-white mb-6">Ready to Transform Your Nutrition?</h2>
                                 <p className="text-xl text-gray-300 mb-8">
-                                    Join thousands of UltraFlex members who have achieved their goals with our proven nutrition plans
+                                    Join thousands of ULTRAFLEX members who have achieved their goals with our proven nutrition plans
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                     {nutritionPlan.externalUrl ? (

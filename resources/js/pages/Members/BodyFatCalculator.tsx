@@ -113,8 +113,8 @@ export default function BodyFatCalculator({ auth }: BodyFatCalculatorProps) {
 
     return (
         <AppLayout auth={auth}>
-            <Head title="Body Fat Calculator - UltraFlex Members">
-                <meta name="description" content="Calculate your body fat percentage using advanced measurement methods with UltraFlex's body fat calculator." />
+            <Head title="Body Fat Calculator - ULTRAFLEX Members">
+                <meta name="description" content="Calculate your body fat percentage using advanced measurement methods with ULTRAFLEX's body fat calculator." />
             </Head>
 
             <div className="min-h-screen relative">

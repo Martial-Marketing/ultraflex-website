@@ -7,9 +7,45 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Gotham Font Faces */
+@font-face {
+    font-family: 'Gotham';
+    src: url('/Gotham Book.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('/Gotham-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('/Gotham Black.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ULTRAFLEX Brand Styling Classes */
+.ultraflex-ultra {
+    font-weight: 900; /* Gotham Black */
+    letter-spacing: 0.05em;
+}
+
+.ultraflex-flex {
+    font-weight: 600; /* Semi-bold */
+    letter-spacing: 0.1em; /* Increased letter spacing */
+}
+
 @theme {
     --font-sans:
-        'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+        'Gotham', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
     --radius-lg: var(--radius);
     --radius-md: calc(var(--radius) - 2px);
@@ -74,6 +110,12 @@
     ::backdrop,
     ::file-selector-button {
         border-color: var(--color-gray-200, currentColor);
+    }
+
+    /* Ensure all text uses Gotham Regular (400) by default */
+    body {
+        font-family: 'Gotham', ui-sans-serif, system-ui, sans-serif;
+        font-weight: 400;
     }
 }
 
@@ -155,5 +197,36 @@
 
     body {
         @apply bg-background text-foreground;
+    }
+
+    /* Custom Scrollbar Styles */
+    .scrollbar-thin::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .scrollbar-thin::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+    }
+
+    .scrollbar-thin::-webkit-scrollbar-thumb {
+        background: #b91c1c;
+        border-radius: 4px;
+    }
+
+    .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+        background: #dc2626;
+    }
+
+    .scrollbar-track-white\/10::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .scrollbar-thumb-red-700::-webkit-scrollbar-thumb {
+        background: #b91c1c;
+    }
+
+    .hover\:scrollbar-thumb-red-600::-webkit-scrollbar-thumb:hover {
+        background: #dc2626;
     }
 }

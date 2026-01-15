@@ -18,7 +18,7 @@ interface WithLayoutProps {
 export default function WithLayout({ auth }: WithLayoutProps) {
     return (
         <AppLayout auth={auth}>
-            <Head title="Example Page with Layout - UltraFlex">
+            <Head title="Example Page with Layout - ULTRAFLEX">
                 <meta name="description" content="Example page showing how to use the app layout with navbar and footer." />
             </Head>
 

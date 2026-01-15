@@ -202,8 +202,8 @@ export default function WorkoutsIndex({ auth, workouts }: WorkoutsIndexProps) {
 
     return (
         <AppLayout auth={auth}>
-            <Head title="Workouts - UltraFlex Members">
-                <meta name="description" content="Browse and access exclusive workout routines designed for UltraFlex members." />
+            <Head title="Workouts - ULTRAFLEX Members">
+                <meta name="description" content="Browse and access exclusive workout routines designed for ULTRAFLEX members." />
             </Head>
 
             <div className="min-h-screen relative">

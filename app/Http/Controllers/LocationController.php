@@ -39,23 +39,23 @@ class LocationController extends Controller
         ],
         // Lincoln: images provided via Dropbox
         'lincoln' => [
-            'https://www.dropbox.com/scl/fi/eq90b2fzy2eur6fyab9d6/ultraflex-full-8.jpg?rlkey=ei4vcglt6cf2z7eihho9xm2cy&raw=1',
-            'https://www.dropbox.com/scl/fi/zvenze3pz13k34lua8bcs/ultraflex-full-4637.jpg?rlkey=yp2nux73846dzdrc9rxmhi5iu&raw=1',
-            'https://www.dropbox.com/scl/fi/4ay06ko4jyu0z819axnhn/ultraflex-full-4711.jpg?rlkey=5pbfodxwu6ea3gndx2den7z34&raw=1',
-            'https://www.dropbox.com/scl/fi/qio6w7qnyuw8t2zn0ye2r/ultraflex-full-4722.jpg?rlkey=wy66dnev34w6xz3y4j9cj0ayl&raw=1',
-            'https://www.dropbox.com/scl/fi/7a45mbgqyv386r8jzex0b/ultraflex-full-4814.jpg?rlkey=kxpwzpc0irruwaoz0m5vp20qg&raw=1',
-            'https://www.dropbox.com/scl/fi/4mvjodehjwj6g6avnvyta/ultraflex-full-4849.jpg?rlkey=ws4ut5m8hut0oa9fo04pky9h1&raw=1',
-            'https://www.dropbox.com/scl/fi/dij1ym92btemztkask47v/ultraflex-full-4859.jpg?rlkey=67f1lm89u453da197ihz9dycw&raw=1',
-            'https://www.dropbox.com/scl/fi/pdulj4pozuwoqjnez6ety/Ultraflex-2.jpg?rlkey=8womnmv9x3x86ci3f6h10wfbs&raw=1',
-            'https://www.dropbox.com/scl/fi/bcctusmubqmrfhqs1ys5d/Ultraflex-5036.jpg?rlkey=61cmlq3znsrjdg7nbmdf5804a&raw=1',
-            'https://www.dropbox.com/scl/fi/i1ds1aspf6gz4m2wvjpuk/Ultraflex-5042.jpg?rlkey=oe7nv0al7g8xxauvr3jfl5l6w&raw=1',
-            'https://www.dropbox.com/scl/fi/b2tdsb0uudvolgqe370so/Ultraflex-5065.jpg?rlkey=emtzmggg3luetgepkma4tvrfn&raw=1',
-            'https://www.dropbox.com/scl/fi/lk0kgnz8r8ar97xtmwacy/Ultraflex-5123.jpg?rlkey=f4pm0ra903itoo8kl4rigsh4q&raw=1',
-            'https://www.dropbox.com/scl/fi/6a03y29gms5kjtv3yail8/Ultraflex-5163.jpg?rlkey=8y9e5v6opmgn8lgwwj2dv56tx&raw=1',
+            'https://www.dropbox.com/scl/fi/eq90b2fzy2eur6fyab9d6/ULTRAFLEX-full-8.jpg?rlkey=ei4vcglt6cf2z7eihho9xm2cy&raw=1',
+            'https://www.dropbox.com/scl/fi/zvenze3pz13k34lua8bcs/ULTRAFLEX-full-4637.jpg?rlkey=yp2nux73846dzdrc9rxmhi5iu&raw=1',
+            'https://www.dropbox.com/scl/fi/4ay06ko4jyu0z819axnhn/ULTRAFLEX-full-4711.jpg?rlkey=5pbfodxwu6ea3gndx2den7z34&raw=1',
+            'https://www.dropbox.com/scl/fi/qio6w7qnyuw8t2zn0ye2r/ULTRAFLEX-full-4722.jpg?rlkey=wy66dnev34w6xz3y4j9cj0ayl&raw=1',
+            'https://www.dropbox.com/scl/fi/7a45mbgqyv386r8jzex0b/ULTRAFLEX-full-4814.jpg?rlkey=kxpwzpc0irruwaoz0m5vp20qg&raw=1',
+            'https://www.dropbox.com/scl/fi/4mvjodehjwj6g6avnvyta/ULTRAFLEX-full-4849.jpg?rlkey=ws4ut5m8hut0oa9fo04pky9h1&raw=1',
+            'https://www.dropbox.com/scl/fi/dij1ym92btemztkask47v/ULTRAFLEX-full-4859.jpg?rlkey=67f1lm89u453da197ihz9dycw&raw=1',
+            'https://www.dropbox.com/scl/fi/pdulj4pozuwoqjnez6ety/ULTRAFLEX-2.jpg?rlkey=8womnmv9x3x86ci3f6h10wfbs&raw=1',
+            'https://www.dropbox.com/scl/fi/bcctusmubqmrfhqs1ys5d/ULTRAFLEX-5036.jpg?rlkey=61cmlq3znsrjdg7nbmdf5804a&raw=1',
+            'https://www.dropbox.com/scl/fi/i1ds1aspf6gz4m2wvjpuk/ULTRAFLEX-5042.jpg?rlkey=oe7nv0al7g8xxauvr3jfl5l6w&raw=1',
+            'https://www.dropbox.com/scl/fi/b2tdsb0uudvolgqe370so/ULTRAFLEX-5065.jpg?rlkey=emtzmggg3luetgepkma4tvrfn&raw=1',
+            'https://www.dropbox.com/scl/fi/lk0kgnz8r8ar97xtmwacy/ULTRAFLEX-5123.jpg?rlkey=f4pm0ra903itoo8kl4rigsh4q&raw=1',
+            'https://www.dropbox.com/scl/fi/6a03y29gms5kjtv3yail8/ULTRAFLEX-5163.jpg?rlkey=8y9e5v6opmgn8lgwwj2dv56tx&raw=1',
         ],
         // Normanton: images provided via Dropbox
         'normanton' => [
-            'https://www.dropbox.com/scl/fi/y1nva7472ko6hgbgr0nze/Ultraflex-5183.jpg?rlkey=by2cb42i3g48nphfwg01ahpd9&raw=1',
+            'https://www.dropbox.com/scl/fi/y1nva7472ko6hgbgr0nze/ULTRAFLEX-5183.jpg?rlkey=by2cb42i3g48nphfwg01ahpd9&raw=1',
             'https://www.dropbox.com/scl/fi/5xdd95r5tjj0hm07yczpj/IMG_-58.jpg?rlkey=pzx38w997h2wv9mwn6v7fnsp5&raw=1',
             'https://www.dropbox.com/scl/fi/opc56ztx9i10xuskj7zqt/IMG_-61.jpg?rlkey=w26853ezlwwqt1hgvv4t89atw&raw=1',
             'https://www.dropbox.com/scl/fi/54o1rm8vx5qt5ol1vhyq4/IMG_-63.jpg?rlkey=qez2uxt3j12qgbf7ybhb5skit&raw=1',
@@ -182,7 +182,7 @@ class LocationController extends Controller
             ],
         ];
 
-        // Real UltraFlex locations data
+        // Real ULTRAFLEX locations data
         $locations = [
             [
                 'id' => 1,
@@ -237,12 +237,12 @@ class LocationController extends Controller
                 'id' => 5,
                 'name' => 'ULTRAFLEX YORK',
                 'address' => '10 Layerthorpe, York YO31 7YW',
-                'phone' => '01904 567890',
+                'phone' => '01904 623383',
                 'image' => '/Images/newimages/York/gym-in-york.webp',
                 'slug' => 'york',
                 'hours' => [
                     'weekdays' => '05:00 - 23:00',
-                    'weekends' => '05:00 - 23:00'
+                    'weekends' => '08:00 - 20:00'
                 ]
             ],
             [
@@ -307,7 +307,8 @@ class LocationController extends Controller
                 'hours' => [
                     'weekdays' => '06:00 - 22:00',
                     'weekends' => '06:00 - 20:00'
-                ]
+                ],
+                'features' => ['24hr access']
             ],
             [
                 'id' => 11,
@@ -337,20 +338,27 @@ class LocationController extends Controller
     {
         // Capability map (only boxing retained, martial arts removed per instructions)
         $capabilities = [
-            'west-leeds' => ['boxing' => true],
             'york' => ['boxing' => true],
             // Other locations currently have no dedicated boxing area
         ];
 
         // Helper to clean and augment membership plan feature lists
-        $processPlans = function(array $plans, bool $hasBoxing) {
-            return array_map(function($plan) use ($hasBoxing) {
+        $processPlans = function(array $plans, bool $hasBoxing, string $slug = '') use (&$location) {
+            return array_map(function($plan) use ($hasBoxing, $slug, $location) {
                 if (isset($plan['features']) && is_array($plan['features'])) {
                     // Remove any legacy martial arts strings (case-insensitive contains 'martial')
                     $plan['features'] = array_values(array_filter(array_map(function($f){
                         return preg_match('/martial/i', $f) ? null : $f;
                     }, $plan['features'])));
-                    if ($hasBoxing) {
+                    
+                    // West Leeds: never add boxing (it's a partner service, not membership benefit)
+                    $currentSlug = $slug ?: $location;
+                    if ($currentSlug === 'west-leeds') {
+                        // Remove any existing boxing references
+                        $plan['features'] = array_values(array_filter($plan['features'], function($f) {
+                            return stripos($f, 'boxing') === false;
+                        }));
+                    } elseif ($hasBoxing) {
                         $hasBoxingFeature = false;
                         foreach ($plan['features'] as $f) {
                             if (stripos($f, 'boxing') !== false) { $hasBoxingFeature = true; break; }
@@ -374,7 +382,7 @@ class LocationController extends Controller
                     'name' => 'ULTRAFLEX WEST LEEDS',
                     'address' => 'Cape Mills, Coal Hill Ln, Leeds LS28 5NA',
                     'phone' => '0113 256 5107',
-                    'email' => 'leeds@ultraflexgym.co.uk',
+                    'email' => 'leeds@ULTRAFLEXgym.co.uk',
                     'image' => '/Images/newimages/West Leeds/gym-in-westleeds.webp',
                     'gallery' => isset(self::$externalImages['west-leeds']) ? self::$externalImages['west-leeds'] : [],
                     'slug' => 'west-leeds',
@@ -391,7 +399,7 @@ class LocationController extends Controller
                     ],
                     'manager' => [
                         'name' => 'Sophia',
-                        'bio' => 'As the Manager of Ultraflex West Leeds, I’m proud to lead the team at the very first Ultraflex gym established in the UK on 17th January 2017. Since opening our doors, West Leeds has built a strong reputation as a cornerstone of the Ultraflex community—known for our unbeatable atmosphere, elite equipment, and commitment to helping people at all levels of fitness achieve real results. My journey with Ultraflex has been driven by a passion for creating an environment where members feel empowered, supported, and motivated. Whether you\'re stepping into the gym for the first time or preparing for your next competition, we’re here to provide expert guidance, a welcoming community, and world-class facilities. I oversee day-to-day operations, member engagement, staff development, and community outreach, ensuring Ultraflex West Leeds continues to set the standard for excellence in fitness. I’m proud of our diverse membership base—from beginners to IFBB pros—and the culture of respect, discipline, and dedication that makes our gym more than just a place to train. Ultraflex West Leeds is where it all started—and under my management, we continue to innovate, grow, and lead the way for all the Ultraflex gyms across the UK.',
+                        'bio' => 'As the Manager of ULTRAFLEX West Leeds, I’m proud to lead the team at the very first ULTRAFLEX gym established in the UK on 17th January 2017. Since opening our doors, West Leeds has built a strong reputation as a cornerstone of the ULTRAFLEX community—known for our unbeatable atmosphere, elite equipment, and commitment to helping people at all levels of fitness achieve real results. My journey with ULTRAFLEX has been driven by a passion for creating an environment where members feel empowered, supported, and motivated. Whether you\'re stepping into the gym for the first time or preparing for your next competition, we’re here to provide expert guidance, a welcoming community, and world-class facilities. I oversee day-to-day operations, member engagement, staff development, and community outreach, ensuring ULTRAFLEX West Leeds continues to set the standard for excellence in fitness. I’m proud of our diverse membership base—from beginners to IFBB pros—and the culture of respect, discipline, and dedication that makes our gym more than just a place to train. ULTRAFLEX West Leeds is where it all started—and under my management, we continue to innovate, grow, and lead the way for all the ULTRAFLEX gyms across the UK.',
                         'image' => '/Images/newimages/unnamed.webp',
                         'experience' => null
                     ],
@@ -410,20 +418,11 @@ class LocationController extends Controller
                             'name' => 'Pudsey Judo Club',
                             'description' => 'Local judo club partnership promoting grappling and discipline.',
                             'icon' => null
-                        ],
-                        [
-                            'name' => 'Regen Physio',
-                            'description' => 'Physiotherapy and rehabilitation clinic supporting injury recovery and performance.',
-                            'icon' => null
                         ]
                     ],
                     'serviceLinks' => [
-                        // Regen Physio (Physiotherapy)
-                        [ 'label' => 'Regen Physio Website', 'url' => 'https://www.regenphysio.co.uk/', 'type' => 'website' ],
-                        
                         // Ostas Boxing (Martial Arts)
                         [ 'label' => 'Ostas Boxing Instagram', 'url' => 'https://www.instagram.com/ostasboxing', 'type' => 'instagram' ],
-                        [ 'label' => 'Ostas Boxing Instagram (Alt)', 'url' => 'https://www.instagram.com/ostasboxing', 'type' => 'instagram' ],
                         
                         // Pudsey Judo Club (Martial Arts)
                         [ 'label' => 'Pudsey Judo Club Facebook', 'url' => 'https://www.facebook.com/pudseyjudoclub', 'type' => 'facebook' ],
@@ -452,7 +451,7 @@ class LocationController extends Controller
                         ],
                         [
                             'id' => 4,
-                            'name' => '12month Direct Debit',
+                            'name' => '12 month Direct Debit',
                             'price' => 40.00,
                             'period' => 'month',
                             'features' => ['Monthly Direct Debit', '12 Month Contract', 'All Equipment Access', 'All Facilities', 'Best Value'],
@@ -516,7 +515,7 @@ class LocationController extends Controller
                         ],
                     ],
                     // Trainers dynamically injected from App\Data\TrainerData based on locationSlug
-                    'mapUrl' => 'https://www.google.com/maps/place/UltraFlex+-+Gym+in+Leeds/@53.8145635,-1.8008911,12z/data=!4m10!1m2!2m1!1sUltraFlex+Gym+west+Leeds!3m6!1s0x487be20054e5db95:0xb639aa48f8129fed!8m2!3d53.8145635!4d-1.6608154!15sChhVbHRyYUZsZXggR3ltIHdlc3QgTGVlZHNaGiIYdWx0cmFmbGV4IGd5bSB3ZXN0IGxlZWRzkgEDZ3ltmgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDJ4a2NWVllXbGxaTVZaQ1lsZHNNMkp0VW5SVlZUbHhWRlJTTkZGV1JSQULgAQD6AQUIwwEQQg!16s%2Fg%2F11c319zc40?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
+                    'mapUrl' => 'https://www.google.com/maps/place/ULTRAFLEX+-+Gym+in+Leeds/@53.8145635,-1.8008911,12z/data=!4m10!1m2!2m1!1sULTRAFLEX+Gym+west+Leeds!3m6!1s0x487be20054e5db95:0xb639aa48f8129fed!8m2!3d53.8145635!4d-1.6608154!15sChhVbHRyYUZsZXggR3ltIHdlc3QgTGVlZHNaGiIYdWx0cmFmbGV4IGd5bSB3ZXN0IGxlZWRzkgEDZ3ltmgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDJ4a2NWVllXbGxaTVZaQ1lsZHNNMkp0VW5SVlZUbHhWRlJTTkZGV1JSQULgAQD6AQUIwwEQQg!16s%2Fg%2F11c319zc40?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
                 ];
                 break;
                 
@@ -526,7 +525,7 @@ class LocationController extends Controller
                     'name' => 'ULTRAFLEX NORTH LEEDS',
                     'address' => 'Limewood Approach, Seacroft, Leeds LS14 1NH',
                     'phone' => '0113 513 7671',
-                    'email' => 'northleeds@ultraflexgym.co.uk',
+                    'email' => 'northleeds@ULTRAFLEXgym.co.uk',
                     'image' => '/Images/processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.jpeg',
                     'gallery' => isset(self::$externalImages['north-leeds']) ? self::$externalImages['north-leeds'] : [],
                     'slug' => 'north-leeds',
@@ -543,7 +542,7 @@ class LocationController extends Controller
                     ],
                     'manager' => [
                         'name' => 'Curtis',
-                        'bio' => 'Hello and welcome to UltraFlex North Leeds I’m Curtis and I cannot wait to welcome you through our doors. Now of course I am bias but when becoming a member at North Leeds you are joining the best gym in country, with a friendly face to welcome you on every visit and staff on hand all the time to make sure your experience with us is the best every time we really do ensure that all your sessions are amazing. Do not just take my word for it thought, come down, check us out and I know you’ll never need to look for another gym again.',
+                        'bio' => 'Hello and welcome to ULTRAFLEX North Leeds I’m Curtis and I cannot wait to welcome you through our doors. Now of course I am bias but when becoming a member at North Leeds you are joining the best gym in country, with a friendly face to welcome you on every visit and staff on hand all the time to make sure your experience with us is the best every time we really do ensure that all your sessions are amazing. Do not just take my word for it thought, come down, check us out and I know you’ll never need to look for another gym again.',
                         'image' => '/Images/North Leeds Gym Manager.webp',
                         'experience' => ''
                     ],
@@ -588,7 +587,7 @@ class LocationController extends Controller
                         ],
                         [
                             'id' => 4,
-                            'name' => '12month Direct Debit',
+                            'name' => '12 month Direct Debit',
                             'price' => 52.00,
                             'period' => 'month',
                             'features' => ['Min 12 Month Commitment', 'All Equipment Access', 'Martial Arts Area', 'Best Value'],
@@ -614,10 +613,10 @@ class LocationController extends Controller
                     'reviews' => [
                         [
                             'id' => 1,
-                            'name' => 'Ewan Hetherington',
+                            'name' => 'Lewis Williams',
                             'rating' => 5,
-                            'comment' => 'I trained here for 6 months from Sept 2024-March 2025 and have been going to the gym since July 2021. This is easily the best gym I have ever trained at with the best equipment available for each body part. Can wait to get back training there when back at uni in September this year. Just seen new recovery place has been built which is sick. Only critique would be that sometimes the music is stupidly loud but it does help squeeze some extra reps.',
-                            'date' => '5 months ago'
+                            'comment' => 'Just joined this week after over a year out of the gym, and honestly best decision I\'ve made in a long time. Staff are great and the equipment is next level. Not only do they have everything you\'ll ever need they\'ve got 3 or 4 of it, so you\'re not stood around waiting for machines. Couldn\'t recommend any more highly',
+                            'date' => '3 months ago'
                         ],
                         [
                             'id' => 2,
@@ -628,67 +627,39 @@ class LocationController extends Controller
                         ],
                         [
                             'id' => 3,
-                            'name' => 'khudaja liton',
+                            'name' => 'Chris Scott',
                             'rating' => 5,
-                            'comment' => 'The best gym by far in Leeds, with the most amazing equipment. You are never waiting for a machine and if you are, you will be talking away to the friendly members (no matter how scary they actually look).',
-                            'date' => '2 months ago'
+                            'comment' => 'Best gym in leeds, friendly environment 💪',
+                            'date' => 'a month ago'
                         ],
                         [
                             'id' => 4,
-                            'name' => 'Ali Mardomi',
+                            'name' => 'Andrew Firth',
                             'rating' => 5,
-                            'comment' => "One of the best gyms I've ever had the privilege to train in 21 years experience. Super well equipped, with Hoist, Hammer Strength, Nautilus and other such high quality equipment. Awesome range of machines, lots of space, great parking spaces. Very friendly staff and management. If you're a serious athlete or serious about training, I'd highly recommend UltraFlex Gym North Leeds.",
-                            'date' => '2 years ago'
-                        ],
-                        [
-                            'id' => 5,
-                            'name' => 'Botond Molnar',
-                            'rating' => 5,
-                            'comment' => 'The ultimate gym experience you only see on the US bodybuilding videos. Machines that you have never seen before and the atmosphere is energetic and vibrant. Get your ass down and get to work.',
-                            'date' => '4 months ago'
-                        ],
-                        [
-                            'id' => 6,
-                            'name' => 'Kelly Ashton',
-                            'rating' => 5,
-                            'comment' => 'A phenomenal space with so much equipment to choose from. Every area has been well thought out down to the smallest detail, the place is next level! Sun beds, saunas, ice baths and The Savvy Baker offering up protein-fuelled brownies and smoothies – it is well worth a visit.',
-                            'date' => '2 years ago'
+                            'comment' => 'Let\'s not be silly, I\'m 54 and struggle to reach my shoes. 5* is because the two lads on the desk were amazing when my daughter left important uni watch/tracker behind. Left a busy desk to help her out. Top dad points for me driving extra 2hrs to go and pick it up - but could have been much worse had the lads not offered to have a hunt around. Spot on!',
+                            'date' => 'a month ago'
                         ],
                     ],
                     'coordinates' => [
                         'lat' => 53.8371,
                         'lng' => -1.4909
                     ],
-                    'mapUrl' => 'https://www.google.com/maps/place/UltraFlex+Gym+North+Leeds/@53.8310007,-1.4685853,17z/data=!3m1!4b1!4m6!3m5!1s0x48795bdf67a4199d:0x161674f7e205d7b2!8m2!3d53.8309976!4d-1.4660104!16s%2Fg%2F11kbymfhg8?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
+                    'mapUrl' => 'https://www.google.com/maps/place/ULTRAFLEX+Gym+North+Leeds/@53.8310007,-1.4685853,17z/data=!3m1!4b1!4m6!3m5!1s0x48795bdf67a4199d:0x161674f7e205d7b2!8m2!3d53.8309976!4d-1.4660104!16s%2Fg%2F11kbymfhg8?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
                 ];
                 break;
                 
             case 'normanton':
                 $locationData = [
-                    // Add gallery field for Normanton
-                    'gallery' => isset(self::$externalImages['normanton']) ? self::$externalImages['normanton'] : [],
                     'id' => 3,
                     'name' => 'ULTRAFLEX NORMANTON',
                     'address' => 'Ripley Dr, Normanton WF6 1QT',
                     'phone' => '01924 895794',
-                    'email' => 'normanton@ultraflexgym.co.uk',
+                    'email' => 'normanton@ULTRAFLEXgym.co.uk',
                     'image' => '/Images/newimages/Normanton/gym-in-normanton.webp',
-                    'gallery' => [
-                        '/Images/newimages/Normanton/gym-in-normanton.webp',
-                        '/Images/newimages/Normanton/gym-in-normanton-2.webp',
-                        '/Images/newimages/Normanton/gym-in-normanton-6.webp',
-                        '/Images/newimages/Normanton/gym-in-normanton-7.webp',
-                        '/Images/newimages/Normanton/gym-in-normanton-4.webp',
-                        '/Images/newimages/Normanton/gym-in-normanton-5.webp',
-                        '/Images/newimages/Normanton/gym-in-normanton-8.webp',
-                        '/Images/newimages/Normanton/gym-in-normanton-3.webp',
-                        '/Images/newimages/Normanton/gym-in-normanton-9.webp',
-                        '/Images/newimages/Normanton/gym-in-normanton-10.webp',
-                        '/Images/newimages/Normanton/gym-in-normanton-11.webp'
-                    ],
+                    'gallery' => isset(self::$externalImages['normanton']) ? self::$externalImages['normanton'] : [],
                     'slug' => 'normanton',
                     // Scene3D tour link
-                    'virtualTour' => 'https://my.scene3d.co.uk/tour/ultraflex-normanton-2022',
+                    'virtualTour' => 'https://my.scene3d.co.uk/tour/ULTRAFLEX-normanton-2022',
                     'hours' => [
                         'monday' => '06:00 – 22:00',
                         'tuesday' => '06:00 – 22:00',
@@ -729,7 +700,7 @@ class LocationController extends Controller
                     'services' => [
                         [
                             'name' => 'AmyClark Hair',
-                            'description' => 'Professional hair services available at UltraFlex Normanton.',
+                            'description' => 'Professional hair services available at ULTRAFLEX Normanton.',
                             'icon' => null
                         ],
                     ],
@@ -743,7 +714,7 @@ class LocationController extends Controller
                             'name' => 'Weekly Pass',
                             'price' => 27.00,
                             'period' => 'week',
-                            'features' => ['7 Days Access', 'Standard Equipment', 'All Facilities', 'Free Parking'],
+                            'features' => ['7 Days Access', 'World Class Equipment', 'Free Parking'],
                             'popular' => false
                         ],
                         [
@@ -751,15 +722,15 @@ class LocationController extends Controller
                             'name' => 'Monthly Rolling Direct Debit',
                             'price' => 52.00,
                             'period' => 'month',
-                            'features' => ['Rolling Contract', 'Standard Equipment', 'All Facilities'],
+                            'features' => ['Rolling Contract', 'World Class Equipment'],
                             'popular' => false
                         ],
                         [
                             'id' => 4,
-                            'name' => '12month Direct Debit',
+                            'name' => '12 month Direct Debit',
                             'price' => 47.00,
                             'period' => 'month',
-                            'features' => ['Min 12 Month Commitment', 'Standard Equipment', 'All Facilities', 'Best Value'],
+                            'features' => ['Min 12 Month Commitment', 'World Class Equipment', 'Best Value'],
                             'popular' => true
                         ],
                         [
@@ -767,7 +738,7 @@ class LocationController extends Controller
                             'name' => '6 Month Pass',
                             'price' => 269.00,
                             'period' => '6 months',
-                            'features' => ['6 Months Access', 'Payment in Full', 'Standard Equipment', 'All Facilities'],
+                            'features' => ['6 Months Access', 'Payment in Full', 'World Class Equipment'],
                             'popular' => false
                         ],
                         [
@@ -775,7 +746,7 @@ class LocationController extends Controller
                             'name' => '12 Month Pass',
                             'price' => 465.00,
                             'period' => '12 months',
-                            'features' => ['12 Months Access', 'Payment in Full', 'Standard Equipment', 'All Facilities', 'Best Annual Value'],
+                            'features' => ['12 Months Access', 'Payment in Full', 'World Class Equipment', 'Best Annual Value'],
                             'popular' => false
                         ],
                         [
@@ -783,7 +754,7 @@ class LocationController extends Controller
                             'name' => 'GOLD Weekly Pass',
                             'price' => 32.50,
                             'period' => 'week',
-                            'features' => ['7 Days Access', 'Recovery Room Access', 'Personal Training Discounts'],
+                            'features' => ['7 Days Access', 'Recovery Room Access'],
                             'popular' => false
                         ],
                         [
@@ -791,15 +762,15 @@ class LocationController extends Controller
                             'name' => 'GOLD Monthly Rolling Pass',
                             'price' => 59.00,
                             'period' => 'month',
-                            'features' => ['Monthly Rolling', 'Recovery Room Access', 'Personal Training Discounts'],
+                            'features' => ['Rolling Direct Debit', 'Recovery Room Access'],
                             'popular' => false
                         ],
                         [
                             'id' => 10,
-                            'name' => 'GOLD Monthly Direct Debit',
+                            'name' => 'GOLD 12 Month Direct Debit',
                             'price' => 53.00,
                             'period' => 'month',
-                            'features' => ['Recovery Room Access', 'Best GOLD Value'],
+                            'features' => ['12 Month Contract', 'Recovery Room Access', 'Best GOLD Value'],
                             'popular' => false
                         ],
                         [
@@ -824,7 +795,7 @@ class LocationController extends Controller
                             'id' => 1,
                             'name' => 'Alex Bard',
                             'rating' => 5,
-                            'comment' => "If you're looking for a gym that has it all, UltraFlex Gym in Normanton is the place to be! The atmosphere is amazing, with a strong community vibe that makes working out enjoyable. The staff are incredibly friendly, always ready to help and make you feel welcome. The gym is packed with high-quality equipment for both weight training and cardio. The sauna is a great addition, perfect for unwinding after a tough session. Clean, well-maintained, and spacious – this gym truly stands out. Highly recommend it to anyone serious about their fitness journey!",
+                            'comment' => "If you're looking for a gym that has it all, ULTRAFLEX Gym in Normanton is the place to be! The atmosphere is amazing, with a strong community vibe that makes working out enjoyable. The staff are incredibly friendly, always ready to help and make you feel welcome. The gym is packed with high-quality equipment for both weight training and cardio. The sauna is a great addition, perfect for unwinding after a tough session. Clean, well-maintained, and spacious – this gym truly stands out. Highly recommend it to anyone serious about their fitness journey!",
                             'date' => '9 months ago'
                         ],
                         [
@@ -835,20 +806,6 @@ class LocationController extends Controller
                             'date' => '1 year ago'
                         ],
                         [
-                            'id' => 3,
-                            'name' => 'L',
-                            'rating' => 5,
-                            'comment' => 'Great gym, fab equipment – a little pricey but overall good.',
-                            'date' => '6 months ago'
-                        ],
-                        [
-                            'id' => 4,
-                            'name' => 'Antony Sykes',
-                            'rating' => 5,
-                            'comment' => 'Superb gym with top quality equipment and lots of it so no need to wait around. Would be even better if they fitted a water cooler',
-                            'date' => '5 months ago'
-                        ],
-                        [
                             'id' => 5,
                             'name' => 'Kieran Broughan',
                             'rating' => 5,
@@ -857,17 +814,17 @@ class LocationController extends Controller
                         ],
                         [
                             'id' => 6,
-                            'name' => 'Warren Ackroyd',
+                            'name' => 'Khudaja Liton',
                             'rating' => 5,
-                            'comment' => 'Love this Gym. Staff are amazing. The gym is always clean. Music is excellent for working out to. Showers are clean & brilliant. Clientele in the gym is all helpful too. Everyone loves working out & this shows, vibe is amazing.',
-                            'date' => '2 years ago'
+                            'comment' => 'The best gym by far in Leeds, with the most amazing equipment. You\'re never waiting for a machine and if you are, you\'ll be talking about away to the friendly members (no matter how scary they actually look).',
+                            'date' => '3 months ago'
                         ],
                     ],
                     'coordinates' => [
                         'lat' => 53.7085,
                         'lng' => -1.4168
                     ],
-                    'mapUrl' => 'https://www.google.com/maps/place/UltraFlex+Normanton/@53.7018856,-1.4042812,17z/data=!3m1!4b1!4m6!3m5!1s0x48795da40af09e07:0x586579d496b76ed3!8m2!3d53.7018825!4d-1.4017063!16s%2Fg%2F11fdkx44lv?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
+                    'mapUrl' => 'https://www.google.com/maps/place/ULTRAFLEX+Normanton/@53.7018856,-1.4042812,17z/data=!3m1!4b1!4m6!3m5!1s0x48795da40af09e07:0x586579d496b76ed3!8m2!3d53.7018825!4d-1.4017063!16s%2Fg%2F11fdkx44lv?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
                 ];
                 break;
                 
@@ -879,7 +836,7 @@ class LocationController extends Controller
                     'name' => 'ULTRAFLEX ROTHERHAM',
                     'address' => '175 Effingham St, Rotherham S65 1BL',
                     'phone' => '0170 937 7311',
-                    'email' => 'rotherham@ultraflexgym.co.uk',
+                    'email' => 'rotherham@ULTRAFLEXgym.co.uk',
                     'image' => '/Images/newimages/Rotherham/gym-in-rotherham.webp',
                     'gallery' => [
                         '/Images/newimages/Rotherham/gym-in-rotherham-3.webp',
@@ -905,8 +862,25 @@ class LocationController extends Controller
                     ],
                     'manager' => [
                         'name' => 'Morgan',
-                        'bio' => 'Hi all, I’m Morgan the manager at Ultraflex Rotherham and I take great pride in the continuation of building and progressing our reputation that we have earned for being one of the best training facilities around, I’m passionate that I am able to contribute to this gym that many members find as a second home, and creating a space where you are all able to fit right into the community. I work closely with our staff team in ensuring that our gym is accommodating for all, and standards are pushed and maintained to exceed expectations across all aspects. Fitness and training has always played a key role for me personally, and speaking from experience 6 years ago I was drawn into what Ultraflex Rotherham had to offer to me as a member, and I soon realised that it was the best around, for what started as a personal fitness journey I soon realised that I wanted to be in a position where I could grow both physically and mentally, which years later has led me to be in the position where I feel proud to be able to manage this world renowned facility and how important it is to be able to create an environment that supports our members individual journeys. Throughout my duration of being a part of Ultraflex Rotherham, whether that being member or manager it has been amazing to witness just how Ultraflex has evolved and the impact it has on the people that spend their time here. I’m excited to see what else lies ahead and hopefully we’ll see you down here.',
+                        'bio' => 'Hi all, I’m Morgan the manager at ULTRAFLEX Rotherham and I take great pride in the continuation of building and progressing our reputation that we have earned for being one of the best training facilities around, I’m passionate that I am able to contribute to this gym that many members find as a second home, and creating a space where you are all able to fit right into the community. I work closely with our staff team in ensuring that our gym is accommodating for all, and standards are pushed and maintained to exceed expectations across all aspects. Fitness and training has always played a key role for me personally, and speaking from experience 6 years ago I was drawn into what ULTRAFLEX Rotherham had to offer to me as a member, and I soon realised that it was the best around, for what started as a personal fitness journey I soon realised that I wanted to be in a position where I could grow both physically and mentally, which years later has led me to be in the position where I feel proud to be able to manage this world renowned facility and how important it is to be able to create an environment that supports our members individual journeys. Throughout my duration of being a part of ULTRAFLEX Rotherham, whether that being member or manager it has been amazing to witness just how ULTRAFLEX has evolved and the impact it has on the people that spend their time here. I’m excited to see what else lies ahead and hopefully we’ll see you down here.',
                         'image' => '/Images/managers/morgan.jpg',
+                    ],
+                    'services' => [
+                        [
+                            'name' => 'rnr body therapy',
+                            'description' => 'Sports massage services.',
+                            'icon' => null,
+                            'category' => 'Sports Massage'
+                        ],
+                        [
+                            'name' => 'Podcast Room',
+                            'description' => 'Available to book in gym.',
+                            'icon' => null,
+                            'category' => 'Facilities'
+                        ]
+                    ],
+                    'serviceLinks' => [
+                        [ 'label' => 'rnr body therapy Website', 'url' => 'https://www.rnrbodytherappy.co.uk', 'type' => 'website' ]
                     ],
                     'features' => [
                         'Sauna & Ice Bath'
@@ -930,8 +904,8 @@ class LocationController extends Controller
                         ],
                         [
                             'id' => 4,
-                            'name' => '12month Direct Debit',
-                            'price' => 50.00,
+                            'name' => '12 month Direct Debit',
+                            'price' => 47.00,
                             'period' => 'month',
                             'features' => ['Monthly Direct Debit', '12 Month Contract', 'All Equipment Access', 'All Facilities', 'Best Value'],
                             'popular' => true
@@ -984,6 +958,22 @@ class LocationController extends Controller
                             'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full (£468)', 'All Equipment Access', 'Best Student Value'],
                             'popular' => false
                         ],
+                        [
+                            'id' => 11,
+                            'name' => '60+ Monthly Rolling',
+                            'price' => 52.00,
+                            'period' => 'month',
+                            'features' => ['60+ Discount', 'Valid ID Required', 'Monthly Rolling', 'All Equipment Access'],
+                            'popular' => false
+                        ],
+                        [
+                            'id' => 12,
+                            'name' => '60+ 12 month Direct Debit',
+                            'price' => 47.00,
+                            'period' => 'month',
+                            'features' => ['60+ Discount', 'Valid ID Required', '12 Month Direct Debit', 'All Equipment Access', 'Best Value'],
+                            'popular' => false
+                        ],
                     ],
                     'reviews' => [
                         [
@@ -1033,7 +1023,7 @@ class LocationController extends Controller
                         'lat' => 53.4326,
                         'lng' => -1.3568
                     ],
-                    'mapUrl' => 'https://www.google.com/maps/place/UltraFlex+-+Gym+in+Rotherham/@53.4380464,-1.3554535,17z/data=!3m1!4b1!4m6!3m5!1s0x48797709d1450b65:0x25be57d0fbe940e3!8m2!3d53.4380432!4d-1.3528786!16s%2Fg%2F11gp35wlzk?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
+                    'mapUrl' => 'https://www.google.com/maps/place/ULTRAFLEX+-+Gym+in+Rotherham/@53.4380464,-1.3554535,17z/data=!3m1!4b1!4m6!3m5!1s0x48797709d1450b65:0x25be57d0fbe940e3!8m2!3d53.4380432!4d-1.3528786!16s%2Fg%2F11gp35wlzk?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
                 ];
                 break;
                 
@@ -1044,14 +1034,9 @@ class LocationController extends Controller
                     'id' => 5,
                     'name' => 'ULTRAFLEX YORK',
                     'address' => '10 Layerthorpe, York YO31 7YW',
-                    'phone' => '+44 1904 567 890',
-                    'email' => 'york@ultraflexgym.co.uk',
+                    'phone' => '+44 1904 623383',
+                    'email' => 'york@ULTRAFLEXgym.co.uk',
                     'image' => '/Images/newimages/York/gym-in-york.webp',
-                    'gallery' => [
-                        '/Images/newimages/York/gym-in-york.webp',
-                        '/Images/newimages/York/gym-in-york-2.webp',
-                        '/Images/newimages/York/gym-in-york-3.webp'
-                    ],
                     'slug' => 'york',
                     // Provided Matterport link (updated)
                     'virtualTour' => 'https://my.matterport.com/show/?m=kZ7SPKSyTMt&back=1',
@@ -1061,21 +1046,16 @@ class LocationController extends Controller
                         'wednesday' => '05:00 – 23:00',
                         'thursday' => '05:00 – 23:00',
                         'friday' => '05:00 – 23:00',
-                        'saturday' => '05:00 – 23:00',
-                        'sunday' => '05:00 – 23:00'
+                        'saturday' => '08:00 – 20:00',
+                        'sunday' => '08:00 – 20:00'
                     ],
                     'manager' => [
                         'name' => 'Liam',
-                        'bio' => 'Hi, I\'m Liam, and I\'d like to give you the warmest welcome to Ultraflex York - the gym where everyone fits in, whether you\'re lifting 5kg, 50kg, or just lifting your mood for the day. We\'re proud to be more than just a place to train. We\'re a community, a support system, and occasionally... a group of people bonding over how sore leg day made us. What I love most about Ultraflex York is that it\'s truly for everyone. First-time gym-goer? Perfect. Seasoned lifter? You\'ll feel right at home. Someone who comes purely for a walk and a chat? We\'ve got a spot for you too. Our members are friendly, our atmosphere is welcoming, and our equipment - well, there\'s a lot of it, and it\'s all top-notch. I\'m usually buzzing around the gym floor, talking to members, organising the weight plates, or trying to resist the protein Cookies. If you ever need help, advice, or just want someone to celebrate a PB with, come find me. And if you prefer messages over conversations (absolutely no judgement - I love a good email), you can reach our team on this email address york@ultraflexgym.co.uk We\'re proud to have you as part of the family - now let\'s make some progress, have some laughs, and enjoy the journey together.',
+                        'bio' => 'Hi, I\'m Liam, and I\'d like to give you the warmest welcome to ULTRAFLEX York - the gym where everyone fits in, whether you\'re lifting 5kg, 50kg, or just lifting your mood for the day. We\'re proud to be more than just a place to train. We\'re a community, a support system, and occasionally... a group of people bonding over how sore leg day made us. What I love most about ULTRAFLEX York is that it\'s truly for everyone. First-time gym-goer? Perfect. Seasoned lifter? You\'ll feel right at home. Someone who comes purely for a walk and a chat? We\'ve got a spot for you too. Our members are friendly, our atmosphere is welcoming, and our equipment - well, there\'s a lot of it, and it\'s all top-notch. I\'m usually buzzing around the gym floor, talking to members, organising the weight plates, or trying to resist the protein Cookies. If you ever need help, advice, or just want someone to celebrate a PB with, come find me. And if you prefer messages over conversations (absolutely no judgement - I love a good email), you can reach our team on this email address york@ULTRAFLEXgym.co.uk We\'re proud to have you as part of the family - now let\'s make some progress, have some laughs, and enjoy the journey together.',
                         'image' => '/Images/managers/liam.jpg',
                         'experience' => null
                     ],
                     'services' => [
-                        [
-                            'name' => 'Regen Physio',
-                            'description' => 'Physiotherapy and rehabilitation clinic for injury prevention and performance.',
-                            'icon' => null
-                        ],
                         [
                             'name' => 'The Yorkshire Clipper',
                             'description' => 'On-site barber services for member convenience.',
@@ -1088,15 +1068,11 @@ class LocationController extends Controller
                         ]
                     ],
                     'serviceLinks' => [
-                        [ 'label' => 'Regen Physio Instagram', 'url' => 'https://www.instagram.com/regenphysio/', 'type' => 'instagram' ],
-                        [ 'label' => 'Regen Physio Email', 'url' => 'mailto:info@regenphysio.co.uk', 'type' => 'email' ],
-                        [ 'label' => 'Regen Physio Website', 'url' => 'https://www.regenphysio.co.uk/clinics/york', 'type' => 'website' ],
                         [ 'label' => 'The Yorkshire Clipper Instagram', 'url' => 'https://www.instagram.com/the_yorkshireclipper/', 'type' => 'instagram' ],
                         [ 'label' => 'The Yorkshire Clipper Website', 'url' => 'https://www.theyorkshireclipper.co.uk/', 'type' => 'website' ],
                         [ 'label' => 'Fika Aesthetics Website', 'url' => 'https://www.fikaaesthetics.co.uk/', 'type' => 'website' ]
                     ],
                     'features' => [
-                        'Sauna & Ice Bath'
                     ],
                     'membershipPlans' => [
                         [
@@ -1112,12 +1088,12 @@ class LocationController extends Controller
                             'name' => 'Monthly Rolling Direct Debit',
                             'price' => 55.00,
                             'period' => 'month',
-                            'features' => ['Rolling Contract', 'All Equipment Access', 'Knowledgeable Staff', 'Something for Everyone'],
+                            'features' => ['Rolling Contract', 'All Equipment Access', 'Knowledgeable Staff'],
                             'popular' => false
                         ],
                         [
                             'id' => 4,
-                            'name' => '12month Direct Debit',
+                            'name' => '12 month Direct Debit',
                             'price' => 50.00,
                             'period' => 'month',
                             'features' => ['Monthly Direct Debit', '12 Month Commitment', 'All Equipment Access', 'Expert Staff Support', 'Best Value'],
@@ -1136,7 +1112,7 @@ class LocationController extends Controller
                             'name' => '6 Month Pass',
                             'price' => 299.00,
                             'period' => '6 months',
-                            'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'Fitness Goal Support'],
+                            'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access'],
                             'popular' => false
                         ],
                         [
@@ -1203,17 +1179,10 @@ class LocationController extends Controller
                             'date' => '6 years ago'
                         ],
                         [
-                            'id' => 4,
-                            'name' => 'Jonathan Elliott',
-                            'rating' => 5,
-                            'comment' => "Excellent gym, has made my student experience in York worthwhile! Absolutely love this gym and the people with it. Jason and the team do an amazing job making me feel welcome, and even gave me a discount when it was my birthday for some of their clothing! Couldn't recommend more.\n\nJonny",
-                            'date' => 'Edited 8 months ago'
-                        ],
-                        [
                             'id' => 5,
                             'name' => 'Alex Bard',
                             'rating' => 5,
-                            'comment' => "UltraFlex is an amazing place to workout and the staff is super helpful, encouraging, and friendly. They know how to push you to the limit in the best way possible with your workouts. This gym has the best energy, staff, and feel. Everything is so clean , you will not leave disappointed! Such a family vibe as soon as you walk in the doors – I highly recommend checking this gym out.",
+                            'comment' => "ULTRAFLEX is an amazing place to workout and the staff is super helpful, encouraging, and friendly. They know how to push you to the limit in the best way possible with your workouts. This gym has the best energy, staff, and feel. Everything is so clean , you will not leave disappointed! Such a family vibe as soon as you walk in the doors – I highly recommend checking this gym out.",
                             'date' => '4 years ago'
                         ],
                     ],
@@ -1221,7 +1190,7 @@ class LocationController extends Controller
                         'lat' => 54.0059,
                         'lng' => -1.0810
                     ],
-                    'mapUrl' => 'https://www.google.com/maps/place/UltraFlex+-+Gym+in+York/@53.9620338,-1.0749673,17z/data=!3m1!4b1!4m6!3m5!1s0x487931d9a664f0c1:0xa5b0aa55abc8b897!8m2!3d53.9620307!4d-1.0723924!16s%2Fg%2F11h7fzf0w2?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
+                    'mapUrl' => 'https://www.google.com/maps/place/ULTRAFLEX+-+Gym+in+York/@53.9620338,-1.0749673,17z/data=!3m1!4b1!4m6!3m5!1s0x487931d9a664f0c1:0xa5b0aa55abc8b897!8m2!3d53.9620307!4d-1.0723924!16s%2Fg%2F11h7fzf0w2?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
                 ];
                 break;
                 
@@ -1233,7 +1202,7 @@ class LocationController extends Controller
                     'name' => 'ULTRAFLEX HULL',
                     'address' => 'Business Park, 261 Hawthorn Avenue Trackside, Hull HU3 5EN',
                     'phone' => '01482 327874',
-                    'email' => 'hull@ultraflexgym.co.uk',
+                    'email' => 'hull@ULTRAFLEXgym.co.uk',
                     // Updated primary image for Hull location
                     'image' => '/Images/processed-E08A33F0-0FB6-43A5-BF60-EC1147B6517D-min-min.jpeg',
                     'gallery' => [
@@ -1258,7 +1227,7 @@ class LocationController extends Controller
                     ],
                     'manager' => [
                         'name' => 'Tronn',
-                        'bio' => 'Welcome to Ultraflex Gym Hull, the ultimate training facility for those serious about fitness. My name is Tronn (yes, it’s a strange name, yes, it is my real name!) and I’ve been the manager of this incredible facility for over 3 years now. Whether you\'re a competitive athlete, aspiring bodybuilder, or just beginning your fitness journey, Ultraflex Hull is designed to help you push boundaries and achieve real results. Our state-of-the-art gym is packed with industry-leading equipment, an intense training atmosphere, and a community that thrives on hard work and dedication. We offer a full range of strength and conditioning machines, free weights, cardio equipment, and specialist areas for functional and combat training. At Ultraflex, every detail is designed to support performance, progress, and passion. This isn’t just a place to work out – it’s where you transform both body and mind. Our expert team of personal trainers, coaches, and athletes are on hand to guide, motivate, and challenge you. Whether your goals are to build muscle, lose fat, increase endurance, or simply become the best version of yourself, you’ll find the tools and support here to make it happen. Located in the heart of Hull with ample parking and flexible memberships, Ultraflex Gym is open seven days a week to fit around your lifestyle. We also host regular seminars, competitions, and events to keep your training fresh and focused.',
+                        'bio' => 'Welcome to ULTRAFLEX Gym Hull, the ultimate training facility for those serious about fitness. My name is Tronn (yes, it’s a strange name, yes, it is my real name!) and I’ve been the manager of this incredible facility for over 3 years now. Whether you\'re a competitive athlete, aspiring bodybuilder, or just beginning your fitness journey, ULTRAFLEX Hull is designed to help you push boundaries and achieve real results. Our state-of-the-art gym is packed with industry-leading equipment, an intense training atmosphere, and a community that thrives on hard work and dedication. We offer a full range of strength and conditioning machines, free weights, cardio equipment, and specialist areas for functional and combat training. At ULTRAFLEX, every detail is designed to support performance, progress, and passion. This isn’t just a place to work out – it’s where you transform both body and mind. Our expert team of personal trainers, coaches, and athletes are on hand to guide, motivate, and challenge you. Whether your goals are to build muscle, lose fat, increase endurance, or simply become the best version of yourself, you’ll find the tools and support here to make it happen. Located in the heart of Hull with ample parking and flexible memberships, ULTRAFLEX Gym is open seven days a week to fit around your lifestyle. We also host regular seminars, competitions, and events to keep your training fresh and focused.',
                         'image' => '/Images/Hull Gym Manager.webp',
                         'experience' => ''
                     ],
@@ -1300,7 +1269,7 @@ class LocationController extends Controller
                         [
                             'id' => 3,
                             'name' => 'Monthly Rolling Direct Debit',
-                            'price' => 45.00,
+                            'price' => 47.00,
                             'period' => 'month',
                             'features' => ['Rolling Contract', 'All Equipment Access', 'Cardio Area'],
                             'popular' => false
@@ -1308,14 +1277,14 @@ class LocationController extends Controller
                         [
                             'id' => 4,
                             'name' => '1 Month Pass',
-                            'price' => 47.00,
+                            'price' => 45.00,
                             'period' => 'month',
                             'features' => ['Monthly Rolling', 'All Equipment Access', 'Cardio Area'],
                             'popular' => false
                         ],
                         [
                             'id' => 5,
-                            'name' => '12month Direct Debit',
+                            'name' => '12 month Direct Debit',
                             'price' => 41.00,
                             'period' => 'month',
                             'features' => ['Monthly Direct Debit', '12 Month Contract', 'All Equipment Access', 'Cardio Area', 'Best Value'],
@@ -1350,7 +1319,7 @@ class LocationController extends Controller
                             'id' => 2,
                             'name' => 'Chris Rowse',
                             'rating' => 5,
-                            'comment' => 'THIS, IS, ULTRAFLEX!! We visited UltraFlex Hull for the third time today completing two sessions - legs before lunch, and then upper body in the afternoon. We were blown away when we visited the gym last month, and we couldn\'t wait to return. The gym is modern, filled with high-end equipment, and has a great clientele. The staff are friendly, approachable, and really helpful. The only thing stopping us getting a monthly membership is logistics, or we would definitely be signing on the dotted line. See you again soon.',
+                            'comment' => 'THIS, IS, ULTRAFLEX!! We visited ULTRAFLEX Hull for the third time today completing two sessions - legs before lunch, and then upper body in the afternoon. We were blown away when we visited the gym last month, and we couldn\'t wait to return. The gym is modern, filled with high-end equipment, and has a great clientele. The staff are friendly, approachable, and really helpful. The only thing stopping us getting a monthly membership is logistics, or we would definitely be signing on the dotted line. See you again soon.',
                             'date' => 'Edited 4 months ago'
                         ],
                         [
@@ -1358,13 +1327,6 @@ class LocationController extends Controller
                             'name' => 'Sebby',
                             'rating' => 5,
                             'comment' => 'Amazing gym, staff are helpful and know what they\'re talking about and the equipment is all high quality and easy to use.',
-                            'date' => 'Recent review'
-                        ],
-                        [
-                            'id' => 4,
-                            'name' => 'Jordan Fawcett',
-                            'rating' => 5,
-                            'comment' => 'Really good gym, only draw back is the lockers need updating, they\'re pretty small and some are damaged but overall the variety and quality of equipment and facilities is top notch.',
                             'date' => 'Recent review'
                         ],
                         [
@@ -1382,7 +1344,7 @@ class LocationController extends Controller
                             'date' => '9 months ago'
                         ],
                     ],
-                    'mapUrl' => 'https://www.google.com/maps/place/UltraFlex+Hull/@53.7370945,-0.3793473,17z/data=!3m1!4b1!4m6!3m5!1s0x4878bf4224c223bf:0xdf1edfef5956e5db!8m2!3d53.7370945!4d-0.3793473!16s%2Fg%2F11h_46zghn?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
+                    'mapUrl' => 'https://www.google.com/maps/place/ULTRAFLEX+Hull/@53.7370945,-0.3793473,17z/data=!3m1!4b1!4m6!3m5!1s0x4878bf4224c223bf:0xdf1edfef5956e5db!8m2!3d53.7370945!4d-0.3793473!16s%2Fg%2F11h_46zghn?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
                 ];
                 break;
                 
@@ -1394,7 +1356,7 @@ class LocationController extends Controller
                     'name' => 'ULTRAFLEX DURHAM',
                     'address' => 'Mandale Business Park, Unit 28D, Kent House, Durham DH1 1TH',
                     'phone' => '0191 3898321',
-                    'email' => 'durham@ultraflexgym.co.uk',
+                    'email' => 'durham@ULTRAFLEXgym.co.uk',
                     // Updated primary image for Durham location
                     'image' => '/Images/original-787FADAA-6849-48F3-B005-6AD9FB2E74C4-min-min.jpeg',
                     'gallery' => [
@@ -1423,12 +1385,10 @@ class LocationController extends Controller
                         'experience' => ''
                     ],
                     'services' => [
-                        ['name' => 'Baxters Barbers', 'description' => 'On-site barber services for members.'],
-                        ['name' => 'Regen Physio', 'description' => 'Physiotherapy and rehabilitation support.']
+                        ['name' => 'Baxters Barbers', 'description' => 'On-site barber services for members.']
                     ],
                     'serviceLinks' => [
-                        ['label' => 'Baxters Barbers Instagram', 'url' => 'https://www.instagram.com/Baxters_barbers', 'type' => 'external'],
-                        ['label' => 'Regen Physio', 'url' => 'https://bit.ly/m/RegenPhysio', 'type' => 'external']
+                        ['label' => 'Baxters Barbers Instagram', 'url' => 'https://www.instagram.com/Baxters_barbers', 'type' => 'external']
                     ],
                     'features' => [
                         'Sauna & Ice Bath'
@@ -1452,7 +1412,7 @@ class LocationController extends Controller
                         ],
                         [
                             'id' => 4,
-                            'name' => '12month Direct Debit',
+                            'name' => '12 month Direct Debit',
                             'price' => 48.00,
                             'period' => 'month',
                             'features' => ['Monthly Direct Debit', '12 Month Commitment', 'All Equipment Access', 'Cardio Area', 'Best Value'],
@@ -1496,7 +1456,7 @@ class LocationController extends Controller
                             'id' => 1,
                             'name' => 'Kai Edwards',
                             'rating' => 5,
-                            'comment' => 'Ultraflex Durham is an excellent gym and easily one of the best in the area. The whole place is spotless, with equipment that is well-maintained and laid out so everything is easy to access. The atmosphere is welcoming from the moment you walk in. Tracey on the front desk deserves a special mention - she was incredibly helpful, friendly, and had an amazing attitude that set the tone for the whole visit. Her approach made the experience even better. Overall, Ultraflex Durham is a top-quality gym that is a pleasure to train in. Me and a friend both got a day pass and could not recommend it enough.',
+                            'comment' => 'ULTRAFLEX Durham is an excellent gym and easily one of the best in the area. The whole place is spotless, with equipment that is well-maintained and laid out so everything is easy to access. The atmosphere is welcoming from the moment you walk in. Tracey on the front desk deserves a special mention - she was incredibly helpful, friendly, and had an amazing attitude that set the tone for the whole visit. Her approach made the experience even better. Overall, ULTRAFLEX Durham is a top-quality gym that is a pleasure to train in. Me and a friend both got a day pass and could not recommend it enough.',
                             'date' => '4 weeks ago'
                         ],
                         [
@@ -1514,28 +1474,21 @@ class LocationController extends Controller
                             'date' => '4 weeks ago'
                         ],
                         [
-                            'id' => 4,
-                            'name' => 'Anthony North East',
-                            'rating' => 5,
-                            'comment' => 'It is insanely expensive for a gym but that is reflected in the machines: Hammer Strength, Cybex, Atlantis, Nautilus - all the best machines and loads to choose from. It is also nice that they open on Christmas and let anyone train for free for a few hours on Christmas.',
-                            'date' => '1 week ago'
-                        ],
-                        [
                             'id' => 5,
                             'name' => 'Charlie Cook',
                             'rating' => 5,
-                            'comment' => 'UltraFlex is by far the best gym in the North East. They have got all of the equipment you need for a serious workout, the rules on reracking weights are enforced so you are not chasing down missing dumbbells and the staff are all quality people.',
+                            'comment' => 'ULTRAFLEX is by far the best gym in the North East. They have got all of the equipment you need for a serious workout, the rules on reracking weights are enforced so you are not chasing down missing dumbbells and the staff are all quality people.',
                             'date' => '1 month ago'
                         ],
                         [
                             'id' => 6,
-                            'name' => 'Ewan Hetherington',
+                            'name' => 'Lewis Williams',
                             'rating' => 5,
-                            'comment' => 'I trained here for 6 months from Sept 2024 to March 2025 and have been going to the gym since July 2021. This is easily the best gym I have ever trained at with the best equipment available for each body part. Can\'t wait to get back training there when back at uni in September this year. Just seen a new recovery place has been built which is sick. Only critique would be that sometimes the music is stupidly loud but it does help squeeze some extra reps.',
-                            'date' => '5 months ago'
+                            'comment' => 'Just joined this week after over a year out of the gym, and honestly best decision I\'ve made in a long time. Staff are great and the equipment is next level. Not only do they have everything you\'ll ever need they\'ve got 3 or 4 of it, so you\'re not stood around waiting for machines. Couldn\'t recommend any more highly',
+                            'date' => '3 months ago'
                         ],
                     ],
-                    'mapUrl' => 'https://www.google.com/maps/place/UltraFlex+-+Gym+in+Durham/@54.7885757,-1.5341394,17z/data=!3m1!4b1!4m6!3m5!1s0x487e7ddf0af67a83:0xc2c9d1ae77103247!8m2!3d54.7885757!4d-1.5341394!16s%2Fg%2F11fs7zcll9?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
+                    'mapUrl' => 'https://www.google.com/maps/place/ULTRAFLEX+-+Gym+in+Durham/@54.7885757,-1.5341394,17z/data=!3m1!4b1!4m6!3m5!1s0x487e7ddf0af67a83:0xc2c9d1ae77103247!8m2!3d54.7885757!4d-1.5341394!16s%2Fg%2F11fs7zcll9?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
                 ];
                 break;
                 
@@ -1546,7 +1499,7 @@ class LocationController extends Controller
                     'name' => 'ULTRAFLEX DERBY',
                     'address' => 'Chequers Rd, Derby DE21 6EN',
                     'phone' => '07395616771',
-                    'email' => 'derby@ultraflexgym.co.uk',
+                    'email' => 'derby@ULTRAFLEXgym.co.uk',
                     // Updated primary image for Derby location
                     'image' => '/Images/processed-5AB78E5E-3190-4963-8AAF-9B3B527D73AD-min-min.jpeg',
                     'slug' => 'derby',
@@ -1563,7 +1516,7 @@ class LocationController extends Controller
                     ],
                     'manager' => [
                         'name' => 'Ian',
-                        'bio' => 'Welcome to Ultraflex Derby. With over 200 pieces of the best gym machinery from several different brands, a full sized boxing ring, and powerlifting cage, located in a 20k sq ft facility, you are entering the best equipped gym in the Midlands. Here we bring the best training experience for everyone, an amazing team to support you and provide the perfect environment no matter what you’re training for. Tired of messy gyms? Here we work hard to provide you with the cleanest facility, no more looking for weights or attachments, all weights are kept in order, and leaving weights out isn’t tolerated. Looking for more than just a gym? Come sit down and relax in one of our 3 saunas, enjoy a shake with a brownie after a hard workout (healthier options available). For those braver souls out there, we also have ice baths available to help with your recovery. On site we also have an Osteopath, Sports Massage and Therapy, and blood testing available. All this in one place! If you ever need anything come see us. If you would like to enquire or ever need to reach me, please contact me on derby@ultraflexgym.co.uk.',
+                        'bio' => 'Welcome to ULTRAFLEX Derby. With over 200 pieces of the best gym machinery from several different brands, a full sized boxing ring, and powerlifting cage, located in a 20k sq ft facility, you are entering the best equipped gym in the Midlands. Here we bring the best training experience for everyone, an amazing team to support you and provide the perfect environment no matter what you’re training for. Tired of messy gyms? Here we work hard to provide you with the cleanest facility, no more looking for weights or attachments, all weights are kept in order, and leaving weights out isn’t tolerated. Looking for more than just a gym? Come sit down and relax in one of our 3 saunas, enjoy a shake with a brownie after a hard workout (healthier options available). For those braver souls out there, we also have ice baths available to help with your recovery. On site we also have an Osteopath, Sports Massage and Therapy, and blood testing available. All this in one place! If you ever need anything come see us. If you would like to enquire or ever need to reach me, please contact me on derby@ULTRAFLEXgym.co.uk.',
                         'image' => '/Images/managers/ian.jpg',
                         'experience' => null
                     ],
@@ -1588,10 +1541,8 @@ class LocationController extends Controller
                         ]
                     ],
                     'serviceLinks' => [
-                        [ 'label' => 'House of Wellness Facebook', 'url' => 'https://www.facebook.com/houseofwellnessuk', 'type' => 'facebook' ],
                         [ 'label' => 'House of Wellness Instagram', 'url' => 'https://www.instagram.com/houseofwellnessuk', 'type' => 'instagram' ],
                         [ 'label' => 'House of Wellness TikTok', 'url' => 'https://www.tiktok.com/@houseofwellnessuk', 'type' => 'tiktok' ],
-                        [ 'label' => 'House of Wellness Website', 'url' => 'https://houseofwellness.com', 'type' => 'website' ],
                         [ 'label' => 'Elite Osteo Midlands Instagram', 'url' => 'https://www.instagram.com/eliteosteo.midlands', 'type' => 'instagram' ],
                         [ 'label' => 'Elite Osteo Midlands Website', 'url' => 'https://eliteosteo.co.uk', 'type' => 'website' ],
                         [ 'label' => 'Fusion Rehab Instagram', 'url' => 'https://www.instagram.com/Fusion_rehab_', 'type' => 'instagram' ]
@@ -1626,7 +1577,7 @@ class LocationController extends Controller
                         [
                             'id' => 3,
                             'name' => 'Monthly Rolling Direct Debit',
-                            'price' => 62.00,
+                            'price' => 56.00,
                             'period' => 'month',
                             'features' => ['Rolling Contract', 'All Equipment Access', 'Cardio Area'],
                             'popular' => false
@@ -1634,14 +1585,14 @@ class LocationController extends Controller
                         [
                             'id' => 4,
                             'name' => '1 Month Pass',
-                            'price' => 56.00,
+                            'price' => 62.00,
                             'period' => 'month',
                             'features' => ['Monthly Rolling', 'All Equipment Access', 'Cardio Area'],
                             'popular' => false
                         ],
                         [
                             'id' => 5,
-                            'name' => '12month Direct Debit',
+                            'name' => '12 month Direct Debit',
                             'price' => 54.00,
                             'period' => 'month',
                             'features' => ['Monthly Direct Debit', '12 Month Commitment', 'All Equipment Access', 'Cardio Area', 'Best Value'],
@@ -1673,7 +1624,7 @@ class LocationController extends Controller
                         ],
                         [
                             'id' => 9,
-                            'name' => 'Students and Blue Light - Direct Debit',
+                            'name' => 'Students and Blue Light - 12 month Direct Debit',
                             'price' => 45.00,
                             'period' => 'month',
                             'features' => ['Student & Blue Light Discount', 'Valid ID Required', '12 Month Direct Debit', 'All Equipment Access'],
@@ -1736,7 +1687,7 @@ class LocationController extends Controller
                         'lat' => 52.9219,
                         'lng' => -1.4758
                     ],
-                    'mapUrl' => 'https://www.google.com/maps/place/UltraFlex+Derby/@52.9209207,-1.4514623,17z/data=!3m1!4b1!4m6!3m5!1s0x4879f1ba94609079:0x22c967098ab40dcd!8m2!3d52.9209175!4d-1.4488874!16s%2Fg%2F11vb8bxxlh?coh=277535&entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoKLDEwMDc5MjA3M0gBUAM%3D&skid=00b71a2c-ba9f-4c14-8f06-71774134c920'
+                    'mapUrl' => 'https://www.google.com/maps/place/ULTRAFLEX+Derby/@52.9209207,-1.4514623,17z/data=!3m1!4b1!4m6!3m5!1s0x4879f1ba94609079:0x22c967098ab40dcd!8m2!3d52.9209175!4d-1.4488874!16s%2Fg%2F11vb8bxxlh?coh=277535&entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoKLDEwMDc5MjA3M0gBUAM%3D&skid=00b71a2c-ba9f-4c14-8f06-71774134c920'
                 ];
                 break;
 
@@ -1748,7 +1699,7 @@ class LocationController extends Controller
                     'name' => 'ULTRAFLEX ATHENS (GREECE)',
                     'address' => 'Ethnarchou Makariou 16, Peristeri 121 32, Greece',
                     'phone' => '+30 210 901 2345',
-                    'email' => 'athens@ultraflexgym.co.uk',
+                    'email' => 'athens@ULTRAFLEXgym.co.uk',
                     'image' => '/Images/athens/HeroBG/DSC07413.jpg',
                     'gallery' => [
                         '/Images/athens/ForGallery/gym-in-athens-5.webp',
@@ -1779,14 +1730,14 @@ class LocationController extends Controller
                             'id' => 1,
                             'name' => 'Maria Konstantinou',
                             'rating' => 5,
-                            'comment' => 'So excited for UltraFlex to open in Athens! Finally, a premium gym chain is coming to Greece. Can\'t wait for the opening!',
+                            'comment' => 'So excited for ULTRAFLEX to open in Athens! Finally, a premium gym chain is coming to Greece. Can\'t wait for the opening!',
                             'date' => '2025-06-25'
                         ],
                         [
                             'id' => 2,
                             'name' => 'Nikos Petridis',
                             'rating' => 5,
-                            'comment' => 'The location in Glyfada is perfect! Looking forward to experiencing the UltraFlex quality we\'ve heard so much about.',
+                            'comment' => 'The location in Glyfada is perfect! Looking forward to experiencing the ULTRAFLEX quality we\'ve heard so much about.',
                             'date' => '2025-06-22'
                         ],
                         [
@@ -1823,7 +1774,7 @@ class LocationController extends Controller
                         ],
                         [
                             'date' => '2025-03-10',
-                            'update' => 'UltraFlex announces expansion to Greece'
+                            'update' => 'ULTRAFLEX announces expansion to Greece'
                         ]
                     ]
                 ];
@@ -1837,13 +1788,11 @@ class LocationController extends Controller
                     'name' => 'ULTRAFLEX LINCOLN',
                     'address' => '3 Pioneer Way, Lincoln LN6 3DH',
                     'phone' => '01522 454320',
-                    'email' => 'lincoln@ultraflexgym.co.uk',
+                    'email' => 'lincoln@ULTRAFLEXgym.co.uk',
                     // Updated primary image for Lincoln location (replaced per user request Jan 12 2026)
                     'image' => '/Images/newimages/processed-7CE97793-CFE2-44A3-9BC7-AC26D84DB463.webp',
                     'gallery' => [
-                        '/Images/newimages/Lincoln/gym-in-lincoln-2.webp',
                         '/Images/newimages/Lincoln/gym-in-lincoln-3.webp',
-                        '/Images/newimages/Lincoln/gym-in-lincoln.webp',
                         '/Images/newimages/Lincoln/gym-in-lincoln-5.webp',
                         '/Images/newimages/Lincoln/gym-in-lincoln-4.webp',
                         '/Images/newimages/Lincoln/gym-in-lincoln-6.webp',
@@ -1864,24 +1813,21 @@ class LocationController extends Controller
                     ],
                     'manager' => [
                         'name' => 'Lynsey Hind',
-                        'bio' => "I’m proud to be the Gym Manager here at Ultraflex – the friendliest, most motivating place to train!\nFrom the moment you walk through the doors, you’re part of the family. Our amazing team is always ready with a smile, a helping hand, and encouragement to keep you progressing toward your goals.\nWe’ve built an environment where everyone works together – no egos, just great vibes, hard work, and a shared love for health & fitness. Whether you’re lifting big, starting your journey, or just here for a feel-good session, you’ll always feel welcome.\nOutside of the gym, I’m a proud mum to Ava-Lily, my eight-year-old daughter who has a real need for speed. Most weekends you’ll find us at the track, where she’s racing her go-kart with the same determination and focus we value so much in the gym.\nFor me, both work and home life are about dedication, community, and enjoying the journey – and that’s exactly what we aim to bring to every member’s experience at Ultraflex.\nIt’s all about community, support, and results – and we can’t wait to welcome you in.",
+                        'bio' => "I’m proud to be the Gym Manager here at ULTRAFLEX – the friendliest, most motivating place to train!\nFrom the moment you walk through the doors, you’re part of the family. Our amazing team is always ready with a smile, a helping hand, and encouragement to keep you progressing toward your goals.\nWe’ve built an environment where everyone works together – no egos, just great vibes, hard work, and a shared love for health & fitness. Whether you’re lifting big, starting your journey, or just here for a feel-good session, you’ll always feel welcome.\nOutside of the gym, I’m a proud mum to Ava-Lily, my eight-year-old daughter who has a real need for speed. Most weekends you’ll find us at the track, where she’s racing her go-kart with the same determination and focus we value so much in the gym.\nFor me, both work and home life are about dedication, community, and enjoying the journey – and that’s exactly what we aim to bring to every member’s experience at ULTRAFLEX.\nIt’s all about community, support, and results – and we can’t wait to welcome you in.",
                         // TODO: Manager image missing (lynsey.jpg). Add file to public/Images/managers or update path.
                         'image' => null,
                         'experience' => ''
                     ],
                     'features' => [
-                        '24hr Access',
+                        '24hr access',
                         'Barbershop (BLNK Barbers)',
-                        'The Recovery Hub',
-                        'Supplement Store',
-                        'Clothing Area',
                         'GSN Food',
                         'Wide Range of Personal Trainers (Bodybuilding to General Health & Weight Loss)',
                         'Sauna & Ice Bath'
                     ],
                     'services' => [
                         ['name' => 'BLNK Barbers', 'description' => 'In-gym barbershop providing grooming services for members.', 'icon' => '✂️'],
-                        ['name' => 'The Recovery Hub', 'description' => 'Physio & recovery services (location moving upstairs - update pending).', 'icon' => '🩺']
+                        ['name' => 'Sports Massage', 'description' => 'Professional sports massage and recovery services.', 'icon' => '🩺']
                     ],
                     'serviceLinks' => [
                         ['label' => 'BLNK Barbers Website', 'url' => 'https://www.blnkbarbers.com', 'type' => 'external'],
@@ -1915,12 +1861,12 @@ class LocationController extends Controller
                             'name' => 'Monthly Rolling 24hr Direct Debit',
                             'price' => 65.00,
                             'period' => 'month',
-                            'features' => ['Monthly Rolling', '24/7 Access', 'Train Anytime', 'First 24hr UltraFlex', 'Complete Flexibility'],
+                            'features' => ['Monthly Rolling', '24/7 Access', 'Train Anytime', 'First 24hr ULTRAFLEX', 'Complete Flexibility'],
                             'popular' => true
                         ],
                         [
                             'id' => 3,
-                            'name' => '12month Direct Debit',
+                            'name' => '12 month Direct Debit',
                             'price' => 49.99,
                             'period' => 'month',
                             'features' => ['12 Month Contract', 'Day Access Only', 'Mon-Fri: 06:00-22:00', 'Sat-Sun: 06:00-20:00', 'Best Value'],
@@ -1931,7 +1877,7 @@ class LocationController extends Controller
                             'name' => '12 Month 24hr Direct Debit',
                             'price' => 54.99,
                             'period' => 'month',
-                            'features' => ['12 Month Contract', '24/7 Access', 'Train Anytime', 'First 24hr UltraFlex', 'Complete Flexibility'],
+                            'features' => ['12 Month Contract', '24/7 Access', 'Train Anytime', 'First 24hr ULTRAFLEX', 'Complete Flexibility'],
                             'popular' => false
                         ],
                         [
@@ -1939,7 +1885,7 @@ class LocationController extends Controller
                             'name' => '12 Month Pass - Paid in Full',
                             'price' => 530.00,
                             'period' => '12 months',
-                            'features' => ['12 Months Access', 'Payment in Full', 'All Equipment Access', 'Best Annual Value', 'No Monthly Payments'],
+                            'features' => ['12 Months Access', 'Payment in Full', 'Day Access Only', 'All Equipment Access', 'Best Annual Value', 'No Monthly Payments'],
                             'popular' => false
                         ],
                         [
@@ -1955,7 +1901,7 @@ class LocationController extends Controller
                             'name' => '6 Month Pass - Paid in Full',
                             'price' => 270.00,
                             'period' => '6 months',
-                            'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access', 'No Monthly Payments'],
+                            'features' => ['6 Months Access', 'Payment in Full', 'Day Access Only', 'All Equipment Access', 'No Monthly Payments'],
                             'popular' => false
                         ],
                         [
@@ -1987,7 +1933,7 @@ class LocationController extends Controller
                             'name' => 'Student 6 Month Pass - Paid in Full',
                             'price' => 265.50,
                             'period' => '6 months',
-                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full', 'All Equipment Access'],
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full', 'Day Access Only', 'All Equipment Access'],
                             'popular' => false
                         ],
                         [
@@ -2003,7 +1949,7 @@ class LocationController extends Controller
                             'name' => 'Student 12 Month Pass - Paid in Full',
                             'price' => 477.00,
                             'period' => '12 months',
-                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full', 'All Equipment Access'],
+                            'features' => ['Student Discount', 'Valid Student ID Required', 'Payment in Full', 'Day Access Only', 'All Equipment Access'],
                             'popular' => false
                         ],
                         [
@@ -2020,7 +1966,7 @@ class LocationController extends Controller
                             'id' => 1,
                             'name' => 'James Harrison',
                             'rating' => 5,
-                            'comment' => 'Amazing to have the first 24hr UltraFlex! Perfect for my shift work - I can train at 3am if I want to. State-of-the-art facilities are incredible.',
+                            'comment' => 'Amazing to have the first 24hr ULTRAFLEX! Perfect for my shift work - I can train at 3am if I want to. State-of-the-art facilities are incredible.',
                             'date' => '2025-06-26'
                         ],
                         [
@@ -2049,7 +1995,7 @@ class LocationController extends Controller
                         'lat' => 53.2307,
                         'lng' => -0.5406
                     ],
-                    'mapUrl' => 'https://www.google.com/maps/place/UltraFlex+Lincoln/@53.2010099,-0.5950846,17z/data=!3m1!4b1!4m6!3m5!1s0x4878453a2df04e4d:0x2e4b6b6facf2e70d!8m2!3d53.2010068!4d-0.5902137!16s%2Fg%2F11wg7fn_1m?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
+                    'mapUrl' => 'https://www.google.com/maps/place/ULTRAFLEX+Lincoln/@53.2010099,-0.5950846,17z/data=!3m1!4b1!4m6!3m5!1s0x4878453a2df04e4d:0x2e4b6b6facf2e70d!8m2!3d53.2010068!4d-0.5902137!16s%2Fg%2F11wg7fn_1m?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
                 ];
                 break;
 
@@ -2061,18 +2007,9 @@ class LocationController extends Controller
                     'name' => 'ULTRAFLEX WEST LONDON',
                     'address' => 'Point West, 2, Packet Boat Ln, Uxbridge UB8 2JP',
                     'phone' => '01895 436000',
-                    'email' => 'westlondon@ultraflexgym.co.uk',
+                    'email' => 'westlondon@ULTRAFLEXgym.co.uk',
                     // Updated primary image for West London location (replaced per user request Oct 8 2025)
                     'image' => '/Images/processed-463489D0-F620-407E-BED0-4EB177EDCAC4 (1).webp',
-                    'gallery' => [
-                        '/Images/westlondon/DSC06653-2.jpg',
-                        '/Images/westlondon/DSC06686.jpg',
-                        '/Images/westlondon/DSC06788-2.jpg',
-                        '/Images/westlondon/DSC07359 (1).jpg',
-                        '/Images/westlondon/DSC07359.jpg',
-                        '/Images/westlondon/DSC07371.jpg',
-                        '/Images/westlondon/DSC07372.jpg'
-                    ],
                     'slug' => 'west-london',
                     // West London tour video nearly ready (placeholder null)
                     'virtualTour' => null,
@@ -2087,7 +2024,7 @@ class LocationController extends Controller
                     ],
                     'manager' => [
                         'name' => 'Tiff Nelhams',
-                        'bio' => 'I’ve been part of this gym for almost three years, starting on front of house before stepping into the role of General Manager when we became Ultraflex West London. During that time, I’ve had the chance to get to know our members and experience first-hand what makes this place so special. For me, it’s never been just a gym—it’s a community and a second home. This gym has also played a huge role in my personal journey. After being diagnosed with cancer last year, the support I received from members and staff was a lifeline. That experience made me even more determined to give back and to work as hard as I can to create the best possible environment for everyone who walks through the doors. My role is about more than just running the site. I care deeply about supporting our staff, maintaining high standards, and making sure our members feel welcome, motivated, and valued. I like to lead by example—whether that’s being on the gym floor, putting weights away, or simply having a chat with members—because the little things matter. Ultraflex West London is a place I care deeply about, and I’ll always work hard to make sure it remains somewhere both staff and members can enjoy, feel valued, and be proud to be part of.',
+                        'bio' => 'I’ve been part of this gym for almost three years, starting on front of house before stepping into the role of General Manager when we became ULTRAFLEX West London. During that time, I’ve had the chance to get to know our members and experience first-hand what makes this place so special. For me, it’s never been just a gym—it’s a community and a second home. This gym has also played a huge role in my personal journey. After being diagnosed with cancer last year, the support I received from members and staff was a lifeline. That experience made me even more determined to give back and to work as hard as I can to create the best possible environment for everyone who walks through the doors. My role is about more than just running the site. I care deeply about supporting our staff, maintaining high standards, and making sure our members feel welcome, motivated, and valued. I like to lead by example—whether that’s being on the gym floor, putting weights away, or simply having a chat with members—because the little things matter. ULTRAFLEX West London is a place I care deeply about, and I’ll always work hard to make sure it remains somewhere both staff and members can enjoy, feel valued, and be proud to be part of.',
                         'image' => '/Images/managers/tiff.jpg',
                         'experience' => null
                     ],
@@ -2100,7 +2037,7 @@ class LocationController extends Controller
                         ],
                         [
                             'name' => 'NMK Aesthetics',
-                            'description' => 'Aesthetic treatments delivered with anatomical expertise for safe, effective results.',
+                            'description' => 'Aesthetics treatments',
                             'icon' => null
                         ],
                         [
@@ -2151,12 +2088,12 @@ class LocationController extends Controller
                             'name' => 'Monthly Pass Rolling',
                             'price' => 55.00,
                             'period' => 'month',
-                            'features' => ['No Contract', 'Monthly Rolling', 'All Equipment Access', 'Maximum Flexibility', 'Central London Location'],
+                            'features' => ['No Contract', 'Monthly Rolling', 'All Equipment Access', 'Maximum Flexibility'],
                             'popular' => true
                         ],
                         [
                             'id' => 4,
-                            'name' => '12month Direct Debit',
+                            'name' => '12 month Direct Debit',
                             'price' => 50.00,
                             'period' => 'month',
                             'features' => ['Monthly Direct Debit', '12 Month Commitment', 'All Equipment Access'],
@@ -2237,7 +2174,7 @@ class LocationController extends Controller
                         'lat' => 51.5074,
                         'lng' => -0.2296
                     ],
-                    'mapUrl' => 'https://www.google.com/maps/place/UltraFlex+-+Gym+in+West+London/@51.5199897,-0.4833574,17z/data=!3m1!4b1!4m6!3m5!1s0x48766e049076b79b:0x50c88ea22ee842ae!8m2!3d51.5199864!4d-0.4807825!16s%2Fg%2F1tj88y5l?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
+                    'mapUrl' => 'https://www.google.com/maps/place/ULTRAFLEX+-+Gym+in+West+London/@51.5199897,-0.4833574,17z/data=!3m1!4b1!4m6!3m5!1s0x48766e049076b79b:0x50c88ea22ee842ae!8m2!3d51.5199864!4d-0.4807825!16s%2Fg%2F1tj88y5l?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
                 ];
                 break;
                 
@@ -2248,7 +2185,7 @@ class LocationController extends Controller
                     'name' => 'ULTRAFLEX WEST LEEDS',
                     'address' => 'Cape Mills, Coal Hill Ln, Leeds LS28 5NA',
                     'phone' => '0113 256 5107',
-                    'email' => 'leeds@ultraflexgym.co.uk',
+                    'email' => 'leeds@ULTRAFLEXgym.co.uk',
                     'image' => '/Images/westleeds/UFG (100) (2).jpg',
                     'gallery' => [
                         '/Images/westleeds/westleeds/ForGallery/DSC07341.jpg',
@@ -2274,7 +2211,7 @@ class LocationController extends Controller
                     ],
                     'manager' => [
                         'name' => 'James Mitchell',
-                        'bio' => 'UltraFlex Gym in Leeds is regarded as one of the best gyms in Leeds. Our team ensures members can train on top-quality equipment manufactured by the best brand names in the world.',
+                        'bio' => 'ULTRAFLEX Gym in Leeds is regarded as one of the best gyms in Leeds. Our team ensures members can train on top-quality equipment manufactured by the best brand names in the world.',
                         'image' => '/Images/managers/james.jpg',
                         'experience' => '15+ years experience'
                     ],
@@ -2297,7 +2234,7 @@ class LocationController extends Controller
         }
 
         if (isset($locationData['membershipPlans'])) {
-            $locationData['membershipPlans'] = $processPlans($locationData['membershipPlans'], $hasBoxing);
+            $locationData['membershipPlans'] = $processPlans($locationData['membershipPlans'], $hasBoxing, $slug);
         }
 
         // Common data for all locations
@@ -2428,7 +2365,7 @@ class LocationController extends Controller
                     'id' => 1,
                     'name' => 'Emma Davis',
                     'rating' => 5,
-                    'comment' => 'UltraFlex Leeds truly is one of the best gyms in Leeds! The equipment quality is outstanding and the martial arts area is fantastic.',
+                    'comment' => 'ULTRAFLEX Leeds truly is one of the best gyms in Leeds! The equipment quality is outstanding and the martial arts area is fantastic.',
                     'date' => '2025-06-20'
                 ],
                 [
@@ -2518,4 +2455,5 @@ class LocationController extends Controller
         ]);
     }
 }
+
 
