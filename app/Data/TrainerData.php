@@ -22,7 +22,7 @@ class TrainerData
                 'certifications' => [],
                 'locationSlug' => 'north-leeds',
                 // location name will be injected in controllers from slug mapping
-                'contact' => []
+                'contact' => ['email' => 'andycowellpt@gmail.com', 'phone' => '+447714401637']
             ],
             [
                 'id' => 102,
@@ -77,8 +77,8 @@ class TrainerData
                 'name' => 'Dan',
                 'slug' => 'dan',
                 'image' => '/Images/Picture5.webp',
-                'bio' => 'I\'ve helped hundreds of happy people in the gym and online get where they never imagined, mentally and physically. My specialty is finding a way to get through to my client, have fun working with them and understand them. Apps can\'t dedicate time and understanding to you with a personality, REAL experience and all the support you need. For the price you pay in a gym for one hour per week, you get a truly custom plan we make for YOU, daily support through our coaching app, and guaranteed success. Knowledge is one piece of the puzzle—service, people skills and actually knowing how to coach a range of people makes you a good coach.',
-                'specialties' => ['General Population', 'Accountability', 'Online Coaching'],
+                'bio' => 'I\'ve helped hundreds of happy people in the gym and online get where they never imagined, mentally and physically. Now with a dedicated office space at ULTRAFLEX York I can really take the time to meet in person all my clients in a safe space to build on their plans and goals. My specialty is honestly finding a way to get through to my client, have fun working with them and understand them. Online Apps can make you a solid training program but they can\'t dedicate their time and understanding to you with a personality, REAL experience and all the support you need. For the price you pay someone in a gym for one hour per week of their time, you get a truly custom plan we make for YOU through conversations. We set you up on our coaching app and keep that daily support and contact there to guarantee you success. Knowledge is one piece of the puzzle, service, people skills and actually knowing how to coach a range of people makes you a good coach.',
+                'specialties' => ['General Population', 'Accountability', 'Online Coaching', 'Custom Programming'],
                 'certifications' => [],
                 'locationSlug' => 'york',
                 'contact' => []
@@ -89,9 +89,9 @@ class TrainerData
                 'name' => 'Adam Gucwa',
                 'slug' => 'adam-gucwa',
                 'image' => '/Images/Picture7.webp',
-                'bio' => 'Born and raised in Poland, living in York for 7 years. Over 15 years studying gym science with a degree in Physical Education and Sports Science; PT qualified. I\'ve helped over 50 people get stronger, leaner, confident and competent to lift safely and efficiently. I adapt training to fit your lifestyle, experience, shape and limitations.',
-                'specialties' => ['Strength', 'Technique', 'Body Recomposition'],
-                'certifications' => ['PT Qualified'],
+                'bio' => 'My name is Adam. I was born and raised in Poland, fell in love with York and have been living here for the past 7 years. When I was 17, my Mum told me she could bench press 80kg when she was my age and this was the beginning of a lifelong fitness journey. For over 15 years I\'ve been studying gym science, graduated in Physical Education and Sports Science, eventually obtaining Personal Trainer qualification and turned my passion into a full time job, which was one of the best decisions in my life. Since then I\'ve helped over 50 people get stronger, leaner, confident and competent to lift safely and efficiently. I champion myself in adapting training to fit your lifestyle, level of experience, overall shape and working around your limitations.',
+                'specialties' => ['Strength', 'Technique', 'Body Recomposition', 'Safe Lifting'],
+                'certifications' => ['PT Qualified', 'Physical Education & Sports Science Degree'],
                 'locationSlug' => 'york',
                 'contact' => ['email' => 'adamgucwa.pt@gmail.com', 'phone' => '+447763249793', 'website' => 'https://g.co/kgs/jrn2q1k']
             ],
@@ -100,8 +100,8 @@ class TrainerData
                 'id' => 302,
                 'name' => 'Leon',
                 'slug' => 'leon',
-                'image' => '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp',
-                'bio' => 'I\'m a personal trainer and online coach for over 10 years, and have been competing as a body builder for over 12 years. I am a 2x Britain Champion. I help people achieve their goals from fat loss to stage prep.',
+                'image' => '/Images/unnamed (1) (2).webp',
+                'bio' => 'Hi I\'m Leon, I have been a personal trainer and online coach for over 10 years. I\'ve been competing as a body builder for over 12 years and I am also a 2x Britain Champion. I am passionate about helping people achieve their goals whether that be to just lose some weight and feel better, get in shape for a holiday or to compete on stage. Please feel free to contact me for more info on my 1-1 personal training or online coaching.',
                 'specialties' => ['Bodybuilding', 'Fat Loss', 'Contest Prep'],
                 'certifications' => [],
                 'locationSlug' => 'hull',
@@ -119,6 +119,17 @@ class TrainerData
                 'contact' => ['instagram' => 'https://instagram.com/smphysiquecoaching']
             ],
             // Lincoln
+            [
+                'id' => 400,
+                'name' => 'Jack Bennett',
+                'slug' => 'jack-bennett',
+                'image' => '/Images/unnamed (1) (1).webp',
+                'bio' => 'Hi, I\'m Jack - I am based at Ultraflex Lincoln. I feel so privileged to work from a top facility I love the atmosphere and sense community that has been established in such a short space of time. I am experienced coach with over 10 years in the fitness industry. As a competitive natural bodybuilder with a background in rugby and cycling, I bring a hybrid approach to performance, helping people of all ages and abilities achieve powerful transformations. My specialties include Fat Loss & Body Transformations, Strength & Conditioning, Goal Setting & Accountability, and Hybrid Performance Coaching. I love being part of people\'s fitness journeys and watching them grow in strength, confidence, and mindset. If you see me around the gym, come and say hello - I\'m always happy to chat! Let\'s smash your goals together!',
+                'specialties' => ['Fat Loss', 'Body Transformation', 'Strength & Conditioning', 'Hybrid Performance'],
+                'certifications' => ['Natural Bodybuilding Competitor'],
+                'locationSlug' => 'lincoln',
+                'contact' => ['email' => 'jackbennettpt86@gmail.com', 'phone' => '+447398688747']
+            ],
             [
                 'id' => 401,
                 'name' => 'Dawid',
@@ -174,12 +185,7 @@ class TrainerData
                 'locationSlug' => 'lincoln',
                 'gender' => 'Female',
                 'experience' => 'Strength and conditioning coach with over 15 years helping women worldwide build strength, confidence and a sustainable lifting lifestyle.',
-                'achievements' => [
-                    'WBFF World Championships – 2nd place, Las Vegas',
-                    'Former professional fitness model',
-                    'Founder of Mirella Fitness Ltd / Strong Beats Skinny'
-                ],
-                'contact' => []
+                'contact' => ['email' => 'mirella@mirellafitness.com', 'instagram' => 'https://www.instagram.com/mirella_fitness', 'facebook' => 'https://www.facebook.com/MirellaFitness']
             ],
             // Durham
             [
@@ -225,6 +231,17 @@ class TrainerData
                 'certifications' => [],
                 'locationSlug' => 'durham',
                 'contact' => ['instagram' => 'https://instagram.com/ashtonpersonaltraining']
+            ],
+            [
+                'id' => 505,
+                'name' => 'Wendy McCready',
+                'slug' => 'wendy-mccready',
+                'image' => '/Images/unnamed (1).webp',
+                'bio' => 'IFBB Pro coach with extensive experience in competitive bodybuilding and client transformations.',
+                'specialties' => ['IFBB Pro Coaching', 'Bodybuilding', 'Contest Prep'],
+                'certifications' => ['IFBB Pro'],
+                'locationSlug' => 'durham',
+                'contact' => ['instagram' => 'https://instagram.com/ifbbprowendymccready']
             ],
             // Derby
             [
