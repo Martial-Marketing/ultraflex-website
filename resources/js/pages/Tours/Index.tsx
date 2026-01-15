@@ -124,9 +124,9 @@ export default function ToursIndex({ tours, tourFeatures, auth }: ToursIndexProp
 
                         <div className="container mx-auto px-6 text-center relative z-10">
                             <h1 className="text-5xl font-bold mb-6">
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Virtual</span>{' '}
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Gym</span>{' '}
-                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Tours</span>
+                                <span className="text-white animate-pulse">Virtual</span>{' '}
+                                <span className="text-white animate-pulse">Gym</span>{' '}
+                                <span className="text-red-700 animate-pulse">Tours</span>
                             </h1>
                             <p className="text-xl text-gray-200 max-w-3xl mx-auto">
                                 Explore our world-class facilities from anywhere. Take immersive 360° virtual tours 
@@ -139,9 +139,9 @@ export default function ToursIndex({ tours, tourFeatures, auth }: ToursIndexProp
                     <section className="py-16">
                         <div className="container mx-auto px-6">
                             <h2 className="text-3xl font-bold text-center mb-12">
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">All</span>{' '}
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Virtual</span>{' '}
-                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Tours</span>
+                                <span className="text-white animate-pulse">All</span>{' '}
+                                <span className="text-white animate-pulse">Virtual</span>{' '}
+                                <span className="text-red-700 animate-pulse">Tours</span>
                             </h2>
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                                 {tours.map((tour) => (
@@ -196,8 +196,8 @@ export default function ToursIndex({ tours, tourFeatures, auth }: ToursIndexProp
                     <section className="py-16 bg-black/20 backdrop-blur-md">
                         <div className="container mx-auto px-6">
                             <h2 className="text-3xl font-bold text-center mb-12">
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Tour</span>{' '}
-                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Features</span>
+                                <span className="text-white animate-pulse">Tour</span>{' '}
+                                <span className="text-red-700 animate-pulse">Features</span>
                             </h2>
                             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                                 {tourFeatures.map((feature, index) => (
@@ -214,10 +214,10 @@ export default function ToursIndex({ tours, tourFeatures, auth }: ToursIndexProp
                     <section className="py-16 bg-black/10 backdrop-blur-md">
                         <div className="container mx-auto px-6">
                             <h2 className="text-3xl font-bold text-center mb-12">
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">How</span>{' '}
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Virtual</span>{' '}
-                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Tours</span>{' '}
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Work</span>
+                                <span className="text-white animate-pulse">How</span>{' '}
+                                <span className="text-white animate-pulse">Virtual</span>{' '}
+                                <span className="text-red-700 animate-pulse">Tours</span>{' '}
+                                <span className="text-white animate-pulse">Work</span>
                             </h2>
                             <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
                                 <div className="text-center group">
@@ -273,10 +273,10 @@ export default function ToursIndex({ tours, tourFeatures, auth }: ToursIndexProp
 
                         <div className="container mx-auto px-6 text-center relative z-10">
                             <h2 className="text-3xl font-bold mb-4">
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Ready</span>{' '}
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">to</span>{' '}
-                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Experience</span>{' '}
-                                <span className="ultraflex-ultra text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">ULTRA</span><span className="ultraflex-flex text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">FLEX</span><span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">?</span>
+                                <span className="text-white animate-pulse">Ready</span>{' '}
+                                <span className="text-white animate-pulse">to</span>{' '}
+                                <span className="text-red-700 animate-pulse">Experience</span>{' '}
+                                <span className="ultraflex-ultra text-white animate-pulse">ULTRA</span><span className="ultraflex-flex text-red-700 animate-pulse">FLEX</span><span className="text-white animate-pulse">?</span>
                             </h2>
                             <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
                                 Virtual tours are great, but nothing beats experiencing our facilities in person. 

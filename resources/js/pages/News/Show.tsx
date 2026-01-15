@@ -382,8 +382,8 @@ export default function NewsShow({ article, auth }: NewsShowProps) {
                         <section className="py-16 bg-black/20 backdrop-blur-md">
                             <div className="container mx-auto px-6">
                                 <h2 className="text-3xl font-bold text-center mb-12">
-                                    <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Related</span>{' '}
-                                    <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Articles</span>
+                                    <span className="text-white animate-pulse">Related</span>{' '}
+                                    <span className="text-red-700 animate-pulse">Articles</span>
                                 </h2>
                                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                                     {article.relatedArticles.map((relatedArticle) => (
@@ -441,12 +441,12 @@ export default function NewsShow({ article, auth }: NewsShowProps) {
 
                         <div className="container mx-auto px-6 text-center relative z-10">
                             <h2 className="text-3xl font-bold mb-4">
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Ready</span>{' '}
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">to</span>{' '}
-                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Start</span>{' '}
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Your</span>{' '}
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Fitness</span>{' '}
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Journey?</span>
+                                <span className="text-white animate-pulse">Ready</span>{' '}
+                                <span className="text-white animate-pulse">to</span>{' '}
+                                <span className="text-red-700 animate-pulse">Start</span>{' '}
+                                <span className="text-white animate-pulse">Your</span>{' '}
+                                <span className="text-white animate-pulse">Fitness</span>{' '}
+                                <span className="text-white animate-pulse">Journey?</span>
                             </h2>
                             <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
                                 Join ULTRAFLEX today and transform your health and fitness with our expert guidance and state-of-the-art facilities.

@@ -12,7 +12,7 @@ export default function About(props: AppLayoutProps) {
                 <AnimatedBackground variant="default" intensity="medium" />
                 <div className="container mx-auto px-6 py-16 max-w-3xl relative z-10">
                     <Head title="About Us" />
-                    <h1 className="text-4xl font-bold mb-6 text-red-700 drop-shadow">About <span className="ultraflex-ultra text-white">ULTRA</span><span className="ultraflex-flex text-red-700">FLEX</span></h1>
+                    <h1 className="text-4xl font-bold mb-6 text-red-700 ">About <span className="ultraflex-ultra text-white">ULTRA</span><span className="ultraflex-flex text-red-700">FLEX</span></h1>
                     <p className="mb-4 text-lg text-gray-200">
                         Welcome to <span className="ultraflex-ultra text-white">ULTRA</span><span className="ultraflex-flex text-red-700">FLEX</span> – where your fitness journey becomes an experience. Since our founding, we've been committed to building more than just gyms; we build communities that inspire, support, and empower every member.
                     </p>

@@ -68,7 +68,7 @@ export default function GalleryIndex({ images, locations = [], selected, auth }:
                       <span className="ultraflex-ultra text-white">ULTRA</span><span className="ultraflex-flex text-red-600">FLEX</span> {selected.name} <span className="text-red-700">Gallery</span>
                     </>
                   ) : (
-                    <>Our <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)]">Gallery</span></>
+                    <>Our <span className="text-red-700 ">Gallery</span></>
                   )}
                 </h1>
                 <p className="text-gray-300 max-w-2xl">

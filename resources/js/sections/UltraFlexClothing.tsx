@@ -67,14 +67,14 @@ export default function UltraFlexClothing() {
             {/* Red accent overlay */}
             <div className="absolute inset-0 bg-gradient-to-l from-red-900/5 via-transparent to-red-900/10" />
 
-            <div className="container mx-auto px-6 relative z-10">
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="container mx-auto px-4 sm:px-6 relative z-10">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
                     <div>
                         {/* Simplified header */}
                         <div className="mb-6">
                             <h2 className="text-4xl font-bold">
-                                <span className="ultraflex-ultra text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">ULTRA</span><span className="ultraflex-flex text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">FLEX</span>{' '}
-                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Clothing</span>
+                                <span className="ultraflex-ultra text-white animate-pulse">ULTRA</span><span className="ultraflex-flex text-red-700 animate-pulse">FLEX</span>{' '}
+                                <span className="text-red-700 animate-pulse">Clothing</span>
                             </h2>
                         </div>
 

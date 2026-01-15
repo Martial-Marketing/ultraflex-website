@@ -113,9 +113,9 @@ export default function TrainersIndex({ trainers, locations, specialties, auth }
 
                         <div className="container mx-auto px-6 text-center relative z-10">
                             <h1 className="text-5xl font-bold mb-6">
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)]">Our</span>{' '}
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)]">Personal</span>{' '}
-                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)]">Trainers</span>
+                                <span className="text-white ">Our</span>{' '}
+                                <span className="text-white ">Personal</span>{' '}
+                                <span className="text-red-700 ">Trainers</span>
                             </h1>
                             <p className="text-xl text-gray-200 max-w-3xl mx-auto">
                                 Work with certified fitness professionals who are passionate about helping 
@@ -271,10 +271,10 @@ export default function TrainersIndex({ trainers, locations, specialties, auth }
 
                                     <div className="relative z-10">
                                         <h2 className="text-3xl font-bold mb-4">
-                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)]">Ready</span>{' '}
-                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)]">to</span>{' '}
-                                            <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)]">Start</span>{' '}
-                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)]">Training?</span>
+                                            <span className="text-white ">Ready</span>{' '}
+                                            <span className="text-white ">to</span>{' '}
+                                            <span className="text-red-700 ">Start</span>{' '}
+                                            <span className="text-white ">Training?</span>
                                         </h2>
                                         <p className="text-gray-300 mb-6 leading-relaxed">
                                             Connect with one of our expert trainers and take the first 

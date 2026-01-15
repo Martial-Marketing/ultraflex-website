@@ -25,17 +25,17 @@ export default function FooterCTA() {
             <div className="absolute inset-0 bg-gradient-to-r from-red-900/10 via-red-700/5 to-red-900/10" />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-red-950/10 to-transparent" />
 
-            <div className="container mx-auto px-6 text-center relative z-10">
+            <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
                 {/* Simplified header */}
-                <div className="mb-8">
-                    <h2 className="text-3xl font-bold mb-4">
-                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Ready</span>{' '}
-                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">to</span>{' '}
-                        <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Start</span>{' '}
-                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Your</span>{' '}
-                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Journey?</span>
+                <div className="mb-6 sm:mb-8">
+                    <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">
+                        <span className="text-white animate-pulse">Ready</span>{' '}
+                        <span className="text-white animate-pulse">to</span>{' '}
+                        <span className="text-red-700 animate-pulse">Start</span>{' '}
+                        <span className="text-white animate-pulse">Your</span>{' '}
+                        <span className="text-white animate-pulse">Journey?</span>
                     </h2>
-                    <p className="text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto">
+                    <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto px-4">
                         Join the <span className="ultraflex-ultra text-white">ULTRA</span><span className="ultraflex-flex text-red-600">FLEX</span> community today and unlock your potential
                     </p>
                 </div>
@@ -46,7 +46,7 @@ export default function FooterCTA() {
                     <div className="flex justify-center">
                         <Button 
                             size="lg" 
-                            className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm"
+                            className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm w-full sm:w-auto"
                             asChild
                         >
                             <a href="https://secure.ashbournemanagement.co.uk/signupuk/index.aspx?fn=grbh2" target="_blank" rel="noopener noreferrer" className="flex items-center">

@@ -26,16 +26,16 @@ export default function SignUpCTA() {
 
             <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
                 {/* Enhanced header */}
-                <div className="mb-8">
-                    <h2 className="mb-6 text-4xl font-bold leading-tight">
-                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Ready</span>{' '}
-                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">to</span>{' '}
-                        <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Transform</span>{' '}
-                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Your</span>{' '}
-                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Fitness</span>{' '}
-                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Journey?</span>
+                <div className="mb-6 sm:mb-8">
+                    <h2 className="mb-4 sm:mb-6 text-2xl sm:text-3xl md:text-4xl font-bold leading-tight">
+                        <span className="text-white animate-pulse">Ready</span>{' '}
+                        <span className="text-white animate-pulse">to</span>{' '}
+                        <span className="text-red-700 animate-pulse">Transform</span>{' '}
+                        <span className="text-white animate-pulse">Your</span>{' '}
+                        <span className="text-white animate-pulse">Fitness</span>{' '}
+                        <span className="text-white animate-pulse">Journey?</span>
                     </h2>
-                    <p className="mb-8 text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                    <p className="mb-6 sm:mb-8 text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed px-4">
                         Join thousands of members who have already discovered the <span className="ultraflex-ultra text-white">ULTRA</span><span className="ultraflex-flex text-red-600">FLEX</span> difference. 
                         Your transformation starts today.
                     </p>
@@ -45,7 +45,7 @@ export default function SignUpCTA() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 mt-4 md:mt-0">
                     <Button 
                         size="lg" 
-                        className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm"
+                        className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm w-full sm:w-auto"
                         asChild
                     >
                         <a href="https://secure.ashbournemanagement.co.uk/signupuk/index.aspx?fn=grbh2" target="_blank" rel="noopener noreferrer" className="flex items-center">

@@ -146,26 +146,26 @@ export default function Welcome({ auth, latestNews }: WelcomeProps) {
                     {/* Authentication Status Banner */}
                     <section className="relative">
                         {auth.user ? (
-                            <div className="bg-gradient-to-r from-red-600/20 to-red-700/20 backdrop-blur-sm border-y border-red-600/30 py-4">
-                                <div className="container mx-auto px-6">
+                            <div className="bg-gradient-to-r from-red-600/20 to-red-700/20 backdrop-blur-sm border-y border-red-600/30 py-3 sm:py-4">
+                                <div className="container mx-auto px-4 sm:px-6">
                                     <div className="text-center">
-                                        <p className="text-white font-semibold text-lg drop-shadow-[0_0_10px_rgba(255,255,255,0.6)]">
-                                            Welcome back, <span className="text-red-600 animate-pulse drop-shadow-[0_0_10px_rgba(220,38,38,0.6)]">{auth.user.name}!</span> You are successfully logged in.
+                                        <p className="text-white font-semibold text-base sm:text-lg ">
+                                            Welcome back, <span className="text-red-600 animate-pulse ">{auth.user.name}!</span> You are successfully logged in.
                                         </p>
-                                        <p className="text-white text-sm mt-1">
+                                        <p className="text-white text-xs sm:text-sm mt-1">
                                             Access your Members Hub for exclusive workouts, nutrition plans, and trainer bookings.
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         ) : (
-                            <div className="bg-gradient-to-r from-red-600/20 to-red-700/20 backdrop-blur-sm border-y border-red-600/30 py-4">
-                                <div className="container mx-auto px-6">
+                            <div className="bg-gradient-to-r from-red-600/20 to-red-700/20 backdrop-blur-sm border-y border-red-600/30 py-3 sm:py-4">
+                                <div className="container mx-auto px-4 sm:px-6">
                                     <div className="text-center">
-                                        <p className="text-white font-semibold text-lg drop-shadow-[0_0_10px_rgba(255,255,255,0.6)]">
-                                            Join the <span className="text-red-600 animate-pulse drop-shadow-[0_0_10px_rgba(220,38,38,0.6)]"><span className="ultraflex-ultra text-white">ULTRA</span><span className="ultraflex-flex text-red-600">FLEX</span></span> Community Today!
+                                        <p className="text-white font-semibold text-base sm:text-lg ">
+                                            Join the <span className="text-red-600 animate-pulse "><span className="ultraflex-ultra text-white">ULTRA</span><span className="ultraflex-flex text-red-600">FLEX</span></span> Community Today!
                                         </p>
-                                        <p className="text-white text-sm mt-1">
+                                        <p className="text-white text-xs sm:text-sm mt-1">
                                             Login or register to access exclusive member benefits, book trainers, and track your fitness journey.
                                         </p>
                                     </div>

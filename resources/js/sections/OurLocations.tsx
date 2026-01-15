@@ -37,20 +37,20 @@ export default function OurLocations({ locations }: OurLocationsProps) {
             {/* Red accent overlay */}
             <div className="absolute inset-0 bg-gradient-to-b from-red-900/5 via-transparent to-red-900/10" />
 
-            <div className="container mx-auto px-6 relative z-10">
+            <div className="container mx-auto px-4 sm:px-6 relative z-10">
                 {/* Simplified header */}
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl font-bold mb-4">
-                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Our</span>{' '}
-                        <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Locations</span>
+                <div className="text-center mb-12 sm:mb-16">
+                    <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4">
+                        <span className="text-white animate-pulse">Our</span>{' '}
+                        <span className="text-red-700 animate-pulse">Locations</span>
                     </h2>
-                    <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed px-4">
                         Find the <span className="ultraflex-ultra text-white">ULTRA</span><span className="ultraflex-flex text-red-600">FLEX</span> gym nearest to you. Each location features state-of-the-art equipment and premium amenities.
                     </p>
                 </div>
                 
                 {/* Enhanced location cards */}
-                <div className="grid md:grid-cols-3 gap-8 mb-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
                     {locations.map((location) => (
                         <Card key={location.id} className="overflow-hidden bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 hover:shadow-2xl hover:shadow-red-700/10 group">
                             <div className="h-48 bg-gray-800 relative overflow-hidden">
@@ -67,7 +67,7 @@ export default function OurLocations({ locations }: OurLocationsProps) {
                                         <Link href={`/locations/${location.slug}`}> 
                                             <Button 
                                                 size="sm" 
-                                                className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-4 py-2 text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm"
+                                                className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-3 py-2 sm:px-4 sm:py-2 text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm"
                                             >
                                                 <span className="group-hover:translate-x-1 transition-transform duration-300">Visit Location</span>
                                             </Button>
@@ -120,7 +120,7 @@ export default function OurLocations({ locations }: OurLocationsProps) {
                         <Button 
                             variant="outline" 
                             size="lg" 
-                            className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm"
+                            className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm"
                         >
                             <span className="group-hover:translate-x-1 transition-transform duration-300">
                                 View All Locations

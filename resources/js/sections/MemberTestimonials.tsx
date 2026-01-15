@@ -66,11 +66,11 @@ export default function MemberTestimonials({ testimonials }: MemberTestimonialsP
 
             <div className="container mx-auto px-6 relative z-10">
                 {/* Simplified header */}
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl font-bold mb-4">
-                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">What</span>{' '}
-                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Members</span>{' '}
-                        <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Say</span>
+                <div className="text-center mb-12 sm:mb-16">
+                    <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4">
+                        <span className="text-white animate-pulse">What</span>{' '}
+                        <span className="text-white animate-pulse">Members</span>{' '}
+                        <span className="text-red-700 animate-pulse">Say</span>
                     </h2>
                     <p className="text-xl text-gray-300 leading-relaxed">
                         Don't just take our word for it - hear from our amazing community
@@ -78,7 +78,7 @@ export default function MemberTestimonials({ testimonials }: MemberTestimonialsP
                 </div>
                 
                 {/* Enhanced testimonial cards with 3-at-a-time carousel */}
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
                     {visibleTestimonials.map((testimonial) => (
                         <Card key={testimonial.id} className="p-6 text-center bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 hover:shadow-2xl hover:shadow-red-700/10 group relative overflow-hidden">
                             {/* Quote icon background */}

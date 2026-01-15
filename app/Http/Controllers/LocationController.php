@@ -305,8 +305,8 @@ class LocationController extends Controller
                 'image' => '/Images/newimages/processed-7CE97793-CFE2-44A3-9BC7-AC26D84DB463.webp',
                 'slug' => 'lincoln',
                 'hours' => [
-                    'weekdays' => '06:00 - 22:00',
-                    'weekends' => '06:00 - 20:00'
+                    'weekdays' => '00:00 - 00:00',
+                    'weekends' => '00:00 - 00:00'
                 ],
                 'features' => ['24hr access']
             ],
@@ -566,7 +566,9 @@ class LocationController extends Controller
                         ['label' => 'Brotherhood Barbers – TikTok', 'url' => 'https://www.tiktok.com/@brotherhoodbarbers', 'type' => 'external']
                     ],
                     'features' => [
-                        'Sauna & Ice Bath'
+                        'Sauna',
+                        'Ice Bath',
+                        'Sunbed'
                     ],
                     'membershipPlans' => [
                         [
@@ -1803,13 +1805,13 @@ class LocationController extends Controller
                     // YouTube link
                     'virtualTour' => 'https://www.youtube.com/embed/u3qFZpkqxyI',
                     'hours' => [
-                        'monday' => '06:00 – 22:00',
-                        'tuesday' => '06:00 – 22:00',
-                        'wednesday' => '06:00 – 22:00',
-                        'thursday' => '06:00 – 22:00',
-                        'friday' => '06:00 – 22:00',
-                        'saturday' => '06:00 – 20:00',
-                        'sunday' => '06:00 – 20:00'
+                        'monday' => '00:00 – 00:00',
+                        'tuesday' => '00:00 – 00:00',
+                        'wednesday' => '00:00 – 00:00',
+                        'thursday' => '00:00 – 00:00',
+                        'friday' => '00:00 – 00:00',
+                        'saturday' => '00:00 – 00:00',
+                        'sunday' => '00:00 – 00:00'
                     ],
                     'manager' => [
                         'name' => 'Lynsey Hind',
@@ -2245,7 +2247,6 @@ class LocationController extends Controller
                 ['name' => 'Cardio Equipment', 'icon' => 'waves', 'available' => true],
                 // Conditionally add Boxing Area (filter out null later)
                 $hasBoxing ? ['name' => 'Boxing Area', 'icon' => 'users', 'available' => true] : null,
-                ['name' => 'Physiotherapy Clinic', 'icon' => 'users', 'available' => true],
                 ['name' => 'Comfortable Changing Rooms', 'icon' => 'shower', 'available' => true],
                 ['name' => 'Free On-Site Parking', 'icon' => 'car', 'available' => true],
                 ['name' => 'Easy Public Transport Access', 'icon' => 'users', 'available' => true],
@@ -2254,7 +2255,6 @@ class LocationController extends Controller
                 'Top-quality equipment from best brand names',
                 'Comfortable changing rooms',
                 $hasBoxing ? 'Boxing area' : null,
-                'Physiotherapy clinic',
                 'Free on-site parking',
                 'Easy public transport access'
             ],

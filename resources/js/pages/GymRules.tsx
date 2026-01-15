@@ -9,7 +9,7 @@ export default function GymRules() {
             <div className="min-h-screen relative flex items-center justify-center py-8 px-2 sm:px-6">
                 <AnimatedBackground variant="gradient" intensity="medium" className="z-0" />
                 <div className="relative z-10 w-full max-w-4xl bg-black/70 rounded-2xl shadow-2xl border border-gray-800 backdrop-blur-md p-6 sm:p-10">
-                    <h1 className="text-4xl sm:text-5xl font-black mb-6 text-center text-red-600 tracking-tight leading-tight drop-shadow-lg">
+                    <h1 className="text-4xl sm:text-5xl font-black mb-6 text-center text-red-600 tracking-tight leading-tight ">
                         <span className="ultraflex-ultra text-white">ULTRA</span><span className="ultraflex-flex text-red-600">FLEX</span> Gyms
                         <span className="block text-2xl sm:text-3xl text-white font-bold mt-1 tracking-wide">Rules & Etiquette</span>
                     </h1>

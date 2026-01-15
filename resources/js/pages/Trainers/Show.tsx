@@ -188,8 +188,8 @@ export default function TrainerShow({ trainer, auth }: TrainerShowProps) {
                                         {/* Bio */}
                                         <Card className="p-8 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-colors duration-300">
                                             <h2 className="text-2xl font-bold mb-6">
-                                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">About</span>{' '}
-                                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">{trainer.name}</span>
+                                                <span className="text-white animate-pulse">About</span>{' '}
+                                                <span className="text-red-700 animate-pulse">{trainer.name}</span>
                                             </h2>
                                             <p className="text-gray-300 leading-relaxed mb-6">{trainer.detailedBio}</p>
                                             
@@ -200,7 +200,7 @@ export default function TrainerShow({ trainer, auth }: TrainerShowProps) {
                                         {trainer.achievements.length > 0 && (
                                             <Card className="p-8 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-colors duration-300">
                                                 <h2 className="text-2xl font-bold mb-6">
-                                                    <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Achievements</span>
+                                                    <span className="text-red-700 animate-pulse">Achievements</span>
                                                 </h2>
                                                 <ul className="space-y-3">
                                                     {trainer.achievements.map((achievement, index) => (
@@ -219,8 +219,8 @@ export default function TrainerShow({ trainer, auth }: TrainerShowProps) {
                                             <div className="absolute inset-0 bg-gradient-to-br from-red-700/5 to-red-800/5"></div>
                                             <div className="relative z-10">
                                                 <h3 className="text-lg font-bold mb-4">
-                                                    <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Contact</span>{' '}
-                                                    <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">{trainer.name}</span>
+                                                    <span className="text-white animate-pulse">Contact</span>{' '}
+                                                    <span className="text-red-700 animate-pulse">{trainer.name}</span>
                                                 </h3>
                                                 <div className="space-y-3">
                                                     {trainer.contact?.phone && (

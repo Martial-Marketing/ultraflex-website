@@ -80,22 +80,22 @@ export default function AnimatedFooter({ className = '' }: FooterProps) {
 
             <div className="relative z-10">
                 {/* Main Footer Content */}
-                <div className="container mx-auto px-6 py-8">
-                    <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6">
+                <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6">
                         {/* Brand Section */}
                         <div className="lg:col-span-1">
-                            <div className="flex items-center space-x-3 mb-6">
-                                <div className="w-16 h-14 flex items-center justify-center">
+                            <div className="flex items-center space-x-3 mb-4 sm:mb-6">
+                                <div className="w-12 sm:w-16 h-10 sm:h-14 flex items-center justify-center">
                                     <img 
                                         src="/Images/logo/ultraflex-logo.webp" 
                                         alt="ULTRAFLEX Logo" 
-                                        className="h-14 w-auto object-contain drop-shadow-[0_0_10px_rgba(220,38,38,0.5)]"
+                                        className="h-10 sm:h-14 w-auto object-contain "
                                     />
                                 </div>
                                 <div>
-                                    <h3 className="text-2xl font-bold">
-                                        <span className="ultraflex-ultra text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">ULTRA</span>
-                                        <span className="ultraflex-flex text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">FLEX</span>
+                                    <h3 className="text-xl sm:text-2xl font-bold">
+                                        <span className="ultraflex-ultra text-white animate-pulse">ULTRA</span>
+                                        <span className="ultraflex-flex text-red-700 animate-pulse">FLEX</span>
                                     </h3>
                                 </div>
                             </div>
@@ -105,7 +105,7 @@ export default function AnimatedFooter({ className = '' }: FooterProps) {
                             </p>
                             
                             {/* Social Media Links */}
-                            <div className="flex space-x-4">
+                            <div className="flex space-x-3 sm:space-x-4">
                                 {socialLinks.map((social) => {
                                     const IconComponent = social.icon;
                                     return (
@@ -124,7 +124,7 @@ export default function AnimatedFooter({ className = '' }: FooterProps) {
 
                         {/* Quick Links */}
                         <div className="lg:col-span-1">
-                            <h4 className="text-lg font-semibold text-white mb-4 flex items-center">
+                            <h4 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4 flex items-center">
                                 <div className="w-1 h-4 bg-gradient-to-b from-red-700 to-red-800 rounded-full mr-2"></div>
                                 Quick Links
                             </h4>

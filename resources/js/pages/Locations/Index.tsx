@@ -105,8 +105,8 @@ export default function LocationsIndex({ locations, membershipPlans, auth }: Loc
 
                         <div className="container mx-auto px-6 text-center relative z-10">
                             <h1 className="text-5xl font-bold mb-6">
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Our</span>{' '}
-                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Locations</span>
+                                <span className="text-white animate-pulse">Our</span>{' '}
+                                <span className="text-red-700 animate-pulse">Locations</span>
                             </h1>
                             <p className="text-xl text-gray-200 max-w-3xl mx-auto">
                                 Find the <span className="ultraflex-ultra text-white">ULTRA</span><span className="ultraflex-flex text-red-600">FLEX</span> gym nearest to you. Each location features 
@@ -138,7 +138,7 @@ export default function LocationsIndex({ locations, membershipPlans, auth }: Loc
                                                 </div>
                                             )}
                                             <div className="absolute bottom-4 left-4 text-white">
-                                                <h3 className="text-xl font-bold drop-shadow-lg group-hover:text-red-700 transition-colors duration-300">{location.name}</h3>
+                                                <h3 className="text-xl font-bold group-hover:text-red-700 transition-colors duration-300">{location.name}</h3>
                                             </div>
                                             {/* Removed Premium badge per requirement */}
                                             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -202,8 +202,8 @@ export default function LocationsIndex({ locations, membershipPlans, auth }: Loc
                             <div className="mt-24">
                                 <div className="text-center mb-12">
                                     <h2 className="text-4xl font-bold mb-4">
-                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Membership</span>{' '}
-                                        <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Options</span>
+                                        <span className="text-white animate-pulse">Membership</span>{' '}
+                                        <span className="text-red-700 animate-pulse">Options</span>
                                     </h2>
                                     <p className="text-xl text-gray-300 max-w-3xl mx-auto">
                                         Choose the perfect membership plan that fits your lifestyle and budget. 
@@ -329,12 +329,12 @@ export default function LocationsIndex({ locations, membershipPlans, auth }: Loc
 
                                     <div className="relative z-10">
                                         <h2 className="text-3xl font-bold mb-4">
-                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Can't</span>{' '}
-                                            <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Find</span>{' '}
-                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">a</span>{' '}
-                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Location</span>{' '}
-                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Near</span>{' '}
-                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">You?</span>
+                                            <span className="text-white animate-pulse">Can't</span>{' '}
+                                            <span className="text-red-700 animate-pulse">Find</span>{' '}
+                                            <span className="text-white animate-pulse">a</span>{' '}
+                                            <span className="text-white animate-pulse">Location</span>{' '}
+                                            <span className="text-white animate-pulse">Near</span>{' '}
+                                            <span className="text-white animate-pulse">You?</span>
                                         </h2>
                                         <p className="text-gray-300 mb-6 leading-relaxed">
                                             We're constantly expanding! Let us know where you'd like to see 

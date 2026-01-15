@@ -47,23 +47,23 @@ export default function VideoLander() {
             <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-red-900/10 to-transparent" />
             
             <div className="relative z-10 flex h-full items-center justify-center text-center text-white">
-                <div className="max-w-4xl px-6">
+                <div className="max-w-4xl px-4 sm:px-6">
                     {/* Simplified logo/brand section */}
-                    <div className="mb-6">
-                        <h1 className="text-6xl font-bold tracking-tight">
-                            <span className="ultraflex-ultra text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">ULTRA</span><span className="ultraflex-flex text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">FLEX</span>
+                    <div className="mb-3 sm:mb-4 md:mb-6">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-6xl font-bold tracking-tight">
+                            <span className="ultraflex-ultra text-white animate-pulse">ULTRA</span><span className="ultraflex-flex text-red-700 animate-pulse">FLEX</span>
                         </h1>
                     </div>
 
-                    <p className="mb-8 text-xl font-medium text-gray-200 leading-relaxed">
+                    <p className="mb-4 sm:mb-6 md:mb-8 text-sm sm:text-base md:text-lg lg:text-xl font-medium text-gray-200 leading-relaxed px-2 sm:px-4">
                         Transform your fitness journey with premium equipment, expert trainers, and limitless potential.
                     </p>
 
                     {/* Enhanced button with hover effects */}
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 md:gap-4 px-4 sm:px-0">
                         <Button 
                             size="lg" 
-                            className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm"
+                            className="bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 text-sm sm:text-base md:text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm w-full sm:w-auto"
                             onClick={() => window.open('https://www.youtube.com/watch?v=CyWN8ipcwgo', '_blank')}
                             aria-label="Watch our story on YouTube"
                         >
@@ -78,7 +78,7 @@ export default function VideoLander() {
                             asChild
                             size="lg"
                             variant="outline"
-                            className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm"
+                            className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 text-sm sm:text-base md:text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm w-full sm:w-auto"
                         >
                             <a href="https://signup.ashbourne-memberships.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center">
                                 <span className="group-hover:translate-x-1 transition-transform duration-300">Join Today</span>

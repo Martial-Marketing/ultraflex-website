@@ -158,12 +158,12 @@ export default function ContactIndex({
               }}
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-red-900/70 to-black/80 backdrop-blur-sm" />
-            <div className="container mx-auto px-6 text-center relative z-10">
-              <h1 className="text-5xl font-bold mb-6">
+            <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
                 <span className="text-red-700">Contact</span>{' '}
                 <span className="text-white">Us</span>
               </h1>
-              <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg md:text-xl text-gray-200 max-w-3xl mx-auto">
                 Have questions? We're here to help! Reach out for membership
                 information, personal training, or anything else.
               </p>
@@ -171,12 +171,12 @@ export default function ContactIndex({
           </section>
 
           {/* Quick Contact */}
-          <section className="py-16 bg-black/20 backdrop-blur-md">
-            <div className="container mx-auto px-6">
-              <h2 className="text-3xl font-bold text-center mb-12 text-white">
+          <section className="py-12 sm:py-16 bg-black/20 backdrop-blur-md">
+            <div className="container mx-auto px-4 sm:px-6">
+              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12 text-white">
                 How Can We Help?
               </h2>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                 {contactReasons.map((r, i) => (
                   <Card
                     key={i}
@@ -191,12 +191,12 @@ export default function ContactIndex({
           </section>
 
           {/* Form + Info */}
-          <section className="py-16">
-            <div className="container mx-auto px-6">
-              <div className="grid lg:grid-cols-2 gap-12">
+          <section className="py-12 sm:py-16">
+            <div className="container mx-auto px-4 sm:px-6">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
                 {/* Form */}
                 <div>
-                  <h2 className="text-3xl font-bold mb-8 text-white">Send Us a Message</h2>
+                  <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-white">Send Us a Message</h2>
                   <Card className="p-6 bg-black/40 backdrop-blur-md border border-white/10">
                     <form onSubmit={handleSubmit} className="space-y-6">
                       <div>

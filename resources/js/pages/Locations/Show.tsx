@@ -1,6 +1,7 @@
 import { Head, Link } from '@inertiajs/react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import AppLayout from '@/layouts/app-layout';
 import AnimatedBackground from '@/components/AnimatedBackground';
 import { useEffect, useRef, useState } from 'react';
@@ -99,6 +100,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
     const [activeSection, setActiveSection] = useState<string>('manager');
     const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
     const [expandedReviewId, setExpandedReviewId] = useState<number | null>(null);
+    const [isBioModalOpen, setIsBioModalOpen] = useState(false);
     const membershipPlansPerSlide = 3;
     const totalMembershipSlides = Math.ceil(location.membershipPlans.length / membershipPlansPerSlide);
     const signupUrl = (location.signupUrl && location.signupUrl.trim() !== '' ? location.signupUrl : '/membership');
@@ -388,7 +390,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                         <div className="relative z-10 flex h-full items-center">
                             <div className="container mx-auto px-6">
                                 <div className="mb-6">
-                                    <h1 className="text-4xl font-bold text-white drop-shadow-lg">{location.name}</h1>
+                                    <h1 className="text-4xl font-bold text-white ">{location.name}</h1>
                                 </div>
                                 <p className="text-xl text-gray-200 flex items-center group hover:text-red-700 transition-colors duration-300">
                                     <MapPin className="h-5 w-5 mr-2 text-red-700" />
@@ -413,8 +415,8 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                         </div>
                     </section>
 
-                    {/* Sticky in-page navigation */}
-                    <nav className="sticky top-0 z-20 bg-transparent border-b border-transparent">
+                    {/* In-page navigation */}
+                    <nav className="bg-transparent border-b border-transparent">
                         <div className="container mx-auto px-6">
                             <ul className="flex flex-wrap items-center gap-4 py-3 text-sm text-gray-300">
                                 {[
@@ -452,9 +454,9 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                 {/* Meet The Manager */}
                                 <div>
                                     <h2 className="text-3xl font-bold mb-8">
-                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Meet</span>{' '}
-                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">The</span>{' '}
-                                        <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Manager</span>
+                                        <span className="text-white animate-pulse">Meet</span>{' '}
+                                        <span className="text-white animate-pulse">The</span>{' '}
+                                        <span className="text-red-700 animate-pulse">Manager</span>
                                     </h2>
                                     <div className="flex space-x-6">
                                         <div className="relative group">
@@ -478,7 +480,15 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                                 <p className="text-red-700 font-medium mb-4">{location.manager.experience}</p>
                                             )}
                                             {location.manager.bio && (
-                                                <p className="text-gray-300 leading-relaxed">{location.manager.bio}</p>
+                                                <>
+                                                    <p className="text-gray-300 leading-relaxed text-sm sm:text-base line-clamp-4 lg:line-clamp-none">{location.manager.bio}</p>
+                                                    <button
+                                                        onClick={() => setIsBioModalOpen(true)}
+                                                        className="mt-3 text-red-700 hover:text-red-600 text-sm font-medium underline lg:hidden transition-colors duration-300"
+                                                    >
+                                                        See More
+                                                    </button>
+                                                </>
                                             )}
                                         </div>
                                     </div>
@@ -487,10 +497,10 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                 {/* Opening Times & Contact */}
                                 <div>
                                     <h2 className="text-3xl font-bold mb-8">
-                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Opening</span>{' '}
-                                        <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Times</span>{' '}
-                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">&</span>{' '}
-                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Contact</span>
+                                        <span className="text-white animate-pulse">Opening</span>{' '}
+                                        <span className="text-red-700 animate-pulse">Times</span>{' '}
+                                        <span className="text-white animate-pulse">&</span>{' '}
+                                        <span className="text-white animate-pulse">Contact</span>
                                     </h2>
                                     <div className="space-y-6">
                                         <div className="bg-black/30 backdrop-blur-sm rounded-lg p-6 border border-white/10">
@@ -549,8 +559,8 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                     <section id="membership" className="py-16 scroll-mt-24">
                         <div className="container mx-auto px-6">
                             <h2 className="text-3xl font-bold text-center mb-12">
-                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Membership</span>{' '}
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Options</span>
+                                <span className="text-red-700 animate-pulse">Membership</span>{' '}
+                                <span className="text-white animate-pulse">Options</span>
                             </h2>
                             
                             {/* Carousel Container */}
@@ -675,8 +685,8 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                         <section id="features" className="py-16 scroll-mt-24">
                             <div className="container mx-auto px-6">
                                 <h2 className="text-3xl font-bold text-center mb-12">
-                                    <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Gym</span>{' '}
-                                    <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Features</span>
+                                    <span className="text-red-700 animate-pulse">Gym</span>{' '}
+                                    <span className="text-white animate-pulse">Features</span>
                                 </h2>
                                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
                                     {location.features.map((feature, idx) => (
@@ -695,8 +705,8 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                         <section id="services" className="py-16 scroll-mt-24">
                             <div className="container mx-auto px-6">
                                 <h2 className="text-3xl font-bold text-center mb-12">
-                                    <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Services</span>{' '}
-                                    <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">& Partners</span>
+                                    <span className="text-white animate-pulse">Services</span>{' '}
+                                    <span className="text-red-700 animate-pulse">& Partners</span>
                                 </h2>
                                 {location.services && location.services.length > 0 && (
                                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
@@ -760,9 +770,9 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                     <section id="equipment" className="py-16 scroll-mt-24">
                         <div className="container mx-auto px-6">
                             <h2 className="text-3xl font-bold text-center mb-12">
-                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Equipment</span>{' '}
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">&</span>{' '}
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Facilities</span>
+                                <span className="text-red-700 animate-pulse">Equipment</span>{' '}
+                                <span className="text-white animate-pulse">&</span>{' '}
+                                <span className="text-white animate-pulse">Facilities</span>
                             </h2>
                             <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
                                 {location.equipment.filter((e: any) => e && typeof e === 'object').map((item: any, index: number) => (
@@ -789,8 +799,8 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                         <div className="container mx-auto px-6">
                             <div className="text-center mb-12">
                                 <h2 className="text-3xl font-bold mb-4">
-                                    <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Member</span>{' '}
-                                    <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Reviews</span>
+                                    <span className="text-white animate-pulse">Member</span>{' '}
+                                    <span className="text-red-700 animate-pulse">Reviews</span>
                                 </h2>
                                 <div className="flex items-center justify-center space-x-2">
                                     <div className="flex">
@@ -858,10 +868,10 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                             <div className="container mx-auto px-6">
                                 <div className="text-center mb-12">
                                     <h2 className="text-3xl font-bold mb-4">
-                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Take</span>{' '}
-                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">a</span>{' '}
-                                        <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Virtual</span>{' '}
-                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Tour</span>
+                                        <span className="text-white animate-pulse">Take</span>{' '}
+                                        <span className="text-white animate-pulse">a</span>{' '}
+                                        <span className="text-red-700 animate-pulse">Virtual</span>{' '}
+                                        <span className="text-white animate-pulse">Tour</span>
                                     </h2>
                                     <p className="text-gray-300">
                                         Explore our facilities from the comfort of your home
@@ -936,10 +946,10 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                         <section id="tour" className="py-16 scroll-mt-24">
                             <div className="container mx-auto px-6 text-center">
                                 <h2 className="text-3xl font-bold mb-6">
-                                    <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Virtual</span>{' '}
-                                    <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Tour</span>{' '}
-                                    <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Coming</span>{' '}
-                                    <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Soon</span>
+                                    <span className="text-white animate-pulse">Virtual</span>{' '}
+                                    <span className="text-red-700 animate-pulse">Tour</span>{' '}
+                                    <span className="text-white animate-pulse">Coming</span>{' '}
+                                    <span className="text-white animate-pulse">Soon</span>
                                 </h2>
                                 <p className="text-gray-300 max-w-2xl mx-auto mb-8">We're currently preparing an immersive virtual tour experience for this location. Check back soon to explore the facility online.</p>
                                 <div className="max-w-3xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 opacity-60">
@@ -957,7 +967,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                     <section id="gallery" className="py-16 scroll-mt-24">
                         <div className="container mx-auto px-6">
                             <h2 className="text-3xl font-bold text-center mb-12">
-                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Gallery</span>
+                                <span className="text-red-700 animate-pulse">Gallery</span>
                             </h2>
                             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                                 {location.gallery.map((image, index) => (
@@ -1047,9 +1057,9 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                     <section id="trainers" className="py-16 scroll-mt-24">
                         <div className="container mx-auto px-6">
                             <h2 className="text-3xl font-bold text-center mb-12">
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Our</span>{' '}
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Personal</span>{' '}
-                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Trainers</span>
+                                <span className="text-white animate-pulse">Our</span>{' '}
+                                <span className="text-white animate-pulse">Personal</span>{' '}
+                                <span className="text-red-700 animate-pulse">Trainers</span>
                             </h2>
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                                 {location.trainers.map((trainer) => {
@@ -1125,6 +1135,23 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                     </section>
                 </div>
             </div>
+
+            {/* Manager Bio Modal */}
+            <Dialog open={isBioModalOpen} onOpenChange={setIsBioModalOpen}>
+                <DialogContent className="bg-black/95 border-red-700/30 text-white max-w-lg max-h-[80vh] overflow-y-auto">
+                    <DialogHeader>
+                        <DialogTitle className="text-2xl font-bold text-red-700">{location.manager.name}</DialogTitle>
+                    </DialogHeader>
+                    <div className="space-y-4">
+                        {location.manager.experience && (
+                            <p className="text-red-600 font-medium">{location.manager.experience}</p>
+                        )}
+                        {location.manager.bio && (
+                            <p className="text-gray-300 leading-relaxed">{location.manager.bio}</p>
+                        )}
+                    </div>
+                </DialogContent>
+            </Dialog>
         </AppLayout>
     );
 }

@@ -182,8 +182,8 @@ export default function Navbar({ auth }: NavbarProps) {
                                     alt="ULTRAFLEX Logo" 
                                     className={`h-10 w-auto object-contain transition-all duration-300 ${
                                         hoveredItem === 'logo' 
-                                            ? 'drop-shadow-[0_0_15px_rgba(220,38,38,0.8)] scale-110' 
-                                            : 'drop-shadow-[0_0_10px_rgba(220,38,38,0.5)]'
+                                            ? 'scale-110' 
+                                            : ''
                                     }`}
                                 />
                             </div>

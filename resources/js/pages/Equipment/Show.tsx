@@ -216,8 +216,8 @@ export default function EquipmentShow({ equipment, auth }: EquipmentShowProps) {
                                         {/* Description */}
                                         <Card className="p-8 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-colors duration-300">
                                             <h2 className="text-2xl font-bold mb-6">
-                                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">About</span>{' '}
-                                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">This Equipment</span>
+                                                <span className="text-white animate-pulse">About</span>{' '}
+                                                <span className="text-red-700 animate-pulse">This Equipment</span>
                                             </h2>
                                             <p className="text-gray-300 leading-relaxed mb-6">{equipment.detailedDescription}</p>
                                         </Card>
@@ -226,7 +226,7 @@ export default function EquipmentShow({ equipment, auth }: EquipmentShowProps) {
                                         {equipment.features.length > 0 && (
                                             <Card className="p-8 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-colors duration-300">
                                                 <h2 className="text-2xl font-bold mb-6">
-                                                    <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Key Features</span>
+                                                    <span className="text-red-700 animate-pulse">Key Features</span>
                                                 </h2>
                                                 <ul className="space-y-3">
                                                     {equipment.features.map((feature, index) => (
@@ -244,7 +244,7 @@ export default function EquipmentShow({ equipment, auth }: EquipmentShowProps) {
                                         {/* Quick Info */}
                                         <Card className="p-6 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-colors duration-300">
                                             <h3 className="text-lg font-bold mb-4">
-                                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Quick Info</span>
+                                                <span className="text-red-700 animate-pulse">Quick Info</span>
                                             </h3>
                                             <div className="space-y-3">
                                                 <div className="flex justify-between">
@@ -273,7 +273,7 @@ export default function EquipmentShow({ equipment, auth }: EquipmentShowProps) {
                                         {/* Muscle Groups */}
                                         <Card className="p-6 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-colors duration-300">
                                             <h3 className="text-lg font-bold mb-4">
-                                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Target Muscles</span>
+                                                <span className="text-red-700 animate-pulse">Target Muscles</span>
                                             </h3>
                                             <div className="flex flex-wrap gap-2">
                                                 {equipment.muscleGroups.map((group, index) => (
@@ -291,10 +291,10 @@ export default function EquipmentShow({ equipment, auth }: EquipmentShowProps) {
                                         <Card className="p-6 bg-red-700/10 backdrop-blur-md border border-red-700/30 relative overflow-hidden">
                                             <div className="relative z-10">
                                                 <h3 className="text-lg font-bold mb-4">
-                                                    <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Ready</span>{' '}
-                                                    <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">to</span>{' '}
-                                                    <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Try</span>{' '}
-                                                    <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">It?</span>
+                                                    <span className="text-white animate-pulse">Ready</span>{' '}
+                                                    <span className="text-white animate-pulse">to</span>{' '}
+                                                    <span className="text-red-700 animate-pulse">Try</span>{' '}
+                                                    <span className="text-white animate-pulse">It?</span>
                                                 </h3>
                                                 <p className="text-gray-300 mb-4">
                                                     Find this equipment at any of our locations.
@@ -318,9 +318,9 @@ export default function EquipmentShow({ equipment, auth }: EquipmentShowProps) {
                                 <div className="grid lg:grid-cols-2 gap-12">
                                     <div>
                                         <h2 className="text-3xl font-bold mb-8">
-                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">How</span>{' '}
-                                            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">to</span>{' '}
-                                            <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Use</span>
+                                            <span className="text-white animate-pulse">How</span>{' '}
+                                            <span className="text-white animate-pulse">to</span>{' '}
+                                            <span className="text-red-700 animate-pulse">Use</span>
                                         </h2>
                                         <div className="space-y-6">
                                             {equipment.instructions.map((instruction, index) => (
@@ -338,7 +338,7 @@ export default function EquipmentShow({ equipment, auth }: EquipmentShowProps) {
 
                                     <div>
                                         <h2 className="text-3xl font-bold mb-8">
-                                            <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Safety Tips</span>
+                                            <span className="text-red-700 animate-pulse">Safety Tips</span>
                                         </h2>
                                         <Card className="p-6 bg-black/40 backdrop-blur-md border border-white/10">
                                             <div className="space-y-4">
@@ -364,8 +364,8 @@ export default function EquipmentShow({ equipment, auth }: EquipmentShowProps) {
                             {activeTab === 'specifications' && (
                                 <div className="max-w-4xl mx-auto">
                                     <h2 className="text-3xl font-bold text-center mb-12">
-                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Technical</span>{' '}
-                                        <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Specifications</span>
+                                        <span className="text-white animate-pulse">Technical</span>{' '}
+                                        <span className="text-red-700 animate-pulse">Specifications</span>
                                     </h2>
                                     
                                     <Card className="p-8 bg-black/40 backdrop-blur-md border border-white/10">
@@ -385,8 +385,8 @@ export default function EquipmentShow({ equipment, auth }: EquipmentShowProps) {
                             {activeTab === 'locations' && (
                                 <div>
                                     <h2 className="text-3xl font-bold text-center mb-12">
-                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Available</span>{' '}
-                                        <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Locations</span>
+                                        <span className="text-white animate-pulse">Available</span>{' '}
+                                        <span className="text-red-700 animate-pulse">Locations</span>
                                     </h2>
                                     
                                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -414,8 +414,8 @@ export default function EquipmentShow({ equipment, auth }: EquipmentShowProps) {
                             {equipment.relatedEquipment.length > 0 && (
                                 <div className="mt-20">
                                     <h2 className="text-3xl font-bold text-center mb-12">
-                                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Related</span>{' '}
-                                        <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Equipment</span>
+                                        <span className="text-white animate-pulse">Related</span>{' '}
+                                        <span className="text-red-700 animate-pulse">Equipment</span>
                                     </h2>
                                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                                         {equipment.relatedEquipment.map((item) => (
@@ -487,11 +487,11 @@ export default function EquipmentShow({ equipment, auth }: EquipmentShowProps) {
 
                         <div className="container mx-auto px-6 text-center relative z-10">
                             <h2 className="text-3xl font-bold mb-4">
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Ready</span>{' '}
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">to</span>{' '}
-                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Experience</span>{' '}
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">This</span>{' '}
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Equipment?</span>
+                                <span className="text-white animate-pulse">Ready</span>{' '}
+                                <span className="text-white animate-pulse">to</span>{' '}
+                                <span className="text-red-700 animate-pulse">Experience</span>{' '}
+                                <span className="text-white animate-pulse">This</span>{' '}
+                                <span className="text-white animate-pulse">Equipment?</span>
                             </h2>
                             <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
                                 Visit any ULTRAFLEX location to try the {equipment.name} and discover how it can enhance your workout routine.

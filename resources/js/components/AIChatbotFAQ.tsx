@@ -157,7 +157,7 @@ export default function AIChatbotFAQ() {
           <img
             src="/Images/ultra-flex-200x167%20(1).png"
             alt="Open ULTRAFLEX Assistant"
-            className="w-9 h-9 mx-auto object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.35)]"
+            className="w-9 h-9 mx-auto object-contain -[0_2px_6px_rgba(0,0,0,0.35)]"
             draggable="false"
           />
         </button>

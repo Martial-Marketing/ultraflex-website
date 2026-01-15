@@ -18,7 +18,7 @@ export default function MembershipLocationSelector(props: AppLayoutProps) {
                 <AnimatedBackground variant="default" intensity="medium" />
                 <div className="container mx-auto px-6 py-16 max-w-2xl relative z-10">
                     <Head title="Select Your Location" />
-                    <h1 className="text-3xl font-bold mb-6 text-red-700 drop-shadow">Select Your Location</h1>
+                    <h1 className="text-3xl font-bold mb-6 text-red-700 ">Select Your Location</h1>
                     <p className="mb-4 text-gray-300">Choose your nearest ULTRAFLEX location to view membership options and sign up:</p>
                     <ul className="space-y-4">
                         {locations.map((loc) => (

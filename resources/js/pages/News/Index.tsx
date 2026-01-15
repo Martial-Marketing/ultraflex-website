@@ -110,10 +110,10 @@ export default function NewsIndex({ articles, categories, featuredArticles, auth
 
                         <div className="container mx-auto px-6 text-center relative z-10">
                             <h1 className="text-5xl font-bold mb-6">
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Latest</span>{' '}
-                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">News</span>{' '}
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">&</span>{' '}
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Updates</span>
+                                <span className="text-white animate-pulse">Latest</span>{' '}
+                                <span className="text-red-700 animate-pulse">News</span>{' '}
+                                <span className="text-white animate-pulse">&</span>{' '}
+                                <span className="text-white animate-pulse">Updates</span>
                             </h1>
                             <p className="text-xl text-gray-200 max-w-3xl mx-auto">
                                 Stay informed with the latest fitness trends, ULTRAFLEX updates, class schedules, 
@@ -127,8 +127,8 @@ export default function NewsIndex({ articles, categories, featuredArticles, auth
                         <section className="py-16 bg-black/20 backdrop-blur-md">
                             <div className="container mx-auto px-6">
                                 <h2 className="text-3xl font-bold mb-12">
-                                    <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Featured</span>{' '}
-                                    <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Stories</span>
+                                    <span className="text-red-700 animate-pulse">Featured</span>{' '}
+                                    <span className="text-white animate-pulse">Stories</span>
                                 </h2>
                                 <div className="grid lg:grid-cols-2 gap-8">
                                     {featuredArticles.slice(0, 2).map((article) => (
@@ -395,8 +395,8 @@ export default function NewsIndex({ articles, categories, featuredArticles, auth
 
                         <div className="container mx-auto px-6 text-center relative z-10">
                             <h2 className="text-3xl font-bold mb-4">
-                                <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Stay</span>{' '}
-                                <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Updated</span>
+                                <span className="text-white animate-pulse">Stay</span>{' '}
+                                <span className="text-red-700 animate-pulse">Updated</span>
                             </h2>
                             <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
                                 Subscribe to our newsletter and never miss the latest fitness tips, 

@@ -41,10 +41,10 @@ export default function LatestNews({ latestNews }: LatestNewsProps) {
 
             <div className="container mx-auto px-6 relative z-10">
                 {/* Simplified header */}
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl font-bold mb-4">
-                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse">Latest</span>{' '}
-                        <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">News</span>
+                <div className="text-center mb-12 sm:mb-16">
+                    <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4">
+                        <span className="text-white animate-pulse">Latest</span>{' '}
+                        <span className="text-red-700 animate-pulse">News</span>
                     </h2>
                     <p className="text-xl text-gray-300 leading-relaxed">
                         Stay updated with the latest from <span className="ultraflex-ultra text-white">ULTRA</span><span className="ultraflex-flex text-red-600">FLEX</span>
@@ -52,7 +52,7 @@ export default function LatestNews({ latestNews }: LatestNewsProps) {
                 </div>
                 
                 {/* Enhanced news cards */}
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
                     {latestNews.map((article) => (
                         <Card key={article.id} className="overflow-hidden bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 transition-all duration-300 hover:shadow-2xl hover:shadow-red-700/10 group">
                             <div className="h-48 bg-gray-800 relative overflow-hidden">

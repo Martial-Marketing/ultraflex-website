@@ -58,7 +58,7 @@ export default function ProfileIndex({ auth }: ProfileProps) {
                         {/* Header */}
                         <div className="text-center mb-12">
                             <h1 className="text-4xl font-bold text-white mb-4">
-                                My <span className="text-red-700 drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] animate-pulse">Profile</span>
+                                My <span className="text-red-700 animate-pulse">Profile</span>
                             </h1>
                             <p className="text-gray-300 text-lg max-w-2xl mx-auto">
                                 Manage your ULTRAFLEX account information and preferences
