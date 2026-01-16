@@ -305,10 +305,10 @@ class LocationController extends Controller
                 'image' => '/Images/newimages/processed-7CE97793-CFE2-44A3-9BC7-AC26D84DB463.webp',
                 'slug' => 'lincoln',
                 'hours' => [
-                    'weekdays' => '00:00 - 00:00',
-                    'weekends' => '00:00 - 00:00'
+                    'weekdays' => 'Day Access: 6am - 10pm',
+                    'weekends' => 'Day Access: 8am - 10pm'
                 ],
-                'features' => ['24hr access']
+                'features' => ['Full Access Members: Mon-Sun 24hrs']
             ],
             [
                 'id' => 11,
@@ -814,13 +814,6 @@ class LocationController extends Controller
                             'comment' => 'Possibly the best gym i have been in, the equipment & machines are like state of the art! Hat off to Charlie.',
                             'date' => 'Edited 2 years ago'
                         ],
-                        [
-                            'id' => 6,
-                            'name' => 'Khudaja Liton',
-                            'rating' => 5,
-                            'comment' => 'The best gym by far in Leeds, with the most amazing equipment. You\'re never waiting for a machine and if you are, you\'ll be talking about away to the friendly members (no matter how scary they actually look).',
-                            'date' => '3 months ago'
-                        ],
                     ],
                     'coordinates' => [
                         'lat' => 53.7085,
@@ -882,7 +875,7 @@ class LocationController extends Controller
                         ]
                     ],
                     'serviceLinks' => [
-                        [ 'label' => 'rnr body therapy Website', 'url' => 'https://www.rnrbodytherappy.co.uk', 'type' => 'website' ]
+                        [ 'label' => 'rnr body therapy Website', 'url' => 'https://www.rnrbodytherapy.co.uk', 'type' => 'website' ]
                     ],
                     'features' => [
                         'Sauna & Ice Bath'
@@ -962,18 +955,18 @@ class LocationController extends Controller
                         ],
                         [
                             'id' => 11,
-                            'name' => '60+ Monthly Rolling',
+                            'name' => '60 + Years Rolling Membership',
                             'price' => 52.00,
                             'period' => 'month',
-                            'features' => ['60+ Discount', 'Valid ID Required', 'Monthly Rolling', 'All Equipment Access'],
+                            'features' => ['Must be 60+', 'Valid ID Required', 'Monthly Rolling', 'All Equipment Access'],
                             'popular' => false
                         ],
                         [
                             'id' => 12,
-                            'name' => '60+ 12 month Direct Debit',
+                            'name' => '60 + Years 12 Month Membership',
                             'price' => 47.00,
                             'period' => 'month',
-                            'features' => ['60+ Discount', 'Valid ID Required', '12 Month Direct Debit', 'All Equipment Access', 'Best Value'],
+                            'features' => ['Must be 60+', 'Valid ID Required', '12 Month Direct Debit', 'All Equipment Access', 'Best Value'],
                             'popular' => false
                         ],
                     ],
@@ -1058,6 +1051,11 @@ class LocationController extends Controller
                         'experience' => null
                     ],
                     'services' => [
+                        [
+                            'name' => 'Regen Physio',
+                            'description' => 'Physiotherapy & rehab services supporting recovery.',
+                            'icon' => null
+                        ],
                         [
                             'name' => 'The Yorkshire Clipper',
                             'description' => 'On-site barber services for member convenience.',
@@ -1281,7 +1279,7 @@ class LocationController extends Controller
                             'name' => '1 Month Pass',
                             'price' => 45.00,
                             'period' => 'month',
-                            'features' => ['Monthly Rolling', 'All Equipment Access', 'Cardio Area'],
+                            'features' => ['1 Month Access', 'All Equipment Access', 'Cardio Area'],
                             'popular' => false
                         ],
                         [
@@ -1387,6 +1385,7 @@ class LocationController extends Controller
                         'experience' => ''
                     ],
                     'services' => [
+                        ['name' => 'Regen Physio', 'description' => 'Physiotherapy & rehab services supporting recovery.'],
                         ['name' => 'Baxters Barbers', 'description' => 'On-site barber services for members.']
                     ],
                     'serviceLinks' => [
@@ -1543,6 +1542,7 @@ class LocationController extends Controller
                         ]
                     ],
                     'serviceLinks' => [
+                        [ 'label' => 'House of Wellness Website', 'url' => 'https://houseofwellnessuk.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAdGRleAPV8XRleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAadoxQLPcJPZSxe_bCZJ5NleoeS29Yl_wnSygMe3k8darDkaqERV3xJRsNyh8w_aem_F7jZqj8tQpBFDvHZsaXa9Q', 'type' => 'website' ],
                         [ 'label' => 'House of Wellness Instagram', 'url' => 'https://www.instagram.com/houseofwellnessuk', 'type' => 'instagram' ],
                         [ 'label' => 'House of Wellness TikTok', 'url' => 'https://www.tiktok.com/@houseofwellnessuk', 'type' => 'tiktok' ],
                         [ 'label' => 'Elite Osteo Midlands Instagram', 'url' => 'https://www.instagram.com/eliteosteo.midlands', 'type' => 'instagram' ],
@@ -1589,7 +1589,7 @@ class LocationController extends Controller
                             'name' => '1 Month Pass',
                             'price' => 62.00,
                             'period' => 'month',
-                            'features' => ['Monthly Rolling', 'All Equipment Access', 'Cardio Area'],
+                            'features' => ['1 Month Access', 'All Equipment Access', 'Cardio Area'],
                             'popular' => false
                         ],
                         [
@@ -1805,13 +1805,13 @@ class LocationController extends Controller
                     // YouTube link
                     'virtualTour' => 'https://www.youtube.com/embed/u3qFZpkqxyI',
                     'hours' => [
-                        'monday' => '00:00 – 00:00',
-                        'tuesday' => '00:00 – 00:00',
-                        'wednesday' => '00:00 – 00:00',
-                        'thursday' => '00:00 – 00:00',
-                        'friday' => '00:00 – 00:00',
-                        'saturday' => '00:00 – 00:00',
-                        'sunday' => '00:00 – 00:00'
+                        'monday' => 'Day Access: 6am - 10pm',
+                        'tuesday' => 'Day Access: 6am - 10pm',
+                        'wednesday' => 'Day Access: 6am - 10pm',
+                        'thursday' => 'Day Access: 6am - 10pm',
+                        'friday' => 'Day Access: 6am - 10pm',
+                        'saturday' => 'Day Access: 8am - 10pm',
+                        'sunday' => 'Day Access: 8am - 10pm'
                     ],
                     'manager' => [
                         'name' => 'Lynsey Hind',
@@ -1821,9 +1821,8 @@ class LocationController extends Controller
                         'experience' => ''
                     ],
                     'features' => [
-                        '24hr access',
+                        'Full Access Members: Mon-Sun 24hrs',
                         'Barbershop (BLNK Barbers)',
-                        'GSN Food',
                         'Wide Range of Personal Trainers (Bodybuilding to General Health & Weight Loss)',
                         'Sauna & Ice Bath'
                     ],
@@ -1834,7 +1833,7 @@ class LocationController extends Controller
                     'serviceLinks' => [
                         ['label' => 'BLNK Barbers Website', 'url' => 'https://www.blnkbarbers.com', 'type' => 'external'],
                         ['label' => 'BLNK Barbers Booking', 'url' => 'https://www.blnkbarbers.com/book/shops/IONEJG/services', 'type' => 'external'],
-                        ['label' => 'The Recovery Hub Linktree', 'url' => 'https://linktr.ee/Therecoveryhub_UF?utm_source=linktree_profile_share&ltsid=b2001f13-c003-4d72-b057-d5f49113b697', 'type' => 'external']
+                        ['label' => 'Sports Massage - The Recovery Hub', 'url' => 'https://linktr.ee/Therecoveryhub_UF?utm_source=linktree_profile_share&ltsid=b2001f13-c003-4d72-b057-d5f49113b697', 'type' => 'external']
                     ],
                     'equipment' => [
                         ['name' => 'Top-Quality Fitness Machines', 'icon' => 'dumbbell', 'available' => true],

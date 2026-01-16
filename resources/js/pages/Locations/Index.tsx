@@ -167,9 +167,9 @@ export default function LocationsIndex({ locations, membershipPlans, auth }: Loc
                                                     <div className="text-gray-300 text-sm group-hover:text-white group-hover:translate-x-1 transition-all duration-300">
                                                         <div>Mon-Fri: {location.hours.weekdays}</div>
                                                         <div>Sat-Sun: {location.hours.weekends}</div>
-                                                        {location.features?.includes('24hr access') && (
+                                                        {location.features?.some(f => f.includes('Full Access Members')) && (
                                                             <div className="mt-1 inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-red-700/20 text-red-400 border border-red-700/30">
-                                                                24hr access
+                                                                {location.features.find(f => f.includes('Full Access Members'))}
                                                             </div>
                                                         )}
                                                     </div>

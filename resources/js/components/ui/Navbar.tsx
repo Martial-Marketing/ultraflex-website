@@ -168,7 +168,7 @@ export default function Navbar({ auth }: NavbarProps) {
             <div className="max-w-screen-2xl w-full mx-auto px-6 relative z-10">
                 <div className="flex justify-between items-center h-16">
                     {/* Back Button and Logo Section */}
-                    <div className="flex items-center space-x-6 shrink-0 mr-10 md:mr-12 lg:mr-16 xl:mr-20">
+                    <div className="flex items-center space-x-4 shrink-0 mr-6 md:mr-8 lg:mr-10 xl:mr-12">
                         {/* Logo */}
                         <Link 
                             href="/" 
@@ -176,11 +176,11 @@ export default function Navbar({ auth }: NavbarProps) {
                             onMouseEnter={() => handleMouseEnter('logo')}
                             onMouseLeave={handleMouseLeave}
                         >
-                            <div className="w-12 h-10 flex items-center justify-center">
+                            <div className="w-10 h-8 lg:w-12 lg:h-10 flex items-center justify-center">
                                 <img 
                                     src="/Images/logo/ultraflex-logo.webp" 
                                     alt="ULTRAFLEX Logo" 
-                                    className={`h-10 w-auto object-contain transition-all duration-300 ${
+                                    className={`h-8 lg:h-10 w-auto object-contain transition-all duration-300 ${
                                         hoveredItem === 'logo' 
                                             ? 'scale-110' 
                                             : ''
@@ -191,7 +191,7 @@ export default function Navbar({ auth }: NavbarProps) {
                     </div>
 
                     {/* Desktop Navigation (show from xl and up for broader support) */}
-                    <div className="hidden xl:flex items-center space-x-8 flex-1 justify-center min-w-0 px-4 lg:px-8 xl:px-12">
+                    <div className="hidden xl:flex items-center space-x-4 2xl:space-x-8 flex-1 justify-center min-w-0 px-2 lg:px-4 xl:px-8">
                         {navItems.map((item) => {
 
 
@@ -205,7 +205,7 @@ export default function Navbar({ auth }: NavbarProps) {
                                     >
                                         <button
                                             onClick={() => toggleDropdown(item.label)}
-                                            className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
+                                            className={`flex items-center space-x-1 px-2 xl:px-3 py-2 rounded-md text-xs xl:text-sm font-medium transition-all duration-300 ${
                                                 isActive(item.href) || hoveredItem === item.label
                                                     ? 'text-red-700 bg-red-700/10 border border-red-700/20 shadow-[0_0_15px_rgba(220,38,38,0.5)] scale-105' 
                                                     : 'text-gray-300'
@@ -266,7 +266,7 @@ export default function Navbar({ auth }: NavbarProps) {
                                         rel="noopener noreferrer"
                                         onMouseEnter={() => handleMouseEnter(item.label)}
                                         onMouseLeave={handleMouseLeave}
-                                        className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
+                                        className={`flex items-center space-x-1 px-2 xl:px-3 py-2 rounded-md text-xs xl:text-sm font-medium transition-all duration-300 ${
                                             hoveredItem === item.label
                                                 ? 'text-red-700 bg-red-700/10 shadow-[0_0_15px_rgba(220,38,38,0.5)] scale-105'
                                                 : 'text-gray-300'
@@ -285,7 +285,7 @@ export default function Navbar({ auth }: NavbarProps) {
                                     href={item.href}
                                     onMouseEnter={() => handleMouseEnter(item.label)}
                                     onMouseLeave={handleMouseLeave}
-                                    className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
+                                    className={`flex items-center space-x-1 px-2 xl:px-3 py-2 rounded-md text-xs xl:text-sm font-medium transition-all duration-300 ${
                                         isActive(item.href) || hoveredItem === item.label
                                             ? 'text-red-700 bg-red-700/10 border border-red-700/20 shadow-[0_0_15px_rgba(220,38,38,0.5)] scale-105' 
                                             : 'text-gray-300'
@@ -300,7 +300,7 @@ export default function Navbar({ auth }: NavbarProps) {
                     </div>
 
                     {/* Auth/CTA Button */}
-                    <div className="hidden lg:flex items-center space-x-4 shrink-0 ml-8 lg:ml-10 xl:ml-12">
+                    <div className="hidden xl:flex items-center space-x-3 shrink-0 ml-4 xl:ml-6 2xl:ml-8">
                         {auth.user ? (
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>

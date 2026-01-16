@@ -289,13 +289,17 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
         const hairLinks = uncategorizedLinks.filter(link => link.label.toLowerCase().includes('hair') || link.label.toLowerCase().includes('smitin'));
         const barberLinks = uncategorizedLinks.filter(link => link.label.toLowerCase().includes('barber') && !link.label.toLowerCase().includes('brotherhood'));
         const brotherhoodLinks = uncategorizedLinks.filter(link => link.label.toLowerCase().includes('brotherhood'));
+        const massageLinks = uncategorizedLinks.filter(link => link.label.toLowerCase().includes('massage') || link.label.toLowerCase().includes('recovery hub'));
+        const aestheticsLinks = uncategorizedLinks.filter(link => link.label.toLowerCase().includes('aesthetics') || link.label.toLowerCase().includes('nmk'));
         const otherLinks = uncategorizedLinks.filter(link => {
             const label = link.label.toLowerCase();
             return !label.includes('physio') && !label.includes('regen') &&
                    !label.includes('boxing') && !label.includes('ostas') &&
                    !label.includes('judo') && !label.includes('pudsey') &&
                    !label.includes('hair') && !label.includes('smitin') &&
-                   !label.includes('barber') && !label.includes('brotherhood');
+                   !label.includes('barber') && !label.includes('brotherhood') &&
+                   !label.includes('massage') && !label.includes('recovery hub') &&
+                   !label.includes('aesthetics') && !label.includes('nmk');
         });
         
         // Add fallback categories only if they have links
@@ -305,6 +309,8 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
         if (hairLinks.length > 0) categories.push({ title: 'Hair Services', links: hairLinks });
         if (barberLinks.length > 0) categories.push({ title: 'Barber Services', links: barberLinks });
         if (brotherhoodLinks.length > 0) categories.push({ title: 'Barber Services', links: brotherhoodLinks });
+        if (massageLinks.length > 0) categories.push({ title: 'Sports Massage', links: massageLinks });
+        if (aestheticsLinks.length > 0) categories.push({ title: 'Aesthetics', links: aestheticsLinks });
         if (otherLinks.length > 0) categories.push({ title: 'Other Services', links: otherLinks });
         
         return categories;
@@ -509,9 +515,9 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                                             <h3 className="text-lg font-semibold text-white mb-4 flex items-center">
                                                 <Clock className="h-5 w-5 mr-2 text-red-700" />
                                                 Opening Hours
-                                                {location.features?.includes('24hr access') && (
+                                                {location.features?.some(f => f.includes('Full Access Members')) && (
                                                     <span className="ml-3 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-red-700/20 text-red-400 border border-red-700/30">
-                                                        24hr access
+                                                        {location.features.find(f => f.includes('Full Access Members'))}
                                                     </span>
                                                 )}
                                             </h3>

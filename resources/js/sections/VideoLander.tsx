@@ -80,7 +80,7 @@ export default function VideoLander() {
                             variant="outline"
                             className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 text-sm sm:text-base md:text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm w-full sm:w-auto"
                         >
-                            <a href="https://signup.ashbourne-memberships.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center">
+                            <a href="https://secure.ashbournemanagement.co.uk/signupuk/index.aspx?fn=grbh2" target="_blank" rel="noopener noreferrer" className="inline-flex items-center">
                                 <span className="group-hover:translate-x-1 transition-transform duration-300">Join Today</span>
                             </a>
                         </Button>
