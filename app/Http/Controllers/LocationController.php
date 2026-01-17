@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Services\ImageService;
 use App\Data\TrainerData;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class LocationController extends Controller
 {
@@ -27,6 +29,64 @@ class LocationController extends Controller
     private static function galleryFolderUrl(string $slug): ?string
     {
         return self::$galleryFolders[$slug] ?? null;
+    }
+
+    private static function encodeGalleryPath(string $p): string
+    {
+        $p = str_replace('\\', '/', $p);
+        $parts = array_values(array_filter(explode('/', $p), fn($x) => $x !== ''));
+        $encoded = array_map('rawurlencode', $parts);
+        return implode('/', $encoded);
+    }
+
+    /**
+     * Returns an array of public URLs for a location gallery based on local folders in public/Images/Gallery.
+     * This mirrors the folder discovery + slugging logic used in the /gallery route.
+     */
+    private static function localGalleryImages(string $locationSlug): array
+    {
+        $galleryBase = public_path('Images/Gallery');
+        if (!File::isDirectory($galleryBase)) {
+            return [];
+        }
+
+        $allDirs = glob($galleryBase . '/*', GLOB_ONLYDIR) ?: [];
+        $slugToFolder = [];
+
+        foreach ($allDirs as $dir) {
+            $folder = basename($dir);
+            $slug = Str::slug($folder, '-');
+            $slugToFolder[$slug] = $folder;
+        }
+
+        if (!isset($slugToFolder[$locationSlug])) {
+            return [];
+        }
+
+        $folder = $slugToFolder[$locationSlug];
+        $absDir = $galleryBase . DIRECTORY_SEPARATOR . $folder;
+        if (!File::isDirectory($absDir)) {
+            return [];
+        }
+
+        $allowedExt = ['webp', 'jpg', 'jpeg', 'png', 'gif'];
+        $urls = [];
+
+        foreach (File::allFiles($absDir) as $file) {
+            $ext = strtolower($file->getExtension());
+            if (!in_array($ext, $allowedExt, true)) {
+                continue;
+            }
+
+            $relFromGallery = str_replace('\\', '/', $folder . '/' . $file->getRelativePathname());
+            $urls[] = '/Images/Gallery/' . self::encodeGalleryPath($relFromGallery);
+        }
+
+        usort($urls, function ($a, $b) {
+            return strcasecmp($a, $b);
+        });
+
+        return $urls;
     }
 
     public function index()
@@ -2186,14 +2246,7 @@ class LocationController extends Controller
             'serviceLinks' => [], // e.g. [['label' => 'Book PT Session', 'url' => '/services/personal-training']]
             // Use dynamic trainers only; no placeholders to avoid duplication
             'trainers' => [],
-            'gallery' => [
-                '/Images/Gallery/west leeds/UFG (100).webp',
-                '/Images/Gallery/west leeds/UFG (82).webp',
-                '/Images/Gallery/west leeds/UFG (64).webp',
-                '/Images/Gallery/west leeds/_AKD0960 copy.webp',
-                '/Images/Gallery/west leeds/_AKD1151 copy.webp',
-                '/Images/Gallery/west leeds/_AKD1366 copy.webp'
-            ],
+            'gallery' => [],
             'membershipPlans' => [
                 [
                     'id' => 2,
@@ -2368,6 +2421,14 @@ class LocationController extends Controller
             $commonData['amenities'] = array_values(array_filter($commonData['amenities'], function($a){ return $a !== null; }));
         }
         $locationData = array_merge($commonData, $locationData);
+
+        // Ensure location page galleries are connected to their respective local gallery folders.
+        // If a matching folder exists under public/Images/Gallery, prefer it over any legacy/empty arrays.
+        $finalSlug = $locationData['slug'] ?? $location;
+        $localGallery = self::localGalleryImages($finalSlug);
+        if (count($localGallery) > 0) {
+            $locationData['gallery'] = $localGallery;
+        }
 
         return Inertia::render('Locations/Show', [
             'location' => $locationData,

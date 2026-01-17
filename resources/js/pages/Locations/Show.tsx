@@ -977,6 +977,17 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                             <h2 className="text-3xl font-bold text-center mb-12">
                                 <span className="text-red-700 animate-pulse">Gallery</span>
                             </h2>
+                            {location.slug && location.gallery && location.gallery.length > 0 && (
+                                <div className="text-center -mt-8 mb-10">
+                                    <Link
+                                        href={`/gallery?loc=${encodeURIComponent(location.slug)}`}
+                                        className="inline-flex items-center gap-2 text-sm text-gray-300 hover:text-red-600 transition-colors"
+                                    >
+                                        View full gallery
+                                        <ChevronRight className="h-4 w-4" />
+                                    </Link>
+                                </div>
+                            )}
                             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                                 {location.gallery.map((image, index) => (
                                     <button
