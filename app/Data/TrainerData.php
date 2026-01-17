@@ -114,10 +114,7 @@ class TrainerData
                 'image' => '/Images/unnamed (1) (2).webp',
                 'bio' => 'Hi I\'m Leon, I have been a personal trainer and online coach for over 10 years. I\'ve been competing as a body builder for over 12 years and I am also a 2x Britain Champion. 
 I am passionate about helping people achieve their goals whether that be to just lose some weight and feel better, get in shape for a holiday or to compete on stage. 
-Please feel free to contact me for more info on my 1-1 personal training or online coaching. 
-Mobile: 07591768918 
-Email: elitephysiquecoaching@gmail.com
-Instagram: @elite_physique_coaching',
+Please feel free to contact me for more info on my 1-1 personal training or online coaching.',
                 'specialties' => ['Bodybuilding', 'Fat Loss', 'Contest Prep'],
                 'certifications' => [],
                 'locationSlug' => 'hull',
@@ -128,9 +125,7 @@ Instagram: @elite_physique_coaching',
                 'name' => 'Stevie',
                 'slug' => 'stevie',
                 'image' => '/Images/PTS/Picture2.webp',
-                'bio' => 'I am Stevie, I am a certified personal trainer with over 5 years of experience in the fitness industry and a certificate in nutrition. I am passionate about helping individuals achieve lasting transformations, I have a centred approach around education, empowerment and personalised support. Whether you are looking to build muscle, reduce body fat, or create a sustainable fitness routine I will work closely with you to design tailored programs that fit your unique goals and lifestyle. Commit to fostering long-term health and well-being, I strive to inspire and guide clients toward making meaningful, positive changes in their lives through fitness. 
-Contact info: 
-Instagram @smphysiquecoaching',
+                'bio' => 'I am Stevie, I am a certified personal trainer with over 5 years of experience in the fitness industry and a certificate in nutrition. I am passionate about helping individuals achieve lasting transformations, I have a centred approach around education, empowerment and personalised support. Whether you are looking to build muscle, reduce body fat, or create a sustainable fitness routine I will work closely with you to design tailored programs that fit your unique goals and lifestyle. Commit to fostering long-term health and well-being, I strive to inspire and guide clients toward making meaningful, positive changes in their lives through fitness.',
                 'specialties' => ['Nutrition', 'Sustainable Change', 'Muscle Gain'],
                 'certifications' => ['Nutrition Certificate'],
                 'locationSlug' => 'hull',
@@ -190,10 +185,7 @@ I\'m a certified Personal Trainer, with a Level 2 Fitness Instructor and Level 3
 
 I specialise in creating a supportive environment where my clients can thrive. My focus is on transforming habits and tackling challenges together. I\'m dedicated to unlocking your potential and guiding you towards a healthier, happier life. Whether you want to build strength, lose weight, or simply improve your overall well-being, I\'m here to provide the motivation and expertise you need.
 
-Join me on this transformative journey, and together, we can discover the best version of yourself!
-
-Instagram: @joanna_sirostan  
-Tel. Number: 07853804211',
+Join me on this transformative journey, and together, we can discover the best version of yourself!',
                 'specialties' => ['Habit Change', 'Strength', 'Wellness'],
                 'certifications' => ['Level 2', 'Level 3', 'PN L1'],
                 'locationSlug' => 'lincoln',
@@ -207,7 +199,7 @@ Tel. Number: 07853804211',
                 'bio' => 'I am a highly experienced Personal Trainer with a Bachelor\'s (Hons) in Sports Development and Coaching, a Level 3 PT certification, and a Nutrition Diploma. As a competitive bodybuilder who has reached the PCA Brits and PCA Worlds, I bring a wealth of knowledge in physique transformation, strength training, and competition prep.
 I specialise in coaching individuals over 30, from beginners looking to get fitter and stronger to those aiming for high-level body recomposition or even stepping on stage. My training programs are tailored to suit each client\'s goals, lifestyle, and experience level, ensuring a sustainable and effective approach to fitness.
 My coaching services include one-to-one personal training, structured training plans, nutrition coaching, body recomposition guidance, and competition preparation. I also run group training classes, creating a motivating and supportive environment for clients to push their limits.
-Having helped over 100+ clients transform their physiques, I focus on delivering expert guidance, accountability, and progressive training strategies. Whether your goal is fat loss, muscle gain, improving overall fitness, or stepping into the competitive world of bodybuilding, I will provide the knowledge, support, and structure to get you there.Your fitness journey starts now—let\'s achieve results together! Dale Bowman 07784355668 dbfitness.lincoln@gmail.com',
+Having helped over 100+ clients transform their physiques, I focus on delivering expert guidance, accountability, and progressive training strategies. Whether your goal is fat loss, muscle gain, improving overall fitness, or stepping into the competitive world of bodybuilding, I will provide the knowledge, support, and structure to get you there. Your fitness journey starts now - let\'s achieve results together!',
                 'specialties' => ['Contest Prep', 'Strength', 'Nutrition'],
                 'certifications' => ['Level 3', 'Nutrition Diploma'],
                 'locationSlug' => 'lincoln',
@@ -221,9 +213,7 @@ Having helped over 100+ clients transform their physiques, I focus on delivering
                 'bio' => 'I\'m a Level 3 personal trainer with three years of professional experience and a solid 20-year history as a dedicated gym user. 
 My coaching is shaped by my diverse background and life experiences from various jobs. I\'m passionate about helping clients achieve sustainable, long-term mental and physical transformations. I\'m also committed to continuously furthering my education to provide the best possible support for my clients.
 Outside of the gym, I\'m actively involved in football and give back to the community through a charity football team. 
-As a husband, father of three, and dog dad, I understand the importance of balancing fitness with everyday life. 
-tccoaching85@gmail.com 
-@coach_by_tc',
+As a husband, father of three, and dog dad, I understand the importance of balancing fitness with everyday life.',
                 'specialties' => ['Lifestyle Coaching', 'Strength', 'Body Recomposition'],
                 'certifications' => ['Level 3'],
                 'locationSlug' => 'lincoln',
@@ -246,11 +236,7 @@ Her approach goes beyond "fad diets" or chasing a bikini body. Instead, Mirella 
  
 Mirella proudly placed 2nd at the WBFF World Championships in Las Vegas, and continues to train with a focus on strength, empowerment, and practicing what she preaches.
  
-After spending the last 10 years in Ibiza training clients, teaching classes, and hosting wellness retreats, Mirella is now based at Ultraflex Lincoln. She\'s excited to share her passion and inspire more women to lift, get strong, and transform both body and mind.
-mirella@mirellafitness.com
-
-https://www.instagram.com/mirella_fitness?igsh=MWYyZnFka21yYmx1bQ== 
-https://www.facebook.com/MirellaFitness',
+After spending the last 10 years in Ibiza training clients, teaching classes, and hosting wellness retreats, Mirella is now based at Ultraflex Lincoln. She\'s excited to share her passion and inspire more women to lift, get strong, and transform both body and mind.',
                 'specialties' => ['Strength & Conditioning', 'Women\'s Lifting', 'Confidence Building'],
                 'certifications' => [],
                 'locationSlug' => 'lincoln',
@@ -320,13 +306,7 @@ https://www.facebook.com/MirellaFitness',
                 'name' => 'Dazz Kent',
                 'slug' => 'dazz-kent',
                 'image' => '/Images/PTS/Picture13.webp',
-                'bio' => 'Dazz Kent specialises in the fields of general population transformations, nutrition, and stress management; his integrated approach to treatment and education has changed the lives of many of his clients.
-
-
-Contact details:
- 07738689130
- Dazzkentfitness@gmail.com
- @dazzkent (Instagram)',
+                'bio' => 'Dazz Kent specialises in the fields of general population transformations, nutrition, and stress management; his integrated approach to treatment and education has changed the lives of many of his clients.',
                 'specialties' => ['Transformations', 'Nutrition', 'Stress Management'],
                 'certifications' => [],
                 'locationSlug' => 'derby',
@@ -338,11 +318,7 @@ Contact details:
                 'slug' => 'damon-hauge',
                 'image' => '/Images/PTS/Picture14.webp',
                 'bio' => 'Damon Hauge 
-Ex-professional boxer. I have been involved in sport and exercise all my life. I am passionate about health and fitness, and love to share my experience, knowledge and expertise in training and nutrition. If you want to take your training to the next level, get in touch. 
-Contact: 
-Phone 07460834333
-email dhtraining@gmail.com
-Insta @d.htraining',
+Ex-professional boxer. I have been involved in sport and exercise all my life. I am passionate about health and fitness, and love to share my experience, knowledge and expertise in training and nutrition. If you want to take your training to the next level, get in touch.',
                 'specialties' => ['Boxing', 'Nutrition', 'Strength & Conditioning'],
                 'certifications' => [],
                 'locationSlug' => 'derby',
@@ -368,15 +344,75 @@ Target the right muscles for growth
 Push your body effectively to drop stubborn fat
 These are the things I focus on with every client. I\'ll be by your side to guide you, push you, and make sure your training works for you.
 So, let\'s get to work. Let\'s hit that goal you\'ve set — and go beyond it.
-— Allan, Personal Trainer at Ultraflex West London
-Email: Contact@avtfitness.com
-Phone: 07714 245 383
-Website: www.avtfitness.com
-Instagram: @avidity.fitness.uk',
+— Allan, Personal Trainer at Ultraflex West London',
                 'specialties' => ['Strength', 'Execution', 'Fat Loss'],
                 'certifications' => ['Qualified in Sports Nutrition for Physique Athletes', 'Contest Prep Coach', 'Hypertrophy Training Specialist'],
                 'locationSlug' => 'west-london',
                 'contact' => ['instagram' => 'https://instagram.com/avidity.fitness.uk', 'email' => 'Contact@avtfitness.com', 'phone' => '07714 245 383', 'website' => 'https://www.avtfitness.com']
+            ],
+            // Normanton
+            [
+                'id' => 901,
+                'name' => 'Lukasz',
+                'slug' => 'lukasz',
+                'image' => '/Images/original-C888204E-CB66-4D6C-8F38-E032DABE4C97.webp',
+                'bio' => "Lukasz is a fully qualified fitness professional who lives and breathes training, health and wellness.
+With over 20 years of industry experience, he has skills relevant to help those just starting out on their journey to those who have become established fitness professionals.
+Lukasz is determined to help anyone who is willing to achieve their goals. Providing not only knowledge and experience but motivation and fun along the way.
+You don't have to be great to start, you have to start to be great!
+– tailored nutritional advice
+– personalised training plans
+– fat loss
+– holiday transformation
+– muscle gain
+– posture correction work
+Qualifications
+Advance Personal Trainer NVQ Level 3
+Gym Instructor Level 2
+Certified Kettlebell Instructor",
+                'specialties' => ['Nutritional Advice', 'Training Plans', 'Fat Loss', 'Muscle Gain', 'Posture Correction'],
+                'certifications' => ['Advance Personal Trainer NVQ Level 3', 'Gym Instructor Level 2', 'Certified Kettlebell Instructor'],
+                'locationSlug' => 'normanton',
+                'contact' => ['email' => 'borian95@icloud.com']
+            ],
+            // Rotherham
+            [
+                'id' => 1001,
+                'name' => 'Haran Kiru (BSc)',
+                'slug' => 'haran-kiru',
+                'image' => '/Images/processed-2E205651-97B1-4B6F-AEFF-7F768E8EFB36.webp',
+                'bio' => "Sport and Exercise Technology (BSc)
+Level 3 Personal Trainer
+Level 2 Gym Instructor
+Online Coach
+Operations Manager
+Operating in corporate sales and management over the last decade allowed me to hone my skills as a professional. I lead large scale sales operations of up to 250 people and continually innovated new ways to develop people.
+The reason I was so successful in that arena is simple. I have always had a passion for getting the best out of people. That is an ethos I share with UltraFlex.
+Now I marry all of my skills and experience together with my absolute passion for training and exercise as a Coach at UltraFlex Gyms… I love what I do.
+I know first hand how important training and exercise can be, I also know how daunting it is to not know where to begin when you want to make a big change. I take my responsibility as a Coach very seriously. It is my priority to get the best out of people and show them they are capable of much more than they think.
+When you work with me, your goals become my goals!
+I am deeply passionate about supporting you, leading you and pushing you every step of the way as you grow and develop.
+Seeing you achieve your goals is what I love to do!
+#beultra",
+                'specialties' => ['Personal Training', 'Online Coaching', 'Management', 'Motivation'],
+                'certifications' => ['BSc Sport and Exercise Technology', 'Level 3 Personal Trainer', 'Level 2 Gym Instructor'],
+                'locationSlug' => 'rotherham',
+                'contact' => ['email' => 'haran.coaching@gmail.com', 'instagram' => 'https://www.instagram.com/harankiru?igsh=MWQ0MDE2ZHd0aHo1MQ==']
+            ],
+            [
+                'id' => 1002,
+                'name' => 'Amy Simpson',
+                'slug' => 'amy-simpson',
+                'image' => '/Images/original-EAF67F3D-5012-44AD-BA7E-6E8CD4260E9B.webp',
+                'bio' => 'Level 3 personal trainer
+Level 2 gym instructor
+I help people with ordinary lifestyles achieve extraordinary results.
+No matter your starting point, I will help you get comfortable in the gym environment. My aim is to provide all clients with the skills and confidence to be able to achieve their goals and train solo.
+You will be pushed outside of your comfort zone, you will be challenged, you will leave feeling worked but I can guarantee you will love it and the benefits you get from it!',
+                'specialties' => ['Personal Training', 'Lifestyle Change', 'Confidence Building'],
+                'certifications' => ['Level 3 Personal Trainer', 'Level 2 Gym Instructor'],
+                'locationSlug' => 'rotherham',
+                'contact' => ['email' => 'amysimpson95@gmail.com']
             ],
         ];
     }

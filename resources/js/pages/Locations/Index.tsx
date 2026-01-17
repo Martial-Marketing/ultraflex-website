@@ -166,7 +166,7 @@ export default function LocationsIndex({ locations, membershipPlans, auth }: Loc
                                                     <Clock className="h-4 w-4 text-red-700 mt-0.5 flex-shrink-0" />
                                                     <div className="text-gray-300 text-sm group-hover:text-white group-hover:translate-x-1 transition-all duration-300">
                                                         <div>Mon-Fri: {location.hours.weekdays}</div>
-                                                        <div>Sat-Sun: {location.hours.weekends}</div>
+                                                        <div>{location.hours.weekends.includes('Sat:') || location.hours.weekends.includes('Sun:') ? location.hours.weekends : `Sat-Sun: ${location.hours.weekends}`}</div>
                                                         {location.features?.some(f => f.includes('Full Access Members')) && (
                                                             <div className="mt-1 inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-red-700/20 text-red-400 border border-red-700/30">
                                                                 {location.features.find(f => f.includes('Full Access Members'))}
@@ -177,13 +177,23 @@ export default function LocationsIndex({ locations, membershipPlans, auth }: Loc
                                             </div>
                                             
                                             <div className="space-y-2">
-                                                <Link href={`/locations/${location.slug}`} className="block w-full">
-                                                    <Button className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-4 py-2 text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm">
-                                                        <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                                            View Gym Details
-                                                        </span>
-                                                    </Button>
-                                                </Link>
+                                                {location.slug === 'athens-greece' ? (
+                                                    <a href="https://ultraflexgym.gr/" target="_blank" rel="noopener noreferrer" className="block w-full">
+                                                        <Button className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-4 py-2 text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm">
+                                                            <span className="group-hover:translate-x-1 transition-transform duration-300">
+                                                                Visit Athens Site
+                                                            </span>
+                                                        </Button>
+                                                    </a>
+                                                ) : (
+                                                    <Link href={`/locations/${location.slug}`} className="block w-full">
+                                                        <Button className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white px-4 py-2 text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group border border-red-700/20 backdrop-blur-sm">
+                                                            <span className="group-hover:translate-x-1 transition-transform duration-300">
+                                                                View Gym Details
+                                                            </span>
+                                                        </Button>
+                                                    </Link>
+                                                )}
                                                 <Button 
                                                     variant="outline" 
                                                     className="w-full border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white px-4 py-2 text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm"

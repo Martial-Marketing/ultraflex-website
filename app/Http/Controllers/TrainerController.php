@@ -14,12 +14,16 @@ class TrainerController extends Controller
 
         // Map slug -> display name for locations used elsewhere (keep limited to ones present in trainer data)
         $locationNames = [
+            'west-leeds' => 'ULTRAFLEX WEST LEEDS',
             'north-leeds' => 'ULTRAFLEX NORTH LEEDS',
+            'normanton' => 'ULTRAFLEX NORMANTON',
+            'rotherham' => 'ULTRAFLEX ROTHERHAM',
             'york' => 'ULTRAFLEX YORK',
             'hull' => 'ULTRAFLEX HULL',
-            'lincoln' => 'ULTRAFLEX LINCOLN',
             'durham' => 'ULTRAFLEX DURHAM',
             'derby' => 'ULTRAFLEX DERBY',
+            'athens-greece' => 'ULTRAFLEX ATHENS (GREECE)',
+            'lincoln' => 'ULTRAFLEX LINCOLN',
             'west-london' => 'ULTRAFLEX WEST LONDON',
         ];
 

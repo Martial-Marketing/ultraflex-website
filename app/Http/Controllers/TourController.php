@@ -14,7 +14,7 @@ class TourController extends Controller
                 'id' => 5,
                 'locationName' => 'ULTRAFLEX YORK',
                 'locationSlug' => 'york',
-                'image' => '/Images/newimages/York/gym-in-york.webp',
+                'image' => '/Images/Cards-Images/york.webp',
         // Updated to Matterport link supplied
         'tourUrl' => 'https://my.matterport.com/show/?m=kZ7SPKSyTMt&back=1',
                 'address' => '10 Layerthorpe, York YO31 7YW',
@@ -32,7 +32,7 @@ class TourController extends Controller
                 'locationName' => 'ULTRAFLEX HULL',
                 'locationSlug' => 'hull',
                 // Updated primary image for Hull tour card
-                'image' => '/Images/processed-E08A33F0-0FB6-43A5-BF60-EC1147B6517D-min-min.jpeg',
+                'image' => '/Images/Cards-Images/hull.jpeg',
                 // Updated to Matterport link supplied
                 'tourUrl' => 'https://my.matterport.com/show/?m=nfWTbfybzYt&back=1',
                 'address' => 'Business Park, 261 Hawthorn Avenue Trackside, Hull HU3 5EN',
@@ -50,7 +50,7 @@ class TourController extends Controller
                 'locationName' => 'ULTRAFLEX DURHAM',
                 'locationSlug' => 'durham',
                 // Updated primary image for Durham tour card
-                'image' => '/Images/original-787FADAA-6849-48F3-B005-6AD9FB2E74C4-min-min.jpeg',
+                'image' => '/Images/Cards-Images/durham.jpeg',
                 // Updated to YouTube link supplied
                 'tourUrl' => 'https://youtu.be/JpALX5roRKE',
                 'address' => 'North Road, Durham DH1 4SQ, UK',
@@ -68,7 +68,7 @@ class TourController extends Controller
                 'locationName' => 'ULTRAFLEX DERBY',
                 'locationSlug' => 'derby',
                 // Updated primary image for Derby tour card
-                'image' => '/Images/processed-5AB78E5E-3190-4963-8AAF-9B3B527D73AD-min-min.jpeg',
+                'image' => '/Images/Cards-Images/derby.jpeg',
                 // Updated to YouTube link supplied
                 'tourUrl' => 'https://youtu.be/VKlANmwoDPQ',
                 'address' => 'St Peters Street, Derby DE1 2AB, UK',
@@ -85,7 +85,7 @@ class TourController extends Controller
                 'id' => 9,
                 'locationName' => 'ULTRAFLEX ATHENS (GREECE)',
                 'locationSlug' => 'athens-greece',
-                'image' => '/Images/athens/HeroBG/gym-in-athens-16.webp',
+                'image' => '/Images/Cards-Images/athens.webp',
                 // Pending drone tour upload (placeholder)
                 'tourUrl' => null,
                 'address' => 'Vouliagmenis Avenue, Glyfada 166 74, Greece',
@@ -103,7 +103,7 @@ class TourController extends Controller
                 'locationName' => 'ULTRAFLEX LINCOLN',
                 'locationSlug' => 'lincoln',
                 // Updated primary image for Lincoln tour card
-                'image' => '/Images/processed-3CBED414-67C5-41E8-A885-3D42BA69744C-min-min.jpeg',
+                'image' => '/Images/Cards-Images/processed-7CE97793-CFE2-44A3-9BC7-AC26D84DB463%20(1).webp',
                 // Temporary YouTube fallback while waiting for tour video
                 'tourUrl' => 'https://youtu.be/u3qFZpkqxyI',
                 'address' => 'High Street, Lincoln LN5 7PJ, UK',
@@ -121,7 +121,7 @@ class TourController extends Controller
                 'locationName' => 'ULTRAFLEX WEST LONDON',
                 'locationSlug' => 'west-london',
                 // Updated primary image for West London tour card
-                'image' => '/Images/processed-F7DB5741-8540-4974-9CCC-A37F83D8733B-min-min.jpeg',
+                'image' => '/Images/Cards-Images/west-london.webp',
                 // Updated tour video nearly ready - placeholder until launch
                 'tourUrl' => null,
                 'address' => 'Point West, 2, Packet Boat Ln, Uxbridge UB8 2JP',
@@ -139,7 +139,7 @@ class TourController extends Controller
                 'id' => 1,
                 'locationName' => 'ULTRAFLEX WEST LEEDS',
                 'locationSlug' => 'west-leeds',
-                'image' => '/Images/newimages/West Leeds/gym-in-westleeds.webp',
+                'image' => '/Images/Cards-Images/west-leeds.webp',
                 // Provided Matterport link
                 'tourUrl' => 'https://my.matterport.com/show/?m=8gw4DT8ZmVc&back=1',
                 'address' => 'Cape Mills, Coal Hill Ln, Leeds LS28 5NA',
@@ -156,7 +156,7 @@ class TourController extends Controller
                 'id' => 2,
                 'locationName' => 'ULTRAFLEX NORTH LEEDS',
                 'locationSlug' => 'north-leeds',
-                'image' => '/Images/processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.jpeg',
+                'image' => '/Images/Cards-Images/north-leeds.jpeg',
                 // Provided YouTube link
                 'tourUrl' => 'https://youtu.be/VgF1a6XxAkc?si=Ki3Z0VdqdKVocs52',
                 'address' => 'Limewood Approach, Seacroft, Leeds LS14 1NH',
@@ -173,7 +173,7 @@ class TourController extends Controller
                 'id' => 3,
                 'locationName' => 'ULTRAFLEX NORMANTON',
                 'locationSlug' => 'normanton',
-                'image' => '/Images/newimages/Normanton/gym-in-normanton.webp',
+                'image' => '/Images/Cards-Images/normanton.webp',
                 // Provided link (scene3d)
                 'tourUrl' => 'https://my.scene3d.co.uk/tour/ultraflex-normanton-2022',
                 'address' => 'Ripley Dr, Normanton WF6 1QT',
@@ -190,7 +190,7 @@ class TourController extends Controller
                 'id' => 4,
                 'locationName' => 'ULTRAFLEX ROTHERHAM',
                 'locationSlug' => 'rotherham',
-                'image' => '/Images/newimages/Rotherham/gym-in-rotherham.webp',
+                'image' => '/Images/Cards-Images/rotherham.webp',
                 // Provided Matterport link
                 'tourUrl' => 'https://my.matterport.com/show/?m=qcrWz3BZzrj&back=1',
                 'address' => '175 Effingham St, Rotherham S65 1BL',
