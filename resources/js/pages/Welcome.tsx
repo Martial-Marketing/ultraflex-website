@@ -18,6 +18,21 @@ interface AuthProps {
 }
 interface WelcomeProps {
     auth: AuthProps;
+    locations: {
+        id: number;
+        name: string;
+        address: string;
+        phone: string;
+        image: string;
+        slug: string;
+        hours: {
+            weekdays: string;
+            weekends: string;
+        };
+        mapUrl?: string;
+        virtualTour?: string | null;
+        features?: string[];
+    }[];
     latestNews: {
         id: number;
         title: string;
@@ -30,31 +45,7 @@ interface WelcomeProps {
     }[];
 }
 
-export default function Welcome({ auth, latestNews }: WelcomeProps) {
-    // Real ULTRAFLEX locations data - showing top 3 locations
-    const locations = [
-        {
-            id: 1,
-            name: "ULTRAFLEX WEST LEEDS",
-            address: "Cape Mills, Coal Hill Ln, Leeds LS28 5NA",
-            image: "/Images/westleeds/gym-in-westleeds.webp",
-            slug: 'west-leeds'
-        },
-        {
-            id: 2,
-            name: "ULTRAFLEX NORTH LEEDS",
-            address: "Limewood Approach, Seacroft, Leeds LS14 1NH",
-            image: "/Images/processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.jpeg",
-            slug: 'north-leeds'
-        },
-        {
-            id: 3,
-            name: "ULTRAFLEX NORMANTON",
-            address: "Ripley Dr, Normanton WF6 1QT",
-            image: "/Images/newimages/Normanton/gym-in-normanton.webp",
-            slug: 'normanton'
-        }
-    ];
+export default function Welcome({ auth, latestNews, locations }: WelcomeProps) {
 
     // Member testimonials built from real ULTRAFLEX Google-style reviews (latest additions)
     const testimonials = [
@@ -102,19 +93,20 @@ export default function Welcome({ auth, latestNews }: WelcomeProps) {
         }
     ];
 
+    // Use only verified, working images from the main gallery
     const galleryImages = [
-        "/Images/westleeds/gym-in-westleeds.webp",
-	"/Images/processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.jpeg",
-        "/Images/normanton/gym-in-normanton.webp",
-        "/Images/rotherham/gym-in-rotherham.webp",
-        "/Images/newimages/Rotherham/2.webp",
-        "/Images/newimages/Rotherham/3.webp",
-        "/Images/newimages/Rotherham/4.webp",
-        "/Images/newimages/Rotherham/5.webp",
-        "/Images/newimages/Rotherham/WhatsApp Image 2026-01-05 at 11.02.36 AM.webp",
-        "/Images/york/ForGallery/gym-in-york-6.webp",
-        // Updated Hull image
-        "/Images/processed-E08A33F0-0FB6-43A5-BF60-EC1147B6517D-min-min.jpeg",
+        "/Images/Gallery/derby/DSC05684.webp",
+        "/Images/Gallery/derby/DSC05689.webp",
+        "/Images/Gallery/derby/DSC05697.webp",
+        "/Images/Gallery/derby/DSC05724.webp",
+        "/Images/Gallery/derby/DSC05762.webp",
+        "/Images/Gallery/hull/IMG (15).webp",
+        "/Images/Gallery/lincoln/ultraflex full-4711.webp",
+        "/Images/Gallery/north leeds/DSC07344.webp",
+        "/Images/Gallery/rotherham/akv_podcast_-2.webp",
+        "/Images/Gallery/west leeds/UFG (100).webp",
+        "/Images/Gallery/West London/Photo 03-09-2025, 14 02 45.webp",
+        "/Images/Gallery/york/IMG (124).webp",
     ];
 
     // latestNews now comes from backend (HomeController)

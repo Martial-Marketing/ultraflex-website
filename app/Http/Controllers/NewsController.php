@@ -57,7 +57,7 @@ class NewsController extends Controller
                 'author' => 'ULTRAFLEX Performance Team',
                 'authorImage' => '/Images/newimages/West Leeds/gym-in-westleeds.webp',
                 'authorBio' => 'ULTRAFLEX Performance Coaches combine decades of practical experience with evidence-based methods to help members train smarter in less time.',
-                'image' => '/Images/newimages/Lincoln/gym-in-lincoln-3.webp',
+                'image' => '/Images/news/gym-in-lincoln-3.webp',
                 'excerpt' => 'Short on time? Harness metabolic ignition with focused 10‑minute HIIT protocols that drive EPOC and build a more efficient engine.',
                 'content' => implode("\n\n", [
                     'Struggling to find time? Life is demanding, but your fitness shouldn’t pay the price. Ten minutes is enough—when intensity, movement selection and intent are dialed in.',
@@ -87,7 +87,7 @@ class NewsController extends Controller
                 'author' => 'ULTRAFLEX Coaching Team',
                 'authorImage' => '/Images/newimages/North Leeds/gym-in-northleeds.webp',
                 'authorBio' => 'Our coaching collective specialises in hybrid performance—strength, conditioning and sustainable physique development.',
-                'image' => '/Images/newimages/Rotherham/gym-in-rotherham.webp',
+                'image' => '/Images/news/gym-in-rotherham.webp',
                 'excerpt' => 'Strength builds the metabolic foundation; cardio expands the engine. The magic is programming synergy—not choosing a side.',
                 'content' => implode("\n\n", [
                     'The debate is tired: weight rack or treadmill? At ULTRAFLEX, it’s integration over isolation—stimulus pairing for accelerated adaptation.',
@@ -116,7 +116,7 @@ class NewsController extends Controller
                 'author' => 'ULTRAFLEX Performance Team',
                 'authorImage' => '/Images/newimages/North Leeds/gym-in-northleeds-2.webp',
                 'authorBio' => 'ULTRAFLEX coaches engineer evidence-based progression models that turn effort into measurable adaptation.',
-                'image' => '/Images/newimages/North Leeds/gym-in-northleeds-5.webp',
+                'image' => '/Images/news/gym-in-northleeds-5.webp',
                 'excerpt' => 'If your loads and reps are static, so are your results. Progressive Overload is the engine—master the levers, stop spinning your wheels.',
                 'content' => implode("\n\n", [
                     'If you\'re still lifting the same weight for the same reps you were three months ago, you’re training to maintain, not to grow. Progressive Overload (P.O.) is the non‑negotiable driver of continued adaptation.',

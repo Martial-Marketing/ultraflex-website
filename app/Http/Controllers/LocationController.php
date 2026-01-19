@@ -31,129 +31,9 @@ class LocationController extends Controller
         return self::$galleryFolders[$slug] ?? null;
     }
 
-    private static function encodeGalleryPath(string $p): string
+    public static function locationsIndexCards(): array
     {
-        $p = str_replace('\\', '/', $p);
-        $parts = array_values(array_filter(explode('/', $p), fn($x) => $x !== ''));
-        $encoded = array_map('rawurlencode', $parts);
-        return implode('/', $encoded);
-    }
-
-    /**
-     * Returns an array of public URLs for a location gallery based on local folders in public/Images/Gallery.
-     * This mirrors the folder discovery + slugging logic used in the /gallery route.
-     */
-    private static function localGalleryImages(string $locationSlug): array
-    {
-        $galleryBase = public_path('Images/Gallery');
-        if (!File::isDirectory($galleryBase)) {
-            return [];
-        }
-
-        $allDirs = glob($galleryBase . '/*', GLOB_ONLYDIR) ?: [];
-        $slugToFolder = [];
-
-        foreach ($allDirs as $dir) {
-            $folder = basename($dir);
-            $slug = Str::slug($folder, '-');
-            $slugToFolder[$slug] = $folder;
-        }
-
-        if (!isset($slugToFolder[$locationSlug])) {
-            return [];
-        }
-
-        $folder = $slugToFolder[$locationSlug];
-        $absDir = $galleryBase . DIRECTORY_SEPARATOR . $folder;
-        if (!File::isDirectory($absDir)) {
-            return [];
-        }
-
-        $allowedExt = ['webp', 'jpg', 'jpeg', 'png', 'gif'];
-        $urls = [];
-
-        foreach (File::allFiles($absDir) as $file) {
-            $ext = strtolower($file->getExtension());
-            if (!in_array($ext, $allowedExt, true)) {
-                continue;
-            }
-
-            $relFromGallery = str_replace('\\', '/', $folder . '/' . $file->getRelativePathname());
-            $urls[] = '/Images/Gallery/' . self::encodeGalleryPath($relFromGallery);
-        }
-
-        usort($urls, function ($a, $b) {
-            return strcasecmp($a, $b);
-        });
-
-        return $urls;
-    }
-
-    public function index()
-    {
-        // Common membership plans for all locations (global carousel)
-        // Removed location-specific 'Martial Arts Area' reference to avoid inaccurate claims for gyms without that facility.
-        $membershipPlans = [
-            [
-                'id' => 2,
-                'name' => 'Weekly Pass',
-                'price' => 22.50,
-                'period' => 'week',
-                'features' => ['7 Days Access', 'All Equipment Access', 'Free Parking'],
-                'popular' => false
-            ],
-            [
-                'id' => 3,
-                'name' => 'Monthly Rolling Direct Debit',
-                'price' => 45,
-                'period' => 'month',
-                'features' => ['Rolling Contract', 'All Equipment Access'],
-                'popular' => false
-            ],
-            [
-                'id' => 4,
-                'name' => 'Monthly Direct Debit',
-                'price' => 38.50,
-                'period' => 'month',
-                'features' => ['Min 12 Month Commitment', 'All Equipment Access', 'Best Value'],
-                'popular' => true
-            ],
-            [
-                'id' => 5,
-                'name' => '3 Month Pass',
-                'price' => 130,
-                'period' => '3 months',
-                'features' => ['3 Months Access', 'Payment in Full', 'All Equipment Access'],
-                'popular' => false
-            ],
-            [
-                'id' => 6,
-                'name' => '6 Month Pass',
-                'price' => 230,
-                'period' => '6 months',
-                'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access'],
-                'popular' => false
-            ],
-            [
-                'id' => 7,
-                'name' => '12 Month Pass',
-                'price' => 420,
-                'period' => '12 months',
-                'features' => ['12 Months Access', 'Payment in Full', 'All Equipment Access', 'Best Annual Value'],
-                'popular' => false
-            ],
-            [
-                'id' => 8,
-                'name' => 'Student Monthly Rolling',
-                'price' => 40,
-                'period' => 'month',
-                'features' => ['Student Discount', 'Valid Student ID Required', 'Monthly Rolling', 'All Equipment Access'],
-                'popular' => false
-            ],
-        ];
-
-        // Real ULTRAFLEX locations data
-        $locations = [
+        return [
             [
                 'id' => 1,
                 'name' => 'ULTRAFLEX WEST LEEDS',
@@ -294,6 +174,131 @@ class LocationController extends Controller
                 ]
             ]
         ];
+    }
+
+    private static function encodeGalleryPath(string $p): string
+    {
+        $p = str_replace('\\', '/', $p);
+        $parts = array_values(array_filter(explode('/', $p), fn($x) => $x !== ''));
+        $encoded = array_map('rawurlencode', $parts);
+        return implode('/', $encoded);
+    }
+
+    /**
+     * Returns an array of public URLs for a location gallery based on local folders in public/Images/Gallery.
+     * This mirrors the folder discovery + slugging logic used in the /gallery route.
+     */
+    private static function localGalleryImages(string $locationSlug): array
+    {
+        $galleryBase = public_path('Images/Gallery');
+        if (!File::isDirectory($galleryBase)) {
+            return [];
+        }
+
+        $allDirs = glob($galleryBase . '/*', GLOB_ONLYDIR) ?: [];
+        $slugToFolder = [];
+
+        foreach ($allDirs as $dir) {
+            $folder = basename($dir);
+            $slug = Str::slug($folder, '-');
+            $slugToFolder[$slug] = $folder;
+        }
+
+        if (!isset($slugToFolder[$locationSlug])) {
+            return [];
+        }
+
+        $folder = $slugToFolder[$locationSlug];
+        $absDir = $galleryBase . DIRECTORY_SEPARATOR . $folder;
+        if (!File::isDirectory($absDir)) {
+            return [];
+        }
+
+        $allowedExt = ['webp', 'jpg', 'jpeg', 'png', 'gif'];
+        $urls = [];
+
+        foreach (File::allFiles($absDir) as $file) {
+            $ext = strtolower($file->getExtension());
+            if (!in_array($ext, $allowedExt, true)) {
+                continue;
+            }
+
+            $relFromGallery = str_replace('\\', '/', $folder . '/' . $file->getRelativePathname());
+            $urls[] = '/Images/Gallery/' . self::encodeGalleryPath($relFromGallery);
+        }
+
+        usort($urls, function ($a, $b) {
+            return strcasecmp($a, $b);
+        });
+
+        return $urls;
+    }
+
+    public function index()
+    {
+        // Common membership plans for all locations (global carousel)
+        // Removed location-specific 'Martial Arts Area' reference to avoid inaccurate claims for gyms without that facility.
+        $membershipPlans = [
+            [
+                'id' => 2,
+                'name' => 'Weekly Pass',
+                'price' => 22.50,
+                'period' => 'week',
+                'features' => ['7 Days Access', 'All Equipment Access', 'Free Parking'],
+                'popular' => false
+            ],
+            [
+                'id' => 3,
+                'name' => 'Monthly Rolling Direct Debit',
+                'price' => 45,
+                'period' => 'month',
+                'features' => ['Rolling Contract', 'All Equipment Access'],
+                'popular' => false
+            ],
+            [
+                'id' => 4,
+                'name' => 'Monthly Direct Debit',
+                'price' => 38.50,
+                'period' => 'month',
+                'features' => ['Min 12 Month Commitment', 'All Equipment Access', 'Best Value'],
+                'popular' => true
+            ],
+            [
+                'id' => 5,
+                'name' => '3 Month Pass',
+                'price' => 130,
+                'period' => '3 months',
+                'features' => ['3 Months Access', 'Payment in Full', 'All Equipment Access'],
+                'popular' => false
+            ],
+            [
+                'id' => 6,
+                'name' => '6 Month Pass',
+                'price' => 230,
+                'period' => '6 months',
+                'features' => ['6 Months Access', 'Payment in Full', 'All Equipment Access'],
+                'popular' => false
+            ],
+            [
+                'id' => 7,
+                'name' => '12 Month Pass',
+                'price' => 420,
+                'period' => '12 months',
+                'features' => ['12 Months Access', 'Payment in Full', 'All Equipment Access', 'Best Annual Value'],
+                'popular' => false
+            ],
+            [
+                'id' => 8,
+                'name' => 'Student Monthly Rolling',
+                'price' => 40,
+                'period' => 'month',
+                'features' => ['Student Discount', 'Valid Student ID Required', 'Monthly Rolling', 'All Equipment Access'],
+                'popular' => false
+            ],
+        ];
+
+        // Real ULTRAFLEX locations data (shared with homepage section)
+        $locations = self::locationsIndexCards();
 
         return Inertia::render('Locations/Index', [
             'locations' => $locations,

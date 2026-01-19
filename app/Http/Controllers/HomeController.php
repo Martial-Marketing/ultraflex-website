@@ -15,6 +15,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $locations = LocationController::locationsIndexCards();
+
         // Fetch latest news articles (top 3 by date / id desc)
         $newsController = app(NewsController::class);
         $allPosts = $newsController->posts();
@@ -38,6 +40,7 @@ class HomeController extends Controller
                 'user' => auth()->user()
             ],
             'latestNews' => $latest,
+            'locations' => $locations,
         ]);
     }
 }

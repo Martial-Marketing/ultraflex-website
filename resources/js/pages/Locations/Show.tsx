@@ -95,6 +95,17 @@ interface LocationShowProps {
 
 export default function LocationShow({ location, auth }: LocationShowProps) {
     const DEFAULT_MANAGER_IMAGE = '/Images/vecteezy_hand-drawnman-avatar-profile-icon-for-social-networks_.webp';
+    // List of slugs/names for locations that need gallery fallback for hero image
+    const galleryHeroLocations = [
+        'west-leeds', 'normanton', 'rotherham', 'york', 'lincoln',
+        'West Leeds', 'Normanton', 'Rotherham', 'York', 'Lincoln'
+    ];
+    // Determine if this location should use gallery fallback
+    const needsGalleryHero = galleryHeroLocations.includes(location.slug ?? '') || galleryHeroLocations.includes(location.name ?? '');
+    // Use gallery[0] if image is missing or broken for these locations
+    const heroImage = (needsGalleryHero && (!location.image || location.image.includes('broken') || location.image.includes('default') || location.image.includes('vecteezy'))) && location.gallery && location.gallery.length > 0
+        ? location.gallery[0]
+        : location.image;
     const [currentMembershipSlide, setCurrentMembershipSlide] = useState(0);
     const [currentEquipmentBgIndex, setCurrentEquipmentBgIndex] = useState(0);
     const [activeSection, setActiveSection] = useState<string>('manager');
@@ -369,9 +380,17 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
                             </video>
                         ) : (
                             <img 
-                                src={location.image} 
+                                src={heroImage} 
                                 alt={location.name}
                                 className="absolute inset-0 w-full h-full object-cover"
+                                onError={(e) => {
+                                    // fallback to gallery image if not already using it
+                                    if (needsGalleryHero && location.gallery && location.gallery.length > 0 && e.currentTarget.src !== location.gallery[0]) {
+                                        e.currentTarget.src = location.gallery[0];
+                                    } else {
+                                        e.currentTarget.style.display = 'none';
+                                    }
+                                }}
                             />
                         )}
                         
