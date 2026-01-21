@@ -376,7 +376,7 @@ class LocationController extends Controller
                     'manager' => [
                         'name' => 'Sophia',
                         'bio' => 'As the Manager of ULTRAFLEX West Leeds, I’m proud to lead the team at the very first ULTRAFLEX gym established in the UK on 17th January 2017. Since opening our doors, West Leeds has built a strong reputation as a cornerstone of the ULTRAFLEX community—known for our unbeatable atmosphere, elite equipment, and commitment to helping people at all levels of fitness achieve real results. My journey with ULTRAFLEX has been driven by a passion for creating an environment where members feel empowered, supported, and motivated. Whether you\'re stepping into the gym for the first time or preparing for your next competition, we’re here to provide expert guidance, a welcoming community, and world-class facilities. I oversee day-to-day operations, member engagement, staff development, and community outreach, ensuring ULTRAFLEX West Leeds continues to set the standard for excellence in fitness. I’m proud of our diverse membership base—from beginners to IFBB pros—and the culture of respect, discipline, and dedication that makes our gym more than just a place to train. ULTRAFLEX West Leeds is where it all started—and under my management, we continue to innovate, grow, and lead the way for all the ULTRAFLEX gyms across the UK.',
-                        'image' => '/Images/newimages/unnamed.webp',
+                        'image' => '/Images/Sophie West Leeds (1).webp',
                         'experience' => null
                     ],
                     'services' => [
