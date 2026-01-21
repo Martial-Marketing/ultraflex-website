@@ -381,6 +381,11 @@ class LocationController extends Controller
                     ],
                     'services' => [
                         [
+                            'name' => 'Regen Physio',
+                            'description' => 'Physiotherapy & rehab services supporting recovery.',
+                            'icon' => null
+                        ],
+                        [
                             'name' => 'Ostas Boxing',
                             'description' => 'Boxing coaching and training development based within the facility.',
                             'icon' => null
@@ -397,6 +402,9 @@ class LocationController extends Controller
                         ]
                     ],
                     'serviceLinks' => [
+                        // Regen Physio
+                        [ 'label' => 'Regen Physio', 'url' => 'https://bit.ly/m/RegenPhysio', 'type' => 'external' ],
+                        
                         // Ostas Boxing (Martial Arts)
                         [ 'label' => 'Ostas Boxing Instagram', 'url' => 'https://www.instagram.com/ostasboxing', 'type' => 'instagram' ],
                         
@@ -532,6 +540,11 @@ class LocationController extends Controller
                             'name' => 'Brotherhood Barbers (North Leeds)',
                             'description' => 'On-site barbers. Booking via Booksy. Instagram @brotherhood.leeds • TikTok @brotherhoodbarbers',
                             'logo' => '/Images/york/BROTHERHOOD no back ground .webp'
+                        ],
+                        [
+                            'name' => 'Fika Aesthetics',
+                            'description' => 'Professional aesthetics services. Instagram @fikaaesthetics',
+                            'icon' => null
                         ]
                     ],
                     'serviceLinks' => [
@@ -540,7 +553,9 @@ class LocationController extends Controller
                         ['label' => 'IMA Instagram', 'url' => 'https://www.instagram.com/IMA.leeds', 'type' => 'external'],
                         ['label' => 'Brotherhood Barbers – Book Now', 'url' => 'https://brotherhoodbarbershopleeds.booksy.com/a/', 'type' => 'external'],
                         ['label' => 'Brotherhood Barbers – Instagram', 'url' => 'https://instagram.com/brotherhood.leeds', 'type' => 'external'],
-                        ['label' => 'Brotherhood Barbers – TikTok', 'url' => 'https://www.tiktok.com/@brotherhoodbarbers', 'type' => 'external']
+                        ['label' => 'Brotherhood Barbers – TikTok', 'url' => 'https://www.tiktok.com/@brotherhoodbarbers', 'type' => 'external'],
+                        ['label' => 'Fika Aesthetics Instagram', 'url' => 'https://www.instagram.com/fikaaesthetics', 'type' => 'external'],
+                        ['label' => 'Fika Aesthetics Website', 'url' => 'https://www.fikaaesthetics.co.uk', 'type' => 'external']
                     ],
                     'features' => [
                         'Sauna',
@@ -811,7 +826,7 @@ class LocationController extends Controller
                     'address' => '175 Effingham St, Rotherham S65 1BL',
                     'phone' => '0170 937 7311',
                     'email' => 'rotherham@ULTRAFLEXgym.co.uk',
-                    'image' => '/Images/newimages/Rotherham/gym-in-rotherham.webp',
+                    'image' => '/Images/Cards-Images/rotherham.webp',
                     'gallery' => [
                         '/Images/newimages/Rotherham/gym-in-rotherham-3.webp',
                         '/Images/newimages/Rotherham/gym-in-rotherham-4.webp',
@@ -937,7 +952,7 @@ class LocationController extends Controller
                             'name' => '60 + Years Rolling Membership',
                             'price' => 52.00,
                             'period' => 'month',
-                            'features' => ['Must be 60+', 'Valid ID Required', 'Monthly Rolling', 'All Equipment Access'],
+                            'features' => ['Must be over the age of 60', 'Valid ID Required', 'Monthly Rolling', 'All Equipment Access'],
                             'popular' => false
                         ],
                         [
@@ -945,7 +960,7 @@ class LocationController extends Controller
                             'name' => '60 + Years 12 Month Membership',
                             'price' => 47.00,
                             'period' => 'month',
-                            'features' => ['Must be 60+', 'Valid ID Required', '12 Month Direct Debit', 'All Equipment Access', 'Best Value'],
+                            'features' => ['Must be over the age of 60', 'Valid ID Required', '12 Month Direct Debit', 'All Equipment Access', 'Best Value'],
                             'popular' => false
                         ],
                     ],
@@ -1049,8 +1064,8 @@ class LocationController extends Controller
                     ],
                     'serviceLinks' => [
                         [ 'label' => 'Regen Physio', 'url' => 'https://bit.ly/m/RegenPhysio', 'type' => 'website', 'category' => 'Physiotherapy & Recovery' ],
-                        [ 'label' => 'The Yorkshire Clipper Instagram', 'url' => 'https://www.instagram.com/the_yorkshireclipper/', 'type' => 'instagram' ],
-                        [ 'label' => 'The Yorkshire Clipper Website', 'url' => 'https://www.theyorkshireclipper.co.uk/', 'type' => 'website' ],
+                        [ 'label' => 'The Yorkshire Clipper Instagram', 'url' => 'https://www.instagram.com/the_yorkshireclipper/', 'type' => 'instagram', 'category' => 'Barbers' ],
+                        [ 'label' => 'The Yorkshire Clipper Website', 'url' => 'https://www.theyorkshireclipper.co.uk/', 'type' => 'website', 'category' => 'Barbers' ],
                         [ 'label' => 'Fika Aesthetics Website', 'url' => 'https://www.fikaaesthetics.co.uk/', 'type' => 'website' ]
                     ],
                     'features' => [

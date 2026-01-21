@@ -83,7 +83,7 @@ interface Location {
     // Newly added optional structured enhancements
     features?: string[];
     services?: { name: string; description?: string; icon?: string; logo?: string; category?: string }[];
-    serviceLinks?: { label: string; url: string; type?: 'internal' | 'external' }[];
+    serviceLinks?: { label: string; url: string; type?: 'internal' | 'external'; category?: string }[];
 }
 
 interface LocationShowProps {
@@ -259,17 +259,31 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
     };
 
     // Helper function to categorize service links with titles
-    const categorizeServiceLinks = (links: { label: string; url: string; type?: string }[]) => {
-        const categories: { title: string; links: { label: string; url: string; type?: string }[] }[] = [];
+    const categorizeServiceLinks = (links: { label: string; url: string; type?: string; category?: string }[]) => {
+        const categories: { title: string; links: { label: string; url: string; type?: string; category?: string }[] }[] = [];
         
-        // First, try to match links to services with categories
+        // First, categorize links that have explicit category from backend
         const categorizedLinks = new Set<string>();
         
+        links.forEach(link => {
+            if (link.category) {
+                const existingCategory = categories.find(cat => cat.title === link.category);
+                if (existingCategory) {
+                    existingCategory.links.push(link);
+                } else {
+                    categories.push({ title: link.category, links: [link] });
+                }
+                categorizedLinks.add(link.label);
+            }
+        });
+        
+        // Then, try to match remaining links to services with categories
         if (location.services) {
             location.services.forEach(service => {
                 if (service.category) {
                     // Find links that match this service
                     const matchingLinks = links.filter(link => {
+                        if (categorizedLinks.has(link.label)) return false;
                         const linkLower = link.label.toLowerCase();
                         const serviceLower = service.name.toLowerCase();
                         // Match if link contains service name or service name words
@@ -298,7 +312,7 @@ export default function LocationShow({ location, auth }: LocationShowProps) {
         const boxingLinks = uncategorizedLinks.filter(link => link.label.toLowerCase().includes('boxing') || link.label.toLowerCase().includes('ostas'));
         const judoLinks = uncategorizedLinks.filter(link => link.label.toLowerCase().includes('judo') || link.label.toLowerCase().includes('pudsey'));
         const hairLinks = uncategorizedLinks.filter(link => link.label.toLowerCase().includes('hair') || link.label.toLowerCase().includes('smitin'));
-        const barberLinks = uncategorizedLinks.filter(link => link.label.toLowerCase().includes('barber') && !link.label.toLowerCase().includes('brotherhood'));
+        const barberLinks = uncategorizedLinks.filter(link => (link.label.toLowerCase().includes('barber') || link.label.toLowerCase().includes('clipper')) && !link.label.toLowerCase().includes('brotherhood'));
         const brotherhoodLinks = uncategorizedLinks.filter(link => link.label.toLowerCase().includes('brotherhood'));
         const massageLinks = uncategorizedLinks.filter(link => link.label.toLowerCase().includes('massage') || link.label.toLowerCase().includes('recovery hub'));
         const aestheticsLinks = uncategorizedLinks.filter(link => link.label.toLowerCase().includes('aesthetics') || link.label.toLowerCase().includes('nmk'));
