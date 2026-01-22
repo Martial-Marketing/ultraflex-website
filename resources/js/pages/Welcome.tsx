@@ -198,9 +198,9 @@ export default function Welcome({ auth, latestNews, locations }: WelcomeProps) {
                     </section>
 
                     {/* News Section */}
-                    <section className="relative">
+                    {/* <section className="relative">
                         <LatestNews latestNews={latestNews} />
-                    </section>
+                    </section> */}
 
                     {/* Footer CTA Section */}
                     <section className="relative">

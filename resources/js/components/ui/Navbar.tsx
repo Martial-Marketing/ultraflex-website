@@ -128,7 +128,7 @@ export default function Navbar({ auth }: NavbarProps) {
             href: '#',
             dropdown: [
                 { label: 'Gallery', href: '/gallery', icon: null },
-                { label: 'Latest News', href: '/news', icon: null },
+                // { label: 'Latest News', href: '/news', icon: null },
                 { label: 'Contact Us', href: '/contact', icon: null },
                 // removed UF Hub from More dropdown per request
             ]
