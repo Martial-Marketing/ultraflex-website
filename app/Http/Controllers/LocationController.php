@@ -404,6 +404,8 @@ class LocationController extends Controller
                     'serviceLinks' => [
                         // Regen Physio
                         [ 'label' => 'Regen Physio', 'url' => 'https://bit.ly/m/RegenPhysio', 'type' => 'external' ],
+                        [ 'label' => 'Regen Physio Facebook', 'url' => 'https://www.facebook.com/regenphysio', 'type' => 'facebook' ],
+                        [ 'label' => 'Regen Physio Instagram', 'url' => 'https://www.instagram.com/regenphysio/', 'type' => 'instagram' ],
                         
                         // Ostas Boxing (Martial Arts)
                         [ 'label' => 'Ostas Boxing Instagram', 'url' => 'https://www.instagram.com/ostasboxing', 'type' => 'instagram' ],
@@ -549,6 +551,8 @@ class LocationController extends Controller
                     ],
                     'serviceLinks' => [
                         ['label' => 'Regen Physio Link', 'url' => 'https://bit.ly/m/RegenPhysio', 'type' => 'external'],
+                        ['label' => 'Regen Physio Facebook', 'url' => 'https://www.facebook.com/regenphysio', 'type' => 'facebook'],
+                        ['label' => 'Regen Physio Instagram', 'url' => 'https://www.instagram.com/regenphysio/', 'type' => 'instagram'],
                         ['label' => 'Ultra Car Wash Instagram', 'url' => 'https://www.instagram.com/ultracarwashnorthleeds', 'type' => 'external'],
                         ['label' => 'IMA Instagram', 'url' => 'https://www.instagram.com/IMA.leeds', 'type' => 'external'],
                         ['label' => 'Brotherhood Barbers – Book Now', 'url' => 'https://brotherhoodbarbershopleeds.booksy.com/a/', 'type' => 'external'],
@@ -1064,6 +1068,8 @@ class LocationController extends Controller
                     ],
                     'serviceLinks' => [
                         [ 'label' => 'Regen Physio', 'url' => 'https://bit.ly/m/RegenPhysio', 'type' => 'website', 'category' => 'Physiotherapy & Recovery' ],
+                        [ 'label' => 'Regen Physio Facebook', 'url' => 'https://www.facebook.com/regenphysio', 'type' => 'facebook', 'category' => 'Physiotherapy & Recovery' ],
+                        [ 'label' => 'Regen Physio Instagram', 'url' => 'https://www.instagram.com/regenphysio/', 'type' => 'instagram', 'category' => 'Physiotherapy & Recovery' ],
                         [ 'label' => 'The Yorkshire Clipper Instagram', 'url' => 'https://www.instagram.com/the_yorkshireclipper/', 'type' => 'instagram', 'category' => 'Barbers' ],
                         [ 'label' => 'The Yorkshire Clipper Website', 'url' => 'https://www.theyorkshireclipper.co.uk/', 'type' => 'website', 'category' => 'Barbers' ],
                         [ 'label' => 'Fika Aesthetics Website', 'url' => 'https://www.fikaaesthetics.co.uk/', 'type' => 'website' ]
@@ -1388,6 +1394,8 @@ class LocationController extends Controller
                     ],
                     'serviceLinks' => [
                         ['label' => 'Regen Physio', 'url' => 'https://bit.ly/m/RegenPhysio', 'type' => 'website', 'category' => 'Physiotherapy & Recovery'],
+                        ['label' => 'Regen Physio Facebook', 'url' => 'https://www.facebook.com/regenphysio', 'type' => 'facebook', 'category' => 'Physiotherapy & Recovery'],
+                        ['label' => 'Regen Physio Instagram', 'url' => 'https://www.instagram.com/regenphysio/', 'type' => 'instagram', 'category' => 'Physiotherapy & Recovery'],
                         ['label' => 'Baxters Barbers Instagram', 'url' => 'https://www.instagram.com/Baxters_barbers', 'type' => 'external']
                     ],
                     'features' => [
