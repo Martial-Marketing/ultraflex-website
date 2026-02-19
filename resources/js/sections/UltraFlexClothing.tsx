@@ -9,25 +9,25 @@ export default function UltraFlexClothing() {
     // Image data
     const images = [
         {
-            src: "/Images/Clothing/Acid-grey-male-back-300x300.jpg",
+            src: "/Images/Clothing/Acid-grey-male-back-300x300.webp",
             alt: "ULTRAFLEX Acid Grey Male Shirt",
             title: "Acid Grey Performance Shirt",
             price: "From $29.99"
         },
         {
-            src: "/Images/Clothing/Beige-female-back-300x300.jpg",
+            src: "/Images/Clothing/Beige-female-back-300x300.webp",
             alt: "ULTRAFLEX Beige Female Shirt",
             title: "Beige Athletic Top",
             price: "From $24.99"
         },
         {
-            src: "/Images/Clothing/Drop-Sleeve-Vest-2-1-300x300.jpg",
+            src: "/Images/Clothing/Drop-Sleeve-Vest-2-1-300x300.webp",
             alt: "ULTRAFLEX Drop Sleeve Vest",
             title: "Drop Sleeve Vest",
             price: "From $34.99"
         },
         {
-            src: "/Images/Clothing/IMG-0784-300x300.jpg",
+            src: "/Images/Clothing/IMG-0784-300x300.webp",
             alt: "ULTRAFLEX Athletic Wear",
             title: "Premium Athletic Wear",
             price: "From $39.99"

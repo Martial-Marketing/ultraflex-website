@@ -1,0 +1,30 @@
+Image Conversion Log - Thu Feb 19 2026 13:15:43 GMT+0800 (Philippine Standard Time)
+======================================================================
+
+SUCCESS: C:\Projects\ULTRAFLEX\public\Images\Cards-Images\derby.jpeg -> C:\Projects\ULTRAFLEX\public\Images\Cards-Images\derby.webp (29.5% reduction)
+SUCCESS: C:\Projects\ULTRAFLEX\public\Images\Cards-Images\durham.jpeg -> C:\Projects\ULTRAFLEX\public\Images\Cards-Images\durham.webp (-16.0% reduction)
+SUCCESS: C:\Projects\ULTRAFLEX\public\Images\Cards-Images\hull.jpeg -> C:\Projects\ULTRAFLEX\public\Images\Cards-Images\hull.webp (29.1% reduction)
+SUCCESS: C:\Projects\ULTRAFLEX\public\Images\Cards-Images\north-leeds.jpeg -> C:\Projects\ULTRAFLEX\public\Images\Cards-Images\north-leeds.webp (35.8% reduction)
+SUCCESS: C:\Projects\ULTRAFLEX\public\Images\Clothing\Acid-grey-male-back-300x300.jpg -> C:\Projects\ULTRAFLEX\public\Images\Clothing\Acid-grey-male-back-300x300.webp (58.3% reduction)
+SUCCESS: C:\Projects\ULTRAFLEX\public\Images\Clothing\Beige-female-back-300x300.jpg -> C:\Projects\ULTRAFLEX\public\Images\Clothing\Beige-female-back-300x300.webp (68.4% reduction)
+SUCCESS: C:\Projects\ULTRAFLEX\public\Images\Clothing\Drop-Sleeve-Vest-2-1-300x300.jpg -> C:\Projects\ULTRAFLEX\public\Images\Clothing\Drop-Sleeve-Vest-2-1-300x300.webp (63.2% reduction)
+SUCCESS: C:\Projects\ULTRAFLEX\public\Images\Clothing\IMG-0784-300x300.jpg -> C:\Projects\ULTRAFLEX\public\Images\Clothing\IMG-0784-300x300.webp (85.1% reduction)
+SUCCESS: C:\Projects\ULTRAFLEX\public\Images\nutritionn\Boost-Your-Immune-System-768x432.jpg -> C:\Projects\ULTRAFLEX\public\Images\nutritionn\Boost-Your-Immune-System-768x432.webp (56.9% reduction)
+SUCCESS: C:\Projects\ULTRAFLEX\public\Images\nutritionn\Bulking-1-768x432.jpg -> C:\Projects\ULTRAFLEX\public\Images\nutritionn\Bulking-1-768x432.webp (60.2% reduction)
+SUCCESS: C:\Projects\ULTRAFLEX\public\Images\nutritionn\Cutting.jpg -> C:\Projects\ULTRAFLEX\public\Images\nutritionn\Cutting.webp (83.4% reduction)
+SUCCESS: C:\Projects\ULTRAFLEX\public\Images\nutritionn\Diet-Calculator-1.jpg -> C:\Projects\ULTRAFLEX\public\Images\nutritionn\Diet-Calculator-1.webp (81.4% reduction)
+SUCCESS: C:\Projects\ULTRAFLEX\public\Images\nutritionn\Diet-Planner.jpg -> C:\Projects\ULTRAFLEX\public\Images\nutritionn\Diet-Planner.webp (84.8% reduction)
+SUCCESS: C:\Projects\ULTRAFLEX\public\Images\nutritionn\Supplements.jpg -> C:\Projects\ULTRAFLEX\public\Images\nutritionn\Supplements.webp (79.1% reduction)
+SUCCESS: C:\Projects\ULTRAFLEX\public\Images\original-787FADAA-6849-48F3-B005-6AD9FB2E74C4-min-min.jpeg -> C:\Projects\ULTRAFLEX\public\Images\original-787FADAA-6849-48F3-B005-6AD9FB2E74C4-min-min.webp (-16.0% reduction)
+SUCCESS: C:\Projects\ULTRAFLEX\public\Images\processed-3CBED414-67C5-41E8-A885-3D42BA69744C-min-min.jpeg -> C:\Projects\ULTRAFLEX\public\Images\processed-3CBED414-67C5-41E8-A885-3D42BA69744C-min-min.webp (31.9% reduction)
+SUCCESS: C:\Projects\ULTRAFLEX\public\Images\processed-5AB78E5E-3190-4963-8AAF-9B3B527D73AD-min-min.jpeg -> C:\Projects\ULTRAFLEX\public\Images\processed-5AB78E5E-3190-4963-8AAF-9B3B527D73AD-min-min.webp (29.5% reduction)
+SUCCESS: C:\Projects\ULTRAFLEX\public\Images\processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.jpeg -> C:\Projects\ULTRAFLEX\public\Images\processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.webp (35.8% reduction)
+SUCCESS: C:\Projects\ULTRAFLEX\public\Images\processed-E08A33F0-0FB6-43A5-BF60-EC1147B6517D-min-min.jpeg -> C:\Projects\ULTRAFLEX\public\Images\processed-E08A33F0-0FB6-43A5-BF60-EC1147B6517D-min-min.webp (29.1% reduction)
+SUCCESS: C:\Projects\ULTRAFLEX\public\Images\processed-F7DB5741-8540-4974-9CCC-A37F83D8733B-min-min.jpeg -> C:\Projects\ULTRAFLEX\public\Images\processed-F7DB5741-8540-4974-9CCC-A37F83D8733B-min-min.webp (65.4% reduction)
+SUCCESS: C:\Projects\ULTRAFLEX\public\Images\ultra-flex-200x167 (1).png -> C:\Projects\ULTRAFLEX\public\Images\ultra-flex-200x167 (1).webp (79.4% reduction)
+SUCCESS: C:\Projects\ULTRAFLEX\public\Images\workout\Contest-Prep-768x432.jpg -> C:\Projects\ULTRAFLEX\public\Images\workout\Contest-Prep-768x432.webp (59.1% reduction)
+SUCCESS: C:\Projects\ULTRAFLEX\public\Images\workout\UF-Abs.jpg -> C:\Projects\ULTRAFLEX\public\Images\workout\UF-Abs.webp (88.2% reduction)
+SUCCESS: C:\Projects\ULTRAFLEX\public\Images\workout\UF-ARMS-.png -> C:\Projects\ULTRAFLEX\public\Images\workout\UF-ARMS-.webp (94.1% reduction)
+
+======================================================================
+Summary: 24 converted, 0 skipped, 0 failed

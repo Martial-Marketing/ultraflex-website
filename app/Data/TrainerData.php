@@ -261,9 +261,9 @@ After spending the last 10 years in Ibiza training clients, teaching classes, an
                 'name' => 'Ashton Alderson',
                 'slug' => 'ashton-alderson',
                 'image' => '/Images/PTS/Picture9.webp',
-                'bio' => '',
-                'specialties' => ['Performance', 'Strength'],
-                'certifications' => [],
+                'bio' => 'Hi, I\'m Ashton, a Personal Trainer & Online Coach based at UltraFlex Durham. I specialise in fat loss, muscle building, and confidence building, helping clients transform not only their physiques but also their mindset and self-belief. My background includes national-level gymnastics and cheerleading, followed by six years working as a Specialist Occupational Therapist within mental health, before qualifying as a Personal Trainer in 2023. That combination allows me to coach with a strong focus on both physical progress and sustainable behaviour change, using a balanced, realistic approach to training and nutrition. Alongside coaching, I still compete at a high level in bodybuilding and performance events. I am a WABBA Bikini Pro, WABBA Miss Bikini Model Universe Venice 2024, and IFBA Miss Tyneside 2024, with 11 bodybuilding competitions across bikini and fit model categories, stepping on stage 17 times and placing top five in every competition. I have competed internationally five times, hold two overall champion titles, and seven first-place finishes, one of which at an international NPC Pro Qualifier. I have also completed HYROX and several Half Marathons. My goal is to use both my coaching experience and competitive background to help you build a body you\'re proud of, feel confident in the gym, and develop the knowledge and habits to sustain your results long term.',
+                'specialties' => ['Fat Loss', 'Muscle Building', 'Confidence Building', 'Mindset Coaching', 'Bodybuilding', 'Online Coaching'],
+                'certifications' => ['Personal Trainer (2023)', 'WABBA Bikini Pro', 'WABBA Miss Bikini Model Universe Venice 2024', 'IFBA Miss Tyneside 2024'],
                 'locationSlug' => 'durham',
                 'contact' => ['instagram' => 'https://instagram.com/Ashtonaldersonfitness']
             ],

@@ -155,7 +155,7 @@ export default function AIChatbotFAQ() {
           onClick={() => { setOpen(true); setShowBubble(false); }}
         >
           <img
-            src="/Images/ultra-flex-200x167%20(1).png"
+            src="/Images/ultra-flex-200x167%20(1).webp"
             alt="Open ULTRAFLEX Assistant"
             className="w-9 h-9 mx-auto object-contain -[0_2px_6px_rgba(0,0,0,0.35)]"
             draggable="false"

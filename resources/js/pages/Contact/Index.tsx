@@ -12,6 +12,7 @@ import AnimatedBackground from '@/components/AnimatedBackground';
 interface Location {
   id: number;
   name: string;
+  slug: string;
   address: string;
   phone: string;
   email: string;
@@ -461,7 +462,7 @@ export default function ContactIndex({
                         >
                           Get Directions
                         </Button>
-                        <Link href={`/locations/${location.id}`} className="block w-full">
+                        <Link href={`/locations/${location.slug}`} className="block w-full">
                           <Button className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700">
                             View Location Details
                           </Button>

@@ -179,7 +179,7 @@ export default function WorkoutsIndex({ auth, workouts }: WorkoutsIndexProps) {
             id: 7,
             title: 'CONTEST PREP',
             description: 'Elite competition preparation program for serious athletes looking to compete at the highest level',
-            image: '/Images/workout/Contest-Prep-768x432.jpg',
+            image: '/Images/workout/Contest-Prep-768x432.webp',
             difficulty: 'Expert',
             type: 'Competition',
             equipment: ['Full Gym Access', 'All Equipment'],

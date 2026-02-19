@@ -47,7 +47,7 @@ class MemberController extends Controller
                 [
                     'id' => 1,
                     'title' => 'ABS WORKOUT',
-                    'image' => '/Images/workout/UF-Abs.jpg',
+                    'image' => '/Images/workout/UF-Abs.webp',
                     'duration' => '30 min',
                     'difficulty' => 'Intermediate',
                     'type' => 'Core'
@@ -55,7 +55,7 @@ class MemberController extends Controller
                 [
                     'id' => 2,
                     'title' => 'ARMS WORKOUT',
-                    'image' => '/Images/workout/UF-ARMS-.png',
+                    'image' => '/Images/workout/UF-ARMS-.webp',
                     'duration' => '45 min',
                     'difficulty' => 'Intermediate',
                     'type' => 'Strength'

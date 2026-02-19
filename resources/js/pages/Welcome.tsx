@@ -82,7 +82,7 @@ export default function Welcome({ auth, latestNews, locations }: WelcomeProps) {
             name: 'Kai Edwards – Durham',
             quote: 'Amazing gym, best I’ve ever trained at. If you want to grow, this is the place to be.',
             rating: 5,
-            image: '/Images/original-787FADAA-6849-48F3-B005-6AD9FB2E74C4-min-min.jpeg'
+            image: '/Images/original-787FADAA-6849-48F3-B005-6AD9FB2E74C4-min-min.webp'
         },
         {
             id: 6,

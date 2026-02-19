@@ -32,7 +32,7 @@ class TourController extends Controller
                 'locationName' => 'ULTRAFLEX HULL',
                 'locationSlug' => 'hull',
                 // Updated primary image for Hull tour card
-                'image' => '/Images/Cards-Images/hull.jpeg',
+                'image' => '/Images/Cards-Images/hull.webp',
                 // Updated to Matterport link supplied
                 'tourUrl' => 'https://my.matterport.com/show/?m=nfWTbfybzYt&back=1',
                 'address' => 'Business Park, 261 Hawthorn Avenue Trackside, Hull HU3 5EN',
@@ -50,7 +50,7 @@ class TourController extends Controller
                 'locationName' => 'ULTRAFLEX DURHAM',
                 'locationSlug' => 'durham',
                 // Updated primary image for Durham tour card
-                'image' => '/Images/Cards-Images/durham.jpeg',
+                'image' => '/Images/Cards-Images/durham.webp',
                 // Updated to YouTube link supplied
                 'tourUrl' => 'https://youtu.be/JpALX5roRKE',
                 'address' => 'North Road, Durham DH1 4SQ, UK',
@@ -68,7 +68,7 @@ class TourController extends Controller
                 'locationName' => 'ULTRAFLEX DERBY',
                 'locationSlug' => 'derby',
                 // Updated primary image for Derby tour card
-                'image' => '/Images/Cards-Images/derby.jpeg',
+                'image' => '/Images/Cards-Images/derby.webp',
                 // Updated to YouTube link supplied
                 'tourUrl' => 'https://youtu.be/VKlANmwoDPQ',
                 'address' => 'St Peters Street, Derby DE1 2AB, UK',
@@ -156,7 +156,7 @@ class TourController extends Controller
                 'id' => 2,
                 'locationName' => 'ULTRAFLEX NORTH LEEDS',
                 'locationSlug' => 'north-leeds',
-                'image' => '/Images/Cards-Images/north-leeds.jpeg',
+                'image' => '/Images/Cards-Images/north-leeds.webp',
                 // Provided YouTube link
                 'tourUrl' => 'https://youtu.be/VgF1a6XxAkc?si=Ki3Z0VdqdKVocs52',
                 'address' => 'Limewood Approach, Seacroft, Leeds LS14 1NH',
@@ -262,7 +262,7 @@ class TourController extends Controller
                 'locationName' => 'ULTRAFLEX HULL',
                 'locationSlug' => 'hull',
                 // Updated primary image for Hull tour detail
-                'image' => '/Images/processed-E08A33F0-0FB6-43A5-BF60-EC1147B6517D-min-min.jpeg',
+                'image' => '/Images/processed-E08A33F0-0FB6-43A5-BF60-EC1147B6517D-min-min.webp',
                 'gallery' => [
                     '/Images/hull/hull/ForGallery/DSC07341.jpg',
                     '/Images/hull/hull/ForGallery/DSC07345.jpg',
@@ -284,7 +284,7 @@ class TourController extends Controller
                 'locationName' => 'ULTRAFLEX DURHAM',
                 'locationSlug' => 'durham',
                 // Updated primary image for Durham tour detail
-                'image' => '/Images/original-787FADAA-6849-48F3-B005-6AD9FB2E74C4-min-min.jpeg',
+                'image' => '/Images/original-787FADAA-6849-48F3-B005-6AD9FB2E74C4-min-min.webp',
                 'gallery' => [
                     '/Images/durham/durham/ForGallery/DSC07341.jpg',
                     '/Images/durham/durham/ForGallery/DSC07345.jpg',
@@ -306,7 +306,7 @@ class TourController extends Controller
                 'locationName' => 'ULTRAFLEX DERBY',
                 'locationSlug' => 'derby',
                 // Updated primary image for Derby tour detail
-                'image' => '/Images/processed-5AB78E5E-3190-4963-8AAF-9B3B527D73AD-min-min.jpeg',
+                'image' => '/Images/processed-5AB78E5E-3190-4963-8AAF-9B3B527D73AD-min-min.webp',
                 'gallery' => [
                     '/Images/derby/ForGallery/gym-in-derby-4',
                     '/Images/derby/ForGallery/gym-in-derby-5',
@@ -346,7 +346,7 @@ class TourController extends Controller
                 'locationName' => 'ULTRAFLEX LINCOLN',
                 'locationSlug' => 'lincoln',
                 // Updated primary image for Lincoln tour detail
-                'image' => '/Images/processed-3CBED414-67C5-41E8-A885-3D42BA69744C-min-min.jpeg',
+                'image' => '/Images/processed-3CBED414-67C5-41E8-A885-3D42BA69744C-min-min.webp',
                 'gallery' => [
                     '/Images/lincoln/ForGallery/gym-in-lincoln-3',
                     '/Images/lincoln/ForGallery/gym-in-lincoln-4',
@@ -366,7 +366,7 @@ class TourController extends Controller
                 'locationName' => 'ULTRAFLEX WEST LONDON',
                 'locationSlug' => 'west-london',
                 // Updated primary image for West London tour detail
-                'image' => '/Images/processed-F7DB5741-8540-4974-9CCC-A37F83D8733B-min-min.jpeg',
+                'image' => '/Images/processed-F7DB5741-8540-4974-9CCC-A37F83D8733B-min-min.webp',
                 'gallery' => [
                     '/Images/westlondon/gym-in-westlondon.webp',
                     '/Images/westlondon/gym-in-westlondon-2',
@@ -406,7 +406,7 @@ class TourController extends Controller
                 'id' => 2,
                 'locationName' => 'ULTRAFLEX NORTH LEEDS',
                 'locationSlug' => 'north-leeds',
-                'image' => '/Images/processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.jpeg',
+                'image' => '/Images/processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.webp',
                 'gallery' => [
                     '/Images/northleeds/northleeds/ForGallery/DSC07341.jpg',
                     '/Images/northleeds/northleeds/ForGallery/DSC07345.jpg',
@@ -415,7 +415,7 @@ class TourController extends Controller
                     '/Images/northleeds/northleeds/ForGallery/DSC07350.jpg',
                     '/Images/northleeds/northleeds/ForGallery/DSC07359 (1).jpg',
                     '/Images/northleeds/northleeds/ForGallery/DSC07359.jpg',
-                    '/Images/processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.jpeg'
+                    '/Images/processed-C2A00A7E-5F83-456C-B4CB-70873B439AE2-min-min.webp'
                 ],
                 'address' => 'Limewood Approach, Seacroft, Leeds LS14 1NH',
                 'phone' => '0113 513 7671',

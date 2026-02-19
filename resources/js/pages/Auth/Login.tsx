@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Head, useForm } from '@inertiajs/react';
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { route } from 'ziggy-js';
 import { LogIn, Mail, Lock, Eye, EyeOff } from 'lucide-react';
 import AnimatedBackground from '@/components/AnimatedBackground';
@@ -13,13 +13,9 @@ interface LoginProps {
     auth?: {
         user: any;
     };
-    flash?: {
-        success?: string;
-        error?: string;
-    };
 }
 
-export default function Login({ auth, flash }: LoginProps) {
+export default function Login({ auth }: LoginProps) {
     const { data, setData, post, processing, errors } = useForm({
         email: '',
         password: '',
@@ -27,38 +23,15 @@ export default function Login({ auth, flash }: LoginProps) {
 
     const [authError, setAuthError] = useState<string | null>(null);
     const [showPassword, setShowPassword] = useState(false);
-    const [flashMessage, setFlashMessage] = useState<{
-        type: 'success' | 'error' | null;
-        message: string | null;
-    }>({ type: null, message: null });
-
-    // Check for flash messages (including Socialite errors from callback)
-    useEffect(() => {
-        if (flash?.success) {
-            setFlashMessage({
-                type: 'success',
-                message: flash.success,
-            });
-        } else if (flash?.error) {
-            setFlashMessage({
-                type: 'error',
-                message: flash.error,
-            });
-        } else {
-            setFlashMessage({ type: null, message: null });
-        }
-    }, [flash]);
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
         setAuthError(null);
-        setFlashMessage({ type: null, message: null });
 
         post(route('auth.login.store'), {
             onError: (errors) => {
-                // If we received an authentication error from the backend
-                if (errors.auth) {
-                    setAuthError(errors.auth);
+                if (errors.email) {
+                    setAuthError(errors.email);
                 }
             },
         });
@@ -90,13 +63,6 @@ export default function Login({ auth, flash }: LoginProps) {
                                         </h2>
                                         <p className="text-gray-300">Access your <span className="ultraflex-ultra text-white">ULTRA</span><span className="ultraflex-flex text-red-600">FLEX</span> account</p>
                                     </div>
-
-                                    {/* Show flash messages */}
-                                    {flashMessage.message && (
-                                        <Alert variant={flashMessage.type === 'error' ? 'destructive' : 'default'} className="mb-4 bg-black/20 backdrop-blur-sm border-white/20">
-                                            <AlertDescription className="text-white">{flashMessage.message}</AlertDescription>
-                                        </Alert>
-                                    )}
 
                                     {/* Show authentication error if any */}
                                     {authError && (
@@ -164,47 +130,6 @@ export default function Login({ auth, flash }: LoginProps) {
                                             )}
                                         </Button>
                                     </form>
-
-                                    {/* Divider */}
-                                    <div className="relative my-6">
-                                        <div className="absolute inset-0 flex items-center">
-                                            <div className="w-full border-t border-white/20"></div>
-                                        </div>
-                                        <div className="relative flex justify-center text-sm uppercase">
-                                            <span className="bg-black/40 backdrop-blur-sm px-2 text-gray-400">Or continue with</span>
-                                        </div>
-                                    </div>
-
-                                    {/* Google Auth */}
-                                    <Button
-                                        variant="outline"
-                                        className="w-full border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm"
-                                        onClick={() => {
-                                            window.location.href = route('auth.google');
-                                        }}
-                                    >
-                                        <svg className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="24px" height="24px">
-                                            <path
-                                                fill="#4285F4"
-                                                d="M24 9.5c3.54 0 6.52 1.28 8.96 3.36l6.64-6.64C34.82 2.02 29.7 0 24 0 14.32 0 6.06 5.74 2.21 13.97l7.81 6.07C12.12 13.34 17.56 9.5 24 9.5z"
-                                            />
-                                            <path
-                                                fill="#34A853"
-                                                d="M46.04 24.5c0-1.47-.13-2.88-.37-4.25H24v8.5h12.54c-.56 2.87-2.07 5.32-4.26 7.05l6.7 6.7c4.31-3.98 6.77-9.79 6.77-16z"
-                                            />
-                                            <path
-                                                fill="#FBBC05"
-                                                d="M10.26 28.65c-.64-1.91-1-3.95-1-6.05s.36-4.14 1-6.05l-7.81-6.07C.79 13.17 0 18.44 0 24c0 5.56.79 10.83 2.21 15.52l8.05-6.18z"
-                                            />
-                                            <path
-                                                fill="#EA4335"
-                                                d="M24 48c5.7 0 10.82-2.02 14.7-5.45l-6.7-6.7c-1.96 1.31-4.42 2.07-7 2.07-6.44 0-11.88-3.84-14.04-9.35l-8.05 6.18C6.06 42.26 14.32 48 24 48z"
-                                            />
-                                        </svg>
-                                        <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                            Continue with Google
-                                        </span>
-                                    </Button>
 
                                     {/* Register Link */}
                                     <div className="mt-6 p-4 bg-red-700/10 backdrop-blur-sm rounded-lg border border-red-700/30 text-center">

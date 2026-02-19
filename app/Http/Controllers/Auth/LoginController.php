@@ -3,63 +3,43 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Inertia\Inertia;
+use Inertia\Response;
 
 class LoginController extends Controller
 {
-    /**
-     * Display the Login Page
-     *
-     * @return \Inertia\Response
-     */
-    public function index()
+    public function index(): Response
     {
         return Inertia::render('Auth/Login', [
-            'auth' => [
-                'user' => auth()->user()
-            ]
+            'auth' => ['user' => null],
         ]);
     }
 
-    /**
-     * Handle the incoming authentication request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
+        $request->validate([
+            'email'    => ['required', 'string', 'email'],
+            'password' => ['required', 'string'],
         ]);
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-
-            // Redirect to members hub for all users
-            return redirect()->route('members.index');
+        if (!Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {
+            throw ValidationException::withMessages([
+                'email' => 'These credentials do not match our records.',
+            ]);
         }
 
-        // Authentication failed
-        throw ValidationException::withMessages([
-            'auth' => 'The provided credentials do not match our records.',
-        ]);
+        $request->session()->regenerate();
+
+        return redirect()->intended(route('members.index'));
     }
 
-    /**
-     * Destroy an authenticated session.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function destroy(Request $request)
+    public function destroy(Request $request): RedirectResponse
     {
         Auth::logout();
-
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 

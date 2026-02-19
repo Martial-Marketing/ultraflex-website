@@ -1,7 +1,7 @@
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 import type { BreadcrumbItem } from '@/types';
-import AIChatbotFAQ from '@/components/AIChatbotFAQ';
+// import AIChatbotFAQ from '@/components/AIChatbotFAQ';
 import type { ReactNode } from 'react';
 import { ToastProviderComponent } from '@/components/ui/toast';
 import { usePage } from '@inertiajs/react';
@@ -54,7 +54,7 @@ export default ({ children, breadcrumbs, auth, ...props }: AppLayoutProps) => {
                     {children}
                 </main>
                 <Footer />
-                <AIChatbotFAQ />
+                {/* <AIChatbotFAQ /> */}
             </div>
         </ToastProviderComponent>
     );

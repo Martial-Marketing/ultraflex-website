@@ -4,17 +4,9 @@ import { Card, CardContent } from '@/components/ui/card';
 import AppLayout from '@/layouts/app-layout';
 import AnimatedBackground from '@/components/AnimatedBackground';
 import Section from '@/components/hub/Section';
-import StatCard from '@/components/hub/StatCard';
 import TileLink from '@/components/hub/TileLink';
 
 type SharedUser = import('@/types').User;
-
-interface WorkoutStats {
-    totalWorkouts: number;
-    thisWeek: number;
-    favoriteWorkout: string;
-    totalHours: number;
-}
 
 interface RecentActivity {
     id: number;
@@ -37,13 +29,12 @@ interface FeaturedContent {
 
 interface MembersIndexProps {
     auth: { user: SharedUser };
-    workoutStats: WorkoutStats;
     recentActivity: RecentActivity[];
     featuredContent: FeaturedContent;
     announcements?: { id: number; title: string; date: string; href?: string }[];
 }
 
-export default function MembersIndex({ auth, workoutStats, recentActivity, featuredContent, announcements = [] }: MembersIndexProps) {
+export default function MembersIndex({ auth, recentActivity, featuredContent, announcements = [] }: MembersIndexProps) {
     const user = auth.user as SharedUser & { profileImage?: string; membershipType?: string; memberSince?: string };
 
     const quickActions = [
@@ -71,13 +62,6 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
             href: '/tours',
             color: 'bg-gradient-to-r from-orange-700 to-orange-800 hover:from-orange-600 hover:to-orange-700',
         },
-    ];
-
-    const statsCards = [
-        { title: 'Total Workouts', value: workoutStats.totalWorkouts, subtitle: 'All time', tone: 'red' as const },
-        { title: 'This Week', value: workoutStats.thisWeek, subtitle: 'Workouts completed', tone: 'green' as const },
-        { title: 'Total Hours', value: workoutStats.totalHours, subtitle: 'Time spent training', tone: 'purple' as const },
-        { title: 'Favorite Type', value: workoutStats.favoriteWorkout, subtitle: 'Most completed', tone: 'orange' as const },
     ];
 
     return (
@@ -181,15 +165,6 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                         </div>
                     </Section>
 
-                    {/* Stats Overview */}
-                    <Section title="Your Progress" subtitle="Overview of your activity">
-                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            {statsCards.map((s, i) => (
-                                <StatCard key={i} title={s.title} value={s.value} subtitle={s.subtitle} tone={s.tone} />
-                            ))}
-                        </div>
-                    </Section>
-
                     {/* Activity & Featured */}
                     <section className="py-16 bg-black/20 backdrop-blur-md">
                         <div className="container mx-auto px-6">
@@ -229,10 +204,10 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                                 </div>
 
                                 <div className="lg:col-span-2">
-                                    {/* Featured Workouts */}
+                                    {/* Available Workouts */}
                                     <div className="mb-12">
                                         <div className="flex items-center justify-between mb-6">
-                                            <h2 className="text-2xl font-bold text-white">Featured Workouts</h2>
+                                            <h2 className="text-2xl font-bold text-white">Available Workouts</h2>
                                             <Link href="/members/workouts">
                                                 <Button variant="outline" className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
                                                     <span className="group-hover:translate-x-1 transition-transform duration-300">
@@ -248,39 +223,27 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                                                         <img 
                                                             src={workout.image} 
                                                             alt={workout.title}
-                                                            className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                                                            className="w-full h-full object-cover"
                                                             loading="lazy"
                                                         />
-                                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                                                         
                                                         {/* Duration badge */}
-                                                        <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-sm rounded-full px-2 py-1 border border-white/10">
+                                                        <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-sm rounded-full px-3 py-1 border border-white/10">
                                                             <span className="text-white text-xs font-medium">{workout.duration}</span>
-                                                        </div>
-
-                                                        {/* Play overlay */}
-                                                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                                            <div className="bg-white/10 text-white p-3 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 border border-white/20 backdrop-blur-sm">
-                                                                <span className="text-sm font-bold">PLAY</span>
-                                                            </div>
                                                         </div>
                                                     </div>
                                                     <CardContent className="p-4 bg-black/20 backdrop-blur-sm">
-                                                        <h3 className="font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">{workout.title}</h3>
-                                                        <div className="flex items-center justify-between text-sm text-gray-300 mb-3">
+                                                        <h3 className="font-semibold text-white mb-3 group-hover:text-red-700 transition-colors duration-300">{workout.title}</h3>
+                                                        <div className="flex items-center justify-between text-sm text-gray-300">
                                                             <span className="flex items-center">
-                                                                <span className="text-red-700 mr-1 text-xs">TYPE:</span>
+                                                                <span className="text-red-700 mr-1 text-xs font-medium">TYPE:</span>
                                                                 {workout.type}
                                                             </span>
-                                                            <span className={"px-2 py-1 rounded-full text-xs backdrop-blur-sm border bg-white/10 text-white border-white/20"}>
+                                                            <span className="px-2 py-1 rounded-full text-xs backdrop-blur-sm border bg-white/10 text-white border-white/20">
                                                                 {workout.difficulty}
                                                             </span>
                                                         </div>
-                                                        <Button className="w-full bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 transition-all duration-300 group">
-                                                            <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                                                Start Workout
-                                                            </span>
-                                                        </Button>
                                                     </CardContent>
                                                 </Card>
                                             ))}
@@ -313,53 +276,6 @@ export default function MembersIndex({ auth, workoutStats, recentActivity, featu
                                         </div>
                                     )}
                                 </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* Goals & Achievements */}
-                    <section className="py-16 bg-black/10 backdrop-blur-md">
-                        <div className="container mx-auto px-6">
-                            <h2 className="text-3xl font-bold text-white text-center mb-12">Your Fitness Journey</h2>
-                            <div className="grid md:grid-cols-3 gap-8">
-                                <Card className="p-6 text-center bg-black/40 backdrop-blur-md border border-white/10 hover:border-white/20 transition-all duration-300 group">
-                                    <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20 group-hover:scale-110 transition-transform duration-300">
-                                        <span className="text-white text-lg font-bold">G</span>
-                                    </div>
-                                    <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">Set Goals</h3>
-                                    <p className="text-gray-300 mb-4 group-hover:text-gray-200 transition-colors duration-300">
-                                        Define your fitness objectives and track your progress
-                                    </p>
-                                    <Button variant="outline" className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
-                                        <span className="group-hover:translate-x-1 transition-transform duration-300">Set New Goal</span>
-                                    </Button>
-                                </Card>
-
-                                <Card className="p-6 text-center bg-black/40 backdrop-blur-md border border-white/10 hover:border-white/20 transition-all duration-300 group">
-                                    <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20 group-hover:scale-110 transition-transform duration-300">
-                                        <span className="text-white text-lg font-bold">P</span>
-                                    </div>
-                                    <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">Track Progress</h3>
-                                    <p className="text-gray-300 mb-4 group-hover:text-gray-200 transition-colors duration-300">
-                                        Monitor your workouts, nutrition, and achievements
-                                    </p>
-                                    <Button variant="outline" className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
-                                        <span className="group-hover:translate-x-1 transition-transform duration-300">View Progress</span>
-                                    </Button>
-                                </Card>
-
-                                <Card className="p-6 text-center bg-black/40 backdrop-blur-md border border-white/10 hover:border-white/20 transition-all duration-300 group">
-                                    <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20 group-hover:scale-110 transition-transform duration-300">
-                                        <span className="text-white text-lg font-bold">R</span>
-                                    </div>
-                                    <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-red-700 transition-colors duration-300">Earn Rewards</h3>
-                                    <p className="text-gray-300 mb-4 group-hover:text-gray-200 transition-colors duration-300">
-                                        Achieve milestones and unlock exclusive benefits
-                                    </p>
-                                    <Button variant="outline" className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
-                                        <span className="group-hover:translate-x-1 transition-transform duration-300">View Rewards</span>
-                                    </Button>
-                                </Card>
                             </div>
                         </div>
                     </section>

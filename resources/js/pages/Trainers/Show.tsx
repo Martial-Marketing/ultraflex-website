@@ -269,7 +269,7 @@ export default function TrainerShow({ trainer, auth }: TrainerShowProps) {
                                                             </div>
                                                             <div className="flex-1">
                                                                 <p className="text-xs text-gray-400">Instagram</p>
-                                                                <p className="text-white group-hover:text-red-700 transition-colors duration-300">@{trainer.contact.instagram.split('/').pop()}</p>
+                                                                <p className="text-white group-hover:text-red-700 transition-colors duration-300">View Profile</p>
                                                             </div>
                                                         </a>
                                                     )}
