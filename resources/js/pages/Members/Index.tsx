@@ -16,25 +16,25 @@ interface RecentActivity {
     duration?: string;
 }
 
+interface WorkoutCategory {
+    name: string;
+    description: string;
+    count: number;
+    color: string;
+    icon: string;
+}
+
 interface FeaturedContent {
-    workouts: {
-        id: number;
-        title: string;
-        image: string;
-        duration: string;
-        difficulty: string;
-        type: string;
-    }[];
+    workoutCategories: WorkoutCategory[];
 }
 
 interface MembersIndexProps {
     auth: { user: SharedUser };
     recentActivity: RecentActivity[];
     featuredContent: FeaturedContent;
-    announcements?: { id: number; title: string; date: string; href?: string }[];
 }
 
-export default function MembersIndex({ auth, recentActivity, featuredContent, announcements = [] }: MembersIndexProps) {
+export default function MembersIndex({ auth, recentActivity, featuredContent }: MembersIndexProps) {
     const user = auth.user as SharedUser & { profileImage?: string; membershipType?: string; memberSince?: string };
 
     const quickActions = [
@@ -165,118 +165,46 @@ export default function MembersIndex({ auth, recentActivity, featuredContent, an
                         </div>
                     </Section>
 
-                    {/* Activity & Featured */}
+                    {/* Featured Workouts */}
                     <section className="py-16 bg-black/20 backdrop-blur-md">
                         <div className="container mx-auto px-6">
-                            <div className="grid lg:grid-cols-3 gap-12">
-                                <div className="lg:col-span-1">
-                                    <h2 className="text-2xl font-bold text-white mb-6">Recent Activity</h2>
-                                    <div className="space-y-4">
-                                        {recentActivity.map((activity) => (
-                                            <div key={activity.id} className="flex items-center space-x-4 p-4 bg-black/30 backdrop-blur-sm rounded-lg border border-white/10 hover:border-red-700/30 transition-colors duration-300 group">
-                                                <div className={"w-10 h-10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 bg-white/10 text-white border border-white/20"}>
-                                                    <span className="text-sm font-bold">
-                                                        {activity.type === 'workout' ? 'W' : 'N'}
-                                                    </span>
-                                                </div>
-                                                <div className="flex-1">
-                                                    <h3 className="font-medium text-white group-hover:text-red-700 transition-colors duration-300">{activity.title}</h3>
-                                                    <div className="flex items-center space-x-2 text-sm text-gray-400">
-                                                        <span>{activity.date}</span>
-                                                        {activity.duration && (
-                                                            <>
-                                                                <span>•</span>
-                                                                <span>{activity.duration}</span>
-                                                            </>
-                                                        )}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                    <Link href="/members/workouts" className="block mt-6">
-                                        <Button variant="outline" className="w-full border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
-                                            <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                                View All Activity
-                                            </span>
-                                        </Button>
-                                    </Link>
-                                </div>
-
-                                <div className="lg:col-span-2">
-                                    {/* Available Workouts */}
-                                    <div className="mb-12">
+                            {/* Workout Categories */}
+                            <div className="mb-12">
                                         <div className="flex items-center justify-between mb-6">
-                                            <h2 className="text-2xl font-bold text-white">Available Workouts</h2>
+                                            <h2 className="text-2xl font-bold text-white">Workout Categories</h2>
                                             <Link href="/members/workouts">
                                                 <Button variant="outline" className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
                                                     <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                                        View All
+                                                        View All Workouts
                                                     </span>
                                                 </Button>
                                             </Link>
                                         </div>
-                                        <div className="grid md:grid-cols-2 gap-6">
-                                            {featuredContent.workouts.map((workout) => (
-                                                <Card key={workout.id} className="overflow-hidden hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 group">
-                                                    <div className="h-40 bg-gray-800 relative overflow-hidden">
-                                                        <img 
-                                                            src={workout.image} 
-                                                            alt={workout.title}
-                                                            className="w-full h-full object-cover"
-                                                            loading="lazy"
-                                                        />
-                                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                                                        
-                                                        {/* Duration badge */}
-                                                        <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-sm rounded-full px-3 py-1 border border-white/10">
-                                                            <span className="text-white text-xs font-medium">{workout.duration}</span>
-                                                        </div>
-                                                    </div>
-                                                    <CardContent className="p-4 bg-black/20 backdrop-blur-sm">
-                                                        <h3 className="font-semibold text-white mb-3 group-hover:text-red-700 transition-colors duration-300">{workout.title}</h3>
-                                                        <div className="flex items-center justify-between text-sm text-gray-300">
-                                                            <span className="flex items-center">
-                                                                <span className="text-red-700 mr-1 text-xs font-medium">TYPE:</span>
-                                                                {workout.type}
-                                                            </span>
-                                                            <span className="px-2 py-1 rounded-full text-xs backdrop-blur-sm border bg-white/10 text-white border-white/20">
-                                                                {workout.difficulty}
-                                                            </span>
-                                                        </div>
-                                                    </CardContent>
-                                                </Card>
+                                        <div className="grid md:grid-cols-3 gap-6">
+                                            {featuredContent.workoutCategories.map((category, index) => (
+                                                <Link key={index} href="/members/workouts">
+                                                    <Card className="hover:shadow-2xl hover:shadow-red-700/10 transition-all duration-300 bg-black/40 backdrop-blur-md border border-white/10 hover:border-red-700/30 group cursor-pointer">
+                                                        <CardContent className="p-6 text-center">
+                                                            <div className={`w-16 h-16 ${category.color} rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg transform group-hover:scale-110 transition-all duration-300 border border-white/20`}>
+                                                                <span className="text-white text-2xl font-bold">
+                                                                    {category.icon}
+                                                                </span>
+                                                            </div>
+                                                            <h3 className="text-xl font-semibold mb-2 text-white group-hover:text-red-700 transition-colors duration-300">
+                                                                {category.name}
+                                                            </h3>
+                                                            <p className="text-gray-300 text-sm mb-4">
+                                                                {category.description}
+                                                            </p>
+                                                            <div className="text-gray-400 text-xs">
+                                                                {category.count} workout{category.count !== 1 ? 's' : ''} available
+                                                            </div>
+                                                        </CardContent>
+                                                    </Card>
+                                                </Link>
                                             ))}
                                         </div>
                                     </div>
-                                    {/* Announcements */}
-                                    {announcements.length > 0 && (
-                                        <div>
-                                            <div className="flex items-center justify-between mb-6">
-                                                <h2 className="text-2xl font-bold text-white">Announcements</h2>
-                                                <Link href="/news">
-                                                    <Button variant="outline" className="border-white/50 bg-white/90 text-black hover:text-red-700 hover:bg-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group backdrop-blur-sm">
-                                                        <span className="group-hover:translate-x-1 transition-transform duration-300">View News</span>
-                                                    </Button>
-                                                </Link>
-                                            </div>
-                                            <div className="space-y-4">
-                                                {announcements.map(a => (
-                                                    <Card key={a.id} className="bg-black/40 backdrop-blur-md border border-white/10">
-                                                        <CardContent className="p-4">
-                                                            <div className="text-sm text-gray-400">{a.date}</div>
-                                                            <div className="text-white font-medium">{a.title}</div>
-                                                            {a.href && (
-                                                                <Link href={a.href} className="text-red-500 text-sm hover:underline">Read more</Link>
-                                                            )}
-                                                        </CardContent>
-                                                    </Card>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
                         </div>
                     </section>
 

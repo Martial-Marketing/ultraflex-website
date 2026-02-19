@@ -42,25 +42,32 @@ class MemberController extends Controller
             ]
         ];
 
-        $featuredContent = [
-            'workouts' => [
-                [
-                    'id' => 1,
-                    'title' => 'ABS WORKOUT',
-                    'image' => '/Images/workout/UF-Abs.webp',
-                    'duration' => '30 min',
-                    'difficulty' => 'Intermediate',
-                    'type' => 'Core'
-                ],
-                [
-                    'id' => 2,
-                    'title' => 'ARMS WORKOUT',
-                    'image' => '/Images/workout/UF-ARMS-.webp',
-                    'duration' => '45 min',
-                    'difficulty' => 'Intermediate',
-                    'type' => 'Strength'
-                ]
+        $workoutCategories = [
+            [
+                'name' => 'Core',
+                'description' => 'Sculpt and strengthen your core',
+                'count' => 1,
+                'color' => 'bg-white/10',
+                'icon' => 'C'
             ],
+            [
+                'name' => 'Strength',
+                'description' => 'Build muscle and power',
+                'count' => 5,
+                'color' => 'bg-white/10',
+                'icon' => 'S'
+            ],
+            [
+                'name' => 'Competition',
+                'description' => 'Elite competition preparation',
+                'count' => 1,
+                'color' => 'bg-white/10',
+                'icon' => 'C'
+            ]
+        ];
+
+        $featuredContent = [
+            'workoutCategories' => $workoutCategories,
             'nutrition' => [
                 [
                     'id' => 1,
@@ -79,11 +86,6 @@ class MemberController extends Controller
                     'goal' => 'Muscle Gain'
                 ]
             ]
-        ];
-
-        $announcements = [
-            ['id' => 1, 'title' => 'New class schedule released', 'date' => now()->subDays(1)->format('M d, Y'), 'href' => '/news'],
-            ['id' => 2, 'title' => 'Refer a friend and get a free month', 'date' => now()->subDays(3)->format('M d, Y')],
         ];
 
         return Inertia::render('Members/Index', [
@@ -106,7 +108,6 @@ class MemberController extends Controller
             'workoutStats' => $workoutStats,
             'recentActivity' => $recentActivity,
             'featuredContent' => $featuredContent,
-            'announcements' => $announcements,
         ]);
     }
 }

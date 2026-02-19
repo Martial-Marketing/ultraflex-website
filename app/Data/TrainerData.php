@@ -283,7 +283,7 @@ After spending the last 10 years in Ibiza training clients, teaching classes, an
                 'name' => 'Conrad Ashton',
                 'slug' => 'conrad-ashton',
                 'image' => '/Images/PTS/Picture11.webp',
-                'bio' => '',
+                'bio' => "I'm Conrad Ashton, a coach who helps busy men transform their body, confidence, and standards without extremes or shortcuts. I've lived the journey myself, losing over 60lbs, rebuilding discipline from the ground up, and learning what actually works when real life, work pressure, stress and old habits get in the way. My coaching is built around structure, accountability, and sustainable habits that last—not quick fixes. Alongside transforming my own body, I've completed an ultramarathon, multiple half marathons, a triathlon, and I'm currently preparing to compete in Classic Physique in May 2026. I specialise in fat loss, muscle building, and long-term transformation for men who are ready to raise the bar and do things properly. If you're tired of starting again and want clear direction with no nonsense or cookie cutter approach, I'll show you how.",
                 'specialties' => ['Execution', 'Client Education'],
                 'certifications' => [],
                 'locationSlug' => 'durham',
