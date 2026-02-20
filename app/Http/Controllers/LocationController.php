@@ -1097,6 +1097,8 @@ class LocationController extends Controller
                         [ 'label' => 'Fika Aesthetics Website', 'url' => 'https://www.fikaaesthetics.co.uk/', 'type' => 'website' ]
                     ],
                     'features' => [
+                        'Posing Room',
+                        'Sunbeds'
                     ],
                     'membershipPlans' => [
                         [
