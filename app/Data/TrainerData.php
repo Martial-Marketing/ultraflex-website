@@ -246,17 +246,6 @@ After spending the last 10 years in Ibiza training clients, teaching classes, an
             ],
             // Durham
             [
-                'id' => 501,
-                'name' => 'James Tindale',
-                'slug' => 'james-tindale',
-                'image' => '/Images/PTS/Picture8.webp',
-                'bio' => '',
-                'specialties' => ['Physique', 'Accountability'],
-                'certifications' => [],
-                'locationSlug' => 'durham',
-                'contact' => ['instagram' => 'https://instagram.com/jamestindalefitness']
-            ],
-            [
                 'id' => 502,
                 'name' => 'Ashton Alderson',
                 'slug' => 'ashton-alderson',
@@ -266,17 +255,6 @@ After spending the last 10 years in Ibiza training clients, teaching classes, an
                 'certifications' => ['Personal Trainer (2023)', 'WABBA Bikini Pro', 'WABBA Miss Bikini Model Universe Venice 2024', 'IFBA Miss Tyneside 2024'],
                 'locationSlug' => 'durham',
                 'contact' => ['instagram' => 'https://instagram.com/Ashtonaldersonfitness']
-            ],
-            [
-                'id' => 503,
-                'name' => 'Christopher',
-                'slug' => 'christopher',
-                'image' => '/Images/PTS/Picture10.webp',
-                'bio' => '',
-                'specialties' => ['Technique', 'Progressive Training'],
-                'certifications' => [],
-                'locationSlug' => 'durham',
-                'contact' => ['instagram' => 'https://instagram.com/khifiewest_']
             ],
             [
                 'id' => 504,
